@@ -322,9 +322,9 @@
       <a href="index.html" class="logo"><span class="blob"></span>CRYSTAL</a>
       <ul class="nav-links">
         <li><a href="About.html">About</a></li>
-        <li><a href="All Products.html" class="current">Products</a></li>
+        <li><a href="All-Products.html" class="current">Products</a></li>
         <li class="has-dd">
-          <a href="All Products.html?brand=crystal" class="dd-toggle">Brands <span class="cv">▾</span></a>
+          <a href="All-Products.html?brand=crystal" class="dd-toggle">Brands <span class="cv">▾</span></a>
           <div class="dd-menu" id="ddMenu"></div>
         </li>
         <li><a href="index.html#why">Network</a></li>
@@ -341,7 +341,7 @@
   <button class="mm-close" id="mmClose" aria-label="Close">&times;</button>
   <ul>
     <li><a href="About.html" class="mm-link">About</a></li>
-    <li><a href="All Products.html" class="mm-link">Products</a></li>
+    <li><a href="All-Products.html" class="mm-link">Products</a></li>
     <li><a href="CRYSTAL Animated.html#services" class="mm-link">Range</a></li>
     <li><a href="#footer" class="mm-link">Contact</a></li>
   </ul>
@@ -509,7 +509,7 @@
       <h2 data-split>Find your<br>everyday essential</h2>
       <p>Explore the complete Crystal range, or talk to our team about bulk, export and distribution.</p>
       <div class="row">
-        <a href="All Products.html" class="btn btn-light">Browse All Products <span class="arr">↗</span></a>
+        <a href="All-Products.html" class="btn btn-light">Browse All Products <span class="arr">↗</span></a>
         <a href="Contact.html" class="btn btn-red">Contact Us <span class="arr">↗</span></a>
       </div>
     </div>
@@ -538,7 +538,7 @@
         </div>
       </div>
       <div class="foot-col"><h5>Brands</h5><ul id="footBrands"></ul></div>
-      <div class="foot-col"><h5>Quick Link</h5><ul><li><a href="About.html">About Us</a></li><li><a href="All Products.html">Products</a></li><li><a href="#footer">Career</a></li></ul></div>
+      <div class="foot-col"><h5>Quick Link</h5><ul><li><a href="About.html">About Us</a></li><li><a href="All-Products.html">Products</a></li><li><a href="#footer">Career</a></li></ul></div>
       <div class="foot-col"><h5>Contact Us</h5><ul><li><a href="#">G.I.D.C Metoda, Rajkot 360021, Gujarat</a></li><li><a href="#">Sahar Plaza, Andheri (E), Mumbai 400059</a></li><li><a href="tel:02249702803">022-49702803 / 06</a></li></ul></div>
     </div>
     <div class="foot-wordmark"><span class="wm-outline">CRYSTAL</span><span class="wm-fill">CRYSTAL</span></div>
@@ -637,15 +637,15 @@
 
   /* ---- shared nav renders ---- */
   const brandList = Object.keys(BRANDS);
-  document.getElementById("ddMenu").innerHTML = brandList.map(s => `<a href="All Products.html?brand=${s}"${s===prod.b?' class="active"':''}><b>${BRANDS[s].name}</b><span>${BRANDS[s].tagline}</span></a>`).join("");
-  document.getElementById("footBrands").innerHTML = brandList.map(s => `<li><a href="All Products.html?brand=${s}">${BRANDS[s].name}</a></li>`).join("");
-  document.getElementById("mmBrands").innerHTML = brandList.map(s => `<a href="All Products.html?brand=${s}" class="mm-link">${BRANDS[s].name}</a>`).join("");
+  document.getElementById("ddMenu").innerHTML = brandList.map(s => `<a href="All-Products.html?brand=${s}"${s===prod.b?' class="active"':''}><b>${BRANDS[s].name}</b><span>${BRANDS[s].tagline}</span></a>`).join("");
+  document.getElementById("footBrands").innerHTML = brandList.map(s => `<li><a href="All-Products.html?brand=${s}">${BRANDS[s].name}</a></li>`).join("");
+  document.getElementById("mmBrands").innerHTML = brandList.map(s => `<a href="All-Products.html?brand=${s}" class="mm-link">${BRANDS[s].name}</a>`).join("");
 
   /* ---- breadcrumb ---- */
   document.getElementById("crumb").innerHTML = `
     <li><a href="CRYSTAL Animated.html#top">Home</a></li><li class="sep">/</li>
-    <li><a href="All Products.html">Products</a></li><li class="sep">/</li>
-    <li><a href="All Products.html?brand=${prod.b}">${brand.name}</a></li><li class="sep">/</li>
+    <li><a href="All-Products.html">Products</a></li><li class="sep">/</li>
+    <li><a href="All-Products.html?brand=${prod.b}">${brand.name}</a></li><li class="sep">/</li>
     <li class="cur">${prod.n}</li>`;
 
   /* ---- hero ---- */
@@ -657,7 +657,7 @@
   document.getElementById("pTitle").textContent = prod.n;
   document.getElementById("pIntro").textContent = prod.intro;
   document.getElementById("brandAllName").textContent = brand.name;
-  document.getElementById("brandAllBtn").href = "All Products.html?brand=" + prod.b;
+  document.getElementById("brandAllBtn").href = "All-Products.html?brand=" + prod.b;
   document.getElementById("enquireBtn").href = "mailto:sales@crystalcook.com?subject=" + encodeURIComponent("Enquiry: " + prod.n);
 
   function renderVariants(elId) {
@@ -711,7 +711,7 @@
   if (rel.length < 4) rel = rel.concat(P.filter(p => p.c === prod.c && p.b !== prod.b && p.id !== prod.id));
   rel = rel.slice(0, 4);
   document.getElementById("relTitle").innerHTML = "More from<br>" + brand.name;
-  document.getElementById("relAll").href = "All Products.html?brand=" + prod.b;
+  document.getElementById("relAll").href = "All-Products.html?brand=" + prod.b;
   document.getElementById("relGrid").innerHTML = rel.map(p => `
     <a class="rcard" href="Product.html?p=${p.id}">
       <div class="rimg"><span class="rbrand">${BRANDS[p.b].name}</span><img src="${p.img}" alt="${p.n}" loading="lazy"></div>
@@ -725,7 +725,7 @@
   document.getElementById("bsBlurb").textContent = brand.story;
   document.getElementById("bsStory").textContent = "Designed and manufactured in India and held to the Crystal standard of quality, every piece is made to earn a lasting place in your home.";
   document.getElementById("bsBrandName").textContent = brand.name;
-  document.getElementById("bsBrandBtn").href = "All Products.html?brand=" + prod.b;
+  document.getElementById("bsBrandBtn").href = "All-Products.html?brand=" + prod.b;
 
   /* ---- gallery thumb switch ---- */
   document.getElementById("gThumbs").addEventListener("click", e => {
