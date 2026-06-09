@@ -63,12 +63,12 @@
   header { position: fixed; inset: 14px 0 auto 0; z-index: 100; }
   .nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; border: 1.5px solid transparent; border-radius: 100px; padding: 9px 9px 9px 22px; transition: background .35s, border-color .35s, box-shadow .35s, backdrop-filter .35s; }
   header.scrolled .nav { background: rgba(255,255,255,0.78); border-color: var(--line); backdrop-filter: blur(14px); box-shadow: 0 12px 30px -20px rgba(0,0,0,0.5); }
-  .logo { font-family: var(--head); font-weight: 700; font-size: 23px; letter-spacing: -0.01em; display: flex; align-items: center; gap: 9px; text-transform: uppercase; }
+  .logo { font-family: var(--head); font-weight: 700; font-size: 23px; letter-spacing: -0.01em; display: flex; align-items: center; gap: 9px; text-transform: uppercase; flex: 1; }
   .logo .blob { width: 16px; height: 16px; background: var(--grad-red); border-radius: 47% 53% 60% 40% / 55% 45% 55% 45%; display: inline-block; }
   .nav-links { display: flex; gap: 4px; list-style: none; }
   .nav-links a { font-weight: 600; font-size: 15px; padding: 9px 16px; border-radius: 100px; transition: background .2s, color .2s; }
   .nav-links a:hover { background: var(--ink); color: #fff; }
-  .nav-right { display: flex; align-items: center; gap: 10px; }
+  .nav-right { display: flex; align-items: center; gap: 10px; flex: 1; justify-content: flex-end; }
   .burger { display: none; flex-direction: column; gap: 5px; background: var(--ink); border: none; border-radius: 100px; cursor: pointer; padding: 13px 12px; }
   .burger span { width: 22px; height: 2.5px; background: #fff; border-radius: 2px; }
   /* Brands dropdown (nav) */
@@ -381,7 +381,7 @@
     <div class="nav">
       <a href="#top" class="logo"><span class="blob"></span>CRYSTAL</a>
       <ul class="nav-links">
-        <li><a href="#about">About</a></li>
+        <li><a href="CRYSTAL About.html">About</a></li>
         <li><a href="CRYSTAL Products.html">Products</a></li>
         <li><a href="#services">Range</a></li>
         <li class="has-dd">
@@ -407,7 +407,7 @@
 <div class="mobile-menu" id="mobileMenu">
   <button class="mm-close" id="mmClose" aria-label="Close">&times;</button>
   <ul>
-    <li><a href="#about" class="mm-link">About</a></li>
+    <li><a href="CRYSTAL About.html" class="mm-link">About</a></li>
     <li><a href="CRYSTAL Products.html" class="mm-link">Products</a></li>
     <li><a href="#services" class="mm-link">Range</a></li>
     <li><a href="#cta" class="mm-link">Contact</a></li>
