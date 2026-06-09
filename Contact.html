@@ -268,16 +268,16 @@
     <div class="nav">
       <a href="index.html" class="logo"><span class="blob"></span>CRYSTAL</a>
       <ul class="nav-links">
-        <li><a href="CRYSTAL About.html">About</a></li>
-        <li><a href="CRYSTAL Products.html">Products</a></li>
+        <li><a href="About.html">About</a></li>
+        <li><a href="All Products.html">Products</a></li>
         <li class="has-dd">
-          <a href="CRYSTAL Products.html?brand=crystal" class="dd-toggle">Brands <span class="cv">▾</span></a>
+          <a href="All Products.html?brand=crystal" class="dd-toggle">Brands <span class="cv">▾</span></a>
           <div class="dd-menu" id="ddMenu"></div>
         </li>
         <li><a href="index.html#why">Network</a></li>
       </ul>
       <div class="nav-right">
-        <a href="CRYSTAL Contact.html" class="btn btn-red current">Contact Us <span class="arr">↗</span></a>
+        <a href="Contact.html" class="btn btn-red current">Contact Us <span class="arr">↗</span></a>
         <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
       </div>
     </div>
@@ -287,10 +287,10 @@
 <div class="mobile-menu" id="mobileMenu">
   <button class="mm-close" id="mmClose" aria-label="Close">&times;</button>
   <ul>
-    <li><a href="CRYSTAL About.html" class="mm-link">About</a></li>
-    <li><a href="CRYSTAL Products.html" class="mm-link">Products</a></li>
+    <li><a href="About.html" class="mm-link">About</a></li>
+    <li><a href="All Products.html" class="mm-link">Products</a></li>
     <li><a href="CRYSTAL Animated.html#services" class="mm-link">Range</a></li>
-    <li><a href="CRYSTAL Contact.html" class="mm-link">Contact</a></li>
+    <li><a href="Contact.html" class="mm-link">Contact</a></li>
   </ul>
   <div class="mm-brands" id="mmBrands"></div>
 </div>
@@ -474,7 +474,7 @@
         </div>
       </div>
       <div class="foot-col"><h5>Brands</h5><ul id="footBrands"></ul></div>
-      <div class="foot-col"><h5>Quick Link</h5><ul><li><a href="CRYSTAL About.html">About Us</a></li><li><a href="CRYSTAL Products.html">Products</a></li><li><a href="CRYSTAL Contact.html">Contact</a></li></ul></div>
+      <div class="foot-col"><h5>Quick Link</h5><ul><li><a href="About.html">About Us</a></li><li><a href="All Products.html">Products</a></li><li><a href="Contact.html">Contact</a></li></ul></div>
       <div class="foot-col"><h5>Contact Us</h5><ul><li><a href="#location">G.I.D.C Metoda, Rajkot 360021, Gujarat</a></li><li><a href="#location">Sahar Plaza, Andheri (E), Mumbai 400059</a></li><li><a href="tel:02249702803">022-49702803 / 06</a></li></ul></div>
     </div>
     <div class="foot-wordmark"><span class="wm-outline">CRYSTAL</span><span class="wm-fill">CRYSTAL</span></div>
@@ -491,9 +491,9 @@
   };
   const NAMES = { crystal:"Crystal", crystalina:"Crystalina", czarin:"Czarin", freshmate:"Freshmate", sparkmate:"Sparkmate", vacu:"Vacu" };
   const bl = Object.keys(BRANDS);
-  document.getElementById("ddMenu").innerHTML = bl.map(s => `<a href="CRYSTAL Products.html?brand=${s}"><b>${NAMES[s]}</b><span>${BRANDS[s]}</span></a>`).join("");
-  document.getElementById("footBrands").innerHTML = bl.map(s => `<li><a href="CRYSTAL Products.html?brand=${s}">${NAMES[s]}</a></li>`).join("");
-  document.getElementById("mmBrands").innerHTML = bl.map(s => `<a href="CRYSTAL Products.html?brand=${s}" class="mm-link">${NAMES[s]}</a>`).join("");
+  document.getElementById("ddMenu").innerHTML = bl.map(s => `<a href="All Products.html?brand=${s}"><b>${NAMES[s]}</b><span>${BRANDS[s]}</span></a>`).join("");
+  document.getElementById("footBrands").innerHTML = bl.map(s => `<li><a href="All Products.html?brand=${s}">${NAMES[s]}</a></li>`).join("");
+  document.getElementById("mmBrands").innerHTML = bl.map(s => `<a href="All Products.html?brand=${s}" class="mm-link">${NAMES[s]}</a>`).join("");
 
   /* word split */
   function splitWords(el) {

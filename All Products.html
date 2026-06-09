@@ -323,16 +323,16 @@
     <div class="nav">
       <a href="index.html" class="logo"><span class="blob"></span>CRYSTAL</a>
       <ul class="nav-links">
-        <li><a href="CRYSTAL About.html">About</a></li>
-        <li><a href="CRYSTAL Products.html" class="current">Products</a></li>
+        <li><a href="About.html">About</a></li>
+        <li><a href="All Products.html" class="current">Products</a></li>
         <li class="has-dd">
-          <a href="CRYSTAL Products.html?brand=crystal" class="dd-toggle">Brands <span class="cv">▾</span></a>
+          <a href="All Products.html?brand=crystal" class="dd-toggle">Brands <span class="cv">▾</span></a>
           <div class="dd-menu" id="ddMenu"></div>
         </li>
         <li><a href="CRYSTAL Animated.html#why">Network</a></li>
       </ul>
       <div class="nav-right">
-        <a href="CRYSTAL Contact.html" class="btn btn-red">Contact Us <span class="arr">↗</span></a>
+        <a href="Contact.html" class="btn btn-red">Contact Us <span class="arr">↗</span></a>
         <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
       </div>
     </div>
@@ -342,8 +342,8 @@
 <div class="mobile-menu" id="mobileMenu">
   <button class="mm-close" id="mmClose" aria-label="Close">&times;</button>
   <ul>
-    <li><a href="CRYSTAL About.html" class="mm-link">About</a></li>
-    <li><a href="CRYSTAL Products.html" class="mm-link">Products</a></li>
+    <li><a href="About.html" class="mm-link">About</a></li>
+    <li><a href="All Products.html" class="mm-link">Products</a></li>
     <li><a href="CRYSTAL Animated.html#why" class="mm-link">Network</a></li>
     <li><a href="#footer" class="mm-link">Contact</a></li>
   </ul>
@@ -455,7 +455,7 @@
       <p id="ctaSub">From our family of brands to yours — find the perfect everyday essential, or talk to our team about bulk, export and distribution.</p>
       <div class="row">
         <a href="#browse" class="btn btn-light">Explore Products <span class="arr">↗</span></a>
-        <a href="CRYSTAL Contact.html" class="btn btn-red">Contact Us <span class="arr">↗</span></a>
+        <a href="Contact.html" class="btn btn-red">Contact Us <span class="arr">↗</span></a>
       </div>
     </div>
   </div>
@@ -483,7 +483,7 @@
         </div>
       </div>
       <div class="foot-col"><h5>Brands</h5><ul id="footBrands"></ul></div>
-      <div class="foot-col"><h5>Quick Link</h5><ul><li><a href="CRYSTAL About.html">About Us</a></li><li><a href="CRYSTAL Products.html">Products</a></li><li><a href="#footer">Career</a></li></ul></div>
+      <div class="foot-col"><h5>Quick Link</h5><ul><li><a href="About.html">About Us</a></li><li><a href="All Products.html">Products</a></li><li><a href="#footer">Career</a></li></ul></div>
       <div class="foot-col"><h5>Contact Us</h5><ul><li><a href="#">G.I.D.C Metoda, Rajkot 360021, Gujarat</a></li><li><a href="#">Sahar Plaza, Andheri (E), Mumbai 400059</a></li><li><a href="tel:02249702803">022-49702803 / 06</a></li></ul></div>
     </div>
     <div class="foot-wordmark"><span class="wm-outline">CRYSTAL</span><span class="wm-fill">CRYSTAL</span></div>
@@ -558,7 +558,7 @@
     { n: "Insulated Sipper Bottle",      col: "Thermo Lock",            b: "vacu",       c: "flasks",     img: U + "2026/04/11.jpg",                                   hl: "Leak-proof insulated sipper for the gym, office and travel.", tags: ["Leak-Proof", "Insulated"] },
     { n: "Double-Wall Carafe",           col: "Serve Warm",             b: "vacu",       c: "flasks",     img: U + "2026/04/6.jpg",                                    hl: "Elegant table carafe that serves water and juice at the perfect temp.", tags: ["Double-Wall", "Table-Ready"] },
   ];
-  // product id (slug) used to link each card to its detail page (CRYSTAL Product.html?p=<id>)
+  // product id (slug) used to link each card to its detail page (Product.html?p=<id>)
   const PID = {
     "Aristo SS Lighter": "aristo-lighter", "Slimline Gas Lighter 305mm": "slimline-lighter",
     "5-Pc Surgical Steel Knife Set": "knife-set-5pc", "Laser-Edge Chef Knife": "chef-knife",
@@ -572,7 +572,7 @@
     "Floor Wiper & Brush Combo": "wiper-brush", "Vacuum Flask 1L": "vacuum-flask",
     "Insulated Sipper Bottle": "sipper-bottle", "Double-Wall Carafe": "carafe",
   };
-  const pdpHref = p => "CRYSTAL Product.html?p=" + (PID[p.n] || "");
+  const pdpHref = p => "Product.html?p=" + (PID[p.n] || "");
 
   const MAIN_COLLECTIONS = [
     { tag: "Czarin", title: "Tri-Pro Cookware", desc: "Triply, induction-ready cookware that cooks faster and lasts a lifetime.", img: U + "2026/05/CTV-097.jpg", cls: "tall", filter: { c: "cookware" } },
@@ -589,10 +589,10 @@
   const viewProducts = brand ? P.filter(p => p.b === brand.slug) : P.slice();
 
   /* ---------- RENDER: brand dropdown + footer brands + mobile ---------- */
-  const ddHTML = BRANDS.map(b => `<a href="CRYSTAL Products.html?brand=${b.slug}"${brand && brand.slug === b.slug ? ' class="active"' : ''}><b>${b.name}</b><span>${b.tagline}</span></a>`).join("");
+  const ddHTML = BRANDS.map(b => `<a href="All Products.html?brand=${b.slug}"${brand && brand.slug === b.slug ? ' class="active"' : ''}><b>${b.name}</b><span>${b.tagline}</span></a>`).join("");
   document.getElementById("ddMenu").innerHTML = ddHTML;
-  document.getElementById("footBrands").innerHTML = BRANDS.map(b => `<li><a href="CRYSTAL Products.html?brand=${b.slug}">${b.name}</a></li>`).join("");
-  document.getElementById("mmBrands").innerHTML = BRANDS.map(b => `<a href="CRYSTAL Products.html?brand=${b.slug}" class="mm-link">${b.name}</a>`).join("");
+  document.getElementById("footBrands").innerHTML = BRANDS.map(b => `<li><a href="All Products.html?brand=${b.slug}">${b.name}</a></li>`).join("");
+  document.getElementById("mmBrands").innerHTML = BRANDS.map(b => `<a href="All Products.html?brand=${b.slug}" class="mm-link">${b.name}</a>`).join("");
 
   /* ---------- RENDER: hero ---------- */
   if (brand) {
