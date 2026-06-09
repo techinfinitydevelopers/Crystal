@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Products — CRYSTAL</title>
+<script>document.documentElement.className += " js";</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<style>
+  /* ===== TOKENS (shared with Home + About) ===== */
+  :root {
+    --white: #ffffff;
+    --cream: #ededed;
+    --ink: #1A1A1A;
+    --ink-soft: #1A1A1A;
+    --ink-deep: #0F0F0F;
+    --red: #ED3338;
+    --red-deep: #c0282c;
+    --grad-red: linear-gradient(135deg, #ED3338 0%, #c0282c 100%);
+    --muted: #5f5f5f;
+    --muted-d: #D5D5D5;
+    --line: rgba(26,24,22,0.13);
+    --line-d: rgba(213,213,213,0.18);
+    --head: "Space Grotesk", sans-serif;
+    --body: "DM Sans", sans-serif;
+    --maxw: 1240px;
+    --pad: clamp(18px, 5vw, 70px);
+    --r: 20px;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--body); background: var(--white); color: var(--ink); -webkit-font-smoothing: antialiased; overflow-x: clip; }
+  img, video { display: block; max-width: 100%; }
+  a { color: inherit; text-decoration: none; }
+
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding-inline: var(--pad); width: 100%; }
+  h1, h2, h3, h4 { font-family: var(--head); font-weight: 700; line-height: 0.98; letter-spacing: -0.02em; }
+  .sec-dark { background: var(--ink-deep); color: var(--white); }
+  .sec-cream { background: var(--cream); }
+
+  .eyebrow { font-family: var(--body); font-weight: 700; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; display: inline-flex; align-items: center; gap: 9px; color: var(--red); }
+  .eyebrow .pip { width: 8px; height: 8px; border-radius: 50%; background: var(--grad-red); display: inline-block; }
+
+  .btn { display: inline-flex; align-items: center; gap: 9px; font-family: var(--body); font-weight: 700; font-size: 15px; padding: 15px 26px; border-radius: 100px; border: none; cursor: pointer; transition: transform .25s cubic-bezier(.2,.8,.2,1), background .25s, color .25s, box-shadow .25s; }
+  .btn-red { background: var(--grad-red); color: #fff; box-shadow: 0 10px 26px -12px rgba(237,51,56,0.7); }
+  .btn-red:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 16px 34px -14px rgba(237,51,56,0.8); }
+  .btn-dark { background: var(--ink); color: #fff; }
+  .btn-dark:hover { background: var(--red); transform: translateY(-3px) scale(1.03); }
+  .btn-light { background: #fff; color: var(--ink); }
+  .btn-light:hover { background: var(--red); color: #fff; transform: translateY(-3px) scale(1.03); }
+  .btn .arr { transition: transform .25s; }
+  .btn:hover .arr { transform: translate(3px,-2px); }
+
+  .w-mask { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: 0.08em; margin-bottom: -0.08em; }
+  .word { display: inline-block; will-change: transform; }
+  [data-fade] { will-change: transform, opacity; }
+
+  /* ===== HEADER + BRANDS DROPDOWN ===== */
+  header { position: fixed; inset: 14px 0 auto 0; z-index: 100; }
+  .nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; border: 1.5px solid transparent; border-radius: 100px; padding: 9px 9px 9px 22px; transition: background .35s, border-color .35s, box-shadow .35s, backdrop-filter .35s; }
+  header.scrolled .nav, header.solid .nav { background: rgba(255,255,255,0.82); border-color: var(--line); backdrop-filter: blur(14px); box-shadow: 0 12px 30px -20px rgba(0,0,0,0.5); }
+  .logo { font-family: var(--head); font-weight: 700; font-size: 23px; letter-spacing: -0.01em; display: flex; align-items: center; gap: 9px; text-transform: uppercase; }
+  .logo .blob { width: 16px; height: 16px; background: var(--grad-red); border-radius: 47% 53% 60% 40% / 55% 45% 55% 45%; display: inline-block; }
+  .nav-links { display: flex; gap: 4px; list-style: none; }
+  .nav-links > li > a { font-weight: 600; font-size: 15px; padding: 9px 16px; border-radius: 100px; transition: background .2s, color .2s; display: inline-flex; align-items: center; gap: 6px; }
+  .nav-links > li > a:hover, .nav-links > li > a.current { background: var(--ink); color: #fff; }
+  .nav-right { display: flex; align-items: center; gap: 10px; }
+  .burger { display: none; flex-direction: column; gap: 5px; background: var(--ink); border: none; border-radius: 100px; cursor: pointer; padding: 13px 12px; }
+  .burger span { width: 22px; height: 2.5px; background: #fff; border-radius: 2px; }
+
+  .has-dd { position: relative; }
+  .dd-toggle .cv { font-size: 10px; transition: transform .25s; display: inline-block; }
+  .has-dd:hover .dd-toggle .cv, .has-dd:focus-within .dd-toggle .cv { transform: rotate(180deg); }
+  .dd-menu { position: absolute; top: calc(100% + 12px); left: 50%; transform: translateX(-50%) translateY(8px); min-width: 256px; background: rgba(255,255,255,0.97); backdrop-filter: blur(16px); border: 1.5px solid var(--line); border-radius: 18px; box-shadow: 0 26px 54px -26px rgba(0,0,0,0.38); padding: 8px; display: grid; gap: 2px; opacity: 0; visibility: hidden; transition: opacity .25s, transform .25s, visibility .25s; z-index: 130; }
+  .has-dd:hover .dd-menu, .has-dd:focus-within .dd-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+  .dd-menu a { display: flex; flex-direction: column; gap: 1px; padding: 11px 14px; border-radius: 12px; transition: background .2s, color .2s; }
+  .dd-menu a:hover { background: var(--ink); color: #fff; }
+  .dd-menu a.active { background: rgba(237,51,56,0.10); }
+  .dd-menu a b { font-family: var(--head); font-weight: 700; font-size: 15px; }
+  .dd-menu a span { font-size: 12px; color: var(--muted); }
+  .dd-menu a:hover span { color: rgba(255,255,255,0.72); }
+
+  .mobile-menu { position: fixed; inset: 0; z-index: 101; background: var(--ink); color: #fff; transform: translateY(-100%); transition: transform .45s cubic-bezier(.2,.8,.2,1); display: flex; flex-direction: column; justify-content: center; padding: var(--pad); overflow-y: auto; }
+  .mobile-menu.open { transform: none; }
+  .mobile-menu ul { list-style: none; display: grid; gap: 4px; }
+  .mobile-menu > ul > li > a { font-family: var(--head); font-weight: 700; text-transform: uppercase; font-size: clamp(28px, 9vw, 50px); }
+  .mobile-menu > ul > li > a:hover { color: var(--red); }
+  .mm-brands { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 18px; margin-top: 12px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.16); }
+  .mm-brands a { font-family: var(--body); font-weight: 600; text-transform: none; font-size: 16px; color: var(--muted-d); padding: 4px 0; }
+  .mm-brands a:hover { color: var(--red); }
+  .mm-close { position: absolute; top: 24px; right: var(--pad); background: var(--grad-red); color: #fff; border: none; width: 50px; height: 50px; border-radius: 50%; font-size: 26px; cursor: pointer; }
+
+  /* ===== Section scaffold ===== */
+  section { position: relative; }
+  .sec { padding-block: clamp(46px, 6vw, 92px); }
+  .sec-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 26px; flex-wrap: wrap; margin-bottom: clamp(30px, 5vw, 54px); }
+  .sec-head h2 { font-size: clamp(32px, 5.4vw, 70px); text-transform: uppercase; }
+  .sec-head .lead { max-width: 400px; color: var(--muted); font-size: 16px; line-height: 1.55; }
+  .sec-dark .sec-head .lead { color: var(--muted-d); }
+
+  /* ===== HERO ===== */
+  .hero { position: relative; min-height: clamp(620px, 92svh, 940px); display: flex; flex-direction: column; align-items: center; justify-content: center; overflow: hidden; padding-top: clamp(126px, 17vh, 168px); padding-bottom: clamp(40px, 6vh, 70px); text-align: center; }
+  .hero::before { content: ""; position: absolute; width: 64vw; height: 64vw; max-width: 800px; max-height: 800px; left: 50%; top: 36%; transform: translate(-50%,-50%); background: radial-gradient(circle, rgba(237,51,56,0.15), transparent 62%); z-index: 0; pointer-events: none; }
+  .hero .wrap { position: relative; z-index: 4; }
+  .hero .pre { font-family: var(--head); font-weight: 600; text-transform: uppercase; font-size: clamp(11px, 1.15vw, 14px); letter-spacing: 0.2em; color: var(--red); margin-bottom: clamp(14px, 2.2vw, 24px); display: inline-flex; gap: 9px; align-items: center; }
+  .hero h1 { font-size: clamp(40px, 7vw, 92px); text-transform: uppercase; margin: 4px auto; line-height: 1.0; max-width: 15ch; }
+  .hero h1 .grad { background: var(--grad-red); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .hero-sub { max-width: 600px; margin: 28px auto 32px; font-size: clamp(15px, 1.6vw, 18px); color: var(--muted); line-height: 1.6; }
+  .hero-cta { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
+  .hero-tiles { display: flex; justify-content: center; gap: clamp(12px, 1.6vw, 20px); margin-top: clamp(26px, 4vw, 52px); flex-wrap: nowrap; width: 100%; max-width: 1040px; }
+  .hero-tile { flex: 1 1 0; aspect-ratio: 3/4; border-radius: clamp(16px, 1.6vw, 26px); overflow: hidden; border: 3px solid #fff; box-shadow: 0 26px 50px -24px rgba(15,15,15,0.42); will-change: transform; }
+  .hero-tile:nth-child(even) { transform: translateY(20px); }
+  .hero-tile img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s; }
+  .hero-tile:hover img { transform: scale(1.07); }
+  .scroll-hint { position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%); z-index: 4; pointer-events: none; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); display: flex; flex-direction: column; align-items: center; gap: 8px; }
+  .scroll-hint .ln { width: 1.5px; height: 36px; background: linear-gradient(var(--red), transparent); }
+  @media (max-width: 720px) {
+    .hero-tiles { gap: 10px; max-width: none; }
+    .hero-tile:nth-child(n+4) { display: none; }
+    .hero-tile:nth-child(even) { transform: none; }
+  }
+
+  /* ===== CATEGORY NAV ===== */
+  .cat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .cat-card { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; padding: 24px 22px; border: 1.5px solid var(--line); border-radius: var(--r); background: var(--white); color: var(--ink); cursor: pointer; text-align: left; transition: transform .3s cubic-bezier(.2,.8,.2,1), box-shadow .3s, border-color .3s, background .3s; }
+  .cat-card:hover { transform: translateY(-5px); box-shadow: 0 24px 46px -28px rgba(237,51,56,0.36); border-color: rgba(237,51,56,0.3); }
+  .cat-card .cat-ic { width: 52px; height: 52px; border-radius: 15px; display: grid; place-items: center; background: rgba(237,51,56,0.10); color: var(--red); }
+  .cat-card .cat-ic svg { width: 28px; height: 28px; }
+  .cat-card h4 { font-family: var(--head); font-weight: 700; text-transform: uppercase; font-size: 16px; letter-spacing: -0.01em; }
+  .cat-card .cnt { font-size: 13px; color: var(--muted); font-weight: 600; margin-top: -6px; }
+  @media (max-width: 860px) { .cat-grid { grid-template-columns: 1fr 1fr; } }
+
+  /* ===== FEATURED COLLECTIONS ===== */
+  .col-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .col-card { position: relative; aspect-ratio: 5/6; border-radius: var(--r); overflow: hidden; border: 1.5px solid var(--line); box-shadow: 0 26px 54px -34px rgba(15,15,15,0.5); cursor: pointer; display: block; transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s; }
+  .col-card:hover { transform: translateY(-6px); box-shadow: 0 38px 66px -34px rgba(237,51,56,0.34); }
+  .col-card .cc-media { position: absolute; inset: 0; }
+  .col-card .cc-media img { width: 100%; height: 100%; object-fit: cover; transition: transform .7s cubic-bezier(.2,.8,.2,1); }
+  .col-card:hover .cc-media img { transform: scale(1.06); }
+  .col-card .cc-grad { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(15,15,15,0) 30%, rgba(15,15,15,0.45) 62%, rgba(15,15,15,0.88) 100%); }
+  .col-card .cc-body { position: absolute; inset: auto 0 0 0; padding: clamp(22px, 2.4vw, 32px); color: #fff; z-index: 2; }
+  .col-card .cc-tag { display: inline-block; background: var(--grad-red); color: #fff; font-weight: 700; font-size: 11.5px; letter-spacing: 0.04em; padding: 6px 13px; border-radius: 100px; margin-bottom: 12px; }
+  .col-card .cc-title { font-family: var(--head); font-weight: 700; text-transform: uppercase; font-size: clamp(20px, 1.9vw, 27px); line-height: 1.02; margin-bottom: 9px; }
+  .col-card .cc-desc { font-size: 14px; line-height: 1.5; color: rgba(255,255,255,0.85); margin-bottom: 15px; }
+  .col-card .cc-link { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; font-size: 13.5px; border-bottom: 2px solid var(--red); padding-bottom: 3px; transition: gap .25s; }
+  .col-card:hover .cc-link { gap: 14px; }
+  @media (max-width: 860px) { .col-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 560px) { .col-grid { grid-template-columns: 1fr; } .col-card { aspect-ratio: 16/11; } }
+
+  /* ===== BROWSE / TOOLBAR / GRID ===== */
+  .browse { background: var(--cream); }
+  .browse-bar { display: flex; align-items: center; justify-content: space-between; gap: 14px 20px; flex-wrap: wrap; padding-bottom: 18px; border-bottom: 1.5px solid var(--line); margin-bottom: 20px; }
+  .browse-bar .count { font-size: 14px; color: var(--muted); font-weight: 600; }
+  .browse-bar .count b { color: var(--ink); }
+  .chips { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 26px; }
+  .chip { font-family: var(--body); font-weight: 600; font-size: 14px; padding: 10px 18px; border-radius: 100px; border: 1.5px solid var(--line); background: var(--white); color: var(--ink); cursor: pointer; transition: background .2s, color .2s, border-color .2s, transform .2s; }
+  .chip:hover { transform: translateY(-2px); border-color: rgba(237,51,56,0.4); }
+  .chip.active { background: var(--ink); color: #fff; border-color: var(--ink); }
+  .sortwrap { display: flex; align-items: center; gap: 8px; flex: 0 0 auto; }
+  .sortwrap label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+  .sortwrap select { font-family: var(--body); font-weight: 600; font-size: 14px; color: var(--ink); border: 1.5px solid var(--line); background: var(--white); border-radius: 100px; padding: 10px 16px; cursor: pointer; outline: none; }
+
+  .grid { display: grid; grid-template-columns: repeat(var(--gcols, 3), 1fr); gap: 26px 24px; align-items: stretch; }
+  @media (max-width: 880px) { .grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 480px) { .grid { grid-template-columns: 1fr; } }
+  .pcard { background: var(--white); border: 1.5px solid var(--line); border-radius: var(--r); overflow: hidden; display: flex; flex-direction: column; transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s, border-color .35s; }
+  .pcard:hover { transform: translateY(-7px); box-shadow: 0 32px 58px -34px rgba(15,15,15,0.42); border-color: rgba(237,51,56,0.3); }
+  .pcard .pimg { position: relative; aspect-ratio: 1/1; overflow: hidden; background: #f1f1f1; }
+  .pcard .pimg img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s cubic-bezier(.2,.8,.2,1); }
+  .pcard:hover .pimg img { transform: scale(1.06); }
+  .pcard .pbrand { position: absolute; top: 11px; left: 11px; z-index: 2; background: rgba(255,255,255,0.92); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); font-family: var(--head); font-weight: 700; font-size: 9.5px; letter-spacing: 0.08em; text-transform: uppercase; padding: 5px 10px; border-radius: 100px; color: var(--ink); box-shadow: 0 6px 16px -10px rgba(0,0,0,0.4); }
+  .pcard .penq-btn { position: absolute; right: 11px; bottom: 11px; z-index: 3; width: 38px; height: 38px; border-radius: 50%; background: var(--ink); color: #fff; display: grid; place-items: center; box-shadow: 0 10px 22px -10px rgba(0,0,0,0.5); opacity: 0; transform: translateY(8px) scale(.85); transition: opacity .3s, transform .3s cubic-bezier(.2,.8,.2,1), background .25s; }
+  .pcard .penq-btn svg { width: 15px; height: 15px; }
+  .pcard:hover .penq-btn { opacity: 1; transform: translateY(0) scale(1); }
+  .pcard .penq-btn:hover { background: var(--red); }
+  .pcard .pbody { padding: 14px 15px 16px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
+  .pcard .pname { font-family: var(--head); font-weight: 700; font-size: 15.5px; line-height: 1.14; letter-spacing: -0.01em; }
+  .pcard .phl { font-size: 12.5px; color: var(--muted); line-height: 1.45; }
+  .pcard .ptags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 3px; }
+  .pcard .ptag { font-size: 10.5px; font-weight: 600; color: var(--muted); border: 1px solid var(--line); border-radius: 100px; padding: 4px 9px; }
+  .empty { text-align: center; padding: 60px 20px; color: var(--muted); font-weight: 600; grid-column: 1 / -1; }
+  @media (max-width: 760px) { .pcard .penq-btn { opacity: 1; transform: none; } }
+
+  /* ===== MARQUEE ===== */
+  .marquee { overflow: hidden; padding-block: 20px; background: var(--grad-red); color: #fff; }
+  .mq-track { display: flex; width: max-content; animation: scrollX 24s linear infinite; }
+  .marquee:hover .mq-track { animation-play-state: paused; }
+  .mq-track span { font-family: var(--head); font-weight: 700; text-transform: uppercase; font-size: clamp(22px, 3vw, 40px); display: inline-flex; align-items: center; white-space: nowrap; }
+  .mq-track span::after { content: "✶"; margin: 0 28px; opacity: .7; }
+  @keyframes scrollX { to { transform: translateX(-50%); } }
+  @media (prefers-reduced-motion: reduce) { .mq-track, .hero-tile { animation: none; } }
+
+  /* ===== BRAND VALUE ===== */
+  .val-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .val-card { border: 1.5px solid var(--line-d); border-radius: var(--r); padding: 28px 24px 30px; display: flex; flex-direction: column; gap: 14px; transition: transform .3s, border-color .3s; }
+  .val-card:hover { transform: translateY(-6px); border-color: rgba(237,51,56,0.4); }
+  .val-card .vn { font-family: var(--head); font-weight: 700; font-size: 14px; color: var(--red); }
+  .val-card .vic { width: 54px; height: 54px; border-radius: 15px; display: grid; place-items: center; background: rgba(237,51,56,0.14); color: var(--red); margin: 6px 0; }
+  .val-card .vic svg { width: 30px; height: 30px; }
+  .val-card h4 { font-size: 20px; text-transform: uppercase; }
+  .val-card p { font-size: 14.5px; line-height: 1.5; color: var(--muted-d); }
+  .vstats { margin-top: 56px; display: grid; grid-template-columns: auto repeat(3, 1fr); gap: 30px; align-items: center; padding-top: 44px; border-top: 1.5px solid var(--line-d); }
+  .vstats .brand { font-family: var(--head); font-weight: 700; text-transform: uppercase; font-size: 18px; line-height: 1.3; }
+  .vstats .brand .since { display: block; color: var(--red); font-size: 13px; letter-spacing: 0.08em; margin-top: 4px; }
+  .vstat .num { font-family: var(--head); font-weight: 700; font-size: clamp(38px, 5.4vw, 74px); line-height: .9; background: var(--grad-red); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .vstat .lbl { margin-top: 10px; color: var(--muted-d); font-size: 14px; font-weight: 600; }
+  @media (max-width: 960px) { .val-grid { grid-template-columns: 1fr 1fr; } .vstats { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 560px) { .val-grid { grid-template-columns: 1fr; } .vstats { grid-template-columns: 1fr; gap: 24px; } }
+
+  /* ===== CTA ===== */
+  .cta-sec { padding: 0; }
+  .cta { position: relative; min-height: clamp(520px, 80vh, 820px); display: grid; place-items: center; text-align: center; overflow: hidden;
+    background-image: linear-gradient(160deg, rgba(192,40,44,0.82), rgba(15,15,15,0.74)), url("https://proj.leo9studio.in/projects/crystal-wp/wp-content/uploads/2026/04/2-1-1.jpg");
+    background-size: cover, cover; background-position: center, center; background-repeat: no-repeat, no-repeat; background-attachment: fixed, fixed; }
+  .cta-inner { position: relative; z-index: 3; color: #fff; padding: 40px; }
+  .cta h2 { font-size: clamp(40px, 8vw, 116px); text-transform: uppercase; color: #fff; line-height: 0.96; }
+  .cta p { max-width: 540px; margin: 22px auto 30px; color: rgba(255,255,255,0.86); font-size: clamp(15px, 1.6vw, 18px); line-height: 1.6; }
+  .cta .row { display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap; }
+  @media (max-width: 820px) { .cta { background-attachment: scroll; } }
+
+  /* ===== FOOTER (ported) ===== */
+  footer { padding-block: clamp(54px,7vw,92px) 28px; overflow: hidden; }
+  .foot-cta { display: flex; justify-content: space-between; align-items: flex-end; gap: 28px; flex-wrap: wrap; padding-bottom: 44px; border-bottom: 1.5px solid var(--line-d); }
+  .foot-cta h3 { font-family: var(--head); font-weight: 700; text-transform: uppercase; font-size: clamp(28px, 4vw, 54px); line-height: 1; margin-top: 14px; letter-spacing: -0.02em; }
+  .foot-cta h3 .g { background: var(--grad-red); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .foot-top { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1.4fr; gap: 36px; padding: 46px 0; }
+  .foot-brand .logo { font-size: 32px; margin-bottom: 14px; }
+  .foot-desc { color: var(--muted-d); max-width: 300px; margin-bottom: 22px; line-height: 1.55; font-weight: 500; }
+  .foot-socials { display: flex; gap: 10px; }
+  .foot-socials a { width: 42px; height: 42px; border-radius: 50%; border: 1.5px solid var(--line-d); display: grid; place-items: center; color: #fff; transition: background .25s, border-color .25s, transform .25s; }
+  .foot-socials a:hover { background: var(--grad-red); border-color: transparent; transform: translateY(-3px); }
+  .foot-col h5 { font-family: var(--head); font-weight: 700; text-transform: uppercase; font-size: 13px; letter-spacing: 0.04em; margin-bottom: 16px; color: var(--muted-d); }
+  .foot-col ul { list-style: none; display: grid; gap: 11px; }
+  .foot-col a { font-weight: 600; font-size: 15.5px; color: #fff; transition: color .2s, padding-left .2s; }
+  .foot-col a:hover { color: var(--red); padding-left: 4px; }
+  .foot-wordmark { position: relative; font-family: var(--head); font-weight: 700; text-transform: uppercase; font-size: clamp(64px, 19vw, 300px); line-height: 0.78; letter-spacing: -0.04em; text-align: center; margin: clamp(18px,3vw,38px) 0 -0.05em; user-select: none; pointer-events: none; }
+  .foot-wordmark span { display: block; }
+  .foot-wordmark .wm-outline { color: transparent; -webkit-text-stroke: 1.5px rgba(255,255,255,0.13); }
+  .foot-wordmark .wm-fill { position: absolute; inset: 0; color: transparent; -webkit-background-clip: text; background-clip: text; --level: 0%; --wavex: 0px; --wavex2: 0px;
+    background-image:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='22' viewBox='0 0 160 22' preserveAspectRatio='none'%3E%3Cpath d='M0 9 Q 40 0 80 9 T 160 9 V22 H0 Z' fill='%23ff5256'/%3E%3C/svg%3E"),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='26' viewBox='0 0 200 26' preserveAspectRatio='none'%3E%3Cpath d='M0 13 Q 50 3 100 13 T 200 13 V26 H0 Z' fill='%23ED3338'/%3E%3C/svg%3E"),
+      linear-gradient(180deg, #ED3338, #c0282c);
+    background-repeat: repeat-x, repeat-x, no-repeat;
+    background-size: 160px 22px, 200px 26px, 100% var(--level);
+    background-position: var(--wavex) calc(100% - var(--level) - 8px), var(--wavex2) calc(100% - var(--level) - 12px), left bottom; }
+  .foot-bottom { padding-top: 24px; border-top: 1.5px solid var(--line-d); display: flex; justify-content: space-between; gap: 14px; flex-wrap: wrap; color: var(--muted-d); font-size: 14px; }
+
+  @media (max-width: 960px) {
+    .nav-links, .nav-right .btn { display: none; }
+    .burger { display: flex; }
+    .foot-top { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 600px) {
+    .hero { padding-top: clamp(110px, 18vh, 140px); }
+    .hero h1 { font-size: clamp(31px, 9vw, 56px); max-width: none; }
+    .sec-head { margin-bottom: 28px; gap: 14px; }
+    .sec-head h2 { font-size: clamp(32px, 9vw, 52px); }
+    .browse-bar { gap: 12px; }
+    .marquee .mq-track span { font-size: 22px; }
+    .foot-top { grid-template-columns: 1fr; }
+    .foot-cta .btn { width: 100%; justify-content: center; }
+    .foot-wordmark { font-size: clamp(52px, 22vw, 116px); }
+  }
+  @media (max-width: 400px) { .wrap { padding-inline: 16px; } .foot-wordmark { font-size: 46px; } .mobile-menu > ul > li > a { font-size: clamp(26px, 11vw, 44px); } }
+  @media (max-height: 820px) { .scroll-hint { display: none; } }
+
+  /* ===== THEME / TYPE-VOICE TWEAKS ===== */
+  body.t-warm { --white:#f7f3ea; --cream:#ebe1d3; --ink:#262019; --line:rgba(38,30,20,0.15); --muted:#6e6458; }
+  body.t-noir { --white:#141310; --cream:#1e1c17; --ink:#f2eee6; --line:rgba(255,255,255,0.14); --muted:#a8a096; }
+  body.t-noir .btn-light { color:#141310; }
+  body.t-noir .btn-dark { background:#2a2722; color:#fff; }
+  body.t-noir .sec-dark { color:#f2eee6; }
+  body.t-noir .mobile-menu { background:#0a0a0a; }
+  body.t-noir .burger { background:#2a2722; }
+  body.t-noir header.scrolled .nav { background:rgba(20,19,15,0.82); box-shadow:0 12px 30px -20px rgba(0,0,0,0.85); }
+  body.t-noir .nav-links > li > a:hover, body.t-noir .nav-links > li > a.current { background:rgba(255,255,255,0.14); color:var(--ink); }
+  body.t-noir .chip.active { background:rgba(255,255,255,0.16); color:var(--ink); border-color:rgba(255,255,255,0.2); }
+  body.t-noir .pbrand { color:#1A1A1A; }
+  body.tv-editorial h1, body.tv-editorial h2, body.tv-editorial h3, body.tv-editorial h4 { text-transform:none; font-weight:500; letter-spacing:-0.012em; }
+  body.tv-bold h1, body.tv-bold h2, body.tv-bold h3, body.tv-bold h4 { font-weight:700; letter-spacing:-0.045em; text-transform:uppercase; line-height:0.92; }
+
+  /* ===== TWEAKS PANEL ===== */
+  body.hide-tags .ptags { display: none; }
+  .twk { position: fixed; right: 16px; bottom: 16px; z-index: 2147483646; width: 266px; max-height: calc(100vh - 32px); display: none; flex-direction: column; background: rgba(255,255,255,0.88); -webkit-backdrop-filter: blur(22px) saturate(160%); backdrop-filter: blur(22px) saturate(160%); border: 1px solid rgba(0,0,0,0.08); border-radius: 16px; box-shadow: 0 18px 50px -18px rgba(0,0,0,0.4); font-family: var(--body); color: var(--ink); overflow: hidden; }
+  .twk.open { display: flex; }
+  .twk-hd { display: flex; align-items: center; justify-content: space-between; padding: 13px 12px 13px 16px; border-bottom: 1px solid rgba(0,0,0,0.07); }
+  .twk-hd b { font-family: var(--head); font-weight: 700; font-size: 14px; letter-spacing: -0.01em; }
+  .twk-x { appearance: none; border: 0; background: transparent; color: var(--muted); width: 26px; height: 26px; border-radius: 8px; cursor: pointer; font-size: 13px; }
+  .twk-x:hover { background: rgba(0,0,0,0.06); color: var(--ink); }
+  .twk-body { padding: 8px 16px 16px; display: flex; flex-direction: column; gap: 9px; overflow-y: auto; }
+  .twk-sect { font-family: var(--head); font-size: 10.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); padding-top: 12px; }
+  .twk-sect:first-child { padding-top: 2px; }
+  .twk-tg { display: flex; align-items: center; justify-content: space-between; gap: 10px; font-size: 13.5px; font-weight: 600; cursor: pointer; }
+  .twk-tg input { appearance: none; -webkit-appearance: none; width: 38px; height: 22px; border-radius: 100px; background: rgba(0,0,0,0.18); position: relative; cursor: pointer; transition: background .2s; flex: 0 0 auto; }
+  .twk-tg input::after { content: ""; position: absolute; top: 2px; left: 2px; width: 18px; height: 18px; border-radius: 50%; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,0.3); transition: left .2s; }
+  .twk-tg input:checked { background: var(--red); }
+  .twk-tg input:checked::after { left: 18px; }
+  .twk-row { display: flex; flex-direction: column; gap: 7px; }
+  .twk-l { font-size: 13.5px; font-weight: 600; display: flex; justify-content: space-between; align-items: baseline; }
+  .twk-l em { font-style: normal; color: var(--muted); font-weight: 600; }
+  .twk-seg { display: flex; gap: 5px; }
+  .twk-seg button { flex: 1; appearance: none; border: 1.5px solid var(--line); background: var(--white); color: var(--ink); font-family: var(--body); font-weight: 700; font-size: 13px; padding: 8px; border-radius: 10px; cursor: pointer; transition: background .2s, color .2s, border-color .2s; }
+  .twk-seg button.on { background: var(--ink); color: #fff; border-color: var(--ink); }
+  .twk-sw { display: flex; gap: 9px; }
+  .twk-sw button { width: 30px; height: 30px; border-radius: 50%; border: 2px solid transparent; cursor: pointer; padding: 0; box-shadow: inset 0 0 0 1.5px rgba(255,255,255,0.65); transition: transform .2s; }
+  .twk-sw button:hover { transform: scale(1.08); }
+  .twk-sw button.on { border-color: var(--ink); }
+  .twk-rad { appearance: none; -webkit-appearance: none; width: 100%; height: 4px; border-radius: 100px; background: rgba(0,0,0,0.14); outline: none; }
+  .twk-rad::-webkit-slider-thumb { -webkit-appearance: none; width: 16px; height: 16px; border-radius: 50%; background: var(--red); cursor: pointer; }
+  .twk-rad::-moz-range-thumb { width: 16px; height: 16px; border: 0; border-radius: 50%; background: var(--red); cursor: pointer; }
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header id="hdr">
+  <div class="wrap">
+    <div class="nav">
+      <a href="CRYSTAL Animated.html#top" class="logo"><span class="blob"></span>CRYSTAL</a>
+      <ul class="nav-links">
+        <li><a href="CRYSTAL About.html">About</a></li>
+        <li><a href="CRYSTAL Products.html" class="current">Products</a></li>
+        <li class="has-dd">
+          <a href="CRYSTAL Products.html?brand=crystal" class="dd-toggle">Brands <span class="cv">▾</span></a>
+          <div class="dd-menu" id="ddMenu"></div>
+        </li>
+        <li><a href="CRYSTAL Animated.html#why">Network</a></li>
+      </ul>
+      <div class="nav-right">
+        <a href="CRYSTAL Contact.html" class="btn btn-red">Contact Us <span class="arr">↗</span></a>
+        <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mm-close" id="mmClose" aria-label="Close">&times;</button>
+  <ul>
+    <li><a href="CRYSTAL About.html" class="mm-link">About</a></li>
+    <li><a href="CRYSTAL Products.html" class="mm-link">Products</a></li>
+    <li><a href="CRYSTAL Animated.html#why" class="mm-link">Network</a></li>
+    <li><a href="#footer" class="mm-link">Contact</a></li>
+  </ul>
+  <div class="mm-brands" id="mmBrands"></div>
+</div>
+
+<span id="top"></span>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="hero">
+  <div class="wrap">
+    <div class="pre" id="heroPre"><span class="pip"></span><span id="heroPreTxt">All Collections</span></div>
+    <h1 id="heroTitle" data-split>The Crystal <span class="grad">Collection</span></h1>
+    <p class="hero-sub" id="heroSub" data-fade>Everything for a better kitchen and a brighter home — explore the complete range of cookware, tools, cleaning aids and more, trusted across India since 1971.</p>
+    <div class="hero-cta" data-fade>
+      <a href="#browse" class="btn btn-red">Browse Products <span class="arr">↗</span></a>
+      <a href="#collections" class="btn btn-dark">Featured Collections</a>
+    </div>
+  </div>
+  <div class="hero-tiles" id="heroTiles"></div>
+  <div class="scroll-hint"><span>Scroll</span><span class="ln"></span></div>
+</section>
+
+<!-- ===== CATEGORY NAV ===== -->
+<section class="sec wrap" id="categories">
+  <div class="sec-head">
+    <div>
+      <span class="eyebrow" data-fade><span class="pip"></span>Shop by category</span>
+      <h2 data-split style="margin-top:14px">Find your<br>everyday essential</h2>
+    </div>
+    <p class="lead" id="catLead">From cooking to serving to cleaning — browse a complete range engineered for every Indian home.</p>
+  </div>
+  <div class="cat-grid" id="catGrid"></div>
+</section>
+
+<!-- ===== FEATURED COLLECTIONS ===== -->
+<section class="sec wrap" id="collections">
+  <div class="sec-head">
+    <div>
+      <span class="eyebrow" data-fade><span class="pip"></span>Featured collections</span>
+      <h2 data-split style="margin-top:14px" id="colTitle">Signature<br>ranges</h2>
+    </div>
+    <p class="lead" id="colLead">Our most-loved ranges — engineered to last, designed to delight.</p>
+  </div>
+  <div class="col-grid" id="colGrid"></div>
+</section>
+
+<!-- ===== BROWSE / PRODUCT GRID ===== -->
+<section class="sec browse" id="browse">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="eyebrow" data-fade><span class="pip"></span>The catalogue</span>
+        <h2 data-split style="margin-top:14px" id="browseTitle">Browse all<br>products</h2>
+      </div>
+      <p class="lead">Filter by category and sort to find exactly what your kitchen needs.</p>
+    </div>
+
+    <div class="browse-bar">
+      <div class="count" id="count"></div>
+      <div class="sortwrap">
+        <label for="sortSel">Sort</label>
+        <select id="sortSel">
+          <option value="featured">Featured</option>
+          <option value="az">Name A–Z</option>
+          <option value="za">Name Z–A</option>
+          <option value="brand">Brand</option>
+        </select>
+      </div>
+    </div>
+    <div class="chips" id="chips"></div>
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<!-- ===== MARQUEE ===== -->
+<div class="marquee" id="marquee">
+  <div class="mq-track">
+    <span>Since 1971</span><span>Made in India</span><span>Built on Trust</span><span>Everyday Ease</span><span>Cook · Serve · Clean</span><span>Trusted by Homes</span>
+    <span>Since 1971</span><span>Made in India</span><span>Built on Trust</span><span>Everyday Ease</span><span>Cook · Serve · Clean</span><span>Trusted by Homes</span>
+  </div>
+</div>
+
+<!-- ===== BRAND VALUE ===== -->
+<section class="sec sec-dark" id="value">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="eyebrow"><span class="pip"></span>The Crystal promise</span>
+        <h2 data-split style="margin-top:14px">Built on trust,<br>made to last</h2>
+      </div>
+      <p class="lead">Half a century of quality manufacturing, relentless innovation and durability you can feel in every product.</p>
+    </div>
+    <div class="val-grid" id="valGrid"></div>
+    <div class="vstats">
+      <div class="brand" data-fade>★ CRYSTAL<span class="since">(SINCE 1971)</span></div>
+      <div class="vstat" data-fade><div class="num"><span data-count="54">0</span>+</div><div class="lbl">Years of trust</div></div>
+      <div class="vstat" data-fade><div class="num"><span data-count="1000">0</span>+</div><div class="lbl">Products &amp; SKUs</div></div>
+      <div class="vstat" data-fade><div class="num"><span data-count="6">0</span></div><div class="lbl">Trusted brands</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="cta-sec" id="cta">
+  <div class="cta">
+    <div class="cta-inner">
+      <h2 data-split id="ctaTitle">Bring it<br>home</h2>
+      <p id="ctaSub">From our family of brands to yours — find the perfect everyday essential, or talk to our team about bulk, export and distribution.</p>
+      <div class="row">
+        <a href="#browse" class="btn btn-light">Explore Products <span class="arr">↗</span></a>
+        <a href="CRYSTAL Contact.html" class="btn btn-red">Contact Us <span class="arr">↗</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="sec-dark" id="footer">
+  <div class="wrap">
+    <div class="foot-cta">
+      <div>
+        <span class="eyebrow"><span class="pip"></span>Get in touch</span>
+        <h3>Bring <span class="g">Crystal</span> into<br>every corner of your home.</h3>
+      </div>
+      <a href="mailto:sales@crystalcook.com" class="btn btn-red">sales@crystalcook.com <span class="arr">↗</span></a>
+    </div>
+    <div class="foot-top">
+      <div class="foot-brand">
+        <div class="logo"><span class="blob"></span>CRYSTAL</div>
+        <p class="foot-desc">Complete Kitchen and Home Solutions — crafted for everyday ease, built on trust.</p>
+        <div class="foot-socials">
+          <a href="https://www.instagram.com/crystalcooknserve" target="_blank" rel="noopener" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"></circle></svg></a>
+          <a href="https://www.facebook.com/share/1HMc4pSziY/" target="_blank" rel="noopener" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-8h3l1-4h-4V8c0-1 .5-2 2-2h2V2h-3c-3 0-5 2-5 5v3H6v4h3v8z"></path></svg></a>
+          <a href="https://www.linkedin.com/company/crystal-cook-and-serve-products-pvt-ltd/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M4.5 3.5a2 2 0 100 4 2 2 0 000-4zM3 9h3v12H3zM9 9h3v1.7c.5-.9 1.7-1.9 3.5-1.9 3 0 4.5 2 4.5 5.3V21h-3v-6c0-1.6-.6-2.7-2-2.7s-2.2 1-2.2 2.6V21H9z"></path></svg></a>
+          <a href="https://youtube.com/@crystalcooknserve" target="_blank" rel="noopener" aria-label="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12s0-3-.4-4.4a2.5 2.5 0 00-1.8-1.8C18.4 5.4 12 5.4 12 5.4s-6.4 0-7.8.4A2.5 2.5 0 002.4 7.6C2 9 2 12 2 12s0 3 .4 4.4a2.5 2.5 0 001.8 1.8c1.4.4 7.8.4 7.8.4s6.4 0 7.8-.4a2.5 2.5 0 001.8-1.8C22 15 22 12 22 12zm-12 3V9l5 3z"></path></svg></a>
+        </div>
+      </div>
+      <div class="foot-col"><h5>Brands</h5><ul id="footBrands"></ul></div>
+      <div class="foot-col"><h5>Quick Link</h5><ul><li><a href="CRYSTAL About.html">About Us</a></li><li><a href="CRYSTAL Products.html">Products</a></li><li><a href="#footer">Career</a></li></ul></div>
+      <div class="foot-col"><h5>Contact Us</h5><ul><li><a href="#">G.I.D.C Metoda, Rajkot 360021, Gujarat</a></li><li><a href="#">Sahar Plaza, Andheri (E), Mumbai 400059</a></li><li><a href="tel:02249702803">022-49702803 / 06</a></li></ul></div>
+    </div>
+    <div class="foot-wordmark"><span class="wm-outline">CRYSTAL</span><span class="wm-fill">CRYSTAL</span></div>
+    <div class="foot-bottom"><span>© 2026 Crystal. All rights reserved.</span><span>Privacy Policy · Terms &amp; Condition</span></div>
+  </div>
+</footer>
+
+<script>
+  const RM = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const U = "https://proj.leo9studio.in/projects/crystal-wp/wp-content/uploads/";
+
+  /* ---------- DATA ---------- */
+  const CAT_ICONS = {
+    cookware: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="14" r="7"/><path d="M16.5 12.5l5.5-2.2"/></svg>',
+    cutlery: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15C11 13 17 7 20.5 3c.8 3.8-.6 9.4-7.5 13.5z"/><path d="M4 15l-1.6 4.4 4.4-1.6"/></svg>',
+    serveware: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 17h19"/><path d="M5 17a7 7 0 0 1 14 0"/><path d="M12 10V7"/></svg>',
+    cleaning: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v9"/><path d="M8 11h8l-1.4 4H9.4z"/><path d="M9.5 15l-1 7M14.5 15l1 7M12 15v7"/></svg>',
+    storage: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="10" width="8" height="11" rx="1.5"/><rect x="13.5" y="10" width="8" height="11" rx="1.5"/><rect x="8" y="3" width="8" height="6" rx="1.5"/></svg>',
+    flasks: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2.5h4v2.5l1 2v12.5a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2V7l1-2z"/><path d="M9 11h6"/></svg>',
+    lighters: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c3.6 3.8 5.6 6.2 5.6 9.5A5.6 5.6 0 0 1 6.4 12.5C6.4 10.3 7.6 9 9.5 7.6c.5 1.6 1.6 2 2.2.9.6-1.1.1-3.8.3-5.5z"/></svg>',
+    appliances: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v5M15 2v5"/><path d="M6 7h12v2.5a6 6 0 0 1-12 0z"/><path d="M12 15.5V22"/></svg>',
+  };
+  const CATEGORIES = [
+    { id: "cookware", label: "Cookware" },
+    { id: "cutlery", label: "Cutlery & Knives" },
+    { id: "serveware", label: "Serveware" },
+    { id: "cleaning", label: "Cleaning Aids" },
+    { id: "storage", label: "Storage & Freshness" },
+    { id: "flasks", label: "Flasks & Bottles" },
+    { id: "lighters", label: "Lighters" },
+    { id: "appliances", label: "Appliances" },
+  ];
+  const CAT_LABEL = Object.fromEntries(CATEGORIES.map(c => [c.id, c.label]));
+
+  const BRANDS = [
+    { slug: "crystal",    name: "Crystal",    tagline: "World of Kitchenware",   blurb: "From the gas lighter that started it all to a complete world of kitchen essentials — Crystal is the flagship range trusted in Indian homes since 1971.", title: "World of <span class='grad'>Kitchenware</span>" },
+    { slug: "crystalina", name: "Crystalina", tagline: "Splendid Finish",        blurb: "Premium stainless-steel serveware and dinnerware with a splendid mirror finish — where everyday dining feels like an occasion.", title: "A Splendid <span class='grad'>Finish</span>" },
+    { slug: "czarin",     name: "Czarin",     tagline: "Cook Like a Pro",        blurb: "High-performance non-stick and tri-ply cookware engineered to international standards — even heat, lasting durability, effortless cooking.", title: "Cook Like a <span class='grad'>Pro</span>" },
+    { slug: "freshmate",  name: "Freshmate",  tagline: "Locks Freshness In",     blurb: "Smart storage and container solutions that keep food fresher for longer — airtight, modular and built for the modern kitchen.", title: "Locks <span class='grad'>Freshness</span> In" },
+    { slug: "sparkmate",  name: "Sparkmate",  tagline: "Cleaning Simplified",    blurb: "Effortless cleaning essentials — spin mops, brooms, wipers and more — for a sparkling, low-effort home.", title: "Cleaning <span class='grad'>Simplified</span>" },
+    { slug: "vacu",       name: "Vacu",       tagline: "Hot Stays Hot",          blurb: "Vacuum-insulated flasks and bottles that hold temperature for hours — engineered for life on the move.", title: "Hot Stays <span class='grad'>Hot</span>" },
+  ];
+  const BRAND_BY = Object.fromEntries(BRANDS.map(b => [b.slug, b]));
+
+  const P = [
+    // CRYSTAL
+    { n: "Aristo SS Lighter",            col: "Classic Lighters",       b: "crystal",    c: "lighters",   img: "about-assets/prod-1.jpg",                              hl: "Refillable stainless-steel gas lighter with a sure, single-press spark.", tags: ["Stainless Steel", "Refillable"] },
+    { n: "Slimline Gas Lighter 305mm",   col: "Classic Lighters",       b: "crystal",    c: "lighters",   img: "about-assets/prod-2.jpg",                              hl: "Long-reach slimline lighter for deep burners and outdoor grills.", tags: ["Long Reach", "Flintless"] },
+    { n: "5-Pc Surgical Steel Knife Set",col: "Surgical Steel Knives",  b: "crystal",    c: "cutlery",    img: U + "2026/01/Crystal-5-Pcs-Knife-Set.jpg",              hl: "India's first surgical-steel knives — a full set that stays sharp for years.", tags: ["Surgical Steel", "Set of 5"] },
+    { n: "Laser-Edge Chef Knife",        col: "Surgical Steel Knives",  b: "crystal",    c: "cutlery",    img: U + "2026/04/Knife-2.jpg",                              hl: "Precision laser-honed edge for clean, effortless cuts every time.", tags: ["Laser Edge", "Ergonomic"] },
+    { n: "Auto-Clean Chimney 90cm",      col: "Modern Appliances",      b: "crystal",    c: "appliances", img: U + "2026/04/8.jpg",                                    hl: "Powerful suction with auto-clean tech for a grease-free kitchen.", tags: ["Auto-Clean", "Silent"] },
+    { n: "Electric Kettle 1.5L",         col: "Modern Appliances",      b: "crystal",    c: "appliances", img: U + "2026/04/5.jpg",                                    hl: "Fast-boil stainless kettle with auto cut-off and cool-touch body.", tags: ["1.5L", "Auto Cut-off"] },
+    // CRYSTALINA
+    { n: "Mirror-Finish Serving Set",    col: "Splendid Serveware",     b: "crystalina", c: "serveware",  img: "about-assets/prod-3.jpg",                              hl: "Gleaming stainless serveware that turns everyday meals into occasions.", tags: ["Mirror Finish", "Food-Grade"] },
+    { n: "Insulated Hot-Pot Casserole",  col: "Splendid Serveware",     b: "crystalina", c: "serveware",  img: "about-assets/prod-4.jpg",                              hl: "Double-wall casserole that keeps rotis and curries warm for hours.", tags: ["Insulated", "Stay-Warm"] },
+    { n: "Steel Dinner Thali Set",       col: "Elite Dinnerware",       b: "crystalina", c: "serveware",  img: "about-assets/prod-5.jpg",                              hl: "Heavy-gauge thali set with a splendid finish, built for daily dining.", tags: ["Heavy Gauge", "Family Set"] },
+    // CZARIN
+    { n: "Tri-Ply Frypan 24cm",          col: "Tri-Ply Pro",            b: "czarin",     c: "cookware",   img: U + "2026/04/Tri-Pro-2-1.jpg",                          hl: "Three bonded layers for even heat and pro-grade searing.", tags: ["Tri-Ply", "Induction"] },
+    { n: "Platinum Non-Stick Kadai",     col: "Platinum Non-Stick",     b: "czarin",     c: "cookware",   img: U + "2026/05/CTV-097.jpg",                              hl: "3-coat platinum non-stick, DuPont-grade, for healthier low-oil cooking.", tags: ["Non-Stick", "Low-Oil"] },
+    { n: "Tri-Pro Pressure Cooker 3L",   col: "Tri-Pro Pro",            b: "czarin",     c: "cookware",   img: U + "2026/04/Pressure-Cooker-5.jpg",                    hl: "Induction-ready triply cooker that saves fuel and time on every meal.", tags: ["Induction", "Triply"] },
+    { n: "Heritage Cast Iron Tawa",      col: "Heritage Cast Iron",     b: "czarin",     c: "cookware",   img: U + "2026/04/CPC_023.jpg",                              hl: "Pre-seasoned cast iron that gets better with every use.", tags: ["Cast Iron", "Pre-Seasoned"] },
+    // FRESHMATE
+    { n: "Airtight Container Set",       col: "Lock-Fresh Containers",  b: "freshmate",  c: "storage",    img: "about-assets/prod-6.jpg",                              hl: "Leak-proof, airtight containers that lock freshness in.", tags: ["Airtight", "Set of 6"] },
+    { n: "Modular Storage Jars",         col: "Modular Kitchen",        b: "freshmate",  c: "storage",    img: "about-assets/prod-7.jpg",                              hl: "Stackable modular jars that bring order to every shelf.", tags: ["Stackable", "BPA-Free"] },
+    { n: "Steel Lunch Box 3-Tier",       col: "On-the-Go",              b: "freshmate",  c: "storage",    img: "about-assets/prod-8.jpg",                              hl: "Insulated three-tier tiffin that keeps lunch warm till noon.", tags: ["Insulated", "Leak-Proof"] },
+    // SPARKMATE
+    { n: "360° Spin Mop",                col: "Spin & Clean",           b: "sparkmate",  c: "cleaning",   img: U + "2026/04/Spin-Mops-2.jpg",                          hl: "Single-bucket spin system for hands-free wringing and a sparkling floor.", tags: ["360° Spin", "Hands-Free"] },
+    { n: "Easy-Press Spin Mop Pro",      col: "Spin & Clean",           b: "sparkmate",  c: "cleaning",   img: U + "2026/05/SMM013-1024x1024.jpg",                     hl: "Foot-pedal spin with a microfibre head that lifts grime fast.", tags: ["Foot Pedal", "Microfibre"] },
+    { n: "Floor Wiper & Brush Combo",    col: "Sparkle Essentials",     b: "sparkmate",  c: "cleaning",   img: U + "2026/04/13.jpg",                                   hl: "Everyday wiper and brush set for quick, streak-free cleaning.", tags: ["Combo", "Everyday"] },
+    // VACU
+    { n: "Vacuum Flask 1L",              col: "Thermo Lock",            b: "vacu",       c: "flasks",     img: U + "2026/04/10.jpg",                                   hl: "Double-wall vacuum flask that keeps drinks hot or cold for 24 hours.", tags: ["24h Hot/Cold", "1L"] },
+    { n: "Insulated Sipper Bottle",      col: "Thermo Lock",            b: "vacu",       c: "flasks",     img: U + "2026/04/11.jpg",                                   hl: "Leak-proof insulated sipper for the gym, office and travel.", tags: ["Leak-Proof", "Insulated"] },
+    { n: "Double-Wall Carafe",           col: "Serve Warm",             b: "vacu",       c: "flasks",     img: U + "2026/04/6.jpg",                                    hl: "Elegant table carafe that serves water and juice at the perfect temp.", tags: ["Double-Wall", "Table-Ready"] },
+  ];
+  // product id (slug) used to link each card to its detail page (CRYSTAL Product.html?p=<id>)
+  const PID = {
+    "Aristo SS Lighter": "aristo-lighter", "Slimline Gas Lighter 305mm": "slimline-lighter",
+    "5-Pc Surgical Steel Knife Set": "knife-set-5pc", "Laser-Edge Chef Knife": "chef-knife",
+    "Auto-Clean Chimney 90cm": "chimney", "Electric Kettle 1.5L": "kettle",
+    "Mirror-Finish Serving Set": "serving-set", "Insulated Hot-Pot Casserole": "hot-pot-casserole",
+    "Steel Dinner Thali Set": "thali-set", "Tri-Ply Frypan 24cm": "triply-frypan",
+    "Platinum Non-Stick Kadai": "nonstick-kadai", "Tri-Pro Pressure Cooker 3L": "pressure-cooker",
+    "Heritage Cast Iron Tawa": "cast-iron-tawa", "Airtight Container Set": "container-set",
+    "Modular Storage Jars": "storage-jars", "Steel Lunch Box 3-Tier": "lunch-box",
+    "360\u00b0 Spin Mop": "spin-mop", "Easy-Press Spin Mop Pro": "spin-mop-pro",
+    "Floor Wiper & Brush Combo": "wiper-brush", "Vacuum Flask 1L": "vacuum-flask",
+    "Insulated Sipper Bottle": "sipper-bottle", "Double-Wall Carafe": "carafe",
+  };
+  const pdpHref = p => "CRYSTAL Product.html?p=" + (PID[p.n] || "");
+
+  const MAIN_COLLECTIONS = [
+    { tag: "Czarin", title: "Tri-Pro Cookware", desc: "Triply, induction-ready cookware that cooks faster and lasts a lifetime.", img: U + "2026/05/CTV-097.jpg", cls: "tall", filter: { c: "cookware" } },
+    { tag: "Crystal", title: "Surgical Steel Knives", desc: "India's widest knife range — over 108 shapes, all razor-sharp.", img: U + "2026/04/Knife-2.jpg", filter: { c: "cutlery" } },
+    { tag: "Sparkmate", title: "Spin & Sparkle Cleaning", desc: "Effortless mops, wipers and brushes for a low-effort, spotless home.", img: U + "2026/04/Spin-Mops-2.jpg", filter: { c: "cleaning" } },
+    { tag: "Crystalina", title: "Splendid Serveware", desc: "Mirror-finish steel that makes everyday dining an occasion.", img: "about-assets/prod-3.jpg", filter: { c: "serveware" } },
+    { tag: "Freshmate", title: "Lock-Fresh Storage", desc: "Airtight, modular containers that keep food fresher for longer.", img: "about-assets/prod-6.jpg", filter: { c: "storage" } },
+  ];
+
+  /* ---------- VIEW (main vs brand) ---------- */
+  const params = new URLSearchParams(location.search);
+  const brandSlug = (params.get("brand") || "").toLowerCase();
+  const brand = BRAND_BY[brandSlug] || null;
+  const viewProducts = brand ? P.filter(p => p.b === brand.slug) : P.slice();
+
+  /* ---------- RENDER: brand dropdown + footer brands + mobile ---------- */
+  const ddHTML = BRANDS.map(b => `<a href="CRYSTAL Products.html?brand=${b.slug}"${brand && brand.slug === b.slug ? ' class="active"' : ''}><b>${b.name}</b><span>${b.tagline}</span></a>`).join("");
+  document.getElementById("ddMenu").innerHTML = ddHTML;
+  document.getElementById("footBrands").innerHTML = BRANDS.map(b => `<li><a href="CRYSTAL Products.html?brand=${b.slug}">${b.name}</a></li>`).join("");
+  document.getElementById("mmBrands").innerHTML = BRANDS.map(b => `<a href="CRYSTAL Products.html?brand=${b.slug}" class="mm-link">${b.name}</a>`).join("");
+
+  /* ---------- RENDER: hero ---------- */
+  if (brand) {
+    document.getElementById("heroPreTxt").textContent = brand.name + " · " + brand.tagline;
+    document.getElementById("heroTitle").innerHTML = brand.title;
+    document.getElementById("heroSub").textContent = brand.blurb;
+    document.title = brand.name + " — CRYSTAL";
+    document.getElementById("catLead").textContent = "Explore the " + brand.name + " range, organised by what you're looking for.";
+    document.getElementById("colTitle").innerHTML = brand.name + "<br>collections";
+    document.getElementById("colLead").textContent = "The signature " + brand.name + " ranges, designed to delight.";
+    document.getElementById("browseTitle").innerHTML = "All " + brand.name + "<br>products";
+    document.getElementById("ctaTitle").innerHTML = "Discover<br>" + brand.name;
+  }
+  // hero tiles: pick 5 representative images from the view
+  const tileImgs = (() => {
+    const seen = new Set(), out = [];
+    viewProducts.forEach(p => { if (!seen.has(p.img)) { seen.add(p.img); out.push(p.img); } });
+    return out.slice(0, 5);
+  })();
+  document.getElementById("heroTiles").innerHTML = tileImgs.map(src => `<div class="hero-tile"><img src="${src}" alt="Crystal product" loading="lazy"></div>`).join("");
+
+  /* ---------- RENDER: category nav ---------- */
+  const catsInView = CATEGORIES.filter(cat => viewProducts.some(p => p.c === cat.id));
+  document.getElementById("catGrid").innerHTML = catsInView.map(cat => {
+    const cnt = viewProducts.filter(p => p.c === cat.id).length;
+    return `<button class="cat-card" data-cat="${cat.id}" data-fade>
+      <span class="cat-ic">${CAT_ICONS[cat.id] || ""}</span>
+      <h4>${cat.label}</h4>
+      <span class="cnt">${cnt} product${cnt !== 1 ? "s" : ""}</span>
+    </button>`;
+  }).join("");
+
+  /* ---------- RENDER: featured collections ---------- */
+  let collections;
+  if (brand) {
+    const byCol = {};
+    viewProducts.forEach(p => { if (!byCol[p.col]) byCol[p.col] = p; });
+    collections = Object.values(byCol).slice(0, 3).map(p => ({
+      tag: brand.name, title: p.col, desc: p.hl, img: p.img, filter: { col: p.col }
+    }));
+  } else {
+    collections = MAIN_COLLECTIONS.slice(0, 3);
+  }
+  document.getElementById("colGrid").innerHTML = collections.map(c => `
+    <a class="col-card" data-col='${JSON.stringify(c.filter)}' data-fade>
+      <div class="cc-media"><img src="${c.img}" alt="${c.title}" loading="lazy"></div>
+      <div class="cc-grad"></div>
+      <div class="cc-body">
+        <span class="cc-tag">${c.tag}</span>
+        <div class="cc-title">${c.title}</div>
+        <div class="cc-desc">${c.desc}</div>
+        <span class="cc-link">View range <span>↗</span></span>
+      </div>
+    </a>`).join("");
+
+  /* ---------- RENDER: chips ---------- */
+  const chipsEl = document.getElementById("chips");
+  chipsEl.innerHTML = `<button class="chip active" data-cat="all">All${brand ? " " + brand.name : ""}</button>` +
+    catsInView.map(cat => `<button class="chip" data-cat="${cat.id}">${cat.label}</button>`).join("");
+
+  /* ---------- GRID state + render ---------- */
+  const gridEl = document.getElementById("grid");
+  const countEl = document.getElementById("count");
+  let state = { cat: "all", col: "", sort: "featured" };
+
+  function brandName(slug) { return (BRAND_BY[slug] || {}).name || slug; }
+
+  function applyAndRender(animate) {
+    let list = viewProducts.slice();
+    if (state.cat !== "all") list = list.filter(p => p.c === state.cat);
+    if (state.col) list = list.filter(p => p.col === state.col);
+    if (state.sort === "az") list.sort((a, b) => a.n.localeCompare(b.n));
+    else if (state.sort === "za") list.sort((a, b) => b.n.localeCompare(a.n));
+    else if (state.sort === "brand") list.sort((a, b) => brandName(a.b).localeCompare(brandName(b.b)) || a.n.localeCompare(b.n));
+
+    const label = state.col ? state.col : (state.cat !== "all" ? CAT_LABEL[state.cat] : "");
+    countEl.innerHTML = `Showing <b>${list.length}</b> of <b>${viewProducts.length}</b> products${label ? " in <b>" + label + "</b>" : ""}`;
+
+    if (!list.length) {
+      gridEl.innerHTML = `<div class="empty">No products in this category yet.<br>Try another category.</div>`;
+      return;
+    }
+    gridEl.innerHTML = list.map(p => `
+      <a class="pcard" href="${pdpHref(p)}">
+        <div class="pimg">
+          <span class="pbrand">${brandName(p.b)}</span>
+          <img src="${p.img}" alt="${p.n}" loading="lazy">
+          <span class="penq-btn" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+        </div>
+        <div class="pbody">
+          <h3 class="pname">${p.n}</h3>
+          <p class="phl">${p.hl}</p>
+          <div class="ptags">${p.tags.map(t => `<span class="ptag">${t}</span>`).join("")}</div>
+        </div>
+      </a>`).join("");
+
+    if (animate && window.gsap && !RM) {
+      gsap.from(".pcard", { y: 30, opacity: 0, duration: 0.5, stagger: 0.045, ease: "power2.out", overwrite: true });
+    }
+  }
+
+  function setCat(cat) {
+    state.cat = cat; state.col = "";
+    document.querySelectorAll(".chip").forEach(c => c.classList.toggle("active", c.dataset.cat === cat));
+    applyAndRender(true);
+  }
+
+  /* ---------- WIRE controls ---------- */
+  chipsEl.addEventListener("click", e => { const c = e.target.closest(".chip"); if (c) setCat(c.dataset.cat); });
+  document.getElementById("catGrid").addEventListener("click", e => {
+    const card = e.target.closest(".cat-card");
+    if (!card) return;
+    setCat(card.dataset.cat);
+    document.getElementById("browse").scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+  document.getElementById("colGrid").addEventListener("click", e => {
+    const card = e.target.closest(".col-card");
+    if (!card) return;
+    e.preventDefault();
+    let f = {}; try { f = JSON.parse(card.dataset.col); } catch (_) {}
+    state.cat = f.c || "all";
+    state.col = f.col || "";
+    document.querySelectorAll(".chip").forEach(c => c.classList.toggle("active", c.dataset.cat === state.cat));
+    applyAndRender(true);
+    document.getElementById("browse").scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+  document.getElementById("sortSel").addEventListener("change", e => { state.sort = e.target.value; applyAndRender(true); });
+
+  applyAndRender(false);
+
+  /* ---------- RENDER: brand value cards ---------- */
+  const valIcons = [
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"><path d="M12 2l2.6 5.6 6.1.7-4.5 4.1 1.2 6L12 19.6 6.6 18.4l1.2-6L3.3 8.3l6.1-.7z"/></svg>',
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"><path d="M12 2a6 6 0 0 0-3.5 10.9c.5.4.8 1 .8 1.6V16h5.4v-1.5c0-.6.3-1.2.8-1.6A6 6 0 0 0 12 2z"/><path d="M9 19h6M10 22h4"/></svg>',
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"><path d="M12 2l8 3v6c0 5-3.4 9-8 11-4.6-2-8-6-8-11V5z"/><path d="M9 12l2 2 4-4.5"/></svg>',
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"><path d="M3 21V10l9-6 9 6v11"/><path d="M3 21h18M9 21v-6h6v6"/></svg>',
+  ];
+  const VALUES = [
+    { t: "Uncompromising Quality", d: "Every product is built to international standards in our own facilities — quality you can feel in your hand." },
+    { t: "Relentless Innovation", d: "From surgical-steel knives to DuPont non-stick, we keep pace with changing kitchens, decade after decade." },
+    { t: "Built to Last", d: "Durable materials and rigorous testing mean Crystal products earn their place for years, not seasons." },
+    { t: "Made in India", d: "Designed and manufactured in India since 1971, trusted in homes across the country and beyond." },
+  ];
+  document.getElementById("valGrid").innerHTML = VALUES.map((v, i) => `
+    <div class="val-card" data-fade>
+      <span class="vn">0${i + 1}</span>
+      <span class="vic">${valIcons[i]}</span>
+      <h4>${v.t}</h4>
+      <p>${v.d}</p>
+    </div>`).join("");
+
+  /* ---------- WORD SPLIT ---------- */
+  function splitWords(el) {
+    const out = [];
+    el.childNodes.forEach(node => {
+      if (node.nodeType === 3) {
+        node.textContent.trim().split(/\s+/).filter(Boolean).forEach(w => out.push(`<span class="w-mask"><span class="word">${w}</span></span>`));
+      } else if (node.nodeType === 1) {
+        const cls = node.getAttribute("class") || "";
+        node.textContent.trim().split(/\s+/).filter(Boolean).forEach(w => out.push(`<span class="w-mask"><span class="word ${cls}">${w}</span></span>`));
+      }
+    });
+    el.innerHTML = out.join(" ");
+  }
+  document.querySelectorAll("[data-split]").forEach(splitWords);
+
+  /* ---------- HEADER / MENU / COUNTERS ---------- */
+  const hdr = document.getElementById("hdr");
+  addEventListener("scroll", () => hdr.classList.toggle("scrolled", scrollY > 30), { passive: true });
+  const mmEl = document.getElementById("mobileMenu");
+  document.getElementById("burger").addEventListener("click", () => mmEl.classList.add("open"));
+  document.getElementById("mmClose").addEventListener("click", () => mmEl.classList.remove("open"));
+  document.querySelectorAll(".mm-link").forEach(a => a.addEventListener("click", () => mmEl.classList.remove("open")));
+
+  const counted = new Set();
+  function countUp(el) {
+    if (counted.has(el)) return; counted.add(el);
+    const target = parseFloat(el.dataset.count), dur = 1500, t0 = performance.now();
+    const tick = now => { const p = Math.min((now - t0) / dur, 1), e = 1 - Math.pow(1 - p, 3); el.textContent = Math.round(target * e); if (p < 1) requestAnimationFrame(tick); };
+    requestAnimationFrame(tick);
+    setTimeout(() => { el.textContent = target; }, 1900);
+  }
+  const countEls = [...document.querySelectorAll("[data-count]")];
+  const inView = (el, m = 0.9) => el.getBoundingClientRect().top < innerHeight * m;
+  const countScan = () => countEls.forEach(el => { if (inView(el)) countUp(el); });
+  addEventListener("scroll", countScan, { passive: true });
+
+  /* ---------- GSAP reveals ---------- */
+  function initGSAP() {
+    if (!window.gsap || !window.ScrollTrigger) return;
+    gsap.registerPlugin(ScrollTrigger);
+
+    const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+    tl.from("#hero [data-split] .word", { yPercent: 118, duration: 0.9, stagger: 0.05, delay: 0.12 })
+      .from("#heroPre", { y: 26, opacity: 0, duration: 0.55 }, 0.1)
+      .from("#heroSub", { y: 22, opacity: 0, duration: 0.55 }, "-=0.4")
+      .from(".hero-cta", { y: 20, opacity: 0, duration: 0.5 }, "-=0.32")
+      .from(".hero-tile", { y: 50, opacity: 0, duration: 0.6, stagger: 0.08, ease: "power3.out" }, "-=0.4");
+
+    gsap.utils.toArray("[data-split]").forEach(h => {
+      if (h.closest("#hero")) return;
+      gsap.from(h.querySelectorAll(".word"), { yPercent: 118, duration: 0.8, stagger: 0.05, ease: "power3.out", scrollTrigger: { trigger: h, start: "top 86%", once: true } });
+    });
+    gsap.utils.toArray("[data-fade]").forEach(el => {
+      if (el.closest("#hero")) return;
+      gsap.from(el, { y: 36, opacity: 0, duration: 0.65, ease: "power2.out", scrollTrigger: { trigger: el, start: "top 90%", once: true } });
+    });
+
+    gsap.fromTo(".foot-wordmark .wm-fill", { "--level": "0%" }, { "--level": "112%", ease: "none", scrollTrigger: { trigger: ".foot-wordmark", start: "top 92%", end: "bottom 78%", scrub: 0.6 } });
+    gsap.to(".foot-wordmark .wm-fill", { "--wavex": "-160px", duration: 2.6, ease: "none", repeat: -1 });
+    gsap.to(".foot-wordmark .wm-fill", { "--wavex2": "-200px", duration: 4, ease: "none", repeat: -1 });
+
+    ScrollTrigger.refresh();
+  }
+
+  if (!RM) { try { initGSAP(); } catch (e) { console.warn("GSAP issue", e); } }
+  countScan();
+
+  function failsafeReveal() {
+    if (window.gsap) gsap.set("[data-split] .word, [data-fade], .hero-tile", { clearProps: "opacity,transform,x,y,xPercent,yPercent,scale" });
+    countEls.forEach(el => { if (!counted.has(el)) { counted.add(el); el.textContent = parseFloat(el.dataset.count); } });
+  }
+  if (document.hidden || !window.gsap || RM) failsafeReveal();
+  let clockOK = false;
+  requestAnimationFrame(() => { clockOK = true; });
+  setTimeout(() => { if (!clockOK) failsafeReveal(); }, 1100);
+  document.addEventListener("visibilitychange", () => { if (!document.hidden && window.ScrollTrigger) ScrollTrigger.refresh(); });
+  addEventListener("load", () => { if (window.ScrollTrigger) ScrollTrigger.refresh(); });
+  setTimeout(() => { if (window.ScrollTrigger) ScrollTrigger.refresh(); }, 1400);
+</script>
+
+<!-- ===== TWEAKS PANEL ===== -->
+<div class="twk" id="twkPanel">
+  <div class="twk-hd"><b>Tweaks</b><button class="twk-x" id="twkClose" aria-label="Close">✕</button></div>
+  <div class="twk-body">
+    <div class="twk-sect">Mood</div>
+    <div class="twk-seg" id="twkMood"><button data-mood="light">Light</button><button data-mood="warm">Warm</button><button data-mood="noir">Noir</button></div>
+    <div class="twk-sect">Type voice</div>
+    <div class="twk-seg" id="twkType"><button data-type="modern">Modern</button><button data-type="editorial">Editorial</button><button data-type="bold">Bold</button></div>
+    <div class="twk-sect">Sections</div>
+    <label class="twk-tg"><span>Category nav</span><input type="checkbox" data-sec="categories"></label>
+    <label class="twk-tg"><span>Featured collections</span><input type="checkbox" data-sec="collections"></label>
+    <label class="twk-tg"><span>Marquee strip</span><input type="checkbox" data-sec="marquee"></label>
+    <label class="twk-tg"><span>Brand value</span><input type="checkbox" data-sec="value"></label>
+    <label class="twk-tg"><span>Call-to-action</span><input type="checkbox" data-sec="cta"></label>
+    <div class="twk-sect">Layout</div>
+    <div class="twk-row"><span class="twk-l">Grid columns</span>
+      <div class="twk-seg" id="twkCols"><button data-cols="3">3</button><button data-cols="4">4</button></div>
+    </div>
+    <label class="twk-tg"><span>Show product tags</span><input type="checkbox" data-tags></label>
+    <div class="twk-sect">Style</div>
+    <div class="twk-row"><span class="twk-l">Accent</span><div class="twk-sw" id="twkAccent"></div></div>
+    <div class="twk-row"><span class="twk-l">Corner radius <em id="twkRadVal">20px</em></span><input class="twk-rad" type="range" id="twkRad" min="10" max="28" step="1"></div>
+  </div>
+</div>
+
+<script>
+(function () {
+  const DEF = /*EDITMODE-BEGIN*/{
+    "mood": "light",
+    "type": "editorial",
+    "showCategoryNav": true,
+    "showCollections": false,
+    "showMarquee": true,
+    "showBrandValue": false,
+    "showCTA": false,
+    "gridCols": "4",
+    "showTags": true,
+    "accent": "red",
+    "radius": 20
+  }/*EDITMODE-END*/;
+  const LSK = "crystal-products-tweaks";
+  let vals = Object.assign({}, DEF);
+  try { Object.assign(vals, JSON.parse(localStorage.getItem(LSK) || "{}")); } catch (e) {}
+
+  const SECMAP = {
+    categories: ["showCategoryNav", "#categories"],
+    collections: ["showCollections", "#collections"],
+    marquee: ["showMarquee", "#marquee"],
+    value: ["showBrandValue", "#value"],
+    cta: ["showCTA", "#cta"],
+  };
+  const ACCENTS = {
+    red:    { solid: "#ED3338", g: "linear-gradient(135deg,#ED3338 0%,#c0282c 100%)" },
+    saffron:{ solid: "#E5A817", g: "linear-gradient(135deg,#F0B92E 0%,#c8860b 100%)" },
+    maroon: { solid: "#c0282c", g: "linear-gradient(135deg,#c0282c 0%,#8f1d20 100%)" },
+    ink:    { solid: "#1A1A1A", g: "linear-gradient(135deg,#2c2c2c 0%,#0f0f0f 100%)" },
+  };
+  const root = document.documentElement;
+  let refreshT;
+  const refresh = () => { clearTimeout(refreshT); refreshT = setTimeout(() => { if (window.ScrollTrigger) ScrollTrigger.refresh(); }, 120); };
+
+  function reveal(el) {
+    if (!window.gsap || !el) return;
+    gsap.set(el.querySelectorAll('[data-fade], [data-split] .word, .pcard, .cat-card, .col-card, .val-card, .vstat, .num'),
+      { clearProps: "opacity,transform,x,y,xPercent,yPercent,scale,clipPath" });
+  }
+
+  function apply(initial) {
+    document.body.classList.remove("t-warm", "t-noir");
+    if (vals.mood === "warm") document.body.classList.add("t-warm");
+    else if (vals.mood === "noir") document.body.classList.add("t-noir");
+    document.body.classList.remove("tv-editorial", "tv-bold");
+    if (vals.type === "editorial") document.body.classList.add("tv-editorial");
+    else if (vals.type === "bold") document.body.classList.add("tv-bold");
+    Object.keys(SECMAP).forEach(k => {
+      const [key, sel] = SECMAP[k];
+      const el = document.querySelector(sel);
+      if (!el) return;
+      const on = !!vals[key];
+      el.style.display = on ? "" : "none";
+      if (on && !initial) reveal(el);
+    });
+    root.style.setProperty("--gcols", vals.gridCols);
+    document.body.classList.toggle("hide-tags", !vals.showTags);
+    const a = ACCENTS[vals.accent] || ACCENTS.red;
+    root.style.setProperty("--red", a.solid);
+    root.style.setProperty("--grad-red", a.g);
+    root.style.setProperty("--r", vals.radius + "px");
+    if (!initial) refresh();
+  }
+
+  function syncUI() {
+    document.querySelectorAll('#twkMood button').forEach(b => b.classList.toggle("on", b.dataset.mood === vals.mood));
+    document.querySelectorAll('#twkType button').forEach(b => b.classList.toggle("on", b.dataset.type === vals.type));
+    document.querySelectorAll('.twk-tg input[data-sec]').forEach(inp => { inp.checked = !!vals[SECMAP[inp.dataset.sec][0]]; });
+    document.querySelector('.twk-tg input[data-tags]').checked = !!vals.showTags;
+    document.querySelectorAll('#twkCols button').forEach(b => b.classList.toggle("on", b.dataset.cols === String(vals.gridCols)));
+    document.querySelectorAll('#twkAccent button').forEach(b => b.classList.toggle("on", b.dataset.acc === vals.accent));
+    document.getElementById("twkRad").value = vals.radius;
+    document.getElementById("twkRadVal").textContent = vals.radius + "px";
+  }
+
+  function save() {
+    try { localStorage.setItem(LSK, JSON.stringify(vals)); } catch (e) {}
+    try { window.parent.postMessage({ type: "__edit_mode_set_keys", edits: vals }, "*"); } catch (e) {}
+  }
+  function set(k, v) { vals[k] = v; save(); apply(false); }
+
+  document.getElementById("twkAccent").innerHTML = Object.keys(ACCENTS).map(k => `<button data-acc="${k}" title="${k}" style="background:${ACCENTS[k].solid}"></button>`).join("");
+
+  document.querySelectorAll('.twk-tg input[data-sec]').forEach(inp => inp.addEventListener("change", () => set(SECMAP[inp.dataset.sec][0], inp.checked)));
+  document.querySelector('.twk-tg input[data-tags]').addEventListener("change", e => set("showTags", e.target.checked));
+  document.getElementById("twkCols").addEventListener("click", e => { const b = e.target.closest("button"); if (!b) return; set("gridCols", b.dataset.cols); syncUI(); });
+  document.getElementById("twkAccent").addEventListener("click", e => { const b = e.target.closest("button"); if (!b) return; set("accent", b.dataset.acc); syncUI(); });
+  document.getElementById("twkMood").addEventListener("click", e => { const b = e.target.closest("button"); if (!b) return; set("mood", b.dataset.mood); syncUI(); });
+  document.getElementById("twkType").addEventListener("click", e => { const b = e.target.closest("button"); if (!b) return; set("type", b.dataset.type); syncUI(); });
+  document.getElementById("twkRad").addEventListener("input", e => { document.getElementById("twkRadVal").textContent = e.target.value + "px"; set("radius", parseInt(e.target.value, 10)); });
+
+  const panel = document.getElementById("twkPanel");
+  addEventListener("message", e => { const t = e && e.data && e.data.type; if (t === "__activate_edit_mode") panel.classList.add("open"); else if (t === "__deactivate_edit_mode") panel.classList.remove("open"); });
+  document.getElementById("twkClose").addEventListener("click", () => { panel.classList.remove("open"); try { window.parent.postMessage({ type: "__edit_mode_dismissed" }, "*"); } catch (e) {} });
+  try { window.parent.postMessage({ type: "__edit_mode_available" }, "*"); } catch (e) {}
+
+  syncUI();
+  apply(true);
+  addEventListener("load", () => setTimeout(refresh, 200));
+})();
+</script>
+</body>
+</html>

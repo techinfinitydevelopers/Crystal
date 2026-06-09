@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CRYSTAL — Cookware Built to Last</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<script>
+  document.documentElement.className += " js";
+  try { if (localStorage.getItem("crystal-theme") === "light") document.documentElement.setAttribute("data-theme", "light"); } catch (e) {}
+</script>
+<script src="image-slot.js"></script>
+<style>
+  :root {
+    --red: #ED3338;
+    --red-deep: #c0282c;
+    --red-glow: rgba(237,51,56,0.18);
+    --ink: #0F0F0F;
+    --ink-2: #1A1A1A;
+    --ink-3: #232323;
+    --silver: #D5D5D5;
+    --silver-dim: #9a9a9a;
+    --white: #f6f6f6;
+    /* gradient tokens (brand colors mixed) */
+    --grad-warm: linear-gradient(165deg, #201a1b 0%, #161414 45%, #0f0f0f 100%);
+    --grad-cool: linear-gradient(180deg, #1d1d20 0%, #161618 60%, #111113 100%);
+    --grad-red: linear-gradient(135deg, #ED3338 0%, #c0282c 100%);
+    --grad-red-soft: linear-gradient(135deg, #f0474c 0%, #b8252a 100%);
+    --display: "Bricolage Grotesque", sans-serif;
+    --body: "Hanken Grotesk", sans-serif;
+    --maxw: 1280px;
+    --pad: clamp(20px, 5vw, 80px);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--body);
+    background:
+      radial-gradient(1100px 700px at 88% -5%, rgba(237,51,56,0.10), transparent 60%),
+      radial-gradient(900px 600px at 5% 100%, rgba(237,51,56,0.06), transparent 55%),
+      linear-gradient(180deg, #161416 0%, #121113 50%, #0f0f0f 100%);
+    background-attachment: fixed;
+    color: var(--silver);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  img { display: block; max-width: 100%; }
+
+  a { color: inherit; text-decoration: none; }
+
+  .wrap {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding-inline: var(--pad);
+    width: 100%;
+  }
+
+  .eyebrow {
+    font-family: var(--body);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    background: var(--grad-red-soft);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .eyebrow::before {
+    content: "";
+    width: 28px;
+    height: 2px;
+    background: var(--grad-red);
+    display: inline-block;
+  }
+
+  h1, h2, h3 { font-family: var(--display); color: var(--white); line-height: 1.02; font-weight: 700; letter-spacing: -0.02em; }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--body);
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 0.01em;
+    padding: 15px 28px;
+    border-radius: 2px;
+    border: none;
+    cursor: pointer;
+    transition: transform .25s ease, background .25s ease, color .25s ease;
+  }
+  .btn-primary { background: var(--grad-red); color: #fff; box-shadow: 0 8px 24px -10px rgba(237,51,56,0.6); }
+  .btn-primary:hover { background: #fff; color: var(--ink); transform: translateY(-2px); box-shadow: 0 10px 30px -12px rgba(255,255,255,0.3); }
+  .btn-ghost { background: transparent; color: var(--white); border: 1px solid #3a3a3a; }
+  .btn-ghost:hover { border-color: var(--red); color: var(--red); transform: translateY(-2px); }
+  .btn .arr { transition: transform .25s ease; }
+  .btn:hover .arr { transform: translateX(4px); }
+
+  /* ===== HEADER (sticky, shrinks on scroll) ===== */
+  header {
+    position: fixed;
+    inset: 0 0 auto 0;
+    z-index: 100;
+    background: rgba(15,15,15,0);
+    border-bottom: 1px solid transparent;
+    transition: background .35s ease, border-color .35s ease, padding .35s ease, backdrop-filter .35s ease;
+    padding-block: 26px;
+  }
+  header.scrolled {
+    background: rgba(15,15,15,0.88);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid #242424;
+    padding-block: 14px;
+  }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+  .logo {
+    font-family: var(--display);
+    font-weight: 800;
+    font-size: 26px;
+    letter-spacing: 0.18em;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: font-size .35s ease;
+  }
+  header.scrolled .logo { font-size: 22px; }
+  .logo .dot { width: 9px; height: 9px; background: var(--red); border-radius: 50%; display: inline-block; }
+  .nav-links { display: flex; align-items: center; gap: 34px; list-style: none; }
+  .nav-links a { font-size: 14px; font-weight: 600; color: var(--silver); letter-spacing: 0.02em; transition: color .2s; }
+  .nav-links a:hover { color: var(--red); }
+  .nav-right { display: flex; align-items: center; gap: 18px; }
+  .icon-btn { background: none; border: none; color: var(--white); cursor: pointer; display: grid; place-items: center; position: relative; }
+  .cart-count { position: absolute; top: -8px; right: -8px; background: var(--red); color: #fff; font-size: 10px; font-weight: 700; width: 16px; height: 16px; border-radius: 50%; display: grid; place-items: center; font-family: var(--body); }
+  .burger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 6px; }
+  .burger span { width: 24px; height: 2px; background: var(--white); transition: .3s; }
+
+  /* ===== HERO (parallax) ===== */
+  .hero { position: relative; min-height: 100svh; display: flex; align-items: center; overflow: hidden; }
+  .hero-bg { position: absolute; inset: -12% 0 0 0; height: 124%; z-index: 0; will-change: transform; }
+  .hero-bg image-slot { width: 100%; height: 100%; }
+  .hero-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(100deg, rgba(15,15,15,0.96) 0%, rgba(20,14,15,0.82) 38%, rgba(237,51,56,0.10) 72%, rgba(15,15,15,0.55) 100%); z-index: 2; }
+  .hero .wrap { position: relative; z-index: 3; padding-top: 120px; padding-bottom: 60px; }
+  .hero-content { max-width: 660px; }
+  .hero h1 { font-size: clamp(44px, 8vw, 104px); font-weight: 800; margin: 22px 0 24px; }
+  .hero h1 .accent { color: var(--red); }
+  .hero p { font-size: clamp(16px, 2vw, 20px); line-height: 1.6; color: var(--silver); max-width: 500px; margin-bottom: 38px; }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; }
+  .scroll-hint { position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%); z-index: 3; display: flex; flex-direction: column; align-items: center; gap: 8px; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--silver-dim); }
+  .scroll-hint .line { width: 1px; height: 40px; background: linear-gradient(var(--red), transparent); animation: drip 1.8s infinite; }
+  @keyframes drip { 0% { transform: scaleY(0); transform-origin: top; } 50% { transform: scaleY(1); transform-origin: top; } 51% { transform-origin: bottom; } 100% { transform: scaleY(0); transform-origin: bottom; } }
+
+  /* ===== Reveal animation (visibility-safe: opacity always 1, slide via transform) ===== */
+  .reveal { opacity: 1; }
+  html.js .reveal { transform: translateY(60px) scale(.97); }
+  html.js .reveal.in { animation: revealUp .85s cubic-bezier(.16,.7,.2,1) forwards; }
+  html.js .reveal.in.d1 { animation-delay: .1s; }
+  html.js .reveal.in.d2 { animation-delay: .2s; }
+  html.js .reveal.in.d3 { animation-delay: .3s; }
+  html.js .reveal.in.d4 { animation-delay: .4s; }
+  @keyframes revealUp { from { transform: translateY(60px) scale(.97); } to { transform: translateY(0) scale(1); } }
+  @media (prefers-reduced-motion: reduce) {
+    html.js .reveal { transform: none; }
+    html.js .reveal.in { animation: none; }
+  }
+
+  /* ===== Section scaffold ===== */
+  section { position: relative; }
+  .sec-pad { padding-block: clamp(64px, 9vw, 130px); }
+  .sec-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 30px; margin-bottom: clamp(36px, 5vw, 64px); flex-wrap: wrap; }
+  .sec-head h2 { font-size: clamp(32px, 5vw, 60px); }
+  .sec-head .lead { max-width: 420px; color: var(--silver-dim); font-size: 16px; line-height: 1.6; }
+  .sec-head .eyebrow { margin-bottom: 16px; }
+
+  /* ===== Featured products ===== */
+  .feat { background: transparent; }
+  .prod-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+  .prod-card { background: linear-gradient(180deg, #201f22 0%, #18171a 100%); border: 1px solid #2a2a2e; border-radius: 6px; overflow: hidden; transition: transform .4s cubic-bezier(.2,.7,.2,1), border-color .4s, box-shadow .4s; }
+  .prod-card:hover { transform: translateY(-8px); border-color: rgba(237,51,56,0.5); box-shadow: 0 24px 50px -28px rgba(237,51,56,0.45); }
+  .prod-media { position: relative; aspect-ratio: 4/3; background: #141414; overflow: hidden; }
+  .prod-media image-slot { width: 100%; height: 100%; }
+  .prod-tag { position: absolute; top: 14px; left: 14px; z-index: 5; background: var(--red); color: #fff; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 6px 11px; border-radius: 2px; }
+  .prod-body { padding: 22px 22px 26px; }
+  .prod-body .cat { font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--red); font-weight: 700; }
+  .prod-body h3 { font-size: 21px; margin: 9px 0 14px; color: var(--white); }
+  .prod-foot { display: flex; align-items: center; justify-content: space-between; }
+  .price { font-family: var(--display); font-size: 22px; font-weight: 700; color: var(--white); }
+  .price .old { font-family: var(--body); font-size: 14px; color: var(--silver-dim); text-decoration: line-through; margin-left: 8px; font-weight: 500; }
+  .add-btn { background: var(--ink-3); border: 1px solid #333; color: var(--white); width: 42px; height: 42px; border-radius: 2px; cursor: pointer; display: grid; place-items: center; transition: .25s; }
+  .add-btn:hover { background: var(--red); border-color: var(--red); }
+  .stars { display: flex; gap: 2px; color: var(--red); font-size: 13px; margin-top: 6px; }
+
+  /* ===== Categories ===== */
+  .cats { background: linear-gradient(180deg, rgba(32,26,27,0.55) 0%, rgba(20,19,21,0.0) 100%); }
+  .cat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+  .cat-card { position: relative; aspect-ratio: 3/4; border-radius: 4px; overflow: hidden; cursor: pointer; border: 1px solid #2a2a2a; }
+  .cat-card image-slot { width: 100%; height: 100%; }
+  .cat-card .overlay { position: absolute; inset: 0; z-index: 5; background: linear-gradient(0deg, rgba(15,15,15,0.92) 0%, rgba(15,15,15,0.15) 60%, transparent 100%); display: flex; flex-direction: column; justify-content: flex-end; padding: 22px; transition: background .35s; }
+  .cat-card:hover .overlay { background: linear-gradient(0deg, rgba(237,51,56,0.85) 0%, rgba(237,51,56,0.1) 60%, transparent 100%); }
+  .cat-card h3 { font-size: 22px; color: #fff; }
+  .cat-card .count { font-size: 13px; color: var(--silver); margin-top: 4px; }
+  .cat-card .go { position: absolute; top: 18px; right: 18px; z-index: 5; width: 38px; height: 38px; border-radius: 50%; background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.25); display: grid; place-items: center; color: #fff; transform: translateY(-6px); opacity: 0; transition: .3s; }
+  .cat-card:hover .go { transform: none; opacity: 1; }
+
+  /* ===== Why choose us / stats (counters) ===== */
+  .why { background: transparent; overflow: hidden; }
+  .why-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(40px, 6vw, 90px); align-items: center; }
+  .why h2 { font-size: clamp(32px, 5vw, 58px); margin: 18px 0 22px; }
+  .why p.lead { color: var(--silver); font-size: 17px; line-height: 1.7; margin-bottom: 36px; max-width: 520px; }
+  .feature-list { display: grid; gap: 22px; }
+  .feature-item { display: flex; gap: 18px; align-items: flex-start; }
+  .feature-item .fi-ic { flex: 0 0 auto; width: 48px; height: 48px; border-radius: 3px; background: var(--ink-2); border: 1px solid #2c2c2c; display: grid; place-items: center; color: var(--red); }
+  .feature-item h4 { font-family: var(--display); color: var(--white); font-size: 18px; margin-bottom: 5px; }
+  .feature-item p { color: var(--silver-dim); font-size: 14.5px; line-height: 1.55; }
+  .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: #242424; border: 1px solid #242424; border-radius: 4px; overflow: hidden; }
+  .stat { background: linear-gradient(160deg, #201f22, #18171a); padding: 38px 30px; }
+  .stat .num { font-family: var(--display); font-size: clamp(40px, 5vw, 62px); font-weight: 800; color: #fff; line-height: 1; }
+  .stat .num .suffix { background: var(--grad-red-soft); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .stat .lbl { font-size: 13px; letter-spacing: 0.04em; color: var(--silver-dim); margin-top: 12px; text-transform: uppercase; font-weight: 600; }
+
+  /* ===== Craft showcase (3 parallax cards) ===== */
+  .craft { background: transparent; overflow: hidden; }
+  .craft-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; align-items: start; }
+  .px-card { position: relative; border-radius: 8px; overflow: hidden; border: 1px solid #2a2a2e; background: #161417; will-change: transform; }
+  .px-card:nth-child(2) { margin-top: 64px; }
+  .px-card .px-media { position: relative; aspect-ratio: 3/4; }
+  .px-card image-slot { width: 100%; height: 100%; }
+  .px-card .px-num { position: absolute; top: 18px; left: 20px; z-index: 4; font-family: var(--display); font-weight: 800; font-size: 22px; color: #fff; opacity: .55; }
+  .px-card .px-over { position: absolute; inset: auto 0 0 0; z-index: 4; padding: 26px 24px 28px; background: linear-gradient(0deg, rgba(13,12,14,0.95) 8%, rgba(13,12,14,0.5) 55%, transparent 100%); }
+  .px-card h3 { font-size: 22px; color: #fff; margin-bottom: 7px; }
+  .px-card p { font-size: 14.5px; color: var(--silver); line-height: 1.5; }
+  .px-card .px-line { width: 34px; height: 3px; background: var(--grad-red); margin-bottom: 14px; border-radius: 2px; }
+
+  /* ===== Promo banner (parallax) ===== */
+  .promo { position: relative; overflow: hidden; min-height: 460px; display: flex; align-items: center; }
+  .promo-bg { position: absolute; inset: -14% 0 0 0; height: 128%; z-index: 0; will-change: transform; }
+  .promo-bg image-slot { width: 100%; height: 100%; }
+  .promo-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(160,28,33,0.92) 0%, rgba(40,16,18,0.82) 48%, rgba(15,15,15,0.55) 100%); }
+  .promo .wrap { position: relative; z-index: 3; }
+  .promo-inner { max-width: 600px; }
+  .promo .tagline { font-family: var(--display); font-weight: 800; font-size: clamp(34px, 5vw, 60px); color: #fff; line-height: 1.04; margin: 16px 0 18px; }
+  .promo .tagline em { color: var(--red); font-style: normal; }
+  .promo p { color: var(--silver); font-size: 17px; margin-bottom: 30px; max-width: 440px; line-height: 1.6; }
+  .promo-deadline { display: flex; gap: 14px; margin-bottom: 32px; }
+  .pd { background: rgba(26,26,26,0.7); border: 1px solid #2e2e2e; border-radius: 3px; padding: 14px 18px; text-align: center; min-width: 70px; }
+  .pd .n { font-family: var(--display); font-size: 30px; font-weight: 800; color: #fff; line-height: 1; }
+  .pd .u { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--silver-dim); margin-top: 6px; }
+
+  /* ===== Reviews ===== */
+  .reviews { background: linear-gradient(180deg, rgba(29,29,32,0.6) 0%, rgba(18,17,19,0.0) 100%); }
+  .rev-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .rev-card { background: linear-gradient(180deg, #201f22 0%, #17161a 100%); border: 1px solid #2a2a2e; border-radius: 6px; padding: 32px 28px; display: flex; flex-direction: column; gap: 16px; }
+  .rev-card .stars { margin: 0; font-size: 15px; }
+  .rev-card .quote { color: var(--white); font-size: 16.5px; line-height: 1.6; flex: 1; }
+  .rev-author { display: flex; align-items: center; gap: 13px; margin-top: 6px; }
+  .rev-author image-slot { width: 46px; height: 46px; flex: 0 0 auto; }
+  .rev-author .ra-name { font-family: var(--display); color: #fff; font-size: 15px; font-weight: 600; }
+  .rev-author .ra-role { font-size: 12.5px; color: var(--silver-dim); }
+
+  /* ===== Newsletter ===== */
+  .news { background: transparent; }
+  .news-box { background: linear-gradient(135deg, #241c1d 0%, #1a1820 55%, #141318 100%); border: 1px solid #322a2b; border-radius: 10px; padding: clamp(40px, 6vw, 76px); position: relative; overflow: hidden; }
+  .news-box::before { content: ""; position: absolute; right: -80px; top: -80px; width: 320px; height: 320px; background: radial-gradient(circle, rgba(237,51,56,0.30), transparent 70%); }
+  .news-inner { position: relative; z-index: 2; max-width: 560px; }
+  .news h2 { font-size: clamp(30px, 4.5vw, 52px); margin: 16px 0 16px; }
+  .news p { color: var(--silver-dim); font-size: 16px; margin-bottom: 30px; line-height: 1.6; }
+  .news-form { display: flex; gap: 12px; flex-wrap: wrap; }
+  .news-form input { flex: 1; min-width: 220px; background: var(--ink); border: 1px solid #333; color: #fff; padding: 16px 20px; border-radius: 2px; font-family: var(--body); font-size: 15px; }
+  .news-form input::placeholder { color: var(--silver-dim); }
+  .news-form input:focus { outline: none; border-color: var(--red); }
+  .news-note { font-size: 12.5px; color: var(--silver-dim); margin-top: 16px; }
+
+  /* ===== Footer ===== */
+  footer { background: linear-gradient(180deg, rgba(20,19,21,0) 0%, #0d0d0e 100%); border-top: 1px solid #242227; padding-block: 64px 32px; }
+  .foot-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 50px; }
+  .foot-brand .logo { margin-bottom: 18px; }
+  .foot-brand p { color: var(--silver-dim); font-size: 14.5px; line-height: 1.6; max-width: 280px; }
+  .foot-col h5 { font-family: var(--display); color: #fff; font-size: 15px; margin-bottom: 18px; letter-spacing: 0.04em; }
+  .foot-col ul { list-style: none; display: grid; gap: 11px; }
+  .foot-col a { font-size: 14px; color: var(--silver-dim); transition: color .2s; }
+  .foot-col a:hover { color: var(--red); }
+  .socials { display: flex; gap: 12px; margin-top: 20px; }
+  .socials a { width: 38px; height: 38px; border: 1px solid #2e2e2e; border-radius: 3px; display: grid; place-items: center; color: var(--silver); transition: .25s; }
+  .socials a:hover { background: var(--red); border-color: var(--red); color: #fff; }
+  .foot-bottom { border-top: 1px solid #222; padding-top: 26px; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; color: var(--silver-dim); font-size: 13px; }
+
+  /* ===== Mobile menu ===== */
+  .mobile-menu { position: fixed; inset: 0; z-index: 99; background: rgba(15,15,15,0.98); backdrop-filter: blur(10px); transform: translateX(100%); transition: transform .4s cubic-bezier(.2,.7,.2,1); display: flex; flex-direction: column; justify-content: center; padding: var(--pad); }
+  .mobile-menu.open { transform: none; }
+  .mobile-menu ul { list-style: none; display: grid; gap: 8px; }
+  .mobile-menu a { font-family: var(--display); font-size: 34px; font-weight: 700; color: #fff; }
+  .mobile-menu a:hover { color: var(--red); }
+  .mm-close { position: absolute; top: 22px; right: var(--pad); background: none; border: none; color: #fff; font-size: 34px; cursor: pointer; }
+
+  /* ===== Responsive: tablet ===== */
+  @media (max-width: 980px) {
+    .nav-links { display: none; }
+    .burger { display: flex; }
+    .desktop-cta { display: none; }
+    .prod-grid { grid-template-columns: repeat(2, 1fr); }
+    .cat-grid { grid-template-columns: repeat(2, 1fr); }
+    .why-grid { grid-template-columns: 1fr; }
+    .rev-grid { grid-template-columns: 1fr; gap: 18px; }
+    .craft-grid { grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .px-card:nth-child(2) { margin-top: 36px; }
+    .foot-grid { grid-template-columns: 1fr 1fr; gap: 34px; }
+    .hero-bg::after { background: linear-gradient(180deg, rgba(15,15,15,0.6) 0%, rgba(15,15,15,0.78) 60%, rgba(15,15,15,0.95) 100%); }
+  }
+
+  /* ===== Responsive: mobile ===== */
+  @media (max-width: 560px) {
+    .prod-grid { grid-template-columns: 1fr; }
+    .cat-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+    .craft-grid { grid-template-columns: 1fr; gap: 16px; }
+    .px-card:nth-child(2) { margin-top: 0; }
+    .px-card { transform: none !important; }
+    .stats { grid-template-columns: 1fr 1fr; }
+    .foot-grid { grid-template-columns: 1fr 1fr; }
+    .foot-brand { grid-column: 1 / -1; }
+    .hero h1 { font-size: clamp(38px, 13vw, 60px); }
+    .hero-actions { flex-direction: column; align-items: stretch; }
+    .hero-actions .btn { justify-content: center; }
+    .scroll-hint { display: none; }
+    .sec-head { flex-direction: column; align-items: flex-start; }
+  }
+
+  /* ===================== LIGHT THEME ===================== */
+  html[data-theme="light"] {
+    --silver: #34302a;
+    --silver-dim: #77726a;
+    --white: #17120f;
+    --ink: #f3f0ea;
+    --ink-2: #ffffff;
+    --ink-3: #efeae1;
+    --red-glow: rgba(237,51,56,0.12);
+  }
+  html[data-theme="light"] body {
+    background:
+      radial-gradient(1100px 700px at 88% -5%, rgba(237,51,56,0.10), transparent 60%),
+      radial-gradient(900px 600px at 5% 100%, rgba(237,51,56,0.05), transparent 55%),
+      linear-gradient(180deg, #f7f4ee 0%, #f1ede5 50%, #ece7df 100%);
+  }
+  /* header: light text over the dark hero at top, dark text once scrolled onto the light bar */
+  html[data-theme="light"] .logo { color: #fff; }
+  html[data-theme="light"] .nav-links a { color: #f0eeea; }
+  html[data-theme="light"] .icon-btn { color: #f4f2ee; }
+  html[data-theme="light"] .burger span { background: #f4f2ee; }
+  html[data-theme="light"] header.scrolled { background: rgba(248,246,242,0.92); border-bottom-color: #e6e1d8; }
+  html[data-theme="light"] header.scrolled .logo,
+  html[data-theme="light"] header.scrolled .foot-brand .logo { color: #17120f; }
+  html[data-theme="light"] header.scrolled .nav-links a { color: #4a463f; }
+  html[data-theme="light"] header.scrolled .nav-links a:hover { color: var(--red); }
+  html[data-theme="light"] header.scrolled .icon-btn { color: #2a2620; }
+  html[data-theme="light"] header.scrolled .burger span { background: #2a2620; }
+  html[data-theme="light"] .btn-ghost { border-color: #d8d3c9; color: #17120f; }
+  html[data-theme="light"] .btn-primary:hover { background: #17120f; color: #fff; box-shadow: 0 10px 30px -12px rgba(0,0,0,0.35); }
+  /* products */
+  html[data-theme="light"] .prod-card { background: linear-gradient(180deg, #ffffff 0%, #faf8f4 100%); border-color: #e8e3da; box-shadow: 0 1px 0 rgba(0,0,0,0.02); }
+  html[data-theme="light"] .prod-media { background: #efece6; }
+  html[data-theme="light"] .add-btn { background: #f1ede6; border-color: #ddd8ce; color: #2a2620; }
+  html[data-theme="light"] .add-btn:hover { background: var(--red); border-color: var(--red); color: #fff; }
+  /* categories */
+  html[data-theme="light"] .cats { background: linear-gradient(180deg, rgba(237,51,56,0.05) 0%, rgba(0,0,0,0) 100%); }
+  html[data-theme="light"] .cat-card { border-color: #e8e3da; }
+  /* why / stats */
+  html[data-theme="light"] .stats { background: #e9e4db; border-color: #e9e4db; }
+  html[data-theme="light"] .stat { background: linear-gradient(160deg, #ffffff, #f8f5f0); }
+  html[data-theme="light"] .feature-item .fi-ic { background: #fff; border-color: #e8e3da; }
+  /* craft */
+  html[data-theme="light"] .px-card { background: #fff; border-color: #e8e3da; }
+  /* reviews */
+  html[data-theme="light"] .reviews { background: linear-gradient(180deg, rgba(237,51,56,0.04) 0%, rgba(0,0,0,0) 100%); }
+  html[data-theme="light"] .rev-card { background: linear-gradient(180deg, #ffffff, #faf8f4); border-color: #e8e3da; }
+  /* newsletter */
+  html[data-theme="light"] .news-box { background: linear-gradient(135deg, #ffffff 0%, #fdf3f1 60%, #f7efe8 100%); border-color: #eed9d6; }
+  html[data-theme="light"] .news-form input { background: #fff; border-color: #ddd8ce; color: #17120f; }
+  /* footer */
+  html[data-theme="light"] footer { background: linear-gradient(180deg, rgba(0,0,0,0) 0%, #eae5db 100%); border-top-color: #e2ddd3; }
+  html[data-theme="light"] .foot-col h5, html[data-theme="light"] .foot-brand .logo { color: #17120f; }
+  html[data-theme="light"] .socials a { border-color: #ddd8ce; }
+  html[data-theme="light"] .foot-bottom { border-top-color: #e2ddd3; }
+  /* mobile menu */
+  html[data-theme="light"] .mobile-menu { background: rgba(247,244,238,0.98); }
+  html[data-theme="light"] .mobile-menu a, html[data-theme="light"] .mm-close { color: #17120f; }
+  /* keep text that sits over dark image overlays light in both themes */
+  html[data-theme="light"] .hero h1 { color: #fff; }
+  html[data-theme="light"] .hero p { color: #e9e9e9; }
+  html[data-theme="light"] .promo p { color: #ededed; }
+  html[data-theme="light"] .cat-card .count { color: #ececec; }
+  html[data-theme="light"] .px-card .px-over p { color: #ececec; }
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header id="hdr">
+  <div class="wrap nav-inner">
+    <a href="#top" class="logo"><span class="dot"></span>CRYSTAL</a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#featured">Shop</a></li>
+        <li><a href="#categories">Categories</a></li>
+        <li><a href="#why">Why CRYSTAL</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+      </ul>
+    </nav>
+    <div class="nav-right">
+      <button class="icon-btn" id="themeToggle" aria-label="Toggle light/dark theme"></button>
+      <button class="icon-btn" aria-label="Search">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+      </button>
+      <button class="icon-btn" aria-label="Cart">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6h15l-1.5 9h-12z"/><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M6 6 5 3H2"/></svg>
+        <span class="cart-count">3</span>
+      </button>
+      <a href="#featured" class="btn btn-primary desktop-cta">Shop Now</a>
+      <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- mobile menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mm-close" id="mmClose" aria-label="Close">&times;</button>
+  <ul>
+    <li><a href="#featured" class="mm-link">Shop</a></li>
+    <li><a href="#categories" class="mm-link">Categories</a></li>
+    <li><a href="#why" class="mm-link">Why CRYSTAL</a></li>
+    <li><a href="#reviews" class="mm-link">Reviews</a></li>
+    <li><a href="#newsletter" class="mm-link">Contact</a></li>
+  </ul>
+</div>
+
+<span id="top"></span>
+
+<!-- ===== 1. HERO ===== -->
+<section class="hero">
+  <div class="hero-bg" data-parallax="0.25">
+    <image-slot id="hero-bg" placeholder="Drop hero kitchen image" fit="cover"></image-slot>
+  </div>
+  <div class="wrap">
+    <div class="hero-content">
+      <span class="eyebrow reveal">Premium Cookware · Est. 2009</span>
+      <h1 class="reveal d1">Cook like you<br><span class="accent">mean it.</span></h1>
+      <p class="reveal d2">Precision-forged pots, pans and tools built for the way you really cook. Tri-ply steel, edge-to-edge heat, a lifetime of meals.</p>
+      <div class="hero-actions reveal d3">
+        <a href="#featured" class="btn btn-primary">Shop the Collection <span class="arr">→</span></a>
+        <a href="#why" class="btn btn-ghost">Why CRYSTAL</a>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-hint"><span>Scroll</span><span class="line"></span></div>
+</section>
+
+<!-- ===== 2. FEATURED PRODUCTS ===== -->
+<section class="feat sec-pad" id="featured">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="eyebrow reveal">Best Sellers</span>
+        <h2 class="reveal d1">The kitchen<br>essentials.</h2>
+      </div>
+      <p class="lead reveal d2">Hand-finished, induction-ready, and dishwasher-safe. The pieces our customers reorder again and again.</p>
+    </div>
+    <div class="prod-grid" id="prodGrid"></div>
+  </div>
+</section>
+
+<!-- ===== 3. CATEGORIES ===== -->
+<section class="cats sec-pad" id="categories">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="eyebrow reveal">Shop by Category</span>
+        <h2 class="reveal d1">Find your tool.</h2>
+      </div>
+      <p class="lead reveal d2">From searing steaks to simmering sauces — every category engineered for one job, done right.</p>
+    </div>
+    <div class="cat-grid" id="catGrid"></div>
+  </div>
+</section>
+
+<!-- ===== 4. WHY CHOOSE US / STATS ===== -->
+<section class="why sec-pad" id="why">
+  <div class="wrap why-grid">
+    <div>
+      <span class="eyebrow reveal">Why CRYSTAL</span>
+      <h2 class="reveal d1">Built once.<br>Used forever.</h2>
+      <p class="lead reveal d2">We over-engineer every piece so it outlives the trends. Forged, not stamped. Tested in real kitchens, not labs.</p>
+      <div class="feature-list">
+        <div class="feature-item reveal d2">
+          <span class="fi-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 6v6c0 5 3.5 8 8 10 4.5-2 8-5 8-10V6z"/><path d="m9 12 2 2 4-4"/></svg></span>
+          <div><h4>Lifetime Warranty</h4><p>If it warps, chips or fails — we replace it, free, for life.</p></div>
+        </div>
+        <div class="feature-item reveal d3">
+          <span class="fi-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v6"/><path d="M5 8c0 5 3 9 7 12 4-3 7-7 7-12"/></svg></span>
+          <div><h4>Tri-Ply Steel Core</h4><p>Aluminium core bonded between steel for fast, even heat.</p></div>
+        </div>
+        <div class="feature-item reveal d4">
+          <span class="fi-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18"/><path d="M12 3a15 15 0 0 1 0 18 15 15 0 0 1 0-18"/><circle cx="12" cy="12" r="9"/></svg></span>
+          <div><h4>Induction to Oven</h4><p>Works on every hob and straight into a 260°C oven.</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="stats reveal d2">
+      <div class="stat"><div class="num"><span data-count="40">0</span><span class="suffix">k+</span></div><div class="lbl">Kitchens equipped</div></div>
+      <div class="stat"><div class="num"><span data-count="98">0</span><span class="suffix">%</span></div><div class="lbl">Would buy again</div></div>
+      <div class="stat"><div class="num"><span data-count="15">0</span><span class="suffix">yr</span></div><div class="lbl">Avg. product life</div></div>
+      <div class="stat"><div class="num"><span data-count="120">0</span><span class="suffix">+</span></div><div class="lbl">Pro chef partners</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CRAFT SHOWCASE (3 parallax cards) ===== -->
+<section class="craft sec-pad" id="craft">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="eyebrow reveal">The Craft</span>
+        <h2 class="reveal d1">Engineered in<br>every detail.</h2>
+      </div>
+      <p class="lead reveal d2">Three things we never compromise on — the difference you feel the first time you lift the pan.</p>
+    </div>
+    <div class="craft-grid">
+      <article class="px-card" data-px-card="42">
+        <div class="px-media">
+          <span class="px-num">01</span>
+          <image-slot id="craft-1" placeholder="Drop handle / detail photo" fit="cover"></image-slot>
+        </div>
+        <div class="px-over"><div class="px-line"></div><h3>Forged Handles</h3><p>Triple-riveted and balanced to stay cool on the hob.</p></div>
+      </article>
+      <article class="px-card" data-px-card="-48">
+        <div class="px-media">
+          <span class="px-num">02</span>
+          <image-slot id="craft-2" placeholder="Drop pan body / texture photo" fit="cover"></image-slot>
+        </div>
+        <div class="px-over"><div class="px-line"></div><h3>Tri-Ply Body</h3><p>Aluminium core bonded in steel for fast, even heat.</p></div>
+      </article>
+      <article class="px-card" data-px-card="42">
+        <div class="px-media">
+          <span class="px-num">03</span>
+          <image-slot id="craft-3" placeholder="Drop finish / close-up photo" fit="cover"></image-slot>
+        </div>
+        <div class="px-over"><div class="px-line"></div><h3>Mirror Finish</h3><p>Hand-polished edges built to shine for years.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 5. PROMO BANNER ===== -->
+<section class="promo">
+  <div class="promo-bg" data-parallax="0.18">
+    <image-slot id="promo-bg" placeholder="Drop a promo / lifestyle image" fit="cover"></image-slot>
+  </div>
+  <div class="wrap">
+    <div class="promo-inner">
+      <span class="eyebrow reveal">Limited Time</span>
+      <div class="tagline reveal d1">Up to <em>30% off</em><br>the Signature Set.</div>
+      <p class="reveal d2">Our complete 10-piece tri-ply collection — everything you need to set up a serious kitchen, at its lowest price of the year.</p>
+      <div class="promo-deadline reveal d2">
+        <div class="pd"><div class="n" id="dd">04</div><div class="u">Days</div></div>
+        <div class="pd"><div class="n" id="hh">12</div><div class="u">Hrs</div></div>
+        <div class="pd"><div class="n" id="mm">36</div><div class="u">Min</div></div>
+        <div class="pd"><div class="n" id="ss">50</div><div class="u">Sec</div></div>
+      </div>
+      <a href="#featured" class="btn btn-primary reveal d3">Claim the Offer <span class="arr">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 6. REVIEWS ===== -->
+<section class="reviews sec-pad" id="reviews">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="eyebrow reveal">Loved in 40,000+ kitchens</span>
+        <h2 class="reveal d1">Don't take our<br>word for it.</h2>
+      </div>
+      <p class="lead reveal d2">Rated 4.9 / 5 across 8,200+ verified reviews. Here's what home cooks and chefs say.</p>
+    </div>
+    <div class="rev-grid" id="revGrid"></div>
+  </div>
+</section>
+
+<!-- ===== 7. NEWSLETTER ===== -->
+<section class="news sec-pad" id="newsletter">
+  <div class="wrap">
+    <div class="news-box reveal">
+      <div class="news-inner">
+        <span class="eyebrow">Join the Table</span>
+        <h2>Get 10% off your<br>first order.</h2>
+        <p>Recipes, restocks and member-only drops — straight to your inbox. No spam, just good cooking.</p>
+        <form class="news-form" onsubmit="return false;">
+          <input type="email" placeholder="your@email.com" aria-label="Email" required />
+          <button type="submit" class="btn btn-primary">Subscribe <span class="arr">→</span></button>
+        </form>
+        <p class="news-note">By subscribing you agree to our Privacy Policy. Unsubscribe anytime.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="#top" class="logo"><span class="dot"></span>CRYSTAL</a>
+        <p>Precision cookware for people who take dinner seriously. Forged to last a lifetime — and then some.</p>
+        <div class="socials">
+          <a href="#" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h-3a4 4 0 0 0-4 4v3H5v4h3v7h4v-7h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="m10 9 5 3-5 3z" fill="currentColor" stroke="none"/></svg></a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h5>Shop</h5>
+        <ul><li><a href="#">Cookware Sets</a></li><li><a href="#">Frying Pans</a></li><li><a href="#">Knives</a></li><li><a href="#">Utensils</a></li></ul>
+      </div>
+      <div class="foot-col">
+        <h5>Company</h5>
+        <ul><li><a href="#">Our Story</a></li><li><a href="#">Craftsmanship</a></li><li><a href="#">Sustainability</a></li><li><a href="#">Careers</a></li></ul>
+      </div>
+      <div class="foot-col">
+        <h5>Support</h5>
+        <ul><li><a href="#">Shipping</a></li><li><a href="#">Returns</a></li><li><a href="#">Warranty</a></li><li><a href="#">Contact</a></li></ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 CRYSTAL Cookware. All rights reserved.</span>
+      <span>Privacy · Terms · Cookies</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  /* ---- Product data ---- */
+  const products = [
+    { tag: "Best Seller", cat: "Frying Pan", name: "Pro Tri-Ply 28cm Skillet", price: "$129", old: "$179", stars: 5 },
+    { tag: "New", cat: "Cookware Set", name: "Signature 10-Piece Set", price: "$649", old: "$899", stars: 5 },
+    { tag: null, cat: "Knife", name: "Forged Chef's Knife 8\"", price: "$89", old: null, stars: 4 },
+    { tag: "-20%", cat: "Saucepan", name: "Tri-Ply 2L Saucepan", price: "$99", old: "$124", stars: 5 },
+    { tag: null, cat: "Utensils", name: "Stainless Tool Set (5pc)", price: "$59", old: null, stars: 4 },
+    { tag: "Best Seller", cat: "Stockpot", name: "8L Stockpot with Lid", price: "$149", old: "$189", stars: 5 },
+    { tag: "Hot", cat: "Pressure Cooker", name: "5L Stainless Pressure Cooker", price: "$119", old: "$149", stars: 5 },
+    { tag: null, cat: "Kadhai", name: "Cast Iron Kadhai 30cm", price: "$79", old: null, stars: 4 },
+    { tag: "-15%", cat: "Tawa", name: "Non-Stick Tawa 28cm", price: "$45", old: "$53", stars: 5 },
+  ];
+  const star = (n) => Array.from({length:5},(_, i)=> i<n ? "★" : "☆").join("");
+  document.getElementById("prodGrid").innerHTML = products.map((p, i) => `
+    <article class="prod-card reveal ${'d'+((i%3)+1)}">
+      <div class="prod-media">
+        ${p.tag ? `<span class="prod-tag">${p.tag}</span>` : ""}
+        <image-slot id="prod-${i}" placeholder="Drop product photo" fit="cover"></image-slot>
+      </div>
+      <div class="prod-body">
+        <span class="cat">${p.cat}</span>
+        <h3>${p.name}</h3>
+        <div class="stars">${star(p.stars)}</div>
+        <div class="prod-foot">
+          <span class="price">${p.price}${p.old ? `<span class="old">${p.old}</span>` : ""}</span>
+          <button class="add-btn" aria-label="Add to cart">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+        </div>
+      </div>
+    </article>`).join("");
+
+  /* ---- Categories ---- */
+  const cats = [
+    { name: "Pots & Pans", count: "32 products" },
+    { name: "Pressure Cookers", count: "14 products" },
+    { name: "Kadhai & Woks", count: "21 products" },
+    { name: "Tawa & Griddles", count: "12 products" },
+    { name: "Knives", count: "18 products" },
+    { name: "Cookware Sets", count: "9 products" },
+    { name: "Serveware & Dinner", count: "38 products" },
+    { name: "Storage & Tiffin", count: "26 products" },
+  ];
+  document.getElementById("catGrid").innerHTML = cats.map((c, i) => `
+    <a class="cat-card reveal ${'d'+((i%4)+1)}">
+      <image-slot id="cat-${i}" placeholder="Drop category image" fit="cover"></image-slot>
+      <span class="go"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+      <div class="overlay"><h3>${c.name}</h3><span class="count">${c.count}</span></div>
+    </a>`).join("");
+
+  /* ---- Reviews ---- */
+  const reviews = [
+    { q: "I've replaced my entire kitchen with CRYSTAL. The heat control on the skillet is unreal — perfect sear, every single time.", name: "Aisha K.", role: "Home cook, Karachi" },
+    { q: "Five years of daily restaurant abuse and these pans look brand new. Worth every rupee.", name: "Marco D.", role: "Head Chef, Bistro 9" },
+    { q: "The knife holds its edge longer than blades twice the price. Beautifully balanced.", name: "Priya S.", role: "Food blogger" },
+    { q: "The pressure cooker is whisper-quiet and the lid locks perfectly. Daal in 12 minutes flat.", name: "Rohan M.", role: "Home cook, Mumbai" },
+    { q: "My cast iron kadhai has become the most-used bartan in the house. Seasons beautifully.", name: "Fatima S.", role: "Verified buyer" },
+    { q: "Gifted the dinner set to my mother — she says it's the nicest serveware she's owned.", name: "Daniyal R.", role: "Verified buyer" },
+  ];
+  document.getElementById("revGrid").innerHTML = reviews.map((r, i) => `
+    <article class="rev-card reveal ${'d'+((i%3)+1)}">
+      <div class="stars">★★★★★</div>
+      <p class="quote">“${r.q}”</p>
+      <div class="rev-author">
+        <image-slot id="rev-${i}" shape="circle" placeholder="Photo" fit="cover"></image-slot>
+        <div><div class="ra-name">${r.name}</div><div class="ra-role">${r.role}</div></div>
+      </div>
+    </article>`).join("");
+
+  /* ===== ANIM 1 — sticky header shrink ===== */
+  const hdr = document.getElementById("hdr");
+  const onScroll = () => {
+    hdr.classList.toggle("scrolled", window.scrollY > 40);
+    // ANIM 2 — parallax (background layers)
+    document.querySelectorAll("[data-parallax]").forEach(el => {
+      const speed = parseFloat(el.dataset.parallax);
+      const rect = el.parentElement.getBoundingClientRect();
+      const offset = (rect.top + rect.height/2 - window.innerHeight/2) * -speed;
+      el.style.transform = `translateY(${offset}px)`;
+    });
+    // ANIM 2b — bounded card parallax (subtle, max = data value in px)
+    document.querySelectorAll("[data-px-card]").forEach(el => {
+      const amt = parseFloat(el.dataset.pxCard);
+      const r = el.getBoundingClientRect();
+      const prog = (r.top + r.height/2 - window.innerHeight/2) / (window.innerHeight/2 + r.height/2);
+      const clamped = Math.max(-1, Math.min(1, prog));
+      el.style.transform = `translateY(${(clamped * amt).toFixed(1)}px)`;
+    });
+  };
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+
+  /* ===== ANIM 3 — reveal on scroll (with no-IO fallback) ===== */
+  const revealEls = Array.from(document.querySelectorAll(".reveal"));
+  const showReveal = (el) => {
+    if (el.classList.contains("in")) return;
+    el.classList.add("in");
+    // settle fallback: only if the animation clock is paused (hidden tab); fires after the
+    // longest staggered animation (0.4s delay + 0.85s) so it never cuts a playing animation
+    setTimeout(() => { el.style.animation = "none"; el.style.transform = "none"; }, 1600);
+  };
+  const inView = (el, m = 0.92) => {
+    const r = el.getBoundingClientRect();
+    return r.top < window.innerHeight * m; // in view OR already scrolled past
+  };
+  // Manual scroll/resize fallback — works even if IntersectionObserver never fires
+  const revealScan = () => {
+    for (let i = revealEls.length - 1; i >= 0; i--) {
+      if (inView(revealEls[i])) { showReveal(revealEls[i]); revealEls.splice(i, 1); }
+    }
+  };
+  try {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { showReveal(e.target); io.unobserve(e.target); } });
+    }, { threshold: 0.14, rootMargin: "0px 0px -8% 0px" });
+    revealEls.forEach(el => io.observe(el));
+  } catch (_) { /* no IO support */ }
+  window.addEventListener("scroll", revealScan, { passive: true });
+  window.addEventListener("resize", revealScan, { passive: true });
+  // reveal whatever is already on screen, now and shortly after layout settles
+  revealScan();
+  setTimeout(revealScan, 250);
+  // NOTE: no blanket "reveal all" — content is visible by default (opacity:1),
+  // so each element animates only when actually scrolled into view.
+
+  /* ===== ANIM 4 — count-up stats (with no-IO fallback) ===== */
+  const counted = new Set();
+  const runCount = (el) => {
+    if (counted.has(el)) return;
+    counted.add(el);
+    const target = +el.dataset.count, dur = 1400, t0 = performance.now();
+    const tick = (now) => {
+      const p = Math.min((now - t0) / dur, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(target * eased);
+      if (p < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+    // fallback: if rAF is paused (hidden iframe), land on the final value directly
+    setTimeout(() => { if (parseInt(el.textContent, 10) !== target) el.textContent = target; }, 1700);
+  };
+  const countEls = Array.from(document.querySelectorAll("[data-count]"));
+  const countScan = () => countEls.forEach(el => { if (inView(el, 0.85)) runCount(el); });
+  try {
+    const countIO = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) runCount(e.target); });
+    }, { threshold: 0.5 });
+    countEls.forEach(el => countIO.observe(el));
+  } catch (_) {}
+  window.addEventListener("scroll", countScan, { passive: true });
+  countScan();
+  // (per-counter direct-set fallback lives inside runCount; no blanket pre-trigger)
+
+  /* ---- Theme toggle (light / dark) ---- */
+  const root = document.documentElement;
+  const tBtn = document.getElementById("themeToggle");
+  const sunIcon = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.5M12 19.5V22M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2 12h2.5M19.5 12H22M4.2 19.8 6 18M18 6l1.8-1.8"/></svg>';
+  const moonIcon = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 14.5A8 8 0 0 1 9.5 4 7 7 0 1 0 20 14.5z"/></svg>';
+  const syncThemeIcon = () => { tBtn.innerHTML = root.getAttribute("data-theme") === "light" ? moonIcon : sunIcon; };
+  syncThemeIcon();
+  tBtn.addEventListener("click", () => {
+    const goLight = root.getAttribute("data-theme") !== "light";
+    if (goLight) root.setAttribute("data-theme", "light"); else root.removeAttribute("data-theme");
+    try { localStorage.setItem("crystal-theme", goLight ? "light" : "dark"); } catch (e) {}
+    syncThemeIcon();
+  });
+
+  /* ---- Mobile menu ---- */
+  const mm = document.getElementById("mobileMenu");
+  document.getElementById("burger").addEventListener("click", () => mm.classList.add("open"));
+  document.getElementById("mmClose").addEventListener("click", () => mm.classList.remove("open"));
+  document.querySelectorAll(".mm-link").forEach(a => a.addEventListener("click", () => mm.classList.remove("open")));
+
+  /* ---- Promo countdown ---- */
+  let total = 4*86400 + 12*3600 + 36*60 + 50;
+  const pad = (n) => String(n).padStart(2, "0");
+  setInterval(() => {
+    total = total > 0 ? total - 1 : 0;
+    document.getElementById("dd").textContent = pad(Math.floor(total/86400));
+    document.getElementById("hh").textContent = pad(Math.floor((total%86400)/3600));
+    document.getElementById("mm").textContent = pad(Math.floor((total%3600)/60));
+    document.getElementById("ss").textContent = pad(total%60);
+  }, 1000);
+</script>
+</body>
+</html>
