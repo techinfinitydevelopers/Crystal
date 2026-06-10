@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Products — CRYSTAL</title>
 <script>document.documentElement.className += " js";</script>
@@ -63,8 +64,8 @@
   header { position: fixed; inset: 14px 0 auto 0; z-index: 100; }
   .nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; border: 1.5px solid transparent; border-radius: 100px; padding: 9px 9px 9px 22px; transition: background .35s, border-color .35s, box-shadow .35s, backdrop-filter .35s; }
   header.scrolled .nav, header.solid .nav { background: rgba(255,255,255,0.82); border-color: var(--line); backdrop-filter: blur(14px); box-shadow: 0 12px 30px -20px rgba(0,0,0,0.5); }
-  .logo { font-family: var(--head); font-weight: 700; font-size: 23px; letter-spacing: -0.01em; display: flex; align-items: center; gap: 9px; text-transform: uppercase; }
-  .logo .blob { width: 16px; height: 16px; background: var(--grad-red); border-radius: 47% 53% 60% 40% / 55% 45% 55% 45%; display: inline-block; }
+  .logo { display: flex; align-items: center; flex: 1; }
+  /* .logo .blob removed — replaced by logo.png */
   .nav-links { display: flex; gap: 4px; list-style: none; }
   .nav-links > li > a { font-weight: 600; font-size: 15px; padding: 9px 16px; border-radius: 100px; transition: background .2s, color .2s; display: inline-flex; align-items: center; gap: 6px; }
   .nav-links > li > a:hover, .nav-links > li > a.current { background: var(--ink); color: #fff; }
@@ -321,7 +322,7 @@
 <header id="hdr">
   <div class="wrap">
     <div class="nav">
-      <a href="index.html" class="logo"><span class="blob"></span>CRYSTAL</a>
+      <a href="index.html" class="logo"><img src="logo.png" alt="CRYSTAL" style="height:36px;width:auto;display:block;"></a>
       <ul class="nav-links">
         <li><a href="About.html">About</a></li>
         <li><a href="All-Products.html" class="current">Products</a></li>
@@ -473,7 +474,7 @@
     </div>
     <div class="foot-top">
       <div class="foot-brand">
-        <div class="logo"><span class="blob"></span>CRYSTAL</div>
+        <div class="logo"><img src="logo-footer.png" alt="CRYSTAL" style="height:36px;width:auto;display:block;"></div>
         <p class="foot-desc">Complete Kitchen and Home Solutions — crafted for everyday ease, built on trust.</p>
         <div class="foot-socials">
           <a href="https://www.instagram.com/crystalcooknserve" target="_blank" rel="noopener" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"></circle></svg></a>
@@ -487,7 +488,7 @@
       <div class="foot-col"><h5>Contact Us</h5><ul><li><a href="#">G.I.D.C Metoda, Rajkot 360021, Gujarat</a></li><li><a href="#">Sahar Plaza, Andheri (E), Mumbai 400059</a></li><li><a href="tel:02249702803">022-49702803 / 06</a></li></ul></div>
     </div>
     <div class="foot-wordmark"><span class="wm-outline">CRYSTAL</span><span class="wm-fill">CRYSTAL</span></div>
-    <div class="foot-bottom"><span>© 2026 Crystal. All rights reserved.</span><span>Privacy Policy · Terms &amp; Condition</span></div>
+    <div class="foot-bottom"><span>© 2026 Crystal. All rights reserved. Designed & Developed by <a href="https://techinfinity.io" target="_blank" style="color:inherit;text-decoration:underline;">TechInfinity</a>.</span><span>Privacy Policy · Terms &amp; Condition</span></div>
   </div>
 </footer>
 
