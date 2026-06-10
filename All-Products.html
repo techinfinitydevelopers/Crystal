@@ -330,10 +330,12 @@
           <a href="All-Products.html?brand=crystal" class="dd-toggle">Brands <span class="cv">▾</span></a>
           <div class="dd-menu" id="ddMenu"></div>
         </li>
-        <li><a href="index.html#why">Network</a></li>
+        <li><a href="Catalogue.html">Catalogue</a></li>
+        <li><a href="Blog.html">Knowledge Centre</a></li>
+        <li><a href="Contact.html">Contact</a></li>
       </ul>
       <div class="nav-right">
-        <a href="Contact.html" class="btn btn-red">Contact Us <span class="arr">↗</span></a>
+        <a href="Quote.html" class="btn btn-red">Request Quote <span class="arr">↗</span></a>
         <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
       </div>
     </div>
@@ -345,8 +347,10 @@
   <ul>
     <li><a href="About.html" class="mm-link">About</a></li>
     <li><a href="All-Products.html" class="mm-link">Products</a></li>
-    <li><a href="index.html#why" class="mm-link">Network</a></li>
-    <li><a href="#footer" class="mm-link">Contact</a></li>
+    <li><a href="Catalogue.html" class="mm-link">Catalogue</a></li>
+    <li><a href="Blog.html" class="mm-link">Knowledge Centre</a></li>
+    <li><a href="Contact.html" class="mm-link">Contact</a></li>
+    <li><a href="Quote.html" class="mm-link">Request Quote</a></li>
   </ul>
   <div class="mm-brands" id="mmBrands"></div>
 </div>
@@ -484,11 +488,11 @@
         </div>
       </div>
       <div class="foot-col"><h5>Brands</h5><ul id="footBrands"></ul></div>
-      <div class="foot-col"><h5>Quick Link</h5><ul><li><a href="About.html">About Us</a></li><li><a href="All-Products.html">Products</a></li><li><a href="#footer">Career</a></li></ul></div>
+      <div class="foot-col"><h5>Quick Link</h5><ul><li><a href="About.html">About Us</a></li><li><a href="Catalogue.html">Catalogue</a></li><li><a href="Blog.html">Knowledge Centre</a></li><li><a href="Career.html">Career</a></li></ul></div>
       <div class="foot-col"><h5>Contact Us</h5><ul><li><a href="#">G.I.D.C Metoda, Rajkot 360021, Gujarat</a></li><li><a href="#">Sahar Plaza, Andheri (E), Mumbai 400059</a></li><li><a href="tel:02249702803">022-49702803 / 06</a></li></ul></div>
     </div>
     <div class="foot-wordmark"><span class="wm-outline">CRYSTAL</span><span class="wm-fill">CRYSTAL</span></div>
-    <div class="foot-bottom"><span>© 2026 Crystal. All rights reserved. Designed & Developed by <a href="https://techinfinity.io" target="_blank" style="color:inherit;text-decoration:underline;">TechInfinity</a>.</span><span>Privacy Policy · Terms &amp; Condition</span></div>
+    <div class="foot-bottom"><span>© 2026 Crystal. All rights reserved. Designed & Developed by <a href="https://techinfinity.io" target="_blank" style="color:inherit;text-decoration:underline;">TechInfinity</a>.</span><span><a href="Privacy.html">Privacy Policy</a> · <a href="Terms.html">Terms &amp; Condition</a></span></div>
   </div>
 </footer>
 
@@ -520,12 +524,10 @@
   const CAT_LABEL = Object.fromEntries(CATEGORIES.map(c => [c.id, c.label]));
 
   const BRANDS = [
-    { slug: "crystal",    name: "Crystal",    tagline: "World of Kitchenware",   blurb: "From the gas lighter that started it all to a complete world of kitchen essentials — Crystal is the flagship range trusted in Indian homes since 1971.", title: "World of <span class='grad'>Kitchenware</span>" },
-    { slug: "crystalina", name: "Crystalina", tagline: "Splendid Finish",        blurb: "Premium stainless-steel serveware and dinnerware with a splendid mirror finish — where everyday dining feels like an occasion.", title: "A Splendid <span class='grad'>Finish</span>" },
-    { slug: "czarin",     name: "Czarin",     tagline: "Cook Like a Pro",        blurb: "High-performance non-stick and tri-ply cookware engineered to international standards — even heat, lasting durability, effortless cooking.", title: "Cook Like a <span class='grad'>Pro</span>" },
-    { slug: "freshmate",  name: "Freshmate",  tagline: "Locks Freshness In",     blurb: "Smart storage and container solutions that keep food fresher for longer — airtight, modular and built for the modern kitchen.", title: "Locks <span class='grad'>Freshness</span> In" },
-    { slug: "sparkmate",  name: "Sparkmate",  tagline: "Cleaning Simplified",    blurb: "Effortless cleaning essentials — spin mops, brooms, wipers and more — for a sparkling, low-effort home.", title: "Cleaning <span class='grad'>Simplified</span>" },
-    { slug: "vacu",       name: "Vacu",       tagline: "Hot Stays Hot",          blurb: "Vacuum-insulated flasks and bottles that hold temperature for hours — engineered for life on the move.", title: "Hot Stays <span class='grad'>Hot</span>" },
+    { slug: "crystal",    name: "Crystal",    tagline: "World of Kitchenware", blurb: "From the gas lighter that started it all to a full world of kitchen essentials — cookware, cutlery, lighters and appliances trusted in Indian homes since 1971.", title: "World of <span class='grad'>Kitchenware</span>" },
+    { slug: "crystalina", name: "Crystalina", tagline: "Splendid Finish", blurb: "Premium stainless-steel serveware and dinnerware with a splendid mirror finish — where everyday dining feels like an occasion.", title: "A Splendid <span class='grad'>Finish</span>" },
+    { slug: "sparkmate",  name: "SparkMate",  tagline: "Cleaning Simplified", blurb: "Effortless cleaning essentials — spin mops, brooms, wipers and more — for a sparkling, low-effort home.", title: "Cleaning <span class='grad'>Simplified</span>" },
+    { slug: "valmate",    name: "ValMate",    tagline: "Value for Money", blurb: "Smart everyday value — storage, flasks and bottles that keep food fresh and drinks at the right temperature, built for modern Indian homes.", title: "Value for <span class='grad'>Money</span>" },
   ];
   const BRAND_BY = Object.fromEntries(BRANDS.map(b => [b.slug, b]));
 
@@ -541,23 +543,23 @@
     { n: "Mirror-Finish Serving Set",    col: "Splendid Serveware",     b: "crystalina", c: "serveware",  img: "about-assets/prod-3.jpg",                              hl: "Gleaming stainless serveware that turns everyday meals into occasions.", tags: ["Mirror Finish", "Food-Grade"] },
     { n: "Insulated Hot-Pot Casserole",  col: "Splendid Serveware",     b: "crystalina", c: "serveware",  img: "about-assets/prod-4.jpg",                              hl: "Double-wall casserole that keeps rotis and curries warm for hours.", tags: ["Insulated", "Stay-Warm"] },
     { n: "Steel Dinner Thali Set",       col: "Elite Dinnerware",       b: "crystalina", c: "serveware",  img: "about-assets/prod-5.jpg",                              hl: "Heavy-gauge thali set with a splendid finish, built for daily dining.", tags: ["Heavy Gauge", "Family Set"] },
-    // CZARIN
-    { n: "Tri-Ply Frypan 24cm",          col: "Tri-Ply Pro",            b: "czarin",     c: "cookware",   img: U + "2026/04/Tri-Pro-2-1.jpg",                          hl: "Three bonded layers for even heat and pro-grade searing.", tags: ["Tri-Ply", "Induction"] },
-    { n: "Platinum Non-Stick Kadai",     col: "Platinum Non-Stick",     b: "czarin",     c: "cookware",   img: U + "2026/05/CTV-097.jpg",                              hl: "3-coat platinum non-stick, DuPont-grade, for healthier low-oil cooking.", tags: ["Non-Stick", "Low-Oil"] },
-    { n: "Tri-Pro Pressure Cooker 3L",   col: "Tri-Pro Pro",            b: "czarin",     c: "cookware",   img: U + "2026/04/Pressure-Cooker-5.jpg",                    hl: "Induction-ready triply cooker that saves fuel and time on every meal.", tags: ["Induction", "Triply"] },
-    { n: "Heritage Cast Iron Tawa",      col: "Heritage Cast Iron",     b: "czarin",     c: "cookware",   img: U + "2026/04/CPC_023.jpg",                              hl: "Pre-seasoned cast iron that gets better with every use.", tags: ["Cast Iron", "Pre-Seasoned"] },
-    // FRESHMATE
-    { n: "Airtight Container Set",       col: "Lock-Fresh Containers",  b: "freshmate",  c: "storage",    img: "about-assets/prod-6.jpg",                              hl: "Leak-proof, airtight containers that lock freshness in.", tags: ["Airtight", "Set of 6"] },
-    { n: "Modular Storage Jars",         col: "Modular Kitchen",        b: "freshmate",  c: "storage",    img: "about-assets/prod-7.jpg",                              hl: "Stackable modular jars that bring order to every shelf.", tags: ["Stackable", "BPA-Free"] },
-    { n: "Steel Lunch Box 3-Tier",       col: "On-the-Go",              b: "freshmate",  c: "storage",    img: "about-assets/prod-8.jpg",                              hl: "Insulated three-tier tiffin that keeps lunch warm till noon.", tags: ["Insulated", "Leak-Proof"] },
+    // CRYSTAL (cookware)
+    { n: "Tri-Ply Frypan 24cm",          col: "Tri-Ply Pro",            b: "crystal",    c: "cookware",   img: U + "2026/04/Tri-Pro-2-1.jpg",                          hl: "Three bonded layers for even heat and pro-grade searing.", tags: ["Tri-Ply", "Induction"] },
+    { n: "Platinum Non-Stick Kadai",     col: "Platinum Non-Stick",     b: "crystal",    c: "cookware",   img: U + "2026/05/CTV-097.jpg",                              hl: "3-coat platinum non-stick, DuPont-grade, for healthier low-oil cooking.", tags: ["Non-Stick", "Low-Oil"] },
+    { n: "Tri-Pro Pressure Cooker 3L",   col: "Tri-Pro Pro",            b: "crystal",    c: "cookware",   img: U + "2026/04/Pressure-Cooker-5.jpg",                    hl: "Induction-ready triply cooker that saves fuel and time on every meal.", tags: ["Induction", "Triply"] },
+    { n: "Heritage Cast Iron Tawa",      col: "Heritage Cast Iron",     b: "crystal",    c: "cookware",   img: U + "2026/04/CPC_023.jpg",                              hl: "Pre-seasoned cast iron that gets better with every use.", tags: ["Cast Iron", "Pre-Seasoned"] },
+    // VALMATE (storage)
+    { n: "Airtight Container Set",       col: "Lock-Fresh Containers",  b: "valmate",    c: "storage",    img: "about-assets/prod-6.jpg",                              hl: "Leak-proof, airtight containers that lock freshness in.", tags: ["Airtight", "Set of 6"] },
+    { n: "Modular Storage Jars",         col: "Modular Kitchen",        b: "valmate",    c: "storage",    img: "about-assets/prod-7.jpg",                              hl: "Stackable modular jars that bring order to every shelf.", tags: ["Stackable", "BPA-Free"] },
+    { n: "Steel Lunch Box 3-Tier",       col: "On-the-Go",              b: "valmate",    c: "storage",    img: "about-assets/prod-8.jpg",                              hl: "Insulated three-tier tiffin that keeps lunch warm till noon.", tags: ["Insulated", "Leak-Proof"] },
     // SPARKMATE
     { n: "360° Spin Mop",                col: "Spin & Clean",           b: "sparkmate",  c: "cleaning",   img: U + "2026/04/Spin-Mops-2.jpg",                          hl: "Single-bucket spin system for hands-free wringing and a sparkling floor.", tags: ["360° Spin", "Hands-Free"] },
     { n: "Easy-Press Spin Mop Pro",      col: "Spin & Clean",           b: "sparkmate",  c: "cleaning",   img: U + "2026/05/SMM013-1024x1024.jpg",                     hl: "Foot-pedal spin with a microfibre head that lifts grime fast.", tags: ["Foot Pedal", "Microfibre"] },
     { n: "Floor Wiper & Brush Combo",    col: "Sparkle Essentials",     b: "sparkmate",  c: "cleaning",   img: U + "2026/04/13.jpg",                                   hl: "Everyday wiper and brush set for quick, streak-free cleaning.", tags: ["Combo", "Everyday"] },
-    // VACU
-    { n: "Vacuum Flask 1L",              col: "Thermo Lock",            b: "vacu",       c: "flasks",     img: U + "2026/04/10.jpg",                                   hl: "Double-wall vacuum flask that keeps drinks hot or cold for 24 hours.", tags: ["24h Hot/Cold", "1L"] },
-    { n: "Insulated Sipper Bottle",      col: "Thermo Lock",            b: "vacu",       c: "flasks",     img: U + "2026/04/11.jpg",                                   hl: "Leak-proof insulated sipper for the gym, office and travel.", tags: ["Leak-Proof", "Insulated"] },
-    { n: "Double-Wall Carafe",           col: "Serve Warm",             b: "vacu",       c: "flasks",     img: U + "2026/04/6.jpg",                                    hl: "Elegant table carafe that serves water and juice at the perfect temp.", tags: ["Double-Wall", "Table-Ready"] },
+    // VALMATE (flasks)
+    { n: "Vacuum Flask 1L",              col: "Thermo Lock",            b: "valmate",    c: "flasks",     img: U + "2026/04/10.jpg",                                   hl: "Double-wall vacuum flask that keeps drinks hot or cold for 24 hours.", tags: ["24h Hot/Cold", "1L"] },
+    { n: "Insulated Sipper Bottle",      col: "Thermo Lock",            b: "valmate",    c: "flasks",     img: U + "2026/04/11.jpg",                                   hl: "Leak-proof insulated sipper for the gym, office and travel.", tags: ["Leak-Proof", "Insulated"] },
+    { n: "Double-Wall Carafe",           col: "Serve Warm",             b: "valmate",    c: "flasks",     img: U + "2026/04/6.jpg",                                    hl: "Elegant table carafe that serves water and juice at the perfect temp.", tags: ["Double-Wall", "Table-Ready"] },
   ];
   // product id (slug) used to link each card to its detail page (Product.html?p=<id>)
   const PID = {
@@ -576,11 +578,11 @@
   const pdpHref = p => "Product.html?p=" + (PID[p.n] || "");
 
   const MAIN_COLLECTIONS = [
-    { tag: "Czarin", title: "Tri-Pro Cookware", desc: "Triply, induction-ready cookware that cooks faster and lasts a lifetime.", img: U + "2026/05/CTV-097.jpg", cls: "tall", filter: { c: "cookware" } },
+    { tag: "Crystal", title: "Tri-Pro Cookware", desc: "Triply, induction-ready cookware that cooks faster and lasts a lifetime.", img: U + "2026/05/CTV-097.jpg", cls: "tall", filter: { c: "cookware" } },
     { tag: "Crystal", title: "Surgical Steel Knives", desc: "India's widest knife range — over 108 shapes, all razor-sharp.", img: U + "2026/04/Knife-2.jpg", filter: { c: "cutlery" } },
-    { tag: "Sparkmate", title: "Spin & Sparkle Cleaning", desc: "Effortless mops, wipers and brushes for a low-effort, spotless home.", img: U + "2026/04/Spin-Mops-2.jpg", filter: { c: "cleaning" } },
+    { tag: "SparkMate", title: "Spin & Sparkle Cleaning", desc: "Effortless mops, wipers and brushes for a low-effort, spotless home.", img: U + "2026/04/Spin-Mops-2.jpg", filter: { c: "cleaning" } },
     { tag: "Crystalina", title: "Splendid Serveware", desc: "Mirror-finish steel that makes everyday dining an occasion.", img: "about-assets/prod-3.jpg", filter: { c: "serveware" } },
-    { tag: "Freshmate", title: "Lock-Fresh Storage", desc: "Airtight, modular containers that keep food fresher for longer.", img: "about-assets/prod-6.jpg", filter: { c: "storage" } },
+    { tag: "ValMate", title: "Lock-Fresh Storage", desc: "Airtight, modular containers that keep food fresher for longer.", img: "about-assets/prod-6.jpg", filter: { c: "storage" } },
   ];
 
   /* ---------- VIEW (main vs brand) ---------- */

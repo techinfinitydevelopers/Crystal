@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Contact — CRYSTAL</title>
+<title>Request a Quote — CRYSTAL</title>
 <script>document.documentElement.className += " js";</script>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -52,11 +52,11 @@
   .nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; border: 1.5px solid transparent; border-radius: 100px; padding: 9px 9px 9px 22px; transition: background .35s, border-color .35s, box-shadow .35s, backdrop-filter .35s; }
   header.scrolled .nav, header.solid .nav { background: rgba(255,255,255,0.82); border-color: var(--line); backdrop-filter: blur(14px); box-shadow: 0 12px 30px -20px rgba(0,0,0,0.5); }
   .logo { display: flex; align-items: center; flex: 1; }
-  /* .logo .blob removed — replaced by logo.png */
   .nav-links { display: flex; gap: 4px; list-style: none; }
   .nav-links > li > a { font-weight: 600; font-size: 15px; padding: 9px 16px; border-radius: 100px; transition: background .2s, color .2s; display: inline-flex; align-items: center; gap: 6px; }
   .nav-links > li > a:hover, .nav-links > li > a.current { background: var(--ink); color: #fff; }
   .nav-right { display: flex; align-items: center; gap: 10px; flex: 1; justify-content: flex-end; }
+  .nav-right .btn.current { transform: none; }
   .burger { display: none; flex-direction: column; gap: 5px; background: var(--ink); border: none; border-radius: 100px; cursor: pointer; padding: 13px 12px; }
   .burger span { width: 22px; height: 2.5px; background: #fff; border-radius: 2px; }
   .has-dd { position: relative; }
@@ -102,12 +102,14 @@
   .ct-hero h1 { font-size: clamp(40px, 7.2vw, 96px); text-transform: uppercase; margin: 16px auto 0; line-height: 0.96; max-width: 14ch; }
   .ct-hero h1 .grad { background: var(--grad-red); -webkit-background-clip: text; background-clip: text; color: transparent; }
   .ct-hero .sub { max-width: 600px; margin: 22px auto 0; font-size: clamp(15px, 1.6vw, 18px); color: var(--muted); line-height: 1.6; }
-  .ct-quick { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
-  .ct-quick a { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; font-size: 14.5px; padding: 12px 20px; border-radius: 100px; border: 1.5px solid var(--line); background: var(--white); transition: transform .25s, border-color .25s, box-shadow .25s; }
-  .ct-quick a:hover { transform: translateY(-3px); border-color: rgba(237,51,56,0.4); box-shadow: 0 16px 30px -20px rgba(237,51,56,0.4); }
-  .ct-quick a svg { width: 17px; height: 17px; color: var(--red); }
 
-  /* CONTACT GRID: form + info */
+  /* TRUST STRIP */
+  .trust { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 14px 22px; margin-top: 30px; }
+  .trust span { display: inline-flex; align-items: center; gap: 9px; font-weight: 700; font-size: 13.5px; letter-spacing: 0.02em; color: var(--ink); }
+  .trust .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--grad-red); }
+  .trust .sep { width: 1px; height: 14px; background: var(--line); }
+
+  /* QUOTE GRID: form + info */
   .ct-grid { display: grid; grid-template-columns: 1.25fr 0.95fr; gap: clamp(20px, 3vw, 40px); align-items: start; }
   .ct-grid > * { min-width: 0; }
   .frm, .field { min-width: 0; }
@@ -143,6 +145,9 @@
 
   /* INFO COLUMN */
   .info-col { display: grid; gap: 14px; }
+  .info-col .ic-head { margin-bottom: 2px; }
+  .info-col .ic-head h3 { font-size: clamp(22px, 2.4vw, 28px); text-transform: uppercase; margin-top: 10px; }
+  .info-col .ic-head p { color: var(--muted); font-size: 14.5px; line-height: 1.55; margin-top: 8px; }
   .ic-card { border: 1.5px solid var(--line); border-radius: var(--r); padding: 22px 22px; display: flex; gap: 16px; align-items: flex-start; transition: transform .3s, border-color .3s, box-shadow .3s; background: var(--white); }
   .ic-card:hover { transform: translateY(-4px); border-color: rgba(237,51,56,0.3); box-shadow: 0 22px 44px -32px rgba(237,51,56,0.4); }
   .ic-ic { width: 48px; height: 48px; border-radius: 14px; background: rgba(237,51,56,0.10); color: var(--red); display: grid; place-items: center; flex: 0 0 auto; }
@@ -151,25 +156,8 @@
   .ic-card .ic-b a, .ic-card .ic-b p { font-size: 15.5px; font-weight: 600; line-height: 1.5; color: var(--ink); }
   .ic-card .ic-b a:hover { color: var(--red); }
   .ic-card .ic-b .sm { font-size: 13px; font-weight: 500; color: var(--muted); margin-top: 3px; }
-  .ic-socials { display: flex; gap: 10px; margin-top: 4px; }
-  .ic-socials a { width: 42px; height: 42px; border-radius: 50%; border: 1.5px solid var(--line); display: grid; place-items: center; color: var(--ink); transition: background .25s, border-color .25s, transform .25s, color .25s; }
-  .ic-socials a:hover { background: var(--grad-red); border-color: transparent; color: #fff; transform: translateY(-3px); }
-  .ic-socials a svg { width: 18px; height: 18px; }
-
-  /* LOCATION / MAP */
-  .loc { background: var(--cream); }
-  .loc-grid { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: clamp(18px, 2.6vw, 32px); align-items: stretch; }
-  .loc-cards { display: grid; gap: 14px; align-content: start; }
-  .loc-card { border: 1.5px solid var(--line); border-radius: var(--r); padding: 22px; background: var(--white); cursor: pointer; text-align: left; transition: transform .25s, border-color .25s, box-shadow .25s; display: flex; flex-direction: column; gap: 8px; }
-  .loc-card:hover { transform: translateY(-3px); border-color: rgba(237,51,56,0.3); }
-  .loc-card.active { border-color: var(--red); box-shadow: 0 0 0 3px rgba(237,51,56,0.12); }
-  .loc-card .lc-tag { font-family: var(--head); font-weight: 700; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--red); }
-  .loc-card h4 { font-family: var(--head); font-weight: 700; font-size: 19px; text-transform: uppercase; }
-  .loc-card p { font-size: 14.5px; color: var(--muted); line-height: 1.5; }
-  .loc-card .lc-dir { display: inline-flex; align-items: center; gap: 7px; font-size: 13.5px; font-weight: 700; color: var(--ink); margin-top: 2px; }
-  .loc-card .lc-dir svg { width: 15px; height: 15px; color: var(--red); }
-  .loc-map { border-radius: var(--r); overflow: hidden; border: 1.5px solid var(--line); min-height: 380px; background: #ddd; position: relative; }
-  .loc-map iframe { width: 100%; height: 100%; min-height: 380px; border: 0; display: block; filter: grayscale(0.25) contrast(1.02); }
+  .ic-card.ic-contact { background: var(--cream); border-color: transparent; }
+  .ic-card.ic-contact:hover { transform: translateY(-4px); }
 
   /* CTA */
   .cta-sec { padding: 0; }
@@ -214,7 +202,6 @@
     .nav-links, .nav-right .btn { display: none; }
     .burger { display: flex; }
     .ct-grid { grid-template-columns: 1fr; }
-    .loc-grid { grid-template-columns: 1fr; }
     .foot-top { grid-template-columns: 1fr 1fr; }
   }
   @media (max-width: 600px) {
@@ -237,8 +224,6 @@
   body.t-noir .burger { background:#2a2722; }
   body.t-noir header.scrolled .nav, body.t-noir header.solid .nav { background:rgba(20,19,15,0.82); box-shadow:0 12px 30px -20px rgba(0,0,0,0.85); }
   body.t-noir .nav-links > li > a:hover, body.t-noir .nav-links > li > a.current { background:rgba(255,255,255,0.14); color:var(--ink); }
-  body.t-noir .loc-map { background:#222019; }
-  body.t-noir .loc-map iframe { filter: grayscale(0.4) contrast(0.95) invert(0.9) hue-rotate(180deg); }
   body.tv-editorial h1, body.tv-editorial h2, body.tv-editorial h3, body.tv-editorial h4 { text-transform:none; font-weight:500; letter-spacing:-0.012em; }
   body.tv-bold h1, body.tv-bold h2, body.tv-bold h3, body.tv-bold h4 { font-weight:700; letter-spacing:-0.045em; text-transform:uppercase; line-height:0.92; }
 
@@ -277,10 +262,10 @@
         </li>
         <li><a href="Catalogue.html">Catalogue</a></li>
         <li><a href="Blog.html">Knowledge Centre</a></li>
-        <li><a href="Contact.html" class="current">Contact</a></li>
+        <li><a href="Contact.html">Contact</a></li>
       </ul>
       <div class="nav-right">
-        <a href="Quote.html" class="btn btn-red">Request Quote <span class="arr">↗</span></a>
+        <a href="Quote.html" class="btn btn-red current" aria-current="page">Request Quote <span class="arr">↗</span></a>
         <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
       </div>
     </div>
@@ -306,36 +291,44 @@
 <nav class="crumb wrap" aria-label="Breadcrumb">
   <ol>
     <li><a href="index.html">Home</a></li><li class="sep">/</li>
-    <li class="cur">Contact</li>
+    <li class="cur">Request a Quote</li>
   </ol>
 </nav>
 
 <!-- HERO -->
 <section class="ct-hero" id="hero">
   <div class="wrap">
-    <span class="eyebrow" data-fade><span class="pip"></span>Contact · We're here to help</span>
-    <h1 data-split>Let's bring <span class="grad">Crystal</span> home</h1>
-    <p class="sub" data-fade>Questions about a product, bulk orders, distributorship or partnerships — our team would love to hear from you. Reach out and we'll get back within one business day.</p>
-    <div class="ct-quick" data-fade>
-      <a href="mailto:sales@crystalcook.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M4 7l8 6 8-6"/></svg>sales@crystalcook.com</a>
-      <a href="tel:02249702803"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L19 13l5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>022-49702803 / 06</a>
+    <span class="eyebrow" data-fade><span class="pip"></span>Request a Quote</span>
+    <h1 data-split>Let's talk <span class="grad">business</span></h1>
+    <p class="sub" data-fade>Planning a bulk order, exploring an export opportunity, or looking to distribute Crystal in your region? Share your requirement and our sales team will prepare a tailored quote for you.</p>
+    <div class="trust" data-fade>
+      <span><span class="dot"></span>Since 1971</span>
+      <span class="sep"></span>
+      <span><span class="dot"></span>1,00,000+ retail outlets</span>
+      <span class="sep"></span>
+      <span><span class="dot"></span>Made in India</span>
     </div>
   </div>
 </section>
 
-<!-- CONTACT: FORM + INFO -->
-<section class="sec wrap" id="reach">
+<!-- QUOTE: FORM + INFO -->
+<section class="sec wrap" id="request">
   <div class="ct-grid">
     <!-- FORM -->
     <div class="form-card" id="formCard">
-      <span class="eyebrow"><span class="pip"></span>Send a message</span>
-      <h2>Write to us</h2>
-      <p class="fc-sub">Fill in the form and the right team at Crystal will reach out. Fields marked with <span style="color:var(--red)">*</span> are required.</p>
-      <form class="frm" id="contactForm" novalidate>
+      <span class="eyebrow"><span class="pip"></span>Quote request</span>
+      <h2>Tell us what you need</h2>
+      <p class="fc-sub">Fill in the form and our team will get back with pricing and details. Fields marked with <span style="color:var(--red)">*</span> are required.</p>
+      <form class="frm" id="quoteForm" novalidate>
         <div class="field">
           <label for="f-name">Full Name <span class="req">*</span></label>
           <input type="text" id="f-name" name="name" placeholder="e.g. Rohan Shah" autocomplete="name" />
           <span class="msg">Please enter your name.</span>
+        </div>
+        <div class="field">
+          <label for="f-company">Company</label>
+          <input type="text" id="f-company" name="company" placeholder="Your company / business name" autocomplete="organization" />
+          <span class="msg">&nbsp;</span>
         </div>
         <div class="field">
           <label for="f-email">Email <span class="req">*</span></label>
@@ -343,115 +336,108 @@
           <span class="msg">Enter a valid email address.</span>
         </div>
         <div class="field">
-          <label for="f-phone">Phone</label>
+          <label for="f-phone">Phone <span class="req">*</span></label>
           <input type="tel" id="f-phone" name="phone" placeholder="+91 00000 00000" autocomplete="tel" />
           <span class="msg">Enter a valid phone number.</span>
         </div>
         <div class="field">
-          <label for="f-subject">Subject <span class="req">*</span></label>
-          <select id="f-subject" name="subject">
-            <option value="" selected disabled>Select a topic</option>
-            <option>General Inquiry</option>
-            <option>Product Inquiry</option>
-            <option>Bulk Order / Distributorship</option>
-            <option>Partnership &amp; Export</option>
-            <option>Customer Support</option>
+          <label for="f-type">Enquiry Type <span class="req">*</span></label>
+          <select id="f-type" name="enquiryType">
+            <option value="" selected disabled>Select enquiry type</option>
+            <option>Bulk Order</option>
+            <option>Export Enquiry</option>
+            <option>Distribution Partnership</option>
+            <option>Retail</option>
+            <option>Other</option>
           </select>
-          <span class="msg">Please choose a subject.</span>
+          <span class="msg">Please choose an enquiry type.</span>
+        </div>
+        <div class="field">
+          <label for="f-product">Product Interest <span class="req">*</span></label>
+          <select id="f-product" name="productInterest">
+            <option value="" selected disabled>Select product interest</option>
+            <option>Cookware</option>
+            <option>Kitchenware</option>
+            <option>Cleaning Aid</option>
+            <option>Electric Appliances</option>
+            <option>Multiple</option>
+          </select>
+          <span class="msg">Please choose a product interest.</span>
+        </div>
+        <div class="field full">
+          <label for="f-qty">Quantity <span style="font-weight:500;text-transform:none;letter-spacing:0;color:var(--muted)">(optional)</span></label>
+          <input type="text" id="f-qty" name="quantity" placeholder="e.g. 500 units, 2 containers" />
+          <span class="msg">&nbsp;</span>
         </div>
         <div class="field full">
           <label for="f-message">Message <span class="req">*</span></label>
-          <textarea id="f-message" name="message" placeholder="Tell us a little about what you need…"></textarea>
+          <textarea id="f-message" name="message" placeholder="Tell us about your requirement, timelines and target region…"></textarea>
           <span class="msg">Please enter a message (at least 10 characters).</span>
         </div>
         <div class="frm-foot">
           <span class="note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Your details stay private and are never shared.</span>
-          <button type="submit" class="btn btn-red">Send Message <span class="arr">↗</span></button>
+          <button type="submit" class="btn btn-red">Submit Request <span class="arr">↗</span></button>
         </div>
       </form>
       <div class="sent-msg">
         <span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
-        <h3>Thank you!</h3>
-        <p id="sentText">Your message is on its way. Our team will get back to you within one business day.</p>
-        <button type="button" class="btn btn-ghost" id="sendAnother">Send another message</button>
+        <h3>Request received!</h3>
+        <p id="sentText">Thanks! Your quote request is on its way. Our sales team will get back to you within one business day.</p>
+        <button type="button" class="btn btn-ghost" id="sendAnother">Submit another request</button>
       </div>
     </div>
 
     <!-- INFO -->
     <div class="info-col">
-      <div class="ic-card" data-fade>
-        <span class="ic-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.2-7-11a7 7 0 0 1 14 0c0 5.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg></span>
-        <div class="ic-b">
-          <h4>Corporate Office</h4>
-          <p>Sahar Plaza, Andheri (East),<br>Mumbai 400059, Maharashtra</p>
-        </div>
+      <div class="ic-head" data-fade>
+        <span class="eyebrow"><span class="pip"></span>Partner with Crystal</span>
+        <h3>Built for business</h3>
+        <p>From single bulk orders to global exports and long-term distribution — we work with partners of every scale.</p>
       </div>
       <div class="ic-card" data-fade>
-        <span class="ic-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V9l9-6 9 6v12"/><path d="M3 21h18M9 21v-6h6v6"/><path d="M9 12h.01M15 12h.01"/></svg></span>
+        <span class="ic-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h18l-1.5 12.5a2 2 0 0 1-2 1.5H6.5a2 2 0 0 1-2-1.5L3 7z"/><path d="M8 7V5a4 4 0 0 1 8 0v2"/></svg></span>
         <div class="ic-b">
-          <h4>Manufacturing Unit</h4>
-          <p>G.I.D.C Metoda,<br>Rajkot 360021, Gujarat</p>
-        </div>
-      </div>
-      <div class="ic-card" data-fade>
-        <span class="ic-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L19 13l5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></span>
-        <div class="ic-b">
-          <h4>Call Us</h4>
-          <a href="tel:02249702803">022-49702803 / 06</a>
-          <span class="sm">Mon–Sat, 10:00 AM – 6:30 PM IST</span>
-        </div>
-      </div>
-      <div class="ic-card" data-fade>
-        <span class="ic-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M4 7l8 6 8-6"/></svg></span>
-        <div class="ic-b">
-          <h4>Email Us</h4>
-          <a href="mailto:sales@crystalcook.com">sales@crystalcook.com</a>
-          <a href="mailto:info@crystalcook.com">info@crystalcook.com</a>
+          <h4>Bulk Orders</h4>
+          <p>Competitive trade pricing on high-volume orders across our cookware and kitchenware range, with reliable lead times.</p>
         </div>
       </div>
       <div class="ic-card" data-fade>
         <span class="ic-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3.5 9h17M3.5 15h17M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></span>
         <div class="ic-b">
-          <h4>Follow Us</h4>
-          <div class="ic-socials">
-            <a href="https://www.instagram.com/crystalcooknserve" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"></circle></svg></a>
-            <a href="https://www.facebook.com/share/1HMc4pSziY/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-8h3l1-4h-4V8c0-1 .5-2 2-2h2V2h-3c-3 0-5 2-5 5v3H6v4h3v8z"></path></svg></a>
-            <a href="https://www.linkedin.com/company/crystal-cook-and-serve-products-pvt-ltd/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.5 3.5a2 2 0 100 4 2 2 0 000-4zM3 9h3v12H3zM9 9h3v1.7c.5-.9 1.7-1.9 3.5-1.9 3 0 4.5 2 4.5 5.3V21h-3v-6c0-1.6-.6-2.7-2-2.7s-2.2 1-2.2 2.6V21H9z"></path></svg></a>
-            <a href="https://youtube.com/@crystalcooknserve" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12s0-3-.4-4.4a2.5 2.5 0 00-1.8-1.8C18.4 5.4 12 5.4 12 5.4s-6.4 0-7.8.4A2.5 2.5 0 002.4 7.6C2 9 2 12 2 12s0 3 .4 4.4a2.5 2.5 0 001.8 1.8c1.4.4 7.8.4 7.8.4s6.4 0 7.8-.4a2.5 2.5 0 001.8-1.8C22 15 22 12 22 12zm-12 3V9l5 3z"></path></svg></a>
-          </div>
+          <h4>Export Enquiries</h4>
+          <p>Made-in-India quality for international markets. We handle documentation, packaging and shipping for export partners.</p>
+        </div>
+      </div>
+      <div class="ic-card" data-fade>
+        <span class="ic-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="12" cy="18" r="2.5"/><path d="M6 8.5v3a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-3M12 13.5v2"/></svg></span>
+        <div class="ic-b">
+          <h4>Distribution Partnership</h4>
+          <p>Grow with a brand homes have trusted since 1971. Join our network of 1,00,000+ retail outlets across India.</p>
+        </div>
+      </div>
+      <div class="ic-card ic-contact" data-fade>
+        <span class="ic-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M4 7l8 6 8-6"/></svg></span>
+        <div class="ic-b">
+          <h4>Talk to Sales Directly</h4>
+          <a href="mailto:sales@crystalcook.com">sales@crystalcook.com</a>
+          <a href="tel:02249702803">022-49702803 / 06</a>
+          <span class="sm">Mon–Sat, 10:00 AM – 6:30 PM IST</span>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- LOCATION / MAP -->
-<section class="sec loc" id="location">
-  <div class="wrap">
-    <div class="sec-head">
-      <div>
-        <span class="eyebrow" data-fade><span class="pip"></span>Find us</span>
-        <h2 data-split style="margin-top:14px">Where we<br>make it all</h2>
-      </div>
-      <p class="lead">From our Rajkot manufacturing unit to our Mumbai head office — visit us or get directions.</p>
-    </div>
-    <div class="loc-grid">
-      <div class="loc-cards">
-        <button class="loc-card active" data-map="Crystal+Cook+and+Serve+GIDC+Metoda+Rajkot+Gujarat" data-fade>
-          <span class="lc-tag">Manufacturing Unit</span>
-          <h4>Rajkot, Gujarat</h4>
-          <p>G.I.D.C Metoda, Rajkot 360021, Gujarat, India</p>
-          <span class="lc-dir">View on map <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
-        </button>
-        <button class="loc-card" data-map="Sahar+Plaza+Andheri+East+Mumbai+400059" data-fade>
-          <span class="lc-tag">Corporate Office</span>
-          <h4>Mumbai, Maharashtra</h4>
-          <p>Sahar Plaza, Andheri (East), Mumbai 400059, Maharashtra, India</p>
-          <span class="lc-dir">View on map <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
-        </button>
-      </div>
-      <div class="loc-map" data-fade>
-        <iframe id="mapFrame" title="Crystal location map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Crystal+Cook+and+Serve+GIDC+Metoda+Rajkot+Gujarat&t=&z=12&ie=UTF8&iwloc=&output=embed"></iframe>
+<!-- CTA -->
+<section class="cta-sec" id="cta">
+  <div class="cta">
+    <div class="cta-inner">
+      <span class="eyebrow" style="color:#fff;justify-content:center"><span class="pip"></span>Ready when you are</span>
+      <h2 data-split style="margin-top:14px">Let's build<br>something big</h2>
+      <p>Have a specific requirement in mind? Email our sales team and we'll move fast on your quote.</p>
+      <div class="row">
+        <a href="mailto:sales@crystalcook.com" class="btn btn-light">sales@crystalcook.com <span class="arr">↗</span></a>
+        <a href="tel:02249702803" class="btn btn-red">022-49702803 / 06 <span class="arr">↗</span></a>
       </div>
     </div>
   </div>
@@ -480,7 +466,7 @@
       </div>
       <div class="foot-col"><h5>Brands</h5><ul id="footBrands"></ul></div>
       <div class="foot-col"><h5>Quick Link</h5><ul><li><a href="About.html">About Us</a></li><li><a href="Catalogue.html">Catalogue</a></li><li><a href="Blog.html">Knowledge Centre</a></li><li><a href="Career.html">Career</a></li></ul></div>
-      <div class="foot-col"><h5>Contact Us</h5><ul><li><a href="#location">G.I.D.C Metoda, Rajkot 360021, Gujarat</a></li><li><a href="#location">Sahar Plaza, Andheri (E), Mumbai 400059</a></li><li><a href="tel:02249702803">022-49702803 / 06</a></li></ul></div>
+      <div class="foot-col"><h5>Contact Us</h5><ul><li><a href="Contact.html">G.I.D.C Metoda, Rajkot 360021, Gujarat</a></li><li><a href="Contact.html">Sahar Plaza, Andheri (E), Mumbai 400059</a></li><li><a href="tel:02249702803">022-49702803 / 06</a></li></ul></div>
     </div>
     <div class="foot-wordmark"><span class="wm-outline">CRYSTAL</span><span class="wm-fill">CRYSTAL</span></div>
     <div class="foot-bottom"><span>© 2026 Crystal. All rights reserved. Designed & Developed by <a href="https://techinfinity.io" target="_blank" style="color:inherit;text-decoration:underline;">TechInfinity</a>.</span><span><a href="Privacy.html" style="color:inherit;">Privacy Policy</a> · <a href="Terms.html" style="color:inherit;">Terms &amp; Condition</a></span></div>
@@ -520,45 +506,36 @@
   document.getElementById("mmClose").addEventListener("click", () => mmEl.classList.remove("open"));
   document.querySelectorAll(".mm-link").forEach(a => a.addEventListener("click", () => mmEl.classList.remove("open")));
 
-  /* map switch */
-  const mapFrame = document.getElementById("mapFrame");
-  document.querySelectorAll(".loc-card").forEach(card => {
-    card.addEventListener("click", () => {
-      document.querySelectorAll(".loc-card").forEach(c => c.classList.remove("active"));
-      card.classList.add("active");
-      mapFrame.src = "https://maps.google.com/maps?q=" + card.dataset.map + "&t=&z=12&ie=UTF8&iwloc=&output=embed";
-    });
-  });
-
   /* form validation + success */
-  const form = document.getElementById("contactForm");
+  const form = document.getElementById("quoteForm");
   const card = document.getElementById("formCard");
   const isEmail = v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
-  const isPhone = v => v === "" || /^[+()\-\s0-9]{7,20}$/.test(v);
+  const isPhone = v => /^[+()\-\s0-9]{7,20}$/.test(v);
   function fieldOf(input) { return input.closest(".field"); }
   function validate(input) {
     const v = input.value.trim(); let ok = true;
     if (input.id === "f-name") ok = v.length >= 2;
     else if (input.id === "f-email") ok = isEmail(v);
     else if (input.id === "f-phone") ok = isPhone(v);
-    else if (input.id === "f-subject") ok = v !== "";
+    else if (input.id === "f-type") ok = v !== "";
+    else if (input.id === "f-product") ok = v !== "";
     else if (input.id === "f-message") ok = v.length >= 10;
     fieldOf(input).classList.toggle("err", !ok);
     return ok;
   }
-  const required = ["f-name", "f-email", "f-subject", "f-message"];
+  const required = ["f-name", "f-email", "f-phone", "f-type", "f-product", "f-message"];
   form.addEventListener("submit", e => {
     e.preventDefault();
     let valid = true;
-    required.concat(["f-phone"]).forEach(id => { if (!validate(document.getElementById(id))) valid = false; });
+    required.forEach(id => { if (!validate(document.getElementById(id))) valid = false; });
     if (!valid) { const first = form.querySelector(".field.err input, .field.err select, .field.err textarea"); if (first) first.focus(); return; }
     const name = document.getElementById("f-name").value.trim().split(/\s+/)[0];
-    document.getElementById("sentText").textContent = `Thanks ${name}! Your message is on its way. Our team will get back to you within one business day.`;
+    document.getElementById("sentText").textContent = `Thanks ${name}! Your quote request is on its way. Our sales team will get back to you within one business day.`;
     card.classList.add("sent");
     card.scrollTop = 0;
   });
   form.querySelectorAll("input, select, textarea").forEach(inp => {
-    inp.addEventListener("blur", () => { if (inp.id !== "f-phone" || inp.value.trim() !== "") validate(inp); });
+    inp.addEventListener("blur", () => { if (required.includes(inp.id)) validate(inp); });
     inp.addEventListener("input", () => { if (fieldOf(inp).classList.contains("err")) validate(inp); });
   });
   document.getElementById("sendAnother").addEventListener("click", () => {
@@ -575,7 +552,7 @@
     tl.from("#hero [data-split] .word", { yPercent: 118, duration: 0.9, stagger: 0.05, delay: 0.1 })
       .from("#hero .eyebrow", { y: 22, opacity: 0, duration: 0.5 }, 0.1)
       .from("#hero .sub", { y: 22, opacity: 0, duration: 0.55 }, "-=0.45")
-      .from("#hero .ct-quick", { y: 18, opacity: 0, duration: 0.5 }, "-=0.35")
+      .from("#hero .trust", { y: 18, opacity: 0, duration: 0.5 }, "-=0.35")
       .from(".form-card", { y: 40, opacity: 0, duration: 0.7 }, "-=0.3");
     gsap.utils.toArray("[data-split]").forEach(h => {
       if (h.closest("#hero")) return;
@@ -592,7 +569,7 @@
   }
   if (!RM) { try { initGSAP(); } catch (e) { console.warn("GSAP", e); } }
   function failsafe() {
-    if (window.gsap) gsap.set("#hero .eyebrow, #hero .sub, #hero .ct-quick, .form-card, [data-split] .word, [data-fade]", { clearProps: "opacity,transform,x,y,xPercent,yPercent,scale" });
+    if (window.gsap) gsap.set("#hero .eyebrow, #hero .sub, #hero .trust, .form-card, [data-split] .word, [data-fade]", { clearProps: "opacity,transform,x,y,xPercent,yPercent,scale" });
   }
   if (document.hidden || !window.gsap || RM) failsafe();
   let ok = false; requestAnimationFrame(() => { ok = true; });
@@ -621,7 +598,7 @@
     "type": "modern",
     "accent": "red"
   }/*EDITMODE-END*/;
-  const LSK = "crystal-contact-tweaks";
+  const LSK = "crystal-quote-tweaks";
   let vals = Object.assign({}, DEF);
   try { Object.assign(vals, JSON.parse(localStorage.getItem(LSK) || "{}")); } catch (e) {}
   const ACCENTS = {

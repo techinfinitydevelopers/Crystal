@@ -328,10 +328,12 @@
           <a href="All-Products.html?brand=crystal" class="dd-toggle">Brands <span class="cv">▾</span></a>
           <div class="dd-menu" id="ddMenu"></div>
         </li>
-        <li><a href="index.html#why">Network</a></li>
+        <li><a href="Catalogue.html">Catalogue</a></li>
+        <li><a href="Blog.html">Knowledge Centre</a></li>
+        <li><a href="Contact.html">Contact</a></li>
       </ul>
       <div class="nav-right">
-        <a href="Contact.html" class="btn btn-red">Contact Us <span class="arr">↗</span></a>
+        <a href="Quote.html" class="btn btn-red">Request Quote <span class="arr">↗</span></a>
         <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
       </div>
     </div>
@@ -343,8 +345,10 @@
   <ul>
     <li><a href="About.html" class="mm-link">About</a></li>
     <li><a href="All-Products.html" class="mm-link">Products</a></li>
-    <li><a href="index.html#services" class="mm-link">Range</a></li>
-    <li><a href="#footer" class="mm-link">Contact</a></li>
+    <li><a href="Catalogue.html" class="mm-link">Catalogue</a></li>
+    <li><a href="Blog.html" class="mm-link">Knowledge Centre</a></li>
+    <li><a href="Contact.html" class="mm-link">Contact</a></li>
+    <li><a href="Quote.html" class="mm-link">Request Quote</a></li>
   </ul>
   <div class="mm-brands" id="mmBrands"></div>
 </div>
@@ -539,11 +543,11 @@
         </div>
       </div>
       <div class="foot-col"><h5>Brands</h5><ul id="footBrands"></ul></div>
-      <div class="foot-col"><h5>Quick Link</h5><ul><li><a href="About.html">About Us</a></li><li><a href="All-Products.html">Products</a></li><li><a href="#footer">Career</a></li></ul></div>
+      <div class="foot-col"><h5>Quick Link</h5><ul><li><a href="About.html">About Us</a></li><li><a href="Catalogue.html">Catalogue</a></li><li><a href="Blog.html">Knowledge Centre</a></li><li><a href="Career.html">Career</a></li></ul></div>
       <div class="foot-col"><h5>Contact Us</h5><ul><li><a href="#">G.I.D.C Metoda, Rajkot 360021, Gujarat</a></li><li><a href="#">Sahar Plaza, Andheri (E), Mumbai 400059</a></li><li><a href="tel:02249702803">022-49702803 / 06</a></li></ul></div>
     </div>
     <div class="foot-wordmark"><span class="wm-outline">CRYSTAL</span><span class="wm-fill">CRYSTAL</span></div>
-    <div class="foot-bottom"><span>© 2026 Crystal. All rights reserved. Designed & Developed by <a href="https://techinfinity.io" target="_blank" style="color:inherit;text-decoration:underline;">TechInfinity</a>.</span><span>Privacy Policy · Terms &amp; Condition</span></div>
+    <div class="foot-bottom"><span>© 2026 Crystal. All rights reserved. Designed & Developed by <a href="https://techinfinity.io" target="_blank" style="color:inherit;text-decoration:underline;">TechInfinity</a>.</span><span><a href="Privacy.html" style="color:inherit;text-decoration:underline;">Privacy Policy</a> · <a href="Terms.html" style="color:inherit;text-decoration:underline;">Terms &amp; Condition</a></span></div>
   </div>
 </footer>
 
@@ -554,10 +558,8 @@
   const BRANDS = {
     crystal:    { name: "Crystal",    tagline: "World of Kitchenware", story: "It began in 1971 with a simple gas lighter and a belief that everyday Indian homes deserved better. Today Crystal spans knives, tools, cookware and appliances — the flagship of the family.", img: U + "2026/04/Knife-2.jpg" },
     crystalina: { name: "Crystalina", tagline: "Splendid Finish",      story: "Crystalina brings a splendid mirror finish to serveware and dinnerware — premium stainless steel that makes every meal feel like an occasion.", img: "about-assets/prod-3.jpg" },
-    czarin:     { name: "Czarin",     tagline: "Cook Like a Pro",      story: "Czarin is Crystal's cookware powerhouse — triply and DuPont-grade non-stick built to international standards for the way India really cooks.", img: U + "2026/05/CTV-097.jpg" },
-    freshmate:  { name: "Freshmate",  tagline: "Locks Freshness In",   story: "Freshmate keeps food fresher for longer with airtight, modular storage designed for the modern kitchen and life on the go.", img: "about-assets/prod-6.jpg" },
-    sparkmate:  { name: "Sparkmate",  tagline: "Cleaning Simplified",  story: "Sparkmate makes a spotless home effortless — spin mops, wipers and brushes engineered for fast, low-effort cleaning.", img: U + "2026/04/Spin-Mops-2.jpg" },
-    vacu:       { name: "Vacu",       tagline: "Hot Stays Hot",        story: "Vacu holds temperature for hours with rugged vacuum-insulated flasks and bottles built for travel, work and everyday hydration.", img: U + "2026/04/10.jpg" },
+    sparkmate:  { name: "SparkMate",  tagline: "Cleaning Simplified",  story: "SparkMate makes a spotless home effortless — spin mops, wipers and brushes engineered for fast, low-effort cleaning.", img: U + "2026/04/Spin-Mops-2.jpg" },
+    valmate:    { name: "ValMate",    tagline: "Value for Money",      story: "ValMate delivers dependable everyday essentials at honest prices — practical storage, flasks and home solutions built for real value.", img: U + "2026/04/10.jpg" },
   };
   const CAT_LABEL = { cookware:"Cookware", cutlery:"Cutlery & Knives", serveware:"Serveware", cleaning:"Cleaning Aids", storage:"Storage & Freshness", flasks:"Flasks & Bottles", lighters:"Lighters", appliances:"Appliances" };
 
@@ -609,19 +611,19 @@
     { id:"serving-set", n:"Mirror-Finish Serving Set", b:"crystalina", c:"serveware", col:"Splendid Serveware", img:"about-assets/prod-3.jpg", tags:["Mirror Finish","Food-Grade"], intro:"Dining, elevated.", desc:"A mirror-finish stainless serving set that turns everyday meals into occasions. Heavy-gauge, food-safe and effortless to clean.", variants:["3 Pc","5 Pc"] },
     { id:"hot-pot-casserole", n:"Insulated Hot-Pot Casserole", b:"crystalina", c:"serveware", col:"Splendid Serveware", img:"about-assets/prod-4.jpg", tags:["Insulated","Stay-Warm"], intro:"Warm meals, for hours.", desc:"A double-wall insulated casserole that keeps rotis and curries hot long after they leave the stove. Splendid finish outside, practical inside.", variants:["1.5 L","2.5 L","3.5 L"] },
     { id:"thali-set", n:"Steel Dinner Thali Set", b:"crystalina", c:"serveware", col:"Elite Dinnerware", img:"about-assets/prod-5.jpg", tags:["Heavy Gauge","Family Set"], intro:"Built for daily dining.", desc:"A heavy-gauge steel thali set with Crystalina's signature splendid finish — generously sized and made for the whole family.", variants:["Set of 2","Set of 4","Set of 6"] },
-    { id:"triply-frypan", n:"Tri-Ply Frypan 24cm", b:"czarin", c:"cookware", col:"Tri-Ply Pro", img:U+"2026/04/Tri-Pro-2-1.jpg", tags:["Tri-Ply","Induction"], intro:"Pro-grade, even heat.", desc:"Three bonded layers of steel and aluminium spread heat evenly for perfect searing and sautéing. Induction-ready and built to last a lifetime of cooking.", variants:["22 cm","24 cm","26 cm"], specs:{Material:"Tri-ply (steel-alu-steel)",Diameter:"24 cm"} },
-    { id:"nonstick-kadai", n:"Platinum Non-Stick Kadai", b:"czarin", c:"cookware", col:"Platinum Non-Stick", img:U+"2026/05/CTV-097.jpg", tags:["Non-Stick","Low-Oil"], intro:"Healthier, low-oil cooking.", desc:"A 3-coat platinum non-stick kadai built to DuPont-grade standards. Food releases cleanly with minimal oil, and clean-up takes seconds.", variants:["2 L","2.5 L","3 L"], specs:{Coating:"3-coat platinum non-stick",Capacity:"2.5 L",Diameter:"24 cm"} },
-    { id:"pressure-cooker", n:"Tri-Pro Pressure Cooker 3L", b:"czarin", c:"cookware", col:"Tri-Pro Pro", img:U+"2026/04/Pressure-Cooker-5.jpg", tags:["Induction","Triply"], intro:"Cook faster, every day.", desc:"An induction-ready triply pressure cooker that saves fuel and time on every meal, with a secure locking system and even-heat base.", variants:["3 L","5 L","7.5 L"], specs:{Material:"Triply stainless steel",Capacity:"3 L",Safety:"Locking lid + valve"} },
-    { id:"cast-iron-tawa", n:"Heritage Cast Iron Tawa", b:"czarin", c:"cookware", col:"Heritage Cast Iron", img:U+"2026/04/CPC_023.jpg", tags:["Cast Iron","Pre-Seasoned"], intro:"Heritage cooking, modernised.", desc:"A pre-seasoned cast iron tawa that delivers steady, retained heat for perfect rotis and dosas — and gets better with every use.", variants:["25 cm","28 cm"], specs:{Material:"Pre-seasoned cast iron",Diameter:"28 cm"} },
-    { id:"container-set", n:"Airtight Container Set", b:"freshmate", c:"storage", col:"Lock-Fresh Containers", img:"about-assets/prod-6.jpg", tags:["Airtight","Set of 6"], intro:"Freshness, locked in.", desc:"A set of leak-proof, airtight containers that keep food fresher for longer. Stackable, food-safe and fridge-to-table ready.", variants:["Set of 3","Set of 6","Set of 9"] },
-    { id:"storage-jars", n:"Modular Storage Jars", b:"freshmate", c:"storage", col:"Modular Kitchen", img:"about-assets/prod-7.jpg", tags:["Stackable","BPA-Free"], intro:"Order for every shelf.", desc:"Modular, stackable jars that bring tidy order to your kitchen. BPA-free and crystal-clear so you always see what's inside.", variants:["Small","Medium","Large"] },
-    { id:"lunch-box", n:"Steel Lunch Box 3-Tier", b:"freshmate", c:"storage", col:"On-the-Go", img:"about-assets/prod-8.jpg", tags:["Insulated","Leak-Proof"], intro:"Warm lunches, on the go.", desc:"An insulated three-tier steel tiffin that keeps lunch warm till noon. Leak-proof and built for daily commutes.", variants:["2 Tier","3 Tier"] },
+    { id:"triply-frypan", n:"Tri-Ply Frypan 24cm", b:"crystal", c:"cookware", col:"Tri-Ply Pro", img:U+"2026/04/Tri-Pro-2-1.jpg", tags:["Tri-Ply","Induction"], intro:"Pro-grade, even heat.", desc:"Three bonded layers of steel and aluminium spread heat evenly for perfect searing and sautéing. Induction-ready and built to last a lifetime of cooking.", variants:["22 cm","24 cm","26 cm"], specs:{Material:"Tri-ply (steel-alu-steel)",Diameter:"24 cm"} },
+    { id:"nonstick-kadai", n:"Platinum Non-Stick Kadai", b:"crystal", c:"cookware", col:"Platinum Non-Stick", img:U+"2026/05/CTV-097.jpg", tags:["Non-Stick","Low-Oil"], intro:"Healthier, low-oil cooking.", desc:"A 3-coat platinum non-stick kadai built to DuPont-grade standards. Food releases cleanly with minimal oil, and clean-up takes seconds.", variants:["2 L","2.5 L","3 L"], specs:{Coating:"3-coat platinum non-stick",Capacity:"2.5 L",Diameter:"24 cm"} },
+    { id:"pressure-cooker", n:"Tri-Pro Pressure Cooker 3L", b:"crystal", c:"cookware", col:"Tri-Pro Pro", img:U+"2026/04/Pressure-Cooker-5.jpg", tags:["Induction","Triply"], intro:"Cook faster, every day.", desc:"An induction-ready triply pressure cooker that saves fuel and time on every meal, with a secure locking system and even-heat base.", variants:["3 L","5 L","7.5 L"], specs:{Material:"Triply stainless steel",Capacity:"3 L",Safety:"Locking lid + valve"} },
+    { id:"cast-iron-tawa", n:"Heritage Cast Iron Tawa", b:"crystal", c:"cookware", col:"Heritage Cast Iron", img:U+"2026/04/CPC_023.jpg", tags:["Cast Iron","Pre-Seasoned"], intro:"Heritage cooking, modernised.", desc:"A pre-seasoned cast iron tawa that delivers steady, retained heat for perfect rotis and dosas — and gets better with every use.", variants:["25 cm","28 cm"], specs:{Material:"Pre-seasoned cast iron",Diameter:"28 cm"} },
+    { id:"container-set", n:"Airtight Container Set", b:"valmate", c:"storage", col:"Lock-Fresh Containers", img:"about-assets/prod-6.jpg", tags:["Airtight","Set of 6"], intro:"Freshness, locked in.", desc:"A set of leak-proof, airtight containers that keep food fresher for longer. Stackable, food-safe and fridge-to-table ready.", variants:["Set of 3","Set of 6","Set of 9"] },
+    { id:"storage-jars", n:"Modular Storage Jars", b:"valmate", c:"storage", col:"Modular Kitchen", img:"about-assets/prod-7.jpg", tags:["Stackable","BPA-Free"], intro:"Order for every shelf.", desc:"Modular, stackable jars that bring tidy order to your kitchen. BPA-free and crystal-clear so you always see what's inside.", variants:["Small","Medium","Large"] },
+    { id:"lunch-box", n:"Steel Lunch Box 3-Tier", b:"valmate", c:"storage", col:"On-the-Go", img:"about-assets/prod-8.jpg", tags:["Insulated","Leak-Proof"], intro:"Warm lunches, on the go.", desc:"An insulated three-tier steel tiffin that keeps lunch warm till noon. Leak-proof and built for daily commutes.", variants:["2 Tier","3 Tier"] },
     { id:"spin-mop", n:"360° Spin Mop", b:"sparkmate", c:"cleaning", col:"Spin & Clean", img:U+"2026/04/Spin-Mops-2.jpg", tags:["360° Spin","Hands-Free"], intro:"Hands-free, sparkling floors.", desc:"A single-bucket 360° spin system that wrings the mop for you. Lightweight, sturdy and quick to dry.", variants:["Standard","Pro"] },
     { id:"spin-mop-pro", n:"Easy-Press Spin Mop Pro", b:"sparkmate", c:"cleaning", col:"Spin & Clean", img:U+"2026/05/SMM013-1024x1024.jpg", tags:["Foot Pedal","Microfibre"], intro:"Foot-pedal spin power.", desc:"An upgraded spin mop with an easy foot pedal and high-absorbency microfibre head that lifts grime fast.", variants:["Pro","Pro Max"] },
     { id:"wiper-brush", n:"Floor Wiper & Brush Combo", b:"sparkmate", c:"cleaning", col:"Sparkle Essentials", img:U+"2026/04/13.jpg", tags:["Combo","Everyday"], intro:"Quick, streak-free cleaning.", desc:"An everyday wiper and brush combo for fast, effortless cleaning across floors and surfaces.", variants:["Combo"] },
-    { id:"vacuum-flask", n:"Vacuum Flask 1L", b:"vacu", c:"flasks", col:"Thermo Lock", img:U+"2026/04/10.jpg", tags:["24h Hot/Cold","1L"], intro:"24 hours hot or cold.", desc:"A double-wall vacuum flask in rugged 18/8 steel that holds temperature for up to 24 hours. Leak-proof and travel-ready.", variants:["500 ml","750 ml","1 L"], specs:{Capacity:"1 L"} },
-    { id:"sipper-bottle", n:"Insulated Sipper Bottle", b:"vacu", c:"flasks", col:"Thermo Lock", img:U+"2026/04/11.jpg", tags:["Leak-Proof","Insulated"], intro:"Hydration on the move.", desc:"A leak-proof insulated sipper for gym, office and travel. Keeps drinks at the perfect temperature for hours.", variants:["500 ml","750 ml"] },
-    { id:"carafe", n:"Double-Wall Carafe", b:"vacu", c:"flasks", col:"Serve Warm", img:U+"2026/04/6.jpg", tags:["Double-Wall","Table-Ready"], intro:"Serve at the perfect temp.", desc:"An elegant double-wall carafe for the table that keeps water and juice hot or cold while it serves.", variants:["1 L","1.5 L"] },
+    { id:"vacuum-flask", n:"Vacuum Flask 1L", b:"valmate", c:"flasks", col:"Thermo Lock", img:U+"2026/04/10.jpg", tags:["24h Hot/Cold","1L"], intro:"24 hours hot or cold.", desc:"A double-wall vacuum flask in rugged 18/8 steel that holds temperature for up to 24 hours. Leak-proof and travel-ready.", variants:["500 ml","750 ml","1 L"], specs:{Capacity:"1 L"} },
+    { id:"sipper-bottle", n:"Insulated Sipper Bottle", b:"valmate", c:"flasks", col:"Thermo Lock", img:U+"2026/04/11.jpg", tags:["Leak-Proof","Insulated"], intro:"Hydration on the move.", desc:"A leak-proof insulated sipper for gym, office and travel. Keeps drinks at the perfect temperature for hours.", variants:["500 ml","750 ml"] },
+    { id:"carafe", n:"Double-Wall Carafe", b:"valmate", c:"flasks", col:"Serve Warm", img:U+"2026/04/6.jpg", tags:["Double-Wall","Table-Ready"], intro:"Serve at the perfect temp.", desc:"An elegant double-wall carafe for the table that keeps water and juice hot or cold while it serves.", variants:["1 L","1.5 L"] },
   ];
   const BY_ID = Object.fromEntries(P.map(p => [p.id, p]));
 
