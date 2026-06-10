@@ -1,0 +1,177 @@
+{% extends 'admin/index.html' %}
+{% load i18n %}
+
+{% block content %}
+{% load i18n %}
+
+<!-- ── Stat Cards ── -->
+<div class="row mb-4">
+  <div class="col-lg-3 col-6">
+    <div class="info-box shadow-sm">
+      <span class="info-box-icon bg-danger"><i class="fas fa-box-open fa-lg"></i></span>
+      <div class="info-box-content">
+        <span class="info-box-text">Total Products</span>
+        <span class="info-box-number">{{ stat_products }}</span>
+        <div class="progress"><div class="progress-bar bg-danger" style="width:100%"></div></div>
+        <span class="progress-description">
+          <a href="{% url 'admin:products_product_changelist' %}" style="color:var(--crystal-red,#ED3338);font-weight:600;font-size:12px;">Manage →</a>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-3 col-6">
+    <div class="info-box shadow-sm">
+      <span class="info-box-icon" style="background:#17120f;"><i class="fas fa-tag fa-lg text-white"></i></span>
+      <div class="info-box-content">
+        <span class="info-box-text">Brands</span>
+        <span class="info-box-number">{{ stat_brands }}</span>
+        <div class="progress"><div class="progress-bar" style="width:100%;background:#17120f;"></div></div>
+        <span class="progress-description">
+          <a href="{% url 'admin:products_brand_changelist' %}" style="color:#17120f;font-weight:600;font-size:12px;">Manage →</a>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-3 col-6">
+    <div class="info-box shadow-sm">
+      <span class="info-box-icon" style="background:#2563eb;"><i class="fas fa-envelope-open-text fa-lg text-white"></i></span>
+      <div class="info-box-content">
+        <span class="info-box-text">Enquiries</span>
+        <span class="info-box-number">{{ stat_enquiries }}</span>
+        <div class="progress"><div class="progress-bar" style="width:100%;background:#2563eb;"></div></div>
+        <span class="progress-description">
+          <a href="{% url 'admin:enquiry_enquiry_changelist' %}" style="color:#2563eb;font-weight:600;font-size:12px;">{{ stat_new_enquiries }} new →</a>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-3 col-6">
+    <div class="info-box shadow-sm">
+      <span class="info-box-icon" style="background:#059669;"><i class="fas fa-newspaper fa-lg text-white"></i></span>
+      <div class="info-box-content">
+        <span class="info-box-text">Blog Posts</span>
+        <span class="info-box-number">{{ stat_blogs }}</span>
+        <div class="progress"><div class="progress-bar" style="width:100%;background:#059669;"></div></div>
+        <span class="progress-description">
+          <a href="{% url 'admin:blog_blog_changelist' %}" style="color:#059669;font-weight:600;font-size:12px;">Manage →</a>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── Recent Enquiries ── -->
+<div class="row">
+  <div class="col-lg-8">
+    <div class="card">
+      <div class="card-header bg-danger text-white d-flex justify-content-between align-items-center">
+        <h3 class="card-title mb-0"><i class="fas fa-envelope-open-text mr-2"></i> Recent Enquiries</h3>
+        <a href="{% url 'admin:enquiry_enquiry_changelist' %}" class="text-white" style="font-size:12px;font-weight:600;">View All →</a>
+      </div>
+      <div class="card-body p-0">
+        {% if recent_enquiries %}
+        <table class="table table-sm mb-0" style="font-size:13.5px;">
+          <thead style="background:#f9f9f9;">
+            <tr>
+              <th style="padding:10px 14px;font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:#666;">Ref</th>
+              <th style="padding:10px 14px;font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:#666;">Name</th>
+              <th style="padding:10px 14px;font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:#666;">Phone</th>
+              <th style="padding:10px 14px;font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:#666;">Items</th>
+              <th style="padding:10px 14px;font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:#666;">Status</th>
+              <th style="padding:10px 14px;font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:#666;">Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for enq in recent_enquiries %}
+            <tr>
+              <td style="padding:10px 14px;"><a href="{% url 'admin:enquiry_enquiry_change' enq.pk %}" style="color:#ED3338;font-weight:700;">{{ enq.ref_number }}</a></td>
+              <td style="padding:10px 14px;font-weight:600;">{{ enq.full_name }}</td>
+              <td style="padding:10px 14px;color:#666;">{{ enq.phone }}</td>
+              <td style="padding:10px 14px;">
+                <span style="background:#f1f1f1;padding:2px 9px;border-radius:100px;font-weight:700;font-size:12px;">{{ enq.items.count }}</span>
+              </td>
+              <td style="padding:10px 14px;">
+                {% if enq.status == 'new' %}
+                  <span style="background:#FEF3C7;color:#92400E;padding:3px 10px;border-radius:100px;font-weight:700;font-size:11px;text-transform:uppercase;">New</span>
+                {% elif enq.status == 'contacted' %}
+                  <span style="background:#DBEAFE;color:#1E40AF;padding:3px 10px;border-radius:100px;font-weight:700;font-size:11px;text-transform:uppercase;">Contacted</span>
+                {% elif enq.status == 'converted' %}
+                  <span style="background:#D1FAE5;color:#065F46;padding:3px 10px;border-radius:100px;font-weight:700;font-size:11px;text-transform:uppercase;">Converted</span>
+                {% elif enq.status == 'closed' %}
+                  <span style="background:#F3F4F6;color:#6B7280;padding:3px 10px;border-radius:100px;font-weight:700;font-size:11px;text-transform:uppercase;">Closed</span>
+                {% else %}
+                  <span style="background:#E0E7FF;color:#3730A3;padding:3px 10px;border-radius:100px;font-weight:700;font-size:11px;text-transform:uppercase;">{{ enq.status }}</span>
+                {% endif %}
+              </td>
+              <td style="padding:10px 14px;color:#888;font-size:12px;">{{ enq.created_at|date:"d M Y" }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+        {% else %}
+        <div class="p-4 text-center text-muted">No enquiries yet.</div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Quick Links + Recent Actions ── -->
+  <div class="col-lg-4">
+    <div class="card mb-3">
+      <div class="card-header" style="background:#17120f;color:#fff;">
+        <h3 class="card-title mb-0"><i class="fas fa-bolt mr-2"></i> Quick Actions</h3>
+      </div>
+      <div class="card-body p-2">
+        <a href="{% url 'admin:products_product_add' %}" class="btn btn-block mb-2" style="background:#ED3338;color:#fff;border-radius:10px;font-weight:700;font-size:13px;text-align:left;padding:10px 16px;">
+          <i class="fas fa-plus mr-2"></i> Add Product
+        </a>
+        <a href="{% url 'admin:products_brand_add' %}" class="btn btn-block mb-2" style="background:#17120f;color:#fff;border-radius:10px;font-weight:700;font-size:13px;text-align:left;padding:10px 16px;">
+          <i class="fas fa-plus mr-2"></i> Add Brand
+        </a>
+        <a href="{% url 'admin:blog_blog_add' %}" class="btn btn-block mb-2" style="background:#2563eb;color:#fff;border-radius:10px;font-weight:700;font-size:13px;text-align:left;padding:10px 16px;">
+          <i class="fas fa-plus mr-2"></i> Add Blog Post
+        </a>
+        <a href="{% url 'admin:downloads_download_add' %}" class="btn btn-block mb-2" style="background:#059669;color:#fff;border-radius:10px;font-weight:700;font-size:13px;text-align:left;padding:10px 16px;">
+          <i class="fas fa-plus mr-2"></i> Add Download
+        </a>
+        <a href="{% url 'admin:enquiry_enquiry_changelist' %}?status=new" class="btn btn-block" style="background:#f1f1f1;color:#17120f;border-radius:10px;font-weight:700;font-size:13px;text-align:left;padding:10px 16px;">
+          <i class="fas fa-inbox mr-2"></i> New Enquiries
+          {% if stat_new_enquiries %}<span style="background:#ED3338;color:#fff;border-radius:100px;padding:1px 8px;font-size:11px;margin-left:6px;">{{ stat_new_enquiries }}</span>{% endif %}
+        </a>
+      </div>
+    </div>
+
+    {% if app_list %}
+    <div class="card">
+      <div class="card-header" style="background:#f9f9f9;">
+        <h3 class="card-title mb-0" style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#666;"><i class="fas fa-history mr-2"></i> Recent Actions</h3>
+      </div>
+      <div class="card-body p-0">
+        {% load log %}
+        {% get_admin_log 8 as admin_log for_user user %}
+        {% if admin_log %}
+        <ul class="list-unstyled mb-0">
+          {% for entry in admin_log %}
+          <li style="padding:9px 14px;border-bottom:1px solid #f1f1f1;font-size:12px;">
+            {% if entry.is_addition %}<i class="fas fa-plus-circle text-success mr-1"></i>
+            {% elif entry.is_change %}<i class="fas fa-edit" style="color:#2563eb;" mr-1></i>
+            {% elif entry.is_deletion %}<i class="fas fa-trash text-danger mr-1"></i>{% endif %}
+            {% if entry.is_deletion %}
+              <span style="color:#999;">{{ entry.object_repr }}</span>
+            {% else %}
+              <a href="{{ entry.get_admin_url }}" style="font-weight:600;color:#17120f;">{{ entry.object_repr|truncatechars:28 }}</a>
+            {% endif %}
+            <br><span style="color:#aaa;font-size:11px;">{{ entry.content_type }} · {{ entry.action_time|date:"d M, H:i" }}</span>
+          </li>
+          {% endfor %}
+        </ul>
+        {% else %}
+        <div class="p-3 text-center text-muted" style="font-size:13px;">No recent actions.</div>
+        {% endif %}
+      </div>
+    </div>
+    {% endif %}
+  </div>
+</div>
+
+{% endblock %}

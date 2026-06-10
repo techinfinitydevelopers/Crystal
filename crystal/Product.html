@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Product — CRYSTAL</title>
+<script>document.documentElement.className += " js";</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<style>
+  :root {
+    --white: #ffffff; --cream: #ededed; --ink: #1A1A1A; --ink-soft: #1A1A1A; --ink-deep: #0F0F0F;
+    --red: #ED3338; --red-deep: #c0282c; --grad-red: linear-gradient(135deg, #ED3338 0%, #c0282c 100%);
+    --muted: #5f5f5f; --muted-d: #D5D5D5; --line: rgba(26,24,22,0.13); --line-d: rgba(213,213,213,0.18);
+    --head: "Space Grotesk", sans-serif; --body: "DM Sans", sans-serif;
+    --maxw: 1240px; --pad: clamp(18px, 5vw, 70px); --r: 20px;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; scrollbar-gutter: stable; }
+  body { font-family: var(--body); background: var(--white); color: var(--ink); -webkit-font-smoothing: antialiased; overflow-x: clip; }
+  img, video { display: block; max-width: 100%; }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding-inline: var(--pad); width: 100%; }
+  h1, h2, h3, h4 { font-family: var(--head); font-weight: 700; line-height: 0.98; letter-spacing: -0.02em; }
+  .sec-dark { background: var(--ink-deep); color: var(--white); }
+  .sec-cream { background: var(--cream); }
+  .eyebrow { font-family: var(--body); font-weight: 700; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; display: inline-flex; align-items: center; gap: 9px; color: var(--red); }
+  .eyebrow .pip { width: 8px; height: 8px; border-radius: 50%; background: var(--grad-red); display: inline-block; }
+
+  .btn { display: inline-flex; align-items: center; gap: 9px; font-family: var(--body); font-weight: 700; font-size: 15px; padding: 15px 26px; border-radius: 100px; border: none; cursor: pointer; transition: transform .25s cubic-bezier(.2,.8,.2,1), background .25s, color .25s, box-shadow .25s; }
+  .btn-red { background: var(--grad-red); color: #fff; box-shadow: 0 10px 26px -12px rgba(237,51,56,0.7); }
+  .btn-red:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 16px 34px -14px rgba(237,51,56,0.8); }
+  .btn-dark { background: var(--ink); color: #fff; }
+  .btn-dark:hover { background: var(--red); transform: translateY(-3px) scale(1.03); }
+  .btn-light { background: #fff; color: #1A1A1A; }
+  .btn-light:hover { background: var(--red); color: #fff; transform: translateY(-3px) scale(1.03); }
+  .btn-ghost { background: transparent; color: var(--ink); border: 1.5px solid var(--line); }
+  .btn-ghost:hover { border-color: var(--ink); transform: translateY(-3px); }
+  .btn .arr { transition: transform .25s; }
+  .btn:hover .arr { transform: translate(3px,-2px); }
+
+  .w-mask { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: 0.08em; margin-bottom: -0.08em; }
+  .word { display: inline-block; will-change: transform; }
+  [data-fade] { will-change: transform, opacity; }
+
+  /* HEADER + DROPDOWN */
+  header { position: fixed; inset: 14px 0 auto 0; z-index: 100; }
+  .nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; border: 1.5px solid transparent; border-radius: 100px; padding: 9px 9px 9px 22px; transition: background .35s, border-color .35s, box-shadow .35s, backdrop-filter .35s; }
+  header.scrolled .nav, header.solid .nav { background: rgba(255,255,255,0.82); border-color: var(--line); backdrop-filter: blur(14px); box-shadow: 0 12px 30px -20px rgba(0,0,0,0.5); }
+  .logo { display: flex; align-items: center; flex: 1; }
+  /* .logo .blob removed — replaced by logo.png */
+  .nav-links { display: flex; gap: 4px; list-style: none; }
+  .nav-links > li > a { font-weight: 600; font-size: 15px; padding: 9px 16px; border-radius: 100px; transition: background .2s, color .2s; display: inline-flex; align-items: center; gap: 6px; }
+  .nav-links > li > a:hover, .nav-links > li > a.current { background: var(--ink); color: #fff; }
+  .nav-right { display: flex; align-items: center; gap: 10px; flex: 1; justify-content: flex-end; }
+  .burger { display: none; flex-direction: column; gap: 5px; background: var(--ink); border: none; border-radius: 100px; cursor: pointer; padding: 13px 12px; }
+  .burger span { width: 22px; height: 2.5px; background: #fff; border-radius: 2px; }
+  .has-dd { position: relative; }
+  .dd-toggle .cv { font-size: 10px; transition: transform .25s; display: inline-block; }
+  .has-dd:hover .dd-toggle .cv, .has-dd:focus-within .dd-toggle .cv { transform: rotate(180deg); }
+  .dd-menu { position: absolute; top: calc(100% + 12px); left: 50%; transform: translateX(-50%) translateY(8px); min-width: 256px; background: rgba(255,255,255,0.97); backdrop-filter: blur(16px); border: 1.5px solid var(--line); border-radius: 18px; box-shadow: 0 26px 54px -26px rgba(0,0,0,0.38); padding: 8px; display: grid; gap: 2px; opacity: 0; visibility: hidden; transition: opacity .25s, transform .25s, visibility .25s; z-index: 130; }
+  .has-dd:hover .dd-menu, .has-dd:focus-within .dd-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+  .dd-menu a { display: flex; flex-direction: column; align-items: flex-start; gap: 1px; padding: 11px 14px; border-radius: 12px; }
+  .dd-menu a:hover { background: var(--ink); color: #fff; }
+  .dd-menu a.active { background: rgba(237,51,56,0.10); }
+  .dd-menu a b { font-family: var(--head); font-weight: 700; font-size: 15px; }
+  .dd-menu a span { font-size: 12px; color: var(--muted); font-weight: 600; }
+  .dd-menu a:hover span { color: rgba(255,255,255,0.72); }
+  .mobile-menu { position: fixed; inset: 0; z-index: 101; background: var(--ink); color: #fff; transform: translateY(-100%); transition: transform .45s cubic-bezier(.2,.8,.2,1); display: flex; flex-direction: column; justify-content: center; padding: var(--pad); overflow-y: auto; }
+  .mobile-menu.open { transform: none; }
+  .mobile-menu ul { list-style: none; display: grid; gap: 4px; }
+  .mobile-menu > ul > li > a { font-family: var(--head); font-weight: 700; text-transform: uppercase; font-size: clamp(28px, 9vw, 50px); }
+  .mobile-menu > ul > li > a:hover { color: var(--red); }
+  .mm-brands { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 18px; margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.16); }
+  .mm-brands a { font-family: var(--body); font-weight: 600; text-transform: none; font-size: 16px; color: var(--muted-d); }
+  .mm-brands a:hover { color: var(--red); }
+    /* Products mega menu (nav) */
+  .has-mega { position: static; }
+  .has-mega:hover .dd-toggle .cv, .has-mega:focus-within .dd-toggle .cv { transform: rotate(180deg); }
+  .mega-menu { position: absolute; top: calc(100% + 12px); left: 0; right: 0; margin-inline: auto; width: min(1040px, 94vw); background: rgba(255,255,255,0.98); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px); border: 1.5px solid var(--line); border-radius: 22px; box-shadow: 0 30px 64px -26px rgba(0,0,0,0.4); padding: 26px 28px; opacity: 0; visibility: hidden; transform: translateY(8px); transition: opacity .25s, transform .25s, visibility .25s; z-index: 130; }
+  .has-mega:hover .mega-menu, .has-mega:focus-within .mega-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+  .mega-groups { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px 26px; }
+  .mega-col { display: flex; flex-direction: column; gap: 1px; }
+  .mega-h { display: flex; align-items: center; gap: 8px; font-family: var(--head); font-weight: 700; font-size: 13px; letter-spacing: .03em; text-transform: uppercase; color: var(--ink); padding: 7px 8px; border-radius: 9px; margin-bottom: 3px; }
+  .mega-h svg { width: 17px; height: 17px; color: var(--red); flex: none; }
+  .mega-h:hover { background: var(--ink); color: #fff; }
+  .mega-h:hover svg { color: #fff; }
+  .mega-col > a:not(.mega-h) { font-size: 12.5px; font-weight: 600; color: var(--muted); padding: 5px 8px 5px 33px; border-radius: 8px; transition: background .15s, color .15s; }
+  .mega-col > a:not(.mega-h):hover { background: rgba(237,51,56,0.08); color: var(--red); }
+  .mega-standalone { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 18px; padding-top: 18px; border-top: 1.5px solid var(--line); }
+  .mega-standalone-lbl { font-family: var(--head); font-weight: 700; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--red); margin-right: 4px; }
+  .mega-standalone a { font-size: 12.5px; font-weight: 700; color: var(--ink); padding: 7px 14px; border: 1.5px solid var(--line); border-radius: 100px; transition: background .2s, color .2s, border-color .2s; }
+  .mega-standalone a:hover { background: var(--ink); color: #fff; border-color: var(--ink); }
+  /* Mobile Products accordion */
+  .mm-acc-tog { background: none; border: none; cursor: pointer; color: inherit; font: inherit; display: inline-flex; align-items: center; gap: 12px; }
+  .mm-acc .mm-cv { font-size: .55em; transition: transform .25s; display: inline-block; }
+  .mm-acc.open .mm-cv { transform: rotate(45deg); }
+  .mm-acc-panel { display: none; margin: 8px 0 6px; padding-left: 2px; max-height: 56vh; overflow-y: auto; }
+  .mm-acc.open .mm-acc-panel { display: block; }
+  .mm-acc-panel .mm-acc-h { display: block; font-family: var(--head); font-weight: 700; text-transform: uppercase; font-size: 18px; color: #fff; margin: 14px 0 4px; }
+  .mm-acc-panel .mm-acc-sub { display: block; font-family: var(--body); font-weight: 600; text-transform: none; font-size: 15px; color: var(--muted-d); padding: 6px 0 6px 12px; }
+  .mm-acc-panel .mm-acc-sub:hover { color: var(--red); }
+  .mm-close { position: absolute; top: 24px; right: var(--pad); background: var(--grad-red); color: #fff; border: none; width: 50px; height: 50px; border-radius: 50%; font-size: 26px; cursor: pointer; }
+
+  section { position: relative; }
+  .sec { padding-block: clamp(38px, 5vw, 76px); }
+  .sec-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 26px; flex-wrap: wrap; margin-bottom: clamp(20px, 3vw, 36px); }
+  .sec-head h2 { font-size: clamp(30px, 4.6vw, 60px); text-transform: uppercase; }
+  .sec-head .lead { max-width: 400px; color: var(--muted); font-size: 16px; line-height: 1.55; }
+  .sec-dark .sec-head .lead { color: var(--muted-d); }
+
+  /* BREADCRUMB */
+  .crumb { padding-top: clamp(94px, 11vh, 116px); }
+  .crumb ol { list-style: none; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: var(--muted); }
+  .crumb a:hover { color: var(--red); }
+  .crumb .sep { opacity: 0.5; }
+  .crumb .cur { color: var(--ink); }
+
+  /* HERO */
+  .pdp-hero { padding-top: 20px; padding-bottom: clamp(28px, 4vw, 56px); }
+  .pdp-grid { display: grid; grid-template-columns: 1.02fr 0.98fr; gap: clamp(26px, 4vw, 60px); align-items: start; }
+  .gallery { position: sticky; top: 100px; }
+  .g-main { aspect-ratio: 1/1; border-radius: var(--r); overflow: hidden; border: 1.5px solid var(--line); background: #f1f1f1; }
+  .g-main img { width: 100%; height: 100%; object-fit: cover; transition: opacity .3s; }
+  .g-thumbs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 12px; }
+  .g-thumb { aspect-ratio: 1/1; border-radius: 13px; overflow: hidden; border: 1.5px solid var(--line); background: #f1f1f1; cursor: pointer; opacity: 0.62; transition: opacity .25s, border-color .25s, transform .25s; }
+  .g-thumb:hover { opacity: 0.92; transform: translateY(-2px); }
+  .g-thumb.active { opacity: 1; border-color: var(--red); }
+  .g-thumb img { width: 100%; height: 100%; object-fit: cover; }
+
+  .info .top { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 16px; }
+  .cat-chip { font-family: var(--head); font-weight: 700; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); border: 1.5px solid var(--line); border-radius: 100px; padding: 7px 14px; }
+  .info h1 { font-size: clamp(30px, 4.2vw, 54px); text-transform: uppercase; margin: 6px 0 16px; line-height: 1.0; }
+  .info .intro { font-size: clamp(15px, 1.5vw, 18px); color: var(--muted); line-height: 1.6; max-width: 520px; }
+  .trust-row { display: flex; flex-wrap: wrap; gap: 10px; margin: 22px 0; }
+  .trust { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: var(--ink); background: rgba(237,51,56,0.07); border: 1px solid rgba(237,51,56,0.16); border-radius: 100px; padding: 8px 14px; }
+  .trust svg { width: 15px; height: 15px; color: var(--red); }
+  .vsel { margin: 24px 0; }
+  .vsel .vlbl { font-family: var(--head); font-weight: 700; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 11px; display: flex; gap: 8px; }
+  .vsel .vlbl b { color: var(--ink); }
+  .vchips { display: flex; flex-wrap: wrap; gap: 9px; }
+  .vchip { font-family: var(--body); font-weight: 700; font-size: 14px; padding: 11px 20px; border-radius: 100px; border: 1.5px solid var(--line); background: var(--white); color: var(--ink); cursor: pointer; transition: background .2s, color .2s, border-color .2s, transform .2s; }
+  .vchip:hover { transform: translateY(-2px); border-color: rgba(237,51,56,0.4); }
+  .vchip.active { background: var(--ink); color: #fff; border-color: var(--ink); }
+  .info-cta { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 18px; }
+  .qty-row { display: flex; align-items: center; gap: 14px; margin-top: 24px; }
+  .qty-lbl { font-weight: 700; font-size: 14px; }
+  .qty-step { display: inline-flex; align-items: center; border: 1.5px solid var(--line); border-radius: 100px; overflow: hidden; }
+  .qty-step button { width: 38px; height: 40px; border: none; background: #fff; font-size: 20px; cursor: pointer; color: var(--ink); }
+  .qty-step button:hover { background: var(--cream); }
+  .qty-step input { width: 46px; height: 40px; border: none; text-align: center; font: 700 15px var(--body); -moz-appearance: textfield; }
+  .qty-step input::-webkit-outer-spin-button, .qty-step input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+  .mk-inline { margin-top: 16px; font-size: 13px; font-weight: 600; color: var(--muted); display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+  .mk-inline a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+  .mk-inline a:hover { color: var(--red); }
+  .pdp-sticky { position: fixed; left: 0; right: 0; bottom: 0; z-index: 90; display: none; gap: 10px; padding: 12px 16px calc(12px + env(safe-area-inset-bottom)); background: rgba(255,255,255,0.96); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border-top: 1.5px solid var(--line); }
+  .pdp-sticky .btn { flex: 1; justify-content: center; }
+  @media (max-width: 760px) { .pdp-sticky { display: flex; } body { padding-bottom: 74px; } }
+  .hi-list { list-style: none; display: grid; gap: 12px; margin-top: 30px; padding-top: 26px; border-top: 1.5px solid var(--line); }
+  .hi-list li { display: flex; gap: 12px; align-items: flex-start; font-size: 15px; font-weight: 500; color: var(--ink); }
+  .hi-list .tick { flex: 0 0 auto; width: 22px; height: 22px; border-radius: 50%; background: rgba(237,51,56,0.12); display: grid; place-items: center; margin-top: 1px; }
+  .hi-list .tick svg { width: 12px; height: 12px; color: var(--red); }
+
+  /* OVERVIEW */
+  .ov-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: clamp(28px, 4vw, 64px); align-items: center; }
+  .ov-body p { color: var(--muted); font-size: clamp(15px, 1.5vw, 17.5px); line-height: 1.7; margin-bottom: 16px; }
+  .ov-body p.lead-p { font-family: var(--head); font-weight: 500; color: var(--ink); font-size: clamp(19px, 2.2vw, 26px); line-height: 1.3; letter-spacing: -0.01em; margin-bottom: 22px; }
+  .ov-benefits { list-style: none; display: grid; gap: 12px; margin-top: 8px; }
+  .ov-benefits li { display: flex; gap: 12px; align-items: flex-start; font-size: 15px; line-height: 1.5; }
+  .ov-benefits .d { width: 9px; height: 9px; border-radius: 50%; background: var(--grad-red); margin-top: 7px; flex: 0 0 auto; }
+  .ov-media { aspect-ratio: 4/5; border-radius: var(--r); overflow: hidden; border: 1.5px solid var(--line); }
+  .ov-media img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s; }
+  .ov-media:hover img { transform: scale(1.05); }
+
+  /* FEATURES */
+  .feat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .feat-card { border: 1.5px solid var(--line); border-radius: var(--r); padding: 28px 24px 30px; transition: transform .3s cubic-bezier(.2,.8,.2,1), box-shadow .3s, border-color .3s; }
+  .feat-card:hover { transform: translateY(-6px); box-shadow: 0 28px 50px -30px rgba(237,51,56,0.34); border-color: rgba(237,51,56,0.28); }
+  .feat-ic { width: 54px; height: 54px; border-radius: 15px; background: rgba(237,51,56,0.10); color: var(--red); display: grid; place-items: center; margin-bottom: 18px; }
+  .feat-ic svg { width: 28px; height: 28px; }
+  .feat-card h4 { font-size: 18px; text-transform: uppercase; margin-bottom: 9px; letter-spacing: -0.01em; }
+  .feat-card p { font-size: 14px; color: var(--muted); line-height: 1.55; }
+  @media (max-width: 860px) { .feat-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 480px) { .feat-grid { grid-template-columns: 1fr; } }
+
+  /* SPECS + VARIANTS */
+  .spec-grid { display: grid; grid-template-columns: 1.35fr 0.65fr; gap: clamp(24px, 3.5vw, 56px); align-items: start; }
+  .spec-table { display: grid; }
+  .spec-row { display: grid; grid-template-columns: minmax(140px, 0.5fr) 1fr; gap: 20px; padding: 16px 4px; border-top: 1.5px solid var(--line); }
+  .spec-row:last-child { border-bottom: 1.5px solid var(--line); }
+  .spec-row .k { font-family: var(--head); font-weight: 700; font-size: 13px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); }
+  .spec-row .v { font-size: 15.5px; font-weight: 500; color: var(--ink); }
+  .spec-side { border: 1.5px solid var(--line); border-radius: var(--r); padding: 26px 24px; background: var(--cream); position: sticky; top: 100px; }
+  .spec-side h4 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin-bottom: 16px; }
+  .spec-side .vchips { margin-bottom: 22px; }
+  .spec-side .assure { display: flex; gap: 11px; align-items: flex-start; padding-top: 20px; border-top: 1.5px solid var(--line); }
+  .spec-side .assure svg { width: 26px; height: 26px; color: var(--red); flex: 0 0 auto; }
+  .spec-side .assure b { font-family: var(--head); display: block; font-size: 14px; text-transform: uppercase; margin-bottom: 3px; }
+  .spec-side .assure span { font-size: 13px; color: var(--muted); line-height: 1.45; }
+  @media (max-width: 800px) { .spec-grid { grid-template-columns: 1fr; } .spec-side { position: static; } }
+
+  /* GALLERY */
+  .lg-grid { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: clamp(140px, 18vw, 220px); gap: 14px; }
+  .lg-item { border-radius: var(--r); overflow: hidden; border: 1.5px solid var(--line); }
+  .lg-item img { width: 100%; height: 100%; object-fit: cover; transition: transform .7s cubic-bezier(.2,.8,.2,1); }
+  .lg-item:hover img { transform: scale(1.07); }
+  .lg-item.tall { grid-row: span 2; }
+  .lg-item.wide { grid-column: span 2; }
+  @media (max-width: 700px) { .lg-grid { grid-template-columns: 1fr 1fr; grid-auto-rows: 150px; } .lg-item.wide { grid-column: span 2; } }
+
+  /* WHY (dark) */
+  .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .why-card { border: 1.5px solid var(--line-d); border-radius: var(--r); padding: 30px 26px; display: flex; flex-direction: column; gap: 12px; transition: transform .3s, border-color .3s; }
+  .why-card:hover { transform: translateY(-6px); border-color: rgba(237,51,56,0.45); }
+  .why-card .wn { font-family: var(--head); font-weight: 700; font-size: 28px; color: transparent; -webkit-text-stroke: 1.4px rgba(255,255,255,0.4); }
+  .why-card h4 { font-size: 20px; text-transform: uppercase; }
+  .why-card p { color: var(--muted-d); font-size: 14.5px; line-height: 1.55; }
+  @media (max-width: 760px) { .why-grid { grid-template-columns: 1fr; } }
+
+  /* RELATED */
+  .rel-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+  .rcard { background: var(--white); border: 1.5px solid var(--line); border-radius: var(--r); overflow: hidden; display: flex; flex-direction: column; transition: transform .32s cubic-bezier(.2,.8,.2,1), box-shadow .32s, border-color .32s; }
+  .rcard:hover { transform: translateY(-7px); box-shadow: 0 30px 56px -32px rgba(15,15,15,0.4); border-color: rgba(237,51,56,0.28); }
+  .rcard .rimg { position: relative; aspect-ratio: 1/1; overflow: hidden; background: #f1f1f1; }
+  .rcard .rimg img { width: 100%; height: 100%; object-fit: cover; transition: transform .55s; }
+  .rcard:hover .rimg img { transform: scale(1.06); }
+  .rcard .rbrand { position: absolute; top: 11px; left: 11px; background: rgba(255,255,255,0.92); backdrop-filter: blur(6px); font-family: var(--head); font-weight: 700; font-size: 9.5px; letter-spacing: 0.08em; text-transform: uppercase; padding: 5px 10px; border-radius: 100px; }
+  .rcard .rbody { padding: 15px 16px 18px; display: flex; flex-direction: column; gap: 7px; flex: 1; }
+  .rcard .rname { font-family: var(--head); font-weight: 700; font-size: 15.5px; line-height: 1.14; }
+  .rcard .rlink { margin-top: auto; padding-top: 8px; display: inline-flex; align-items: center; gap: 7px; font-weight: 700; font-size: 13px; color: var(--ink); transition: gap .25s, color .2s; }
+  .rcard:hover .rlink { color: var(--red); gap: 11px; }
+  @media (max-width: 980px) { .rel-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 480px) { .rel-grid { grid-template-columns: 1fr; } }
+
+  /* BRAND STORY */
+  .bs-card { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: clamp(28px, 4vw, 60px); align-items: center; background: var(--cream); border-radius: clamp(24px, 3vw, 40px); padding: clamp(28px, 3.5vw, 56px); overflow: hidden; }
+  .bs-media { aspect-ratio: 4/3; border-radius: var(--r); overflow: hidden; }
+  .bs-media img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s; }
+  .bs-card:hover .bs-media img { transform: scale(1.04); }
+  .bs-body h2 { font-size: clamp(28px, 3.4vw, 46px); text-transform: uppercase; margin: 12px 0 16px; line-height: 1.0; }
+  .bs-body p { color: var(--muted); font-size: 16px; line-height: 1.65; margin-bottom: 14px; }
+  .bs-cta { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 22px; }
+  @media (max-width: 800px) { .bs-card { grid-template-columns: 1fr; } }
+
+  /* MARQUEE */
+  .marquee { overflow: hidden; padding-block: 20px; background: var(--grad-red); color: #fff; }
+  .mq-track { display: flex; width: max-content; animation: scrollX 24s linear infinite; }
+  .marquee:hover .mq-track { animation-play-state: paused; }
+  .mq-track span { font-family: var(--head); font-weight: 700; text-transform: uppercase; font-size: clamp(22px, 3vw, 40px); display: inline-flex; align-items: center; white-space: nowrap; }
+  .mq-track span::after { content: "✶"; margin: 0 28px; opacity: .7; }
+  @keyframes scrollX { to { transform: translateX(-50%); } }
+  @media (prefers-reduced-motion: reduce) { .mq-track { animation: none; } }
+
+  /* CTA */
+  .cta-sec { padding: 0; }
+  .cta { position: relative; min-height: clamp(480px, 74vh, 760px); display: grid; place-items: center; text-align: center; overflow: hidden;
+    background-image: linear-gradient(160deg, rgba(192,40,44,0.82), rgba(15,15,15,0.74)), url("https://proj.leo9studio.in/projects/crystal-wp/wp-content/uploads/2026/04/2-1-1.jpg");
+    background-size: cover, cover; background-position: center, center; background-repeat: no-repeat, no-repeat; background-attachment: fixed, fixed; }
+  .cta-inner { position: relative; z-index: 3; color: #fff; padding: 40px; }
+  .cta h2 { font-size: clamp(38px, 7vw, 104px); text-transform: uppercase; color: #fff; line-height: 0.96; }
+  .cta p { max-width: 540px; margin: 22px auto 30px; color: rgba(255,255,255,0.86); font-size: clamp(15px, 1.6vw, 18px); line-height: 1.6; }
+  .cta .row { display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap; }
+  @media (max-width: 820px) { .cta { background-attachment: scroll; } }
+
+  /* FOOTER */
+  footer { padding-block: clamp(54px,7vw,92px) 28px; overflow: hidden; }
+  .foot-cta { display: flex; justify-content: space-between; align-items: flex-end; gap: 28px; flex-wrap: wrap; padding-bottom: 44px; border-bottom: 1.5px solid var(--line-d); }
+  .foot-cta h3 { font-family: var(--head); font-weight: 700; text-transform: uppercase; font-size: clamp(28px, 4vw, 54px); line-height: 1; margin-top: 14px; letter-spacing: -0.02em; }
+  .foot-cta h3 .g { background: var(--grad-red); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .foot-top { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr 1.4fr; gap: 36px; padding: 46px 0; }
+  .foot-brand .logo { font-size: 32px; margin-bottom: 14px; }
+  .foot-desc { color: var(--muted-d); max-width: 300px; margin-bottom: 22px; line-height: 1.55; font-weight: 500; }
+  .foot-socials { display: flex; gap: 10px; }
+  .foot-socials a { width: 42px; height: 42px; border-radius: 50%; border: 1.5px solid var(--line-d); display: grid; place-items: center; color: #fff; transition: background .25s, border-color .25s, transform .25s; }
+  .foot-socials a:hover { background: var(--grad-red); border-color: transparent; transform: translateY(-3px); }
+  .foot-col h5 { font-family: var(--head); font-weight: 700; text-transform: uppercase; font-size: 13px; letter-spacing: 0.04em; margin-bottom: 16px; color: var(--muted-d); }
+  .foot-col ul { list-style: none; display: grid; gap: 11px; }
+  .foot-col a { font-weight: 600; font-size: 15.5px; color: #fff; transition: color .2s, padding-left .2s; }
+  .foot-col a:hover { color: var(--red); padding-left: 4px; }
+  .foot-wordmark { position: relative; font-family: var(--head); font-weight: 700; text-transform: uppercase; font-size: clamp(64px, 19vw, 300px); line-height: 0.78; letter-spacing: -0.04em; text-align: center; margin: clamp(18px,3vw,38px) 0 -0.05em; user-select: none; pointer-events: none; }
+  .foot-wordmark span { display: block; }
+  .foot-wordmark .wm-outline { color: transparent; -webkit-text-stroke: 1.5px rgba(255,255,255,0.13); }
+  .foot-wordmark .wm-fill { position: absolute; inset: 0; color: transparent; -webkit-background-clip: text; background-clip: text; --level: 0%; --wavex: 0px; --wavex2: 0px;
+    background-image:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='22' viewBox='0 0 160 22' preserveAspectRatio='none'%3E%3Cpath d='M0 9 Q 40 0 80 9 T 160 9 V22 H0 Z' fill='%23ff5256'/%3E%3C/svg%3E"),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='26' viewBox='0 0 200 26' preserveAspectRatio='none'%3E%3Cpath d='M0 13 Q 50 3 100 13 T 200 13 V26 H0 Z' fill='%23ED3338'/%3E%3C/svg%3E"),
+      linear-gradient(180deg, #ED3338, #c0282c);
+    background-repeat: repeat-x, repeat-x, no-repeat;
+    background-size: 160px 22px, 200px 26px, 100% var(--level);
+    background-position: var(--wavex) calc(100% - var(--level) - 8px), var(--wavex2) calc(100% - var(--level) - 12px), left bottom; }
+  .foot-bottom { padding-top: 24px; border-top: 1.5px solid var(--line-d); display: flex; justify-content: space-between; gap: 14px; flex-wrap: wrap; color: var(--muted-d); font-size: 14px; }
+
+  @media (max-width: 980px) {
+    .nav-links, .nav-right .btn { display: none; }
+    .burger { display: flex; }
+    .pdp-grid { grid-template-columns: 1fr; }
+    .gallery { position: static; }
+    .ov-grid { grid-template-columns: 1fr; }
+    .rel-grid { grid-template-columns: 1fr 1fr; }
+    .foot-top { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 600px) {
+    .sec-head h2 { font-size: clamp(28px, 8vw, 44px); }
+    .g-thumbs { grid-template-columns: repeat(4, 1fr); }
+    .info-cta .btn { width: 100%; justify-content: center; }
+    .marquee .mq-track span { font-size: 22px; }
+    .foot-top { grid-template-columns: 1fr; }
+    .foot-cta .btn { width: 100%; justify-content: center; }
+    .foot-wordmark { font-size: clamp(52px, 22vw, 116px); }
+  }
+  @media (max-width: 400px) { .wrap { padding-inline: 16px; } .foot-wordmark { font-size: 46px; } }
+
+  /* ===== THEME / TYPE-VOICE TWEAKS ===== */
+  body.t-warm { --white:#f7f3ea; --cream:#ebe1d3; --ink:#262019; --line:rgba(38,30,20,0.15); --muted:#6e6458; }
+  body.t-noir { --white:#141310; --cream:#1e1c17; --ink:#f2eee6; --line:rgba(255,255,255,0.14); --muted:#a8a096; }
+  body.t-noir .btn-light { color:#141310; }
+  body.t-noir .btn-dark { background:#2a2722; color:#fff; }
+  body.t-noir .sec-dark { color:#f2eee6; }
+  body.t-noir .mobile-menu { background:#0a0a0a; }
+  body.t-noir .burger { background:#2a2722; }
+  body.t-noir header.scrolled .nav, body.t-noir header.solid .nav { background:rgba(20,19,15,0.82); box-shadow:0 12px 30px -20px rgba(0,0,0,0.85); }
+  body.t-noir .nav-links > li > a:hover, body.t-noir .nav-links > li > a.current { background:rgba(255,255,255,0.14); color:var(--ink); }
+  body.t-noir .g-main, body.t-noir .g-thumb, body.t-noir .rcard .rimg { background:#222019; }
+  body.t-noir .rcard .rbrand { color:#1A1A1A; }
+  body.tv-editorial h1, body.tv-editorial h2, body.tv-editorial h3, body.tv-editorial h4 { text-transform:none; font-weight:500; letter-spacing:-0.012em; }
+  body.tv-bold h1, body.tv-bold h2, body.tv-bold h3, body.tv-bold h4 { font-weight:700; letter-spacing:-0.045em; text-transform:uppercase; line-height:0.92; }
+
+  /* ===== TWEAKS PANEL ===== */
+  .twk { position: fixed; right: 16px; bottom: 16px; z-index: 2147483646; width: 252px; max-height: calc(100vh - 32px); display: none; flex-direction: column; background: rgba(255,255,255,0.9); -webkit-backdrop-filter: blur(22px) saturate(160%); backdrop-filter: blur(22px) saturate(160%); border: 1px solid rgba(0,0,0,0.08); border-radius: 16px; box-shadow: 0 18px 50px -18px rgba(0,0,0,0.45); font-family: "DM Sans", sans-serif; color: #1A1A1A; overflow: hidden; }
+  .twk.open { display: flex; }
+  .twk-hd { display: flex; align-items: center; justify-content: space-between; padding: 13px 12px 13px 16px; border-bottom: 1px solid rgba(0,0,0,0.07); }
+  .twk-hd b { font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 14px; }
+  .twk-x { appearance: none; border: 0; background: transparent; color: #5f5f5f; width: 26px; height: 26px; border-radius: 8px; cursor: pointer; font-size: 13px; }
+  .twk-x:hover { background: rgba(0,0,0,0.06); color: #1A1A1A; }
+  .twk-body { padding: 10px 16px 16px; display: flex; flex-direction: column; gap: 8px; overflow-y: auto; }
+  .twk-sect { font-family: "Space Grotesk", sans-serif; font-size: 10.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #5f5f5f; padding-top: 10px; }
+  .twk-sect:first-child { padding-top: 2px; }
+  .twk-seg { display: flex; gap: 5px; }
+  .twk-seg button { flex: 1; appearance: none; border: 1.5px solid rgba(26,24,22,0.13); background: #fff; color: #1A1A1A; font-family: "DM Sans", sans-serif; font-weight: 700; font-size: 12.5px; padding: 9px 6px; border-radius: 10px; cursor: pointer; transition: background .2s, color .2s, border-color .2s; }
+  .twk-seg button.on { background: #1A1A1A; color: #fff; border-color: #1A1A1A; }
+  .twk-sw { display: flex; gap: 9px; }
+  .twk-sw button { width: 30px; height: 30px; border-radius: 50%; border: 2px solid transparent; cursor: pointer; padding: 0; box-shadow: inset 0 0 0 1.5px rgba(255,255,255,0.65); transition: transform .2s; }
+  .twk-sw button:hover { transform: scale(1.08); }
+  .twk-sw button.on { border-color: #1A1A1A; }
+  .twk-tg { display: flex; align-items: center; justify-content: space-between; gap: 10px; font-size: 13.5px; font-weight: 600; cursor: pointer; }
+  .twk-tg input { appearance: none; -webkit-appearance: none; width: 38px; height: 22px; border-radius: 100px; background: rgba(0,0,0,0.18); position: relative; cursor: pointer; transition: background .2s; flex: 0 0 auto; }
+  .twk-tg input::after { content: ""; position: absolute; top: 2px; left: 2px; width: 18px; height: 18px; border-radius: 50%; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,0.3); transition: left .2s; }
+  .twk-tg input:checked { background: var(--red); }
+  .twk-tg input:checked::after { left: 18px; }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header id="hdr">
+  <div class="wrap">
+    <div class="nav">
+      <a href="index.html" class="logo"><img src="logo.png" alt="CRYSTAL" style="height:36px;width:auto;display:block;"></a>
+      <ul class="nav-links">
+        <li><a href="About.html">About</a></li>
+                <li class="has-mega">
+          <a href="All-Products.html" class="dd-toggle">Products <span class="cv">▾</span></a>
+          <div class="mega-menu mega-v2">
+            <div class="mega-groups">
+            <div class="mega-col">
+              <a class="mega-h" href="All-Products.html?cat=cookware"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h16v6a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4z"/><path d="M2 10h2M20 10h2M9 6V4M15 6V4"/></svg>Cookware</a>
+              <a href="All-Products.html?cat=cookware&sub=tripro">Tripro</a>
+              <a href="All-Products.html?cat=cookware&sub=cast-iron">Cast Iron</a>
+              <a href="All-Products.html?cat=cookware&sub=non-stick">Non-Stick</a>
+              <a href="All-Products.html?cat=cookware&sub=non-stick-mini">Non-Stick Mini</a>
+              <a href="All-Products.html?cat=cookware&sub=sandwich-bottom-steel">Sandwich Bottom Steel</a>
+              <a href="All-Products.html?cat=cookware&sub=hard-anodised">Hard Anodised</a>
+            </div>
+            <div class="mega-col">
+              <a class="mega-h" href="All-Products.html?cat=kitchenware"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v18M5 3v6h2V3"/><path d="M15 3c-2 0-3 2-3 4.5S13 12 15 12v9"/></svg>Kitchenware</a>
+              <a href="All-Products.html?cat=kitchenware&sub=lighters">Lighters</a>
+              <a href="All-Products.html?cat=kitchenware&sub=knives">Knives</a>
+              <a href="All-Products.html?cat=kitchenware&sub=peelers">Peelers</a>
+              <a href="All-Products.html?cat=kitchenware&sub=chopping-boards">Chopping Boards</a>
+              <a href="All-Products.html?cat=kitchenware&sub=trolleys">Trolleys</a>
+              <a href="All-Products.html?cat=kitchenware&sub=kitchen-tools">Kitchen Tools</a>
+              <a href="All-Products.html?cat=kitchenware&sub=manual-appliances">Manual Kitchen Appliances</a>
+              <a href="All-Products.html?cat=kitchenware&sub=cutlery">Cutlery</a>
+              <a href="All-Products.html?cat=kitchenware&sub=servers">Servers</a>
+              <a href="All-Products.html?cat=kitchenware&sub=water-filter">Water Filter</a>
+            </div>
+            <div class="mega-col">
+              <a class="mega-h" href="All-Products.html?cat=cleaning"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 4h4v5h-4z"/><path d="M10 9l-2 4v7h8v-7l-2-4M6 4h2M6 7h2"/></svg>Cleaning Aid</a>
+              <a href="All-Products.html?cat=cleaning&sub=spin-mops">Spin Mops</a>
+              <a href="All-Products.html?cat=cleaning&sub=hand-held-mops">Hand Held Mops</a>
+              <a href="All-Products.html?cat=cleaning&sub=brooms">Broom &amp; Dust Pans</a>
+              <a href="All-Products.html?cat=cleaning&sub=wipers">Wipers</a>
+              <a href="All-Products.html?cat=cleaning&sub=plunger">Plunger</a>
+              <a href="All-Products.html?cat=cleaning&sub=brush">Brush</a>
+              <a href="All-Products.html?cat=cleaning&sub=scrubber">Scrubber &amp; Scourer</a>
+              <a href="All-Products.html?cat=cleaning&sub=bins">Bins</a>
+              <a href="All-Products.html?cat=cleaning&sub=sink-organiser">Sink Organiser</a>
+              <a href="All-Products.html?cat=cleaning&sub=wipe">Wipe</a>
+            </div>
+            <div class="mega-col">
+              <a class="mega-h" href="All-Products.html?cat=appliances"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg>Electric Appliances</a>
+              <a href="All-Products.html?cat=appliances&sub=chimney">Chimney</a>
+              <a href="All-Products.html?cat=appliances&sub=kettle">Kettle</a>
+              <a href="All-Products.html?cat=appliances&sub=iron">Iron</a>
+              <a href="All-Products.html?cat=appliances&sub=ice-cream-maker">Ice Cream Maker</a>
+              <a href="All-Products.html?cat=appliances&sub=otg">OTG</a>
+              <a href="All-Products.html?cat=appliances&sub=air-fryer">Air Fryer</a>
+              <a href="All-Products.html?cat=appliances&sub=rice-cooker">Rice Cooker</a>
+              <a href="All-Products.html?cat=appliances&sub=food-processor">Food Processor</a>
+              <a href="All-Products.html?cat=appliances&sub=jmg">JMG</a>
+            </div>
+            </div>
+            <div class="mega-standalone">
+              <span class="mega-standalone-lbl">Also explore</span>
+              <a href="All-Products.html?cat=water-bottle">Water Bottle</a>
+              <a href="All-Products.html?cat=oil-pourer">Oil Pourer &amp; Sprayer</a>
+              <a href="All-Products.html?cat=wood-range">Wood Range</a>
+              <a href="All-Products.html?cat=pressure-cooker">Pressure Cooker</a>
+              <a href="All-Products.html?cat=cooktop">Cooktop</a>
+              <a href="All-Products.html?cat=lunch-box">Lunch Box</a>
+            </div>
+          </div>
+        </li>
+        <li class="has-dd">
+          <a href="Brands.html" class="dd-toggle">Brands <span class="cv">▾</span></a>
+          <div class="dd-menu" id="ddMenu"></div>
+        </li>
+        <li><a href="Catalogue.html">Catalogue</a></li>
+        <li><a href="Blog.html">Knowledge Centre</a></li>
+      </ul>
+      <div class="nav-right">
+        <a href="Enquiry.html" class="enq-link" aria-label="Enquiry list" title="Enquiry list"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg><span class="enq-count">0</span></a>
+        <a href="Contact.html" class="btn btn-red">Contact Us <span class="arr">↗</span></a>
+        <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mm-close" id="mmClose" aria-label="Close">&times;</button>
+  <ul>
+    <li><a href="Enquiry.html" class="mm-link">Enquiry List <span class="enq-count">0</span></a></li>
+    <li><a href="About.html" class="mm-link">About</a></li>
+        <li class="mm-acc">
+      <button type="button" class="mm-acc-tog mm-link" aria-expanded="false">Products <span class="mm-cv">+</span></button>
+      <div class="mm-acc-panel">
+      <a class="mm-acc-h" href="All-Products.html?cat=cookware">Cookware</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=cookware&sub=tripro">Tripro</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=cookware&sub=cast-iron">Cast Iron</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=cookware&sub=non-stick">Non-Stick</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=cookware&sub=non-stick-mini">Non-Stick Mini</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=cookware&sub=sandwich-bottom-steel">Sandwich Bottom Steel</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=cookware&sub=hard-anodised">Hard Anodised</a>
+      <a class="mm-acc-h" href="All-Products.html?cat=kitchenware">Kitchenware</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=kitchenware&sub=lighters">Lighters</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=kitchenware&sub=knives">Knives</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=kitchenware&sub=peelers">Peelers</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=kitchenware&sub=chopping-boards">Chopping Boards</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=kitchenware&sub=trolleys">Trolleys</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=kitchenware&sub=kitchen-tools">Kitchen Tools</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=kitchenware&sub=manual-appliances">Manual Kitchen Appliances</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=kitchenware&sub=cutlery">Cutlery</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=kitchenware&sub=servers">Servers</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=kitchenware&sub=water-filter">Water Filter</a>
+      <a class="mm-acc-h" href="All-Products.html?cat=cleaning">Cleaning Aid</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=cleaning&sub=spin-mops">Spin Mops</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=cleaning&sub=hand-held-mops">Hand Held Mops</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=cleaning&sub=brooms">Broom &amp; Dust Pans</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=cleaning&sub=wipers">Wipers</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=cleaning&sub=plunger">Plunger</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=cleaning&sub=brush">Brush</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=cleaning&sub=scrubber">Scrubber &amp; Scourer</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=cleaning&sub=bins">Bins</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=cleaning&sub=sink-organiser">Sink Organiser</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=cleaning&sub=wipe">Wipe</a>
+      <a class="mm-acc-h" href="All-Products.html?cat=appliances">Electric Appliances</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=appliances&sub=chimney">Chimney</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=appliances&sub=kettle">Kettle</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=appliances&sub=iron">Iron</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=appliances&sub=ice-cream-maker">Ice Cream Maker</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=appliances&sub=otg">OTG</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=appliances&sub=air-fryer">Air Fryer</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=appliances&sub=rice-cooker">Rice Cooker</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=appliances&sub=food-processor">Food Processor</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=appliances&sub=jmg">JMG</a>
+      <span class="mm-acc-h" style="opacity:.6">Also explore</span>
+      <a class="mm-acc-sub" href="All-Products.html?cat=water-bottle">Water Bottle</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=oil-pourer">Oil Pourer &amp; Sprayer</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=wood-range">Wood Range</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=pressure-cooker">Pressure Cooker</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=cooktop">Cooktop</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=lunch-box">Lunch Box</a>
+      </div>
+    </li>
+    <li><a href="Catalogue.html" class="mm-link">Catalogue</a></li>
+    <li><a href="Blog.html" class="mm-link">Knowledge Centre</a></li>
+    <li><a href="Contact.html" class="mm-link">Contact Us</a></li>
+  </ul>
+  <div class="mm-brands" id="mmBrands"></div>
+</div>
+
+<span id="top"></span>
+
+<!-- BREADCRUMB -->
+<nav class="crumb wrap" aria-label="Breadcrumb">
+  <ol id="crumb"></ol>
+</nav>
+
+<!-- HERO -->
+<section class="pdp-hero wrap" id="hero">
+  <div class="pdp-grid">
+    <div class="gallery">
+      <div class="g-main"><img id="gMain" alt="" /></div>
+      <div class="g-thumbs" id="gThumbs"></div>
+    </div>
+    <div class="info">
+      <div class="top">
+        <span class="eyebrow" id="infoEyebrow"><span class="pip"></span></span>
+        <span class="cat-chip" id="catChip"></span>
+      </div>
+      <h1 id="pTitle"></h1>
+      <p class="intro" id="pIntro"></p>
+      <div class="trust-row">
+        <span class="trust"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 7.8-7 9-4-1.2-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg>Crystal Assured Quality</span>
+        <span class="trust"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg>Made in India · Since 1971</span>
+      </div>
+      <div class="vsel">
+        <div class="vlbl">Variant <b id="vCurrent"></b></div>
+        <div class="vchips" id="vChips"></div>
+      </div>
+      <div class="info-cta">
+        <button type="button" class="btn btn-dark enq-add" id="enqAddBtn" data-qty-from="#qtyInput"><span class="enq-lbl">Enquire Now</span> <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></button>
+        <button type="button" class="btn btn-red enq-buy" id="buyNowBtn">Buy Now <span class="arr">↗</span></button>
+        <a class="btn btn-ghost" id="brandAllBtn" href="#">View All <span id="brandAllName"></span></a>
+      </div>
+      <ul class="hi-list" id="hiList"></ul>
+    </div>
+  </div>
+</section>
+
+<!-- OVERVIEW -->
+<section class="sec wrap" id="overview">
+  <div class="sec-head">
+    <div>
+      <span class="eyebrow" data-fade><span class="pip"></span>Overview</span>
+      <h2 data-split style="margin-top:14px">Made for<br>everyday life</h2>
+    </div>
+    <p class="lead" id="ovLead"></p>
+  </div>
+  <div class="ov-grid">
+    <div class="ov-body" data-fade>
+      <p class="lead-p" id="ovIntro"></p>
+      <div id="ovDesc"></div>
+      <ul class="ov-benefits" id="ovBenefits"></ul>
+    </div>
+    <div class="ov-media" data-fade><img id="ovImg" alt="" /></div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="sec wrap sec-cream" id="features" style="border-radius: clamp(28px,4vw,48px);">
+  <div class="sec-head">
+    <div>
+      <span class="eyebrow" data-fade><span class="pip"></span>Features &amp; benefits</span>
+      <h2 data-split style="margin-top:14px">Why it<br>works so well</h2>
+    </div>
+    <p class="lead">Thoughtful engineering and premium materials in every detail.</p>
+  </div>
+  <div class="feat-grid" id="featGrid"></div>
+</section>
+
+<!-- SPECS + VARIANTS -->
+<section class="sec wrap" id="specs">
+  <div class="sec-head">
+    <div>
+      <span class="eyebrow" data-fade><span class="pip"></span>Specifications</span>
+      <h2 data-split style="margin-top:14px">The detail,<br>spelled out</h2>
+    </div>
+    <p class="lead">Everything you need to know, at a glance.</p>
+  </div>
+  <div class="spec-grid">
+    <div class="spec-table" id="specTable"></div>
+    <aside class="spec-side">
+      <h4>Available Variants</h4>
+      <div class="vchips" id="vChips2"></div>
+      <div class="assure">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 7.8-7 9-4-1.2-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg>
+        <div><b>Crystal Assured</b><span>Quality-checked and backed by our manufacturing warranty.</span></div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="sec wrap" id="gallery">
+  <div class="sec-head">
+    <div>
+      <span class="eyebrow" data-fade><span class="pip"></span>In the kitchen</span>
+      <h2 data-split style="margin-top:14px">See it<br>in use</h2>
+    </div>
+    <p class="lead">Lifestyle shots and close-up details from real kitchens.</p>
+  </div>
+  <div class="lg-grid" id="lgGrid"></div>
+</section>
+
+<!-- WHY (dark) -->
+<section class="sec sec-dark" id="why">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="eyebrow"><span class="pip"></span>Why choose this</span>
+        <h2 data-split style="margin-top:14px">Quality you<br>can trust</h2>
+      </div>
+      <p class="lead" id="whyLead"></p>
+    </div>
+    <div class="why-grid" id="whyGrid"></div>
+  </div>
+</section>
+
+<!-- RELATED -->
+<section class="sec wrap" id="related">
+  <div class="sec-head">
+    <div>
+      <span class="eyebrow" data-fade><span class="pip"></span>You may also like</span>
+      <h2 data-split style="margin-top:14px" id="relTitle">More from<br>the range</h2>
+    </div>
+    <a href="#" class="btn btn-dark" id="relAll" data-fade>View All <span class="arr">↗</span></a>
+  </div>
+  <div class="rel-grid" id="relGrid"></div>
+</section>
+
+<!-- BRAND STORY -->
+<section class="sec wrap" id="brandstory">
+  <div class="bs-card">
+    <div class="bs-media" data-fade><img id="bsImg" alt="" /></div>
+    <div class="bs-body" data-fade>
+      <span class="eyebrow"><span class="pip"></span>The brand</span>
+      <h2 id="bsTitle"></h2>
+      <p id="bsBlurb"></p>
+      <p id="bsStory"></p>
+      <div class="bs-cta">
+        <a class="btn btn-red" id="bsBrandBtn" href="#">Explore <span id="bsBrandName"></span> <span class="arr">↗</span></a>
+        <a class="btn btn-ghost" href="About.html">Our Story</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee" id="marquee">
+  <div class="mq-track">
+    <span>Since 1971</span><span>Made in India</span><span>Built on Trust</span><span>Everyday Ease</span><span>Cook · Serve · Clean</span><span>Trusted by Homes</span>
+    <span>Since 1971</span><span>Made in India</span><span>Built on Trust</span><span>Everyday Ease</span><span>Cook · Serve · Clean</span><span>Trusted by Homes</span>
+  </div>
+</div>
+
+<!-- CTA -->
+<section class="cta-sec" id="cta">
+  <div class="cta">
+    <div class="cta-inner">
+      <h2 data-split>Find your<br>everyday essential</h2>
+      <p>Explore the complete Crystal range, or talk to our team about bulk, export and distribution.</p>
+      <div class="row">
+        <a href="All-Products.html" class="btn btn-light">Browse All Products <span class="arr">↗</span></a>
+        <a href="Contact.html" class="btn btn-red">Contact Us <span class="arr">↗</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="sec-dark" id="footer">
+  <div class="wrap">
+    <div class="foot-cta">
+      <div>
+        <span class="eyebrow"><span class="pip"></span>Get in touch</span>
+        <h3>Bring <span class="g">Crystal</span> into<br>every corner of your home.</h3>
+      </div>
+      <a href="mailto:sales@crystalcook.com" class="btn btn-red">sales@crystalcook.com <span class="arr">↗</span></a>
+    </div>
+    <div class="foot-top">
+      <div class="foot-brand">
+        <div class="logo"><img src="logo-footer.png" alt="CRYSTAL" style="height:36px;width:auto;display:block;"></div>
+        <p class="foot-desc">Complete Kitchen and Home Solutions — crafted for everyday ease, built on trust.</p>
+        <div class="foot-socials">
+          <a href="https://www.instagram.com/crystalcooknserve" target="_blank" rel="noopener" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"></circle></svg></a>
+          <a href="https://www.facebook.com/share/1HMc4pSziY/" target="_blank" rel="noopener" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-8h3l1-4h-4V8c0-1 .5-2 2-2h2V2h-3c-3 0-5 2-5 5v3H6v4h3v8z"></path></svg></a>
+          <a href="https://www.linkedin.com/company/crystal-cook-and-serve-products-pvt-ltd/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M4.5 3.5a2 2 0 100 4 2 2 0 000-4zM3 9h3v12H3zM9 9h3v1.7c.5-.9 1.7-1.9 3.5-1.9 3 0 4.5 2 4.5 5.3V21h-3v-6c0-1.6-.6-2.7-2-2.7s-2.2 1-2.2 2.6V21H9z"></path></svg></a>
+          <a href="https://youtube.com/@crystalcooknserve" target="_blank" rel="noopener" aria-label="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12s0-3-.4-4.4a2.5 2.5 0 00-1.8-1.8C18.4 5.4 12 5.4 12 5.4s-6.4 0-7.8.4A2.5 2.5 0 002.4 7.6C2 9 2 12 2 12s0 3 .4 4.4a2.5 2.5 0 001.8 1.8c1.4.4 7.8.4 7.8.4s6.4 0 7.8-.4a2.5 2.5 0 001.8-1.8C22 15 22 12 22 12zm-12 3V9l5 3z"></path></svg></a>
+        </div>
+      </div>
+      <div class="foot-col"><h5>Brands</h5><ul id="footBrands"></ul></div>
+      <div class="foot-col">
+        <h5>Products</h5>
+        <ul><li><a href="All-Products.html?cat=cookware">Cookware</a></li><li><a href="All-Products.html?cat=cutlery">Kitchenware</a></li><li><a href="All-Products.html?cat=cleaning">Cleaning Aid</a></li><li><a href="All-Products.html?cat=appliances">Electric Appliances</a></li></ul>
+      </div>
+      <div class="foot-col"><h5>Quick Link</h5><ul><li><a href="About.html">About Us</a></li><li><a href="Catalogue.html">Catalogue</a></li><li><a href="Blog.html">Knowledge Centre</a></li><li><a href="Career.html">Career</a></li></ul></div>
+      <div class="foot-col"><h5>Contact Us</h5><ul><li><a href="#">G.I.D.C Metoda, Rajkot 360021, Gujarat</a></li><li><a href="#">Sahar Plaza, Andheri (E), Mumbai 400059</a></li><li><a href="tel:02249702803">022-49702803 / 06</a></li></ul></div>
+    </div>
+    <div class="foot-wordmark"><span class="wm-outline">CRYSTAL</span><span class="wm-fill">CRYSTAL</span></div>
+    <div class="foot-bottom"><span>© 2026 Crystal. All rights reserved. Designed & Developed by <a href="https://techinfinity.io" target="_blank" style="color:inherit;text-decoration:underline;">TechInfinity</a>.</span><span><a href="Privacy.html" style="color:inherit;text-decoration:underline;">Privacy Policy</a> · <a href="Terms.html" style="color:inherit;text-decoration:underline;">Terms &amp; Condition</a></span></div>
+  </div>
+</footer>
+
+<script>
+  const RM = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const U = "https://proj.leo9studio.in/projects/crystal-wp/wp-content/uploads/";
+
+  /* ---------- API HELPER ---------- */
+  const API = 'http://localhost:8000';
+  async function fetchWithFallback(url, fallbackData) {
+    try {
+      const r = await fetch(url);
+      if (!r.ok) throw new Error();
+      return await r.json();
+    } catch {
+      return fallbackData;
+    }
+  }
+
+  const BRANDS = {
+    crystal:    { name: "Crystal",    tagline: "World of Kitchenware", story: "It began in 1971 with a simple gas lighter and a belief that everyday Indian homes deserved better. Today Crystal spans knives, tools, cookware and appliances — the flagship of the family.", img: U + "2026/04/Knife-2.jpg" },
+    crystalina: { name: "Crystalina", tagline: "Splendid Finish",      story: "Crystalina brings a splendid mirror finish to serveware and dinnerware — premium stainless steel that makes every meal feel like an occasion.", img: "about-assets/prod-3.jpg" },
+    sparkmate:  { name: "SparkMate",  tagline: "Cleaning Simplified",  story: "SparkMate makes a spotless home effortless — spin mops, wipers and brushes engineered for fast, low-effort cleaning.", img: U + "2026/04/Spin-Mops-2.jpg" },
+    valmate:    { name: "ValMate",    tagline: "Value for Money",      story: "ValMate delivers dependable everyday essentials at honest prices — practical storage, flasks and home solutions built for real value.", img: U + "2026/04/10.jpg" },
+  };
+  const CAT_LABEL = { cookware:"Cookware", cutlery:"Cutlery & Knives", serveware:"Serveware", cleaning:"Cleaning Aids", storage:"Storage & Freshness", flasks:"Flasks & Bottles", lighters:"Lighters", appliances:"Appliances" };
+
+  const ICONS = {
+    heat:'<path d="M12 3c3 3.5 4.5 5.5 4.5 8a4.5 4.5 0 0 1-9 0c0-1.6.8-2.8 2.2-4 .4 1.2 1.2 1.5 1.6.7.5-.9.1-3.1.7-4.7z"/>',
+    shield:'<path d="M12 3l7 3v5c0 4.5-3 7.8-7 9-4-1.2-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/>',
+    induction:'<circle cx="12" cy="12" r="8.5"/><path d="M8.5 12a3.5 3.5 0 0 1 7 0 1.8 1.8 0 0 1-3.5 0"/>',
+    leaf:'<path d="M5 19c0-8 6-13 14-13 0 8-5 14-13 14"/><path d="M5.5 18.5c3-5 7-8 11-9"/>',
+    blade:'<path d="M4 15C11 13 17 7 20.5 3c.8 3.8-.6 9.4-7.5 13.5z"/><path d="M4 15l-1.6 4.4 4.4-1.6"/>',
+    precision:'<circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3.4"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3"/>',
+    grip:'<path d="M8.5 11V5.6a1.5 1.5 0 0 1 3 0V10m0 0V4.6a1.5 1.5 0 0 1 3 0V10m0 .5V7a1.5 1.5 0 0 1 3 0v7a6 6 0 0 1-6 6h-.6a6 6 0 0 1-5-2.7L5.4 14.4"/>',
+    spin:'<path d="M20 12a8 8 0 1 1-2.3-5.6"/><path d="M20 4v4h-4"/>',
+    lock:'<rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/>',
+    stack:'<path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/>',
+    shine:'<path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/>',
+    power:'<path d="M13 3L5 14h6l-1 7 8-11h-6z"/>',
+    refill:'<path d="M20 12a8 8 0 1 1-2.3-5.6"/><path d="M20 4v4h-4"/>',
+  };
+
+  const CAT_TPL = {
+    cookware: { features:[["heat","Even Heat Distribution","Triply, heavy-gauge base spreads heat uniformly for consistent, no-hotspot cooking."],["shield","Built to Last","Premium-grade metal and rugged construction engineered for years of daily use."],["induction","Induction & Gas Ready","Works flawlessly across induction, gas and most cooktops."],["leaf","Healthier Cooking","Low-oil, food-safe surfaces let you cook lighter without losing taste."]], specs:{Material:"Triply stainless steel",Finish:"Mirror polish",Compatibility:"Induction & gas",Handle:"Stay-cool riveted",Care:"Hand wash recommended",Warranty:"5 years"}, variants:["24 cm","26 cm","28 cm"] },
+    cutlery: { features:[["blade","Surgical-Grade Steel","Forged from high-carbon surgical stainless steel that holds its edge for years."],["precision","Laser-Honed Edge","Precision-ground blade for clean, effortless cuts every time."],["grip","Ergonomic Grip","Balanced, comfortable handle designed for safe, fatigue-free use."],["shield","Rust & Stain Resistant","Stays bright and hygienic wash after wash."]], specs:{Material:"Surgical stainless steel",Edge:"Laser honed",Handle:"Ergonomic polymer",Care:"Hand wash",Warranty:"2 years"}, variants:["Single","Set of 3","Set of 5"] },
+    cleaning: { features:[["spin","360° Spin Action","Effortless hands-free wringing for a faster, cleaner mop."],["grip","Comfort Handle","Lightweight, sturdy handle that's easy to manoeuvre."],["shield","Durable Build","Rust-proof materials made to last through daily cleaning."],["leaf","Microfibre Power","High-absorbency microfibre lifts dirt and dries fast."]], specs:{Material:"ABS + stainless steel","Mop Head":"Microfibre",Bucket:"Single-bucket spin",Care:"Rinse & air dry",Warranty:"1 year"}, variants:["Standard","Pro"] },
+    storage: { features:[["lock","Airtight Seal","Leak-proof, airtight lids lock freshness in and spills out."],["stack","Stackable & Modular","Space-saving shapes that nest and stack neatly."],["leaf","Food-Safe & BPA-Free","Made from food-grade, BPA-free materials safe for everyday use."],["shield","Built to Last","Tough, crack-resistant build for years of kitchen duty."]], specs:{Material:"Food-grade / steel",Seal:"Airtight silicone",Compatibility:"Fridge & freezer safe",Care:"Dishwasher safe",Warranty:"1 year"}, variants:["Small","Medium","Large","Set"] },
+    flasks: { features:[["heat","24-Hour Insulation","Double-wall vacuum keeps drinks hot or cold for up to 24 hours."],["lock","Leak-Proof Lid","Secure, spill-proof closure for bags and travel."],["shield","Rugged Stainless Body","Dent-resistant 18/8 steel built for life on the move."],["leaf","Pure Taste","Food-grade interior keeps flavours clean, with no aftertaste."]], specs:{Material:"18/8 stainless steel",Insulation:"Double-wall vacuum",Retention:"Hot/Cold 24 hrs",Care:"Hand wash",Warranty:"1 year"}, variants:["500 ml","750 ml","1 L"] },
+    serveware: { features:[["shine","Splendid Mirror Finish","High-polish stainless steel that elevates every table."],["heat","Stay-Warm Insulation","Double-wall builds keep food warm for hours."],["shield","Heavy-Gauge Build","Sturdy, premium-weight steel made for daily dining."],["leaf","Food-Safe Steel","Hygienic, rust-free and easy to clean."]], specs:{Material:"Stainless steel",Finish:"Mirror polish",Type:"Serveware",Care:"Hand wash",Warranty:"2 years"}, variants:["Small","Medium","Large"] },
+    lighters: { features:[["power","Sure, Single-Press Spark","Reliable ignition every time, even for deep burners."],["shield","Stainless-Steel Body","Premium, corrosion-resistant build that lasts."],["refill","Refillable","Refillable gas design for long, economical life."],["grip","Comfort Grip","Balanced, easy-hold body for safe lighting."]], specs:{Material:"Stainless steel",Mechanism:"Flintless / refillable",Care:"Wipe clean",Warranty:"6 months"}, variants:["Standard","305 mm","380 mm"] },
+    appliances: { features:[["power","Powerful Performance","Engineered motors and elements for fast, efficient results."],["shield","Safe & Reliable","Auto cut-off and quality components for peace of mind."],["precision","Smart Controls","Intuitive controls for effortless everyday use."],["leaf","Energy Efficient","Designed to deliver more while drawing less power."]], specs:{Material:"Stainless steel / ABS",Power:"Energy efficient",Compatibility:"220–240V",Care:"Wipe clean",Warranty:"1 year"}, variants:["Standard"] },
+  };
+
+  const GPOOL = {
+    cookware:[U+"2026/04/Tri-Pro-2-1.jpg",U+"2026/05/CTV-097.jpg",U+"2026/04/CPC_023.jpg",U+"2026/04/Pressure-Cooker-5.jpg"],
+    cutlery:[U+"2026/04/Knife-2.jpg",U+"2026/01/Crystal-5-Pcs-Knife-Set.jpg","about-assets/prod-5.jpg"],
+    cleaning:[U+"2026/04/Spin-Mops-2.jpg",U+"2026/05/SMM013-1024x1024.jpg",U+"2026/04/13.jpg"],
+    storage:["about-assets/prod-6.jpg","about-assets/prod-7.jpg","about-assets/prod-8.jpg"],
+    flasks:[U+"2026/04/10.jpg",U+"2026/04/11.jpg",U+"2026/04/6.jpg"],
+    serveware:["about-assets/prod-3.jpg","about-assets/prod-4.jpg","about-assets/prod-5.jpg"],
+    lighters:["about-assets/prod-1.jpg","about-assets/prod-2.jpg",U+"2026/04/4-2.jpg"],
+    appliances:[U+"2026/04/8.jpg",U+"2026/04/5.jpg",U+"2026/04/3-1.jpg"],
+  };
+
+  const P = [
+    { id:"aristo-lighter", n:"Aristo SS Lighter", b:"crystal", c:"lighters", col:"Classic Lighters", img:"about-assets/prod-1.jpg", tags:["Stainless Steel","Refillable"], intro:"A sure spark for every Indian kitchen.", desc:"The Aristo SS lighter pairs a premium stainless-steel body with reliable, single-press ignition. Refillable and built to last, it's the dependable everyday lighter Crystal made its name on.", variants:["Standard"] },
+    { id:"slimline-lighter", n:"Slimline Gas Lighter 305mm", b:"crystal", c:"lighters", col:"Classic Lighters", img:"about-assets/prod-2.jpg", tags:["Long Reach","Flintless"], intro:"Long reach, slim profile.", desc:"Designed for deep burners, gas stoves and outdoor grills, the Slimline keeps hands clear of the flame. A refillable, flintless mechanism delivers a clean spark every time.", variants:["305 mm","380 mm"] },
+    { id:"knife-set-5pc", n:"5-Pc Surgical Steel Knife Set", b:"crystal", c:"cutlery", col:"Surgical Steel Knives", img:U+"2026/01/Crystal-5-Pcs-Knife-Set.jpg", tags:["Surgical Steel","Set of 5"], intro:"India's first surgical-steel knives.", desc:"A complete five-piece set forged from high-carbon surgical stainless steel that holds its edge for years. From paring to chef's knife, every blade brings professional precision to your kitchen.", variants:["Set of 5","Set of 8"] },
+    { id:"chef-knife", n:"Laser-Edge Chef Knife", b:"crystal", c:"cutlery", col:"Surgical Steel Knives", img:U+"2026/04/Knife-2.jpg", tags:["Laser Edge","Ergonomic"], intro:"Laser-honed precision.", desc:"A balanced, full-tang chef knife with a laser-honed edge for clean, effortless cuts. The ergonomic handle keeps prep comfortable, meal after meal.", variants:["8 inch","Single"] },
+    { id:"chimney", n:"Auto-Clean Chimney 90cm", b:"crystal", c:"appliances", col:"Modern Appliances", img:U+"2026/04/8.jpg", tags:["Auto-Clean","Silent"], intro:"A grease-free, silent kitchen.", desc:"Powerful suction clears smoke and odour while auto-clean technology keeps maintenance effortless. Sleek, quiet and built for the modern Indian kitchen.", variants:["60 cm","90 cm"], specs:{Suction:"1200 m³/hr",Filter:"Auto-clean baffle",Compatibility:"220–240V"} },
+    { id:"kettle", n:"Electric Kettle 1.5L", b:"crystal", c:"appliances", col:"Modern Appliances", img:U+"2026/04/5.jpg", tags:["1.5L","Auto Cut-off"], intro:"Fast-boil convenience.", desc:"A 1.5L stainless-steel electric kettle with rapid boil, auto cut-off and a cool-touch body. Perfect for tea, coffee and quick cooking.", variants:["1.5 L","1.8 L"], specs:{Capacity:"1.5 L",Power:"1500 W",Body:"Stainless steel"} },
+    { id:"serving-set", n:"Mirror-Finish Serving Set", b:"crystalina", c:"serveware", col:"Splendid Serveware", img:"about-assets/prod-3.jpg", tags:["Mirror Finish","Food-Grade"], intro:"Dining, elevated.", desc:"A mirror-finish stainless serving set that turns everyday meals into occasions. Heavy-gauge, food-safe and effortless to clean.", variants:["3 Pc","5 Pc"] },
+    { id:"hot-pot-casserole", n:"Insulated Hot-Pot Casserole", b:"crystalina", c:"serveware", col:"Splendid Serveware", img:"about-assets/prod-4.jpg", tags:["Insulated","Stay-Warm"], intro:"Warm meals, for hours.", desc:"A double-wall insulated casserole that keeps rotis and curries hot long after they leave the stove. Splendid finish outside, practical inside.", variants:["1.5 L","2.5 L","3.5 L"] },
+    { id:"thali-set", n:"Steel Dinner Thali Set", b:"crystalina", c:"serveware", col:"Elite Dinnerware", img:"about-assets/prod-5.jpg", tags:["Heavy Gauge","Family Set"], intro:"Built for daily dining.", desc:"A heavy-gauge steel thali set with Crystalina's signature splendid finish — generously sized and made for the whole family.", variants:["Set of 2","Set of 4","Set of 6"] },
+    { id:"triply-frypan", n:"Tri-Ply Frypan 24cm", b:"crystal", c:"cookware", col:"Tri-Ply Pro", img:U+"2026/04/Tri-Pro-2-1.jpg", tags:["Tri-Ply","Induction"], intro:"Pro-grade, even heat.", desc:"Three bonded layers of steel and aluminium spread heat evenly for perfect searing and sautéing. Induction-ready and built to last a lifetime of cooking.", variants:["22 cm","24 cm","26 cm"], specs:{Material:"Tri-ply (steel-alu-steel)",Diameter:"24 cm"} },
+    { id:"nonstick-kadai", n:"Platinum Non-Stick Kadai", b:"crystal", c:"cookware", col:"Platinum Non-Stick", img:U+"2026/05/CTV-097.jpg", tags:["Non-Stick","Low-Oil"], intro:"Healthier, low-oil cooking.", desc:"A 3-coat platinum non-stick kadai built to DuPont-grade standards. Food releases cleanly with minimal oil, and clean-up takes seconds.", variants:["2 L","2.5 L","3 L"], specs:{Coating:"3-coat platinum non-stick",Capacity:"2.5 L",Diameter:"24 cm"} },
+    { id:"pressure-cooker", n:"Tri-Pro Pressure Cooker 3L", b:"crystal", c:"cookware", col:"Tri-Pro Pro", img:U+"2026/04/Pressure-Cooker-5.jpg", tags:["Induction","Triply"], intro:"Cook faster, every day.", desc:"An induction-ready triply pressure cooker that saves fuel and time on every meal, with a secure locking system and even-heat base.", variants:["3 L","5 L","7.5 L"], specs:{Material:"Triply stainless steel",Capacity:"3 L",Safety:"Locking lid + valve"} },
+    { id:"cast-iron-tawa", n:"Heritage Cast Iron Tawa", b:"crystal", c:"cookware", col:"Heritage Cast Iron", img:U+"2026/04/CPC_023.jpg", tags:["Cast Iron","Pre-Seasoned"], intro:"Heritage cooking, modernised.", desc:"A pre-seasoned cast iron tawa that delivers steady, retained heat for perfect rotis and dosas — and gets better with every use.", variants:["25 cm","28 cm"], specs:{Material:"Pre-seasoned cast iron",Diameter:"28 cm"} },
+    { id:"container-set", n:"Airtight Container Set", b:"valmate", c:"storage", col:"Lock-Fresh Containers", img:"about-assets/prod-6.jpg", tags:["Airtight","Set of 6"], intro:"Freshness, locked in.", desc:"A set of leak-proof, airtight containers that keep food fresher for longer. Stackable, food-safe and fridge-to-table ready.", variants:["Set of 3","Set of 6","Set of 9"] },
+    { id:"storage-jars", n:"Modular Storage Jars", b:"valmate", c:"storage", col:"Modular Kitchen", img:"about-assets/prod-7.jpg", tags:["Stackable","BPA-Free"], intro:"Order for every shelf.", desc:"Modular, stackable jars that bring tidy order to your kitchen. BPA-free and crystal-clear so you always see what's inside.", variants:["Small","Medium","Large"] },
+    { id:"lunch-box", n:"Steel Lunch Box 3-Tier", b:"valmate", c:"storage", col:"On-the-Go", img:"about-assets/prod-8.jpg", tags:["Insulated","Leak-Proof"], intro:"Warm lunches, on the go.", desc:"An insulated three-tier steel tiffin that keeps lunch warm till noon. Leak-proof and built for daily commutes.", variants:["2 Tier","3 Tier"] },
+    { id:"spin-mop", n:"360° Spin Mop", b:"sparkmate", c:"cleaning", col:"Spin & Clean", img:U+"2026/04/Spin-Mops-2.jpg", tags:["360° Spin","Hands-Free"], intro:"Hands-free, sparkling floors.", desc:"A single-bucket 360° spin system that wrings the mop for you. Lightweight, sturdy and quick to dry.", variants:["Standard","Pro"] },
+    { id:"spin-mop-pro", n:"Easy-Press Spin Mop Pro", b:"sparkmate", c:"cleaning", col:"Spin & Clean", img:U+"2026/05/SMM013-1024x1024.jpg", tags:["Foot Pedal","Microfibre"], intro:"Foot-pedal spin power.", desc:"An upgraded spin mop with an easy foot pedal and high-absorbency microfibre head that lifts grime fast.", variants:["Pro","Pro Max"] },
+    { id:"wiper-brush", n:"Floor Wiper & Brush Combo", b:"sparkmate", c:"cleaning", col:"Sparkle Essentials", img:U+"2026/04/13.jpg", tags:["Combo","Everyday"], intro:"Quick, streak-free cleaning.", desc:"An everyday wiper and brush combo for fast, effortless cleaning across floors and surfaces.", variants:["Combo"] },
+    { id:"vacuum-flask", n:"Vacuum Flask 1L", b:"valmate", c:"flasks", col:"Thermo Lock", img:U+"2026/04/10.jpg", tags:["24h Hot/Cold","1L"], intro:"24 hours hot or cold.", desc:"A double-wall vacuum flask in rugged 18/8 steel that holds temperature for up to 24 hours. Leak-proof and travel-ready.", variants:["500 ml","750 ml","1 L"], specs:{Capacity:"1 L"} },
+    { id:"sipper-bottle", n:"Insulated Sipper Bottle", b:"valmate", c:"flasks", col:"Thermo Lock", img:U+"2026/04/11.jpg", tags:["Leak-Proof","Insulated"], intro:"Hydration on the move.", desc:"A leak-proof insulated sipper for gym, office and travel. Keeps drinks at the perfect temperature for hours.", variants:["500 ml","750 ml"] },
+    { id:"carafe", n:"Double-Wall Carafe", b:"valmate", c:"flasks", col:"Serve Warm", img:U+"2026/04/6.jpg", tags:["Double-Wall","Table-Ready"], intro:"Serve at the perfect temp.", desc:"An elegant double-wall carafe for the table that keeps water and juice hot or cold while it serves.", variants:["1 L","1.5 L"] },
+  ];
+  const BY_ID = Object.fromEntries(P.map(p => [p.id, p]));
+
+  /* ---- resolve product ---- */
+  const params = new URLSearchParams(location.search);
+  const slugParam = (params.get("slug") || params.get("p") || "").toLowerCase();
+  let prod = BY_ID[slugParam] || BY_ID["nonstick-kadai"];
+
+  /* ---- API fetch: try to load product from backend by slug ---- */
+  (async function () {
+    if (!slugParam) return;
+    const apiProd = await fetchWithFallback(API + '/api/products/' + slugParam + '/', null);
+    if (!apiProd || !apiProd.slug) return;
+
+    // Map API response to local prod shape
+    const brand_slug = (typeof apiProd.brand === 'object' ? apiProd.brand.slug : apiProd.brand || '').toLowerCase();
+    const cat_slug = (typeof apiProd.category === 'object' ? apiProd.category.slug : apiProd.category || '').toLowerCase();
+    const b = BRANDS[brand_slug] || BRANDS['crystal'];
+    const tplKey = CAT_TPL[cat_slug] ? cat_slug : 'cookware';
+    const tpl2 = CAT_TPL[tplKey];
+    const variants2 = (apiProd.variants && apiProd.variants.length) ? apiProd.variants.map(v => v.name || v) : (prod.variants || tpl2.variants);
+    const specs2 = apiProd.specifications
+      ? Object.fromEntries(apiProd.specifications.map(s => [s.key || s.label, s.value]))
+      : Object.assign({}, tpl2.specs, prod.specs || {});
+    const images = apiProd.images && apiProd.images.length
+      ? apiProd.images.map(i => i.image || i.url || i)
+      : [apiProd.image_url || (apiProd.featured_image || null) || prod.img];
+
+    // Update gallery
+    const gMain = document.getElementById("gMain");
+    if (gMain && images[0]) { gMain.src = images[0]; gMain.alt = apiProd.name || prod.n; }
+    const gThumbs = document.getElementById("gThumbs");
+    if (gThumbs) {
+      gThumbs.innerHTML = images.map((src, i) => `<div class="g-thumb${i===0?' active':''}" data-i="${i}"><img src="${src}" alt="${apiProd.name} view ${i+1}" loading="lazy"></div>`).join("");
+    }
+
+    // Update title / intro
+    const pTitle = document.getElementById("pTitle");
+    if (pTitle) pTitle.textContent = apiProd.name || prod.n;
+    const pIntro = document.getElementById("pIntro");
+    if (pIntro) pIntro.textContent = apiProd.highlight || apiProd.description || prod.intro || '';
+    document.title = (apiProd.name || prod.n) + " — CRYSTAL";
+
+    // Update overview
+    const ovIntro = document.getElementById("ovIntro");
+    if (ovIntro) ovIntro.textContent = apiProd.highlight || apiProd.description || '';
+    const ovDesc = document.getElementById("ovDesc");
+    if (ovDesc) ovDesc.innerHTML = `<p>${apiProd.description || ''}</p>`;
+    const ovImg = document.getElementById("ovImg");
+    if (ovImg && images[1]) { ovImg.src = images[1]; ovImg.alt = apiProd.name || prod.n; }
+    const ovLead = document.getElementById("ovLead");
+    if (ovLead) ovLead.textContent = apiProd.highlight || '';
+
+    // Update specs table
+    if (Object.keys(specs2).length) {
+      const specRows2 = Object.assign({ Brand: b ? b.name : '', Category: CAT_LABEL[tplKey], Collection: apiProd.collection || '' }, specs2);
+      const specTable = document.getElementById("specTable");
+      if (specTable) specTable.innerHTML = Object.keys(specRows2).filter(k => specRows2[k] && String(specRows2[k]).trim()).map(k => `<div class="spec-row"><span class="k">${k}</span><span class="v">${specRows2[k]}</span></div>`).join("");
+    }
+
+    // Update variants
+    if (variants2.length) {
+      const vChips = document.getElementById("vChips");
+      const vChips2 = document.getElementById("vChips2");
+      const vCurrent = document.getElementById("vCurrent");
+      const vHtml = variants2.map((v, i) => `<button class="vchip${i===0?' active':''}" data-v="${v}">${v}</button>`).join("");
+      if (vChips) vChips.innerHTML = vHtml;
+      if (vChips2) vChips2.innerHTML = vHtml;
+      if (vCurrent) vCurrent.textContent = "· " + variants2[0];
+    }
+
+    // Re-wire enquiry buttons with API slug
+    const enqAddBtn = document.getElementById("enqAddBtn");
+    const sEnq = document.getElementById("sEnq");
+    function wireBtn(btn) {
+      if (!btn) return;
+      btn.dataset.id = apiProd.slug;
+      btn.dataset.name = apiProd.name || prod.n;
+      btn.dataset.brand = b ? b.name : '';
+      btn.dataset.cat = CAT_LABEL[tplKey] || tplKey;
+      btn.dataset.img = images[0] || '';
+    }
+    wireBtn(enqAddBtn); wireBtn(sEnq);
+    const buyBtn = document.getElementById("buyNowBtn");
+    const sBuy = document.getElementById("sBuy");
+    if (buyBtn) buyBtn.dataset.name = apiProd.name || prod.n;
+    if (sBuy) sBuy.dataset.name = apiProd.name || prod.n;
+    if (apiProd.marketplace_links && apiProd.marketplace_links.length) {
+      var mkData = apiProd.marketplace_links.map(function(m) {
+        return { name: m.marketplace_name, url: m.url, logo: m.marketplace_logo || '' };
+      });
+      if (buyBtn) buyBtn.dataset.mk = JSON.stringify(mkData);
+      if (sBuy) sBuy.dataset.mk = JSON.stringify(mkData);
+    }
+  })();
+  const brand = BRANDS[prod.b];
+  const tpl = CAT_TPL[prod.c];
+  const variants = prod.variants || tpl.variants;
+  const specs = Object.assign({}, tpl.specs, prod.specs || {});
+  const gallery = [...new Set([prod.img, ...(GPOOL[prod.c] || [])])].slice(0, 4);
+
+  document.title = prod.n + " — CRYSTAL";
+
+  /* ---- shared nav renders ---- */
+  const brandList = Object.keys(BRANDS);
+  document.getElementById("ddMenu").innerHTML = brandList.map(s => `<a href="All-Products.html?brand=${s}"${s===prod.b?' class="active"':''}><b>${BRANDS[s].name}</b><span>${BRANDS[s].tagline}</span></a>`).join("");
+  document.getElementById("footBrands").innerHTML = brandList.map(s => `<li><a href="All-Products.html?brand=${s}">${BRANDS[s].name}</a></li>`).join("");
+  document.getElementById("mmBrands").innerHTML = brandList.map(s => `<a href="All-Products.html?brand=${s}" class="mm-link">${BRANDS[s].name}</a>`).join("");
+
+  /* ---- breadcrumb ---- */
+  document.getElementById("crumb").innerHTML = `
+    <li><a href="index.html#top">Home</a></li><li class="sep">/</li>
+    <li><a href="All-Products.html">Products</a></li><li class="sep">/</li>
+    <li><a href="All-Products.html?brand=${prod.b}">${brand.name}</a></li><li class="sep">/</li>
+    <li class="cur">${prod.n}</li>`;
+
+  /* ---- hero ---- */
+  document.getElementById("gMain").src = gallery[0];
+  document.getElementById("gMain").alt = prod.n;
+  document.getElementById("gThumbs").innerHTML = gallery.map((src, i) => `<div class="g-thumb${i===0?' active':''}" data-i="${i}"><img src="${src}" alt="${prod.n} view ${i+1}" loading="lazy"></div>`).join("");
+  document.getElementById("infoEyebrow").innerHTML = `<span class="pip"></span>${brand.name} · ${prod.col}`;
+  document.getElementById("catChip").textContent = CAT_LABEL[prod.c];
+  document.getElementById("pTitle").textContent = prod.n;
+  document.getElementById("pIntro").textContent = prod.intro;
+  document.getElementById("brandAllName").textContent = brand.name;
+  document.getElementById("brandAllBtn").href = "All-Products.html?brand=" + prod.b;
+  // ---- Enquire / Buy / quantity wiring ----
+  var _pid = (window.PID && PID[prod.n]) || (new URLSearchParams(location.search)).get("p") || "";
+  function wireEnq(btn) { if (!btn) return; btn.dataset.id = _pid; btn.dataset.name = prod.n; btn.dataset.brand = brand.name; btn.dataset.cat = CAT_LABEL[prod.c] || prod.c; btn.dataset.img = gallery[0] || ""; }
+  wireEnq(document.getElementById("enqAddBtn"));
+  wireEnq(document.getElementById("sEnq"));
+  document.getElementById("buyNowBtn").dataset.name = prod.n;
+  var _sBuy = document.getElementById("sBuy"); if (_sBuy) _sBuy.dataset.name = prod.n;
+
+  function renderVariants(elId) {
+    document.getElementById(elId).innerHTML = variants.map((v, i) => `<button class="vchip${i===0?' active':''}" data-v="${v}">${v}</button>`).join("");
+  }
+  renderVariants("vChips");
+  renderVariants("vChips2");
+  document.getElementById("vCurrent").textContent = "· " + variants[0];
+
+  // hero highlight list = first 3 feature titles + a warranty line
+  const hiItems = tpl.features.slice(0, 3).map(f => f[1]).concat([(specs.Warranty ? specs.Warranty + " warranty" : "Crystal assured quality")]);
+  document.getElementById("hiList").innerHTML = hiItems.map(t => `<li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 6"/></svg></span>${t}</li>`).join("");
+
+  /* ---- overview ---- */
+  document.getElementById("ovLead").textContent = prod.intro;
+  document.getElementById("ovIntro").textContent = prod.intro;
+  document.getElementById("ovDesc").innerHTML = `<p>${prod.desc}</p>`;
+  document.getElementById("ovImg").src = gallery[1] || gallery[0];
+  document.getElementById("ovImg").alt = prod.n;
+  const benefits = tpl.features.map(f => f[1] + " — " + f[2]);
+  document.getElementById("ovBenefits").innerHTML = benefits.map(b => `<li><span class="d"></span><span>${b}</span></li>`).join("");
+
+  /* ---- features ---- */
+  document.getElementById("featGrid").innerHTML = tpl.features.map(f => `
+    <div class="feat-card" data-fade>
+      <span class="feat-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">${ICONS[f[0]] || ICONS.shield}</svg></span>
+      <h4>${f[1]}</h4>
+      <p>${f[2]}</p>
+    </div>`).join("");
+
+  /* ---- specs ---- */
+  const specRows = Object.assign({ Brand: brand.name, Category: CAT_LABEL[prod.c], Collection: prod.col }, specs);
+  document.getElementById("specTable").innerHTML = Object.keys(specRows).filter(k => specRows[k] && String(specRows[k]).trim()).map(k => `<div class="spec-row"><span class="k">${k}</span><span class="v">${specRows[k]}</span></div>`).join("");
+
+  /* ---- lifestyle gallery ---- */
+  const lgImgs = [...new Set([...(GPOOL[prod.c] || []), prod.img, gallery[1], gallery[2]])].filter(Boolean).slice(0, 5);
+  const lgCls = ["tall", "", "wide", "", ""];
+  document.getElementById("lgGrid").innerHTML = lgImgs.map((src, i) => `<div class="lg-item ${lgCls[i] || ""}"><img src="${src}" alt="${prod.n} lifestyle ${i+1}" loading="lazy"></div>`).join("");
+
+  /* ---- why ---- */
+  document.getElementById("whyLead").textContent = `Every ${brand.name} product is held to the same Crystal standard — quality, innovation and durability, since 1971.`;
+  const WHY = [
+    ["01", "Trusted Since 1971", `Part of the Crystal family — over half a century of quality Indian manufacturing behind every ${brand.name} product.`],
+    ["02", "Engineered to Last", "Premium materials and rigorous testing for dependable, everyday performance you can rely on."],
+    ["03", "Designed for Real Kitchens", "Thoughtful details that make daily cooking, serving and cleaning genuinely effortless."],
+  ];
+  document.getElementById("whyGrid").innerHTML = WHY.map(w => `<div class="why-card" data-fade><span class="wn">${w[0]}</span><h4>${w[1]}</h4><p>${w[2]}</p></div>`).join("");
+
+  /* ---- related (same brand, else same category) ---- */
+  let rel = P.filter(p => p.b === prod.b && p.id !== prod.id);
+  if (rel.length < 4) rel = rel.concat(P.filter(p => p.c === prod.c && p.b !== prod.b && p.id !== prod.id));
+  rel = rel.slice(0, 4);
+  document.getElementById("relTitle").innerHTML = "More from<br>" + brand.name;
+  document.getElementById("relAll").href = "All-Products.html?brand=" + prod.b;
+  document.getElementById("relGrid").innerHTML = rel.map(p => `
+    <a class="rcard" href="Product.html?p=${p.id}">
+      <div class="rimg"><span class="rbrand">${BRANDS[p.b].name}</span><img src="${p.img}" alt="${p.n}" loading="lazy"></div>
+      <div class="rbody"><h3 class="rname">${p.n}</h3><span class="rlink">View product <span>↗</span></span></div>
+    </a>`).join("");
+
+  /* ---- brand story ---- */
+  document.getElementById("bsImg").src = brand.img;
+  document.getElementById("bsImg").alt = brand.name;
+  document.getElementById("bsTitle").textContent = brand.name + " — " + brand.tagline;
+  document.getElementById("bsBlurb").textContent = brand.story;
+  document.getElementById("bsStory").textContent = "Designed and manufactured in India and held to the Crystal standard of quality, every piece is made to earn a lasting place in your home.";
+  document.getElementById("bsBrandName").textContent = brand.name;
+  document.getElementById("bsBrandBtn").href = "All-Products.html?brand=" + prod.b;
+
+  /* ---- gallery thumb switch ---- */
+  document.getElementById("gThumbs").addEventListener("click", e => {
+    const t = e.target.closest(".g-thumb"); if (!t) return;
+    const i = +t.dataset.i;
+    document.getElementById("gMain").src = gallery[i];
+    document.querySelectorAll(".g-thumb").forEach(x => x.classList.toggle("active", x === t));
+  });
+
+  /* ---- variant selection (sync both groups) ---- */
+  function pickVariant(v) {
+    document.querySelectorAll(".vchip").forEach(c => c.classList.toggle("active", c.dataset.v === v));
+    document.getElementById("vCurrent").textContent = "· " + v;
+  }
+  document.body.addEventListener("click", e => { const c = e.target.closest(".vchip"); if (c) pickVariant(c.dataset.v); });
+
+  /* ---- word split ---- */
+  function splitWords(el) {
+    const out = [];
+    el.childNodes.forEach(node => {
+      if (node.nodeType === 3) node.textContent.trim().split(/\s+/).filter(Boolean).forEach(w => out.push(`<span class="w-mask"><span class="word">${w}</span></span>`));
+      else if (node.nodeType === 1) { const cls = node.getAttribute("class") || ""; node.textContent.trim().split(/\s+/).filter(Boolean).forEach(w => out.push(`<span class="w-mask"><span class="word ${cls}">${w}</span></span>`)); }
+    });
+    el.innerHTML = out.join(" ");
+  }
+  document.querySelectorAll("[data-split]").forEach(splitWords);
+
+  /* ---- header / menu ---- */
+  const hdr = document.getElementById("hdr");
+  addEventListener("scroll", () => hdr.classList.toggle("scrolled", scrollY > 30), { passive: true });
+  const mmEl = document.getElementById("mobileMenu");
+  document.getElementById("burger").addEventListener("click", () => mmEl.classList.add("open"));
+  document.getElementById("mmClose").addEventListener("click", () => mmEl.classList.remove("open"));
+  document.querySelectorAll(".mm-link").forEach(a => a.addEventListener("click", () => mmEl.classList.remove("open")));
+
+  /* ---- GSAP ---- */
+  function initGSAP() {
+    if (!window.gsap || !window.ScrollTrigger) return;
+    gsap.registerPlugin(ScrollTrigger);
+    const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+    tl.from(".crumb", { y: 16, opacity: 0, duration: 0.5, delay: 0.05 })
+      .from(".gallery", { y: 40, opacity: 0, duration: 0.7 }, "-=0.2")
+      .from(".info .top, .info h1, .info .intro, .trust-row, .vsel, .info-cta, .hi-list", { y: 26, opacity: 0, duration: 0.6, stagger: 0.08 }, "-=0.5");
+    gsap.utils.toArray("[data-split]").forEach(h => {
+      gsap.from(h.querySelectorAll(".word"), { yPercent: 118, duration: 0.8, stagger: 0.05, ease: "power3.out", scrollTrigger: { trigger: h, start: "top 86%", once: true } });
+    });
+    gsap.utils.toArray("[data-fade]").forEach(el => {
+      if (el.closest("#hero")) return;
+      gsap.from(el, { y: 36, opacity: 0, duration: 0.65, ease: "power2.out", scrollTrigger: { trigger: el, start: "top 90%", once: true } });
+    });
+    gsap.fromTo(".foot-wordmark .wm-fill", { "--level": "0%" }, { "--level": "112%", ease: "none", scrollTrigger: { trigger: ".foot-wordmark", start: "top 92%", end: "bottom 78%", scrub: 0.6 } });
+    gsap.to(".foot-wordmark .wm-fill", { "--wavex": "-160px", duration: 2.6, ease: "none", repeat: -1 });
+    gsap.to(".foot-wordmark .wm-fill", { "--wavex2": "-200px", duration: 4, ease: "none", repeat: -1 });
+    ScrollTrigger.refresh();
+  }
+  if (!RM) { try { initGSAP(); } catch (e) { console.warn("GSAP", e); } }
+
+  function failsafe() {
+    if (window.gsap) gsap.set(".crumb, .gallery, .info .top, .info h1, .info .intro, .trust-row, .vsel, .info-cta, .hi-list, [data-split] .word, [data-fade]", { clearProps: "opacity,transform,x,y,xPercent,yPercent,scale" });
+  }
+  if (document.hidden || !window.gsap || RM) failsafe();
+  let ok = false; requestAnimationFrame(() => { ok = true; });
+  setTimeout(() => { if (!ok) failsafe(); }, 1100);
+  addEventListener("load", () => { if (window.ScrollTrigger) ScrollTrigger.refresh(); });
+  setTimeout(() => { if (window.ScrollTrigger) ScrollTrigger.refresh(); }, 1400);
+</script>
+
+<!-- ===== TWEAKS PANEL ===== -->
+<div class="twk" id="twkPanel">
+  <div class="twk-hd"><b>Tweaks</b><button class="twk-x" id="twkClose" aria-label="Close">✕</button></div>
+  <div class="twk-body">
+    <div class="twk-sect">Mood</div>
+    <div class="twk-seg" id="twkMood"><button data-mood="light">Light</button><button data-mood="warm">Warm</button><button data-mood="noir">Noir</button></div>
+    <div class="twk-sect">Type voice</div>
+    <div class="twk-seg" id="twkType"><button data-type="modern">Modern</button><button data-type="editorial">Editorial</button><button data-type="bold">Bold</button></div>
+    <div class="twk-sect">Accent</div>
+    <div class="twk-sw" id="twkAccent"></div>
+    <div class="twk-sect">Sections</div>
+    <label class="twk-tg"><span>Overview</span><input type="checkbox" data-sec="secOverview"></label>
+    <label class="twk-tg"><span>Features</span><input type="checkbox" data-sec="secFeatures"></label>
+    <label class="twk-tg"><span>Specifications</span><input type="checkbox" data-sec="secSpecs"></label>
+    <label class="twk-tg"><span>Gallery</span><input type="checkbox" data-sec="secGallery"></label>
+    <label class="twk-tg"><span>Why choose this</span><input type="checkbox" data-sec="secWhy"></label>
+    <label class="twk-tg"><span>Related products</span><input type="checkbox" data-sec="secRelated"></label>
+    <label class="twk-tg"><span>Brand story</span><input type="checkbox" data-sec="secBrandStory"></label>
+    <label class="twk-tg"><span>Marquee strip</span><input type="checkbox" data-sec="secMarquee"></label>
+    <label class="twk-tg"><span>Call-to-action</span><input type="checkbox" data-sec="secCTA"></label>
+  </div>
+</div>
+
+<script>
+(function () {
+  const DEF = /*EDITMODE-BEGIN*/{
+    "mood": "light",
+    "type": "editorial",
+    "accent": "red",
+    "secOverview": true,
+    "secFeatures": true,
+    "secSpecs": true,
+    "secGallery": false,
+    "secWhy": false,
+    "secRelated": true,
+    "secBrandStory": false,
+    "secMarquee": true,
+    "secCTA": false,
+    "showCategoryNav": false,
+    "showCollections": false,
+    "showMarquee": true,
+    "showBrandValue": false,
+    "showCTA": false,
+    "gridCols": "4",
+    "showTags": true,
+    "radius": 20
+  }/*EDITMODE-END*/;
+  const LSK = "crystal-pdp-tweaks";
+  let vals = Object.assign({}, DEF);
+  try { Object.assign(vals, JSON.parse(localStorage.getItem(LSK) || "{}")); } catch (e) {}
+
+  const ACCENTS = {
+    red:     { solid: "#ED3338", g: "linear-gradient(135deg,#ED3338 0%,#c0282c 100%)" },
+    saffron: { solid: "#E5A817", g: "linear-gradient(135deg,#F0B92E 0%,#c8860b 100%)" },
+    maroon:  { solid: "#c0282c", g: "linear-gradient(135deg,#c0282c 0%,#8f1d20 100%)" },
+    ink:     { solid: "#1A1A1A", g: "linear-gradient(135deg,#2c2c2c 0%,#0f0f0f 100%)" },
+  };
+  const root = document.documentElement, body = document.body;
+  const SECMAP = { secOverview:"#overview", secFeatures:"#features", secSpecs:"#specs", secGallery:"#gallery", secWhy:"#why", secRelated:"#related", secBrandStory:"#brandstory", secMarquee:"#marquee", secCTA:"#cta" };
+  function reveal(el) {
+    if (!window.gsap || !el) return;
+    gsap.set(el.querySelectorAll('[data-fade], [data-split] .word, .feat-card, .why-card, .rcard, .spec-row, .lg-item'), { clearProps: "opacity,transform,x,y,xPercent,yPercent,scale,clipPath" });
+  }
+  let rT;
+  const refresh = () => { clearTimeout(rT); rT = setTimeout(() => { if (window.ScrollTrigger) ScrollTrigger.refresh(); }, 140); };
+
+  function apply(initial) {
+    body.classList.remove("t-warm", "t-noir");
+    if (vals.mood === "warm") body.classList.add("t-warm");
+    else if (vals.mood === "noir") body.classList.add("t-noir");
+    body.classList.remove("tv-editorial", "tv-bold");
+    if (vals.type === "editorial") body.classList.add("tv-editorial");
+    else if (vals.type === "bold") body.classList.add("tv-bold");
+    const a = ACCENTS[vals.accent] || ACCENTS.red;
+    root.style.setProperty("--red", a.solid);
+    root.style.setProperty("--grad-red", a.g);
+    Object.keys(SECMAP).forEach(k => {
+      const el = document.querySelector(SECMAP[k]);
+      if (!el) return;
+      const on = !!vals[k];
+      el.style.display = on ? "" : "none";
+      if (on && !initial) reveal(el);
+    });
+    refresh();
+  }
+
+  function syncUI() {
+    document.querySelectorAll("#twkMood button").forEach(b => b.classList.toggle("on", b.dataset.mood === vals.mood));
+    document.querySelectorAll("#twkType button").forEach(b => b.classList.toggle("on", b.dataset.type === vals.type));
+    document.querySelectorAll("#twkAccent button").forEach(b => b.classList.toggle("on", b.dataset.acc === vals.accent));
+    document.querySelectorAll('.twk-tg input[data-sec]').forEach(inp => { inp.checked = !!vals[inp.dataset.sec]; });
+  }
+  function save() {
+    try { localStorage.setItem(LSK, JSON.stringify(vals)); } catch (e) {}
+    try { window.parent.postMessage({ type: "__edit_mode_set_keys", edits: vals }, "*"); } catch (e) {}
+  }
+  function set(k, v) { vals[k] = v; save(); apply(false); syncUI(); }
+
+  document.getElementById("twkAccent").innerHTML = Object.keys(ACCENTS).map(k => `<button data-acc="${k}" title="${k}" style="background:${ACCENTS[k].solid}"></button>`).join("");
+  document.getElementById("twkMood").addEventListener("click", e => { const b = e.target.closest("button"); if (b) set("mood", b.dataset.mood); });
+  document.getElementById("twkType").addEventListener("click", e => { const b = e.target.closest("button"); if (b) set("type", b.dataset.type); });
+  document.getElementById("twkAccent").addEventListener("click", e => { const b = e.target.closest("button"); if (b) set("accent", b.dataset.acc); });
+  document.querySelectorAll('.twk-tg input[data-sec]').forEach(inp => inp.addEventListener("change", () => set(inp.dataset.sec, inp.checked)));
+
+  const panel = document.getElementById("twkPanel");
+  addEventListener("message", e => { const t = e && e.data && e.data.type; if (t === "__activate_edit_mode") panel.classList.add("open"); else if (t === "__deactivate_edit_mode") panel.classList.remove("open"); });
+  document.getElementById("twkClose").addEventListener("click", () => { panel.classList.remove("open"); try { window.parent.postMessage({ type: "__edit_mode_dismissed" }, "*"); } catch (e) {} });
+  try { window.parent.postMessage({ type: "__edit_mode_available" }, "*"); } catch (e) {}
+
+  apply(true);
+  syncUI();
+})();
+</script>
+<div class="pdp-sticky" id="pdpSticky">
+  <button type="button" class="btn btn-dark enq-add" id="sEnq" data-qty-from="#qtyInput"><span class="enq-lbl">Enquire</span></button>
+  <button type="button" class="btn btn-red enq-buy" id="sBuy">Buy Now</button>
+</div>
+<script src="enquiry.js"></script>
+</body>
+</html>

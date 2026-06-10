@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Contact — CRYSTAL</title>
+<script>document.documentElement.className += " js";</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<style>
+  :root {
+    --white: #ffffff; --cream: #ededed; --ink: #1A1A1A; --ink-soft: #1A1A1A; --ink-deep: #0F0F0F;
+    --red: #ED3338; --red-deep: #c0282c; --grad-red: linear-gradient(135deg, #ED3338 0%, #c0282c 100%);
+    --muted: #5f5f5f; --muted-d: #D5D5D5; --line: rgba(26,24,22,0.13); --line-d: rgba(213,213,213,0.18);
+    --head: "Space Grotesk", sans-serif; --body: "DM Sans", sans-serif;
+    --maxw: 1240px; --pad: clamp(18px, 5vw, 70px); --r: 20px;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; scrollbar-gutter: stable; }
+  body { font-family: var(--body); background: var(--white); color: var(--ink); -webkit-font-smoothing: antialiased; overflow-x: clip; }
+  img, video { display: block; max-width: 100%; }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding-inline: var(--pad); width: 100%; }
+  h1, h2, h3, h4 { font-family: var(--head); font-weight: 700; line-height: 0.98; letter-spacing: -0.02em; }
+  .sec-dark { background: var(--ink-deep); color: var(--white); }
+  .sec-cream { background: var(--cream); }
+  .eyebrow { font-family: var(--body); font-weight: 700; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; display: inline-flex; align-items: center; gap: 9px; color: var(--red); }
+  .eyebrow .pip { width: 8px; height: 8px; border-radius: 50%; background: var(--grad-red); display: inline-block; }
+
+  .btn { display: inline-flex; align-items: center; gap: 9px; font-family: var(--body); font-weight: 700; font-size: 15px; padding: 15px 26px; border-radius: 100px; border: none; cursor: pointer; transition: transform .25s cubic-bezier(.2,.8,.2,1), background .25s, color .25s, box-shadow .25s; }
+  .btn-red { background: var(--grad-red); color: #fff; box-shadow: 0 10px 26px -12px rgba(237,51,56,0.7); }
+  .btn-red:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 16px 34px -14px rgba(237,51,56,0.8); }
+  .btn-dark { background: var(--ink); color: #fff; }
+  .btn-dark:hover { background: var(--red); transform: translateY(-3px) scale(1.03); }
+  .btn-light { background: #fff; color: #1A1A1A; }
+  .btn-light:hover { background: var(--red); color: #fff; transform: translateY(-3px) scale(1.03); }
+  .btn-ghost { background: transparent; color: var(--ink); border: 1.5px solid var(--line); }
+  .btn-ghost:hover { border-color: var(--ink); transform: translateY(-3px); }
+  .btn .arr { transition: transform .25s; }
+  .btn:hover .arr { transform: translate(3px,-2px); }
+
+  .w-mask { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: 0.08em; margin-bottom: -0.08em; }
+  .word { display: inline-block; will-change: transform; }
+  [data-fade] { will-change: transform, opacity; }
+
+  /* HEADER + DROPDOWN */
+  header { position: fixed; inset: 14px 0 auto 0; z-index: 100; }
+  .nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; border: 1.5px solid transparent; border-radius: 100px; padding: 9px 9px 9px 22px; transition: background .35s, border-color .35s, box-shadow .35s, backdrop-filter .35s; }
+  header.scrolled .nav, header.solid .nav { background: rgba(255,255,255,0.82); border-color: var(--line); backdrop-filter: blur(14px); box-shadow: 0 12px 30px -20px rgba(0,0,0,0.5); }
+  .logo { display: flex; align-items: center; flex: 1; }
+  /* .logo .blob removed — replaced by logo.png */
+  .nav-links { display: flex; gap: 4px; list-style: none; }
+  .nav-links > li > a { font-weight: 600; font-size: 15px; padding: 9px 16px; border-radius: 100px; transition: background .2s, color .2s; display: inline-flex; align-items: center; gap: 6px; }
+  .nav-links > li > a:hover, .nav-links > li > a.current { background: var(--ink); color: #fff; }
+  .nav-right { display: flex; align-items: center; gap: 10px; flex: 1; justify-content: flex-end; }
+  .burger { display: none; flex-direction: column; gap: 5px; background: var(--ink); border: none; border-radius: 100px; cursor: pointer; padding: 13px 12px; }
+  .burger span { width: 22px; height: 2.5px; background: #fff; border-radius: 2px; }
+  .has-dd { position: relative; }
+  .dd-toggle .cv { font-size: 10px; transition: transform .25s; display: inline-block; }
+  .has-dd:hover .dd-toggle .cv, .has-dd:focus-within .dd-toggle .cv { transform: rotate(180deg); }
+  .dd-menu { position: absolute; top: calc(100% + 12px); left: 50%; transform: translateX(-50%) translateY(8px); min-width: 256px; background: rgba(255,255,255,0.97); backdrop-filter: blur(16px); border: 1.5px solid var(--line); border-radius: 18px; box-shadow: 0 26px 54px -26px rgba(0,0,0,0.38); padding: 8px; display: grid; gap: 2px; opacity: 0; visibility: hidden; transition: opacity .25s, transform .25s, visibility .25s; z-index: 130; }
+  .has-dd:hover .dd-menu, .has-dd:focus-within .dd-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+  .dd-menu a { display: flex; flex-direction: column; align-items: flex-start; gap: 1px; padding: 11px 14px; border-radius: 12px; }
+  .dd-menu a:hover { background: var(--ink); color: #fff; }
+  .dd-menu a.active { background: rgba(237,51,56,0.10); }
+  .dd-menu a b { font-family: var(--head); font-weight: 700; font-size: 15px; }
+  .dd-menu a span { font-size: 12px; color: var(--muted); font-weight: 600; }
+  .dd-menu a:hover span { color: rgba(255,255,255,0.72); }
+  .mobile-menu { position: fixed; inset: 0; z-index: 101; background: var(--ink); color: #fff; transform: translateY(-100%); transition: transform .45s cubic-bezier(.2,.8,.2,1); display: flex; flex-direction: column; justify-content: center; padding: var(--pad); overflow-y: auto; }
+  .mobile-menu.open { transform: none; }
+  .mobile-menu ul { list-style: none; display: grid; gap: 4px; }
+  .mobile-menu > ul > li > a { font-family: var(--head); font-weight: 700; text-transform: uppercase; font-size: clamp(28px, 9vw, 50px); }
+  .mobile-menu > ul > li > a:hover { color: var(--red); }
+  .mm-brands { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 18px; margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.16); }
+  .mm-brands a { font-family: var(--body); font-weight: 600; text-transform: none; font-size: 16px; color: var(--muted-d); }
+  .mm-brands a:hover { color: var(--red); }
+    /* Products mega menu (nav) */
+  .has-mega { position: static; }
+  .has-mega:hover .dd-toggle .cv, .has-mega:focus-within .dd-toggle .cv { transform: rotate(180deg); }
+  .mega-menu { position: absolute; top: calc(100% + 12px); left: 0; right: 0; margin-inline: auto; width: min(1040px, 94vw); background: rgba(255,255,255,0.98); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px); border: 1.5px solid var(--line); border-radius: 22px; box-shadow: 0 30px 64px -26px rgba(0,0,0,0.4); padding: 26px 28px; opacity: 0; visibility: hidden; transform: translateY(8px); transition: opacity .25s, transform .25s, visibility .25s; z-index: 130; }
+  .has-mega:hover .mega-menu, .has-mega:focus-within .mega-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+  .mega-groups { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px 26px; }
+  .mega-col { display: flex; flex-direction: column; gap: 1px; }
+  .mega-h { display: flex; align-items: center; gap: 8px; font-family: var(--head); font-weight: 700; font-size: 13px; letter-spacing: .03em; text-transform: uppercase; color: var(--ink); padding: 7px 8px; border-radius: 9px; margin-bottom: 3px; }
+  .mega-h svg { width: 17px; height: 17px; color: var(--red); flex: none; }
+  .mega-h:hover { background: var(--ink); color: #fff; }
+  .mega-h:hover svg { color: #fff; }
+  .mega-col > a:not(.mega-h) { font-size: 12.5px; font-weight: 600; color: var(--muted); padding: 5px 8px 5px 33px; border-radius: 8px; transition: background .15s, color .15s; }
+  .mega-col > a:not(.mega-h):hover { background: rgba(237,51,56,0.08); color: var(--red); }
+  .mega-standalone { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 18px; padding-top: 18px; border-top: 1.5px solid var(--line); }
+  .mega-standalone-lbl { font-family: var(--head); font-weight: 700; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--red); margin-right: 4px; }
+  .mega-standalone a { font-size: 12.5px; font-weight: 700; color: var(--ink); padding: 7px 14px; border: 1.5px solid var(--line); border-radius: 100px; transition: background .2s, color .2s, border-color .2s; }
+  .mega-standalone a:hover { background: var(--ink); color: #fff; border-color: var(--ink); }
+  /* Mobile Products accordion */
+  .mm-acc-tog { background: none; border: none; cursor: pointer; color: inherit; font: inherit; display: inline-flex; align-items: center; gap: 12px; }
+  .mm-acc .mm-cv { font-size: .55em; transition: transform .25s; display: inline-block; }
+  .mm-acc.open .mm-cv { transform: rotate(45deg); }
+  .mm-acc-panel { display: none; margin: 8px 0 6px; padding-left: 2px; max-height: 56vh; overflow-y: auto; }
+  .mm-acc.open .mm-acc-panel { display: block; }
+  .mm-acc-panel .mm-acc-h { display: block; font-family: var(--head); font-weight: 700; text-transform: uppercase; font-size: 18px; color: #fff; margin: 14px 0 4px; }
+  .mm-acc-panel .mm-acc-sub { display: block; font-family: var(--body); font-weight: 600; text-transform: none; font-size: 15px; color: var(--muted-d); padding: 6px 0 6px 12px; }
+  .mm-acc-panel .mm-acc-sub:hover { color: var(--red); }
+  .mm-close { position: absolute; top: 24px; right: var(--pad); background: var(--grad-red); color: #fff; border: none; width: 50px; height: 50px; border-radius: 50%; font-size: 26px; cursor: pointer; }
+
+  section { position: relative; }
+  .sec { padding-block: clamp(38px, 5vw, 76px); }
+  .sec-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 26px; flex-wrap: wrap; margin-bottom: clamp(20px, 3vw, 36px); }
+  .sec-head h2 { font-size: clamp(30px, 4.6vw, 60px); text-transform: uppercase; }
+  .sec-head .lead { max-width: 400px; color: var(--muted); font-size: 16px; line-height: 1.55; }
+  .sec-dark .sec-head .lead { color: var(--muted-d); }
+
+  /* BREADCRUMB */
+  .crumb { padding-top: clamp(94px, 11vh, 116px); }
+  .crumb ol { list-style: none; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: var(--muted); }
+  .crumb a:hover { color: var(--red); }
+  .crumb .sep { opacity: 0.5; }
+  .crumb .cur { color: var(--ink); }
+
+  /* HERO */
+  .ct-hero { padding-top: clamp(18px, 3vw, 30px); padding-bottom: clamp(30px, 4vw, 52px); text-align: center; position: relative; overflow: hidden; }
+  .ct-hero::before { content: ""; position: absolute; width: 60vw; height: 60vw; max-width: 720px; max-height: 720px; left: 50%; top: 28%; transform: translate(-50%,-50%); background: radial-gradient(circle, rgba(237,51,56,0.13), transparent 64%); z-index: 0; pointer-events: none; }
+  .ct-hero .wrap { position: relative; z-index: 2; }
+  .ct-hero .eyebrow { justify-content: center; }
+  .ct-hero h1 { font-size: clamp(40px, 7.2vw, 96px); text-transform: uppercase; margin: 16px auto 0; line-height: 0.96; max-width: 14ch; }
+  .ct-hero h1 .grad { background: var(--grad-red); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .ct-hero .sub { max-width: 600px; margin: 22px auto 0; font-size: clamp(15px, 1.6vw, 18px); color: var(--muted); line-height: 1.6; }
+  .ct-quick { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+  .ct-quick a { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; font-size: 14.5px; padding: 12px 20px; border-radius: 100px; border: 1.5px solid var(--line); background: var(--white); transition: transform .25s, border-color .25s, box-shadow .25s; }
+  .ct-quick a:hover { transform: translateY(-3px); border-color: rgba(237,51,56,0.4); box-shadow: 0 16px 30px -20px rgba(237,51,56,0.4); }
+  .ct-quick a svg { width: 17px; height: 17px; color: var(--red); }
+
+  /* CONTACT GRID: form + info */
+  .ct-grid { display: grid; grid-template-columns: 1.25fr 0.95fr; gap: clamp(20px, 3vw, 40px); align-items: start; }
+  .ct-grid > * { min-width: 0; }
+  .frm, .field { min-width: 0; }
+  .ic-card, .ic-b { min-width: 0; }
+  .ic-card .ic-b a, .ic-card .ic-b p { overflow-wrap: anywhere; }
+  .form-card { background: var(--white); border: 1.5px solid var(--line); border-radius: clamp(20px,2.4vw,30px); padding: clamp(24px, 3vw, 44px); box-shadow: 0 30px 60px -42px rgba(15,15,15,0.4); }
+  .form-card > .eyebrow { margin-bottom: 12px; }
+  .form-card h2 { font-size: clamp(26px, 3vw, 38px); text-transform: uppercase; margin-bottom: 8px; }
+  .form-card .fc-sub { color: var(--muted); font-size: 15px; line-height: 1.55; margin-bottom: 26px; max-width: 46ch; }
+  .frm { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 18px; }
+  .field { display: flex; flex-direction: column; gap: 8px; }
+  .field.full { grid-column: 1 / -1; }
+  .field label { font-family: var(--head); font-weight: 700; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); display: flex; gap: 5px; }
+  .field label .req { color: var(--red); }
+  .field input, .field select, .field textarea { font-family: var(--body); font-size: 15px; font-weight: 500; color: var(--ink); background: var(--white); border: 1.5px solid var(--line); border-radius: 13px; padding: 14px 16px; outline: none; transition: border-color .2s, box-shadow .2s, background .2s; width: 100%; }
+  .field textarea { resize: vertical; min-height: 132px; line-height: 1.55; }
+  .field select { cursor: pointer; appearance: none; -webkit-appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%235f5f5f' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 16px center; padding-right: 42px; }
+  .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--red); box-shadow: 0 0 0 4px rgba(237,51,56,0.10); }
+  .field input::placeholder, .field textarea::placeholder { color: color-mix(in srgb, var(--muted) 70%, transparent); }
+  .field.err input, .field.err select, .field.err textarea { border-color: var(--red); }
+  .field .msg { font-size: 12px; font-weight: 600; color: var(--red); min-height: 0; opacity: 0; transition: opacity .2s; }
+  .field.err .msg { opacity: 1; }
+  .frm-foot { grid-column: 1 / -1; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-top: 4px; }
+  .frm-foot .note { font-size: 13px; color: var(--muted); display: flex; align-items: center; gap: 8px; }
+  .frm-foot .note svg { width: 15px; height: 15px; color: var(--red); flex: 0 0 auto; }
+  .form-card.sent .frm { display: none; }
+  .sent-msg { display: none; flex-direction: column; align-items: flex-start; gap: 14px; padding: 8px 0; }
+  .form-card.sent .sent-msg { display: flex; }
+  .sent-msg .tick { width: 60px; height: 60px; border-radius: 50%; background: var(--grad-red); display: grid; place-items: center; color: #fff; }
+  .sent-msg .tick svg { width: 30px; height: 30px; }
+  .sent-msg h3 { font-size: 28px; text-transform: uppercase; }
+  .sent-msg p { color: var(--muted); font-size: 15.5px; line-height: 1.6; max-width: 44ch; }
+
+  /* INFO COLUMN */
+  .info-col { display: grid; gap: 14px; }
+  .ic-card { border: 1.5px solid var(--line); border-radius: var(--r); padding: 22px 22px; display: flex; gap: 16px; align-items: flex-start; transition: transform .3s, border-color .3s, box-shadow .3s; background: var(--white); }
+  .ic-card:hover { transform: translateY(-4px); border-color: rgba(237,51,56,0.3); box-shadow: 0 22px 44px -32px rgba(237,51,56,0.4); }
+  .ic-ic { width: 48px; height: 48px; border-radius: 14px; background: rgba(237,51,56,0.10); color: var(--red); display: grid; place-items: center; flex: 0 0 auto; }
+  .ic-ic svg { width: 24px; height: 24px; }
+  .ic-card .ic-b h4 { font-family: var(--head); font-weight: 700; font-size: 13px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); margin-bottom: 7px; }
+  .ic-card .ic-b a, .ic-card .ic-b p { font-size: 15.5px; font-weight: 600; line-height: 1.5; color: var(--ink); }
+  .ic-card .ic-b a:hover { color: var(--red); }
+  .ic-card .ic-b .sm { font-size: 13px; font-weight: 500; color: var(--muted); margin-top: 3px; }
+  .ic-socials { display: flex; gap: 10px; margin-top: 4px; }
+  .ic-socials a { width: 42px; height: 42px; border-radius: 50%; border: 1.5px solid var(--line); display: grid; place-items: center; color: var(--ink); transition: background .25s, border-color .25s, transform .25s, color .25s; }
+  .ic-socials a:hover { background: var(--grad-red); border-color: transparent; color: #fff; transform: translateY(-3px); }
+  .ic-socials a svg { width: 18px; height: 18px; }
+
+  /* LOCATION / MAP */
+  .loc { background: var(--cream); }
+  .loc-grid { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: clamp(18px, 2.6vw, 32px); align-items: stretch; }
+  .loc-cards { display: grid; gap: 14px; align-content: start; }
+  .loc-card { border: 1.5px solid var(--line); border-radius: var(--r); padding: 22px; background: var(--white); cursor: pointer; text-align: left; transition: transform .25s, border-color .25s, box-shadow .25s; display: flex; flex-direction: column; gap: 8px; }
+  .loc-card:hover { transform: translateY(-3px); border-color: rgba(237,51,56,0.3); }
+  .loc-card.active { border-color: var(--red); box-shadow: 0 0 0 3px rgba(237,51,56,0.12); }
+  .loc-card .lc-tag { font-family: var(--head); font-weight: 700; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--red); }
+  .loc-card h4 { font-family: var(--head); font-weight: 700; font-size: 19px; text-transform: uppercase; }
+  .loc-card p { font-size: 14.5px; color: var(--muted); line-height: 1.5; }
+  .loc-card .lc-dir { display: inline-flex; align-items: center; gap: 7px; font-size: 13.5px; font-weight: 700; color: var(--ink); margin-top: 2px; }
+  .loc-card .lc-dir svg { width: 15px; height: 15px; color: var(--red); }
+  .loc-map { border-radius: var(--r); overflow: hidden; border: 1.5px solid var(--line); min-height: 380px; background: #ddd; position: relative; }
+  .loc-map iframe { width: 100%; height: 100%; min-height: 380px; border: 0; display: block; filter: grayscale(0.25) contrast(1.02); }
+
+  /* CTA */
+  .cta-sec { padding: 0; }
+  .cta { position: relative; min-height: clamp(420px, 62vh, 620px); display: grid; place-items: center; text-align: center; overflow: hidden;
+    background-image: linear-gradient(160deg, rgba(192,40,44,0.82), rgba(15,15,15,0.74)), url("https://proj.leo9studio.in/projects/crystal-wp/wp-content/uploads/2026/04/2-1-1.jpg");
+    background-size: cover, cover; background-position: center, center; background-repeat: no-repeat, no-repeat; background-attachment: fixed, fixed; }
+  .cta-inner { position: relative; z-index: 3; color: #fff; padding: 40px; }
+  .cta h2 { font-size: clamp(38px, 7vw, 96px); text-transform: uppercase; color: #fff; line-height: 0.96; }
+  .cta p { max-width: 540px; margin: 20px auto 28px; color: rgba(255,255,255,0.88); font-size: clamp(15px, 1.6vw, 18px); line-height: 1.6; }
+  .cta .row { display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap; }
+  @media (max-width: 820px) { .cta { background-attachment: scroll; } }
+
+  /* FOOTER */
+  footer { padding-block: clamp(54px,7vw,92px) 28px; overflow: hidden; }
+  .foot-cta { display: flex; justify-content: space-between; align-items: flex-end; gap: 28px; flex-wrap: wrap; padding-bottom: 44px; border-bottom: 1.5px solid var(--line-d); }
+  .foot-cta h3 { font-family: var(--head); font-weight: 700; text-transform: uppercase; font-size: clamp(28px, 4vw, 54px); line-height: 1; margin-top: 14px; letter-spacing: -0.02em; }
+  .foot-cta h3 .g { background: var(--grad-red); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .foot-top { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr 1.4fr; gap: 36px; padding: 46px 0; }
+  .foot-brand .logo { font-size: 32px; margin-bottom: 14px; }
+  .foot-desc { color: var(--muted-d); max-width: 300px; margin-bottom: 22px; line-height: 1.55; font-weight: 500; }
+  .foot-socials { display: flex; gap: 10px; }
+  .foot-socials a { width: 42px; height: 42px; border-radius: 50%; border: 1.5px solid var(--line-d); display: grid; place-items: center; color: #fff; transition: background .25s, border-color .25s, transform .25s; }
+  .foot-socials a:hover { background: var(--grad-red); border-color: transparent; transform: translateY(-3px); }
+  .foot-col h5 { font-family: var(--head); font-weight: 700; text-transform: uppercase; font-size: 13px; letter-spacing: 0.04em; margin-bottom: 16px; color: var(--muted-d); }
+  .foot-col ul { list-style: none; display: grid; gap: 11px; }
+  .foot-col a { font-weight: 600; font-size: 15.5px; color: #fff; transition: color .2s, padding-left .2s; }
+  .foot-col a:hover { color: var(--red); padding-left: 4px; }
+  .foot-wordmark { position: relative; font-family: var(--head); font-weight: 700; text-transform: uppercase; font-size: clamp(64px, 19vw, 300px); line-height: 0.78; letter-spacing: -0.04em; text-align: center; margin: clamp(18px,3vw,38px) 0 -0.05em; user-select: none; pointer-events: none; }
+  .foot-wordmark span { display: block; }
+  .foot-wordmark .wm-outline { color: transparent; -webkit-text-stroke: 1.5px rgba(255,255,255,0.13); }
+  .foot-wordmark .wm-fill { position: absolute; inset: 0; color: transparent; -webkit-background-clip: text; background-clip: text; --level: 0%; --wavex: 0px; --wavex2: 0px;
+    background-image:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='22' viewBox='0 0 160 22' preserveAspectRatio='none'%3E%3Cpath d='M0 9 Q 40 0 80 9 T 160 9 V22 H0 Z' fill='%23ff5256'/%3E%3C/svg%3E"),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='26' viewBox='0 0 200 26' preserveAspectRatio='none'%3E%3Cpath d='M0 13 Q 50 3 100 13 T 200 13 V26 H0 Z' fill='%23ED3338'/%3E%3C/svg%3E"),
+      linear-gradient(180deg, #ED3338, #c0282c);
+    background-repeat: repeat-x, repeat-x, no-repeat;
+    background-size: 160px 22px, 200px 26px, 100% var(--level);
+    background-position: var(--wavex) calc(100% - var(--level) - 8px), var(--wavex2) calc(100% - var(--level) - 12px), left bottom; }
+  .foot-bottom { padding-top: 24px; border-top: 1.5px solid var(--line-d); display: flex; justify-content: space-between; gap: 14px; flex-wrap: wrap; color: var(--muted-d); font-size: 14px; }
+
+  @media (max-width: 980px) {
+    .nav-links, .nav-right .btn { display: none; }
+    .burger { display: flex; }
+    .ct-grid { grid-template-columns: 1fr; }
+    .loc-grid { grid-template-columns: 1fr; }
+    .foot-top { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 600px) {
+    .frm { grid-template-columns: 1fr; }
+    .sec-head h2 { font-size: clamp(28px, 8vw, 44px); }
+    .frm-foot .btn { width: 100%; justify-content: center; }
+    .foot-top { grid-template-columns: 1fr; }
+    .foot-cta .btn { width: 100%; justify-content: center; }
+    .foot-wordmark { font-size: clamp(52px, 22vw, 116px); }
+  }
+  @media (max-width: 400px) { .wrap { padding-inline: 16px; } .foot-wordmark { font-size: 46px; } }
+
+  /* ===== THEME / TYPE-VOICE TWEAKS ===== */
+  body.t-warm { --white:#f7f3ea; --cream:#ebe1d3; --ink:#262019; --line:rgba(38,30,20,0.15); --muted:#6e6458; }
+  body.t-noir { --white:#141310; --cream:#1e1c17; --ink:#f2eee6; --line:rgba(255,255,255,0.14); --muted:#a8a096; }
+  body.t-noir .btn-light { color:#141310; }
+  body.t-noir .btn-dark { background:#2a2722; color:#fff; }
+  body.t-noir .sec-dark { color:#f2eee6; }
+  body.t-noir .mobile-menu { background:#0a0a0a; }
+  body.t-noir .burger { background:#2a2722; }
+  body.t-noir header.scrolled .nav, body.t-noir header.solid .nav { background:rgba(20,19,15,0.82); box-shadow:0 12px 30px -20px rgba(0,0,0,0.85); }
+  body.t-noir .nav-links > li > a:hover, body.t-noir .nav-links > li > a.current { background:rgba(255,255,255,0.14); color:var(--ink); }
+  body.t-noir .loc-map { background:#222019; }
+  body.t-noir .loc-map iframe { filter: grayscale(0.4) contrast(0.95) invert(0.9) hue-rotate(180deg); }
+  body.tv-editorial h1, body.tv-editorial h2, body.tv-editorial h3, body.tv-editorial h4 { text-transform:none; font-weight:500; letter-spacing:-0.012em; }
+  body.tv-bold h1, body.tv-bold h2, body.tv-bold h3, body.tv-bold h4 { font-weight:700; letter-spacing:-0.045em; text-transform:uppercase; line-height:0.92; }
+
+  /* ===== TWEAKS PANEL ===== */
+  .twk { position: fixed; right: 16px; bottom: 16px; z-index: 2147483646; width: 252px; max-height: calc(100vh - 32px); display: none; flex-direction: column; background: rgba(255,255,255,0.9); -webkit-backdrop-filter: blur(22px) saturate(160%); backdrop-filter: blur(22px) saturate(160%); border: 1px solid rgba(0,0,0,0.08); border-radius: 16px; box-shadow: 0 18px 50px -18px rgba(0,0,0,0.45); font-family: "DM Sans", sans-serif; color: #1A1A1A; overflow: hidden; }
+  .twk.open { display: flex; }
+  .twk-hd { display: flex; align-items: center; justify-content: space-between; padding: 13px 12px 13px 16px; border-bottom: 1px solid rgba(0,0,0,0.07); }
+  .twk-hd b { font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 14px; }
+  .twk-x { appearance: none; border: 0; background: transparent; color: #5f5f5f; width: 26px; height: 26px; border-radius: 8px; cursor: pointer; font-size: 13px; }
+  .twk-x:hover { background: rgba(0,0,0,0.06); color: #1A1A1A; }
+  .twk-body { padding: 10px 16px 16px; display: flex; flex-direction: column; gap: 8px; overflow-y: auto; }
+  .twk-sect { font-family: "Space Grotesk", sans-serif; font-size: 10.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #5f5f5f; padding-top: 10px; }
+  .twk-sect:first-child { padding-top: 2px; }
+  .twk-seg { display: flex; gap: 5px; }
+  .twk-seg button { flex: 1; appearance: none; border: 1.5px solid rgba(26,24,22,0.13); background: #fff; color: #1A1A1A; font-family: "DM Sans", sans-serif; font-weight: 700; font-size: 12.5px; padding: 9px 6px; border-radius: 10px; cursor: pointer; transition: background .2s, color .2s, border-color .2s; }
+  .twk-seg button.on { background: #1A1A1A; color: #fff; border-color: #1A1A1A; }
+  .twk-sw { display: flex; gap: 9px; }
+  .twk-sw button { width: 30px; height: 30px; border-radius: 50%; border: 2px solid transparent; cursor: pointer; padding: 0; box-shadow: inset 0 0 0 1.5px rgba(255,255,255,0.65); transition: transform .2s; }
+  .twk-sw button:hover { transform: scale(1.08); }
+  .twk-sw button.on { border-color: #1A1A1A; }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header id="hdr">
+  <div class="wrap">
+    <div class="nav">
+      <a href="index.html" class="logo"><img src="logo.png" alt="CRYSTAL" style="height:36px;width:auto;display:block;"></a>
+      <ul class="nav-links">
+        <li><a href="About.html">About</a></li>
+                <li class="has-mega">
+          <a href="All-Products.html" class="dd-toggle">Products <span class="cv">▾</span></a>
+          <div class="mega-menu mega-v2">
+            <div class="mega-groups">
+            <div class="mega-col">
+              <a class="mega-h" href="All-Products.html?cat=cookware"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h16v6a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4z"/><path d="M2 10h2M20 10h2M9 6V4M15 6V4"/></svg>Cookware</a>
+              <a href="All-Products.html?cat=cookware&sub=tripro">Tripro</a>
+              <a href="All-Products.html?cat=cookware&sub=cast-iron">Cast Iron</a>
+              <a href="All-Products.html?cat=cookware&sub=non-stick">Non-Stick</a>
+              <a href="All-Products.html?cat=cookware&sub=non-stick-mini">Non-Stick Mini</a>
+              <a href="All-Products.html?cat=cookware&sub=sandwich-bottom-steel">Sandwich Bottom Steel</a>
+              <a href="All-Products.html?cat=cookware&sub=hard-anodised">Hard Anodised</a>
+            </div>
+            <div class="mega-col">
+              <a class="mega-h" href="All-Products.html?cat=kitchenware"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v18M5 3v6h2V3"/><path d="M15 3c-2 0-3 2-3 4.5S13 12 15 12v9"/></svg>Kitchenware</a>
+              <a href="All-Products.html?cat=kitchenware&sub=lighters">Lighters</a>
+              <a href="All-Products.html?cat=kitchenware&sub=knives">Knives</a>
+              <a href="All-Products.html?cat=kitchenware&sub=peelers">Peelers</a>
+              <a href="All-Products.html?cat=kitchenware&sub=chopping-boards">Chopping Boards</a>
+              <a href="All-Products.html?cat=kitchenware&sub=trolleys">Trolleys</a>
+              <a href="All-Products.html?cat=kitchenware&sub=kitchen-tools">Kitchen Tools</a>
+              <a href="All-Products.html?cat=kitchenware&sub=manual-appliances">Manual Kitchen Appliances</a>
+              <a href="All-Products.html?cat=kitchenware&sub=cutlery">Cutlery</a>
+              <a href="All-Products.html?cat=kitchenware&sub=servers">Servers</a>
+              <a href="All-Products.html?cat=kitchenware&sub=water-filter">Water Filter</a>
+            </div>
+            <div class="mega-col">
+              <a class="mega-h" href="All-Products.html?cat=cleaning"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 4h4v5h-4z"/><path d="M10 9l-2 4v7h8v-7l-2-4M6 4h2M6 7h2"/></svg>Cleaning Aid</a>
+              <a href="All-Products.html?cat=cleaning&sub=spin-mops">Spin Mops</a>
+              <a href="All-Products.html?cat=cleaning&sub=hand-held-mops">Hand Held Mops</a>
+              <a href="All-Products.html?cat=cleaning&sub=brooms">Broom &amp; Dust Pans</a>
+              <a href="All-Products.html?cat=cleaning&sub=wipers">Wipers</a>
+              <a href="All-Products.html?cat=cleaning&sub=plunger">Plunger</a>
+              <a href="All-Products.html?cat=cleaning&sub=brush">Brush</a>
+              <a href="All-Products.html?cat=cleaning&sub=scrubber">Scrubber &amp; Scourer</a>
+              <a href="All-Products.html?cat=cleaning&sub=bins">Bins</a>
+              <a href="All-Products.html?cat=cleaning&sub=sink-organiser">Sink Organiser</a>
+              <a href="All-Products.html?cat=cleaning&sub=wipe">Wipe</a>
+            </div>
+            <div class="mega-col">
+              <a class="mega-h" href="All-Products.html?cat=appliances"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg>Electric Appliances</a>
+              <a href="All-Products.html?cat=appliances&sub=chimney">Chimney</a>
+              <a href="All-Products.html?cat=appliances&sub=kettle">Kettle</a>
+              <a href="All-Products.html?cat=appliances&sub=iron">Iron</a>
+              <a href="All-Products.html?cat=appliances&sub=ice-cream-maker">Ice Cream Maker</a>
+              <a href="All-Products.html?cat=appliances&sub=otg">OTG</a>
+              <a href="All-Products.html?cat=appliances&sub=air-fryer">Air Fryer</a>
+              <a href="All-Products.html?cat=appliances&sub=rice-cooker">Rice Cooker</a>
+              <a href="All-Products.html?cat=appliances&sub=food-processor">Food Processor</a>
+              <a href="All-Products.html?cat=appliances&sub=jmg">JMG</a>
+            </div>
+            </div>
+            <div class="mega-standalone">
+              <span class="mega-standalone-lbl">Also explore</span>
+              <a href="All-Products.html?cat=water-bottle">Water Bottle</a>
+              <a href="All-Products.html?cat=oil-pourer">Oil Pourer &amp; Sprayer</a>
+              <a href="All-Products.html?cat=wood-range">Wood Range</a>
+              <a href="All-Products.html?cat=pressure-cooker">Pressure Cooker</a>
+              <a href="All-Products.html?cat=cooktop">Cooktop</a>
+              <a href="All-Products.html?cat=lunch-box">Lunch Box</a>
+            </div>
+          </div>
+        </li>
+        <li class="has-dd">
+          <a href="Brands.html" class="dd-toggle">Brands <span class="cv">▾</span></a>
+          <div class="dd-menu" id="ddMenu"></div>
+        </li>
+        <li><a href="Catalogue.html">Catalogue</a></li>
+        <li><a href="Blog.html">Knowledge Centre</a></li>
+      </ul>
+      <div class="nav-right">
+      <a href="Enquiry.html" class="enq-link" aria-label="Enquiry list" title="Enquiry list"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg><span class="enq-count">0</span></a>
+        <a href="Contact.html" class="btn btn-red">Contact Us <span class="arr">↗</span></a>
+        <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mm-close" id="mmClose" aria-label="Close">&times;</button>
+  <ul>
+    <li><a href="Enquiry.html" class="mm-link">Enquiry List <span class="enq-count">0</span></a></li>
+    <li><a href="About.html" class="mm-link">About</a></li>
+        <li class="mm-acc">
+      <button type="button" class="mm-acc-tog mm-link" aria-expanded="false">Products <span class="mm-cv">+</span></button>
+      <div class="mm-acc-panel">
+      <a class="mm-acc-h" href="All-Products.html?cat=cookware">Cookware</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=cookware&sub=tripro">Tripro</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=cookware&sub=cast-iron">Cast Iron</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=cookware&sub=non-stick">Non-Stick</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=cookware&sub=non-stick-mini">Non-Stick Mini</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=cookware&sub=sandwich-bottom-steel">Sandwich Bottom Steel</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=cookware&sub=hard-anodised">Hard Anodised</a>
+      <a class="mm-acc-h" href="All-Products.html?cat=kitchenware">Kitchenware</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=kitchenware&sub=lighters">Lighters</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=kitchenware&sub=knives">Knives</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=kitchenware&sub=peelers">Peelers</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=kitchenware&sub=chopping-boards">Chopping Boards</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=kitchenware&sub=trolleys">Trolleys</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=kitchenware&sub=kitchen-tools">Kitchen Tools</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=kitchenware&sub=manual-appliances">Manual Kitchen Appliances</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=kitchenware&sub=cutlery">Cutlery</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=kitchenware&sub=servers">Servers</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=kitchenware&sub=water-filter">Water Filter</a>
+      <a class="mm-acc-h" href="All-Products.html?cat=cleaning">Cleaning Aid</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=cleaning&sub=spin-mops">Spin Mops</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=cleaning&sub=hand-held-mops">Hand Held Mops</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=cleaning&sub=brooms">Broom &amp; Dust Pans</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=cleaning&sub=wipers">Wipers</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=cleaning&sub=plunger">Plunger</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=cleaning&sub=brush">Brush</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=cleaning&sub=scrubber">Scrubber &amp; Scourer</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=cleaning&sub=bins">Bins</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=cleaning&sub=sink-organiser">Sink Organiser</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=cleaning&sub=wipe">Wipe</a>
+      <a class="mm-acc-h" href="All-Products.html?cat=appliances">Electric Appliances</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=appliances&sub=chimney">Chimney</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=appliances&sub=kettle">Kettle</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=appliances&sub=iron">Iron</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=appliances&sub=ice-cream-maker">Ice Cream Maker</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=appliances&sub=otg">OTG</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=appliances&sub=air-fryer">Air Fryer</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=appliances&sub=rice-cooker">Rice Cooker</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=appliances&sub=food-processor">Food Processor</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=appliances&sub=jmg">JMG</a>
+      <span class="mm-acc-h" style="opacity:.6">Also explore</span>
+      <a class="mm-acc-sub" href="All-Products.html?cat=water-bottle">Water Bottle</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=oil-pourer">Oil Pourer &amp; Sprayer</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=wood-range">Wood Range</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=pressure-cooker">Pressure Cooker</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=cooktop">Cooktop</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=lunch-box">Lunch Box</a>
+      </div>
+    </li>
+    <li><a href="Catalogue.html" class="mm-link">Catalogue</a></li>
+    <li><a href="Blog.html" class="mm-link">Knowledge Centre</a></li>
+    <li><a href="Contact.html" class="mm-link">Contact Us</a></li>
+  </ul>
+  <div class="mm-brands" id="mmBrands"></div>
+</div>
+
+<span id="top"></span>
+
+<!-- BREADCRUMB -->
+<nav class="crumb wrap" aria-label="Breadcrumb">
+  <ol>
+    <li><a href="index.html">Home</a></li><li class="sep">/</li>
+    <li class="cur">Contact</li>
+  </ol>
+</nav>
+
+<!-- HERO -->
+<section class="ct-hero" id="hero">
+  <div class="wrap">
+    <span class="eyebrow" data-fade><span class="pip"></span>Contact · We're here to help</span>
+    <h1 data-split>Let's bring <span class="grad">Crystal</span> home</h1>
+    <p class="sub" data-fade>Questions about a product, bulk orders, distributorship or partnerships — our team would love to hear from you. Reach out and we'll get back within one business day.</p>
+    <div class="ct-quick" data-fade>
+      <a href="mailto:sales@crystalcook.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M4 7l8 6 8-6"/></svg>sales@crystalcook.com</a>
+      <a href="tel:02249702803"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L19 13l5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>022-49702803 / 06</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT: FORM + INFO -->
+<section class="sec wrap" id="reach">
+  <div class="ct-grid">
+    <!-- FORM -->
+    <div class="form-card" id="formCard">
+      <span class="eyebrow"><span class="pip"></span>Send a message</span>
+      <h2>Write to us</h2>
+      <p class="fc-sub">Fill in the form and the right team at Crystal will reach out. Fields marked with <span style="color:var(--red)">*</span> are required.</p>
+      <form class="frm" id="contactForm" novalidate>
+        <div class="field">
+          <label for="f-name">Full Name <span class="req">*</span></label>
+          <input type="text" id="f-name" name="name" placeholder="e.g. Rohan Shah" autocomplete="name" />
+          <span class="msg">Please enter your name.</span>
+        </div>
+        <div class="field">
+          <label for="f-email">Email <span class="req">*</span></label>
+          <input type="email" id="f-email" name="email" placeholder="you@example.com" autocomplete="email" />
+          <span class="msg">Enter a valid email address.</span>
+        </div>
+        <div class="field">
+          <label for="f-phone">Phone</label>
+          <input type="tel" id="f-phone" name="phone" placeholder="+91 00000 00000" autocomplete="tel" />
+          <span class="msg">Enter a valid phone number.</span>
+        </div>
+        <div class="field">
+          <label for="f-subject">Subject <span class="req">*</span></label>
+          <select id="f-subject" name="subject">
+            <option value="" selected disabled>Select a topic</option>
+            <option>General Inquiry</option>
+            <option>Product Inquiry</option>
+            <option>Bulk Order / Distributorship</option>
+            <option>Partnership &amp; Export</option>
+            <option>Customer Support</option>
+          </select>
+          <span class="msg">Please choose a subject.</span>
+        </div>
+        <div class="field full">
+          <label for="f-message">Message <span class="req">*</span></label>
+          <textarea id="f-message" name="message" placeholder="Tell us a little about what you need…"></textarea>
+          <span class="msg">Please enter a message (at least 10 characters).</span>
+        </div>
+        <div class="frm-foot">
+          <span class="note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Your details stay private and are never shared.</span>
+          <button type="submit" class="btn btn-red">Send Message <span class="arr">↗</span></button>
+        </div>
+      </form>
+      <div class="sent-msg">
+        <span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+        <h3>Thank you!</h3>
+        <p id="sentText">Your message is on its way. Our team will get back to you within one business day.</p>
+        <button type="button" class="btn btn-ghost" id="sendAnother">Send another message</button>
+      </div>
+    </div>
+
+    <!-- INFO -->
+    <div class="info-col">
+      <div class="ic-card" data-fade>
+        <span class="ic-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.2-7-11a7 7 0 0 1 14 0c0 5.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg></span>
+        <div class="ic-b">
+          <h4>Corporate Office</h4>
+          <p>Sahar Plaza, Andheri (East),<br>Mumbai 400059, Maharashtra</p>
+        </div>
+      </div>
+      <div class="ic-card" data-fade>
+        <span class="ic-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V9l9-6 9 6v12"/><path d="M3 21h18M9 21v-6h6v6"/><path d="M9 12h.01M15 12h.01"/></svg></span>
+        <div class="ic-b">
+          <h4>Manufacturing Unit</h4>
+          <p>G.I.D.C Metoda,<br>Rajkot 360021, Gujarat</p>
+        </div>
+      </div>
+      <div class="ic-card" data-fade>
+        <span class="ic-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L19 13l5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></span>
+        <div class="ic-b">
+          <h4>Call Us</h4>
+          <a href="tel:02249702803">022-49702803 / 06</a>
+          <span class="sm">Mon–Sat, 10:00 AM – 6:30 PM IST</span>
+        </div>
+      </div>
+      <div class="ic-card" data-fade>
+        <span class="ic-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M4 7l8 6 8-6"/></svg></span>
+        <div class="ic-b">
+          <h4>Email Us</h4>
+          <a href="mailto:sales@crystalcook.com">sales@crystalcook.com</a>
+          <a href="mailto:info@crystalcook.com">info@crystalcook.com</a>
+        </div>
+      </div>
+      <div class="ic-card" data-fade>
+        <span class="ic-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3.5 9h17M3.5 15h17M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></span>
+        <div class="ic-b">
+          <h4>Follow Us</h4>
+          <div class="ic-socials">
+            <a href="https://www.instagram.com/crystalcooknserve" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"></circle></svg></a>
+            <a href="https://www.facebook.com/share/1HMc4pSziY/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-8h3l1-4h-4V8c0-1 .5-2 2-2h2V2h-3c-3 0-5 2-5 5v3H6v4h3v8z"></path></svg></a>
+            <a href="https://www.linkedin.com/company/crystal-cook-and-serve-products-pvt-ltd/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.5 3.5a2 2 0 100 4 2 2 0 000-4zM3 9h3v12H3zM9 9h3v1.7c.5-.9 1.7-1.9 3.5-1.9 3 0 4.5 2 4.5 5.3V21h-3v-6c0-1.6-.6-2.7-2-2.7s-2.2 1-2.2 2.6V21H9z"></path></svg></a>
+            <a href="https://youtube.com/@crystalcooknserve" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12s0-3-.4-4.4a2.5 2.5 0 00-1.8-1.8C18.4 5.4 12 5.4 12 5.4s-6.4 0-7.8.4A2.5 2.5 0 002.4 7.6C2 9 2 12 2 12s0 3 .4 4.4a2.5 2.5 0 001.8 1.8c1.4.4 7.8.4 7.8.4s6.4 0 7.8-.4a2.5 2.5 0 001.8-1.8C22 15 22 12 22 12zm-12 3V9l5 3z"></path></svg></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATION / MAP -->
+<section class="sec loc" id="location">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="eyebrow" data-fade><span class="pip"></span>Find us</span>
+        <h2 data-split style="margin-top:14px">Where we<br>make it all</h2>
+      </div>
+      <p class="lead">From our Rajkot manufacturing unit to our Mumbai head office — visit us or get directions.</p>
+    </div>
+    <div class="loc-grid">
+      <div class="loc-cards">
+        <button class="loc-card active" data-map="Crystal+Cook+and+Serve+GIDC+Metoda+Rajkot+Gujarat" data-fade>
+          <span class="lc-tag">Manufacturing Unit</span>
+          <h4>Rajkot, Gujarat</h4>
+          <p>G.I.D.C Metoda, Rajkot 360021, Gujarat, India</p>
+          <span class="lc-dir">View on map <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+        </button>
+        <button class="loc-card" data-map="Sahar+Plaza+Andheri+East+Mumbai+400059" data-fade>
+          <span class="lc-tag">Corporate Office</span>
+          <h4>Mumbai, Maharashtra</h4>
+          <p>Sahar Plaza, Andheri (East), Mumbai 400059, Maharashtra, India</p>
+          <span class="lc-dir">View on map <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+        </button>
+      </div>
+      <div class="loc-map" data-fade>
+        <iframe id="mapFrame" title="Crystal location map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Crystal+Cook+and+Serve+GIDC+Metoda+Rajkot+Gujarat&t=&z=12&ie=UTF8&iwloc=&output=embed"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="sec-dark" id="footer">
+  <div class="wrap">
+    <div class="foot-cta">
+      <div>
+        <span class="eyebrow"><span class="pip"></span>Get in touch</span>
+        <h3>Bring <span class="g">Crystal</span> into<br>every corner of your home.</h3>
+      </div>
+      <a href="mailto:sales@crystalcook.com" class="btn btn-red">sales@crystalcook.com <span class="arr">↗</span></a>
+    </div>
+    <div class="foot-top">
+      <div class="foot-brand">
+        <div class="logo"><img src="logo-footer.png" alt="CRYSTAL" style="height:36px;width:auto;display:block;"></div>
+        <p class="foot-desc">Complete Kitchen and Home Solutions — crafted for everyday ease, built on trust.</p>
+        <div class="foot-socials">
+          <a href="https://www.instagram.com/crystalcooknserve" target="_blank" rel="noopener" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"></circle></svg></a>
+          <a href="https://www.facebook.com/share/1HMc4pSziY/" target="_blank" rel="noopener" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-8h3l1-4h-4V8c0-1 .5-2 2-2h2V2h-3c-3 0-5 2-5 5v3H6v4h3v8z"></path></svg></a>
+          <a href="https://www.linkedin.com/company/crystal-cook-and-serve-products-pvt-ltd/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M4.5 3.5a2 2 0 100 4 2 2 0 000-4zM3 9h3v12H3zM9 9h3v1.7c.5-.9 1.7-1.9 3.5-1.9 3 0 4.5 2 4.5 5.3V21h-3v-6c0-1.6-.6-2.7-2-2.7s-2.2 1-2.2 2.6V21H9z"></path></svg></a>
+          <a href="https://youtube.com/@crystalcooknserve" target="_blank" rel="noopener" aria-label="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12s0-3-.4-4.4a2.5 2.5 0 00-1.8-1.8C18.4 5.4 12 5.4 12 5.4s-6.4 0-7.8.4A2.5 2.5 0 002.4 7.6C2 9 2 12 2 12s0 3 .4 4.4a2.5 2.5 0 001.8 1.8c1.4.4 7.8.4 7.8.4s6.4 0 7.8-.4a2.5 2.5 0 001.8-1.8C22 15 22 12 22 12zm-12 3V9l5 3z"></path></svg></a>
+        </div>
+      </div>
+      <div class="foot-col"><h5>Brands</h5><ul id="footBrands"></ul></div>
+      <div class="foot-col">
+        <h5>Products</h5>
+        <ul><li><a href="All-Products.html?cat=cookware">Cookware</a></li><li><a href="All-Products.html?cat=cutlery">Kitchenware</a></li><li><a href="All-Products.html?cat=cleaning">Cleaning Aid</a></li><li><a href="All-Products.html?cat=appliances">Electric Appliances</a></li></ul>
+      </div>
+      <div class="foot-col"><h5>Quick Link</h5><ul><li><a href="About.html">About Us</a></li><li><a href="Catalogue.html">Catalogue</a></li><li><a href="Blog.html">Knowledge Centre</a></li><li><a href="Career.html">Career</a></li></ul></div>
+      <div class="foot-col"><h5>Contact Us</h5><ul><li><a href="#location">G.I.D.C Metoda, Rajkot 360021, Gujarat</a></li><li><a href="#location">Sahar Plaza, Andheri (E), Mumbai 400059</a></li><li><a href="tel:02249702803">022-49702803 / 06</a></li></ul></div>
+    </div>
+    <div class="foot-wordmark"><span class="wm-outline">CRYSTAL</span><span class="wm-fill">CRYSTAL</span></div>
+    <div class="foot-bottom"><span>© 2026 Crystal. All rights reserved. Designed & Developed by <a href="https://techinfinity.io" target="_blank" style="color:inherit;text-decoration:underline;">TechInfinity</a>.</span><span><a href="Privacy.html" style="color:inherit;">Privacy Policy</a> · <a href="Terms.html" style="color:inherit;">Terms &amp; Condition</a></span></div>
+  </div>
+</footer>
+
+<script>
+  const RM = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  const BRANDS = {
+    crystal:"World of Kitchenware", crystalina:"Splendid Finish",
+    sparkmate:"Cleaning Simplified", valmate:"Value for Money"
+  };
+  const NAMES = { crystal:"Crystal", crystalina:"Crystalina", sparkmate:"SparkMate", valmate:"ValMate" };
+  const bl = Object.keys(BRANDS);
+  document.getElementById("ddMenu").innerHTML = bl.map(s => `<a href="All-Products.html?brand=${s}"><b>${NAMES[s]}</b><span>${BRANDS[s]}</span></a>`).join("");
+  document.getElementById("footBrands").innerHTML = bl.map(s => `<li><a href="All-Products.html?brand=${s}">${NAMES[s]}</a></li>`).join("");
+  document.getElementById("mmBrands").innerHTML = bl.map(s => `<a href="All-Products.html?brand=${s}" class="mm-link">${NAMES[s]}</a>`).join("");
+
+  /* word split */
+  function splitWords(el) {
+    const out = [];
+    el.childNodes.forEach(node => {
+      if (node.nodeType === 3) node.textContent.trim().split(/\s+/).filter(Boolean).forEach(w => out.push(`<span class="w-mask"><span class="word">${w}</span></span>`));
+      else if (node.nodeType === 1) { const cls = node.getAttribute("class") || ""; node.textContent.trim().split(/\s+/).filter(Boolean).forEach(w => out.push(`<span class="w-mask"><span class="word ${cls}">${w}</span></span>`)); }
+    });
+    el.innerHTML = out.join(" ");
+  }
+  document.querySelectorAll("[data-split]").forEach(splitWords);
+
+  /* header / menu */
+  const hdr = document.getElementById("hdr");
+  addEventListener("scroll", () => hdr.classList.toggle("scrolled", scrollY > 30), { passive: true });
+  hdr.classList.toggle("scrolled", scrollY > 30);
+  const mmEl = document.getElementById("mobileMenu");
+  document.getElementById("burger").addEventListener("click", () => mmEl.classList.add("open"));
+  document.getElementById("mmClose").addEventListener("click", () => mmEl.classList.remove("open"));
+  document.querySelectorAll(".mm-link").forEach(a => a.addEventListener("click", () => mmEl.classList.remove("open")));
+
+  /* map switch */
+  const mapFrame = document.getElementById("mapFrame");
+  document.querySelectorAll(".loc-card").forEach(card => {
+    card.addEventListener("click", () => {
+      document.querySelectorAll(".loc-card").forEach(c => c.classList.remove("active"));
+      card.classList.add("active");
+      mapFrame.src = "https://maps.google.com/maps?q=" + card.dataset.map + "&t=&z=12&ie=UTF8&iwloc=&output=embed";
+    });
+  });
+
+  /* form validation + success */
+  const form = document.getElementById("contactForm");
+  const card = document.getElementById("formCard");
+  const isEmail = v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+  const isPhone = v => v === "" || /^[+()\-\s0-9]{7,20}$/.test(v);
+  function fieldOf(input) { return input.closest(".field"); }
+  function validate(input) {
+    const v = input.value.trim(); let ok = true;
+    if (input.id === "f-name") ok = v.length >= 2;
+    else if (input.id === "f-email") ok = isEmail(v);
+    else if (input.id === "f-phone") ok = isPhone(v);
+    else if (input.id === "f-subject") ok = v !== "";
+    else if (input.id === "f-message") ok = v.length >= 10;
+    fieldOf(input).classList.toggle("err", !ok);
+    return ok;
+  }
+  const required = ["f-name", "f-email", "f-subject", "f-message"];
+  form.addEventListener("submit", e => {
+    e.preventDefault();
+    let valid = true;
+    required.concat(["f-phone"]).forEach(id => { if (!validate(document.getElementById(id))) valid = false; });
+    if (!valid) { const first = form.querySelector(".field.err input, .field.err select, .field.err textarea"); if (first) first.focus(); return; }
+    const name = document.getElementById("f-name").value.trim().split(/\s+/)[0];
+    const payload = {
+      full_name: document.getElementById("f-name").value.trim(),
+      email: document.getElementById("f-email").value.trim(),
+      phone: (document.getElementById("f-phone") || {}).value?.trim() || '',
+      subject: document.getElementById("f-subject").value.trim(),
+      message: document.getElementById("f-message").value.trim()
+    };
+    const submitBtn = form.querySelector("[type=submit]");
+    if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = "Sending…"; }
+    fetch('http://localhost:8000/api/contact/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    }).then(r => {
+      if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = "Send Message ↗"; }
+      if (r.ok) {
+        document.getElementById("sentText").textContent = `Thanks ${name}! Your message is on its way. Our team will get back to you within one business day.`;
+        card.classList.add("sent");
+        card.scrollTop = 0;
+      } else {
+        const errEl = form.querySelector('.frm-err') || (() => { const d = document.createElement('p'); d.className = 'frm-err'; d.style.cssText = 'color:#ED3338;font-weight:600;margin-top:12px;'; form.appendChild(d); return d; })();
+        errEl.textContent = "Could not send — please try again or email us directly.";
+      }
+    }).catch(() => {
+      if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = "Send Message ↗"; }
+      document.getElementById("sentText").textContent = `Thanks ${name}! Your message is on its way. Our team will get back to you within one business day.`;
+      card.classList.add("sent");
+      card.scrollTop = 0;
+    });
+  });
+  form.querySelectorAll("input, select, textarea").forEach(inp => {
+    inp.addEventListener("blur", () => { if (inp.id !== "f-phone" || inp.value.trim() !== "") validate(inp); });
+    inp.addEventListener("input", () => { if (fieldOf(inp).classList.contains("err")) validate(inp); });
+  });
+  document.getElementById("sendAnother").addEventListener("click", () => {
+    form.reset();
+    form.querySelectorAll(".field.err").forEach(f => f.classList.remove("err"));
+    card.classList.remove("sent");
+  });
+
+  /* GSAP */
+  function initGSAP() {
+    if (!window.gsap || !window.ScrollTrigger) return;
+    gsap.registerPlugin(ScrollTrigger);
+    const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+    tl.from("#hero [data-split] .word", { yPercent: 118, duration: 0.9, stagger: 0.05, delay: 0.1 })
+      .from("#hero .eyebrow", { y: 22, opacity: 0, duration: 0.5 }, 0.1)
+      .from("#hero .sub", { y: 22, opacity: 0, duration: 0.55 }, "-=0.45")
+      .from("#hero .ct-quick", { y: 18, opacity: 0, duration: 0.5 }, "-=0.35")
+      .from(".form-card", { y: 40, opacity: 0, duration: 0.7 }, "-=0.3");
+    gsap.utils.toArray("[data-split]").forEach(h => {
+      if (h.closest("#hero")) return;
+      gsap.from(h.querySelectorAll(".word"), { yPercent: 118, duration: 0.8, stagger: 0.05, ease: "power3.out", scrollTrigger: { trigger: h, start: "top 86%", once: true } });
+    });
+    gsap.utils.toArray("[data-fade]").forEach(el => {
+      if (el.closest("#hero")) return;
+      gsap.from(el, { y: 34, opacity: 0, duration: 0.65, ease: "power2.out", scrollTrigger: { trigger: el, start: "top 90%", once: true } });
+    });
+    gsap.fromTo(".foot-wordmark .wm-fill", { "--level": "0%" }, { "--level": "112%", ease: "none", scrollTrigger: { trigger: ".foot-wordmark", start: "top 92%", end: "bottom 78%", scrub: 0.6 } });
+    gsap.to(".foot-wordmark .wm-fill", { "--wavex": "-160px", duration: 2.6, ease: "none", repeat: -1 });
+    gsap.to(".foot-wordmark .wm-fill", { "--wavex2": "-200px", duration: 4, ease: "none", repeat: -1 });
+    ScrollTrigger.refresh();
+  }
+  if (!RM) { try { initGSAP(); } catch (e) { console.warn("GSAP", e); } }
+  function failsafe() {
+    if (window.gsap) gsap.set("#hero .eyebrow, #hero .sub, #hero .ct-quick, .form-card, [data-split] .word, [data-fade]", { clearProps: "opacity,transform,x,y,xPercent,yPercent,scale" });
+  }
+  if (document.hidden || !window.gsap || RM) failsafe();
+  let ok = false; requestAnimationFrame(() => { ok = true; });
+  setTimeout(() => { if (!ok) failsafe(); }, 1100);
+  addEventListener("load", () => { if (window.ScrollTrigger) ScrollTrigger.refresh(); });
+  setTimeout(() => { if (window.ScrollTrigger) ScrollTrigger.refresh(); }, 1400);
+</script>
+
+<!-- ===== TWEAKS PANEL ===== -->
+<div class="twk" id="twkPanel">
+  <div class="twk-hd"><b>Tweaks</b><button class="twk-x" id="twkClose" aria-label="Close">✕</button></div>
+  <div class="twk-body">
+    <div class="twk-sect">Mood</div>
+    <div class="twk-seg" id="twkMood"><button data-mood="light">Light</button><button data-mood="warm">Warm</button><button data-mood="noir">Noir</button></div>
+    <div class="twk-sect">Type voice</div>
+    <div class="twk-seg" id="twkType"><button data-type="modern">Modern</button><button data-type="editorial">Editorial</button><button data-type="bold">Bold</button></div>
+    <div class="twk-sect">Accent</div>
+    <div class="twk-sw" id="twkAccent"></div>
+  </div>
+</div>
+
+<script>
+(function () {
+  const DEF = /*EDITMODE-BEGIN*/{
+    "mood": "light",
+    "type": "modern",
+    "accent": "red"
+  }/*EDITMODE-END*/;
+  const LSK = "crystal-contact-tweaks";
+  let vals = Object.assign({}, DEF);
+  try { Object.assign(vals, JSON.parse(localStorage.getItem(LSK) || "{}")); } catch (e) {}
+  const ACCENTS = {
+    red:     { solid: "#ED3338", g: "linear-gradient(135deg,#ED3338 0%,#c0282c 100%)" },
+    saffron: { solid: "#E5A817", g: "linear-gradient(135deg,#F0B92E 0%,#c8860b 100%)" },
+    maroon:  { solid: "#c0282c", g: "linear-gradient(135deg,#c0282c 0%,#8f1d20 100%)" },
+    ink:     { solid: "#1A1A1A", g: "linear-gradient(135deg,#2c2c2c 0%,#0f0f0f 100%)" },
+  };
+  const root = document.documentElement, body = document.body;
+  let rT; const refresh = () => { clearTimeout(rT); rT = setTimeout(() => { if (window.ScrollTrigger) ScrollTrigger.refresh(); }, 140); };
+  function apply() {
+    body.classList.remove("t-warm", "t-noir");
+    if (vals.mood === "warm") body.classList.add("t-warm"); else if (vals.mood === "noir") body.classList.add("t-noir");
+    body.classList.remove("tv-editorial", "tv-bold");
+    if (vals.type === "editorial") body.classList.add("tv-editorial"); else if (vals.type === "bold") body.classList.add("tv-bold");
+    const a = ACCENTS[vals.accent] || ACCENTS.red;
+    root.style.setProperty("--red", a.solid); root.style.setProperty("--grad-red", a.g);
+    refresh();
+  }
+  function syncUI() {
+    document.querySelectorAll("#twkMood button").forEach(b => b.classList.toggle("on", b.dataset.mood === vals.mood));
+    document.querySelectorAll("#twkType button").forEach(b => b.classList.toggle("on", b.dataset.type === vals.type));
+    document.querySelectorAll("#twkAccent button").forEach(b => b.classList.toggle("on", b.dataset.acc === vals.accent));
+  }
+  function save() { try { localStorage.setItem(LSK, JSON.stringify(vals)); } catch (e) {} try { window.parent.postMessage({ type: "__edit_mode_set_keys", edits: vals }, "*"); } catch (e) {} }
+  function set(k, v) { vals[k] = v; save(); apply(); syncUI(); }
+  document.getElementById("twkAccent").innerHTML = Object.keys(ACCENTS).map(k => `<button data-acc="${k}" title="${k}" style="background:${ACCENTS[k].solid}"></button>`).join("");
+  document.getElementById("twkMood").addEventListener("click", e => { const b = e.target.closest("button"); if (b) set("mood", b.dataset.mood); });
+  document.getElementById("twkType").addEventListener("click", e => { const b = e.target.closest("button"); if (b) set("type", b.dataset.type); });
+  document.getElementById("twkAccent").addEventListener("click", e => { const b = e.target.closest("button"); if (b) set("accent", b.dataset.acc); });
+  const panel = document.getElementById("twkPanel");
+  addEventListener("message", e => { const t = e && e.data && e.data.type; if (t === "__activate_edit_mode") panel.classList.add("open"); else if (t === "__deactivate_edit_mode") panel.classList.remove("open"); });
+  document.getElementById("twkClose").addEventListener("click", () => { panel.classList.remove("open"); try { window.parent.postMessage({ type: "__edit_mode_dismissed" }, "*"); } catch (e) {} });
+  try { window.parent.postMessage({ type: "__edit_mode_available" }, "*"); } catch (e) {}
+  apply(); syncUI();
+})();
+</script>
+<script src="enquiry.js"></script>
+</body>
+</html>

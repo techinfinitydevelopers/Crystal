@@ -7,12 +7,5 @@
       "runtimeArgs": ["-m", "http.server", "4567"],
       "port": 4567
     }
-  ,
-    {
-      "name": "crystal",
-      "runtimeExecutable": "npx",
-      "runtimeArgs": ["serve", "-l", "3456", "crystal"],
-      "port": 3456
-    }
   ]
 }
