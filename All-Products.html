@@ -93,14 +93,32 @@
   .mm-brands { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 18px; margin-top: 12px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.16); }
   .mm-brands a { font-family: var(--body); font-weight: 600; text-transform: none; font-size: 16px; color: var(--muted-d); padding: 4px 0; }
   .mm-brands a:hover { color: var(--red); }
-  /* Products mega menu (nav) */
-  .has-mega { position: relative; }
+    /* Products mega menu (nav) */
+  .has-mega { position: static; }
   .has-mega:hover .dd-toggle .cv, .has-mega:focus-within .dd-toggle .cv { transform: rotate(180deg); }
-  .mega-menu { position: absolute; top: calc(100% + 12px); left: 0; transform: translateY(8px); width: min(760px, 90vw); background: rgba(255,255,255,0.97); backdrop-filter: blur(16px); border: 1.5px solid var(--line); border-radius: 18px; box-shadow: 0 26px 54px -26px rgba(0,0,0,0.38); padding: 22px 24px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px 22px; opacity: 0; visibility: hidden; transition: opacity .25s, transform .25s, visibility .25s; z-index: 130; }
+  .mega-menu { position: absolute; top: calc(100% + 12px); left: 0; right: 0; margin-inline: auto; width: min(1040px, 94vw); background: rgba(255,255,255,0.98); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px); border: 1.5px solid var(--line); border-radius: 22px; box-shadow: 0 30px 64px -26px rgba(0,0,0,0.4); padding: 26px 28px; opacity: 0; visibility: hidden; transform: translateY(8px); transition: opacity .25s, transform .25s, visibility .25s; z-index: 130; }
   .has-mega:hover .mega-menu, .has-mega:focus-within .mega-menu { opacity: 1; visibility: visible; transform: translateY(0); }
-  .mega-col h6 { font-family: var(--head); font-weight: 700; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--red); margin-bottom: 8px; }
-  .mega-col a { display: block; font-size: 13px; font-weight: 600; color: var(--ink); padding: 5px 8px; border-radius: 8px; }
-  .mega-col a:hover { background: var(--ink); color: #fff; }
+  .mega-groups { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px 26px; }
+  .mega-col { display: flex; flex-direction: column; gap: 1px; }
+  .mega-h { display: flex; align-items: center; gap: 8px; font-family: var(--head); font-weight: 700; font-size: 13px; letter-spacing: .03em; text-transform: uppercase; color: var(--ink); padding: 7px 8px; border-radius: 9px; margin-bottom: 3px; }
+  .mega-h svg { width: 17px; height: 17px; color: var(--red); flex: none; }
+  .mega-h:hover { background: var(--ink); color: #fff; }
+  .mega-h:hover svg { color: #fff; }
+  .mega-col > a:not(.mega-h) { font-size: 12.5px; font-weight: 600; color: var(--muted); padding: 5px 8px 5px 33px; border-radius: 8px; transition: background .15s, color .15s; }
+  .mega-col > a:not(.mega-h):hover { background: rgba(237,51,56,0.08); color: var(--red); }
+  .mega-standalone { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 18px; padding-top: 18px; border-top: 1.5px solid var(--line); }
+  .mega-standalone-lbl { font-family: var(--head); font-weight: 700; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--red); margin-right: 4px; }
+  .mega-standalone a { font-size: 12.5px; font-weight: 700; color: var(--ink); padding: 7px 14px; border: 1.5px solid var(--line); border-radius: 100px; transition: background .2s, color .2s, border-color .2s; }
+  .mega-standalone a:hover { background: var(--ink); color: #fff; border-color: var(--ink); }
+  /* Mobile Products accordion */
+  .mm-acc-tog { background: none; border: none; cursor: pointer; color: inherit; font: inherit; display: inline-flex; align-items: center; gap: 12px; }
+  .mm-acc .mm-cv { font-size: .55em; transition: transform .25s; display: inline-block; }
+  .mm-acc.open .mm-cv { transform: rotate(45deg); }
+  .mm-acc-panel { display: none; margin: 8px 0 6px; padding-left: 2px; max-height: 56vh; overflow-y: auto; }
+  .mm-acc.open .mm-acc-panel { display: block; }
+  .mm-acc-panel .mm-acc-h { display: block; font-family: var(--head); font-weight: 700; text-transform: uppercase; font-size: 18px; color: #fff; margin: 14px 0 4px; }
+  .mm-acc-panel .mm-acc-sub { display: block; font-family: var(--body); font-weight: 600; text-transform: none; font-size: 15px; color: var(--muted-d); padding: 6px 0 6px 12px; }
+  .mm-acc-panel .mm-acc-sub:hover { color: var(--red); }
   .mm-close { position: absolute; top: 24px; right: var(--pad); background: var(--grad-red); color: #fff; border: none; width: 50px; height: 50px; border-radius: 50%; font-size: 26px; cursor: pointer; }
 
   /* ===== Section scaffold ===== */
@@ -341,37 +359,66 @@
       <a href="index.html" class="logo"><img src="logo.png" alt="CRYSTAL" style="height:36px;width:auto;display:block;"></a>
       <ul class="nav-links">
         <li><a href="About.html">About</a></li>
-        <li class="has-mega">
-          <a href="All-Products.html" class="dd-toggle current">Products <span class="cv">▾</span></a>
-          <div class="mega-menu">
+                <li class="has-mega">
+          <a href="All-Products.html" class="dd-toggle">Products <span class="cv">▾</span></a>
+          <div class="mega-menu mega-v2">
+            <div class="mega-groups">
             <div class="mega-col">
-              <h6>Cookware</h6>
-              <a href="All-Products.html?cat=cookware">Tri-Ply / Tripro</a>
-              <a href="All-Products.html?cat=cookware">Non-Stick</a>
-              <a href="All-Products.html?cat=cookware">Cast Iron</a>
-              <a href="All-Products.html?cat=cookware">Pressure Cookers</a>
+              <a class="mega-h" href="All-Products.html?cat=cookware"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h16v6a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4z"/><path d="M2 10h2M20 10h2M9 6V4M15 6V4"/></svg>Cookware</a>
+              <a href="All-Products.html?cat=cookware&sub=tripro">Tripro</a>
+              <a href="All-Products.html?cat=cookware&sub=cast-iron">Cast Iron</a>
+              <a href="All-Products.html?cat=cookware&sub=non-stick">Non-Stick</a>
+              <a href="All-Products.html?cat=cookware&sub=non-stick-mini">Non-Stick Mini</a>
+              <a href="All-Products.html?cat=cookware&sub=sandwich-bottom-steel">Sandwich Bottom Steel</a>
+              <a href="All-Products.html?cat=cookware&sub=hard-anodised">Hard Anodised</a>
             </div>
             <div class="mega-col">
-              <h6>Kitchenware</h6>
-              <a href="All-Products.html?cat=cutlery">Knives &amp; Cutlery</a>
-              <a href="All-Products.html?cat=lighters">Lighters</a>
-              <a href="All-Products.html?cat=serveware">Serveware</a>
-              <a href="All-Products.html?cat=storage">Storage &amp; Lunch Box</a>
-              <a href="All-Products.html?cat=flasks">Flasks &amp; Bottles</a>
+              <a class="mega-h" href="All-Products.html?cat=kitchenware"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v18M5 3v6h2V3"/><path d="M15 3c-2 0-3 2-3 4.5S13 12 15 12v9"/></svg>Kitchenware</a>
+              <a href="All-Products.html?cat=kitchenware&sub=lighters">Lighters</a>
+              <a href="All-Products.html?cat=kitchenware&sub=knives">Knives</a>
+              <a href="All-Products.html?cat=kitchenware&sub=peelers">Peelers</a>
+              <a href="All-Products.html?cat=kitchenware&sub=chopping-boards">Chopping Boards</a>
+              <a href="All-Products.html?cat=kitchenware&sub=trolleys">Trolleys</a>
+              <a href="All-Products.html?cat=kitchenware&sub=kitchen-tools">Kitchen Tools</a>
+              <a href="All-Products.html?cat=kitchenware&sub=manual-appliances">Manual Kitchen Appliances</a>
+              <a href="All-Products.html?cat=kitchenware&sub=cutlery">Cutlery</a>
+              <a href="All-Products.html?cat=kitchenware&sub=servers">Servers</a>
+              <a href="All-Products.html?cat=kitchenware&sub=water-filter">Water Filter</a>
             </div>
             <div class="mega-col">
-              <h6>Cleaning Aid</h6>
-              <a href="All-Products.html?cat=cleaning">Spin Mops</a>
-              <a href="All-Products.html?cat=cleaning">Brooms &amp; Wipers</a>
-              <a href="All-Products.html?cat=cleaning">Brushes &amp; Scrubbers</a>
-              <a href="All-Products.html?cat=cleaning">All Cleaning</a>
+              <a class="mega-h" href="All-Products.html?cat=cleaning"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 4h4v5h-4z"/><path d="M10 9l-2 4v7h8v-7l-2-4M6 4h2M6 7h2"/></svg>Cleaning Aid</a>
+              <a href="All-Products.html?cat=cleaning&sub=spin-mops">Spin Mops</a>
+              <a href="All-Products.html?cat=cleaning&sub=hand-held-mops">Hand Held Mops</a>
+              <a href="All-Products.html?cat=cleaning&sub=brooms">Broom &amp; Dust Pans</a>
+              <a href="All-Products.html?cat=cleaning&sub=wipers">Wipers</a>
+              <a href="All-Products.html?cat=cleaning&sub=plunger">Plunger</a>
+              <a href="All-Products.html?cat=cleaning&sub=brush">Brush</a>
+              <a href="All-Products.html?cat=cleaning&sub=scrubber">Scrubber &amp; Scourer</a>
+              <a href="All-Products.html?cat=cleaning&sub=bins">Bins</a>
+              <a href="All-Products.html?cat=cleaning&sub=sink-organiser">Sink Organiser</a>
+              <a href="All-Products.html?cat=cleaning&sub=wipe">Wipe</a>
             </div>
             <div class="mega-col">
-              <h6>Electric Appliances</h6>
-              <a href="All-Products.html?cat=appliances">Chimney</a>
-              <a href="All-Products.html?cat=appliances">Kettle</a>
-              <a href="All-Products.html?cat=appliances">Air Fryer</a>
-              <a href="All-Products.html?cat=appliances">All Appliances</a>
+              <a class="mega-h" href="All-Products.html?cat=appliances"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg>Electric Appliances</a>
+              <a href="All-Products.html?cat=appliances&sub=chimney">Chimney</a>
+              <a href="All-Products.html?cat=appliances&sub=kettle">Kettle</a>
+              <a href="All-Products.html?cat=appliances&sub=iron">Iron</a>
+              <a href="All-Products.html?cat=appliances&sub=ice-cream-maker">Ice Cream Maker</a>
+              <a href="All-Products.html?cat=appliances&sub=otg">OTG</a>
+              <a href="All-Products.html?cat=appliances&sub=air-fryer">Air Fryer</a>
+              <a href="All-Products.html?cat=appliances&sub=rice-cooker">Rice Cooker</a>
+              <a href="All-Products.html?cat=appliances&sub=food-processor">Food Processor</a>
+              <a href="All-Products.html?cat=appliances&sub=jmg">JMG</a>
+            </div>
+            </div>
+            <div class="mega-standalone">
+              <span class="mega-standalone-lbl">Also explore</span>
+              <a href="All-Products.html?cat=water-bottle">Water Bottle</a>
+              <a href="All-Products.html?cat=oil-pourer">Oil Pourer &amp; Sprayer</a>
+              <a href="All-Products.html?cat=wood-range">Wood Range</a>
+              <a href="All-Products.html?cat=pressure-cooker">Pressure Cooker</a>
+              <a href="All-Products.html?cat=cooktop">Cooktop</a>
+              <a href="All-Products.html?cat=lunch-box">Lunch Box</a>
             </div>
           </div>
         </li>
@@ -396,7 +443,57 @@
   <ul>
     <li><a href="Enquiry.html" class="mm-link">Enquiry List <span class="enq-count">0</span></a></li>
     <li><a href="About.html" class="mm-link">About</a></li>
-    <li><a href="All-Products.html" class="mm-link">Products</a></li>
+        <li class="mm-acc">
+      <button type="button" class="mm-acc-tog mm-link" aria-expanded="false">Products <span class="mm-cv">+</span></button>
+      <div class="mm-acc-panel">
+      <a class="mm-acc-h" href="All-Products.html?cat=cookware">Cookware</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=cookware&sub=tripro">Tripro</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=cookware&sub=cast-iron">Cast Iron</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=cookware&sub=non-stick">Non-Stick</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=cookware&sub=non-stick-mini">Non-Stick Mini</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=cookware&sub=sandwich-bottom-steel">Sandwich Bottom Steel</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=cookware&sub=hard-anodised">Hard Anodised</a>
+      <a class="mm-acc-h" href="All-Products.html?cat=kitchenware">Kitchenware</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=kitchenware&sub=lighters">Lighters</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=kitchenware&sub=knives">Knives</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=kitchenware&sub=peelers">Peelers</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=kitchenware&sub=chopping-boards">Chopping Boards</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=kitchenware&sub=trolleys">Trolleys</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=kitchenware&sub=kitchen-tools">Kitchen Tools</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=kitchenware&sub=manual-appliances">Manual Kitchen Appliances</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=kitchenware&sub=cutlery">Cutlery</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=kitchenware&sub=servers">Servers</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=kitchenware&sub=water-filter">Water Filter</a>
+      <a class="mm-acc-h" href="All-Products.html?cat=cleaning">Cleaning Aid</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=cleaning&sub=spin-mops">Spin Mops</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=cleaning&sub=hand-held-mops">Hand Held Mops</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=cleaning&sub=brooms">Broom &amp; Dust Pans</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=cleaning&sub=wipers">Wipers</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=cleaning&sub=plunger">Plunger</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=cleaning&sub=brush">Brush</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=cleaning&sub=scrubber">Scrubber &amp; Scourer</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=cleaning&sub=bins">Bins</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=cleaning&sub=sink-organiser">Sink Organiser</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=cleaning&sub=wipe">Wipe</a>
+      <a class="mm-acc-h" href="All-Products.html?cat=appliances">Electric Appliances</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=appliances&sub=chimney">Chimney</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=appliances&sub=kettle">Kettle</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=appliances&sub=iron">Iron</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=appliances&sub=ice-cream-maker">Ice Cream Maker</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=appliances&sub=otg">OTG</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=appliances&sub=air-fryer">Air Fryer</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=appliances&sub=rice-cooker">Rice Cooker</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=appliances&sub=food-processor">Food Processor</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=appliances&sub=jmg">JMG</a>
+      <span class="mm-acc-h" style="opacity:.6">Also explore</span>
+      <a class="mm-acc-sub" href="All-Products.html?cat=water-bottle">Water Bottle</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=oil-pourer">Oil Pourer &amp; Sprayer</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=wood-range">Wood Range</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=pressure-cooker">Pressure Cooker</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=cooktop">Cooktop</a>
+      <a class="mm-acc-sub" href="All-Products.html?cat=lunch-box">Lunch Box</a>
+      </div>
+    </li>
     <li><a href="Catalogue.html" class="mm-link">Catalogue</a></li>
     <li><a href="Blog.html" class="mm-link">Knowledge Centre</a></li>
     <li><a href="Contact.html" class="mm-link">Contact Us</a></li>
@@ -712,19 +809,21 @@
   /* ---------- GRID state + render ---------- */
   const gridEl = document.getElementById("grid");
   const countEl = document.getElementById("count");
-  let state = { cat: "all", col: "", sort: "featured" };
+  let state = { cat: "all", col: "", sort: "featured", cats: null, subLabel: "", subText: "" };
 
   function brandName(slug) { return (BRAND_BY[slug] || {}).name || slug; }
 
   function applyAndRender(animate) {
     let list = viewProducts.slice();
-    if (state.cat !== "all") list = list.filter(p => p.c === state.cat);
+    if (state.cats) list = list.filter(p => state.cats.includes(p.c));
+    else if (state.cat !== "all") list = list.filter(p => p.c === state.cat);
     if (state.col) list = list.filter(p => p.col === state.col);
+    if (state.subText) { const terms = state.subText.split("-").filter(Boolean); list = list.filter(p => { const hay = (p.n + " " + p.col + " " + p.tags.join(" ")).toLowerCase(); return terms.every(t => hay.includes(t)); }); }
     if (state.sort === "az") list.sort((a, b) => a.n.localeCompare(b.n));
     else if (state.sort === "za") list.sort((a, b) => b.n.localeCompare(a.n));
     else if (state.sort === "brand") list.sort((a, b) => brandName(a.b).localeCompare(brandName(b.b)) || a.n.localeCompare(b.n));
 
-    const label = state.col ? state.col : (state.cat !== "all" ? CAT_LABEL[state.cat] : "");
+    const label = state.subLabel || (state.col ? state.col : (state.cat !== "all" ? CAT_LABEL[state.cat] : ""));
     countEl.innerHTML = `Showing <b>${list.length}</b> of <b>${viewProducts.length}</b> products${label ? " in <b>" + label + "</b>" : ""}`;
 
     if (!list.length) {
@@ -784,13 +883,44 @@
 
   applyAndRender(false);
 
-  /* ---------- URL ?cat= deep-link (from nav mega-menu / footer) ---------- */
-  const catParam = (params.get("cat") || "").toLowerCase();
-  if (catParam && viewProducts.some(p => p.c === catParam)) {
-    setCat(catParam);
+  /* ---------- URL ?cat= / ?sub= deep-link (from nav mega-menu / footer) ---------- */
+  (function () {
+    const GROUP_MAP = {
+      cookware: ["cookware"], kitchenware: ["cutlery", "lighters", "serveware", "storage"],
+      cleaning: ["cleaning"], appliances: ["appliances"], "water-bottle": ["flasks"],
+      "pressure-cooker": ["cookware"], "lunch-box": ["storage"], cooktop: ["appliances"]
+    };
+    const GROUP_LABEL = {
+      cookware: "Cookware", kitchenware: "Kitchenware", cleaning: "Cleaning Aid",
+      appliances: "Electric Appliances", "water-bottle": "Water Bottle",
+      "oil-pourer": "Oil Pourer & Sprayer", "wood-range": "Wood Range",
+      "pressure-cooker": "Pressure Cooker", cooktop: "Cooktop", "lunch-box": "Lunch Box"
+    };
+    const catParam = (params.get("cat") || "").toLowerCase();
+    const subParam = (params.get("sub") || "").toLowerCase();
+    if (!catParam) return;
+
+    let cats = GROUP_MAP[catParam] || (viewProducts.some(p => p.c === catParam) ? [catParam] : []);
+    const parentLabel = GROUP_LABEL[catParam] || CAT_LABEL[catParam] || catParam;
+    const subLabel = subParam ? subParam.replace(/-/g, " ").replace(/\b\w/g, c => c.toUpperCase()) : "";
+
+    if (cats.length === 1) { state.cat = cats[0]; state.cats = null; }
+    else { state.cat = "all"; state.cats = cats; }   // [] => shows none (no products yet), multi => union
+
+    let showSub = false;
+    if (subParam) {
+      const terms = subParam.split("-").filter(Boolean);
+      const pool = state.cats ? viewProducts.filter(p => state.cats.includes(p.c)) : (state.cat !== "all" ? viewProducts.filter(p => p.c === state.cat) : viewProducts);
+      const hit = pool.some(p => { const hay = (p.n + " " + p.col + " " + p.tags.join(" ")).toLowerCase(); return terms.every(t => hay.includes(t)); });
+      if (hit) { state.subText = subParam; showSub = true; }
+    }
+    state.subLabel = (showSub && subLabel) ? parentLabel + " · " + subLabel : (cats.length !== 1 ? parentLabel : "");
+
+    document.querySelectorAll(".chip").forEach(c => c.classList.toggle("active", c.dataset.cat === (state.cats ? "all" : state.cat)));
+    applyAndRender(false);
     const bsec = document.getElementById("browse");
     if (bsec) bsec.scrollIntoView({ behavior: "smooth", block: "start" });
-  }
+  })();
 
   /* ---------- RENDER: brand value cards ---------- */
   const valIcons = [

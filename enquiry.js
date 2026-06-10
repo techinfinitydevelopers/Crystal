@@ -86,6 +86,8 @@
 
   /* ---------- click delegation ---------- */
   document.addEventListener("click", function (e) {
+    var acc = e.target.closest(".mm-acc-tog");
+    if (acc) { var li = acc.closest(".mm-acc"); if (li) { var open = li.classList.toggle("open"); acc.setAttribute("aria-expanded", open ? "true" : "false"); } return; }
     var a = e.target.closest(".enq-add");
     if (a) {
       e.preventDefault();
