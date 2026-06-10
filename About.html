@@ -88,6 +88,14 @@
   .mm-brands { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 18px; margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.16); }
   .mm-brands a { font-family: var(--body); font-weight: 600; text-transform: none; font-size: 16px; color: var(--muted-d); }
   .mm-brands a:hover { color: var(--red); }
+  /* Products mega menu (nav) */
+  .has-mega { position: relative; }
+  .has-mega:hover .dd-toggle .cv, .has-mega:focus-within .dd-toggle .cv { transform: rotate(180deg); }
+  .mega-menu { position: absolute; top: calc(100% + 12px); left: 0; transform: translateY(8px); width: min(760px, 90vw); background: rgba(255,255,255,0.97); backdrop-filter: blur(16px); border: 1.5px solid var(--line); border-radius: 18px; box-shadow: 0 26px 54px -26px rgba(0,0,0,0.38); padding: 22px 24px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px 22px; opacity: 0; visibility: hidden; transition: opacity .25s, transform .25s, visibility .25s; z-index: 130; }
+  .has-mega:hover .mega-menu, .has-mega:focus-within .mega-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+  .mega-col h6 { font-family: var(--head); font-weight: 700; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--red); margin-bottom: 8px; }
+  .mega-col a { display: block; font-size: 13px; font-weight: 600; color: var(--ink); padding: 5px 8px; border-radius: 8px; }
+  .mega-col a:hover { background: var(--ink); color: #fff; }
 
   .mobile-menu { position: fixed; inset: 0; z-index: 101; background: var(--ink); color: #fff; transform: translateY(-100%); transition: transform .45s cubic-bezier(.2,.8,.2,1); display: flex; flex-direction: column; justify-content: center; padding: var(--pad); }
   .mobile-menu.open { transform: none; }
@@ -140,6 +148,12 @@
   .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(20px, 3vw, 40px); margin-top: clamp(40px, 5vw, 64px); padding-top: clamp(34px, 4vw, 48px); border-top: 1.5px solid var(--line); }
   .stat .num { font-family: var(--head); font-weight: 700; font-size: clamp(36px, 5vw, 68px); line-height: .9; background: var(--grad-red); -webkit-background-clip: text; background-clip: text; color: transparent; letter-spacing: -0.02em; }
   .stat .lbl { margin-top: 10px; color: var(--muted); font-size: 14px; font-weight: 600; }
+  /* infrastructure stats — reuse legacy stat tiles, 5-up, no legacy top divider/offset */
+  .infra-stats { grid-template-columns: repeat(5, 1fr); margin-top: 0; padding-top: 0; border-top: 0; }
+  .infra-stats .stat .num { font-size: clamp(32px, 4.2vw, 58px); }
+  .infra-stats .stat .num .unit { font-size: .4em; font-weight: 700; letter-spacing: 0; }
+  @media (max-width: 900px) { .infra-stats { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 560px) { .infra-stats { grid-template-columns: 1fr 1fr; } }
 
   /* product strip */
   .prod-strip { overflow: hidden; margin-top: clamp(40px, 5vw, 64px); }
@@ -221,7 +235,7 @@
   .foot-cta { display: flex; justify-content: space-between; align-items: flex-end; gap: 28px; flex-wrap: wrap; padding-bottom: 44px; border-bottom: 1.5px solid var(--line-d); }
   .foot-cta h3 { font-family: var(--head); font-weight: 700; text-transform: uppercase; font-size: clamp(28px, 4vw, 54px); line-height: 1; margin-top: 14px; letter-spacing: -0.02em; }
   .foot-cta h3 .g { background: var(--grad-red); -webkit-background-clip: text; background-clip: text; color: transparent; }
-  .foot-top { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1.4fr; gap: 36px; padding: 46px 0; }
+  .foot-top { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr 1.4fr; gap: 36px; padding: 46px 0; }
   .foot-brand .logo { font-size: 32px; margin-bottom: 14px; }
   .foot-desc { color: var(--muted-d); max-width: 300px; margin-bottom: 22px; line-height: 1.55; font-weight: 500; }
   .foot-socials { display: flex; gap: 10px; }
@@ -329,9 +343,42 @@
       <a href="index.html" class="logo"><img src="logo.png" alt="CRYSTAL" style="height:36px;width:auto;display:block;"></a>
       <ul class="nav-links">
         <li><a href="About.html">About</a></li>
-        <li><a href="All-Products.html">Products</a></li>
+        <li class="has-mega">
+          <a href="All-Products.html" class="dd-toggle">Products <span class="cv">▾</span></a>
+          <div class="mega-menu">
+            <div class="mega-col">
+              <h6>Cookware</h6>
+              <a href="All-Products.html?cat=cookware">Tri-Ply / Tripro</a>
+              <a href="All-Products.html?cat=cookware">Non-Stick</a>
+              <a href="All-Products.html?cat=cookware">Cast Iron</a>
+              <a href="All-Products.html?cat=cookware">Pressure Cookers</a>
+            </div>
+            <div class="mega-col">
+              <h6>Kitchenware</h6>
+              <a href="All-Products.html?cat=cutlery">Knives &amp; Cutlery</a>
+              <a href="All-Products.html?cat=lighters">Lighters</a>
+              <a href="All-Products.html?cat=serveware">Serveware</a>
+              <a href="All-Products.html?cat=storage">Storage &amp; Lunch Box</a>
+              <a href="All-Products.html?cat=flasks">Flasks &amp; Bottles</a>
+            </div>
+            <div class="mega-col">
+              <h6>Cleaning Aid</h6>
+              <a href="All-Products.html?cat=cleaning">Spin Mops</a>
+              <a href="All-Products.html?cat=cleaning">Brooms &amp; Wipers</a>
+              <a href="All-Products.html?cat=cleaning">Brushes &amp; Scrubbers</a>
+              <a href="All-Products.html?cat=cleaning">All Cleaning</a>
+            </div>
+            <div class="mega-col">
+              <h6>Electric Appliances</h6>
+              <a href="All-Products.html?cat=appliances">Chimney</a>
+              <a href="All-Products.html?cat=appliances">Kettle</a>
+              <a href="All-Products.html?cat=appliances">Air Fryer</a>
+              <a href="All-Products.html?cat=appliances">All Appliances</a>
+            </div>
+          </div>
+        </li>
         <li class="has-dd">
-          <a href="All-Products.html?brand=crystal" class="dd-toggle">Brands <span class="cv">▾</span></a>
+          <a href="Brands.html" class="dd-toggle">Brands <span class="cv">▾</span></a>
           <div class="dd-menu">
             <a href="All-Products.html?brand=crystal"><b>Crystal</b><span>World of Kitchenware</span></a>
             <a href="All-Products.html?brand=crystalina"><b>Crystalina</b><span>Splendid Finish</span></a>
@@ -406,10 +453,10 @@
     </video>
   </div>
   <div class="stats">
-    <div class="stat" data-fade><div class="num"><span data-count="50">0</span>+</div><div class="lbl">Years of Experience</div></div>
-    <div class="stat" data-fade><div class="num"><span data-count="2000">0</span>+</div><div class="lbl">Employees</div></div>
-    <div class="stat" data-fade><div class="num"><span data-count="1000">0</span>+</div><div class="lbl">Products</div></div>
-    <div class="stat" data-fade><div class="num"><span data-count="10">0</span>+ Cr</div><div class="lbl">Satisfied Customers</div></div>
+    <div class="stat" data-fade><div class="num"><span data-count="50">0</span>+</div><div class="lbl">Years of Trust</div></div>
+    <div class="stat" data-fade><div class="num"><span data-count="2000">0</span>+</div><div class="lbl">People Strong</div></div>
+    <div class="stat" data-fade><div class="num"><span data-count="1000">0</span>+</div><div class="lbl">Products &amp; SKUs</div></div>
+    <div class="stat" data-fade><div class="num"><span data-count="10">0</span>+ Cr</div><div class="lbl">Happy Customers</div></div>
   </div>
   <div class="prod-strip" aria-hidden="true">
     <div class="prod-track" id="prodTrack"></div>
@@ -473,6 +520,24 @@
     <p class="lead">From a single gas lighter to a complete home ecosystem — five decades of made-in-India innovation, told in six defining chapters.</p>
   </div>
   <div class="journey" id="storyGrid"></div>
+</section>
+
+<!-- ===== 04b INFRASTRUCTURE ===== -->
+<section class="sec wrap" id="infrastructure">
+  <div class="sec-head">
+    <div>
+      <span class="eyebrow" data-fade><span class="pip"></span>Our Reach</span>
+      <h2 data-split style="margin-top:14px">Built on<br>solid ground</h2>
+    </div>
+    <p class="lead">Three offices, three factories, five warehouses and a 3,00,000 sq ft manufacturing backbone — engineered in India, trusted across the country.</p>
+  </div>
+  <div class="stats infra-stats">
+    <div class="stat" data-fade><div class="num"><span data-count="3">0</span></div><div class="lbl">Corporate Offices</div></div>
+    <div class="stat" data-fade><div class="num"><span data-count="3">0</span></div><div class="lbl">Manufacturing Units</div></div>
+    <div class="stat" data-fade><div class="num"><span data-count="5">0</span></div><div class="lbl">Warehouses</div></div>
+    <div class="stat" data-fade><div class="num">1,00,000+</div><div class="lbl">Retail Outlets</div></div>
+    <div class="stat" data-fade><div class="num">3,00,000<span class="unit"> sq ft</span></div><div class="lbl">Factory Space</div></div>
+  </div>
 </section>
 
 <!-- ===== 05 SUSTAINABILITY ===== -->
@@ -544,6 +609,10 @@
         </div>
       </div>
       <div class="foot-col"><h5>Brands</h5><ul><li><a href="All-Products.html?brand=crystal">Crystal</a></li><li><a href="All-Products.html?brand=crystalina">Crystalina</a></li><li><a href="All-Products.html?brand=sparkmate">SparkMate</a></li><li><a href="All-Products.html?brand=valmate">ValMate</a></li></ul></div>
+      <div class="foot-col">
+        <h5>Products</h5>
+        <ul><li><a href="All-Products.html?cat=cookware">Cookware</a></li><li><a href="All-Products.html?cat=cutlery">Kitchenware</a></li><li><a href="All-Products.html?cat=cleaning">Cleaning Aid</a></li><li><a href="All-Products.html?cat=appliances">Electric Appliances</a></li></ul>
+      </div>
       <div class="foot-col"><h5>Quick Link</h5><ul><li><a href="About.html">About Us</a></li><li><a href="Catalogue.html">Catalogue</a></li><li><a href="Blog.html">Knowledge Centre</a></li><li><a href="Career.html">Career</a></li></ul></div>
       <div class="foot-col"><h5>Contact Us</h5><ul><li><a href="#">G.I.D.C Metoda, Rajkot 360021, Gujarat</a></li><li><a href="#">Sahar Plaza, Andheri (E), Mumbai 400059</a></li><li><a href="tel:02249702803">022-49702803 / 06</a></li></ul></div>
     </div>

@@ -84,6 +84,14 @@
   .mm-brands { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 18px; margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.16); }
   .mm-brands a { font-family: var(--body); font-weight: 600; text-transform: none; font-size: 16px; color: var(--muted-d); }
   .mm-brands a:hover { color: var(--red); }
+  /* Products mega menu (nav) */
+  .has-mega { position: relative; }
+  .has-mega:hover .dd-toggle .cv, .has-mega:focus-within .dd-toggle .cv { transform: rotate(180deg); }
+  .mega-menu { position: absolute; top: calc(100% + 12px); left: 0; transform: translateY(8px); width: min(760px, 90vw); background: rgba(255,255,255,0.97); backdrop-filter: blur(16px); border: 1.5px solid var(--line); border-radius: 18px; box-shadow: 0 26px 54px -26px rgba(0,0,0,0.38); padding: 22px 24px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px 22px; opacity: 0; visibility: hidden; transition: opacity .25s, transform .25s, visibility .25s; z-index: 130; }
+  .has-mega:hover .mega-menu, .has-mega:focus-within .mega-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+  .mega-col h6 { font-family: var(--head); font-weight: 700; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--red); margin-bottom: 8px; }
+  .mega-col a { display: block; font-size: 13px; font-weight: 600; color: var(--ink); padding: 5px 8px; border-radius: 8px; }
+  .mega-col a:hover { background: var(--ink); color: #fff; }
 
   /* fade helper (non-split blocks) */
   [data-fade] { will-change: transform, opacity; }
@@ -251,7 +259,7 @@
   .foot-cta { display: flex; justify-content: space-between; align-items: flex-end; gap: 28px; flex-wrap: wrap; padding-bottom: 44px; border-bottom: 1.5px solid var(--line-d); }
   .foot-cta h3 { font-family: var(--head); font-weight: 700; text-transform: uppercase; font-size: clamp(28px, 4vw, 54px); line-height: 1; margin-top: 14px; letter-spacing: -0.02em; }
   .foot-cta h3 .g { background: var(--grad-red); -webkit-background-clip: text; background-clip: text; color: transparent; }
-  .foot-top { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1.4fr; gap: 36px; padding: 46px 0; }
+  .foot-top { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr 1.4fr; gap: 36px; padding: 46px 0; }
   .foot-brand .logo { font-size: 32px; margin-bottom: 14px; }
   .foot-desc { color: var(--muted-d); max-width: 300px; margin-bottom: 22px; line-height: 1.55; font-weight: 500; }
   .foot-socials { display: flex; gap: 10px; }
@@ -393,9 +401,42 @@
       <a href="#top" class="logo"><img src="logo.png" alt="CRYSTAL" style="height:36px;width:auto;display:block;"></a>
       <ul class="nav-links">
         <li><a href="About.html">About</a></li>
-        <li><a href="All-Products.html">Products</a></li>
+        <li class="has-mega">
+          <a href="All-Products.html" class="dd-toggle">Products <span class="cv">▾</span></a>
+          <div class="mega-menu">
+            <div class="mega-col">
+              <h6>Cookware</h6>
+              <a href="All-Products.html?cat=cookware">Tri-Ply / Tripro</a>
+              <a href="All-Products.html?cat=cookware">Non-Stick</a>
+              <a href="All-Products.html?cat=cookware">Cast Iron</a>
+              <a href="All-Products.html?cat=cookware">Pressure Cookers</a>
+            </div>
+            <div class="mega-col">
+              <h6>Kitchenware</h6>
+              <a href="All-Products.html?cat=cutlery">Knives &amp; Cutlery</a>
+              <a href="All-Products.html?cat=lighters">Lighters</a>
+              <a href="All-Products.html?cat=serveware">Serveware</a>
+              <a href="All-Products.html?cat=storage">Storage &amp; Lunch Box</a>
+              <a href="All-Products.html?cat=flasks">Flasks &amp; Bottles</a>
+            </div>
+            <div class="mega-col">
+              <h6>Cleaning Aid</h6>
+              <a href="All-Products.html?cat=cleaning">Spin Mops</a>
+              <a href="All-Products.html?cat=cleaning">Brooms &amp; Wipers</a>
+              <a href="All-Products.html?cat=cleaning">Brushes &amp; Scrubbers</a>
+              <a href="All-Products.html?cat=cleaning">All Cleaning</a>
+            </div>
+            <div class="mega-col">
+              <h6>Electric Appliances</h6>
+              <a href="All-Products.html?cat=appliances">Chimney</a>
+              <a href="All-Products.html?cat=appliances">Kettle</a>
+              <a href="All-Products.html?cat=appliances">Air Fryer</a>
+              <a href="All-Products.html?cat=appliances">All Appliances</a>
+            </div>
+          </div>
+        </li>
         <li class="has-dd">
-          <a href="All-Products.html?brand=crystal" class="dd-toggle">Brands <span class="cv">▾</span></a>
+          <a href="Brands.html" class="dd-toggle">Brands <span class="cv">▾</span></a>
           <div class="dd-menu">
             <a href="All-Products.html?brand=crystal"><b>Crystal</b><span>World of Kitchenware</span></a>
             <a href="All-Products.html?brand=crystalina"><b>Crystalina</b><span>Splendid Finish</span></a>
@@ -522,6 +563,10 @@
       <div class="foot-col">
         <h5>Brands</h5>
         <ul><li><a href="All-Products.html?brand=crystal">Crystal</a></li><li><a href="All-Products.html?brand=crystalina">Crystalina</a></li><li><a href="All-Products.html?brand=sparkmate">SparkMate</a></li><li><a href="All-Products.html?brand=valmate">ValMate</a></li></ul>
+      </div>
+      <div class="foot-col">
+        <h5>Products</h5>
+        <ul><li><a href="All-Products.html?cat=cookware">Cookware</a></li><li><a href="All-Products.html?cat=cutlery">Kitchenware</a></li><li><a href="All-Products.html?cat=cleaning">Cleaning Aid</a></li><li><a href="All-Products.html?cat=appliances">Electric Appliances</a></li></ul>
       </div>
       <div class="foot-col">
         <h5>Quick Link</h5>
