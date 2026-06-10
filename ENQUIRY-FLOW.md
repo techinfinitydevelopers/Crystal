@@ -294,7 +294,7 @@ Add a persistent **Enquiry cart icon** to the header nav-right (left of "Request
 ---
 
 ## Decisions (status)
-1. **Build status:** 📌 **Spec only — implementation deferred** (revisit later).
+1. **Build status:** ✅ **Frontend implemented** (cart, badge, dual CTAs on cards + PDP, Enquiry page + form + success/ref number, Buy-Now modal with marketplace search-URL placeholders). ⏳ **Backend pending** — form validates + shows success client-side and `console.log`s the payload; wire to Web3Forms/serverless when chosen (see `enquiry.js` + `Enquiry.html` TODO).
 2. **Buy Now multi-link UX:** ✅ **Modal** (mobile = bottom-sheet) — confirmed.
 3. **Marketplace data (URLs):** ⏳ to be provided later; build with placeholders when implementing.
 4. **SKUs:** ⏳ to be decided later (real SKUs or auto scheme `CRY-LTR-001`).

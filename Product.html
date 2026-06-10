@@ -128,7 +128,20 @@
   .vchip { font-family: var(--body); font-weight: 700; font-size: 14px; padding: 11px 20px; border-radius: 100px; border: 1.5px solid var(--line); background: var(--white); color: var(--ink); cursor: pointer; transition: background .2s, color .2s, border-color .2s, transform .2s; }
   .vchip:hover { transform: translateY(-2px); border-color: rgba(237,51,56,0.4); }
   .vchip.active { background: var(--ink); color: #fff; border-color: var(--ink); }
-  .info-cta { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 26px; }
+  .info-cta { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 18px; }
+  .qty-row { display: flex; align-items: center; gap: 14px; margin-top: 24px; }
+  .qty-lbl { font-weight: 700; font-size: 14px; }
+  .qty-step { display: inline-flex; align-items: center; border: 1.5px solid var(--line); border-radius: 100px; overflow: hidden; }
+  .qty-step button { width: 38px; height: 40px; border: none; background: #fff; font-size: 20px; cursor: pointer; color: var(--ink); }
+  .qty-step button:hover { background: var(--cream); }
+  .qty-step input { width: 46px; height: 40px; border: none; text-align: center; font: 700 15px var(--body); -moz-appearance: textfield; }
+  .qty-step input::-webkit-outer-spin-button, .qty-step input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+  .mk-inline { margin-top: 16px; font-size: 13px; font-weight: 600; color: var(--muted); display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+  .mk-inline a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+  .mk-inline a:hover { color: var(--red); }
+  .pdp-sticky { position: fixed; left: 0; right: 0; bottom: 0; z-index: 90; display: none; gap: 10px; padding: 12px 16px calc(12px + env(safe-area-inset-bottom)); background: rgba(255,255,255,0.96); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border-top: 1.5px solid var(--line); }
+  .pdp-sticky .btn { flex: 1; justify-content: center; }
+  @media (max-width: 760px) { .pdp-sticky { display: flex; } body { padding-bottom: 74px; } }
   .hi-list { list-style: none; display: grid; gap: 12px; margin-top: 30px; padding-top: 26px; border-top: 1.5px solid var(--line); }
   .hi-list li { display: flex; gap: 12px; align-items: flex-start; font-size: 15px; font-weight: 500; color: var(--ink); }
   .hi-list .tick { flex: 0 0 auto; width: 22px; height: 22px; border-radius: 50%; background: rgba(237,51,56,0.12); display: grid; place-items: center; margin-top: 1px; }
@@ -374,6 +387,7 @@
         <li><a href="Contact.html">Contact</a></li>
       </ul>
       <div class="nav-right">
+        <a href="Enquiry.html" class="enq-link" aria-label="Enquiry list" title="Enquiry list"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg><span class="enq-count">0</span></a>
         <a href="Quote.html" class="btn btn-red">Request Quote <span class="arr">↗</span></a>
         <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
       </div>
@@ -384,6 +398,7 @@
 <div class="mobile-menu" id="mobileMenu">
   <button class="mm-close" id="mmClose" aria-label="Close">&times;</button>
   <ul>
+    <li><a href="Enquiry.html" class="mm-link">Enquiry List <span class="enq-count">0</span></a></li>
     <li><a href="About.html" class="mm-link">About</a></li>
     <li><a href="All-Products.html" class="mm-link">Products</a></li>
     <li><a href="Catalogue.html" class="mm-link">Catalogue</a></li>
@@ -423,10 +438,20 @@
         <div class="vlbl">Variant <b id="vCurrent"></b></div>
         <div class="vchips" id="vChips"></div>
       </div>
+      <div class="qty-row">
+        <span class="qty-lbl">Quantity</span>
+        <div class="qty-step">
+          <button type="button" id="qtyMinus" aria-label="Decrease quantity">–</button>
+          <input id="qtyInput" type="number" min="1" value="1" inputmode="numeric" aria-label="Quantity">
+          <button type="button" id="qtyPlus" aria-label="Increase quantity">+</button>
+        </div>
+      </div>
       <div class="info-cta">
-        <a class="btn btn-red" id="enquireBtn" href="#"><span>Enquire About This Product</span> <span class="arr">↗</span></a>
+        <button type="button" class="btn btn-dark enq-add" id="enqAddBtn" data-qty-from="#qtyInput"><span class="enq-lbl">Enquire Now</span> <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></button>
+        <button type="button" class="btn btn-red enq-buy" id="buyNowBtn">Buy Now <span class="arr">↗</span></button>
         <a class="btn btn-ghost" id="brandAllBtn" href="#">View All <span id="brandAllName"></span></a>
       </div>
+      <div class="mk-inline" id="mkInline"></div>
       <ul class="hi-list" id="hiList"></ul>
     </div>
   </div>
@@ -706,7 +731,19 @@
   document.getElementById("pIntro").textContent = prod.intro;
   document.getElementById("brandAllName").textContent = brand.name;
   document.getElementById("brandAllBtn").href = "All-Products.html?brand=" + prod.b;
-  document.getElementById("enquireBtn").href = "mailto:sales@crystalcook.com?subject=" + encodeURIComponent("Enquiry: " + prod.n);
+  // ---- Enquire / Buy / quantity wiring ----
+  var _pid = (window.PID && PID[prod.n]) || (new URLSearchParams(location.search)).get("p") || "";
+  function wireEnq(btn) { if (!btn) return; btn.dataset.id = _pid; btn.dataset.name = prod.n; btn.dataset.brand = brand.name; btn.dataset.cat = CAT_LABEL[prod.c] || prod.c; btn.dataset.img = gallery[0] || ""; }
+  wireEnq(document.getElementById("enqAddBtn"));
+  wireEnq(document.getElementById("sEnq"));
+  document.getElementById("buyNowBtn").dataset.name = prod.n;
+  var _sBuy = document.getElementById("sBuy"); if (_sBuy) _sBuy.dataset.name = prod.n;
+  var _q = encodeURIComponent(prod.n);
+  document.getElementById("mkInline").innerHTML = "Available on: " +
+    '<a href="https://www.amazon.in/s?k=' + _q + '" target="_blank" rel="noopener nofollow sponsored">Amazon</a>' +
+    '<a href="https://www.flipkart.com/search?q=' + _q + '" target="_blank" rel="noopener nofollow sponsored">Flipkart</a>' +
+    '<a href="https://www.jiomart.com/search/' + _q + '" target="_blank" rel="noopener nofollow sponsored">JioMart</a>';
+  (function () { var qi = document.getElementById("qtyInput"); var mn = document.getElementById("qtyMinus"), pl = document.getElementById("qtyPlus"); if (qi && mn && pl) { mn.onclick = function () { qi.value = Math.max(1, (parseInt(qi.value, 10) || 1) - 1); }; pl.onclick = function () { qi.value = (parseInt(qi.value, 10) || 1) + 1; }; } })();
 
   function renderVariants(elId) {
     document.getElementById(elId).innerHTML = variants.map((v, i) => `<button class="vchip${i===0?' active':''}" data-v="${v}">${v}</button>`).join("");
@@ -954,5 +991,10 @@
   syncUI();
 })();
 </script>
+<div class="pdp-sticky" id="pdpSticky">
+  <button type="button" class="btn btn-dark enq-add" id="sEnq" data-qty-from="#qtyInput"><span class="enq-lbl">Enquire</span></button>
+  <button type="button" class="btn btn-red enq-buy" id="sBuy">Buy Now</button>
+</div>
+<script src="enquiry.js"></script>
 </body>
 </html>
