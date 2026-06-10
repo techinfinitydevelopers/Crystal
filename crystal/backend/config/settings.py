@@ -1,5 +1,6 @@
 from pathlib import Path
 import environ
+import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -9,6 +10,18 @@ environ.Env.read_env(BASE_DIR / '.env')
 SECRET_KEY = env('SECRET_KEY', default='django-insecure-change-me-in-production')
 DEBUG = env('DEBUG')
 ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=['*'])
+
+# Railway auto-injects RAILWAY_PUBLIC_DOMAIN — add it automatically
+_railway_domain = os.environ.get('RAILWAY_PUBLIC_DOMAIN')
+if _railway_domain and _railway_domain not in ALLOWED_HOSTS:
+    ALLOWED_HOSTS.append(_railway_domain)
+
+CSRF_TRUSTED_ORIGINS = [
+    'http://localhost:3456',
+    'http://127.0.0.1:3456',
+]
+if _railway_domain:
+    CSRF_TRUSTED_ORIGINS.append(f'https://{_railway_domain}')
 
 INSTALLED_APPS = [
     'jazzmin',
