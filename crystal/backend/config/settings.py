@@ -11,10 +11,21 @@ SECRET_KEY = env('SECRET_KEY', default='django-insecure-change-me-in-production'
 DEBUG = env('DEBUG')
 ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=['*'])
 
-# Railway auto-injects RAILWAY_PUBLIC_DOMAIN — add it automatically
+# Railway — auto-add domain
 _railway_domain = os.environ.get('RAILWAY_PUBLIC_DOMAIN')
 if _railway_domain and _railway_domain not in ALLOWED_HOSTS:
     ALLOWED_HOSTS.append(_railway_domain)
+
+# PythonAnywhere — auto-add *.pythonanywhere.com if running there
+_pa_host = os.environ.get('PYTHONANYWHERE_DOMAIN') or os.environ.get('PYTHONANYWHERE_SITE')
+if not _pa_host:
+    # detect by hostname pattern as fallback
+    import socket
+    _hn = socket.gethostname()
+    if 'pythonanywhere' in _hn:
+        _pa_host = _hn
+if _pa_host and _pa_host not in ALLOWED_HOSTS:
+    ALLOWED_HOSTS.append(_pa_host)
 
 CSRF_TRUSTED_ORIGINS = [
     'http://localhost:3456',
@@ -22,6 +33,8 @@ CSRF_TRUSTED_ORIGINS = [
 ]
 if _railway_domain:
     CSRF_TRUSTED_ORIGINS.append(f'https://{_railway_domain}')
+if _pa_host:
+    CSRF_TRUSTED_ORIGINS.append(f'https://{_pa_host}')
 
 INSTALLED_APPS = [
     'jazzmin',
