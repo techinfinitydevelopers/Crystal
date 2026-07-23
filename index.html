@@ -792,16 +792,17 @@
 <script>
   /* ---------- DATA + RENDER ---------- */
   const U = "https://proj.leo9studio.in/projects/crystal-wp/wp-content/uploads/";
+  const localImg = im => (im.startsWith("about-assets/") || im.startsWith("uploads/")) ? im : U + im;
   const works = [
     { cat: "Cookware", name: "Tri-Ply, Cast Iron & Non-Stick", desc: "Built to last a lifetime of everyday Indian cooking — even heat, lasting durability.", img: "2026/04/Tri-Pro-2-1.jpg" },
-    { cat: "Kitchenware", name: "Knives, Cutlery & Tools", desc: "Everyday tools that make prep effortless, from blade to board to table.", img: "2026/04/Knife-2.jpg" },
-    { cat: "Cleaning Aid", name: "Mops, Brooms & Wipers", desc: "Smart cleaning essentials for a sparkling, effortless home.", img: "2026/04/Spin-Mops-2.jpg" },
-    { cat: "Electric Appliances", name: "Chimneys, Kettles & Air Fryers", desc: "Modern appliances built for the modern Indian kitchen.", img: "2026/04/5.jpg" },
+    { cat: "Kitchenware", name: "Knives, Cutlery & Tools", desc: "Everyday tools that make prep effortless, from blade to board to table.", img: "about-assets/prod-3.jpg" },
+    { cat: "Cleaning Aid", name: "Mops, Brooms & Wipers", desc: "Smart cleaning essentials for a sparkling, effortless home.", img: "uploads/7-1.jpg" },
+    { cat: "Electric Appliances", name: "Chimneys, Kettles & Air Fryers", desc: "Modern appliances built for the modern Indian kitchen.", img: "about-assets/about-us-crystal-range.png" },
     { cat: "Pressure Cookers", name: "Tri-Pro — Cook Faster, Every Day", desc: "Triply, induction-ready cookers that save fuel and time on every meal.", img: "2026/04/Pressure-Cooker-5.jpg" },
   ];
   document.getElementById("worksGrid").innerHTML = works.map((w, i) => `
     <article class="work-card" data-work style="--i:${i}">
-      <div class="wc-media"><image-slot id="work-${i}" src="${U}${w.img}" placeholder="Drop image" fit="cover"></image-slot></div>
+      <div class="wc-media"><image-slot id="work-${i}" src="${localImg(w.img)}" placeholder="Drop image" fit="cover"></image-slot></div>
       <span class="wc-grad"></span>
       <div class="wc-body">
         <span class="wc-num">0${i+1} / 05</span>
