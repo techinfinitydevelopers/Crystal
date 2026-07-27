@@ -806,11 +806,11 @@
   const U = "https://proj.leo9studio.in/projects/crystal-wp/wp-content/uploads/";
   const localImg = im => (im.startsWith("about-assets/") || im.startsWith("uploads/")) ? im : U + im;
   const works = [
-    { cat: "Cookware", name: "Tri-Ply, Cast Iron & Non-Stick", desc: "Built to last a lifetime of everyday Indian cooking — even heat, lasting durability.", img: "2026/04/Tri-Pro-2-1.jpg" },
-    { cat: "Kitchenware", name: "Knives, Cutlery & Tools", desc: "Everyday tools that make prep effortless, from blade to board to table.", img: "about-assets/prod-3.jpg" },
-    { cat: "Cleaning Aid", name: "Mops, Brooms & Wipers", desc: "Smart cleaning essentials for a sparkling, effortless home.", img: "uploads/7-1.jpg" },
-    { cat: "Electric Appliances", name: "Chimneys, Kettles & Air Fryers", desc: "Modern appliances built for the modern Indian kitchen.", img: "about-assets/about-us-crystal-range.png" },
-    { cat: "Pressure Cookers", name: "Tri-Pro — Cook Faster, Every Day", desc: "Triply, induction-ready cookers that save fuel and time on every meal.", img: "2026/04/Pressure-Cooker-5.jpg" },
+    { cat: "Cookware", name: "Tri-Ply, Cast Iron & Non-Stick", desc: "Built to last a lifetime of everyday Indian cooking — even heat, lasting durability.", img: "about-assets/cookware-tri-ply-cast-iron-non-stick.png" },
+    { cat: "Kitchenware", name: "Knives, Cutlery & Tools", desc: "Everyday tools that make prep effortless, from blade to board to table.", img: "about-assets/kitchenware-knives-cutlery-tools.png" },
+    { cat: "Cleaning Aid", name: "Mops, Brooms & Wipers", desc: "Smart cleaning essentials for a sparkling, effortless home.", img: "about-assets/cleaning-aid-mops-brooms-wipers.png" },
+    { cat: "Electric Appliances", name: "Chimneys, Kettles & Air Fryers", desc: "Modern appliances built for the modern Indian kitchen.", img: "about-assets/electric-appliances-chimneys-kettles-air-fryers.png" },
+    { cat: "Pressure Cookers", name: "Tri-Pro — Cook Faster, Every Day", desc: "Triply, induction-ready cookers that save fuel and time on every meal.", img: "about-assets/pressure-cookers-tri-pro.png" },
   ];
   document.getElementById("worksGrid").innerHTML = works.map((w, i) => `
     <article class="work-card" data-work style="--i:${i}">
