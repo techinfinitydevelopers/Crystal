@@ -972,6 +972,7 @@
 
     /* fade blocks */
     gsap.utils.toArray("[data-fade]").forEach(el => {
+      if (el.closest("#hero")) return;
       gsap.from(el, { y: 38, opacity: 0, duration: 0.7, ease: "power2.out", scrollTrigger: { trigger: el, start: "top 88%", once: true } });
     });
 
