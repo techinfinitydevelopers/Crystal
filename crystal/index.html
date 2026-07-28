@@ -586,7 +586,7 @@
   </span>
   <div class="wrap">
     <div class="pre" data-fade>Crystal · Since 1971</div>
-    <h1 data-split>SIMPLIFYING <span class="grad">DAILY CHORES</span></h1>
+    <h1 data-split>SIMPLIFYING <span class="grad">DAILY&nbsp;CHORES</span></h1>
     <h1 data-split>ADDING PRIDE TO EVERY HOME</h1>
     <p class="hero-sub" data-fade>From cooking to serving to cleaning — making everyday living effortless, elegant &amp; extraordinary, with a wide &amp; reliable range trusted by homes and retailers alike.</p>
     <div class="hero-cta" data-fade>
@@ -921,12 +921,14 @@
   /* ---------- WORD SPLIT ---------- */
   function splitWords(el) {
     const frag = [];
+    // split on breaking whitespace only — an nbsp in the source marks two
+    // tokens that must stay on the same line, so keep them one word/span.
     el.childNodes.forEach(node => {
       if (node.nodeType === 3) {
-        node.textContent.trim().split(/\s+/).filter(Boolean).forEach(w => frag.push(`<span class="w-mask"><span class="word">${w}</span></span>`));
+        node.textContent.trim().split(/[ \t\n\r\f]+/).filter(Boolean).forEach(w => frag.push(`<span class="w-mask"><span class="word">${w}</span></span>`));
       } else if (node.nodeType === 1) {
         const cls = node.getAttribute("class") || "";
-        node.textContent.trim().split(/\s+/).filter(Boolean).forEach(w => frag.push(`<span class="w-mask"><span class="word ${cls}">${w}</span></span>`));
+        node.textContent.trim().split(/[ \t\n\r\f]+/).filter(Boolean).forEach(w => frag.push(`<span class="w-mask"><span class="word ${cls}">${w}</span></span>`));
       }
     });
     el.innerHTML = frag.join(" ");
