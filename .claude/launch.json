@@ -9,7 +9,7 @@
     }
   ,
     {
-      "name": "crystal",
+      "name": "crystal-dev",
       "runtimeExecutable": "npx",
       "runtimeArgs": ["serve", "-l", "3456", "crystal"],
       "port": 3456

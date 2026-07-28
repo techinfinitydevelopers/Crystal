@@ -197,7 +197,7 @@
   .pcard { background: var(--white); border: 1.5px solid var(--line); border-radius: var(--r); overflow: hidden; display: flex; flex-direction: column; transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s, border-color .35s; }
   .pcard:hover { transform: translateY(-7px); box-shadow: 0 32px 58px -34px rgba(15,15,15,0.42); border-color: rgba(237,51,56,0.3); }
   .pcard .pimg { position: relative; aspect-ratio: 1/1; overflow: hidden; background: #f1f1f1; }
-  .pcard .pimg img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s cubic-bezier(.2,.8,.2,1); }
+  .pcard .pimg img { width: 100%; height: 100%; object-fit: contain; transition: transform .6s cubic-bezier(.2,.8,.2,1); }
   .pcard:hover .pimg img { transform: scale(1.06); }
   .pcard .pbrand { position: absolute; top: 11px; left: 11px; z-index: 2; background: rgba(255,255,255,0.92); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); font-family: var(--head); font-weight: 700; font-size: 9.5px; letter-spacing: 0.08em; text-transform: uppercase; padding: 5px 10px; border-radius: 100px; color: var(--ink); box-shadow: 0 6px 16px -10px rgba(0,0,0,0.4); }
   .pcard .penq-btn { position: absolute; right: 11px; bottom: 11px; z-index: 3; width: 38px; height: 38px; border-radius: 50%; background: var(--ink); color: #fff; display: grid; place-items: center; box-shadow: 0 10px 22px -10px rgba(0,0,0,0.5); opacity: 0; transform: translateY(8px) scale(.85); transition: opacity .3s, transform .3s cubic-bezier(.2,.8,.2,1), background .25s; }
@@ -660,9 +660,11 @@
     flasks: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2.5h4v2.5l1 2v12.5a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2V7l1-2z"/><path d="M9 11h6"/></svg>',
     lighters: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c3.6 3.8 5.6 6.2 5.6 9.5A5.6 5.6 0 0 1 6.4 12.5C6.4 10.3 7.6 9 9.5 7.6c.5 1.6 1.6 2 2.2.9.6-1.1.1-3.8.3-5.5z"/></svg>',
     appliances: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v5M15 2v5"/><path d="M6 7h12v2.5a6 6 0 0 1-12 0z"/><path d="M12 15.5V22"/></svg>',
+    kitchenware: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15C11 13 17 7 20.5 3c.8 3.8-.6 9.4-7.5 13.5z"/><path d="M4 15l-1.6 4.4 4.4-1.6"/></svg>',
   };
   const CATEGORIES = [
     { id: "cookware", label: "Cookware" },
+    { id: "kitchenware", label: "Kitchenware" },
     { id: "cutlery", label: "Cutlery & Knives" },
     { id: "serveware", label: "Serveware" },
     { id: "cleaning", label: "Cleaning Aids" },
@@ -681,51 +683,12 @@
   ];
   const BRAND_BY = Object.fromEntries(BRANDS.map(b => [b.slug, b]));
 
-  const P = [
-    // CRYSTAL
-    { n: "Aristo SS Lighter",            col: "Classic Lighters",       b: "crystal",    c: "lighters",   img: "about-assets/prod-1.jpg",                              hl: "Refillable stainless-steel gas lighter with a sure, single-press spark.", tags: ["Stainless Steel", "Refillable"] },
-    { n: "Slimline Gas Lighter 305mm",   col: "Classic Lighters",       b: "crystal",    c: "lighters",   img: "about-assets/prod-2.jpg",                              hl: "Long-reach slimline lighter for deep burners and outdoor grills.", tags: ["Long Reach", "Flintless"] },
-    { n: "5-Pc Surgical Steel Knife Set",col: "Surgical Steel Knives",  b: "crystal",    c: "cutlery",    img: U + "2026/01/Crystal-5-Pcs-Knife-Set.jpg",              hl: "India's first surgical-steel knives — a full set that stays sharp for years.", tags: ["Surgical Steel", "Set of 5"] },
-    { n: "Laser-Edge Chef Knife",        col: "Surgical Steel Knives",  b: "crystal",    c: "cutlery",    img: U + "2026/04/Knife-2.jpg",                              hl: "Precision laser-honed edge for clean, effortless cuts every time.", tags: ["Laser Edge", "Ergonomic"] },
-    { n: "Auto-Clean Chimney 90cm",      col: "Modern Appliances",      b: "crystal",    c: "appliances", img: U + "2026/04/8.jpg",                                    hl: "Powerful suction with auto-clean tech for a grease-free kitchen.", tags: ["Auto-Clean", "Silent"] },
-    { n: "Electric Kettle 1.5L",         col: "Modern Appliances",      b: "crystal",    c: "appliances", img: U + "2026/04/5.jpg",                                    hl: "Fast-boil stainless kettle with auto cut-off and cool-touch body.", tags: ["1.5L", "Auto Cut-off"] },
-    // CRYSTALINA
-    { n: "Mirror-Finish Serving Set",    col: "Splendid Serveware",     b: "crystalina", c: "serveware",  img: "about-assets/prod-3.jpg",                              hl: "Gleaming stainless serveware that turns everyday meals into occasions.", tags: ["Mirror Finish", "Food-Grade"] },
-    { n: "Insulated Hot-Pot Casserole",  col: "Splendid Serveware",     b: "crystalina", c: "serveware",  img: "about-assets/prod-4.jpg",                              hl: "Double-wall casserole that keeps rotis and curries warm for hours.", tags: ["Insulated", "Stay-Warm"] },
-    { n: "Steel Dinner Thali Set",       col: "Elite Dinnerware",       b: "crystalina", c: "serveware",  img: "about-assets/prod-5.jpg",                              hl: "Heavy-gauge thali set with a splendid finish, built for daily dining.", tags: ["Heavy Gauge", "Family Set"] },
-    // CRYSTAL (cookware)
-    { n: "Tri-Ply Frypan 24cm",          col: "Tri-Ply Pro",            b: "crystal",    c: "cookware",   img: U + "2026/04/Tri-Pro-2-1.jpg",                          hl: "Three bonded layers for even heat and pro-grade searing.", tags: ["Tri-Ply", "Induction"] },
-    { n: "Platinum Non-Stick Kadai",     col: "Platinum Non-Stick",     b: "crystal",    c: "cookware",   img: U + "2026/05/CTV-097.jpg",                              hl: "3-coat platinum non-stick, DuPont-grade, for healthier low-oil cooking.", tags: ["Non-Stick", "Low-Oil"] },
-    { n: "Tri-Pro Pressure Cooker 3L",   col: "Tri-Pro Pro",            b: "crystal",    c: "cookware",   img: U + "2026/04/Pressure-Cooker-5.jpg",                    hl: "Induction-ready triply cooker that saves fuel and time on every meal.", tags: ["Induction", "Triply"] },
-    { n: "Heritage Cast Iron Tawa",      col: "Heritage Cast Iron",     b: "crystal",    c: "cookware",   img: U + "2026/04/CPC_023.jpg",                              hl: "Pre-seasoned cast iron that gets better with every use.", tags: ["Cast Iron", "Pre-Seasoned"] },
-    // VALMATE (storage)
-    { n: "Airtight Container Set",       col: "Lock-Fresh Containers",  b: "valmate",    c: "storage",    img: "about-assets/prod-6.jpg",                              hl: "Leak-proof, airtight containers that lock freshness in.", tags: ["Airtight", "Set of 6"] },
-    { n: "Modular Storage Jars",         col: "Modular Kitchen",        b: "valmate",    c: "storage",    img: "about-assets/prod-7.jpg",                              hl: "Stackable modular jars that bring order to every shelf.", tags: ["Stackable", "BPA-Free"] },
-    { n: "Steel Lunch Box 3-Tier",       col: "On-the-Go",              b: "valmate",    c: "storage",    img: "about-assets/prod-8.jpg",                              hl: "Insulated three-tier tiffin that keeps lunch warm till noon.", tags: ["Insulated", "Leak-Proof"] },
-    // SPARKMATE
-    { n: "360° Spin Mop",                col: "Spin & Clean",           b: "sparkmate",  c: "cleaning",   img: U + "2026/04/Spin-Mops-2.jpg",                          hl: "Single-bucket spin system for hands-free wringing and a sparkling floor.", tags: ["360° Spin", "Hands-Free"] },
-    { n: "Easy-Press Spin Mop Pro",      col: "Spin & Clean",           b: "sparkmate",  c: "cleaning",   img: U + "2026/05/SMM013-1024x1024.jpg",                     hl: "Foot-pedal spin with a microfibre head that lifts grime fast.", tags: ["Foot Pedal", "Microfibre"] },
-    { n: "Floor Wiper & Brush Combo",    col: "Sparkle Essentials",     b: "sparkmate",  c: "cleaning",   img: U + "2026/04/13.jpg",                                   hl: "Everyday wiper and brush set for quick, streak-free cleaning.", tags: ["Combo", "Everyday"] },
-    // VALMATE (flasks)
-    { n: "Vacuum Flask 1L",              col: "Thermo Lock",            b: "valmate",    c: "flasks",     img: U + "2026/04/10.jpg",                                   hl: "Double-wall vacuum flask that keeps drinks hot or cold for 24 hours.", tags: ["24h Hot/Cold", "1L"] },
-    { n: "Insulated Sipper Bottle",      col: "Thermo Lock",            b: "valmate",    c: "flasks",     img: U + "2026/04/11.jpg",                                   hl: "Leak-proof insulated sipper for the gym, office and travel.", tags: ["Leak-Proof", "Insulated"] },
-    { n: "Double-Wall Carafe",           col: "Serve Warm",             b: "valmate",    c: "flasks",     img: U + "2026/04/6.jpg",                                    hl: "Elegant table carafe that serves water and juice at the perfect temp.", tags: ["Double-Wall", "Table-Ready"] },
-  ];
-  // product id (slug) used to link each card to its detail page (Product.html?p=<id>)
-  const PID = {
-    "Aristo SS Lighter": "aristo-lighter", "Slimline Gas Lighter 305mm": "slimline-lighter",
-    "5-Pc Surgical Steel Knife Set": "knife-set-5pc", "Laser-Edge Chef Knife": "chef-knife",
-    "Auto-Clean Chimney 90cm": "chimney", "Electric Kettle 1.5L": "kettle",
-    "Mirror-Finish Serving Set": "serving-set", "Insulated Hot-Pot Casserole": "hot-pot-casserole",
-    "Steel Dinner Thali Set": "thali-set", "Tri-Ply Frypan 24cm": "triply-frypan",
-    "Platinum Non-Stick Kadai": "nonstick-kadai", "Tri-Pro Pressure Cooker 3L": "pressure-cooker",
-    "Heritage Cast Iron Tawa": "cast-iron-tawa", "Airtight Container Set": "container-set",
-    "Modular Storage Jars": "storage-jars", "Steel Lunch Box 3-Tier": "lunch-box",
-    "360\u00b0 Spin Mop": "spin-mop", "Easy-Press Spin Mop Pro": "spin-mop-pro",
-    "Floor Wiper & Brush Combo": "wiper-brush", "Vacuum Flask 1L": "vacuum-flask",
-    "Insulated Sipper Bottle": "sipper-bottle", "Double-Wall Carafe": "carafe",
-  };
-  const pdpHref = p => "Product.html?p=" + (PID[p.n] || "");
+  // Real catalog loaded from product-data/products.json (see bootstrap at
+  // the bottom of this script). P/PID start empty and are populated once
+  // the manifest fetch resolves.
+  let P = [];
+  let PID = {};
+  const pdpHref = p => "Product.html?p=" + (p.id || PID[p.n] || "");
 
   const MAIN_COLLECTIONS = [
     { tag: "Crystal", title: "Tri-Pro Cookware", desc: "Triply, induction-ready cookware that cooks faster and lasts a lifetime.", img: U + "2026/05/CTV-097.jpg", cls: "tall", filter: { c: "cookware" } },
@@ -735,7 +698,8 @@
     { tag: "ValMate", title: "Lock-Fresh Storage", desc: "Airtight, modular containers that keep food fresher for longer.", img: "about-assets/prod-6.jpg", filter: { c: "storage" } },
   ];
 
-  /* ---------- VIEW (main vs brand) ---------- */
+  /* ---------- VIEW (main vs brand) — runs once the catalog manifest has loaded ---------- */
+  function renderCatalog() {
   const params = new URLSearchParams(location.search);
   const brandSlug = (params.get("brand") || "").toLowerCase();
   const brand = BRAND_BY[brandSlug] || null;
@@ -920,6 +884,24 @@
     applyAndRender(false);
     const bsec = document.getElementById("browse");
     if (bsec) bsec.scrollIntoView({ behavior: "smooth", block: "start" });
+  })();
+  } // end renderCatalog()
+
+  /* ---------- CATALOG BOOTSTRAP: load real product data, then render ---------- */
+  (async function loadCatalog() {
+    try {
+      const res = await fetch("product-data/products.json");
+      const data = await res.json();
+      P = data.products.map(p => ({
+        n: p.name, col: p.collection || p.subcategory || "", b: p.brand, c: p.category, sub: p.subcategory,
+        img: p.hero || "about-assets/prod-1.jpg", hl: p.highlight || p.description || "",
+        tags: p.tags || [], id: p.id, mrp: p.mrp,
+      }));
+      PID = Object.fromEntries(P.map(p => [p.n, p.id]));
+    } catch (e) {
+      console.warn("Could not load product-data/products.json", e);
+    }
+    renderCatalog();
   })();
 
   /* ---------- RENDER: brand value cards ---------- */

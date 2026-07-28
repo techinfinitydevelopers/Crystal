@@ -1,0 +1,883 @@
+{
+  "unmatched_products": [
+    {
+      "sku": "VML-002",
+      "name": "CRYSTAL VALMATE VALUE STEEL LIGHTER",
+      "sheet": "Lighter"
+    },
+    {
+      "sku": "CTP-EDK-002",
+      "name": "CRYSTAL TRIPRO -TRIPLY STAINLESS STEEL EXTRA DEEP KADAI WITH LID - 24 CM (INDUCTION BOTTOM), WITH ROSE GOLD HANDLE (CTP-EDK-002A)",
+      "sheet": "Cookware"
+    },
+    {
+      "sku": "CTP-EDK-003",
+      "name": "CRYSTAL TRIPRO -TRIPLY STAINLESS STEEL EXTRA DEEP KADAI WITH LID - 26 CM (INDUCTION BOTTOM), WITH ROSE GOLD HANDLE (CTP-EDK-003A)",
+      "sheet": "Cookware"
+    },
+    {
+      "sku": "CTP-EDK-004",
+      "name": "CRYSTAL TRIPRO -TRIPLY STAINLESS STEEL EXTRA DEEP KADAI WITH LID - 28 CM (INDUCTION BOTTOM), WITH ROSE GOLD HANDLE (CTP-EDK-004A)",
+      "sheet": "Cookware"
+    },
+    {
+      "sku": "CTV-099",
+      "name": "CRYSTAL TRIVAL 4 PCS SET KADAI 240 + 220 F/R 160 S/P WITH  SS LID",
+      "sheet": "Cookware"
+    },
+    {
+      "sku": "CTV-098",
+      "name": "CRYSTAL TRIVAL 3 PCS SET KADAI 240 + 160 S/P  WITH S.S LID",
+      "sheet": "Cookware"
+    },
+    {
+      "sku": "CTV-097",
+      "name": "CRYSTAL TRIVAL 3 PCS SET KADAI 240 +  220 FRYPAN WITH S.S LID",
+      "sheet": "Cookware"
+    },
+    {
+      "sku": "CTV-096",
+      "name": "CRYSTAL TRIVAL 2 PCS SET 220 FRYPAN + 160 S/P",
+      "sheet": "Cookware"
+    },
+    {
+      "sku": "CTV-095",
+      "name": "CRYSTAL TRIVAL 4 PCS COOKER SET – 3L O/L COOKER, 22CM KADAI WITH GLASS LID, 18CM FRY PAN",
+      "sheet": "Cookware"
+    },
+    {
+      "sku": "CTV-094",
+      "name": "CRYSTAL TRIVAL 4 PCS -HANDI MEDIUM WITH GLASS LID-WOK 18CM-SAUCEPAN 14CM SET",
+      "sheet": "Cookware"
+    },
+    {
+      "sku": "CTV-093",
+      "name": "CRYSTAL TRIVAL 4 PCS HANDI SET – HANDI MEDIUM WITH GLASS LID, HANDI LARGE WITH GLASS LID",
+      "sheet": "Cookware"
+    },
+    {
+      "sku": "CTV-092",
+      "name": "CRYSTAL TRIVAL 2 PCS KADAI W/O LID 20 CM WITH TOPE W/O LID 16CM SET",
+      "sheet": "Cookware"
+    },
+    {
+      "sku": "CSI-096",
+      "name": "CRYSTAL TRIBOTTOM 160MM CASSEROLE WITH GLASS LID + 225MM FRY PAN WITH GLASS LID",
+      "sheet": "Cookware"
+    },
+    {
+      "sku": "CSI-097",
+      "name": "CRYSTAL CSI KADAI 250 + 180 S/P WITH 2 GLASS LID",
+      "sheet": "Cookware"
+    },
+    {
+      "sku": "CSI-098",
+      "name": "CRYSTAL CSI C/R 200 + 180 C/R WITH 2 GLASS LID",
+      "sheet": "Cookware"
+    },
+    {
+      "sku": "CSI-099",
+      "name": "CRYSTAL CSI KADAI 225 + 160 S/P WITH 2 GLASS LID",
+      "sheet": "Cookware"
+    },
+    {
+      "sku": "CSI-096FCS",
+      "name": "CRYSTAL TRIBOTTOM 160MM CASSEROLE WITH GLASS LID + 225MM FRY PAN WITH GLASS LID",
+      "sheet": "Cookware"
+    },
+    {
+      "sku": "CSI-096FCL",
+      "name": "CRYSTAL TRIBOTTOM 180MM CASSEROLE WITH GLASS LID + 250MM FRY PAN WITH GLASS LID",
+      "sheet": "Cookware"
+    },
+    {
+      "sku": "CNS-954",
+      "name": "CRYSTAL TUFF PLUS SERIES FLAT TAWA 250MM",
+      "sheet": "Cookware"
+    },
+    {
+      "sku": "CNS-955",
+      "name": "CRYSTAL TUFF PLUS SERIES FLAT TAWA 280MM",
+      "sheet": "Cookware"
+    },
+    {
+      "sku": "CNS-956",
+      "name": "CRYSTAL TUFF PLUS SERIES  FLAT TAWA 300MM",
+      "sheet": "Cookware"
+    },
+    {
+      "sku": "CNS-904A",
+      "name": "CRYSTAL INDUCTION BASE NON-STICK ALUMINIUM FLAT TAWA, 250 MM, MULTICOLOUR",
+      "sheet": "Cookware"
+    },
+    {
+      "sku": "CNS-905A",
+      "name": "CRYSTAL INDUCTION BASE NON-STICK ALUMINIUM FLAT TAWA, 280 MM, MULTICOLOUR",
+      "sheet": "Cookware"
+    },
+    {
+      "sku": "CNS-906A",
+      "name": "CRYSTAL INDUCTION BASE NON-STICK ALUMINIUM FLAT TAWA, 300 MM, MULTICOLOUR",
+      "sheet": "Cookware"
+    },
+    {
+      "sku": "CNS-907A",
+      "name": "CRYSTAL INDUCTION BASE ROUND NON-STICK ALUMINIUM FRY PAN, 225 MM, MULTICOLOUR",
+      "sheet": "Cookware"
+    },
+    {
+      "sku": "CNS-908A",
+      "name": "CRYSTAL INDUCTION BASE ROUND NON-STICK ALUMINIUM FRY PAN, 250 MM, MULTICOLOUR",
+      "sheet": "Cookware"
+    },
+    {
+      "sku": "CNS-910A",
+      "name": "CRYSTAL INDUCTION BASE NON-STICK ALUMINIUM TAPER FRY PAN, 225 MM, MULTICOLOUR",
+      "sheet": "Cookware"
+    },
+    {
+      "sku": "CNS-911A",
+      "name": "CRYSTAL INDUCTION BASE NON-STICK ALUMINIUM TAPER FRY PAN, 250 MM, MULTICOLOUR",
+      "sheet": "Cookware"
+    },
+    {
+      "sku": "CNS-912A",
+      "name": "CRYSTAL INDUCTION BASE NON-STICK ALUMINIUM TAPER FRY PAN, 280 MM, MULTICOLOUR",
+      "sheet": "Cookware"
+    },
+    {
+      "sku": "CNS-913A",
+      "name": "CRYSTAL INDUCTION BASE NON-STICK ALUMINIUM KADHAI, 225 MM, MULTICOLOUR",
+      "sheet": "Cookware"
+    },
+    {
+      "sku": "CNS-914A",
+      "name": "CRYSTAL INDUCTION BASE NON-STICK ALUMINIUM KADHAI, 250 MM, MULTICOLOUR",
+      "sheet": "Cookware"
+    },
+    {
+      "sku": "CNS-915A",
+      "name": "CRYSTAL INDUCTION BASE NON-STICK ALUMINIUM KADHAI, 280 MM, MULTICOLOUR",
+      "sheet": "Cookware"
+    },
+    {
+      "sku": "CNS-916",
+      "name": "CRYSTAL INDO SERIES NON STICK INDUCTION BASE DEEP KADAI 225MM WITH GLASS LID",
+      "sheet": "Cookware"
+    },
+    {
+      "sku": "CNS-917",
+      "name": "CRYSTAL INDO SERIES NON STICK INDUCTION BASE DEEP KADAI 250MM WITH GLASS LID",
+      "sheet": "Cookware"
+    },
+    {
+      "sku": "CNS-918",
+      "name": "CRYSTAL INDO SERIES NON STICK INDUCTION BASE DEEP KADAI 280MM WITH GLASS LID",
+      "sheet": "Cookware"
+    },
+    {
+      "sku": "CNS-098",
+      "name": "CRYSTAL ALUMINIUM HARD ANODISED TADKA PAN, MULTICOLOUR",
+      "sheet": "Cookware"
+    },
+    {
+      "sku": "CNS-151",
+      "name": "CRYSTAL HEAVY GAUGE NON-STICK ALUMINIUM CONCAVE TAWA, 250 MM, MULTICOLOUR",
+      "sheet": "Cookware"
+    }
+  ],
+  "unmatched_images": [
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\KITCHENWARE\\LIGHTERS\\LI006A Continuous Spark Lighter 1.jpg",
+      "sheet": "Lighter"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\KITCHENWARE\\LIGHTERS\\LI006A Continuous Spark Lighter 2.jpg",
+      "sheet": "Lighter"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\KITCHENWARE\\LIGHTERS\\LI006A Continuous Spark Lighter 3.jpg",
+      "sheet": "Lighter"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\KITCHENWARE\\LIGHTERS\\LI006A Continuous Spark Lighter 4.jpg",
+      "sheet": "Lighter"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\KITCHENWARE\\LIGHTERS\\LI006A Continuous Spark Lighter 5.jpg",
+      "sheet": "Lighter"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\CNS 954 955 966.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\CNS-790.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\CNS-793.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\CNS-876 Crystal Eco 7 Pc Nonstick Cookware Set 1.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\CNS-876 Crystal Eco 7 Pc Nonstick Cookware Set 2.JPG",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\CNS-876 Crystal Eco 7 Pc Nonstick Cookware Set 3.JPG",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\CNS-876 Crystal Eco 7 Pc Nonstick Cookware Set 4.JPG",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\CNS-876 Crystal Eco 7 Pc Nonstick Cookware Set 5.JPG",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\CNS-876 Crystal Eco 7 Pc Nonstick Cookware Set 6.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\CNS-876 Crystal Eco 7 Pc Nonstick Cookware Set 7.JPG",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\CNS-876 Crystal Eco 7 Pc Nonstick Cookware Set 8.JPG",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\CNS-883A Crystal Classic 7 Pc Nonstick Cookware Set 1.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\CNS-883A Crystal Classic 7 Pc Nonstick Cookware Set 10.JPG",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\CNS-883A Crystal Classic 7 Pc Nonstick Cookware Set 10a.JPG",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\CNS-883A Crystal Classic 7 Pc Nonstick Cookware Set 11.JPG",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\CNS-883A Crystal Classic 7 Pc Nonstick Cookware Set 1a.JPG",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\CNS-883A Crystal Classic 7 Pc Nonstick Cookware Set 1b.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\CNS-883A Crystal Classic 7 Pc Nonstick Cookware Set 1c.JPG",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\CNS-883A Crystal Classic 7 Pc Nonstick Cookware Set 2.JPG",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\CNS-883A Crystal Classic 7 Pc Nonstick Cookware Set 3.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\CNS-883A Crystal Classic 7 Pc Nonstick Cookware Set 4.JPG",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\CNS-883A Crystal Classic 7 Pc Nonstick Cookware Set 5.JPG",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\CNS-883A Crystal Classic 7 Pc Nonstick Cookware Set 6.JPG",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\CNS-883A Crystal Classic 7 Pc Nonstick Cookware Set 7.JPG",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\CNS-883A Crystal Classic 7 Pc Nonstick Cookware Set 8.JPG",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\CNS-883A Crystal Classic 7 Pc Nonstick Cookware Set 8a.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\CNS-883A Crystal Classic 7 Pc Nonstick Cookware Set 9.JPG",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\CNS-884A Crystal Classic 6 Pc Nonstick Cookware Set 1.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\CNS-884A Crystal Classic 6 Pc Nonstick Cookware Set 10.JPG",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\CNS-884A Crystal Classic 6 Pc Nonstick Cookware Set 11.JPG",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\CNS-884A Crystal Classic 6 Pc Nonstick Cookware Set 12.JPG",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\CNS-884A Crystal Classic 6 Pc Nonstick Cookware Set 1a.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\CNS-884A Crystal Classic 6 Pc Nonstick Cookware Set 1aa.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\CNS-884A Crystal Classic 6 Pc Nonstick Cookware Set 2.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\CNS-884A Crystal Classic 6 Pc Nonstick Cookware Set 2a.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\CNS-884A Crystal Classic 6 Pc Nonstick Cookware Set 2aa.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\CNS-884A Crystal Classic 6 Pc Nonstick Cookware Set 2b.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\CNS-884A Crystal Classic 6 Pc Nonstick Cookware Set 3.JPG",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\CNS-884A Crystal Classic 6 Pc Nonstick Cookware Set 3a.JPG",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\CNS-884A Crystal Classic 6 Pc Nonstick Cookware Set 4.JPG",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\CNS-884A Crystal Classic 6 Pc Nonstick Cookware Set 5.JPG",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\CNS-884A Crystal Classic 6 Pc Nonstick Cookware Set 6.JPG",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\CNS-884A Crystal Classic 6 Pc Nonstick Cookware Set 7.JPG",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\CNS-884A Crystal Classic 6 Pc Nonstick Cookware Set 8.JPG",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\CNS-884A Crystal Classic 6 Pc Nonstick Cookware Set 9.JPG",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\CNS-884A Crystal Classic 6 Pc Nonstick Cookware Set 9a.JPG",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\CNS-885A Crystal Classic Ib 6 Pc Nonstick Cookware Set  1.JPG",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\CNS-885A Crystal Classic Ib 6 Pc Nonstick Cookware Set  2b.JPG",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\CNS-885A Crystal Classic Ib 6 Pc Nonstick Cookware Set 1.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\CNS-885A Crystal Classic Ib 6 Pc Nonstick Cookware Set 10.JPG",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\CNS-885A Crystal Classic Ib 6 Pc Nonstick Cookware Set 11.JPG",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\CNS-885A Crystal Classic Ib 6 Pc Nonstick Cookware Set 13.JPG",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\CNS-885A Crystal Classic Ib 6 Pc Nonstick Cookware Set 13a.JPG",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\CNS-885A Crystal Classic Ib 6 Pc Nonstick Cookware Set 14.JPG",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\CNS-885A Crystal Classic Ib 6 Pc Nonstick Cookware Set 15.JPG",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\CNS-885A Crystal Classic Ib 6 Pc Nonstick Cookware Set 1a.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\CNS-885A Crystal Classic Ib 6 Pc Nonstick Cookware Set 2.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\CNS-885A Crystal Classic Ib 6 Pc Nonstick Cookware Set 2a.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\CNS-885A Crystal Classic Ib 6 Pc Nonstick Cookware Set 3.JPG",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\CNS-885A Crystal Classic Ib 6 Pc Nonstick Cookware Set 4.JPG",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\CNS-885A Crystal Classic Ib 6 Pc Nonstick Cookware Set 5.JPG",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\CNS-885A Crystal Classic Ib 6 Pc Nonstick Cookware Set 6.JPG",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\CNS-885A Crystal Classic Ib 6 Pc Nonstick Cookware Set 7.JPG",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\CNS-885A Crystal Classic Ib 6 Pc Nonstick Cookware Set 8.JPG",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\CNS-885A Crystal Classic Ib 6 Pc Nonstick Cookware Set 9.JPG",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\CNS-885A Crystal Classic Ib 6 Pc Nonstick Cookware Set 9a.JPG",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\CNS-896 4 PC VALUE PLUS  NON STICK COOKWARE SET A.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\CNS-896 4 PC VALUE PLUS  NON STICK COOKWARE SET B.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\CNS-896 4 PC VALUE PLUS  NON STICK COOKWARE SET C.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\CNS-896 4 PC VALUE PLUS  NON STICK COOKWARE SET D.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\CNS-896 4 PC VALUE PLUS  NON STICK COOKWARE SET MRP.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\CNS-897 MRP1 (1).jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\CNS-897 MRP1 (2).jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\CNS-897 MRP1 (3).jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\CNS-897 MRP1 (4).jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\CNS-897.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\CNS-898 - Plus series Non-stick cookware Tawa with Fry Pan 1.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\CNS-898 - Plus series Non-stick cookware Tawa with Fry Pan.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\CNS-898 PLUS SERIES NON-STICK COOKWARE TAWA WITH FRY PAN B.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\CNS-898 PLUS SERIES NON-STICK COOKWARE TAWA WITH FRY PAN C.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\CNS-898 PLUS SERIES NON-STICK COOKWARE TAWA WITH FRY PAN D.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\CNS-898 PLUS SERIES NON-STICK COOKWARE TAWA WITH FRY PAN MRP.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\CNS-898 PLUS SERIES NON-STICK COOKWARE TAWA WITH FRY PAN S.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\CNS-NEW.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\CNS-NEW1.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\CNS–896 - 4 PC VALUE PLUS  NON STICK COOKWARE SET.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\z6e (1).jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\z6e (2).jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\z6e (3).jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\GIFs\\CC-982 Crystal SS Modish Dessert Spoon (6 Pc Set).png",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\GIFs\\CL-127 Bread Knife.png",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\GIFs\\Crystal Vivid Cutlery Set.png",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\GIFs\\crystal-08012020-fb.png",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\GIFs\\Cutlery.png",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\GIFs\\CWB-034 Crystal SS Wavy Bottle.png",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\GIFs\\Lamilano Spoon & Fork.png",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\GIFs\\MKA011 Crystal Bottle Cum Can Opener 1.png",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\GIFs\\Soft Grip Knife.png",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\Non Stick\\Loose Non Stick\\CNS904 5 6.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\Non Stick\\Loose Non Stick\\CNS907 908.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\Non Stick\\Loose Non Stick\\CNS910 911 912.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\Non Stick\\Loose Non Stick\\CNS913 14 1 5.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\Non Stick\\Loose Non Stick\\CNS916 17 18.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\Non Stick\\Loose Non Stick\\CNS954 955 956.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\Non Stick\\Non Stick Sets\\CNS790.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\Non Stick\\Non Stick Sets\\CNS791.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\Non Stick\\Non Stick Sets\\CNS792.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\Non Stick\\Non Stick Sets\\CNS793.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\Pressure Cooker\\CPC021.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\Pressure Cooker\\CPC022.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\COOKWARE\\Pressure Cooker\\CPC023.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\Tri Val 4pcs set\\Tri val 4pcs Set Amazon-01.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\Tri Val 4pcs set\\Tri val 4pcs Set Amazon-02.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\Tri Val 4pcs set\\Tri val 4pcs Set Amazon-03.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\Tri Val 4pcs set\\Tri val 4pcs Set Amazon-04.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\Tri Val 4pcs set\\Tri val 4pcs Set Amazon-05.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\Tri Val 4pcs set\\Tri val 4pcs Set Amazon-06.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\Tri Val 4pcs set\\Tri val 4pcs Set Amazon-07.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\Tri Val 4pcs set\\Tri val 4pcs Set Amazon-08.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\Tri Val Fry and Sauce pan\\Tri Val FRY SAUCE PANS AMAZON-01.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\Tri Val Fry and Sauce pan\\Tri Val FRY SAUCE PANS AMAZON-02.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\Tri Val Fry and Sauce pan\\Tri Val FRY SAUCE PANS AMAZON-03.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\Tri Val Fry and Sauce pan\\Tri Val FRY SAUCE PANS AMAZON-04.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\Tri Val Fry and Sauce pan\\Tri Val FRY SAUCE PANS AMAZON-05.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\Tri Val Fry and Sauce pan\\Tri Val FRY SAUCE PANS AMAZON-06.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\Tri Val Fry and Sauce pan\\Tri Val FRY SAUCE PANS AMAZON-07.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\Tri Val Kadai and Fry pan\\Tri Val Kadai and Fry pan Amazon-01.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\Tri Val Kadai and Fry pan\\Tri Val Kadai and Fry pan Amazon-02.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\Tri Val Kadai and Fry pan\\Tri Val Kadai and Fry pan Amazon-03.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\Tri Val Kadai and Fry pan\\Tri Val Kadai and Fry pan Amazon-04.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\Tri Val Kadai and Fry pan\\Tri Val Kadai and Fry pan Amazon-05.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\Tri Val Kadai and Fry pan\\Tri Val Kadai and Fry pan Amazon-06.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\Tri Val Kadai and Fry pan\\Tri Val Kadai and Fry pan Amazon-07.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\Tri Val Kadai and Sauce Pan\\Tri Val Kadai and SAUCE PANS AMAZON-01.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\Tri Val Kadai and Sauce Pan\\Tri Val Kadai and SAUCE PANS AMAZON-02.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\Tri Val Kadai and Sauce Pan\\Tri Val Kadai and SAUCE PANS AMAZON-03.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\Tri Val Kadai and Sauce Pan\\Tri Val Kadai and SAUCE PANS AMAZON-04.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\Tri Val Kadai and Sauce Pan\\Tri Val Kadai and SAUCE PANS AMAZON-05.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\Tri Val Kadai and Sauce Pan\\Tri Val Kadai and SAUCE PANS AMAZON-06.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\Tri Val Kadai and Sauce Pan\\Tri Val Kadai and SAUCE PANS AMAZON-07.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\Tri Bottom Kadai Casserole\\Tri bottom kdai casserole-01.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\Tri Bottom Kadai Casserole\\Tri bottom kdai casserole-02.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\Tri Bottom Kadai Casserole\\Tri bottom kdai casserole-03.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\Tri Bottom Kadai Casserole\\Tri bottom kdai casserole-04.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\Tri Bottom Kadai Casserole\\Tri bottom kdai casserole-05.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\Tri Bottom Kadai Casserole\\Tri bottom kdai casserole-06.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\Tri Bottom Kadai Casserole\\Tri bottom kdai casserole-07.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\Tri Bottom Kadai Sauce Pan Large\\Tri bottom sauce pan kdai large-01.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\Tri Bottom Kadai Sauce Pan Large\\Tri bottom sauce pan kdai large-02.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\Tri Bottom Kadai Sauce Pan Large\\Tri bottom sauce pan kdai large-03.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\Tri Bottom Kadai Sauce Pan Large\\Tri bottom sauce pan kdai large-04.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\Tri Bottom Kadai Sauce Pan Large\\Tri bottom sauce pan kdai large-05.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\Tri Bottom Kadai Sauce Pan Large\\Tri bottom sauce pan kdai large-06.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\Tri Bottom Kadai Sauce Pan Large\\Tri bottom sauce pan kdai large-07.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\Tri Bottom Kadai sauce pan medium\\Tri bottom sauce pan kdai medium-01.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\Tri Bottom Kadai sauce pan medium\\Tri bottom sauce pan kdai medium-02.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\Tri Bottom Kadai sauce pan medium\\Tri bottom sauce pan kdai medium-03.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\Tri Bottom Kadai sauce pan medium\\Tri bottom sauce pan kdai medium-04.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\Tri Bottom Kadai sauce pan medium\\Tri bottom sauce pan kdai medium-05.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\Tri Bottom Kadai sauce pan medium\\Tri bottom sauce pan kdai medium-06.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\Tri Bottom Kadai sauce pan medium\\Tri bottom sauce pan kdai medium-07.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\Tri Bottom casserole\\Tri Bottom Casseroles-01.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\Tri Bottom casserole\\Tri Bottom Casseroles-02.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\Tri Bottom casserole\\Tri Bottom Casseroles-03.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\Tri Bottom casserole\\Tri Bottom Casseroles-04.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\Tri Bottom casserole\\Tri Bottom Casseroles-05.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\Tri Bottom casserole\\Tri Bottom Casseroles-06.jpg",
+      "sheet": "Cookware"
+    },
+    {
+      "path": "C:\\Users\\prasa\\Downloads\\OneDrive_1_7-27-2026\\Tri Bottom casserole\\Tri Bottom Casseroles-07.jpg",
+      "sheet": "Cookware"
+    }
+  ]
+}

@@ -125,12 +125,12 @@
   .pdp-grid { display: grid; grid-template-columns: 1.02fr 0.98fr; gap: clamp(26px, 4vw, 60px); align-items: start; }
   .gallery { position: sticky; top: 100px; }
   .g-main { aspect-ratio: 1/1; border-radius: var(--r); overflow: hidden; border: 1.5px solid var(--line); background: #f1f1f1; }
-  .g-main img { width: 100%; height: 100%; object-fit: cover; transition: opacity .3s; }
+  .g-main img { width: 100%; height: 100%; object-fit: contain; transition: opacity .3s; }
   .g-thumbs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 12px; }
   .g-thumb { aspect-ratio: 1/1; border-radius: 13px; overflow: hidden; border: 1.5px solid var(--line); background: #f1f1f1; cursor: pointer; opacity: 0.62; transition: opacity .25s, border-color .25s, transform .25s; }
   .g-thumb:hover { opacity: 0.92; transform: translateY(-2px); }
   .g-thumb.active { opacity: 1; border-color: var(--red); }
-  .g-thumb img { width: 100%; height: 100%; object-fit: cover; }
+  .g-thumb img { width: 100%; height: 100%; object-fit: contain; }
 
   .info .top { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 16px; }
   .cat-chip { font-family: var(--head); font-weight: 700; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); border: 1.5px solid var(--line); border-radius: 100px; padding: 7px 14px; }
@@ -226,7 +226,7 @@
   .rcard { background: var(--white); border: 1.5px solid var(--line); border-radius: var(--r); overflow: hidden; display: flex; flex-direction: column; transition: transform .32s cubic-bezier(.2,.8,.2,1), box-shadow .32s, border-color .32s; }
   .rcard:hover { transform: translateY(-7px); box-shadow: 0 30px 56px -32px rgba(15,15,15,0.4); border-color: rgba(237,51,56,0.28); }
   .rcard .rimg { position: relative; aspect-ratio: 1/1; overflow: hidden; background: #f1f1f1; }
-  .rcard .rimg img { width: 100%; height: 100%; object-fit: cover; transition: transform .55s; }
+  .rcard .rimg img { width: 100%; height: 100%; object-fit: contain; transition: transform .55s; }
   .rcard:hover .rimg img { transform: scale(1.06); }
   .rcard .rbrand { position: absolute; top: 11px; left: 11px; background: rgba(255,255,255,0.92); backdrop-filter: blur(6px); font-family: var(--head); font-weight: 700; font-size: 9.5px; letter-spacing: 0.08em; text-transform: uppercase; padding: 5px 10px; border-radius: 100px; }
   .rcard .rbody { padding: 15px 16px 18px; display: flex; flex-direction: column; gap: 7px; flex: 1; }
@@ -729,7 +729,7 @@
     sparkmate:  { name: "SparkMate",  tagline: "Cleaning Simplified",  story: "SparkMate makes a spotless home effortless — spin mops, wipers and brushes engineered for fast, low-effort cleaning.", img: U + "2026/04/Spin-Mops-2.jpg" },
     valmate:    { name: "ValMate",    tagline: "Value for Money",      story: "ValMate delivers dependable everyday essentials at honest prices — practical storage, flasks and home solutions built for real value.", img: U + "2026/04/10.jpg" },
   };
-  const CAT_LABEL = { cookware:"Cookware", cutlery:"Cutlery & Knives", serveware:"Serveware", cleaning:"Cleaning Aids", storage:"Storage & Freshness", flasks:"Flasks & Bottles", lighters:"Lighters", appliances:"Appliances" };
+  const CAT_LABEL = { cookware:"Cookware", kitchenware:"Kitchenware", cutlery:"Cutlery & Knives", serveware:"Serveware", cleaning:"Cleaning Aids", storage:"Storage & Freshness", flasks:"Flasks & Bottles", lighters:"Lighters", appliances:"Appliances" };
 
   const ICONS = {
     heat:'<path d="M12 3c3 3.5 4.5 5.5 4.5 8a4.5 4.5 0 0 1-9 0c0-1.6.8-2.8 2.2-4 .4 1.2 1.2 1.5 1.6.7.5-.9.1-3.1.7-4.7z"/>',
@@ -758,47 +758,18 @@
     appliances: { features:[["power","Powerful Performance","Engineered motors and elements for fast, efficient results."],["shield","Safe & Reliable","Auto cut-off and quality components for peace of mind."],["precision","Smart Controls","Intuitive controls for effortless everyday use."],["leaf","Energy Efficient","Designed to deliver more while drawing less power."]], specs:{Material:"Stainless steel / ABS",Power:"Energy efficient",Compatibility:"220–240V",Care:"Wipe clean",Warranty:"1 year"}, variants:["Standard"] },
   };
 
-  const GPOOL = {
-    cookware:[U+"2026/04/Tri-Pro-2-1.jpg",U+"2026/05/CTV-097.jpg",U+"2026/04/CPC_023.jpg",U+"2026/04/Pressure-Cooker-5.jpg"],
-    cutlery:[U+"2026/04/Knife-2.jpg",U+"2026/01/Crystal-5-Pcs-Knife-Set.jpg","about-assets/prod-5.jpg"],
-    cleaning:[U+"2026/04/Spin-Mops-2.jpg",U+"2026/05/SMM013-1024x1024.jpg",U+"2026/04/13.jpg"],
-    storage:["about-assets/prod-6.jpg","about-assets/prod-7.jpg","about-assets/prod-8.jpg"],
-    flasks:[U+"2026/04/10.jpg",U+"2026/04/11.jpg",U+"2026/04/6.jpg"],
-    serveware:["about-assets/prod-3.jpg","about-assets/prod-4.jpg","about-assets/prod-5.jpg"],
-    lighters:["about-assets/prod-1.jpg","about-assets/prod-2.jpg",U+"2026/04/4-2.jpg"],
-    appliances:[U+"2026/04/8.jpg",U+"2026/04/5.jpg",U+"2026/04/3-1.jpg"],
-  };
-
-  const P = [
-    { id:"aristo-lighter", n:"Aristo SS Lighter", b:"crystal", c:"lighters", col:"Classic Lighters", img:"about-assets/prod-1.jpg", tags:["Stainless Steel","Refillable"], intro:"A sure spark for every Indian kitchen.", desc:"The Aristo SS lighter pairs a premium stainless-steel body with reliable, single-press ignition. Refillable and built to last, it's the dependable everyday lighter Crystal made its name on.", variants:["Standard"] },
-    { id:"slimline-lighter", n:"Slimline Gas Lighter 305mm", b:"crystal", c:"lighters", col:"Classic Lighters", img:"about-assets/prod-2.jpg", tags:["Long Reach","Flintless"], intro:"Long reach, slim profile.", desc:"Designed for deep burners, gas stoves and outdoor grills, the Slimline keeps hands clear of the flame. A refillable, flintless mechanism delivers a clean spark every time.", variants:["305 mm","380 mm"] },
-    { id:"knife-set-5pc", n:"5-Pc Surgical Steel Knife Set", b:"crystal", c:"cutlery", col:"Surgical Steel Knives", img:U+"2026/01/Crystal-5-Pcs-Knife-Set.jpg", tags:["Surgical Steel","Set of 5"], intro:"India's first surgical-steel knives.", desc:"A complete five-piece set forged from high-carbon surgical stainless steel that holds its edge for years. From paring to chef's knife, every blade brings professional precision to your kitchen.", variants:["Set of 5","Set of 8"] },
-    { id:"chef-knife", n:"Laser-Edge Chef Knife", b:"crystal", c:"cutlery", col:"Surgical Steel Knives", img:U+"2026/04/Knife-2.jpg", tags:["Laser Edge","Ergonomic"], intro:"Laser-honed precision.", desc:"A balanced, full-tang chef knife with a laser-honed edge for clean, effortless cuts. The ergonomic handle keeps prep comfortable, meal after meal.", variants:["8 inch","Single"] },
-    { id:"chimney", n:"Auto-Clean Chimney 90cm", b:"crystal", c:"appliances", col:"Modern Appliances", img:U+"2026/04/8.jpg", tags:["Auto-Clean","Silent"], intro:"A grease-free, silent kitchen.", desc:"Powerful suction clears smoke and odour while auto-clean technology keeps maintenance effortless. Sleek, quiet and built for the modern Indian kitchen.", variants:["60 cm","90 cm"], specs:{Suction:"1200 m³/hr",Filter:"Auto-clean baffle",Compatibility:"220–240V"} },
-    { id:"kettle", n:"Electric Kettle 1.5L", b:"crystal", c:"appliances", col:"Modern Appliances", img:U+"2026/04/5.jpg", tags:["1.5L","Auto Cut-off"], intro:"Fast-boil convenience.", desc:"A 1.5L stainless-steel electric kettle with rapid boil, auto cut-off and a cool-touch body. Perfect for tea, coffee and quick cooking.", variants:["1.5 L","1.8 L"], specs:{Capacity:"1.5 L",Power:"1500 W",Body:"Stainless steel"} },
-    { id:"serving-set", n:"Mirror-Finish Serving Set", b:"crystalina", c:"serveware", col:"Splendid Serveware", img:"about-assets/prod-3.jpg", tags:["Mirror Finish","Food-Grade"], intro:"Dining, elevated.", desc:"A mirror-finish stainless serving set that turns everyday meals into occasions. Heavy-gauge, food-safe and effortless to clean.", variants:["3 Pc","5 Pc"] },
-    { id:"hot-pot-casserole", n:"Insulated Hot-Pot Casserole", b:"crystalina", c:"serveware", col:"Splendid Serveware", img:"about-assets/prod-4.jpg", tags:["Insulated","Stay-Warm"], intro:"Warm meals, for hours.", desc:"A double-wall insulated casserole that keeps rotis and curries hot long after they leave the stove. Splendid finish outside, practical inside.", variants:["1.5 L","2.5 L","3.5 L"] },
-    { id:"thali-set", n:"Steel Dinner Thali Set", b:"crystalina", c:"serveware", col:"Elite Dinnerware", img:"about-assets/prod-5.jpg", tags:["Heavy Gauge","Family Set"], intro:"Built for daily dining.", desc:"A heavy-gauge steel thali set with Crystalina's signature splendid finish — generously sized and made for the whole family.", variants:["Set of 2","Set of 4","Set of 6"] },
-    { id:"triply-frypan", n:"Tri-Ply Frypan 24cm", b:"crystal", c:"cookware", col:"Tri-Ply Pro", img:U+"2026/04/Tri-Pro-2-1.jpg", tags:["Tri-Ply","Induction"], intro:"Pro-grade, even heat.", desc:"Three bonded layers of steel and aluminium spread heat evenly for perfect searing and sautéing. Induction-ready and built to last a lifetime of cooking.", variants:["22 cm","24 cm","26 cm"], specs:{Material:"Tri-ply (steel-alu-steel)",Diameter:"24 cm"} },
-    { id:"nonstick-kadai", n:"Platinum Non-Stick Kadai", b:"crystal", c:"cookware", col:"Platinum Non-Stick", img:U+"2026/05/CTV-097.jpg", tags:["Non-Stick","Low-Oil"], intro:"Healthier, low-oil cooking.", desc:"A 3-coat platinum non-stick kadai built to DuPont-grade standards. Food releases cleanly with minimal oil, and clean-up takes seconds.", variants:["2 L","2.5 L","3 L"], specs:{Coating:"3-coat platinum non-stick",Capacity:"2.5 L",Diameter:"24 cm"} },
-    { id:"pressure-cooker", n:"Tri-Pro Pressure Cooker 3L", b:"crystal", c:"cookware", col:"Tri-Pro Pro", img:U+"2026/04/Pressure-Cooker-5.jpg", tags:["Induction","Triply"], intro:"Cook faster, every day.", desc:"An induction-ready triply pressure cooker that saves fuel and time on every meal, with a secure locking system and even-heat base.", variants:["3 L","5 L","7.5 L"], specs:{Material:"Triply stainless steel",Capacity:"3 L",Safety:"Locking lid + valve"} },
-    { id:"cast-iron-tawa", n:"Heritage Cast Iron Tawa", b:"crystal", c:"cookware", col:"Heritage Cast Iron", img:U+"2026/04/CPC_023.jpg", tags:["Cast Iron","Pre-Seasoned"], intro:"Heritage cooking, modernised.", desc:"A pre-seasoned cast iron tawa that delivers steady, retained heat for perfect rotis and dosas — and gets better with every use.", variants:["25 cm","28 cm"], specs:{Material:"Pre-seasoned cast iron",Diameter:"28 cm"} },
-    { id:"container-set", n:"Airtight Container Set", b:"valmate", c:"storage", col:"Lock-Fresh Containers", img:"about-assets/prod-6.jpg", tags:["Airtight","Set of 6"], intro:"Freshness, locked in.", desc:"A set of leak-proof, airtight containers that keep food fresher for longer. Stackable, food-safe and fridge-to-table ready.", variants:["Set of 3","Set of 6","Set of 9"] },
-    { id:"storage-jars", n:"Modular Storage Jars", b:"valmate", c:"storage", col:"Modular Kitchen", img:"about-assets/prod-7.jpg", tags:["Stackable","BPA-Free"], intro:"Order for every shelf.", desc:"Modular, stackable jars that bring tidy order to your kitchen. BPA-free and crystal-clear so you always see what's inside.", variants:["Small","Medium","Large"] },
-    { id:"lunch-box", n:"Steel Lunch Box 3-Tier", b:"valmate", c:"storage", col:"On-the-Go", img:"about-assets/prod-8.jpg", tags:["Insulated","Leak-Proof"], intro:"Warm lunches, on the go.", desc:"An insulated three-tier steel tiffin that keeps lunch warm till noon. Leak-proof and built for daily commutes.", variants:["2 Tier","3 Tier"] },
-    { id:"spin-mop", n:"360° Spin Mop", b:"sparkmate", c:"cleaning", col:"Spin & Clean", img:U+"2026/04/Spin-Mops-2.jpg", tags:["360° Spin","Hands-Free"], intro:"Hands-free, sparkling floors.", desc:"A single-bucket 360° spin system that wrings the mop for you. Lightweight, sturdy and quick to dry.", variants:["Standard","Pro"] },
-    { id:"spin-mop-pro", n:"Easy-Press Spin Mop Pro", b:"sparkmate", c:"cleaning", col:"Spin & Clean", img:U+"2026/05/SMM013-1024x1024.jpg", tags:["Foot Pedal","Microfibre"], intro:"Foot-pedal spin power.", desc:"An upgraded spin mop with an easy foot pedal and high-absorbency microfibre head that lifts grime fast.", variants:["Pro","Pro Max"] },
-    { id:"wiper-brush", n:"Floor Wiper & Brush Combo", b:"sparkmate", c:"cleaning", col:"Sparkle Essentials", img:U+"2026/04/13.jpg", tags:["Combo","Everyday"], intro:"Quick, streak-free cleaning.", desc:"An everyday wiper and brush combo for fast, effortless cleaning across floors and surfaces.", variants:["Combo"] },
-    { id:"vacuum-flask", n:"Vacuum Flask 1L", b:"valmate", c:"flasks", col:"Thermo Lock", img:U+"2026/04/10.jpg", tags:["24h Hot/Cold","1L"], intro:"24 hours hot or cold.", desc:"A double-wall vacuum flask in rugged 18/8 steel that holds temperature for up to 24 hours. Leak-proof and travel-ready.", variants:["500 ml","750 ml","1 L"], specs:{Capacity:"1 L"} },
-    { id:"sipper-bottle", n:"Insulated Sipper Bottle", b:"valmate", c:"flasks", col:"Thermo Lock", img:U+"2026/04/11.jpg", tags:["Leak-Proof","Insulated"], intro:"Hydration on the move.", desc:"A leak-proof insulated sipper for gym, office and travel. Keeps drinks at the perfect temperature for hours.", variants:["500 ml","750 ml"] },
-    { id:"carafe", n:"Double-Wall Carafe", b:"valmate", c:"flasks", col:"Serve Warm", img:U+"2026/04/6.jpg", tags:["Double-Wall","Table-Ready"], intro:"Serve at the perfect temp.", desc:"An elegant double-wall carafe for the table that keeps water and juice hot or cold while it serves.", variants:["1 L","1.5 L"] },
-  ];
-  const BY_ID = Object.fromEntries(P.map(p => [p.id, p]));
+  // Real catalog loaded from product-data/products.json before first render
+  // (see bootstrap below); the API-patch IIFE further below still tries the
+  // live Django backend afterward and patches the DOM if it succeeds.
+  let P = [];
+  let BY_ID = {};
 
   /* ---- resolve product ---- */
+  function renderProduct() {
   const params = new URLSearchParams(location.search);
   const slugParam = (params.get("slug") || params.get("p") || "").toLowerCase();
-  let prod = BY_ID[slugParam] || BY_ID["nonstick-kadai"];
+  let prod = BY_ID[slugParam] || P[0];
+  if (!prod) { document.body.innerHTML = "<p style='padding:80px;text-align:center'>Product catalog failed to load.</p>"; return; }
 
   /* ---- API fetch: try to load product from backend by slug ---- */
   (async function () {
@@ -887,11 +858,11 @@
       if (sBuy) sBuy.dataset.mk = JSON.stringify(mkData);
     }
   })();
-  const brand = BRANDS[prod.b];
-  const tpl = CAT_TPL[prod.c];
+  const brand = BRANDS[prod.b] || Object.values(BRANDS)[0];
+  const tpl = CAT_TPL[prod.sub] || CAT_TPL[prod.c] || Object.values(CAT_TPL)[0];
   const variants = prod.variants || tpl.variants;
   const specs = Object.assign({}, tpl.specs, prod.specs || {});
-  const gallery = [...new Set([prod.img, ...(GPOOL[prod.c] || [])])].slice(0, 4);
+  const gallery = [prod.img, ...(prod.gallery || [])].filter(Boolean);
 
   document.title = prod.n + " — CRYSTAL";
 
@@ -919,7 +890,7 @@
   document.getElementById("brandAllName").textContent = brand.name;
   document.getElementById("brandAllBtn").href = "All-Products.html?brand=" + prod.b;
   // ---- Enquire / Buy / quantity wiring ----
-  var _pid = (window.PID && PID[prod.n]) || (new URLSearchParams(location.search)).get("p") || "";
+  var _pid = prod.id || (new URLSearchParams(location.search)).get("p") || "";
   function wireEnq(btn) { if (!btn) return; btn.dataset.id = _pid; btn.dataset.name = prod.n; btn.dataset.brand = brand.name; btn.dataset.cat = CAT_LABEL[prod.c] || prod.c; btn.dataset.img = gallery[0] || ""; }
   wireEnq(document.getElementById("enqAddBtn"));
   wireEnq(document.getElementById("sEnq"));
@@ -959,7 +930,7 @@
   document.getElementById("specTable").innerHTML = Object.keys(specRows).filter(k => specRows[k] && String(specRows[k]).trim()).map(k => `<div class="spec-row"><span class="k">${k}</span><span class="v">${specRows[k]}</span></div>`).join("");
 
   /* ---- lifestyle gallery ---- */
-  const lgImgs = [...new Set([...(GPOOL[prod.c] || []), prod.img, gallery[1], gallery[2]])].filter(Boolean).slice(0, 5);
+  const lgImgs = [...new Set(gallery)].filter(Boolean).slice(0, 5);
   const lgCls = ["tall", "", "wide", "", ""];
   document.getElementById("lgGrid").innerHTML = lgImgs.map((src, i) => `<div class="lg-item ${lgCls[i] || ""}"><img src="${src}" alt="${prod.n} lifestyle ${i+1}" loading="lazy"></div>`).join("");
 
@@ -1000,6 +971,25 @@
     document.getElementById("gMain").src = gallery[i];
     document.querySelectorAll(".g-thumb").forEach(x => x.classList.toggle("active", x === t));
   });
+  } // end renderProduct()
+
+  /* ---------- CATALOG BOOTSTRAP: load real product data, then render ---------- */
+  (async function loadCatalog() {
+    try {
+      const res = await fetch("product-data/products.json");
+      const data = await res.json();
+      P = data.products.map(p => ({
+        id: p.id, n: p.name, b: p.brand, c: p.category, sub: p.subcategory, col: p.collection || p.subcategory || "",
+        img: p.hero || "about-assets/prod-1.jpg", gallery: p.gallery || [], tags: p.tags || [],
+        intro: p.highlight || p.description || "", desc: p.description || p.highlight || "",
+        variants: undefined, mrp: p.mrp,
+      }));
+      BY_ID = Object.fromEntries(P.map(p => [p.id, p]));
+    } catch (e) {
+      console.warn("Could not load product-data/products.json", e);
+    }
+    renderProduct();
+  })();
 
   /* ---- variant selection (sync both groups) ---- */
   function pickVariant(v) {
