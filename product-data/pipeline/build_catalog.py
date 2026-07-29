@@ -18,6 +18,8 @@ from datetime import datetime, timezone
 
 import pandas as pd
 from PIL import Image, ImageOps
+
+Image.MAX_IMAGE_PIXELS = None  # source is trusted (user's own local export); some raw camera originals exceed PIL's default DoS-guard threshold
 from rapidfuzz import fuzz
 
 import config
@@ -130,6 +132,14 @@ def load_products(sheet_names):
             if not name:
                 name = sku
 
+            filters = {}
+            for fkey, aliases in config.FILTER_COLUMNS_BY_SHEET.get(sheet_name, {}).items():
+                fcol = next((a for a in aliases if a in df.columns), None)
+                if fcol and pd.notna(row.get(fcol)):
+                    val = str(row[fcol]).strip()
+                    if val:
+                        filters[fkey] = val
+
             products.append({
                 "sku": sku,
                 "sheet": sheet_name,
@@ -144,6 +154,7 @@ def load_products(sheet_names):
                 "mrp": float(row[mrp_col]) if mrp_col and pd.notna(row.get(mrp_col)) else None,
                 "amazon_link": (str(row[link_col]).strip() if link_col and pd.notna(row.get(link_col)) else None),
                 "tags": ([t.strip() for t in str(row[kw_col]).split(",")][:6] if kw_col and pd.notna(row.get(kw_col)) else []),
+                "filters": filters,
             })
         log(f"  sheet {sheet_name!r}: {n_before} product rows loaded")
     return products
@@ -158,7 +169,7 @@ def load_categories():
         if not vals:
             continue
         top = vals[0]
-        subs = vals[1:]
+        subs = [config.CATEGORY_LABEL_OVERRIDES.get(v, v) for v in vals[1:]]
         tree.append({"label": top, "subcategories": subs})
     return tree
 
@@ -415,6 +426,7 @@ def main():
             "gst_pct": p["gst_pct"],
             "mrp": p["mrp"],
             "amazon_link": p["amazon_link"],
+            "filters": p["filters"],
             "hero": hero_rel,
             "gallery": gallery_rel,
             "match_tier": p["_match_tier"],

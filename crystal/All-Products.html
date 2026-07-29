@@ -187,6 +187,9 @@
   .chip { font-family: var(--body); font-weight: 600; font-size: 14px; padding: 10px 18px; border-radius: 100px; border: 1.5px solid var(--line); background: var(--white); color: var(--ink); cursor: pointer; transition: background .2s, color .2s, border-color .2s, transform .2s; }
   .chip:hover { transform: translateY(-2px); border-color: rgba(237,51,56,0.4); }
   .chip.active { background: var(--ink); color: #fff; border-color: var(--ink); }
+  .attr-chips { margin-top: -12px; margin-bottom: 22px; align-items: center; }
+  .attr-chips .attr-group-label { font-size: 12.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; color: var(--muted, #8a8a8a); margin-right: 2px; align-self: center; }
+  .attr-chips .chip { padding: 7px 14px; font-size: 12.5px; }
   .sortwrap { display: flex; align-items: center; gap: 8px; flex: 0 0 auto; }
   .sortwrap label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
   .sortwrap select { font-family: var(--body); font-weight: 600; font-size: 14px; color: var(--ink); border: 1.5px solid var(--line); background: var(--white); border-radius: 100px; padding: 10px 16px; cursor: pointer; outline: none; }
@@ -566,6 +569,7 @@
       </div>
     </div>
     <div class="chips" id="chips"></div>
+    <div class="chips attr-chips" id="attrChips"></div>
     <div class="grid" id="grid"></div>
   </div>
 </section>
@@ -665,25 +669,27 @@
   /* ---------- DATA ---------- */
   const CAT_ICONS = {
     cookware: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="14" r="7"/><path d="M16.5 12.5l5.5-2.2"/></svg>',
-    cutlery: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15C11 13 17 7 20.5 3c.8 3.8-.6 9.4-7.5 13.5z"/><path d="M4 15l-1.6 4.4 4.4-1.6"/></svg>',
-    serveware: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 17h19"/><path d="M5 17a7 7 0 0 1 14 0"/><path d="M12 10V7"/></svg>',
-    cleaning: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v9"/><path d="M8 11h8l-1.4 4H9.4z"/><path d="M9.5 15l-1 7M14.5 15l1 7M12 15v7"/></svg>',
-    storage: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="10" width="8" height="11" rx="1.5"/><rect x="13.5" y="10" width="8" height="11" rx="1.5"/><rect x="8" y="3" width="8" height="6" rx="1.5"/></svg>',
-    flasks: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2.5h4v2.5l1 2v12.5a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2V7l1-2z"/><path d="M9 11h6"/></svg>',
-    lighters: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c3.6 3.8 5.6 6.2 5.6 9.5A5.6 5.6 0 0 1 6.4 12.5C6.4 10.3 7.6 9 9.5 7.6c.5 1.6 1.6 2 2.2.9.6-1.1.1-3.8.3-5.5z"/></svg>',
-    appliances: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v5M15 2v5"/><path d="M6 7h12v2.5a6 6 0 0 1-12 0z"/><path d="M12 15.5V22"/></svg>',
     kitchenware: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15C11 13 17 7 20.5 3c.8 3.8-.6 9.4-7.5 13.5z"/><path d="M4 15l-1.6 4.4 4.4-1.6"/></svg>',
+    "cleaning-aid": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v9"/><path d="M8 11h8l-1.4 4H9.4z"/><path d="M9.5 15l-1 7M14.5 15l1 7M12 15v7"/></svg>',
+    "water-bottle": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2.5h4v2.5l1 2v12.5a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2V7l1-2z"/><path d="M9 11h6"/></svg>',
+    "oil-pourer": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h6l1 4-2 2v10a2 2 0 0 1-2 2h0a2 2 0 0 1-2-2V9L6 7z"/><path d="M14 8l4-2"/></svg>',
+    "wood-range": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="18" height="9" rx="1.5"/><path d="M7 9V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v3"/></svg>',
+    "pressure-cooker": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11h16v5a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3z"/><path d="M2 11h20M12 11V7"/><circle cx="12" cy="5" r="1.6"/></svg>',
+    "electric-appliances": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v5M15 2v5"/><path d="M6 7h12v2.5a6 6 0 0 1-12 0z"/><path d="M12 15.5V22"/></svg>',
+    cooktop: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="1.5"/><circle cx="8.5" cy="12" r="2.3"/><circle cx="15.5" cy="12" r="2.3"/></svg>',
+    "lunch-box": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="18" height="12" rx="2"/><path d="M8 9V6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v3"/></svg>',
   };
   const CATEGORIES = [
     { id: "cookware", label: "Cookware" },
     { id: "kitchenware", label: "Kitchenware" },
-    { id: "cutlery", label: "Cutlery & Knives" },
-    { id: "serveware", label: "Serveware" },
-    { id: "cleaning", label: "Cleaning Aids" },
-    { id: "storage", label: "Storage & Freshness" },
-    { id: "flasks", label: "Flasks & Bottles" },
-    { id: "lighters", label: "Lighters" },
-    { id: "appliances", label: "Appliances" },
+    { id: "water-bottle", label: "Water Bottle" },
+    { id: "oil-pourer", label: "Oil Pourer & Sprayer" },
+    { id: "wood-range", label: "Wood Range" },
+    { id: "pressure-cooker", label: "Pressure Cooker" },
+    { id: "electric-appliances", label: "Electric Appliances" },
+    { id: "cooktop", label: "Cooktop" },
+    { id: "lunch-box", label: "Lunch Box" },
+    { id: "cleaning-aid", label: "Cleaning Aid" },
   ];
   const CAT_LABEL = Object.fromEntries(CATEGORIES.map(c => [c.id, c.label]));
 
@@ -785,16 +791,54 @@
   /* ---------- GRID state + render ---------- */
   const gridEl = document.getElementById("grid");
   const countEl = document.getElementById("count");
-  let state = { cat: "all", col: "", sort: "featured", cats: null, subLabel: "", subText: "" };
+  let state = { cat: "all", col: "", sort: "featured", cats: null, subLabel: "", subText: "", attrFilters: {} };
 
   function brandName(slug) { return (BRAND_BY[slug] || {}).name || slug; }
 
+  const ATTR_LABELS = {
+    induction: "Induction / Non-Induction", set_type: "Set", type: "Shape", material: "Material", handle_material: "Handle",
+    edge_type: "Edge", coating: "Coating", design: "Design", set_size: "Set Size", capacity: "Capacity",
+    use: "Use", lid_type: "Lid Type", shape: "Shape", with_blade: "Blade",
+  };
+  const attrChipsEl = document.getElementById("attrChips");
+
+  function renderAttrChips(scoped) {
+    if (!attrChipsEl) return;
+    const groups = {};
+    scoped.forEach(p => {
+      Object.entries(p.attrs || {}).forEach(([k, v]) => {
+        if (!v) return;
+        (groups[k] || (groups[k] = new Set())).add(v);
+      });
+    });
+    const keys = Object.keys(groups).filter(k => groups[k].size > 1);
+    if (!keys.length) { attrChipsEl.innerHTML = ""; return; }
+    attrChipsEl.innerHTML = keys.map(k => {
+      const active = state.attrFilters[k];
+      const opts = [...groups[k]].sort();
+      return `<span class="attr-group-label">${ATTR_LABELS[k] || k}</span>` +
+        opts.map(v => `<button type="button" class="chip attr-chip${active === v ? ' active' : ''}" data-key="${k}" data-val="${v.replace(/"/g, '&quot;')}">${v}</button>`).join("");
+    }).join("");
+  }
+
   function applyAndRender(animate) {
-    let list = viewProducts.slice();
-    if (state.cats) list = list.filter(p => state.cats.includes(p.c));
-    else if (state.cat !== "all") list = list.filter(p => p.c === state.cat);
-    if (state.col) list = list.filter(p => p.col === state.col);
-    if (state.subText) { const terms = state.subText.split("-").filter(Boolean); list = list.filter(p => { const hay = (p.n + " " + p.col + " " + p.tags.join(" ")).toLowerCase(); return terms.every(t => hay.includes(t)); }); }
+    let scoped = viewProducts.slice();
+    if (state.cats) scoped = scoped.filter(p => state.cats.includes(p.c));
+    else if (state.cat !== "all") scoped = scoped.filter(p => p.c === state.cat);
+    if (state.col) scoped = scoped.filter(p => p.col === state.col);
+    if (state.subText) {
+      if (scoped.some(p => p.sub === state.subText)) scoped = scoped.filter(p => p.sub === state.subText);
+      else { const terms = state.subText.split("-").filter(Boolean); scoped = scoped.filter(p => { const hay = (p.n + " " + p.col + " " + p.tags.join(" ")).toLowerCase(); return terms.every(t => hay.includes(t)); }); }
+    }
+
+    renderAttrChips(scoped);
+
+    let list = scoped.slice();
+    Object.keys(state.attrFilters).forEach(k => {
+      const v = state.attrFilters[k];
+      if (v) list = list.filter(p => (p.attrs || {})[k] === v);
+    });
+
     if (state.sort === "az") list.sort((a, b) => a.n.localeCompare(b.n));
     else if (state.sort === "za") list.sort((a, b) => b.n.localeCompare(a.n));
     else if (state.sort === "brand") list.sort((a, b) => brandName(a.b).localeCompare(brandName(b.b)) || a.n.localeCompare(b.n));
@@ -831,13 +875,19 @@
   }
 
   function setCat(cat) {
-    state.cat = cat; state.col = "";
+    state.cat = cat; state.col = ""; state.subText = ""; state.subLabel = ""; state.attrFilters = {};
     document.querySelectorAll(".chip").forEach(c => c.classList.toggle("active", c.dataset.cat === cat));
     applyAndRender(true);
   }
 
   /* ---------- WIRE controls ---------- */
   chipsEl.addEventListener("click", e => { const c = e.target.closest(".chip"); if (c) setCat(c.dataset.cat); });
+  attrChipsEl.addEventListener("click", e => {
+    const c = e.target.closest(".attr-chip"); if (!c) return;
+    const { key, val } = c.dataset;
+    state.attrFilters[key] = (state.attrFilters[key] === val) ? null : val;
+    applyAndRender(true);
+  });
   document.getElementById("catGrid").addEventListener("click", e => {
     const card = e.target.closest(".cat-card");
     if (!card) return;
@@ -851,6 +901,7 @@
     let f = {}; try { f = JSON.parse(card.dataset.col); } catch (_) {}
     state.cat = f.c || "all";
     state.col = f.col || "";
+    state.attrFilters = {};
     document.querySelectorAll(".chip").forEach(c => c.classList.toggle("active", c.dataset.cat === state.cat));
     applyAndRender(true);
     document.getElementById("browse").scrollIntoView({ behavior: "smooth", block: "start" });
@@ -918,23 +969,16 @@
 
   /* ---------- URL ?cat= / ?sub= deep-link (from nav mega-menu / footer) ---------- */
   (function () {
-    const GROUP_MAP = {
-      cookware: ["cookware"], kitchenware: ["cutlery", "lighters", "serveware", "storage"],
-      cleaning: ["cleaning"], appliances: ["appliances"], "water-bottle": ["flasks"],
-      "pressure-cooker": ["cookware"], "lunch-box": ["storage"], cooktop: ["appliances"]
-    };
-    const GROUP_LABEL = {
-      cookware: "Cookware", kitchenware: "Kitchenware", cleaning: "Cleaning Aid",
-      appliances: "Electric Appliances", "water-bottle": "Water Bottle",
-      "oil-pourer": "Oil Pourer & Sprayer", "wood-range": "Wood Range",
-      "pressure-cooker": "Pressure Cooker", cooktop: "Cooktop", "lunch-box": "Lunch Box"
-    };
+    // Only the two legacy nav slugs need aliasing to the real category ids
+    // below; every other ?cat= value from the mega-menu already matches a
+    // CATEGORIES id directly.
+    const GROUP_MAP = { appliances: ["electric-appliances"], cleaning: ["cleaning-aid"] };
     const catParam = (params.get("cat") || "").toLowerCase();
     const subParam = (params.get("sub") || "").toLowerCase();
     if (!catParam) return;
 
     let cats = GROUP_MAP[catParam] || (viewProducts.some(p => p.c === catParam) ? [catParam] : []);
-    const parentLabel = GROUP_LABEL[catParam] || CAT_LABEL[catParam] || catParam;
+    const parentLabel = CAT_LABEL[cats[0]] || CAT_LABEL[catParam] || catParam;
     const subLabel = subParam ? subParam.replace(/-/g, " ").replace(/\b\w/g, c => c.toUpperCase()) : "";
 
     if (cats.length === 1) { state.cat = cats[0]; state.cats = null; }
@@ -942,9 +986,9 @@
 
     let showSub = false;
     if (subParam) {
-      const terms = subParam.split("-").filter(Boolean);
       const pool = state.cats ? viewProducts.filter(p => state.cats.includes(p.c)) : (state.cat !== "all" ? viewProducts.filter(p => p.c === state.cat) : viewProducts);
-      const hit = pool.some(p => { const hay = (p.n + " " + p.col + " " + p.tags.join(" ")).toLowerCase(); return terms.every(t => hay.includes(t)); });
+      const hit = pool.some(p => p.sub === subParam)
+        || pool.some(p => { const terms = subParam.split("-").filter(Boolean); const hay = (p.n + " " + p.col + " " + p.tags.join(" ")).toLowerCase(); return terms.every(t => hay.includes(t)); });
       if (hit) { state.subText = subParam; showSub = true; }
     }
     state.subLabel = (showSub && subLabel) ? parentLabel + " · " + subLabel : (cats.length !== 1 ? parentLabel : "");
@@ -964,7 +1008,7 @@
       P = data.products.map(p => ({
         n: p.name, col: p.collection || p.subcategory || "", b: p.brand, c: p.category, sub: p.subcategory,
         img: p.hero || "about-assets/prod-1.jpg", hl: p.highlight || p.description || "",
-        tags: p.tags || [], id: p.id, mrp: p.mrp,
+        tags: p.tags || [], id: p.id, mrp: p.mrp, attrs: p.filters || {},
       }));
       PID = Object.fromEntries(P.map(p => [p.n, p.id]));
     } catch (e) {

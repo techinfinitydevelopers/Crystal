@@ -726,7 +726,7 @@
     sparkmate:  { name: "SparkMate",  tagline: "Cleaning Simplified",  story: "SparkMate makes a spotless home effortless — spin mops, wipers and brushes engineered for fast, low-effort cleaning.", img: U + "2026/04/Spin-Mops-2.jpg" },
     valmate:    { name: "ValMate",    tagline: "Value for Money",      story: "ValMate delivers dependable everyday essentials at honest prices — practical storage, flasks and home solutions built for real value.", img: U + "2026/04/10.jpg" },
   };
-  const CAT_LABEL = { cookware:"Cookware", kitchenware:"Kitchenware", cutlery:"Cutlery & Knives", serveware:"Serveware", cleaning:"Cleaning Aids", storage:"Storage & Freshness", flasks:"Flasks & Bottles", lighters:"Lighters", appliances:"Appliances" };
+  const CAT_LABEL = { cookware:"Cookware", kitchenware:"Kitchenware", "water-bottle":"Water Bottle", "oil-pourer":"Oil Pourer & Sprayer", "wood-range":"Wood Range", "pressure-cooker":"Pressure Cooker", "electric-appliances":"Electric Appliances", cooktop:"Cooktop", "lunch-box":"Lunch Box", "cleaning-aid":"Cleaning Aid" };
 
   const ICONS = {
     heat:'<path d="M12 3c3 3.5 4.5 5.5 4.5 8a4.5 4.5 0 0 1-9 0c0-1.6.8-2.8 2.2-4 .4 1.2 1.2 1.5 1.6.7.5-.9.1-3.1.7-4.7z"/>',
@@ -767,7 +767,8 @@
   const prod = BY_ID[(params.get("p") || "").toLowerCase()] || P[0];
   if (!prod) { document.body.innerHTML = "<p style='padding:80px;text-align:center'>Product catalog failed to load.</p>"; return; }
   const brand = BRANDS[prod.b] || Object.values(BRANDS)[0];
-  const tpl = CAT_TPL[prod.sub] || CAT_TPL[prod.c] || Object.values(CAT_TPL)[0];
+  const CAT_TPL_ALIAS = { "electric-appliances": "appliances", "cleaning-aid": "cleaning" };
+  const tpl = CAT_TPL[prod.sub] || CAT_TPL[prod.c] || CAT_TPL[CAT_TPL_ALIAS[prod.c]] || Object.values(CAT_TPL)[0];
   const variants = prod.variants || tpl.variants;
   const specs = Object.assign({}, tpl.specs, prod.specs || {});
   const gallery = [prod.img, ...(prod.gallery || [])].filter(Boolean);
