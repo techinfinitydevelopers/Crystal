@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-29T11:56:11.194011+00:00",
+  "generated_at": "2026-08-07T05:32:19.287595+00:00",
   "source_xlsx": "Crystal Product List for Techinfinity Final.xlsx",
   "sheets_included": [
     "Lighter",
@@ -14397,7 +14397,7 @@
       "name": "Sponge Wipes Set of 3",
       "brand": "sparkmate",
       "category": "cleaning-aid",
-      "subcategory": null,
+      "subcategory": "wipe",
       "collection": "Wipe",
       "highlight": "Sponge Wipes Set of 3",
       "description": "Sponge Wipes Set of 3",
@@ -14416,7 +14416,7 @@
       "name": "SM Microfiber Floor Cloth",
       "brand": "sparkmate",
       "category": "cleaning-aid",
-      "subcategory": null,
+      "subcategory": "wipe",
       "collection": "Wipe",
       "highlight": "SM Microfiber Floor Cloth",
       "description": "SM Microfiber Floor Cloth",

@@ -170,6 +170,7 @@ def load_categories():
             continue
         top = vals[0]
         subs = [config.CATEGORY_LABEL_OVERRIDES.get(v, v) for v in vals[1:]]
+        subs += [s for s in config.CATEGORY_SUBCATEGORY_ADDITIONS.get(top, []) if s not in subs]
         tree.append({"label": top, "subcategories": subs})
     return tree
 

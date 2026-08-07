@@ -138,6 +138,7 @@ SUBCATEGORY_RULES = {
         ("hand-held-mops", ["hand held mop", "handheld mop"]),
         ("brooms", ["broom"]),
         ("wipers", ["wiper"]),
+        ("wipe", ["wipe"]),  # distinct from "wipers" — confirmed on reference site nav + xlsx Sub Category column (SMG019/SMG020)
         ("plunger", ["plunger"]),
         ("brush", ["brush"]),
         ("scrubber", ["scrubber", "scourer"]),
@@ -228,6 +229,14 @@ KNOWN_BLOB_ALIASES = {
 # the underlying material). Keep the sheet's own wording for everything else.
 CATEGORY_LABEL_OVERRIDES = {
     "Triply": "Tripro",
+}
+
+# The "Home Page Segregation" taxonomy sheet is missing "Wipe" under
+# Cleaning Aid (it's a real, distinct 10th subcategory confirmed both by the
+# reference site's live nav and the cleaningaid sheet's own Sub Category
+# column — see SUBCATEGORY_RULES above) — append it when generating categories.json.
+CATEGORY_SUBCATEGORY_ADDITIONS = {
+    "Cleaning Aid": ["Wipe"],
 }
 
 MAX_GALLERY = 4
