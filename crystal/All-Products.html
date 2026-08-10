@@ -187,9 +187,18 @@
   .chip { font-family: var(--body); font-weight: 600; font-size: 14px; padding: 10px 18px; border-radius: 100px; border: 1.5px solid var(--line); background: var(--white); color: var(--ink); cursor: pointer; transition: background .2s, color .2s, border-color .2s, transform .2s; }
   .chip:hover { transform: translateY(-2px); border-color: rgba(237,51,56,0.4); }
   .chip.active { background: var(--ink); color: #fff; border-color: var(--ink); }
-  .attr-chips { margin-top: -12px; margin-bottom: 22px; align-items: center; }
-  .attr-chips .attr-group-label { font-size: 12.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; color: var(--muted, #8a8a8a); margin-right: 2px; align-self: center; }
+  .attr-chips { display: none; flex-wrap: wrap; margin-top: 0; margin-bottom: 26px; padding: 18px 20px; background: var(--white); border: 1.5px solid var(--line); border-radius: 16px; }
+  .attr-chips.show { display: flex; }
+  .attr-chips-head { width: 100%; display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+  .attr-chips-title { font-family: var(--head); font-weight: 700; text-transform: uppercase; font-size: 13px; letter-spacing: .04em; color: var(--ink); }
+  .attr-clear { font-family: var(--body); font-weight: 600; font-size: 12.5px; color: var(--red); background: none; border: none; cursor: pointer; padding: 0; }
+  .attr-clear:hover { text-decoration: underline; }
+  .attr-group { width: 100%; display: flex; align-items: flex-start; gap: 16px; padding: 10px 0; border-top: 1px solid var(--line); }
+  .attr-group:first-of-type { border-top: none; padding-top: 0; }
+  .attr-chips .attr-group-label { flex: 0 0 130px; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; color: var(--muted, #8a8a8a); padding-top: 8px; }
+  .attr-group-opts { flex: 1 1 auto; display: flex; flex-wrap: wrap; gap: 8px; }
   .attr-chips .chip { padding: 7px 14px; font-size: 12.5px; }
+  @media (max-width: 640px) { .attr-group { flex-direction: column; gap: 6px; } .attr-chips .attr-group-label { padding-top: 0; } }
   .sortwrap { display: flex; align-items: center; gap: 8px; flex: 0 0 auto; }
   .sortwrap label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
   .sortwrap select { font-family: var(--body); font-weight: 600; font-size: 14px; color: var(--ink); border: 1.5px solid var(--line); background: var(--white); border-radius: 100px; padding: 10px 16px; cursor: pointer; outline: none; }
@@ -796,7 +805,7 @@
   function brandName(slug) { return (BRAND_BY[slug] || {}).name || slug; }
 
   const ATTR_LABELS = {
-    induction: "Induction / Non-Induction", set_type: "Set", type: "Shape", material: "Material", handle_material: "Handle",
+    brand: "Brand", induction: "Induction / Non-Induction", set_type: "Set", type: "Shape", material: "Material", handle_material: "Handle",
     edge_type: "Edge", coating: "Coating", design: "Design", set_size: "Set Size", capacity: "Capacity",
     use: "Use", lid_type: "Lid Type", shape: "Shape", with_blade: "Blade",
   };
@@ -804,21 +813,42 @@
 
   function renderAttrChips(scoped) {
     if (!attrChipsEl) return;
+    // Brand is meaningful across every category, so it's always offered.
+    // The rest (Set, Material, Blade Edge, Induction...) only mean something
+    // within a single category — a knife has no "induction" setting. Mixing
+    // those across categories (e.g. the "All" view) produced one
+    // undifferentiated wall of 15+ groups, so category-specific facets only
+    // build once the view is actually scoped to one category.
     const groups = {};
-    scoped.forEach(p => {
-      Object.entries(p.attrs || {}).forEach(([k, v]) => {
-        if (!v) return;
-        (groups[k] || (groups[k] = new Set())).add(v);
+    const brandSet = new Set(scoped.map(p => p.b).filter(Boolean));
+    if (brandSet.size > 1) groups.brand = brandSet;
+
+    const distinctCats = new Set(scoped.map(p => p.c));
+    if (distinctCats.size === 1) {
+      scoped.forEach(p => {
+        Object.entries(p.attrs || {}).forEach(([k, v]) => {
+          if (!v) return;
+          (groups[k] || (groups[k] = new Set())).add(v);
+        });
       });
-    });
+    }
     const keys = Object.keys(groups).filter(k => groups[k].size > 1);
-    if (!keys.length) { attrChipsEl.innerHTML = ""; return; }
-    attrChipsEl.innerHTML = keys.map(k => {
-      const active = state.attrFilters[k];
-      const opts = [...groups[k]].sort();
-      return `<span class="attr-group-label">${ATTR_LABELS[k] || k}</span>` +
-        opts.map(v => `<button type="button" class="chip attr-chip${active === v ? ' active' : ''}" data-key="${k}" data-val="${v.replace(/"/g, '&quot;')}">${v}</button>`).join("");
-    }).join("");
+    if (!keys.length) { attrChipsEl.innerHTML = ""; attrChipsEl.classList.remove("show"); return; }
+
+    const activeCount = Object.values(state.attrFilters).filter(Boolean).length;
+    attrChipsEl.classList.add("show");
+    attrChipsEl.innerHTML =
+      `<div class="attr-chips-head"><span class="attr-chips-title">Refine results</span>` +
+      (activeCount ? `<button type="button" id="clearAttrs" class="attr-clear">Clear filters (${activeCount})</button>` : "") +
+      `</div>` +
+      keys.map(k => {
+        const active = state.attrFilters[k];
+        const opts = [...groups[k]].sort();
+        return `<div class="attr-group">` +
+          `<span class="attr-group-label">${ATTR_LABELS[k] || k}</span>` +
+          `<div class="attr-group-opts">${opts.map(v => `<button type="button" class="chip attr-chip${active === v ? ' active' : ''}" data-key="${k}" data-val="${v.replace(/"/g, '&quot;')}">${k === 'brand' ? brandName(v) : v}</button>`).join("")}</div>` +
+          `</div>`;
+      }).join("");
   }
 
   function applyAndRender(animate) {
@@ -836,7 +866,8 @@
     let list = scoped.slice();
     Object.keys(state.attrFilters).forEach(k => {
       const v = state.attrFilters[k];
-      if (v) list = list.filter(p => (p.attrs || {})[k] === v);
+      if (!v) return;
+      list = list.filter(p => k === "brand" ? p.b === v : (p.attrs || {})[k] === v);
     });
 
     if (state.sort === "az") list.sort((a, b) => a.n.localeCompare(b.n));
@@ -883,6 +914,7 @@
   /* ---------- WIRE controls ---------- */
   chipsEl.addEventListener("click", e => { const c = e.target.closest(".chip"); if (c) setCat(c.dataset.cat); });
   attrChipsEl.addEventListener("click", e => {
+    if (e.target.closest("#clearAttrs")) { state.attrFilters = {}; applyAndRender(true); return; }
     const c = e.target.closest(".attr-chip"); if (!c) return;
     const { key, val } = c.dataset;
     state.attrFilters[key] = (state.attrFilters[key] === val) ? null : val;
