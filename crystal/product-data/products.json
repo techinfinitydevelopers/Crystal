@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-07T05:32:19.287595+00:00",
+  "generated_at": "2026-08-10T08:22:51.412506+00:00",
   "source_xlsx": "Crystal Product List for Techinfinity Final.xlsx",
   "sheets_included": [
     "Lighter",
@@ -2974,14 +2974,9 @@
         "size": "Large",
         "with_blade": "Without Blade"
       },
-      "hero": "product-photos/MKA-120/hero.webp",
-      "gallery": [
-        "product-photos/MKA-120/g1.webp",
-        "product-photos/MKA-120/g2.webp",
-        "product-photos/MKA-120/g3.webp",
-        "product-photos/MKA-120/g4.webp"
-      ],
-      "match_tier": "fuzzy_name",
+      "hero": null,
+      "gallery": [],
+      "match_tier": "unmatched",
       "id": "mka-120"
     },
     {
@@ -3755,7 +3750,12 @@
         "use": "Organiser"
       },
       "hero": "product-photos/MKA941/hero.webp",
-      "gallery": [],
+      "gallery": [
+        "product-photos/MKA941/g1.webp",
+        "product-photos/MKA941/g2.webp",
+        "product-photos/MKA941/g3.webp",
+        "product-photos/MKA941/g4.webp"
+      ],
       "match_tier": "exact_sku",
       "id": "mka941"
     },
@@ -4040,7 +4040,12 @@
         "use": "Grinder"
       },
       "hero": "product-photos/MKA042/hero.webp",
-      "gallery": [],
+      "gallery": [
+        "product-photos/MKA042/g1.webp",
+        "product-photos/MKA042/g2.webp",
+        "product-photos/MKA042/g3.webp",
+        "product-photos/MKA042/g4.webp"
+      ],
       "match_tier": "exact_sku",
       "id": "mka042"
     },
@@ -4455,7 +4460,11 @@
         "use": "Slicer"
       },
       "hero": "product-photos/MKA927/hero.webp",
-      "gallery": [],
+      "gallery": [
+        "product-photos/MKA927/g1.webp",
+        "product-photos/MKA927/g2.webp",
+        "product-photos/MKA927/g3.webp"
+      ],
       "match_tier": "exact_sku",
       "id": "mka927"
     },
@@ -4995,11 +5004,9 @@
         "set_size": "25.0",
         "set_type": "CUTLERY SET"
       },
-      "hero": "product-photos/MKA-302/hero.webp",
-      "gallery": [
-        "product-photos/MKA-302/g1.webp"
-      ],
-      "match_tier": "fuzzy_name",
+      "hero": null,
+      "gallery": [],
+      "match_tier": "unmatched",
       "id": "mka-302"
     },
     {
@@ -5398,9 +5405,9 @@
         "set_size": "6.0",
         "set_type": "Individual"
       },
-      "hero": "product-photos/CC-847/hero.webp",
+      "hero": null,
       "gallery": [],
-      "match_tier": "fuzzy_name",
+      "match_tier": "unmatched",
       "id": "cc-847"
     },
     {
@@ -8918,7 +8925,8 @@
       "hero": "product-photos/COP-001/hero.webp",
       "gallery": [
         "product-photos/COP-001/g1.webp",
-        "product-photos/COP-001/g2.webp"
+        "product-photos/COP-001/g2.webp",
+        "product-photos/COP-001/g3.webp"
       ],
       "match_tier": "exact_sku",
       "id": "cop-001"
@@ -8949,7 +8957,8 @@
       "hero": "product-photos/COP-002/hero.webp",
       "gallery": [
         "product-photos/COP-002/g1.webp",
-        "product-photos/COP-002/g2.webp"
+        "product-photos/COP-002/g2.webp",
+        "product-photos/COP-002/g3.webp"
       ],
       "match_tier": "exact_sku",
       "id": "cop-002"
@@ -8978,7 +8987,8 @@
       "hero": "product-photos/COP-003/hero.webp",
       "gallery": [
         "product-photos/COP-003/g1.webp",
-        "product-photos/COP-003/g2.webp"
+        "product-photos/COP-003/g2.webp",
+        "product-photos/COP-003/g3.webp"
       ],
       "match_tier": "exact_sku",
       "id": "cop-003"
@@ -9096,11 +9106,9 @@
       "hero": "product-photos/CPW-001/hero.webp",
       "gallery": [
         "product-photos/CPW-001/g1.webp",
-        "product-photos/CPW-001/g2.webp",
-        "product-photos/CPW-001/g3.webp",
-        "product-photos/CPW-001/g4.webp"
+        "product-photos/CPW-001/g2.webp"
       ],
-      "match_tier": "fuzzy_name",
+      "match_tier": "exact_sku",
       "id": "cpw-001"
     },
     {
@@ -9177,9 +9185,12 @@
       "filters": {
         "use": "Tray"
       },
-      "hero": null,
-      "gallery": [],
-      "match_tier": "unmatched",
+      "hero": "product-photos/CPW-004/hero.webp",
+      "gallery": [
+        "product-photos/CPW-004/g1.webp",
+        "product-photos/CPW-004/g2.webp"
+      ],
+      "match_tier": "exact_sku",
       "id": "cpw-004"
     },
     {
@@ -9255,9 +9266,12 @@
       "filters": {
         "use": "Tray"
       },
-      "hero": null,
-      "gallery": [],
-      "match_tier": "unmatched",
+      "hero": "product-photos/CPW-007/hero.webp",
+      "gallery": [
+        "product-photos/CPW-007/g1.webp",
+        "product-photos/CPW-007/g2.webp"
+      ],
+      "match_tier": "exact_sku",
       "id": "cpw-007"
     },
     {
@@ -9333,9 +9347,14 @@
       "filters": {
         "use": "Organiser"
       },
-      "hero": null,
-      "gallery": [],
-      "match_tier": "unmatched",
+      "hero": "product-photos/CPW-010/hero.webp",
+      "gallery": [
+        "product-photos/CPW-010/g1.webp",
+        "product-photos/CPW-010/g2.webp",
+        "product-photos/CPW-010/g3.webp",
+        "product-photos/CPW-010/g4.webp"
+      ],
+      "match_tier": "exact_sku",
       "id": "cpw-010"
     },
     {
@@ -9366,7 +9385,7 @@
         "product-photos/CPW-011/g3.webp",
         "product-photos/CPW-011/g4.webp"
       ],
-      "match_tier": "fuzzy_name",
+      "match_tier": "exact_sku",
       "id": "cpw-011"
     },
     {
@@ -9397,7 +9416,7 @@
         "product-photos/CPW-012/g3.webp",
         "product-photos/CPW-012/g4.webp"
       ],
-      "match_tier": "fuzzy_name",
+      "match_tier": "exact_sku",
       "id": "cpw-012"
     },
     {
@@ -9421,9 +9440,14 @@
       "filters": {
         "use": "Organiser"
       },
-      "hero": null,
-      "gallery": [],
-      "match_tier": "unmatched",
+      "hero": "product-photos/CPW-013/hero.webp",
+      "gallery": [
+        "product-photos/CPW-013/g1.webp",
+        "product-photos/CPW-013/g2.webp",
+        "product-photos/CPW-013/g3.webp",
+        "product-photos/CPW-013/g4.webp"
+      ],
+      "match_tier": "exact_sku",
       "id": "cpw-013"
     },
     {
@@ -9473,14 +9497,9 @@
       "filters": {
         "use": "Coaster"
       },
-      "hero": "product-photos/CPW-015/hero.webp",
-      "gallery": [
-        "product-photos/CPW-015/g1.webp",
-        "product-photos/CPW-015/g2.webp",
-        "product-photos/CPW-015/g3.webp",
-        "product-photos/CPW-015/g4.webp"
-      ],
-      "match_tier": "fuzzy_name",
+      "hero": null,
+      "gallery": [],
+      "match_tier": "unmatched",
       "id": "cpw-015"
     },
     {
@@ -9530,14 +9549,9 @@
       "filters": {
         "use": "Tissue Holder"
       },
-      "hero": "product-photos/CPW-017/hero.webp",
-      "gallery": [
-        "product-photos/CPW-017/g1.webp",
-        "product-photos/CPW-017/g2.webp",
-        "product-photos/CPW-017/g3.webp",
-        "product-photos/CPW-017/g4.webp"
-      ],
-      "match_tier": "fuzzy_name",
+      "hero": null,
+      "gallery": [],
+      "match_tier": "unmatched",
       "id": "cpw-017"
     },
     {
@@ -9561,9 +9575,14 @@
       "filters": {
         "use": "Coaster"
       },
-      "hero": null,
-      "gallery": [],
-      "match_tier": "unmatched",
+      "hero": "product-photos/CPW-018/hero.webp",
+      "gallery": [
+        "product-photos/CPW-018/g1.webp",
+        "product-photos/CPW-018/g2.webp",
+        "product-photos/CPW-018/g3.webp",
+        "product-photos/CPW-018/g4.webp"
+      ],
+      "match_tier": "exact_sku",
       "id": "cpw-018"
     },
     {
@@ -9613,14 +9632,9 @@
       "filters": {
         "use": "Container"
       },
-      "hero": "product-photos/CPW-020/hero.webp",
-      "gallery": [
-        "product-photos/CPW-020/g1.webp",
-        "product-photos/CPW-020/g2.webp",
-        "product-photos/CPW-020/g3.webp",
-        "product-photos/CPW-020/g4.webp"
-      ],
-      "match_tier": "fuzzy_name",
+      "hero": null,
+      "gallery": [],
+      "match_tier": "unmatched",
       "id": "cpw-020"
     },
     {
@@ -10337,9 +10351,9 @@
         "set_type": "Individual",
         "type": "Deep Kadai"
       },
-      "hero": "product-photos/CTP-EDK-001/hero.webp",
+      "hero": null,
       "gallery": [],
-      "match_tier": "exact_sku",
+      "match_tier": "unmatched",
       "id": "ctp-edk-001"
     },
     {
@@ -11174,7 +11188,7 @@
         "product-photos/CNS-893/g3.webp",
         "product-photos/CNS-893/g4.webp"
       ],
-      "match_tier": "fuzzy_name",
+      "match_tier": "exact_sku",
       "id": "cns-893"
     },
     {
@@ -11208,7 +11222,7 @@
         "product-photos/CNS-893G/g3.webp",
         "product-photos/CNS-893G/g4.webp"
       ],
-      "match_tier": "fuzzy_name",
+      "match_tier": "exact_sku",
       "id": "cns-893g"
     },
     {
@@ -11238,7 +11252,9 @@
       "hero": "product-photos/CNS896/hero.webp",
       "gallery": [
         "product-photos/CNS896/g1.webp",
-        "product-photos/CNS896/g2.webp"
+        "product-photos/CNS896/g2.webp",
+        "product-photos/CNS896/g3.webp",
+        "product-photos/CNS896/g4.webp"
       ],
       "match_tier": "exact_sku",
       "id": "cns896"
@@ -11268,14 +11284,9 @@
         "set_type": "Set",
         "type": "Set"
       },
-      "hero": "product-photos/CNS-90C2/hero.webp",
-      "gallery": [
-        "product-photos/CNS-90C2/g1.webp",
-        "product-photos/CNS-90C2/g2.webp",
-        "product-photos/CNS-90C2/g3.webp",
-        "product-photos/CNS-90C2/g4.webp"
-      ],
-      "match_tier": "fuzzy_name",
+      "hero": null,
+      "gallery": [],
+      "match_tier": "unmatched",
       "id": "cns-90c2"
     },
     {
@@ -11744,7 +11755,10 @@
         "type": "Tawa"
       },
       "hero": "product-photos/CNS-951/hero.webp",
-      "gallery": [],
+      "gallery": [
+        "product-photos/CNS-951/g1.webp",
+        "product-photos/CNS-951/g2.webp"
+      ],
       "match_tier": "exact_sku",
       "id": "cns-951"
     },
@@ -11770,9 +11784,9 @@
         "set_type": "Individual",
         "type": "Tawa"
       },
-      "hero": null,
+      "hero": "product-photos/CNS-954/hero.webp",
       "gallery": [],
-      "match_tier": "unmatched",
+      "match_tier": "exact_sku",
       "id": "cns-954"
     },
     {
@@ -11994,9 +12008,9 @@
         "set_type": "Individual",
         "type": "Tawa"
       },
-      "hero": null,
+      "hero": "product-photos/CNS-904A/hero.webp",
       "gallery": [],
-      "match_tier": "unmatched",
+      "match_tier": "exact_sku",
       "id": "cns-904a"
     },
     {
@@ -12075,9 +12089,9 @@
         "set_type": "Individual",
         "type": "Frypan"
       },
-      "hero": null,
+      "hero": "product-photos/CNS-907A/hero.webp",
       "gallery": [],
-      "match_tier": "unmatched",
+      "match_tier": "exact_sku",
       "id": "cns-907a"
     },
     {
@@ -12129,9 +12143,9 @@
         "set_type": "Individual",
         "type": "Frypan"
       },
-      "hero": null,
+      "hero": "product-photos/CNS-910A/hero.webp",
       "gallery": [],
-      "match_tier": "unmatched",
+      "match_tier": "exact_sku",
       "id": "cns-910a"
     },
     {
@@ -12210,9 +12224,9 @@
         "set_type": "Individual",
         "type": "Kadai"
       },
-      "hero": null,
+      "hero": "product-photos/CNS-913A/hero.webp",
       "gallery": [],
-      "match_tier": "unmatched",
+      "match_tier": "exact_sku",
       "id": "cns-913a"
     },
     {
@@ -12293,9 +12307,14 @@
         "set_type": "Individual",
         "type": "Deep Kadai"
       },
-      "hero": null,
-      "gallery": [],
-      "match_tier": "unmatched",
+      "hero": "product-photos/CNS-916/hero.webp",
+      "gallery": [
+        "product-photos/CNS-916/g1.webp",
+        "product-photos/CNS-916/g2.webp",
+        "product-photos/CNS-916/g3.webp",
+        "product-photos/CNS-916/g4.webp"
+      ],
+      "match_tier": "exact_sku",
       "id": "cns-916"
     },
     {
