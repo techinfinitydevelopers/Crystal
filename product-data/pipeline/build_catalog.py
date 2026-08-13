@@ -105,7 +105,9 @@ def load_products(sheet_names):
             log(f"  ! sheet {sheet_name!r}: no SKU column found, skipping entirely")
             continue
         brand_col = col(df, "brand")
-        subgroup_col = col(df, "subgroup")
+        subgroup_col = config.SUBGROUP_COLUMN_OVERRIDE.get(sheet_name) or col(df, "subgroup")
+        if subgroup_col and subgroup_col not in df.columns:
+            subgroup_col = col(df, "subgroup")
         name_col = col(df, "product_name")
         item_desc_col = col(df, "item_description")
         desc_col = col(df, "description")
@@ -130,7 +132,11 @@ def load_products(sheet_names):
             elif item_desc_col and pd.notna(row.get(item_desc_col)):
                 name = str(row[item_desc_col]).strip()
             if not name:
-                name = sku
+                # No product name or description at all (happens on the thin
+                # sheets) — build something more useful than a bare SKU, e.g.
+                # "Kettle CKTL-051", using whichever subgroup/type value we have.
+                type_hint = str(subgroup_val).strip() if isinstance(subgroup_val, str) else None
+                name = f"{type_hint} {sku}" if type_hint else sku
 
             filters = {}
             for fkey, aliases in config.FILTER_COLUMNS_BY_SHEET.get(sheet_name, {}).items():

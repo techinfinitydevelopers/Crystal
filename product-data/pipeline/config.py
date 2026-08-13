@@ -102,6 +102,17 @@ FILTER_COLUMNS_BY_SHEET = {
     "LUNCHBOX": {"size": ["Size"], "type": ["Type"], "material": ["Material"]},
 }
 
+# Some sheets have BOTH a "Type" and a "Material" column, and the generic
+# COLUMN_ALIASES["subgroup"] list checks "Material" before "Type" — right
+# for most sheets (Material genuinely is the subgroup there), but wrong for
+# these, where "Type" is what actually distinguishes the subcategory rows
+# (confirmed: Electric Appliances' Kettle/Rice Cooker/etc rows were all
+# resolving to subcategory=None because "Material"="Steel"/"Plastic" was
+# being read as the subgroup instead of "Type"="Kettle"/"Rice Cooker").
+SUBGROUP_COLUMN_OVERRIDE = {
+    "Electric Appliances": "Type",
+}
+
 KNOWN_BRANDS = {
     "crystal": "crystal", "crystalina": "crystalina", "crystalina ": "crystalina",
     "sparkmate": "sparkmate", "valmate": "valmate",
