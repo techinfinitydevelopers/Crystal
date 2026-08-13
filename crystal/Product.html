@@ -8,7 +8,7 @@
 <script>document.documentElement.className += " js";</script>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <style>
@@ -16,7 +16,7 @@
     --white: #ffffff; --cream: #ededed; --ink: #1A1A1A; --ink-soft: #1A1A1A; --ink-deep: #0F0F0F;
     --red: #ED3338; --red-deep: #c0282c; --grad-red: linear-gradient(135deg, #ED3338 0%, #c0282c 100%);
     --muted: #5f5f5f; --muted-d: #D5D5D5; --line: rgba(26,24,22,0.13); --line-d: rgba(213,213,213,0.18);
-    --head: "Space Grotesk", sans-serif; --body: "DM Sans", sans-serif;
+    --head: "Inter", sans-serif; --body: "Inter", sans-serif;
     --maxw: 1240px; --pad: clamp(18px, 5vw, 70px); --r: 20px;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -330,17 +330,17 @@
   body.tv-bold h1, body.tv-bold h2, body.tv-bold h3, body.tv-bold h4 { font-weight:700; letter-spacing:-0.045em; text-transform:uppercase; line-height:0.92; }
 
   /* ===== TWEAKS PANEL ===== */
-  .twk { position: fixed; right: 16px; bottom: 16px; z-index: 2147483646; width: 252px; max-height: calc(100vh - 32px); display: none; flex-direction: column; background: rgba(255,255,255,0.9); -webkit-backdrop-filter: blur(22px) saturate(160%); backdrop-filter: blur(22px) saturate(160%); border: 1px solid rgba(0,0,0,0.08); border-radius: 16px; box-shadow: 0 18px 50px -18px rgba(0,0,0,0.45); font-family: "DM Sans", sans-serif; color: #1A1A1A; overflow: hidden; }
+  .twk { position: fixed; right: 16px; bottom: 16px; z-index: 2147483646; width: 252px; max-height: calc(100vh - 32px); display: none; flex-direction: column; background: rgba(255,255,255,0.9); -webkit-backdrop-filter: blur(22px) saturate(160%); backdrop-filter: blur(22px) saturate(160%); border: 1px solid rgba(0,0,0,0.08); border-radius: 16px; box-shadow: 0 18px 50px -18px rgba(0,0,0,0.45); font-family: "Inter", sans-serif; color: #1A1A1A; overflow: hidden; }
   .twk.open { display: flex; }
   .twk-hd { display: flex; align-items: center; justify-content: space-between; padding: 13px 12px 13px 16px; border-bottom: 1px solid rgba(0,0,0,0.07); }
-  .twk-hd b { font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 14px; }
+  .twk-hd b { font-family: "Inter", sans-serif; font-weight: 700; font-size: 14px; }
   .twk-x { appearance: none; border: 0; background: transparent; color: #5f5f5f; width: 26px; height: 26px; border-radius: 8px; cursor: pointer; font-size: 13px; }
   .twk-x:hover { background: rgba(0,0,0,0.06); color: #1A1A1A; }
   .twk-body { padding: 10px 16px 16px; display: flex; flex-direction: column; gap: 8px; overflow-y: auto; }
-  .twk-sect { font-family: "Space Grotesk", sans-serif; font-size: 10.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #5f5f5f; padding-top: 10px; }
+  .twk-sect { font-family: "Inter", sans-serif; font-size: 10.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #5f5f5f; padding-top: 10px; }
   .twk-sect:first-child { padding-top: 2px; }
   .twk-seg { display: flex; gap: 5px; }
-  .twk-seg button { flex: 1; appearance: none; border: 1.5px solid rgba(26,24,22,0.13); background: #fff; color: #1A1A1A; font-family: "DM Sans", sans-serif; font-weight: 700; font-size: 12.5px; padding: 9px 6px; border-radius: 10px; cursor: pointer; transition: background .2s, color .2s, border-color .2s; }
+  .twk-seg button { flex: 1; appearance: none; border: 1.5px solid rgba(26,24,22,0.13); background: #fff; color: #1A1A1A; font-family: "Inter", sans-serif; font-weight: 700; font-size: 12.5px; padding: 9px 6px; border-radius: 10px; cursor: pointer; transition: background .2s, color .2s, border-color .2s; }
   .twk-seg button.on { background: #1A1A1A; color: #fff; border-color: #1A1A1A; }
   .twk-sw { display: flex; gap: 9px; }
   .twk-sw button { width: 30px; height: 30px; border-radius: 50%; border: 2px solid transparent; cursor: pointer; padding: 0; box-shadow: inset 0 0 0 1.5px rgba(255,255,255,0.65); transition: transform .2s; }
@@ -756,6 +756,11 @@
     serveware: { features:[["shine","Splendid Mirror Finish","High-polish stainless steel that elevates every table."],["heat","Stay-Warm Insulation","Double-wall builds keep food warm for hours."],["shield","Heavy-Gauge Build","Sturdy, premium-weight steel made for daily dining."],["leaf","Food-Safe Steel","Hygienic, rust-free and easy to clean."]], specs:{Material:"Stainless steel",Finish:"Mirror polish",Type:"Serveware",Care:"Hand wash",Warranty:"2 years"}, variants:["Small","Medium","Large"] },
     lighters: { features:[["power","Sure, Single-Press Spark","Reliable ignition every time, even for deep burners."],["shield","Stainless-Steel Body","Premium, corrosion-resistant build that lasts."],["refill","Refillable","Refillable gas design for long, economical life."],["grip","Comfort Grip","Balanced, easy-hold body for safe lighting."]], specs:{Material:"Stainless steel",Mechanism:"Flintless / refillable",Care:"Wipe clean",Warranty:"6 months"}, variants:["Standard","305 mm","380 mm"] },
     appliances: { features:[["power","Powerful Performance","Engineered motors and elements for fast, efficient results."],["shield","Safe & Reliable","Auto cut-off and quality components for peace of mind."],["precision","Smart Controls","Intuitive controls for effortless everyday use."],["leaf","Energy Efficient","Designed to deliver more while drawing less power."]], specs:{Material:"Stainless steel / ABS",Power:"Energy efficient",Compatibility:"220–240V",Care:"Wipe clean",Warranty:"1 year"}, variants:["Standard"] },
+    // Deliberately generic, no false-specific claims (no voltage, no blade
+    // material, no induction/gas compatibility) — used whenever a product's
+    // category/subcategory has no genuinely matching template above, so we
+    // never show another category's specifics on the wrong product.
+    general: { features:[["shield","Genuine Crystal Quality","Manufactured to Crystal's own quality standards since 1971."],["grip","Built for Everyday Use","Practical, durable design made for daily use in Indian homes."],["leaf","Easy to Maintain","Simple to clean and maintain with everyday care."],["shine","Trusted Since 1971","Part of Crystal's wide range trusted by homes and retailers across India."]], specs:{Brand:"Crystal",Care:"See product for care instructions",Warranty:"As per Crystal's standard policy"}, variants:["Standard"] },
   };
 
   // Real catalog loaded from product-data/products.json before first render
@@ -781,7 +786,7 @@
     const brand_slug = (typeof apiProd.brand === 'object' ? apiProd.brand.slug : apiProd.brand || '').toLowerCase();
     const cat_slug = (typeof apiProd.category === 'object' ? apiProd.category.slug : apiProd.category || '').toLowerCase();
     const b = BRANDS[brand_slug] || BRANDS['crystal'];
-    const tplKey = CAT_TPL[cat_slug] ? cat_slug : 'cookware';
+    const tplKey = CAT_TPL[cat_slug] ? cat_slug : (CAT_TPL[CAT_TPL_ALIAS[cat_slug]] ? CAT_TPL_ALIAS[cat_slug] : 'general');
     const tpl2 = CAT_TPL[tplKey];
     const variants2 = (apiProd.variants && apiProd.variants.length) ? apiProd.variants.map(v => v.name || v) : (prod.variants || tpl2.variants);
     const specs2 = apiProd.specifications
@@ -859,8 +864,15 @@
     }
   })();
   const brand = BRANDS[prod.b] || Object.values(BRANDS)[0];
-  const CAT_TPL_ALIAS = { "electric-appliances": "appliances", "cleaning-aid": "cleaning" };
-  const tpl = CAT_TPL[prod.sub] || CAT_TPL[prod.c] || CAT_TPL[CAT_TPL_ALIAS[prod.c]] || Object.values(CAT_TPL)[0];
+  // Only alias a category/subcategory to an existing template when its
+  // specifics (material, mechanism, compatibility) genuinely apply to that
+  // product family — anything else falls through to the honest "general"
+  // template rather than borrowing another category's false-specific claims.
+  const CAT_TPL_ALIAS = {
+    "electric-appliances": "appliances", "cleaning-aid": "cleaning", "water-bottle": "flasks",
+    "pressure-cooker": "cookware", "knives": "cutlery", "peelers": "cutlery", "servers": "serveware",
+  };
+  const tpl = CAT_TPL[prod.sub] || CAT_TPL[CAT_TPL_ALIAS[prod.sub]] || CAT_TPL[prod.c] || CAT_TPL[CAT_TPL_ALIAS[prod.c]] || CAT_TPL.general;
   const variants = prod.variants || tpl.variants;
   const specs = Object.assign({}, tpl.specs, prod.specs || {});
   const gallery = [prod.img, ...(prod.gallery || [])].filter(Boolean);
@@ -981,7 +993,7 @@
       const data = await res.json();
       P = data.products.map(p => ({
         id: p.id, n: p.name, b: p.brand, c: p.category, sub: p.subcategory, col: p.collection || p.subcategory || "",
-        img: p.hero || "about-assets/prod-1.jpg", gallery: p.gallery || [], tags: p.tags || [],
+        img: p.hero || "about-assets/no-image-placeholder.webp", gallery: p.gallery || [], tags: p.tags || [],
         intro: p.highlight || p.description || "", desc: p.description || p.highlight || "",
         variants: undefined, mrp: p.mrp,
       }));

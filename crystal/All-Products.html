@@ -8,7 +8,7 @@
 <script>document.documentElement.className += " js";</script>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <style>
@@ -26,8 +26,8 @@
     --muted-d: #D5D5D5;
     --line: rgba(26,24,22,0.13);
     --line-d: rgba(213,213,213,0.18);
-    --head: "Space Grotesk", sans-serif;
-    --body: "DM Sans", sans-serif;
+    --head: "Inter", sans-serif;
+    --body: "Inter", sans-serif;
     --maxw: 1240px;
     --pad: clamp(18px, 5vw, 70px);
     --r: 20px;
@@ -180,6 +180,41 @@
 
   /* ===== BROWSE / TOOLBAR / GRID ===== */
   .browse { background: var(--cream); }
+  .crumbs { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-family: var(--body); font-size: 12.5px; font-weight: 600; color: var(--muted); padding: 20px 0 0; }
+  .crumbs:empty { display: none; }
+  .crumbs a { color: var(--muted); text-decoration: none; transition: color .2s; }
+  .crumbs a:hover { color: var(--red); }
+  .crumbs span.sep { color: var(--line); }
+  .crumbs span.cur { color: var(--ink); }
+
+  /* ---- subcategory/category showcase hero (premium, non-ecommerce) ---- */
+  .sub-hero { display: none; position: relative; margin: 22px 0 34px; border-radius: var(--r); overflow: hidden; background: var(--ink); box-shadow: 0 50px 90px -40px rgba(15,15,15,0.5); }
+  .sub-hero.show { display: grid; grid-template-columns: 1.05fr 1fr; align-items: stretch; min-height: 460px; }
+  .sub-hero.no-image { grid-template-columns: 1fr; }
+  .sub-hero-body { position: relative; z-index: 2; overflow: hidden; padding: clamp(32px, 4.5vw, 60px); display: flex; flex-direction: column; justify-content: center; gap: 16px; }
+  .sub-hero-wm { position: absolute; z-index: 1; left: -0.05em; top: 50%; transform: translateY(-50%); font-family: var(--head); font-weight: 700; text-transform: uppercase; font-size: clamp(60px, 11vw, 150px); line-height: 0.82; letter-spacing: -0.03em; color: transparent; -webkit-text-stroke: 1.5px rgba(255,255,255,0.09); user-select: none; pointer-events: none; white-space: nowrap; -webkit-mask-image: linear-gradient(90deg, #000 60%, transparent 96%); mask-image: linear-gradient(90deg, #000 60%, transparent 96%); }
+  .sub-hero-eyebrow { position: relative; font-family: var(--body); font-weight: 700; font-size: 11.5px; letter-spacing: 0.14em; text-transform: uppercase; color: #ff8c8f; display: inline-flex; align-items: center; gap: 8px; }
+  .sub-hero-eyebrow .pip { width: 7px; height: 7px; border-radius: 50%; background: var(--grad-red); display: inline-block; flex: 0 0 auto; box-shadow: 0 0 12px 2px rgba(237,51,56,0.7); }
+  .sub-hero-title { font-family: var(--head); font-weight: 700; text-transform: uppercase; font-size: clamp(30px, 4.2vw, 52px); line-height: 0.96; letter-spacing: -0.01em; color: #fff; position: relative; padding-bottom: 16px; }
+  .sub-hero-title.long { font-size: clamp(22px, 2.8vw, 36px); }
+  .sub-hero-title::after { content: ""; position: absolute; left: 0; bottom: 0; width: 54px; height: 4px; border-radius: 4px; background: var(--grad-red); }
+  .sub-hero-why { font-family: var(--body); font-weight: 700; font-size: 15px; color: #fff; margin-top: 6px; }
+  .sub-hero-bullets { display: flex; flex-direction: column; gap: 10px; }
+  .sub-hero-bullets li { display: flex; gap: 11px; font-size: 14.5px; line-height: 1.55; color: rgba(255,255,255,0.68); }
+  .sub-hero-bullets li::before { content: "✓"; flex: 0 0 auto; width: 19px; height: 19px; margin-top: 1px; border-radius: 50%; background: rgba(237,51,56,0.18); color: #ff8c8f; font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+  .sub-hero-cta { display: inline-flex; align-items: center; gap: 9px; margin-top: 10px; font-family: var(--body); font-weight: 700; font-size: 13.5px; color: #fff; text-decoration: none; padding-bottom: 3px; border-bottom: 2px solid var(--red); align-self: flex-start; cursor: pointer; transition: gap .25s; background: none; border-left: none; border-top: none; border-right: none; }
+  .sub-hero-cta:hover { gap: 15px; }
+  .sub-hero-cta svg { width: 15px; height: 15px; }
+  .sub-hero-media { position: relative; overflow: hidden; background: #f1f1f1; clip-path: polygon(7% 0, 100% 0, 100% 100%, 0% 100%); margin-left: -6%; }
+  .sub-hero-media img { position: relative; z-index: 1; width: 100%; height: 100%; object-fit: cover; display: block; }
+  .sub-hero-count { position: absolute; z-index: 3; bottom: 20px; right: 20px; background: rgba(255,255,255,0.94); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); font-family: var(--head); font-weight: 700; font-size: 12px; letter-spacing: 0.02em; padding: 8px 16px; border-radius: 100px; color: var(--ink); box-shadow: 0 14px 28px -12px rgba(0,0,0,0.55); }
+  @media (max-width: 780px) {
+    .sub-hero.show { grid-template-columns: 1fr; min-height: 0; }
+    .sub-hero-media { aspect-ratio: 16/11; clip-path: polygon(0 6%, 100% 0, 100% 100%, 0 100%); margin-left: 0; margin-top: -6%; }
+    .sub-hero-body { order: 2; padding-top: 8px; }
+    .sub-hero-media { order: 1; }
+    .sub-hero-wm { display: none; }
+  }
   .browse-bar { display: flex; align-items: center; justify-content: space-between; gap: 14px 20px; flex-wrap: wrap; padding-bottom: 18px; border-bottom: 1.5px solid var(--line); margin-bottom: 20px; }
   .browse-bar .count { font-size: 14px; color: var(--muted); font-weight: 600; }
   .browse-bar .count b { color: var(--ink); }
@@ -583,13 +618,16 @@
 <!-- ===== BROWSE / PRODUCT GRID ===== -->
 <section class="sec browse" id="browse">
   <div class="wrap">
-    <div class="sec-head">
+    <nav class="crumbs" id="crumbs" aria-label="Breadcrumb"></nav>
+    <div class="sec-head" id="browseHead">
       <div>
         <span class="eyebrow" data-fade><span class="pip"></span>The catalogue</span>
         <h2 data-split style="margin-top:14px" id="browseTitle">Browse all<br>products</h2>
       </div>
       <p class="lead">Filter by category and sort to find exactly what your kitchen needs.</p>
     </div>
+
+    <div class="sub-hero" id="subHero"></div>
 
     <div class="browse-bar">
       <div class="count" id="count"></div>
@@ -741,6 +779,7 @@
   // still tries the live backend afterward and overrides P if it succeeds.
   let P = [];
   let PID = {};
+  let SUBCOPY = { categories: {}, subcategories: {} };
   const pdpHref = p => "Product.html?p=" + (p.id || PID[p.n] || "");
 
   const MAIN_COLLECTIONS = [
@@ -893,6 +932,62 @@
 
   function closeAttrDrawer() { attrChipsEl.classList.remove("drawer-open"); document.body.classList.remove("no-scroll"); }
 
+  const crumbsEl = document.getElementById("crumbs");
+  const subHeroEl = document.getElementById("subHero");
+
+  function renderCrumbs() {
+    if (!crumbsEl) return;
+    const parts = [`<a href="index.html">Home</a>`, `<span class="sep">/</span>`, `<a href="All-Products.html">Products</a>`];
+    if (state.cat !== "all" && !state.cats) {
+      const catLabel = CAT_LABEL[state.cat] || state.cat;
+      const hasSub = !!state.subText;
+      parts.push(`<span class="sep">/</span>`);
+      parts.push(hasSub ? `<a href="All-Products.html?cat=${state.cat}">${catLabel}</a>` : `<span class="cur">${catLabel}</span>`);
+      if (hasSub) {
+        const subLabel = (SUBCOPY.subcategories[`${state.cat}:${state.subText}`] || {}).label
+          || state.subText.replace(/-/g, " ").replace(/\b\w/g, c => c.toUpperCase());
+        parts.push(`<span class="sep">/</span>`, `<span class="cur">${subLabel}</span>`);
+      }
+    }
+    crumbsEl.innerHTML = parts.join(" ");
+  }
+
+  function renderSubHero(heroCount) {
+    if (!subHeroEl) return;
+    let entry = null;
+    if (state.subText) entry = SUBCOPY.subcategories[`${state.cat}:${state.subText}`] || null;
+    else if (state.cat !== "all" && !state.cats && !state.col) entry = SUBCOPY.categories[state.cat] || null;
+
+    if (!entry) { subHeroEl.className = "sub-hero"; subHeroEl.innerHTML = ""; return; }
+
+    subHeroEl.className = "sub-hero show" + (entry.heroImage ? "" : " no-image");
+    const longTitle = entry.label.length > 18 ? " long" : "";
+    subHeroEl.innerHTML =
+      `<div class="sub-hero-body">` +
+      `<span class="sub-hero-wm" aria-hidden="true">${entry.label}</span>` +
+      `<span class="sub-hero-eyebrow"><span class="pip"></span>Crystal · ${CAT_LABEL[state.cat] || ""}</span>` +
+      `<h1 class="sub-hero-title${longTitle}">${entry.label}</h1>` +
+      (entry.why ? `<div class="sub-hero-why">${entry.why}</div>` : "") +
+      `<ul class="sub-hero-bullets">${(entry.bullets || []).map(b => `<li>${b}</li>`).join("")}</ul>` +
+      `<button type="button" class="sub-hero-cta" id="subHeroCta">Explore ${entry.label} <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></button>` +
+      `</div>` +
+      (entry.heroImage ? `<div class="sub-hero-media"><img src="${entry.heroImage}" alt="${entry.label}" loading="lazy">` +
+        (heroCount ? `<span class="sub-hero-count">${heroCount} product${heroCount === 1 ? "" : "s"}</span>` : "") + `</div>` : "");
+  }
+
+  // Once a category/subcategory is picked, the top marketing hero, "Shop by
+  // category" grid and "Featured Collections" are redundant with the
+  // category-specific showcase banner above the grid — hide them so chips
+  // and results are immediately visible. They stay for the default "All"
+  // landing view, where there's no category-specific content yet to show.
+  const landingSections = ["hero", "categories", "collections"].map(id => document.getElementById(id));
+  function toggleLandingSections() {
+    const scoped = state.cat !== "all" || !!state.cats;
+    landingSections.forEach(el => { if (el) el.style.display = scoped ? "none" : ""; });
+    const head = document.getElementById("browseHead");
+    if (head) head.style.display = scoped ? "none" : "";
+  }
+
   function applyAndRender(animate) {
     let scoped = viewProducts.slice();
     if (state.cats) scoped = scoped.filter(p => state.cats.includes(p.c));
@@ -902,6 +997,10 @@
       if (scoped.some(p => p.sub === state.subText)) scoped = scoped.filter(p => p.sub === state.subText);
       else { const terms = state.subText.split("-").filter(Boolean); scoped = scoped.filter(p => { const hay = (p.n + " " + p.col + " " + p.tags.join(" ")).toLowerCase(); return terms.every(t => hay.includes(t)); }); }
     }
+
+    renderCrumbs();
+    renderSubHero(scoped.length);
+    toggleLandingSections();
 
     let list = scoped.slice();
     Object.keys(state.attrFilters).forEach(k => {
@@ -956,6 +1055,9 @@
 
   /* ---------- WIRE controls ---------- */
   chipsEl.addEventListener("click", e => { const c = e.target.closest(".chip"); if (c) setCat(c.dataset.cat); });
+  subHeroEl.addEventListener("click", e => {
+    if (e.target.closest("#subHeroCta")) gridEl.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
   attrChipsEl.addEventListener("click", e => {
     if (e.target.closest("#clearAttrs") || e.target.closest("#clearAttrsMobile")) {
       state.attrFilters = {}; openGroupKey = null; applyAndRender(true); return;
@@ -1112,12 +1214,18 @@
       const data = await res.json();
       P = data.products.map(p => ({
         n: p.name, col: p.collection || p.subcategory || "", b: p.brand, c: p.category, sub: p.subcategory,
-        img: p.hero || "about-assets/prod-1.jpg", hl: p.highlight || p.description || "",
+        img: p.hero || "about-assets/no-image-placeholder.webp", hl: p.highlight || p.description || "",
         tags: p.tags || [], id: p.id, mrp: p.mrp, attrs: p.filters || {},
       }));
       PID = Object.fromEntries(P.map(p => [p.n, p.id]));
     } catch (e) {
       console.warn("Could not load product-data/products.json", e);
+    }
+    try {
+      const cres = await fetch("product-data/subcategory-copy.json");
+      SUBCOPY = await cres.json();
+    } catch (e) {
+      console.warn("Could not load product-data/subcategory-copy.json", e);
     }
     renderCatalog();
   })();

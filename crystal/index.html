@@ -8,7 +8,7 @@
 <script>document.documentElement.className += " js";</script>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
 <script src="image-slot.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
@@ -26,8 +26,8 @@
     --muted-d: #D5D5D5;
     --line: rgba(26,24,22,0.13);
     --line-d: rgba(213,213,213,0.18);
-    --head: "Space Grotesk", sans-serif;
-    --body: "DM Sans", sans-serif;
+    --head: "Inter", sans-serif;
+    --body: "Inter", sans-serif;
     --maxw: 1240px;
     --pad: clamp(18px, 5vw, 70px);
     --r: 20px;
@@ -124,7 +124,7 @@
   .hero-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(255,255,255,0.62), rgba(255,255,255,0.42) 50%, rgba(255,255,255,0.72)); }
   .hero .wrap { position: relative; z-index: 4; text-align: center; }
   .hero .pre { font-family: var(--head); font-weight: 600; text-transform: uppercase; font-size: clamp(14px, 1.6vw, 18px); letter-spacing: 0.18em; color: var(--red); }
-  .hero h1 { font-size: clamp(38px, 6.4vw, 82px); text-transform: uppercase; margin: 4px auto; line-height: 1.02; max-width: 15ch; }
+  .hero h1 { font-size: clamp(34px, 5.6vw, 72px); text-transform: uppercase; margin: 4px auto; line-height: 1.02; max-width: 15ch; }
   .hero h1 .grad { background: var(--grad-red); -webkit-background-clip: text; background-clip: text; color: transparent; }
   .hero-sub { max-width: 560px; margin: 30px auto 32px; font-size: clamp(15px, 1.6vw, 18px); color: var(--muted); line-height: 1.6; }
   .hero-cta { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
@@ -146,7 +146,7 @@
 
   /* ===== Section scaffold ===== */
   section { position: relative; }
-  .sec { padding-block: clamp(60px, 9vw, 128px); }
+  .sec { padding-block: clamp(40px, 5.2vw, 76px); }
   .sec-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 26px; flex-wrap: wrap; margin-bottom: clamp(30px, 5vw, 54px); }
   .sec-head h2 { font-size: clamp(34px, 6vw, 82px); text-transform: uppercase; }
   .sec-head .lead { max-width: 380px; color: var(--muted); font-size: 16px; line-height: 1.55; }
@@ -168,7 +168,7 @@
   .work-card { position: sticky; top: calc(96px + var(--i, 0) * 18px); height: min(74vh, 620px); border-radius: var(--enp-r-xl, 24px); overflow: hidden; border: 1.5px solid var(--line); box-shadow: 0 30px 70px -34px rgba(15,15,15,0.55); margin-bottom: 26px; will-change: transform; transform-origin: center top; background: var(--ink); }
   .work-card:last-child { margin-bottom: 0; }
   .wc-media { position: absolute; inset: 0; z-index: 1; overflow: hidden; }
-  .wc-media image-slot { width: 100%; height: 118%; margin-top: -9%; }
+  .wc-media image-slot { width: 100%; height: 100%; margin-top: 0; }
   .wc-grad { position: absolute; inset: 0; z-index: 2; background: linear-gradient(180deg, rgba(15,15,15,0.04) 0%, rgba(15,15,15,0.12) 38%, rgba(15,15,15,0.85) 100%); }
   .wc-body { position: absolute; inset: auto 0 0 0; z-index: 3; padding: clamp(26px, 4vw, 54px); color: #fff; }
   .wc-num { font-family: var(--head); font-weight: 700; font-size: 14px; color: #fff; opacity: 0.7; letter-spacing: 0.05em; }
@@ -228,7 +228,7 @@
   .ms-dot { width: 23px; height: 23px; border-radius: 50%; background: #fff; border: 3px solid var(--red); box-shadow: 0 0 0 6px rgba(237,51,56,0.10); margin-top: 10px; z-index: 3; }
   .ms-card { display: grid; grid-template-columns: minmax(150px, 28%) 1fr; gap: clamp(20px, 3.4vw, 48px); align-items: center; background: var(--white); border: 1.5px solid var(--line); border-radius: var(--enp-r-xl, 24px); padding: clamp(24px, 3vw, 40px); box-shadow: 0 26px 54px -34px rgba(15,15,15,0.4); transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s; }
   .ms:hover .ms-card { transform: translateY(-6px); box-shadow: 0 36px 64px -34px rgba(237,51,56,0.34); }
-  .ms-idx { display: block; font-family: var(--head); font-weight: 700; font-size: clamp(34px, 4vw, 52px); line-height: 0.9; color: rgba(26,24,22,0.10); letter-spacing: -0.03em; margin-bottom: 6px; }
+  .ms-idx { display: block; font-family: var(--head); font-weight: 700; font-size: clamp(34px, 4vw, 52px); line-height: 0.9; color: var(--muted); letter-spacing: -0.03em; margin-bottom: 6px; }
   .ms-ic { width: 52px; height: 52px; border-radius: 15px; display: grid; place-items: center; background: rgba(237,51,56,0.10); margin-bottom: 16px; }
   .ms-metric { font-family: var(--head); font-weight: 700; font-size: clamp(26px, 3vw, 42px); line-height: 1.02; overflow-wrap: break-word; background: var(--grad-red); -webkit-background-clip: text; background-clip: text; color: transparent; letter-spacing: -0.02em; }
   .ms h4 { font-family: var(--head); font-weight: 700; text-transform: uppercase; font-size: 20px; margin-bottom: 8px; letter-spacing: -0.01em; }
@@ -240,7 +240,7 @@
   .infra-card { border: 1.5px solid var(--line); border-radius: var(--enp-r-xl, 24px); padding: clamp(24px, 2.6vw, 34px); background: var(--white); box-shadow: 0 26px 54px -34px rgba(15,15,15,0.4); transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s; }
   .infra-card:hover { transform: translateY(-6px); box-shadow: 0 36px 64px -34px rgba(237,51,56,0.34); }
   .infra-card .num { font-family: var(--head); font-weight: 700; font-size: clamp(34px, 3.4vw, 56px); line-height: .9; background: var(--grad-red); -webkit-background-clip: text; background-clip: text; color: transparent; letter-spacing: -0.02em; }
-  .infra-card .lbl { margin-top: 12px; color: var(--muted-d); font-size: 14px; font-weight: 600; }
+  .infra-card .lbl { margin-top: 12px; color: var(--muted); font-size: 14px; font-weight: 600; }
   @media (max-width: 980px) { .infra-grid { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 540px) { .infra-grid { grid-template-columns: 1fr; } }
 
@@ -302,14 +302,11 @@
   .foot-wordmark { position: relative; font-family: var(--head); font-weight: 700; text-transform: uppercase; font-size: clamp(64px, 19vw, 300px); line-height: 0.78; letter-spacing: -0.04em; text-align: center; margin: clamp(18px,3vw,38px) 0 -0.05em; user-select: none; pointer-events: none; }
   .foot-wordmark span { display: block; }
   .foot-wordmark .wm-outline { color: transparent; -webkit-text-stroke: 1.5px rgba(255,255,255,0.13); }
-  .foot-wordmark .wm-fill { position: absolute; inset: 0; color: transparent; -webkit-background-clip: text; background-clip: text; --level: 0%; --wavex: 0px; --wavex2: 0px;
-    background-image:
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='22' viewBox='0 0 160 22' preserveAspectRatio='none'%3E%3Cpath d='M0 9 Q 40 0 80 9 T 160 9 V22 H0 Z' fill='%23ff5256'/%3E%3C/svg%3E"),
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='26' viewBox='0 0 200 26' preserveAspectRatio='none'%3E%3Cpath d='M0 13 Q 50 3 100 13 T 200 13 V26 H0 Z' fill='%23ED3338'/%3E%3C/svg%3E"),
-      linear-gradient(180deg, #ED3338, #c0282c);
-    background-repeat: repeat-x, repeat-x, no-repeat;
-    background-size: 160px 22px, 200px 26px, 100% var(--level);
-    background-position: var(--wavex) calc(100% - var(--level) - 8px), var(--wavex2) calc(100% - var(--level) - 12px), left bottom; }
+  .foot-wordmark .wm-fill { position: absolute; inset: 0; color: transparent; -webkit-background-clip: text; background-clip: text; --level: 0%;
+    background-image: linear-gradient(180deg, #ff5256, #ED3338 40%, #c0282c);
+    background-repeat: no-repeat;
+    background-size: 100% var(--level);
+    background-position: left bottom; }
   .foot-bottom { padding-top: 24px; border-top: 1.5px solid var(--line-d); display: flex; justify-content: space-between; gap: 14px; flex-wrap: wrap; color: var(--muted-d); font-size: 14px; }
 
   /* ===== MOBILE MENU ===== */
@@ -340,7 +337,7 @@
   @media (max-width: 600px) {
     .float { display: none; }                       /* declutter hero on phones */
     .hero { padding-top: clamp(94px, 16vh, 118px); padding-bottom: 60px; }
-    .hero h1 { font-size: clamp(29px, 8.6vw, 54px); max-width: none; }
+    .hero h1 { font-size: clamp(26px, 7.6vw, 48px); max-width: none; }
     .hero .pre { font-size: 12px; }
     .hero-sub { font-size: 15px; margin: 20px auto 24px; }
     .sec-head { margin-bottom: 28px; gap: 14px; }
@@ -362,7 +359,7 @@
     .cta h2 { font-size: clamp(40px, 13vw, 80px); }
   }
   @media (max-width: 400px) {
-    .hero h1 { font-size: clamp(26px, 9vw, 40px); }
+    .hero h1 { font-size: clamp(23px, 8vw, 36px); }
     .btn { padding: 13px 20px; font-size: 14px; }
     .wrap { padding-inline: 16px; }
     .foot-wordmark { font-size: 46px; }
@@ -374,6 +371,7 @@
   .hero-bg video { width: 100%; height: 100%; object-fit: cover; }
   .why-logo-chip { background: #fff; border-radius: 14px; width: 132px; height: 62px; display: grid; place-items: center; padding: 10px 16px; box-shadow: 0 8px 22px -14px rgba(0,0,0,0.5); }
   .why-logo-chip img { max-height: 36px; max-width: 100%; width: auto; object-fit: contain; display: block; }
+  .why-logo-chip .txt { font-family: var(--head); font-weight: 700; font-size: 17px; letter-spacing: -0.01em; color: var(--ink); text-transform: uppercase; }
   .tst-card .date { color: var(--muted); font-size: 13px; font-weight: 600; margin-bottom: 12px; }
 
   /* ===== THEME / TYPE-VOICE TWEAKS ===== */
@@ -391,17 +389,17 @@
   body.tv-bold h1, body.tv-bold h2, body.tv-bold h3, body.tv-bold h4 { font-weight:700; letter-spacing:-0.045em; text-transform:uppercase; line-height:0.92; }
 
   /* ===== TWEAKS PANEL ===== */
-  .twk { position: fixed; right: 16px; bottom: 16px; z-index: 2147483646; width: 252px; max-height: calc(100vh - 32px); display: none; flex-direction: column; background: rgba(255,255,255,0.9); -webkit-backdrop-filter: blur(22px) saturate(160%); backdrop-filter: blur(22px) saturate(160%); border: 1px solid rgba(0,0,0,0.08); border-radius: 16px; box-shadow: 0 18px 50px -18px rgba(0,0,0,0.45); font-family: "DM Sans", sans-serif; color: #1A1A1A; overflow: hidden; }
+  .twk { position: fixed; right: 16px; bottom: 16px; z-index: 2147483646; width: 252px; max-height: calc(100vh - 32px); display: none; flex-direction: column; background: rgba(255,255,255,0.9); -webkit-backdrop-filter: blur(22px) saturate(160%); backdrop-filter: blur(22px) saturate(160%); border: 1px solid rgba(0,0,0,0.08); border-radius: 16px; box-shadow: 0 18px 50px -18px rgba(0,0,0,0.45); font-family: "Inter", sans-serif; color: #1A1A1A; overflow: hidden; }
   .twk.open { display: flex; }
   .twk-hd { display: flex; align-items: center; justify-content: space-between; padding: 13px 12px 13px 16px; border-bottom: 1px solid rgba(0,0,0,0.07); }
-  .twk-hd b { font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 14px; }
+  .twk-hd b { font-family: "Inter", sans-serif; font-weight: 700; font-size: 14px; }
   .twk-x { appearance: none; border: 0; background: transparent; color: #5f5f5f; width: 26px; height: 26px; border-radius: 8px; cursor: pointer; font-size: 13px; }
   .twk-x:hover { background: rgba(0,0,0,0.06); color: #1A1A1A; }
   .twk-body { padding: 10px 16px 16px; display: flex; flex-direction: column; gap: 8px; overflow-y: auto; }
-  .twk-sect { font-family: "Space Grotesk", sans-serif; font-size: 10.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #5f5f5f; padding-top: 10px; }
+  .twk-sect { font-family: "Inter", sans-serif; font-size: 10.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #5f5f5f; padding-top: 10px; }
   .twk-sect:first-child { padding-top: 2px; }
   .twk-seg { display: flex; gap: 5px; }
-  .twk-seg button { flex: 1; appearance: none; border: 1.5px solid rgba(26,24,22,0.13); background: #fff; color: #1A1A1A; font-family: "DM Sans", sans-serif; font-weight: 700; font-size: 12.5px; padding: 9px 6px; border-radius: 10px; cursor: pointer; transition: background .2s, color .2s, border-color .2s; }
+  .twk-seg button { flex: 1; appearance: none; border: 1.5px solid rgba(26,24,22,0.13); background: #fff; color: #1A1A1A; font-family: "Inter", sans-serif; font-weight: 700; font-size: 12.5px; padding: 9px 6px; border-radius: 10px; cursor: pointer; transition: background .2s, color .2s, border-color .2s; }
   .twk-seg button.on { background: #1A1A1A; color: #fff; border-color: #1A1A1A; }
   .twk-sw { display: flex; gap: 9px; }
   .twk-sw button { width: 30px; height: 30px; border-radius: 50%; border: 2px solid transparent; cursor: pointer; padding: 0; box-shadow: inset 0 0 0 1.5px rgba(255,255,255,0.65); transition: transform .2s; }
@@ -576,13 +574,13 @@
 <section class="hero" id="hero">
   <div class="hero-bg" data-hero-bg><video autoplay muted loop playsinline poster="https://proj.leo9studio.in/projects/crystal-wp/wp-content/uploads/2026/04/3-1.jpg"><source src="https://proj.leo9studio.in/projects/crystal-wp/wp-content/uploads/2026/05/AV-FILM.mp4" type="video/mp4"></video></div>
   <span class="float f1 anim-float float-prod" style="width:112px;height:132px;border-radius:26px">
-    <image-slot id="float-1" src="https://proj.leo9studio.in/projects/crystal-wp/wp-content/uploads/2026/04/3-1.jpg" placeholder="Product" fit="cover"></image-slot>
+    <image-slot id="float-1" src="product-photos/CTP-TP-003/hero.webp" placeholder="Product" fit="cover"></image-slot>
   </span>
   <span class="float f2 anim-float d float-prod round" style="width:104px;height:104px">
-    <image-slot id="float-2" src="https://proj.leo9studio.in/projects/crystal-wp/wp-content/uploads/2026/04/6.jpg" placeholder="Product" fit="cover"></image-slot>
+    <image-slot id="float-2" src="product-photos/CL-011/hero.webp" placeholder="Product" fit="cover"></image-slot>
   </span>
   <span class="float f3 anim-float float-prod round" style="width:86px;height:86px">
-    <image-slot id="float-3" src="https://proj.leo9studio.in/projects/crystal-wp/wp-content/uploads/2026/04/4-2.jpg" placeholder="Product" fit="cover"></image-slot>
+    <image-slot id="float-3" src="product-photos/CWB-033/hero.webp" placeholder="Product" fit="cover"></image-slot>
   </span>
   <div class="wrap">
     <div class="pre" data-fade>Crystal · Since 1971</div>
@@ -814,7 +812,7 @@
   ];
   document.getElementById("worksGrid").innerHTML = works.map((w, i) => `
     <article class="work-card" data-work style="--i:${i}">
-      <div class="wc-media"><image-slot id="work-${i}" src="${localImg(w.img)}" placeholder="Drop image" fit="cover"></image-slot></div>
+      <div class="wc-media"><image-slot id="work-${i}" src="${localImg(w.img)}" placeholder="Drop image" fit="fill"></image-slot></div>
       <span class="wc-grad"></span>
       <div class="wc-body">
         <span class="wc-num">0${i+1} / 05</span>
@@ -826,11 +824,11 @@
     </article>`).join("");
 
   const services = [
-    { t: "Cookware", d: "Tri-ply, cast iron, non-stick and hard anodised — engineered to last a lifetime of cooking.", s: ["Tri-Pro","Cast Iron","Non-Stick","Hard Anodised"], img: "2026/05/CTV-097.jpg" },
-    { t: "Kitchenware", d: "Everyday tools that make prep effortless — from blade to board to table.", s: ["Knives & Peelers","Chopping Boards","Cutlery & Servers","Kitchen Tools"], img: "2026/01/Crystal-5-Pcs-Knife-Set.jpg" },
-    { t: "Cleaning Aid", d: "Smart cleaning essentials for a sparkling, effortless home.", s: ["Spin Mops","Brooms & Dust Pans","Wipers & Brushes","Scrubbers & Bins"], img: "2026/05/SMM013-1024x1024.jpg" },
-    { t: "Electric Appliances", d: "Modern appliances built for the modern Indian kitchen.", s: ["Chimney & Cooktop","Kettle & Iron","Air Fryer & OTG","Rice Cooker & JMG"], img: "2026/04/8.jpg" },
-    { t: "Everyday Essentials", d: "Reliable cooking and storage companions for daily living.", s: ["Pressure Cookers","Water Bottles","Lunch Boxes","Wood Range"], img: "2026/04/CPC_023.jpg" },
+    { t: "Cookware", d: "Tri-ply, cast iron, non-stick and hard anodised — engineered to last a lifetime of cooking.", s: ["Tri-Pro","Cast Iron","Non-Stick","Hard Anodised"], img: "about-assets/cookware-tri-ply-cast-iron-non-stick.png" },
+    { t: "Kitchenware", d: "Everyday tools that make prep effortless — from blade to board to table.", s: ["Knives & Peelers","Chopping Boards","Cutlery & Servers","Kitchen Tools"], img: "about-assets/kitchenware-knives-cutlery-tools.png" },
+    { t: "Cleaning Aid", d: "Smart cleaning essentials for a sparkling, effortless home.", s: ["Spin Mops","Brooms & Dust Pans","Wipers & Brushes","Scrubbers & Bins"], img: "about-assets/cleaning-aid-mops-brooms-wipers.png" },
+    { t: "Electric Appliances", d: "Modern appliances built for the modern Indian kitchen.", s: ["Chimney & Cooktop","Kettle & Iron","Air Fryer & OTG","Rice Cooker & JMG"], img: "about-assets/electric-appliances-chimneys-kettles-air-fryers.png" },
+    { t: "Everyday Essentials", d: "Reliable cooking and storage companions for daily living.", s: ["Pressure Cookers","Water Bottles","Lunch Boxes","Wood Range"], img: "about-assets/pressure-cookers-tri-pro.png" },
   ];
   document.getElementById("svcStage").innerHTML = services.map((s, i) => `
     <div class="svc-item" data-svc="${i}">
@@ -840,7 +838,7 @@
         <p class="desc">${s.d}</p>
         <ul class="svc-steps">${s.s.map((x,j)=>`<li class="sub-item"><span class="n">0${j+1}</span> ${x}</li>`).join("")}</ul>
       </div>
-      <div class="svc-media"><image-slot id="svc-${i}" src="${U}${s.img}" placeholder="Image" fit="cover"></image-slot></div>
+      <div class="svc-media"><image-slot id="svc-${i}" src="${localImg(s.img)}" placeholder="Image" fit="cover"></image-slot></div>
     </div>`).join("");
   document.getElementById("svcProg").textContent = "01 / 0" + services.length;
 
@@ -882,15 +880,15 @@
     '<svg viewBox="0 0 60 60" width="54" height="54"><path d="M32 6L14 34h12l-4 20 20-30H30z" fill="#fff" stroke="#ED3338" stroke-width="3" stroke-linejoin="round"/></svg>',
   ];
   const why = [
-    { t: "Crystal", d: "World of Kitchenware", logo: "2026/01/company1.svg", bg: "var(--grad-red)", fg: "#fff" },
-    { t: "Crystalina", d: "Splendid Finish", logo: "2026/01/company3.svg", bg: "var(--ink-soft)" },
+    { t: "Crystal", d: "World of Kitchenware", logo: "logo.png", bg: "var(--grad-red)", fg: "#fff" },
+    { t: "Crystalina", d: "Splendid Finish", bg: "var(--ink-soft)" },
     { t: "SparkMate", d: "Cleaning Simplified", logo: "2026/01/company2.svg", bg: "var(--ink-soft)" },
     { t: "ValMate", d: "Value for Money", logo: "2026/01/company4.svg", bg: "var(--grad-red)", fg: "#fff" },
   ];
   document.getElementById("whyGrid").innerHTML = why.map((w, i) => `
     <div class="why-card" data-why style="background:${w.bg};${w.fg?'color:'+w.fg:''}">
       <span class="wn" ${w.fg?'style=\"color:#fff\"':''}>0${i+1}</span>
-      <div class="why-logo-chip why-icon"><img src="${U}${w.logo}" alt="${w.t}"></div>
+      <div class="why-logo-chip why-icon">${w.logo ? `<img src="${w.logo.startsWith('logo') ? w.logo : U + w.logo}" alt="${w.t}">` : `<span class="txt">${w.t}</span>`}</div>
       <div><h4>${w.t}</h4><p ${w.fg?'style=\"color:rgba(255,255,255,.85)\"':''}>${w.d}</p></div>
     </div>`).join("");
 
@@ -1048,12 +1046,9 @@
     gsap.from("[data-tst]", { y: 50, opacity: 0, duration: 0.6, stagger: 0.12, ease: "power2.out", scrollTrigger: { trigger: ".tst-track", start: "top 84%", once: true } });
 
     /* CTA background is fixed via CSS (background-attachment: fixed) so the image stays still while text scrolls over it */
-    /* footer wordmark: brand-red WATER fills the letters from the bottom up as you scroll, with a live rippling surface */
-    gsap.fromTo(".foot-wordmark .wm-fill", { "--level": "0%" }, { "--level": "112%", ease: "none",
+    /* footer wordmark: brand-red fills the letters from the bottom up as you scroll */
+    gsap.fromTo(".foot-wordmark .wm-fill", { "--level": "0%" }, { "--level": "100%", ease: "none",
       scrollTrigger: { trigger: ".foot-wordmark", start: "top 92%", end: "bottom 78%", scrub: 0.6 } });
-    // continuous surface ripple (two waves at different speeds = organic, real-water motion)
-    gsap.to(".foot-wordmark .wm-fill", { "--wavex": "-160px", duration: 2.6, ease: "none", repeat: -1 });
-    gsap.to(".foot-wordmark .wm-fill", { "--wavex2": "-200px", duration: 4, ease: "none", repeat: -1 });
 
     /* ===== SERVICES sticky pin (desktop) ===== */
     const items = gsap.utils.toArray(".svc-item");
