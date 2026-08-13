@@ -187,9 +187,44 @@
   .chip { font-family: var(--body); font-weight: 600; font-size: 14px; padding: 10px 18px; border-radius: 100px; border: 1.5px solid var(--line); background: var(--white); color: var(--ink); cursor: pointer; transition: background .2s, color .2s, border-color .2s, transform .2s; }
   .chip:hover { transform: translateY(-2px); border-color: rgba(237,51,56,0.4); }
   .chip.active { background: var(--ink); color: #fff; border-color: var(--ink); }
-  .attr-chips { margin-top: -12px; margin-bottom: 22px; align-items: center; }
-  .attr-chips .attr-group-label { font-size: 12.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; color: var(--muted, #8a8a8a); margin-right: 2px; align-self: center; }
-  .attr-chips .chip { padding: 7px 14px; font-size: 12.5px; }
+  /* ---- attribute filter bar: compact toolbar, options only on demand ---- */
+  .fbar { display: none; align-items: flex-start; gap: 8px 10px; margin-bottom: 26px; }
+  .fbar.show { display: flex; }
+  .fbar-label { flex: 0 0 auto; font-family: var(--body); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); padding: 11px 2px; }
+  .fbar-groups { flex: 1 1 auto; display: flex; flex-wrap: wrap; gap: 8px; min-width: 0; }
+  .fgroup { position: relative; }
+  .fbtn { display: inline-flex; align-items: center; gap: 7px; font-family: var(--body); font-weight: 600; font-size: 13.5px; color: var(--ink); background: var(--white); border: 1.5px solid var(--line); border-radius: 100px; padding: 9px 14px; cursor: pointer; transition: border-color .2s, transform .2s; }
+  .fbtn:hover { border-color: rgba(237,51,56,0.4); }
+  .fgroup.has-value .fbtn { border-color: var(--ink); font-weight: 700; }
+  .fbtn-badge { background: var(--red); color: #fff; font-size: 10.5px; font-weight: 700; line-height: 1; padding: 3px 7px; border-radius: 100px; }
+  .fcaret { width: 9px; height: 9px; flex: 0 0 auto; transition: transform .2s; }
+  .fgroup.open .fcaret { transform: rotate(180deg); }
+  .fpanel { position: absolute; top: calc(100% + 8px); left: 0; z-index: 140; min-width: 220px; max-width: min(320px, 86vw); background: var(--white); border: 1.5px solid var(--line); border-radius: 14px; box-shadow: 0 26px 54px -26px rgba(0,0,0,0.4); padding: 10px; opacity: 0; visibility: hidden; transform: translateY(6px) scale(.98); transition: opacity .2s ease, transform .2s ease, visibility .2s; }
+  .fgroup.open .fpanel { opacity: 1; visibility: visible; transform: translateY(0) scale(1); }
+  .fpanel-opts { display: flex; flex-wrap: wrap; gap: 6px; max-height: 240px; overflow-y: auto; padding: 2px; }
+  .fopt { font-family: var(--body); font-weight: 600; font-size: 13px; padding: 7px 12px; border-radius: 100px; border: 1.5px solid var(--line); background: var(--white); color: var(--ink); cursor: pointer; transition: background .15s, color .15s, border-color .15s; }
+  .fopt:hover { border-color: rgba(237,51,56,0.4); }
+  .fopt.active { background: var(--ink); color: #fff; border-color: var(--ink); }
+  .fbar-clear { flex: 0 0 auto; align-self: center; font-family: var(--body); font-weight: 600; font-size: 12.5px; color: var(--red); background: none; border: none; cursor: pointer; padding: 10px 4px; }
+  .fbar-clear:hover { text-decoration: underline; }
+  .fbar-mobile-toggle { display: none; }
+  .fbar-backdrop { display: none; }
+  body.no-scroll { overflow: hidden; }
+  @media (max-width: 640px) {
+    .fbar-label { display: none; }
+    .fbar-mobile-toggle { display: inline-flex; align-items: center; gap: 8px; font-family: var(--body); font-weight: 700; font-size: 13.5px; color: var(--ink); background: var(--white); border: 1.5px solid var(--line); border-radius: 100px; padding: 10px 16px; cursor: pointer; }
+    .fbar.drawer-open .fbar-backdrop { display: block; position: fixed; inset: 0; background: rgba(20,18,15,0.4); z-index: 190; }
+    .fbar-groups { position: fixed; inset: auto 0 0 0; z-index: 200; background: var(--white); border-radius: 20px 20px 0 0; box-shadow: 0 -22px 50px -20px rgba(0,0,0,0.45); flex-direction: column; flex-wrap: nowrap; gap: 0; padding: 6px 18px 90px; max-height: 82vh; overflow-y: auto; transform: translateY(110%); transition: transform .28s cubic-bezier(.2,.8,.2,1); }
+    .fbar.drawer-open .fbar-groups { transform: translateY(0); }
+    .fgroup { width: 100%; border-bottom: 1px solid var(--line); }
+    .fbtn { width: 100%; justify-content: space-between; border: none; border-radius: 0; padding: 15px 2px; background: none; }
+    .fpanel { position: static; opacity: 1; visibility: visible; transform: none; box-shadow: none; border: none; padding: 0 2px 16px; max-width: none; display: none; }
+    .fgroup.open .fpanel { display: block; }
+    .fbar-drawer-foot { display: none; }
+    .fbar.drawer-open .fbar-drawer-foot { display: flex; position: fixed; left: 0; right: 0; bottom: 0; z-index: 201; gap: 10px; padding: 14px 18px; background: var(--white); border-top: 1.5px solid var(--line); }
+    .fbar-drawer-foot .fbar-clear { flex: 1; text-align: center; border: 1.5px solid var(--line); border-radius: 100px; padding: 12px; }
+    .fbar-drawer-close { flex: 1; font-family: var(--body); font-weight: 700; font-size: 13.5px; color: #fff; background: var(--ink); border: none; border-radius: 100px; padding: 12px; cursor: pointer; }
+  }
   .sortwrap { display: flex; align-items: center; gap: 8px; flex: 0 0 auto; }
   .sortwrap label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
   .sortwrap select { font-family: var(--body); font-weight: 600; font-size: 14px; color: var(--ink); border: 1.5px solid var(--line); background: var(--white); border-radius: 100px; padding: 10px 16px; cursor: pointer; outline: none; }
@@ -569,7 +604,7 @@
       </div>
     </div>
     <div class="chips" id="chips"></div>
-    <div class="chips attr-chips" id="attrChips"></div>
+    <div class="fbar" id="attrChips"></div>
     <div class="grid" id="grid"></div>
   </div>
 </section>
@@ -784,30 +819,67 @@
   function brandName(slug) { return (BRAND_BY[slug] || {}).name || slug; }
 
   const ATTR_LABELS = {
-    induction: "Induction / Non-Induction", set_type: "Set", type: "Shape", material: "Material", handle_material: "Handle",
+    brand: "Brand", induction: "Induction / Non-Induction", set_type: "Set", type: "Shape", material: "Material", handle_material: "Handle",
     edge_type: "Edge", coating: "Coating", design: "Design", set_size: "Set Size", capacity: "Capacity",
     use: "Use", lid_type: "Lid Type", shape: "Shape", with_blade: "Blade",
   };
   const attrChipsEl = document.getElementById("attrChips");
 
-  function renderAttrChips(scoped) {
+  // Which group (if any) has its dropdown open — reset on every re-render
+  // (a fresh selection closes its own panel; any other interaction that
+  // triggers a re-render, e.g. sort/category change, closes everything).
+  let openGroupKey = null;
+
+  function renderAttrChips(scoped, resultCount) {
     if (!attrChipsEl) return;
+    // Brand is meaningful across every category, so it's always offered.
+    // The rest (Set, Material, Blade Edge, Induction...) only mean something
+    // within a single category — a knife has no "induction" setting. Mixing
+    // those across categories (e.g. the "All" view) produced one
+    // undifferentiated wall of 15+ groups, so category-specific facets only
+    // build once the view is actually scoped to one category.
     const groups = {};
-    scoped.forEach(p => {
-      Object.entries(p.attrs || {}).forEach(([k, v]) => {
-        if (!v) return;
-        (groups[k] || (groups[k] = new Set())).add(v);
+    const brandSet = new Set(scoped.map(p => p.b).filter(Boolean));
+    if (brandSet.size > 1) groups.brand = brandSet;
+
+    const distinctCats = new Set(scoped.map(p => p.c));
+    if (distinctCats.size === 1) {
+      scoped.forEach(p => {
+        Object.entries(p.attrs || {}).forEach(([k, v]) => {
+          if (!v) return;
+          (groups[k] || (groups[k] = new Set())).add(v);
+        });
       });
-    });
+    }
     const keys = Object.keys(groups).filter(k => groups[k].size > 1);
-    if (!keys.length) { attrChipsEl.innerHTML = ""; return; }
-    attrChipsEl.innerHTML = keys.map(k => {
-      const active = state.attrFilters[k];
-      const opts = [...groups[k]].sort();
-      return `<span class="attr-group-label">${ATTR_LABELS[k] || k}</span>` +
-        opts.map(v => `<button type="button" class="chip attr-chip${active === v ? ' active' : ''}" data-key="${k}" data-val="${v.replace(/"/g, '&quot;')}">${v}</button>`).join("");
-    }).join("");
+    if (!keys.length) { attrChipsEl.innerHTML = ""; attrChipsEl.classList.remove("show"); return; }
+
+    const activeCount = Object.values(state.attrFilters).filter(Boolean).length;
+    attrChipsEl.classList.add("show");
+    attrChipsEl.innerHTML =
+      `<span class="fbar-label">Filter by</span>` +
+      `<button type="button" class="fbar-mobile-toggle" id="fbarMobileToggle">Filter${activeCount ? `<span class="fbtn-badge">${activeCount}</span>` : ""}</button>` +
+      `<div class="fbar-backdrop"></div>` +
+      `<div class="fbar-groups">` +
+      keys.map(k => {
+        const active = state.attrFilters[k];
+        const opts = [...groups[k]].sort();
+        const optLabel = v => k === "brand" ? brandName(v) : v;
+        return `<div class="fgroup${active ? " has-value" : ""}${openGroupKey === k ? " open" : ""}" data-key="${k}">` +
+          `<button type="button" class="fbtn">${ATTR_LABELS[k] || k}${active ? `<span class="fbtn-badge">1</span>` : ""}` +
+          `<svg class="fcaret" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M1 1l4 4 4-4"/></svg></button>` +
+          `<div class="fpanel"><div class="fpanel-opts">${opts.map(v => `<button type="button" class="fopt${active === v ? ' active' : ''}" data-key="${k}" data-val="${v.replace(/"/g, '&quot;')}">${optLabel(v)}</button>`).join("")}</div></div>` +
+          `</div>`;
+      }).join("") +
+      `</div>` +
+      (activeCount ? `<button type="button" class="fbar-clear" id="clearAttrs">Clear all</button>` : "") +
+      `<div class="fbar-drawer-foot">` +
+      `<button type="button" class="fbar-clear" id="clearAttrsMobile"${activeCount ? "" : ' style="visibility:hidden"'}>Clear all</button>` +
+      `<button type="button" class="fbar-drawer-close" id="fbarDrawerClose">Show ${resultCount} result${resultCount === 1 ? "" : "s"}</button>` +
+      `</div>`;
   }
+
+  function closeAttrDrawer() { attrChipsEl.classList.remove("drawer-open"); document.body.classList.remove("no-scroll"); }
 
   function applyAndRender(animate) {
     let scoped = viewProducts.slice();
@@ -819,13 +891,14 @@
       else { const terms = state.subText.split("-").filter(Boolean); scoped = scoped.filter(p => { const hay = (p.n + " " + p.col + " " + p.tags.join(" ")).toLowerCase(); return terms.every(t => hay.includes(t)); }); }
     }
 
-    renderAttrChips(scoped);
-
     let list = scoped.slice();
     Object.keys(state.attrFilters).forEach(k => {
       const v = state.attrFilters[k];
-      if (v) list = list.filter(p => (p.attrs || {})[k] === v);
+      if (!v) return;
+      list = list.filter(p => k === "brand" ? p.b === v : (p.attrs || {})[k] === v);
     });
+
+    renderAttrChips(scoped, list.length);
 
     if (state.sort === "az") list.sort((a, b) => a.n.localeCompare(b.n));
     else if (state.sort === "za") list.sort((a, b) => b.n.localeCompare(a.n));
@@ -863,7 +936,7 @@
   }
 
   function setCat(cat) {
-    state.cat = cat; state.col = ""; state.subText = ""; state.subLabel = ""; state.attrFilters = {};
+    state.cat = cat; state.col = ""; state.subText = ""; state.subLabel = ""; state.attrFilters = {}; openGroupKey = null;
     document.querySelectorAll(".chip").forEach(c => c.classList.toggle("active", c.dataset.cat === cat));
     applyAndRender(true);
   }
@@ -871,10 +944,41 @@
   /* ---------- WIRE controls ---------- */
   chipsEl.addEventListener("click", e => { const c = e.target.closest(".chip"); if (c) setCat(c.dataset.cat); });
   attrChipsEl.addEventListener("click", e => {
-    const c = e.target.closest(".attr-chip"); if (!c) return;
-    const { key, val } = c.dataset;
-    state.attrFilters[key] = (state.attrFilters[key] === val) ? null : val;
-    applyAndRender(true);
+    if (e.target.closest("#clearAttrs") || e.target.closest("#clearAttrsMobile")) {
+      state.attrFilters = {}; openGroupKey = null; applyAndRender(true); return;
+    }
+    if (e.target.closest("#fbarMobileToggle")) {
+      attrChipsEl.classList.add("drawer-open"); document.body.classList.add("no-scroll"); return;
+    }
+    if (e.target.closest("#fbarDrawerClose") || e.target.closest(".fbar-backdrop")) { closeAttrDrawer(); return; }
+
+    const opt = e.target.closest(".fopt");
+    if (opt) {
+      const { key, val } = opt.dataset;
+      state.attrFilters[key] = (state.attrFilters[key] === val) ? null : val;
+      openGroupKey = null;
+      applyAndRender(true);
+      return;
+    }
+    const fbtn = e.target.closest(".fbtn");
+    if (fbtn) {
+      const group = fbtn.closest(".fgroup");
+      const willOpen = openGroupKey !== group.dataset.key;
+      attrChipsEl.querySelectorAll(".fgroup.open").forEach(g => g.classList.remove("open"));
+      openGroupKey = willOpen ? group.dataset.key : null;
+      if (willOpen) group.classList.add("open");
+    }
+  });
+  document.addEventListener("click", e => {
+    if (openGroupKey && !e.target.closest("#attrChips .fgroup")) {
+      openGroupKey = null;
+      attrChipsEl.querySelectorAll(".fgroup.open").forEach(g => g.classList.remove("open"));
+    }
+  });
+  document.addEventListener("keydown", e => {
+    if (e.key !== "Escape") return;
+    if (openGroupKey) { openGroupKey = null; attrChipsEl.querySelectorAll(".fgroup.open").forEach(g => g.classList.remove("open")); }
+    closeAttrDrawer();
   });
   document.getElementById("catGrid").addEventListener("click", e => {
     const card = e.target.closest(".cat-card");
@@ -889,7 +993,7 @@
     let f = {}; try { f = JSON.parse(card.dataset.col); } catch (_) {}
     state.cat = f.c || "all";
     state.col = f.col || "";
-    state.attrFilters = {};
+    state.attrFilters = {}; openGroupKey = null;
     document.querySelectorAll(".chip").forEach(c => c.classList.toggle("active", c.dataset.cat === state.cat));
     applyAndRender(true);
     document.getElementById("browse").scrollIntoView({ behavior: "smooth", block: "start" });
