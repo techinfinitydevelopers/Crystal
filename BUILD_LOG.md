@@ -163,3 +163,17 @@
 **Verification:** `http://localhost:4567/Product.html?p=ctp-tp-001` — `#hdr` bottom = 95.6px, `.crumb` content top = 118px (computed padding-top), ~22px clear gap, no overlap.
 
 **Committed & pushed** to `main`.
+
+## 2026-08-18 — Merge size-variant products into one listing card + real size selector
+
+**Task:** Same product listed as separate cards per size (e.g. Tripro Tope 14/16/18/20/22/24/26 CM = 7 cards) should show as **1 card**; size selection moves inside `Product.html` and switches the actual product (image/code/price) when changed.
+
+**Data (`product-data/products.json`):** Auto-detected size-variant families by stripping size/unit tokens (CM/MM/ML/LTR/KG/GM/inch/quote-mark) from product names and grouping by (category, subcategory, brand, stripped-name). Required every member to contain a genuine size token and have a distinct raw name — excluded 5 groups (11 products) that were identical-name/different-SKU with no real size difference (likely true duplicate catalog entries, e.g. `CL-922`/`CL-923` "STAINLESS STEEL KNIFE, BROWN") and 1 group (`CL-073/074/457/458`) that had duplicate size labels within the group (also a duplicate-entry issue, not a size progression) — none of these were touched. Result: **20 real size-variant groups, 72 products tagged** with `variant_group` (`vg-01`..`vg-20`), `variant_label` (e.g. "14 CM", "800 ML"), `variant_order` (ascending by numeric size).
+
+**Listing pages (all 46: `All-Products.html` + 10 category + 35 sub-category pages):** Inserted one block right after each page's `const data = await res.json();` that keeps only the lowest-`variant_order` member per `variant_group` before the page's existing category/subcategory filtering runs — no other page-specific logic touched. Site-wide visible product count: 531 → 479. Verified: `Cookware-Tripro.html` 43 → 16 cards (6 merged Tripro sub-lines + 10 standalone), `All-Products.html` 531 → 479, merged card links to the smallest-size SKU (e.g. `ctp-tp-001`, 14cm).
+
+**`Product.html`:** The page already shipped an unused `.vsel`/`.vchips` "variant selector" UI wired to fake, generic per-category placeholder options (e.g. every cookware product showed "24 cm / 26 cm / 28 cm" chips that did nothing real). Replaced with real sibling-based switching: `P` mapping gains `vgroup`/`vlabel`/`vorder`; `renderProduct()` computes `siblings = P.filter(p => p.vgroup === prod.vgroup)`, renders one chip per real sibling (both the hero `.vsel` and the Specs-section "Available Sizes" panel), and clicking a chip navigates to `Product.html?p=<sibling id>` (full nav, safe given the page's one-time GSAP scroll-animation setup). Selector auto-hides (`display:none`) when a product has no real siblings (`siblings.length <= 1`) instead of showing the old fake options. Verified: `ctp-tp-001` page shows all 7 real Tripro Tope sizes as chips, clicking "20 CM" navigates to `ctp-tp-004` with title/SKU/active-chip updating correctly; a non-variant product (`li001a`) correctly hides the whole size-selector section.
+
+**Not touched:** any product's core content/description, the 11 flagged non-size duplicate-name products, backend Django sync script (`sync_products.py` — variant grouping not yet reflected in the admin DB, one-way JSON→DB sync unaffected by this change).
+
+**Committed & pushed** to `main`.
