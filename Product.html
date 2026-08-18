@@ -840,7 +840,7 @@
   document.getElementById("brandAllBtn").href = "All-Products.html?brand=" + prod.b;
   // ---- Enquire / Buy / quantity wiring ----
   var _pid = prod.id || (new URLSearchParams(location.search)).get("p") || "";
-  function wireEnq(btn) { if (!btn) return; btn.dataset.id = _pid; btn.dataset.name = prod.n; btn.dataset.brand = brand.name; btn.dataset.cat = CAT_LABEL[prod.c] || prod.c; btn.dataset.img = gallery[0] || ""; }
+  function wireEnq(btn, p, gal) { if (!btn) return; p = p || prod; gal = gal || gallery; btn.dataset.id = p.id; btn.dataset.name = p.n; btn.dataset.brand = brand.name; btn.dataset.cat = CAT_LABEL[p.c] || p.c; btn.dataset.img = gal[0] || ""; }
   wireEnq(document.getElementById("enqAddBtn"));
   wireEnq(document.getElementById("sEnq"));
   document.getElementById("buyNowBtn").dataset.name = prod.n;
@@ -852,8 +852,8 @@
     '<a href="https://www.jiomart.com/search/' + _q + '" target="_blank" rel="noopener nofollow sponsored">JioMart</a>';
   (function () { var qi = document.getElementById("qtyInput"); var mn = document.getElementById("qtyMinus"), pl = document.getElementById("qtyPlus"); if (qi && mn && pl) { mn.onclick = function () { qi.value = Math.max(1, (parseInt(qi.value, 10) || 1) - 1); }; pl.onclick = function () { qi.value = (parseInt(qi.value, 10) || 1) + 1; }; } })();
 
-  function renderSizeChips(elId) {
-    document.getElementById(elId).innerHTML = siblings.map(p => `<button class="vchip${p.id===prod.id?' active':''}" data-id="${p.id}">${p.vlabel}</button>`).join("");
+  function renderSizeChips(elId, activeId) {
+    document.getElementById(elId).innerHTML = siblings.map(p => `<button class="vchip${p.id===activeId?' active':''}" data-id="${p.id}">${p.vlabel}</button>`).join("");
   }
   const vsel = document.querySelector(".vsel");
   const vSecHeading = document.getElementById("vSecHeading");
@@ -862,14 +862,40 @@
     if (vsel) vsel.style.display = "";
     if (vSecHeading) vSecHeading.style.display = "";
     if (vChips2El) vChips2El.style.display = "";
-    renderSizeChips("vChips");
-    renderSizeChips("vChips2");
+    renderSizeChips("vChips", prod.id);
+    renderSizeChips("vChips2", prod.id);
     document.getElementById("vCurrent").textContent = "· " + prod.vlabel;
   } else {
     if (vsel) vsel.style.display = "none";
     if (vSecHeading) vSecHeading.style.display = "none";
     if (vChips2El) vChips2El.style.display = "none";
   }
+
+  /* ---- size switch: update image + code + title in place, no page reload ---- */
+  function applySizeVariant(newP) {
+    const newGallery = [newP.img, ...(newP.gallery || [])].filter(Boolean);
+    document.title = newP.n + " — CRYSTAL";
+    document.getElementById("pTitle").textContent = newP.n;
+    document.getElementById("pSku").textContent = newP.sku ? "Code: " + newP.sku.toUpperCase() : "";
+    document.getElementById("gMain").src = newGallery[0];
+    document.getElementById("gMain").alt = newP.n;
+    document.getElementById("gThumbs").innerHTML = newGallery.map((src, i) => `<div class="g-thumb${i===0?' active':''}" data-i="${i}"><img src="${src}" alt="${newP.n} view ${i+1}" loading="lazy"></div>`).join("");
+    const crumbCur = document.querySelector("#crumb .cur");
+    if (crumbCur) crumbCur.textContent = newP.n;
+    document.getElementById("vCurrent").textContent = "· " + newP.vlabel;
+    document.querySelectorAll(".vchip").forEach(c => c.classList.toggle("active", c.dataset.id === newP.id));
+    wireEnq(document.getElementById("enqAddBtn"), newP, newGallery);
+    wireEnq(document.getElementById("sEnq"), newP, newGallery);
+    document.getElementById("buyNowBtn").dataset.name = newP.n;
+    const sBuyEl = document.getElementById("sBuy"); if (sBuyEl) sBuyEl.dataset.name = newP.n;
+    history.replaceState(null, "", "Product.html?p=" + encodeURIComponent(newP.id));
+  }
+  document.body.addEventListener("click", e => {
+    const c = e.target.closest(".vchip");
+    if (!c || !c.dataset.id || c.dataset.id === prod.id) return;
+    const newP = BY_ID[c.dataset.id];
+    if (newP) applySizeVariant(newP);
+  });
 
   // hero highlight list = first 3 feature titles + a warranty line
   const hiItems = tpl.features.slice(0, 3).map(f => f[1]).concat([(specs.Warranty ? specs.Warranty + " warranty" : "Crystal assured quality")]);
@@ -958,11 +984,6 @@
     renderProduct();
   })();
 
-  /* ---- size selection: each chip is a real sibling product, navigate to it ---- */
-  document.body.addEventListener("click", e => {
-    const c = e.target.closest(".vchip");
-    if (c && c.dataset.id) location.href = "Product.html?p=" + encodeURIComponent(c.dataset.id);
-  });
 
   /* ---- word split ---- */
   function splitWords(el) {
