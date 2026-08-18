@@ -262,15 +262,37 @@
     .foot-wordmark { font-size: 46px; }
     .mobile-menu a { font-size: clamp(30px, 12vw, 48px); }
   }
+  /* ===== UNIFIED HEADER (support bar / icon nav) ===== */
+  .support-bar { position: fixed; top: 0; left: 0; right: 0; z-index: 102; background: var(--grad-red); color: #fff; text-align: center; font-size: 13px; font-weight: 600; letter-spacing: 0.02em; padding: 9px 16px; }
+  header { position: fixed; inset: 38px 0 auto 0; z-index: 100; }
+  .icon-btn { display: inline-flex; align-items: center; gap: 6px; color: var(--ink); width: auto; height: auto; padding: 8px; border-radius: 50%; transition: background .2s, color .2s; }
+  .icon-btn:hover { background: rgba(237,51,56,0.08); color: var(--red); }
+  .icon-btn svg { width: 20px; height: 20px; }
+  .enq-inline { font-size: 13px; font-weight: 700; }
+  .enq-link .enq-count { position: static; background: none; color: inherit; font-size: inherit; width: auto; height: auto; }
+  .btn-outline { background: transparent; color: var(--ink); border: 1.5px solid var(--ink); text-transform: uppercase; font-size: 13px; letter-spacing: 0.02em; }
+  .btn-outline:hover { background: var(--ink); color: #fff; transform: translateY(-2px); }
+  .nav-right > a, .nav-right > button { white-space: nowrap; flex-shrink: 0; }
+  .nav-right { flex: none; margin-left: auto; }
+  @media (max-width: 960px) {
+    .nav-right .icon-btn, .nav-right .enq-inline, .nav-right .btn-outline { display: none !important; }
+    .support-bar { font-size: 11.5px; padding: 7px 10px; }
+    header { inset: 32px 0 auto 0; }
+  }
+  @media (max-width: 480px) {
+    .support-bar { font-size: 10.5px; }
+  }
 </style>
+
 </head>
 <body>
 
 <!-- ===== HEADER ===== -->
+<div class="support-bar">Customer Support - 022-49702803/06</div>
 <header id="hdr">
   <div class="wrap">
     <div class="nav">
-      <a href="index.html" class="logo"><img src="logo.png" alt="CRYSTAL" style="height:36px;width:auto;display:block;"></a>
+      <a href="index.html" class="logo"><img src="logo.png" alt="CRYSTAL" style="height:44px;width:auto;display:block;"></a>
       <ul class="nav-links">
         <li><a href="About.html">About</a></li>
                 <li class="has-mega">
@@ -278,7 +300,7 @@
           <div class="mega-menu mega-v2">
             <div class="mega-groups">
             <div class="mega-col">
-              <a class="mega-h" href="All-Products.html?cat=cookware"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h16v6a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4z"/><path d="M2 10h2M20 10h2M9 6V4M15 6V4"/></svg>Cookware</a>
+              <a class="mega-h" href="Cookware.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h16v6a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4z"/><path d="M2 10h2M20 10h2M9 6V4M15 6V4"/></svg>Cookware</a>
               <a href="All-Products.html?cat=cookware&sub=tripro">Tripro</a>
               <a href="All-Products.html?cat=cookware&sub=cast-iron">Cast Iron</a>
               <a href="All-Products.html?cat=cookware&sub=non-stick">Non-Stick</a>
@@ -287,7 +309,7 @@
               <a href="All-Products.html?cat=cookware&sub=hard-anodised">Hard Anodised</a>
             </div>
             <div class="mega-col">
-              <a class="mega-h" href="All-Products.html?cat=kitchenware"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v18M5 3v6h2V3"/><path d="M15 3c-2 0-3 2-3 4.5S13 12 15 12v9"/></svg>Kitchenware</a>
+              <a class="mega-h" href="Kitchenware.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v18M5 3v6h2V3"/><path d="M15 3c-2 0-3 2-3 4.5S13 12 15 12v9"/></svg>Kitchenware</a>
               <a href="All-Products.html?cat=kitchenware&sub=lighters">Lighters</a>
               <a href="All-Products.html?cat=kitchenware&sub=knives">Knives</a>
               <a href="All-Products.html?cat=kitchenware&sub=peelers">Peelers</a>
@@ -300,7 +322,7 @@
               <a href="All-Products.html?cat=kitchenware&sub=water-filter">Water Filter</a>
             </div>
             <div class="mega-col">
-              <a class="mega-h" href="All-Products.html?cat=cleaning"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 4h4v5h-4z"/><path d="M10 9l-2 4v7h8v-7l-2-4M6 4h2M6 7h2"/></svg>Cleaning Aid</a>
+              <a class="mega-h" href="Cleaning-Aid.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 4h4v5h-4z"/><path d="M10 9l-2 4v7h8v-7l-2-4M6 4h2M6 7h2"/></svg>Cleaning Aid</a>
               <a href="All-Products.html?cat=cleaning&sub=spin-mops">Spin Mops</a>
               <a href="All-Products.html?cat=cleaning&sub=hand-held-mops">Hand Held Mops</a>
               <a href="All-Products.html?cat=cleaning&sub=brooms">Broom &amp; Dust Pans</a>
@@ -313,7 +335,7 @@
               <a href="All-Products.html?cat=cleaning&sub=wipe">Wipe</a>
             </div>
             <div class="mega-col">
-              <a class="mega-h" href="All-Products.html?cat=appliances"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg>Electric Appliances</a>
+              <a class="mega-h" href="Electric-Appliances.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg>Electric Appliances</a>
               <a href="All-Products.html?cat=appliances&sub=chimney">Chimney</a>
               <a href="All-Products.html?cat=appliances&sub=kettle">Kettle</a>
               <a href="All-Products.html?cat=appliances&sub=iron">Iron</a>
@@ -327,12 +349,12 @@
             </div>
             <div class="mega-standalone">
               <span class="mega-standalone-lbl">Also explore</span>
-              <a href="All-Products.html?cat=water-bottle">Water Bottle</a>
-              <a href="All-Products.html?cat=oil-pourer">Oil Pourer &amp; Sprayer</a>
-              <a href="All-Products.html?cat=wood-range">Wood Range</a>
-              <a href="All-Products.html?cat=pressure-cooker">Pressure Cooker</a>
-              <a href="All-Products.html?cat=cooktop">Cooktop</a>
-              <a href="All-Products.html?cat=lunch-box">Lunch Box</a>
+              <a href="Water-Bottle.html">Water Bottle</a>
+              <a href="Oil-Pourer-Sprayer.html">Oil Pourer &amp; Sprayer</a>
+              <a href="Wood-Range.html">Wood Range</a>
+              <a href="Pressure-Cooker.html">Pressure Cooker</a>
+              <a href="Cooktop.html">Cooktop</a>
+              <a href="Lunch-Box.html">Lunch Box</a>
             </div>
           </div>
         </li>
@@ -349,8 +371,9 @@
         <li><a href="Blog.html">Knowledge Centre</a></li>
       </ul>
       <div class="nav-right">
-        <a href="Enquiry.html" class="enq-link" aria-label="Enquiry list" title="Enquiry list"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg><span class="enq-count">0</span></a>
-        <a href="Contact.html" class="btn btn-red">Contact Us <span class="arr">↗</span></a>
+        <button class="icon-btn" id="searchBtn" aria-label="Search" title="Search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></button>
+        <a href="Enquiry.html" class="icon-btn enq-link" aria-label="Enquiry list" title="Enquiry list"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg><span class="enq-inline">( <span class="enq-count">0</span> )</span></a>
+        <a href="Contact.html" class="btn btn-outline">Contact Us</a>
         <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
       </div>
     </div>
@@ -364,14 +387,14 @@
         <li class="mm-acc">
       <button type="button" class="mm-acc-tog mm-link" aria-expanded="false">Products <span class="mm-cv">+</span></button>
       <div class="mm-acc-panel">
-      <a class="mm-acc-h" href="All-Products.html?cat=cookware">Cookware</a>
+      <a class="mm-acc-h" href="Cookware.html">Cookware</a>
       <a class="mm-acc-sub" href="All-Products.html?cat=cookware&sub=tripro">Tripro</a>
       <a class="mm-acc-sub" href="All-Products.html?cat=cookware&sub=cast-iron">Cast Iron</a>
       <a class="mm-acc-sub" href="All-Products.html?cat=cookware&sub=non-stick">Non-Stick</a>
       <a class="mm-acc-sub" href="All-Products.html?cat=cookware&sub=non-stick-mini">Non-Stick Mini</a>
       <a class="mm-acc-sub" href="All-Products.html?cat=cookware&sub=sandwich-bottom-steel">Sandwich Bottom Steel</a>
       <a class="mm-acc-sub" href="All-Products.html?cat=cookware&sub=hard-anodised">Hard Anodised</a>
-      <a class="mm-acc-h" href="All-Products.html?cat=kitchenware">Kitchenware</a>
+      <a class="mm-acc-h" href="Kitchenware.html">Kitchenware</a>
       <a class="mm-acc-sub" href="All-Products.html?cat=kitchenware&sub=lighters">Lighters</a>
       <a class="mm-acc-sub" href="All-Products.html?cat=kitchenware&sub=knives">Knives</a>
       <a class="mm-acc-sub" href="All-Products.html?cat=kitchenware&sub=peelers">Peelers</a>
@@ -382,7 +405,7 @@
       <a class="mm-acc-sub" href="All-Products.html?cat=kitchenware&sub=cutlery">Cutlery</a>
       <a class="mm-acc-sub" href="All-Products.html?cat=kitchenware&sub=servers">Servers</a>
       <a class="mm-acc-sub" href="All-Products.html?cat=kitchenware&sub=water-filter">Water Filter</a>
-      <a class="mm-acc-h" href="All-Products.html?cat=cleaning">Cleaning Aid</a>
+      <a class="mm-acc-h" href="Cleaning-Aid.html">Cleaning Aid</a>
       <a class="mm-acc-sub" href="All-Products.html?cat=cleaning&sub=spin-mops">Spin Mops</a>
       <a class="mm-acc-sub" href="All-Products.html?cat=cleaning&sub=hand-held-mops">Hand Held Mops</a>
       <a class="mm-acc-sub" href="All-Products.html?cat=cleaning&sub=brooms">Broom &amp; Dust Pans</a>
@@ -393,7 +416,7 @@
       <a class="mm-acc-sub" href="All-Products.html?cat=cleaning&sub=bins">Bins</a>
       <a class="mm-acc-sub" href="All-Products.html?cat=cleaning&sub=sink-organiser">Sink Organiser</a>
       <a class="mm-acc-sub" href="All-Products.html?cat=cleaning&sub=wipe">Wipe</a>
-      <a class="mm-acc-h" href="All-Products.html?cat=appliances">Electric Appliances</a>
+      <a class="mm-acc-h" href="Electric-Appliances.html">Electric Appliances</a>
       <a class="mm-acc-sub" href="All-Products.html?cat=appliances&sub=chimney">Chimney</a>
       <a class="mm-acc-sub" href="All-Products.html?cat=appliances&sub=kettle">Kettle</a>
       <a class="mm-acc-sub" href="All-Products.html?cat=appliances&sub=iron">Iron</a>
@@ -404,12 +427,12 @@
       <a class="mm-acc-sub" href="All-Products.html?cat=appliances&sub=food-processor">Food Processor</a>
       <a class="mm-acc-sub" href="All-Products.html?cat=appliances&sub=jmg">JMG</a>
       <span class="mm-acc-h" style="opacity:.6">Also explore</span>
-      <a class="mm-acc-sub" href="All-Products.html?cat=water-bottle">Water Bottle</a>
-      <a class="mm-acc-sub" href="All-Products.html?cat=oil-pourer">Oil Pourer &amp; Sprayer</a>
-      <a class="mm-acc-sub" href="All-Products.html?cat=wood-range">Wood Range</a>
-      <a class="mm-acc-sub" href="All-Products.html?cat=pressure-cooker">Pressure Cooker</a>
-      <a class="mm-acc-sub" href="All-Products.html?cat=cooktop">Cooktop</a>
-      <a class="mm-acc-sub" href="All-Products.html?cat=lunch-box">Lunch Box</a>
+      <a class="mm-acc-sub" href="Water-Bottle.html">Water Bottle</a>
+      <a class="mm-acc-sub" href="Oil-Pourer-Sprayer.html">Oil Pourer &amp; Sprayer</a>
+      <a class="mm-acc-sub" href="Wood-Range.html">Wood Range</a>
+      <a class="mm-acc-sub" href="Pressure-Cooker.html">Pressure Cooker</a>
+      <a class="mm-acc-sub" href="Cooktop.html">Cooktop</a>
+      <a class="mm-acc-sub" href="Lunch-Box.html">Lunch Box</a>
       </div>
     </li>
     <li><a href="Catalogue.html" class="mm-link">Catalogue</a></li>
@@ -563,7 +586,7 @@
       </div>
       <div class="foot-col">
         <h5>Products</h5>
-        <ul><li><a href="All-Products.html?cat=cookware">Cookware</a></li><li><a href="All-Products.html?cat=kitchenware">Kitchenware</a></li><li><a href="All-Products.html?cat=cleaning">Cleaning Aid</a></li><li><a href="All-Products.html?cat=appliances">Electric Appliances</a></li></ul>
+        <ul><li><a href="Cookware.html">Cookware</a></li><li><a href="Kitchenware.html">Kitchenware</a></li><li><a href="Cleaning-Aid.html">Cleaning Aid</a></li><li><a href="Electric-Appliances.html">Electric Appliances</a></li></ul>
       </div>
       <div class="foot-col">
         <h5>Quick Link</h5>

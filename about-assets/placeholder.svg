@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <rect width="400" height="400" fill="#ededed"/>
+  <g transform="translate(200,175)" fill="none" stroke="#b9b9b9" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-70" y="-50" width="140" height="100" rx="10"/>
+    <circle cx="0" cy="-2" r="26"/>
+    <circle cx="0" cy="-2" r="10" fill="#b9b9b9" stroke="none"/>
+    <rect x="-56" y="-70" width="30" height="16" rx="3"/>
+  </g>
+  <text x="200" y="255" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="700" letter-spacing="1" fill="#9a9a9a">IMAGE COMING SOON</text>
+</svg>

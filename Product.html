@@ -136,6 +136,7 @@
   .cat-chip { font-family: var(--head); font-weight: 700; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); border: 1.5px solid var(--line); border-radius: 100px; padding: 7px 14px; }
   .info h1 { font-size: clamp(30px, 4.2vw, 54px); text-transform: uppercase; margin: 6px 0 16px; line-height: 1.0; }
   .info .intro { font-size: clamp(15px, 1.5vw, 18px); color: var(--muted); line-height: 1.6; max-width: 520px; }
+  .info .p-sku { display: block; font-size: 12.5px; font-weight: 700; letter-spacing: 0.04em; color: var(--red); text-transform: uppercase; margin: 6px 0 4px; }
   .trust-row { display: flex; flex-wrap: wrap; gap: 10px; margin: 22px 0; }
   .trust { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: var(--ink); background: rgba(237,51,56,0.07); border: 1px solid rgba(237,51,56,0.16); border-radius: 100px; padding: 8px 14px; }
   .trust svg { width: 15px; height: 15px; color: var(--red); }
@@ -351,15 +352,37 @@
   .twk-tg input::after { content: ""; position: absolute; top: 2px; left: 2px; width: 18px; height: 18px; border-radius: 50%; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,0.3); transition: left .2s; }
   .twk-tg input:checked { background: var(--red); }
   .twk-tg input:checked::after { left: 18px; }
+  /* ===== UNIFIED HEADER (support bar / icon nav) ===== */
+  .support-bar { position: fixed; top: 0; left: 0; right: 0; z-index: 102; background: var(--grad-red); color: #fff; text-align: center; font-size: 13px; font-weight: 600; letter-spacing: 0.02em; padding: 9px 16px; }
+  header { position: fixed; inset: 38px 0 auto 0; z-index: 100; }
+  .icon-btn { display: inline-flex; align-items: center; gap: 6px; color: var(--ink); width: auto; height: auto; padding: 8px; border-radius: 50%; transition: background .2s, color .2s; }
+  .icon-btn:hover { background: rgba(237,51,56,0.08); color: var(--red); }
+  .icon-btn svg { width: 20px; height: 20px; }
+  .enq-inline { font-size: 13px; font-weight: 700; }
+  .enq-link .enq-count { position: static; background: none; color: inherit; font-size: inherit; width: auto; height: auto; }
+  .btn-outline { background: transparent; color: var(--ink); border: 1.5px solid var(--ink); text-transform: uppercase; font-size: 13px; letter-spacing: 0.02em; }
+  .btn-outline:hover { background: var(--ink); color: #fff; transform: translateY(-2px); }
+  .nav-right > a, .nav-right > button { white-space: nowrap; flex-shrink: 0; }
+  .nav-right { flex: none; margin-left: auto; }
+  @media (max-width: 960px) {
+    .nav-right .icon-btn, .nav-right .enq-inline, .nav-right .btn-outline { display: none !important; }
+    .support-bar { font-size: 11.5px; padding: 7px 10px; }
+    header { inset: 32px 0 auto 0; }
+  }
+  @media (max-width: 480px) {
+    .support-bar { font-size: 10.5px; }
+  }
 </style>
+
 </head>
 <body>
 
 <!-- HEADER -->
+<div class="support-bar">Customer Support - 022-49702803/06</div>
 <header id="hdr">
   <div class="wrap">
     <div class="nav">
-      <a href="index.html" class="logo"><img src="logo.png" alt="CRYSTAL" style="height:36px;width:auto;display:block;"></a>
+      <a href="index.html" class="logo"><img src="logo.png" alt="CRYSTAL" style="height:44px;width:auto;display:block;"></a>
       <ul class="nav-links">
         <li><a href="About.html">About</a></li>
                 <li class="has-mega">
@@ -367,7 +390,7 @@
           <div class="mega-menu mega-v2">
             <div class="mega-groups">
             <div class="mega-col">
-              <a class="mega-h" href="All-Products.html?cat=cookware"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h16v6a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4z"/><path d="M2 10h2M20 10h2M9 6V4M15 6V4"/></svg>Cookware</a>
+              <a class="mega-h" href="Cookware.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h16v6a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4z"/><path d="M2 10h2M20 10h2M9 6V4M15 6V4"/></svg>Cookware</a>
               <a href="All-Products.html?cat=cookware&sub=tripro">Tripro</a>
               <a href="All-Products.html?cat=cookware&sub=cast-iron">Cast Iron</a>
               <a href="All-Products.html?cat=cookware&sub=non-stick">Non-Stick</a>
@@ -376,7 +399,7 @@
               <a href="All-Products.html?cat=cookware&sub=hard-anodised">Hard Anodised</a>
             </div>
             <div class="mega-col">
-              <a class="mega-h" href="All-Products.html?cat=kitchenware"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v18M5 3v6h2V3"/><path d="M15 3c-2 0-3 2-3 4.5S13 12 15 12v9"/></svg>Kitchenware</a>
+              <a class="mega-h" href="Kitchenware.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v18M5 3v6h2V3"/><path d="M15 3c-2 0-3 2-3 4.5S13 12 15 12v9"/></svg>Kitchenware</a>
               <a href="All-Products.html?cat=kitchenware&sub=lighters">Lighters</a>
               <a href="All-Products.html?cat=kitchenware&sub=knives">Knives</a>
               <a href="All-Products.html?cat=kitchenware&sub=peelers">Peelers</a>
@@ -389,7 +412,7 @@
               <a href="All-Products.html?cat=kitchenware&sub=water-filter">Water Filter</a>
             </div>
             <div class="mega-col">
-              <a class="mega-h" href="All-Products.html?cat=cleaning"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 4h4v5h-4z"/><path d="M10 9l-2 4v7h8v-7l-2-4M6 4h2M6 7h2"/></svg>Cleaning Aid</a>
+              <a class="mega-h" href="Cleaning-Aid.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 4h4v5h-4z"/><path d="M10 9l-2 4v7h8v-7l-2-4M6 4h2M6 7h2"/></svg>Cleaning Aid</a>
               <a href="All-Products.html?cat=cleaning&sub=spin-mops">Spin Mops</a>
               <a href="All-Products.html?cat=cleaning&sub=hand-held-mops">Hand Held Mops</a>
               <a href="All-Products.html?cat=cleaning&sub=brooms">Broom &amp; Dust Pans</a>
@@ -402,7 +425,7 @@
               <a href="All-Products.html?cat=cleaning&sub=wipe">Wipe</a>
             </div>
             <div class="mega-col">
-              <a class="mega-h" href="All-Products.html?cat=appliances"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg>Electric Appliances</a>
+              <a class="mega-h" href="Electric-Appliances.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg>Electric Appliances</a>
               <a href="All-Products.html?cat=appliances&sub=chimney">Chimney</a>
               <a href="All-Products.html?cat=appliances&sub=kettle">Kettle</a>
               <a href="All-Products.html?cat=appliances&sub=iron">Iron</a>
@@ -416,12 +439,12 @@
             </div>
             <div class="mega-standalone">
               <span class="mega-standalone-lbl">Also explore</span>
-              <a href="All-Products.html?cat=water-bottle">Water Bottle</a>
-              <a href="All-Products.html?cat=oil-pourer">Oil Pourer &amp; Sprayer</a>
-              <a href="All-Products.html?cat=wood-range">Wood Range</a>
-              <a href="All-Products.html?cat=pressure-cooker">Pressure Cooker</a>
-              <a href="All-Products.html?cat=cooktop">Cooktop</a>
-              <a href="All-Products.html?cat=lunch-box">Lunch Box</a>
+              <a href="Water-Bottle.html">Water Bottle</a>
+              <a href="Oil-Pourer-Sprayer.html">Oil Pourer &amp; Sprayer</a>
+              <a href="Wood-Range.html">Wood Range</a>
+              <a href="Pressure-Cooker.html">Pressure Cooker</a>
+              <a href="Cooktop.html">Cooktop</a>
+              <a href="Lunch-Box.html">Lunch Box</a>
             </div>
           </div>
         </li>
@@ -433,8 +456,9 @@
         <li><a href="Blog.html">Knowledge Centre</a></li>
       </ul>
       <div class="nav-right">
-        <a href="Enquiry.html" class="enq-link" aria-label="Enquiry list" title="Enquiry list"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg><span class="enq-count">0</span></a>
-        <a href="Contact.html" class="btn btn-red">Contact Us <span class="arr">↗</span></a>
+        <button class="icon-btn" id="searchBtn" aria-label="Search" title="Search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></button>
+        <a href="Enquiry.html" class="icon-btn enq-link" aria-label="Enquiry list" title="Enquiry list"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg><span class="enq-inline">( <span class="enq-count">0</span> )</span></a>
+        <a href="Contact.html" class="btn btn-outline">Contact Us</a>
         <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
       </div>
     </div>
@@ -449,14 +473,14 @@
         <li class="mm-acc">
       <button type="button" class="mm-acc-tog mm-link" aria-expanded="false">Products <span class="mm-cv">+</span></button>
       <div class="mm-acc-panel">
-      <a class="mm-acc-h" href="All-Products.html?cat=cookware">Cookware</a>
+      <a class="mm-acc-h" href="Cookware.html">Cookware</a>
       <a class="mm-acc-sub" href="All-Products.html?cat=cookware&sub=tripro">Tripro</a>
       <a class="mm-acc-sub" href="All-Products.html?cat=cookware&sub=cast-iron">Cast Iron</a>
       <a class="mm-acc-sub" href="All-Products.html?cat=cookware&sub=non-stick">Non-Stick</a>
       <a class="mm-acc-sub" href="All-Products.html?cat=cookware&sub=non-stick-mini">Non-Stick Mini</a>
       <a class="mm-acc-sub" href="All-Products.html?cat=cookware&sub=sandwich-bottom-steel">Sandwich Bottom Steel</a>
       <a class="mm-acc-sub" href="All-Products.html?cat=cookware&sub=hard-anodised">Hard Anodised</a>
-      <a class="mm-acc-h" href="All-Products.html?cat=kitchenware">Kitchenware</a>
+      <a class="mm-acc-h" href="Kitchenware.html">Kitchenware</a>
       <a class="mm-acc-sub" href="All-Products.html?cat=kitchenware&sub=lighters">Lighters</a>
       <a class="mm-acc-sub" href="All-Products.html?cat=kitchenware&sub=knives">Knives</a>
       <a class="mm-acc-sub" href="All-Products.html?cat=kitchenware&sub=peelers">Peelers</a>
@@ -467,7 +491,7 @@
       <a class="mm-acc-sub" href="All-Products.html?cat=kitchenware&sub=cutlery">Cutlery</a>
       <a class="mm-acc-sub" href="All-Products.html?cat=kitchenware&sub=servers">Servers</a>
       <a class="mm-acc-sub" href="All-Products.html?cat=kitchenware&sub=water-filter">Water Filter</a>
-      <a class="mm-acc-h" href="All-Products.html?cat=cleaning">Cleaning Aid</a>
+      <a class="mm-acc-h" href="Cleaning-Aid.html">Cleaning Aid</a>
       <a class="mm-acc-sub" href="All-Products.html?cat=cleaning&sub=spin-mops">Spin Mops</a>
       <a class="mm-acc-sub" href="All-Products.html?cat=cleaning&sub=hand-held-mops">Hand Held Mops</a>
       <a class="mm-acc-sub" href="All-Products.html?cat=cleaning&sub=brooms">Broom &amp; Dust Pans</a>
@@ -478,7 +502,7 @@
       <a class="mm-acc-sub" href="All-Products.html?cat=cleaning&sub=bins">Bins</a>
       <a class="mm-acc-sub" href="All-Products.html?cat=cleaning&sub=sink-organiser">Sink Organiser</a>
       <a class="mm-acc-sub" href="All-Products.html?cat=cleaning&sub=wipe">Wipe</a>
-      <a class="mm-acc-h" href="All-Products.html?cat=appliances">Electric Appliances</a>
+      <a class="mm-acc-h" href="Electric-Appliances.html">Electric Appliances</a>
       <a class="mm-acc-sub" href="All-Products.html?cat=appliances&sub=chimney">Chimney</a>
       <a class="mm-acc-sub" href="All-Products.html?cat=appliances&sub=kettle">Kettle</a>
       <a class="mm-acc-sub" href="All-Products.html?cat=appliances&sub=iron">Iron</a>
@@ -489,12 +513,12 @@
       <a class="mm-acc-sub" href="All-Products.html?cat=appliances&sub=food-processor">Food Processor</a>
       <a class="mm-acc-sub" href="All-Products.html?cat=appliances&sub=jmg">JMG</a>
       <span class="mm-acc-h" style="opacity:.6">Also explore</span>
-      <a class="mm-acc-sub" href="All-Products.html?cat=water-bottle">Water Bottle</a>
-      <a class="mm-acc-sub" href="All-Products.html?cat=oil-pourer">Oil Pourer &amp; Sprayer</a>
-      <a class="mm-acc-sub" href="All-Products.html?cat=wood-range">Wood Range</a>
-      <a class="mm-acc-sub" href="All-Products.html?cat=pressure-cooker">Pressure Cooker</a>
-      <a class="mm-acc-sub" href="All-Products.html?cat=cooktop">Cooktop</a>
-      <a class="mm-acc-sub" href="All-Products.html?cat=lunch-box">Lunch Box</a>
+      <a class="mm-acc-sub" href="Water-Bottle.html">Water Bottle</a>
+      <a class="mm-acc-sub" href="Oil-Pourer-Sprayer.html">Oil Pourer &amp; Sprayer</a>
+      <a class="mm-acc-sub" href="Wood-Range.html">Wood Range</a>
+      <a class="mm-acc-sub" href="Pressure-Cooker.html">Pressure Cooker</a>
+      <a class="mm-acc-sub" href="Cooktop.html">Cooktop</a>
+      <a class="mm-acc-sub" href="Lunch-Box.html">Lunch Box</a>
       </div>
     </li>
     <li><a href="Catalogue.html" class="mm-link">Catalogue</a></li>
@@ -524,6 +548,7 @@
         <span class="cat-chip" id="catChip"></span>
       </div>
       <h1 id="pTitle"></h1>
+      <span class="p-sku" id="pSku"></span>
       <p class="intro" id="pIntro"></p>
       <div class="trust-row">
         <span class="trust"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 7.8-7 9-4-1.2-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg>Crystal Assured Quality</span>
@@ -706,7 +731,7 @@
       <div class="foot-col"><h5>Brands</h5><ul id="footBrands"></ul></div>
       <div class="foot-col">
         <h5>Products</h5>
-        <ul><li><a href="All-Products.html?cat=cookware">Cookware</a></li><li><a href="All-Products.html?cat=kitchenware">Kitchenware</a></li><li><a href="All-Products.html?cat=cleaning">Cleaning Aid</a></li><li><a href="All-Products.html?cat=appliances">Electric Appliances</a></li></ul>
+        <ul><li><a href="Cookware.html">Cookware</a></li><li><a href="Kitchenware.html">Kitchenware</a></li><li><a href="Cleaning-Aid.html">Cleaning Aid</a></li><li><a href="Electric-Appliances.html">Electric Appliances</a></li></ul>
       </div>
       <div class="foot-col"><h5>Quick Link</h5><ul><li><a href="About.html">About Us</a></li><li><a href="Catalogue.html">Catalogue</a></li><li><a href="Blog.html">Knowledge Centre</a></li><li><a href="Career.html">Career</a></li></ul></div>
       <div class="foot-col"><h5>Contact Us</h5><ul><li><a href="#">G.I.D.C Metoda, Rajkot 360021, Gujarat</a></li><li><a href="#">Sahar Plaza, Andheri (E), Mumbai 400059</a></li><li><a href="tel:02249702803">022-49702803 / 06</a></li></ul></div>
@@ -753,7 +778,21 @@
     serveware: { features:[["shine","Splendid Mirror Finish","High-polish stainless steel that elevates every table."],["heat","Stay-Warm Insulation","Double-wall builds keep food warm for hours."],["shield","Heavy-Gauge Build","Sturdy, premium-weight steel made for daily dining."],["leaf","Food-Safe Steel","Hygienic, rust-free and easy to clean."]], specs:{Material:"Stainless steel",Finish:"Mirror polish",Type:"Serveware",Care:"Hand wash",Warranty:"2 years"}, variants:["Small","Medium","Large"] },
     lighters: { features:[["power","Sure, Single-Press Spark","Reliable ignition every time, even for deep burners."],["shield","Stainless-Steel Body","Premium, corrosion-resistant build that lasts."],["refill","Refillable","Refillable gas design for long, economical life."],["grip","Comfort Grip","Balanced, easy-hold body for safe lighting."]], specs:{Material:"Stainless steel",Mechanism:"Flintless / refillable",Care:"Wipe clean",Warranty:"6 months"}, variants:["Standard","305 mm","380 mm"] },
     appliances: { features:[["power","Powerful Performance","Engineered motors and elements for fast, efficient results."],["shield","Safe & Reliable","Auto cut-off and quality components for peace of mind."],["precision","Smart Controls","Intuitive controls for effortless everyday use."],["leaf","Energy Efficient","Designed to deliver more while drawing less power."]], specs:{Material:"Stainless steel / ABS",Power:"Energy efficient",Compatibility:"220–240V",Care:"Wipe clean",Warranty:"1 year"}, variants:["Standard"] },
+    cooktop: { features:[["heat","Even Flame Distribution","Engineered burners deliver a steady, even flame for consistent cooking."],["shield","Rust-Resistant Build","Toughened top and sturdy pan supports built for daily use."],["power","Strong Ignition","Reliable spark ignition gets your flame going instantly, every time."],["leaf","Efficient Burners","Optimised burner design cooks faster while using less gas."]], specs:{Material:"Toughened glass / stainless steel",Burners:"Multiple, brass",Ignition:"Auto / manual spark",Care:"Wipe clean",Warranty:"1 year"}, variants:["2 Burner","3 Burner","4 Burner"] },
+    "oil-pourer": { features:[["precision","Controlled Pour","Fine-flow spout or nozzle for precise, mess-free pouring."],["shield","Leak-Proof Design","Secure cap and seal keep oil in the bottle, not on your counter."],["leaf","Healthier Cooking","Portion-controlled flow helps you cook with less oil."],["grip","Easy-Grip Body","Comfortable handle and body for one-handed, effortless use."]], specs:{Material:"Stainless steel / glass",Capacity:"500 ml – 1 L",Type:"Pourer / Sprayer",Care:"Hand wash",Warranty:"6 months"}, variants:["500 ml","750 ml","1 L"] },
+    "wood-range": { features:[["leaf","Natural Teakwood","Crafted from genuine teakwood for a warm, natural finish."],["shine","Elegant Finish","Smooth, handcrafted finish that elevates any table setting."],["shield","Sturdy & Durable","Solid construction built to withstand daily use."],["grip","Table-Safe Design","Protects table surfaces from heat, moisture and scratches."]], specs:{Material:"Teakwood",Finish:"Natural polish",Type:"Serveware / décor",Care:"Wipe with a dry cloth",Warranty:"Not applicable"}, variants:["Standard"] },
+    peelers: { features:[["blade","Sharp Peeling Edge","Precision blade peels fruits and vegetables quickly and evenly."],["grip","Ergonomic Handle","Comfortable, non-slip grip for safe, effortless peeling."],["shield","Rust-Resistant Steel","Stainless steel blade stays sharp and hygienic wash after wash."],["leaf","Lightweight & Easy","Light body makes everyday peeling quick and fatigue-free."]], specs:{Material:"Stainless steel",Blade:"Fixed / swivel",Handle:"Ergonomic",Care:"Hand wash",Warranty:"6 months"}, variants:["Standard"] },
+    "chopping-boards": { features:[["shield","Knife-Friendly Surface","Durable surface that's gentle on blade edges."],["leaf","Food-Safe Material","Hygienic, food-grade material safe for daily food prep."],["grip","Non-Slip Base","Stable base keeps the board steady while you cut."],["stack","Easy to Store","Compact, lightweight design that's easy to store and clean."]], specs:{Material:"Plastic / wood",Size:"Standard / large",Care:"Wash with mild soap",Warranty:"Not applicable"}, variants:["Small","Medium","Large"] },
+    trolleys: { features:[["stack","Multi-Tier Storage","Multiple tiers give you organised storage for kitchen essentials."],["spin","Smooth-Rolling Wheels","Easy-glide castor wheels for effortless movement around the kitchen."],["shield","Sturdy Frame","Strong, rust-resistant frame built to carry daily loads."],["grip","Space-Saving Design","Compact footprint that fits neatly into any kitchen corner."]], specs:{Material:"Stainless steel / metal",Tiers:"2–3",Wheels:"Castor, lockable",Care:"Wipe clean",Warranty:"1 year"}, variants:["2-Tier","3-Tier"] },
+    "kitchen-tools": { features:[["shield","Durable Build","Sturdy, rust-resistant construction made for daily kitchen use."],["grip","Comfortable Grip","Ergonomic handles designed for safe, effortless handling."],["leaf","Food-Safe Materials","Hygienic, food-grade materials safe for everyday cooking."],["precision","Purpose-Built Design","Thoughtfully shaped for the specific job it's designed to do."]], specs:{Material:"Stainless steel / nylon",Handle:"Ergonomic",Care:"Hand wash",Warranty:"6 months"}, variants:["Standard"] },
+    "manual-appliances": { features:[["power","Effortless Manual Action","Smooth, easy-to-operate mechanism that needs no electricity."],["shield","Sturdy Construction","Durable build engineered for years of everyday use."],["grip","Comfortable Handle","Ergonomic grip designed for safe, fatigue-free operation."],["leaf","Easy to Clean","Simple design that's quick to clean after every use."]], specs:{Material:"Stainless steel / ABS",Mechanism:"Manual",Care:"Wipe / hand wash",Warranty:"6 months"}, variants:["Standard"] },
+    "water-filter": { features:[["shield","Effective Filtration","Filters out impurities for cleaner, safer drinking water."],["leaf","Food-Safe Materials","Built with hygienic, food-grade materials throughout."],["lock","Secure Fit","Tight, leak-proof fit keeps your filtration system sealed."],["refill","Easy Cartridge Change","Simple, tool-free replacement when it's time for a new filter."]], specs:{Material:"Plastic / stainless steel",Capacity:"Standard",Care:"Rinse per instructions",Warranty:"6 months"}, variants:["Standard"] },
   };
+  CAT_TPL.knives = CAT_TPL.cutlery;
+  CAT_TPL.servers = CAT_TPL.serveware;
+  CAT_TPL["water-bottle"] = CAT_TPL.flasks;
+  CAT_TPL["lunch-box"] = CAT_TPL.storage;
+  CAT_TPL["pressure-cooker"] = CAT_TPL.cookware;
 
   // Real catalog loaded from product-data/products.json (see bootstrap at
   // the bottom of this script). P/BY_ID start empty and are populated once
@@ -795,6 +834,7 @@
   document.getElementById("infoEyebrow").innerHTML = `<span class="pip"></span>${brand.name} · ${prod.col}`;
   document.getElementById("catChip").textContent = CAT_LABEL[prod.c];
   document.getElementById("pTitle").textContent = prod.n;
+  document.getElementById("pSku").textContent = prod.sku ? "Code: " + prod.sku.toUpperCase() : "";
   document.getElementById("pIntro").textContent = prod.intro;
   document.getElementById("brandAllName").textContent = brand.name;
   document.getElementById("brandAllBtn").href = "All-Products.html?brand=" + prod.b;
@@ -825,7 +865,6 @@
 
   /* ---- overview ---- */
   document.getElementById("ovLead").textContent = prod.intro;
-  document.getElementById("ovIntro").textContent = prod.intro;
   document.getElementById("ovDesc").innerHTML = `<p>${prod.desc}</p>`;
   document.getElementById("ovImg").src = gallery[1] || gallery[0];
   document.getElementById("ovImg").alt = prod.n;
@@ -894,8 +933,8 @@
       const res = await fetch("product-data/products.json");
       const data = await res.json();
       P = data.products.map(p => ({
-        id: p.id, n: p.name, b: p.brand, c: p.category, sub: p.subcategory, col: p.collection || p.subcategory || "",
-        img: p.hero || "about-assets/prod-1.jpg", gallery: p.gallery || [], tags: p.tags || [],
+        id: p.id, sku: p.sku || p.id || "", n: p.name, b: p.brand, c: p.category, sub: p.subcategory, col: p.collection || p.subcategory || "",
+        img: p.hero || "about-assets/placeholder.svg", gallery: p.gallery || [], tags: p.tags || [],
         intro: p.highlight || p.description || "", desc: p.description || p.highlight || "",
         variants: undefined, mrp: p.mrp,
       }));

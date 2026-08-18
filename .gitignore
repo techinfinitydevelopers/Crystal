@@ -1,1 +1,12 @@
 product-data/pipeline/__pycache__/
+
+# Python / Django backend
+__pycache__/
+*.pyc
+crystal/backend/db.sqlite3
+crystal/backend/.env
+.env
+*.sqlite3
+
+# local data-merge backups/scratch scripts
+product-data/*.backup*

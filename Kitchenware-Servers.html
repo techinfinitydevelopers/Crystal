@@ -4,11 +4,12 @@
 <meta charset="UTF-8" />
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Products — CRYSTAL</title>
+<title>Serving Spoons, Ladles &amp; Server Sets | CRYSTAL</title>
+<meta name="description" content="Shop Crystal servers — nylon and stainless-steel serving spoon and ladle sets, heat-resistant and built for everyday cooking and serving." />
 <script>document.documentElement.className += " js";</script>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <style>
@@ -26,28 +27,28 @@
     --muted-d: #D5D5D5;
     --line: rgba(26,24,22,0.13);
     --line-d: rgba(213,213,213,0.18);
-    --head: "Space Grotesk", sans-serif;
-    --body: "DM Sans", sans-serif;
+    --head: "Inter", sans-serif;
+    --body: "Inter", sans-serif;
     --maxw: 1240px;
     --pad: clamp(18px, 5vw, 70px);
     --r: 20px;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; scrollbar-gutter: stable; }
-  body { font-family: var(--body); background: var(--white); color: var(--ink); -webkit-font-smoothing: antialiased; overflow-x: clip; }
+  body { font-family: var(--body); background: var(--white); color: var(--ink); -webkit-font-smoothing: antialiased; overflow-x: clip; letter-spacing: -0.003em; }
   img, video { display: block; max-width: 100%; }
   a { color: inherit; text-decoration: none; }
 
   .wrap { max-width: var(--maxw); margin: 0 auto; padding-inline: var(--pad); width: 100%; }
-  h1, h2, h3, h4 { font-family: var(--head); font-weight: 700; line-height: 0.98; letter-spacing: -0.02em; }
+  h1, h2, h3, h4 { font-family: var(--head); font-weight: 800; line-height: 0.98; letter-spacing: -0.03em; }
   .sec-dark { background: var(--ink-deep); color: var(--white); }
   .sec-cream { background: var(--cream); }
 
-  .eyebrow { font-family: var(--body); font-weight: 700; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; display: inline-flex; align-items: center; gap: 9px; color: var(--red); }
+  .eyebrow { font-family: var(--body); font-weight: 700; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; display: inline-flex; align-items: center; gap: 9px; color: var(--red); padding: 6px 14px 6px 10px; border-radius: 100px; background: rgba(237,51,56,0.08); }
   .eyebrow .pip { width: 8px; height: 8px; border-radius: 50%; background: var(--grad-red); display: inline-block; }
 
-  .btn { display: inline-flex; align-items: center; gap: 9px; font-family: var(--body); font-weight: 700; font-size: 15px; padding: 15px 26px; border-radius: 100px; border: none; cursor: pointer; transition: transform .25s cubic-bezier(.2,.8,.2,1), background .25s, color .25s, box-shadow .25s; }
-  .btn-red { background: var(--grad-red); color: #fff; box-shadow: 0 10px 26px -12px rgba(237,51,56,0.7); }
+  .btn { display: inline-flex; align-items: center; gap: 9px; font-family: var(--body); font-weight: 700; font-size: 14.5px; padding: 16px 28px; border-radius: 100px; border: none; cursor: pointer; transition: transform .25s cubic-bezier(.2,.8,.2,1), background .25s, color .25s, box-shadow .25s; }
+  .btn-red { background: var(--grad-red); color: #fff; box-shadow: 0 14px 32px -16px rgba(237,51,56,0.55); }
   .btn-red:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 16px 34px -14px rgba(237,51,56,0.8); }
   .btn-dark { background: var(--ink); color: #fff; }
   .btn-dark:hover { background: var(--red); transform: translateY(-3px) scale(1.03); }
@@ -185,8 +186,8 @@
   .browse-bar .count b { color: var(--ink); }
   .chips { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 26px; }
   .chip { font-family: var(--body); font-weight: 600; font-size: 14px; padding: 10px 18px; border-radius: 100px; border: 1.5px solid var(--line); background: var(--white); color: var(--ink); cursor: pointer; transition: background .2s, color .2s, border-color .2s, transform .2s; }
-  .chip:hover { transform: translateY(-2px); border-color: rgba(237,51,56,0.4); }
-  .chip.active { background: var(--ink); color: #fff; border-color: var(--ink); }
+  .chip:hover { transform: translateY(-2px); border-color: rgba(237,51,56,0.4); box-shadow: 0 10px 24px -14px rgba(237,51,56,0.35); }
+  .chip.active { background: var(--ink); color: #fff; border-color: var(--ink); box-shadow: 0 12px 26px -14px rgba(15,15,15,0.35); }
   /* ---- attribute filter bar: compact toolbar, options only on demand ---- */
   .fbar { display: none; align-items: flex-start; gap: 8px 10px; margin-bottom: 26px; }
   .fbar.show { display: flex; }
@@ -194,7 +195,7 @@
   .fbar-groups { flex: 1 1 auto; display: flex; flex-wrap: wrap; gap: 8px; min-width: 0; }
   .fgroup { position: relative; }
   .fbtn { display: inline-flex; align-items: center; gap: 7px; font-family: var(--body); font-weight: 600; font-size: 13.5px; color: var(--ink); background: var(--white); border: 1.5px solid var(--line); border-radius: 100px; padding: 9px 14px; cursor: pointer; transition: border-color .2s, transform .2s; }
-  .fbtn:hover { border-color: rgba(237,51,56,0.4); }
+  .fbtn:hover { border-color: rgba(237,51,56,0.4); box-shadow: 0 10px 22px -14px rgba(237,51,56,0.3); }
   .fgroup.has-value .fbtn { border-color: var(--ink); font-weight: 700; }
   .fbtn-badge { background: var(--red); color: #fff; font-size: 10.5px; font-weight: 700; line-height: 1; padding: 3px 7px; border-radius: 100px; }
   .fcaret { width: 9px; height: 9px; flex: 0 0 auto; transition: transform .2s; }
@@ -204,7 +205,7 @@
   .fpanel-opts { display: flex; flex-wrap: wrap; gap: 6px; max-height: 240px; overflow-y: auto; padding: 2px; }
   .fopt { font-family: var(--body); font-weight: 600; font-size: 13px; padding: 7px 12px; border-radius: 100px; border: 1.5px solid var(--line); background: var(--white); color: var(--ink); cursor: pointer; transition: background .15s, color .15s, border-color .15s; }
   .fopt:hover { border-color: rgba(237,51,56,0.4); }
-  .fopt.active { background: var(--ink); color: #fff; border-color: var(--ink); }
+  .fopt.active { background: var(--ink); color: #fff; border-color: var(--ink); box-shadow: 0 10px 22px -14px rgba(15,15,15,0.3); }
   .fbar-clear { flex: 0 0 auto; align-self: center; font-family: var(--body); font-weight: 600; font-size: 12.5px; color: var(--red); background: none; border: none; cursor: pointer; padding: 10px 4px; }
   .fbar-clear:hover { text-decoration: underline; }
   .fbar-mobile-toggle { display: none; }
@@ -232,8 +233,8 @@
   .grid { display: grid; grid-template-columns: repeat(var(--gcols, 3), 1fr); gap: 26px 24px; align-items: stretch; }
   @media (max-width: 880px) { .grid { grid-template-columns: 1fr 1fr; } }
   @media (max-width: 480px) { .grid { grid-template-columns: 1fr; } }
-  .pcard { background: var(--white); border: 1.5px solid var(--line); border-radius: var(--r); overflow: hidden; display: flex; flex-direction: column; transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s, border-color .35s; }
-  .pcard:hover { transform: translateY(-7px); box-shadow: 0 32px 58px -34px rgba(15,15,15,0.42); border-color: rgba(237,51,56,0.3); }
+  .pcard { background: var(--white); border: 1.5px solid var(--line); border-radius: 26px; overflow: hidden; display: flex; flex-direction: column; transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s, border-color .35s; }
+  .pcard:hover { transform: translateY(-7px); box-shadow: 0 36px 80px -36px rgba(15,15,15,0.5); border-color: rgba(237,51,56,0.3); }
   .pcard .pimg { position: relative; aspect-ratio: 1/1; overflow: hidden; background: #f1f1f1; }
   .pcard .pimg img { width: 100%; height: 100%; object-fit: contain; transition: transform .6s cubic-bezier(.2,.8,.2,1); }
   .pcard:hover .pimg img { transform: scale(1.06); }
@@ -568,12 +569,12 @@
 <!-- ===== HERO ===== -->
 <section class="hero" id="hero">
   <div class="wrap">
-    <div class="pre" id="heroPre"><span class="pip"></span><span id="heroPreTxt">All Collections</span></div>
-    <h1 id="heroTitle" data-split>The Crystal <span class="grad">Collection</span></h1>
-    <p class="hero-sub" id="heroSub" data-fade>Everything for a better kitchen and a brighter home — explore the complete range of cookware, tools, cleaning aids and more, trusted across India since 1971.</p>
+    <div class="pre" id="heroPre"><span class="pip"></span><a href="Kitchenware.html" style="color:inherit;text-decoration:none;">Kitchenware</a><span style="opacity:.55;margin:0 3px;">/</span><span id="heroPreTxt">Servers</span></div>
+    <h1 id="heroTitle" data-split>Servers Built for <span class="grad">Every Table</span></h1>
+    <p class="hero-sub" id="heroSub" data-fade>Heat-resistant serving spoons, ladles and server sets in nylon and stainless steel — built for everyday cooking and serving, straight from the kitchen to the table.</p>
     <div class="hero-cta" data-fade>
       <a href="#browse" class="btn btn-red">Browse Products <span class="arr">↗</span></a>
-      <a href="#collections" class="btn btn-dark">Featured Collections</a>
+      <a href="#collections" class="btn btn-dark">Featured Picks</a>
     </div>
   </div>
   <div class="hero-tiles" id="heroTiles"></div>
@@ -585,9 +586,9 @@
   <div class="sec-head">
     <div>
       <span class="eyebrow" data-fade><span class="pip"></span>Shop by category</span>
-      <h2 data-split style="margin-top:14px">Find your<br>everyday essential</h2>
+      <h2 data-split style="margin-top:14px">Find your<br>next server set</h2>
     </div>
-    <p class="lead" id="catLead">From cooking to serving to cleaning — browse a complete range engineered for every Indian home.</p>
+    <p class="lead" id="catLead">Serving spoons, ladles and sets designed for heat resistance and everyday use.</p>
   </div>
   <div class="cat-grid" id="catGrid"></div>
 </section>
@@ -596,10 +597,10 @@
 <section class="sec wrap" id="collections">
   <div class="sec-head">
     <div>
-      <span class="eyebrow" data-fade><span class="pip"></span>Featured collections</span>
-      <h2 data-split style="margin-top:14px" id="colTitle">Signature<br>ranges</h2>
+      <span class="eyebrow" data-fade><span class="pip"></span>Featured picks</span>
+      <h2 data-split style="margin-top:14px" id="colTitle">Featured<br>server picks</h2>
     </div>
-    <p class="lead" id="colLead">Our most-loved ranges — engineered to last, designed to delight.</p>
+    <p class="lead" id="colLead">From the wok to the table — serving sets built for daily cooking and dining.</p>
   </div>
   <div class="col-grid" id="colGrid"></div>
 </section>
@@ -610,9 +611,9 @@
     <div class="sec-head">
       <div>
         <span class="eyebrow" data-fade><span class="pip"></span>The catalogue</span>
-        <h2 data-split style="margin-top:14px" id="browseTitle">Browse all<br>products</h2>
+        <h2 data-split style="margin-top:14px" id="browseTitle">Browse all<br>servers</h2>
       </div>
-      <p class="lead">Filter by category and sort to find exactly what your kitchen needs.</p>
+      <p class="lead">Filter by type and sort to find exactly what your kitchen needs.</p>
     </div>
 
     <div class="browse-bar">
@@ -627,7 +628,7 @@
         </select>
       </div>
     </div>
-    <div class="chips" id="chips"></div>
+    
     <div class="fbar" id="attrChips"></div>
     <div class="grid" id="grid"></div>
   </div>
@@ -665,10 +666,10 @@
 <section class="cta-sec" id="cta">
   <div class="cta">
     <div class="cta-inner">
-      <h2 data-split id="ctaTitle">Bring it<br>home</h2>
-      <p id="ctaSub">From our family of brands to yours — find the perfect everyday essential, or talk to our team about bulk, export and distribution.</p>
+      <h2 data-split id="ctaTitle">Serve it right,<br>every time</h2>
+      <p id="ctaSub">Heat-resistant serving sets for daily cooking and dining — find yours, or talk to our team about bulk and export.</p>
       <div class="row">
-        <a href="#browse" class="btn btn-light">Explore Products <span class="arr">↗</span></a>
+        <a href="#browse" class="btn btn-light">Explore Servers <span class="arr">↗</span></a>
         <a href="Contact.html" class="btn btn-red">Contact Us <span class="arr">↗</span></a>
       </div>
     </div>
@@ -740,6 +741,11 @@
   ];
   const CAT_LABEL = Object.fromEntries(CATEGORIES.map(c => [c.id, c.label]));
 
+  /* ---------- Standalone sub-category page: fixed category + fixed sub-category ---------- */
+  const FIXED_CAT = "kitchenware";
+  const FIXED_SUB = "servers";
+  const SUB_LABEL = "Servers";
+
   const BRANDS = [
     { slug: "crystal",    name: "Crystal",    tagline: "World of Kitchenware", blurb: "From the gas lighter that started it all to a full world of kitchen essentials — cookware, cutlery, lighters and appliances trusted in Indian homes since 1971.", title: "World of <span class='grad'>Kitchenware</span>" },
     { slug: "crystalina", name: "Crystalina", tagline: "Splendid Finish", blurb: "Premium stainless-steel serveware and dinnerware with a splendid mirror finish — where everyday dining feels like an occasion.", title: "A Splendid <span class='grad'>Finish</span>" },
@@ -768,7 +774,8 @@
   const params = new URLSearchParams(location.search);
   const brandSlug = (params.get("brand") || "").toLowerCase();
   const brand = BRAND_BY[brandSlug] || null;
-  const viewProducts = brand ? P.filter(p => p.b === brand.slug) : P.slice();
+  const catProducts = P.filter(p => p.c === FIXED_CAT && p.sub === FIXED_SUB);
+  const viewProducts = brand ? catProducts.filter(p => p.b === brand.slug) : catProducts.slice();
 
   /* ---------- RENDER: brand dropdown + footer brands + mobile ---------- */
   const ddHTML = BRANDS.map(b => `<a href="All-Products.html?brand=${b.slug}"${brand && brand.slug === b.slug ? ' class="active"' : ''}><b>${b.name}</b><span>${b.tagline}</span></a>`).join("");
@@ -796,49 +803,41 @@
   })();
   document.getElementById("heroTiles").innerHTML = tileImgs.map(src => `<div class="hero-tile"><img src="${src}" alt="Crystal product" loading="lazy"></div>`).join("");
 
-  /* ---------- RENDER: category nav ---------- */
-  const catsInView = CATEGORIES.filter(cat => viewProducts.some(p => p.c === cat.id));
-  document.getElementById("catGrid").innerHTML = catsInView.map(cat => {
-    const cnt = viewProducts.filter(p => p.c === cat.id).length;
-    return `<button class="cat-card" data-cat="${cat.id}" data-fade>
-      <span class="cat-ic">${CAT_ICONS[cat.id] || ""}</span>
-      <h4>${cat.label}</h4>
-      <span class="cnt">${cnt} product${cnt !== 1 ? "s" : ""}</span>
+  /* ---------- RENDER: category nav (single sub-category page: one card, this sub-category) ---------- */
+  document.getElementById("catGrid").innerHTML = `<button class="cat-card" data-cat="${FIXED_SUB}" data-fade>
+      <span class="cat-ic">${CAT_ICONS.kitchenware || ""}</span>
+      <h4>${SUB_LABEL}</h4>
+      <span class="cnt">${viewProducts.length} product${viewProducts.length !== 1 ? "s" : ""}</span>
     </button>`;
-  }).join("");
 
-  /* ---------- RENDER: featured collections ---------- */
-  let collections;
-  if (brand) {
-    const byCol = {};
-    viewProducts.forEach(p => { if (!byCol[p.col]) byCol[p.col] = p; });
-    collections = Object.values(byCol).slice(0, 3).map(p => ({
-      tag: brand.name, title: p.col, desc: p.hl, img: p.img, filter: { col: p.col }
-    }));
-  } else {
-    collections = MAIN_COLLECTIONS.slice(0, 3);
-  }
+  /* ---------- RENDER: featured picks (this sub-category shares one internal collection
+     tag across all products, so instead of grouping by collection we surface up to 3
+     distinct representative products, each linking straight to its product page) ---------- */
+  const byImg = {};
+  viewProducts.forEach(p => { if (!byImg[p.img]) byImg[p.img] = p; });
+  const collections = Object.values(byImg).slice(0, 3).map(p => ({
+    tag: brandName(p.b), title: p.n, desc: p.hl, img: p.img, href: pdpHref(p)
+  }));
   document.getElementById("colGrid").innerHTML = collections.map(c => `
-    <a class="col-card" data-col='${JSON.stringify(c.filter)}' data-fade>
+    <a class="col-card" href="${c.href}" data-fade>
       <div class="cc-media"><img src="${c.img}" alt="${c.title}" loading="lazy"></div>
       <div class="cc-grad"></div>
       <div class="cc-body">
         <span class="cc-tag">${c.tag}</span>
         <div class="cc-title">${c.title}</div>
         <div class="cc-desc">${c.desc}</div>
-        <span class="cc-link">View range <span>↗</span></span>
+        <span class="cc-link">View product <span>↗</span></span>
       </div>
     </a>`).join("");
 
-  /* ---------- RENDER: chips ---------- */
-  const chipsEl = document.getElementById("chips");
-  chipsEl.innerHTML = `<button class="chip active" data-cat="all">All${brand ? " " + brand.name : ""}</button>` +
-    catsInView.map(cat => `<button class="chip" data-cat="${cat.id}">${cat.label}</button>`).join("");
+  /* ---------- Sub-category chip switcher removed: this page is already scoped to a
+     single sub-category, so there is nothing further to switch between. The
+     attribute-facet bar below (material / edge / set-size / etc.) stays active. ---------- */
 
   /* ---------- GRID state + render ---------- */
   const gridEl = document.getElementById("grid");
   const countEl = document.getElementById("count");
-  let state = { cat: "all", col: "", sort: "featured", cats: null, subLabel: "", subText: "", attrFilters: {} };
+  let state = { sort: "featured", attrFilters: {} };
 
   function brandName(slug) { return (BRAND_BY[slug] || {}).name || slug; }
 
@@ -907,13 +906,6 @@
 
   function applyAndRender(animate) {
     let scoped = viewProducts.slice();
-    if (state.cats) scoped = scoped.filter(p => state.cats.includes(p.c));
-    else if (state.cat !== "all") scoped = scoped.filter(p => p.c === state.cat);
-    if (state.col) scoped = scoped.filter(p => p.col === state.col);
-    if (state.subText) {
-      if (scoped.some(p => p.sub === state.subText)) scoped = scoped.filter(p => p.sub === state.subText);
-      else { const terms = state.subText.split("-").filter(Boolean); scoped = scoped.filter(p => { const hay = (p.n + " " + p.col + " " + p.tags.join(" ")).toLowerCase(); return terms.every(t => hay.includes(t)); }); }
-    }
 
     let list = scoped.slice();
     Object.keys(state.attrFilters).forEach(k => {
@@ -928,8 +920,7 @@
     else if (state.sort === "za") list.sort((a, b) => b.n.localeCompare(a.n));
     else if (state.sort === "brand") list.sort((a, b) => brandName(a.b).localeCompare(brandName(b.b)) || a.n.localeCompare(b.n));
 
-    const label = state.subLabel || (state.col ? state.col : (state.cat !== "all" ? CAT_LABEL[state.cat] : ""));
-    countEl.innerHTML = `Showing <b>${list.length}</b> of <b>${viewProducts.length}</b> products${label ? " in <b>" + label + "</b>" : ""}`;
+    countEl.innerHTML = `Showing <b>${list.length}</b> of <b>${viewProducts.length}</b> products in <b>${SUB_LABEL}</b>`;
 
     if (!list.length) {
       gridEl.innerHTML = `<div class="empty">No products in this category yet.<br>Try another category.</div>`;
@@ -960,14 +951,7 @@
     }
   }
 
-  function setCat(cat) {
-    state.cat = cat; state.col = ""; state.subText = ""; state.subLabel = ""; state.attrFilters = {}; openGroupKey = null;
-    document.querySelectorAll(".chip").forEach(c => c.classList.toggle("active", c.dataset.cat === cat));
-    applyAndRender(true);
-  }
-
   /* ---------- WIRE controls ---------- */
-  chipsEl.addEventListener("click", e => { const c = e.target.closest(".chip"); if (c) setCat(c.dataset.cat); });
   attrChipsEl.addEventListener("click", e => {
     if (e.target.closest("#clearAttrs") || e.target.closest("#clearAttrsMobile")) {
       state.attrFilters = {}; openGroupKey = null; applyAndRender(true); return;
@@ -1008,59 +992,11 @@
   document.getElementById("catGrid").addEventListener("click", e => {
     const card = e.target.closest(".cat-card");
     if (!card) return;
-    setCat(card.dataset.cat);
-    document.getElementById("browse").scrollIntoView({ behavior: "smooth", block: "start" });
-  });
-  document.getElementById("colGrid").addEventListener("click", e => {
-    const card = e.target.closest(".col-card");
-    if (!card) return;
-    e.preventDefault();
-    let f = {}; try { f = JSON.parse(card.dataset.col); } catch (_) {}
-    state.cat = f.c || "all";
-    state.col = f.col || "";
-    state.attrFilters = {}; openGroupKey = null;
-    document.querySelectorAll(".chip").forEach(c => c.classList.toggle("active", c.dataset.cat === state.cat));
-    applyAndRender(true);
     document.getElementById("browse").scrollIntoView({ behavior: "smooth", block: "start" });
   });
   document.getElementById("sortSel").addEventListener("change", e => { state.sort = e.target.value; applyAndRender(true); });
 
   applyAndRender(false);
-
-  /* ---------- URL ?cat= / ?sub= deep-link (from nav mega-menu / footer) ---------- */
-  (function () {
-    // Only the two legacy nav slugs need aliasing to the real category ids
-    // below; every other ?cat= value from the mega-menu already matches a
-    // CATEGORIES id directly.
-    const GROUP_MAP = { appliances: ["electric-appliances"], cleaning: ["cleaning-aid"] };
-    const catParam = (params.get("cat") || "").toLowerCase();
-    const subParam = (params.get("sub") || "").toLowerCase();
-    if (!catParam) return;
-
-    let cats = GROUP_MAP[catParam] || (viewProducts.some(p => p.c === catParam) ? [catParam] : []);
-    const parentLabel = CAT_LABEL[cats[0]] || CAT_LABEL[catParam] || catParam;
-    const subLabel = subParam ? subParam.replace(/-/g, " ").replace(/\b\w/g, c => c.toUpperCase()) : "";
-
-    if (cats.length === 1) { state.cat = cats[0]; state.cats = null; }
-    else { state.cat = "all"; state.cats = cats; }   // [] => shows none (no products yet), multi => union
-
-    let showSub = false;
-    if (subParam) {
-      const pool = state.cats ? viewProducts.filter(p => state.cats.includes(p.c)) : (state.cat !== "all" ? viewProducts.filter(p => p.c === state.cat) : viewProducts);
-      // Prefer an exact subcategory-slug match (from the manifest); fall
-      // back to the old substring-over-name/collection/tags heuristic for
-      // any product whose sheet doesn't carry a per-row subcategory.
-      const hit = pool.some(p => p.sub === subParam)
-        || pool.some(p => { const terms = subParam.split("-").filter(Boolean); const hay = (p.n + " " + p.col + " " + p.tags.join(" ")).toLowerCase(); return terms.every(t => hay.includes(t)); });
-      if (hit) { state.subText = subParam; showSub = true; }
-    }
-    state.subLabel = (showSub && subLabel) ? parentLabel + " · " + subLabel : (cats.length !== 1 ? parentLabel : "");
-
-    document.querySelectorAll(".chip").forEach(c => c.classList.toggle("active", c.dataset.cat === (state.cats ? "all" : state.cat)));
-    applyAndRender(false);
-    const bsec = document.getElementById("browse");
-    if (bsec) bsec.scrollIntoView({ behavior: "smooth", block: "start" });
-  })();
   } // end renderCatalog()
 
   /* ---------- CATALOG BOOTSTRAP: load real product data, then render ---------- */
