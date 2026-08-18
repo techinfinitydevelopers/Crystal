@@ -1050,6 +1050,17 @@
     try {
       const res = await fetch("product-data/products.json");
       const data = await res.json();
+      // Merge same-product size variants (e.g. 14/16/18 CM) into a single listing card;
+      // the full size range is selectable on the product detail page instead.
+      {
+        const vgBest = {};
+        data.products.forEach(p => {
+          if (!p.variant_group) return;
+          if (!vgBest[p.variant_group] || p.variant_order < vgBest[p.variant_group].variant_order) vgBest[p.variant_group] = p;
+        });
+        const vgKeepIds = new Set(Object.values(vgBest).map(p => p.id));
+        data.products = data.products.filter(p => !p.variant_group || vgKeepIds.has(p.id));
+      }
       P = data.products.map(p => ({
         n: p.name, col: p.collection || p.subcategory || "", b: p.brand, c: p.category, sub: p.subcategory,
         img: p.hero || "about-assets/placeholder.svg", hl: p.highlight || p.description || "",

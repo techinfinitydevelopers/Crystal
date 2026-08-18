@@ -142,7 +142,10 @@
       "hero": "product-photos/LI007/hero.webp",
       "gallery": [],
       "match_tier": "exact_sku",
-      "id": "li007"
+      "id": "li007",
+      "variant_group": "vg-01",
+      "variant_label": "12\"",
+      "variant_order": 0
     },
     {
       "sku": "LI008",
@@ -168,7 +171,10 @@
       "hero": "product-photos/LI008/hero.webp",
       "gallery": [],
       "match_tier": "exact_sku",
-      "id": "li008"
+      "id": "li008",
+      "variant_group": "vg-01",
+      "variant_label": "15\"",
+      "variant_order": 1
     },
     {
       "sku": "LI009",
@@ -194,7 +200,10 @@
       "hero": "product-photos/LI009/hero.webp",
       "gallery": [],
       "match_tier": "exact_sku",
-      "id": "li009"
+      "id": "li009",
+      "variant_group": "vg-01",
+      "variant_label": "18\"",
+      "variant_order": 2
     },
     {
       "sku": "LI010",
@@ -545,7 +554,10 @@
         "product-photos/CL-122/g1.webp"
       ],
       "match_tier": "exact_sku",
-      "id": "cl-122"
+      "id": "cl-122",
+      "variant_group": "vg-02",
+      "variant_label": "20.32 CM",
+      "variant_order": 0
     },
     {
       "sku": "CL-123",
@@ -577,7 +589,10 @@
         "product-photos/CL-123/g1.webp"
       ],
       "match_tier": "exact_sku",
-      "id": "cl-123"
+      "id": "cl-123",
+      "variant_group": "vg-02",
+      "variant_label": "22.86 CM",
+      "variant_order": 1
     },
     {
       "sku": "CL-124",
@@ -610,7 +625,10 @@
         "product-photos/CL-124/g2.webp"
       ],
       "match_tier": "exact_sku",
-      "id": "cl-124"
+      "id": "cl-124",
+      "variant_group": "vg-02",
+      "variant_label": "25.4 CM",
+      "variant_order": 2
     },
     {
       "sku": "CL-125",
@@ -1496,7 +1514,10 @@
       "hero": null,
       "gallery": [],
       "match_tier": "unmatched",
-      "id": "cl-101"
+      "id": "cl-101",
+      "variant_group": "vg-04",
+      "variant_label": "28 CM",
+      "variant_order": 0
     },
     {
       "sku": "CL-102",
@@ -1527,7 +1548,10 @@
       "hero": null,
       "gallery": [],
       "match_tier": "unmatched",
-      "id": "cl-102"
+      "id": "cl-102",
+      "variant_group": "vg-04",
+      "variant_label": "33 CM",
+      "variant_order": 1
     },
     {
       "sku": "CL-132",
@@ -1558,7 +1582,10 @@
       "hero": "https://m.media-amazon.com/images/I/316cT0qlPYL._SX425_.jpg",
       "gallery": [],
       "match_tier": "image_sourced_searched",
-      "id": "cl-132"
+      "id": "cl-132",
+      "variant_group": "vg-05",
+      "variant_label": "20 CM",
+      "variant_order": 0
     },
     {
       "sku": "CL-133",
@@ -1589,7 +1616,10 @@
       "hero": "https://m.media-amazon.com/images/I/31gx6wNtlWL._SY300_SX300_QL70_FMwebp_.jpg",
       "gallery": [],
       "match_tier": "image_sourced_searched",
-      "id": "cl-133"
+      "id": "cl-133",
+      "variant_group": "vg-05",
+      "variant_label": "23 CM",
+      "variant_order": 1
     },
     {
       "sku": "CL-134",
@@ -1620,7 +1650,10 @@
       "hero": null,
       "gallery": [],
       "match_tier": "unmatched",
-      "id": "cl-134"
+      "id": "cl-134",
+      "variant_group": "vg-05",
+      "variant_label": "25 CM",
+      "variant_order": 2
     },
     {
       "sku": "CL-135",
@@ -9209,7 +9242,10 @@
         "product-photos/CWB-033/g4.webp"
       ],
       "match_tier": "exact_sku",
-      "id": "cwb-033"
+      "id": "cwb-033",
+      "variant_group": "vg-06",
+      "variant_label": "800 ML",
+      "variant_order": 0
     },
     {
       "sku": "CWB-034",
@@ -9240,7 +9276,10 @@
         "product-photos/CWB-034/g4.webp"
       ],
       "match_tier": "exact_sku",
-      "id": "cwb-034"
+      "id": "cwb-034",
+      "variant_group": "vg-06",
+      "variant_label": "1100 ML",
+      "variant_order": 1
     },
     {
       "sku": "CWB-043",
@@ -9458,7 +9497,10 @@
         "product-photos/COP-001/g2.webp"
       ],
       "match_tier": "exact_sku",
-      "id": "cop-001"
+      "id": "cop-001",
+      "variant_group": "vg-07",
+      "variant_label": "350 ML",
+      "variant_order": 0
     },
     {
       "sku": "COP-002",
@@ -9489,7 +9531,10 @@
         "product-photos/COP-002/g2.webp"
       ],
       "match_tier": "exact_sku",
-      "id": "cop-002"
+      "id": "cop-002",
+      "variant_group": "vg-07",
+      "variant_label": "500 ML",
+      "variant_order": 1
     },
     {
       "sku": "COP-003",
@@ -9518,7 +9563,10 @@
         "product-photos/COP-003/g2.webp"
       ],
       "match_tier": "exact_sku",
-      "id": "cop-003"
+      "id": "cop-003",
+      "variant_group": "vg-07",
+      "variant_label": "750 ML",
+      "variant_order": 2
     },
     {
       "sku": "COP-004",
@@ -9551,7 +9599,10 @@
         "product-photos/COP-004/g4.webp"
       ],
       "match_tier": "exact_sku",
-      "id": "cop-004"
+      "id": "cop-004",
+      "variant_group": "vg-07",
+      "variant_label": "1000 ML",
+      "variant_order": 3
     },
     {
       "sku": "COP-005",
@@ -10559,7 +10610,10 @@
       "hero": "product-photos/CTP-TP-001/hero.webp",
       "gallery": [],
       "match_tier": "exact_sku",
-      "id": "ctp-tp-001"
+      "id": "ctp-tp-001",
+      "variant_group": "vg-08",
+      "variant_label": "14 CM",
+      "variant_order": 0
     },
     {
       "sku": "CTP-TP-002",
@@ -10591,7 +10645,10 @@
       "hero": "product-photos/CTP-TP-002/hero.webp",
       "gallery": [],
       "match_tier": "exact_sku",
-      "id": "ctp-tp-002"
+      "id": "ctp-tp-002",
+      "variant_group": "vg-08",
+      "variant_label": "16 CM",
+      "variant_order": 1
     },
     {
       "sku": "CTP-TP-003",
@@ -10622,7 +10679,10 @@
       "hero": "product-photos/CTP-TP-003/hero.webp",
       "gallery": [],
       "match_tier": "exact_sku",
-      "id": "ctp-tp-003"
+      "id": "ctp-tp-003",
+      "variant_group": "vg-08",
+      "variant_label": "18 CM",
+      "variant_order": 2
     },
     {
       "sku": "CTP-TP-004",
@@ -10653,7 +10713,10 @@
       "hero": "product-photos/CTP-TP-004/hero.webp",
       "gallery": [],
       "match_tier": "exact_sku",
-      "id": "ctp-tp-004"
+      "id": "ctp-tp-004",
+      "variant_group": "vg-08",
+      "variant_label": "20 CM",
+      "variant_order": 3
     },
     {
       "sku": "CTP-TP-005",
@@ -10684,7 +10747,10 @@
       "hero": "product-photos/CTP-TP-005/hero.webp",
       "gallery": [],
       "match_tier": "exact_sku",
-      "id": "ctp-tp-005"
+      "id": "ctp-tp-005",
+      "variant_group": "vg-08",
+      "variant_label": "22 CM",
+      "variant_order": 4
     },
     {
       "sku": "CTP-TP-006",
@@ -10715,7 +10781,10 @@
       "hero": "product-photos/CTP-TP-006/hero.webp",
       "gallery": [],
       "match_tier": "exact_sku",
-      "id": "ctp-tp-006"
+      "id": "ctp-tp-006",
+      "variant_group": "vg-08",
+      "variant_label": "24 CM",
+      "variant_order": 5
     },
     {
       "sku": "CTP-TP-007",
@@ -10746,7 +10815,10 @@
       "hero": "product-photos/CTP-TP-007/hero.webp",
       "gallery": [],
       "match_tier": "exact_sku",
-      "id": "ctp-tp-007"
+      "id": "ctp-tp-007",
+      "variant_group": "vg-08",
+      "variant_label": "26 CM",
+      "variant_order": 6
     },
     {
       "sku": "CTP-KD-001",
@@ -10776,7 +10848,10 @@
       "hero": "product-photos/CTP-KD-001/hero.webp",
       "gallery": [],
       "match_tier": "exact_sku",
-      "id": "ctp-kd-001"
+      "id": "ctp-kd-001",
+      "variant_group": "vg-09",
+      "variant_label": "18 CM",
+      "variant_order": 0
     },
     {
       "sku": "CTP-KD-002",
@@ -10806,7 +10881,10 @@
       "hero": "product-photos/CTP-KD-002/hero.webp",
       "gallery": [],
       "match_tier": "exact_sku",
-      "id": "ctp-kd-002"
+      "id": "ctp-kd-002",
+      "variant_group": "vg-09",
+      "variant_label": "20 CM",
+      "variant_order": 1
     },
     {
       "sku": "CTP-KD-003",
@@ -10836,7 +10914,10 @@
       "hero": "product-photos/CTP-KD-003/hero.webp",
       "gallery": [],
       "match_tier": "exact_sku",
-      "id": "ctp-kd-003"
+      "id": "ctp-kd-003",
+      "variant_group": "vg-09",
+      "variant_label": "22 CM",
+      "variant_order": 2
     },
     {
       "sku": "CTP-KD-004",
@@ -10866,7 +10947,10 @@
       "hero": "product-photos/CTP-KD-004/hero.webp",
       "gallery": [],
       "match_tier": "exact_sku",
-      "id": "ctp-kd-004"
+      "id": "ctp-kd-004",
+      "variant_group": "vg-09",
+      "variant_label": "24 CM",
+      "variant_order": 3
     },
     {
       "sku": "CTP-KD-005",
@@ -10896,7 +10980,10 @@
       "hero": "product-photos/CTP-KD-005/hero.webp",
       "gallery": [],
       "match_tier": "exact_sku",
-      "id": "ctp-kd-005"
+      "id": "ctp-kd-005",
+      "variant_group": "vg-09",
+      "variant_label": "26 CM",
+      "variant_order": 4
     },
     {
       "sku": "CTP-KD-006",
@@ -10926,7 +11013,10 @@
       "hero": "product-photos/CTP-KD-006/hero.webp",
       "gallery": [],
       "match_tier": "exact_sku",
-      "id": "ctp-kd-006"
+      "id": "ctp-kd-006",
+      "variant_group": "vg-09",
+      "variant_label": "28 CM",
+      "variant_order": 5
     },
     {
       "sku": "CTP-KD-007",
@@ -10956,7 +11046,10 @@
       "hero": "product-photos/CTP-KD-007/hero.webp",
       "gallery": [],
       "match_tier": "exact_sku",
-      "id": "ctp-kd-007"
+      "id": "ctp-kd-007",
+      "variant_group": "vg-09",
+      "variant_label": "30 CM",
+      "variant_order": 6
     },
     {
       "sku": "CTP-KD-008",
@@ -10986,7 +11079,10 @@
       "hero": "product-photos/CTP-KD-008/hero.webp",
       "gallery": [],
       "match_tier": "exact_sku",
-      "id": "ctp-kd-008"
+      "id": "ctp-kd-008",
+      "variant_group": "vg-09",
+      "variant_label": "32 CM",
+      "variant_order": 7
     },
     {
       "sku": "CTP-EDK-001",
@@ -11050,7 +11146,10 @@
       "hero": "https://m.media-amazon.com/images/I/61cFRzZs9GL.jpg",
       "gallery": [],
       "match_tier": "image_sourced_searched",
-      "id": "ctp-edk-002"
+      "id": "ctp-edk-002",
+      "variant_group": "vg-10",
+      "variant_label": "24 CM",
+      "variant_order": 0
     },
     {
       "sku": "CTP-EDK-003",
@@ -11082,7 +11181,10 @@
       "hero": "https://m.media-amazon.com/images/I/41qzbxWDNhL.jpg",
       "gallery": [],
       "match_tier": "image_sourced_searched",
-      "id": "ctp-edk-003"
+      "id": "ctp-edk-003",
+      "variant_group": "vg-10",
+      "variant_label": "26 CM",
+      "variant_order": 1
     },
     {
       "sku": "CTP-EDK-004",
@@ -11114,7 +11216,10 @@
       "hero": "https://m.media-amazon.com/images/I/41qzbxWDNhL.jpg",
       "gallery": [],
       "match_tier": "image_sourced_searched",
-      "id": "ctp-edk-004"
+      "id": "ctp-edk-004",
+      "variant_group": "vg-10",
+      "variant_label": "28 CM",
+      "variant_order": 2
     },
     {
       "sku": "CTP-TAS-001",
@@ -11144,7 +11249,10 @@
       "hero": "product-photos/CTP-TAS-001/hero.webp",
       "gallery": [],
       "match_tier": "exact_sku",
-      "id": "ctp-tas-001"
+      "id": "ctp-tas-001",
+      "variant_group": "vg-11",
+      "variant_label": "18 CM",
+      "variant_order": 0
     },
     {
       "sku": "CTP-TAS-002",
@@ -11174,7 +11282,10 @@
       "hero": "product-photos/CTP-TAS-002/hero.webp",
       "gallery": [],
       "match_tier": "exact_sku",
-      "id": "ctp-tas-002"
+      "id": "ctp-tas-002",
+      "variant_group": "vg-11",
+      "variant_label": "20 CM",
+      "variant_order": 1
     },
     {
       "sku": "CTP-TAS-003",
@@ -11205,7 +11316,10 @@
       "hero": "product-photos/CTP-TAS-003/hero.webp",
       "gallery": [],
       "match_tier": "exact_sku",
-      "id": "ctp-tas-003"
+      "id": "ctp-tas-003",
+      "variant_group": "vg-11",
+      "variant_label": "22 CM",
+      "variant_order": 2
     },
     {
       "sku": "CTP-TAS-004",
@@ -11236,7 +11350,10 @@
       "hero": "product-photos/CTP-TAS-004/hero.webp",
       "gallery": [],
       "match_tier": "exact_sku",
-      "id": "ctp-tas-004"
+      "id": "ctp-tas-004",
+      "variant_group": "vg-11",
+      "variant_label": "24 CM",
+      "variant_order": 3
     },
     {
       "sku": "CTP-TAS-005",
@@ -11267,7 +11384,10 @@
       "hero": "product-photos/CTP-TAS-005/hero.webp",
       "gallery": [],
       "match_tier": "exact_sku",
-      "id": "ctp-tas-005"
+      "id": "ctp-tas-005",
+      "variant_group": "vg-11",
+      "variant_label": "26 CM",
+      "variant_order": 4
     },
     {
       "sku": "CTP-TAS-006",
@@ -11298,7 +11418,10 @@
       "hero": "product-photos/CTP-TAS-006/hero.webp",
       "gallery": [],
       "match_tier": "exact_sku",
-      "id": "ctp-tas-006"
+      "id": "ctp-tas-006",
+      "variant_group": "vg-11",
+      "variant_label": "28 CM",
+      "variant_order": 5
     },
     {
       "sku": "CTP-TAS-007",
@@ -11329,7 +11452,10 @@
       "hero": "product-photos/CTP-TAS-007/hero.webp",
       "gallery": [],
       "match_tier": "exact_sku",
-      "id": "ctp-tas-007"
+      "id": "ctp-tas-007",
+      "variant_group": "vg-11",
+      "variant_label": "30 CM",
+      "variant_order": 6
     },
     {
       "sku": "CTP-TAS-008",
@@ -11360,7 +11486,10 @@
       "hero": "product-photos/CTP-TAS-008/hero.webp",
       "gallery": [],
       "match_tier": "exact_sku",
-      "id": "ctp-tas-008"
+      "id": "ctp-tas-008",
+      "variant_group": "vg-11",
+      "variant_label": "32 CM",
+      "variant_order": 7
     },
     {
       "sku": "CTP-SP-001",
@@ -11390,7 +11519,10 @@
       "hero": "product-photos/CTP-SP-001/hero.webp",
       "gallery": [],
       "match_tier": "exact_sku",
-      "id": "ctp-sp-001"
+      "id": "ctp-sp-001",
+      "variant_group": "vg-12",
+      "variant_label": "14 CM",
+      "variant_order": 0
     },
     {
       "sku": "CTP-SP-002",
@@ -11422,7 +11554,10 @@
       "hero": "product-photos/CTP-SP-002/hero.webp",
       "gallery": [],
       "match_tier": "exact_sku",
-      "id": "ctp-sp-002"
+      "id": "ctp-sp-002",
+      "variant_group": "vg-12",
+      "variant_label": "16 CM",
+      "variant_order": 1
     },
     {
       "sku": "CTP-SP-003",
@@ -11484,7 +11619,10 @@
       "hero": "product-photos/CTP-SP-004/hero.webp",
       "gallery": [],
       "match_tier": "exact_sku",
-      "id": "ctp-sp-004"
+      "id": "ctp-sp-004",
+      "variant_group": "vg-12",
+      "variant_label": "20 CM",
+      "variant_order": 2
     },
     {
       "sku": "CTP-FRP-001",
@@ -11514,7 +11652,10 @@
       "hero": "product-photos/CTP-FRP-001/hero.webp",
       "gallery": [],
       "match_tier": "exact_sku",
-      "id": "ctp-frp-001"
+      "id": "ctp-frp-001",
+      "variant_group": "vg-13",
+      "variant_label": "20 CM",
+      "variant_order": 0
     },
     {
       "sku": "CTP-FRP-002",
@@ -11544,7 +11685,10 @@
       "hero": "product-photos/CTP-FRP-002/hero.webp",
       "gallery": [],
       "match_tier": "exact_sku",
-      "id": "ctp-frp-002"
+      "id": "ctp-frp-002",
+      "variant_group": "vg-13",
+      "variant_label": "22 CM",
+      "variant_order": 1
     },
     {
       "sku": "CTP-FRP-003",
@@ -11574,7 +11718,10 @@
       "hero": "product-photos/CTP-FRP-003/hero.webp",
       "gallery": [],
       "match_tier": "exact_sku",
-      "id": "ctp-frp-003"
+      "id": "ctp-frp-003",
+      "variant_group": "vg-13",
+      "variant_label": "24 CM",
+      "variant_order": 2
     },
     {
       "sku": "CTP-FRP-004",
@@ -11604,7 +11751,10 @@
       "hero": "product-photos/CTP-FRP-004/hero.webp",
       "gallery": [],
       "match_tier": "exact_sku",
-      "id": "ctp-frp-004"
+      "id": "ctp-frp-004",
+      "variant_group": "vg-13",
+      "variant_label": "26 CM",
+      "variant_order": 3
     },
     {
       "sku": "CCI-DK-25",
@@ -12600,7 +12750,10 @@
       "hero": "https://m.media-amazon.com/images/I/51Sd0E6Uj+L.jpg",
       "gallery": [],
       "match_tier": "image_sourced_searched",
-      "id": "cns-954"
+      "id": "cns-954",
+      "variant_group": "vg-14",
+      "variant_label": "250 MM",
+      "variant_order": 0
     },
     {
       "sku": "CNS-955",
@@ -12630,7 +12783,10 @@
       "hero": "https://m.media-amazon.com/images/I/31f1glS7qhL.jpg",
       "gallery": [],
       "match_tier": "image_sourced_searched",
-      "id": "cns-955"
+      "id": "cns-955",
+      "variant_group": "vg-14",
+      "variant_label": "280 MM",
+      "variant_order": 1
     },
     {
       "sku": "CNS-956",
@@ -12660,7 +12816,10 @@
       "hero": "https://m.media-amazon.com/images/I/41F52pvAd1L.jpg",
       "gallery": [],
       "match_tier": "image_sourced_searched",
-      "id": "cns-956"
+      "id": "cns-956",
+      "variant_group": "vg-14",
+      "variant_label": "300 MM",
+      "variant_order": 2
     },
     {
       "sku": "CNS-752",
@@ -12848,7 +13007,10 @@
       "hero": "https://m.media-amazon.com/images/I/31CzREILnRL.jpg",
       "gallery": [],
       "match_tier": "image_sourced_amazon_link",
-      "id": "cns-904a"
+      "id": "cns-904a",
+      "variant_group": "vg-15",
+      "variant_label": "250 MM",
+      "variant_order": 0
     },
     {
       "sku": "CNS-905A",
@@ -12878,7 +13040,10 @@
       "hero": "https://m.media-amazon.com/images/I/31CzREILnRL.jpg",
       "gallery": [],
       "match_tier": "image_sourced_amazon_link",
-      "id": "cns-905a"
+      "id": "cns-905a",
+      "variant_group": "vg-15",
+      "variant_label": "280 MM",
+      "variant_order": 1
     },
     {
       "sku": "CNS-906A",
@@ -12908,7 +13073,10 @@
       "hero": "https://m.media-amazon.com/images/I/31s0NEyjPHL.jpg",
       "gallery": [],
       "match_tier": "image_sourced_amazon_link",
-      "id": "cns-906a"
+      "id": "cns-906a",
+      "variant_group": "vg-15",
+      "variant_label": "300 MM",
+      "variant_order": 2
     },
     {
       "sku": "CNS-907A",
@@ -12938,7 +13106,10 @@
       "hero": "https://m.media-amazon.com/images/I/31EegtSGKHL.jpg",
       "gallery": [],
       "match_tier": "image_sourced_amazon_link",
-      "id": "cns-907a"
+      "id": "cns-907a",
+      "variant_group": "vg-16",
+      "variant_label": "225 MM",
+      "variant_order": 0
     },
     {
       "sku": "CNS-908A",
@@ -12968,7 +13139,10 @@
       "hero": "https://m.media-amazon.com/images/I/31EegtSGKHL.jpg",
       "gallery": [],
       "match_tier": "image_sourced_amazon_link",
-      "id": "cns-908a"
+      "id": "cns-908a",
+      "variant_group": "vg-16",
+      "variant_label": "250 MM",
+      "variant_order": 1
     },
     {
       "sku": "CNS-910A",
@@ -12998,7 +13172,10 @@
       "hero": "https://m.media-amazon.com/images/I/313UB2K0i1L.jpg",
       "gallery": [],
       "match_tier": "image_sourced_amazon_link",
-      "id": "cns-910a"
+      "id": "cns-910a",
+      "variant_group": "vg-17",
+      "variant_label": "225 MM",
+      "variant_order": 0
     },
     {
       "sku": "CNS-911A",
@@ -13028,7 +13205,10 @@
       "hero": "https://m.media-amazon.com/images/I/31DaSSm8eXL.jpg",
       "gallery": [],
       "match_tier": "image_sourced_amazon_link",
-      "id": "cns-911a"
+      "id": "cns-911a",
+      "variant_group": "vg-17",
+      "variant_label": "250 MM",
+      "variant_order": 1
     },
     {
       "sku": "CNS-912A",
@@ -13058,7 +13238,10 @@
       "hero": "https://m.media-amazon.com/images/I/31STlVudL5L.jpg",
       "gallery": [],
       "match_tier": "image_sourced_amazon_link",
-      "id": "cns-912a"
+      "id": "cns-912a",
+      "variant_group": "vg-17",
+      "variant_label": "280 MM",
+      "variant_order": 2
     },
     {
       "sku": "CNS-913A",
@@ -13088,7 +13271,10 @@
       "hero": "https://m.media-amazon.com/images/I/41UJVQwB2eL.jpg",
       "gallery": [],
       "match_tier": "image_sourced_amazon_link",
-      "id": "cns-913a"
+      "id": "cns-913a",
+      "variant_group": "vg-18",
+      "variant_label": "225 MM",
+      "variant_order": 0
     },
     {
       "sku": "CNS-914A",
@@ -13118,7 +13304,10 @@
       "hero": "https://m.media-amazon.com/images/I/51Le2RBxrwL.jpg",
       "gallery": [],
       "match_tier": "image_sourced_amazon_link",
-      "id": "cns-914a"
+      "id": "cns-914a",
+      "variant_group": "vg-18",
+      "variant_label": "250 MM",
+      "variant_order": 1
     },
     {
       "sku": "CNS-915A",
@@ -13148,7 +13337,10 @@
       "hero": "https://m.media-amazon.com/images/I/41UJVQwB2eL.jpg",
       "gallery": [],
       "match_tier": "image_sourced_amazon_link",
-      "id": "cns-915a"
+      "id": "cns-915a",
+      "variant_group": "vg-18",
+      "variant_label": "280 MM",
+      "variant_order": 2
     },
     {
       "sku": "CNS-916",
@@ -13180,7 +13372,10 @@
       "hero": "https://m.media-amazon.com/images/I/515uPCgmacL.jpg",
       "gallery": [],
       "match_tier": "image_sourced_amazon_link",
-      "id": "cns-916"
+      "id": "cns-916",
+      "variant_group": "vg-19",
+      "variant_label": "225 MM",
+      "variant_order": 0
     },
     {
       "sku": "CNS-917",
@@ -13212,7 +13407,10 @@
       "hero": "https://m.media-amazon.com/images/I/515uPCgmacL.jpg",
       "gallery": [],
       "match_tier": "image_sourced_amazon_link",
-      "id": "cns-917"
+      "id": "cns-917",
+      "variant_group": "vg-19",
+      "variant_label": "250 MM",
+      "variant_order": 1
     },
     {
       "sku": "CNS-918",
@@ -13244,7 +13442,10 @@
       "hero": "https://m.media-amazon.com/images/I/515uPCgmacL.jpg",
       "gallery": [],
       "match_tier": "image_sourced_amazon_link",
-      "id": "cns-918"
+      "id": "cns-918",
+      "variant_group": "vg-19",
+      "variant_label": "280 MM",
+      "variant_order": 2
     },
     {
       "sku": "CNS-098",
@@ -13332,7 +13533,10 @@
       "hero": "product-photos/CPC-021/hero.webp",
       "gallery": [],
       "match_tier": "exact_sku",
-      "id": "cpc-021"
+      "id": "cpc-021",
+      "variant_group": "vg-20",
+      "variant_label": "2 LTR",
+      "variant_order": 0
     },
     {
       "sku": "CPC-022",
@@ -13356,7 +13560,10 @@
       "hero": "product-photos/CPC-022/hero.webp",
       "gallery": [],
       "match_tier": "exact_sku",
-      "id": "cpc-022"
+      "id": "cpc-022",
+      "variant_group": "vg-20",
+      "variant_label": "3 LTR",
+      "variant_order": 1
     },
     {
       "sku": "CPC-023",
@@ -13380,7 +13587,10 @@
       "hero": "product-photos/CPC-023/hero.webp",
       "gallery": [],
       "match_tier": "exact_sku",
-      "id": "cpc-023"
+      "id": "cpc-023",
+      "variant_group": "vg-20",
+      "variant_label": "5 LTR",
+      "variant_order": 2
     },
     {
       "sku": "CKTL-051",
@@ -15248,7 +15458,10 @@
       "hero": "https://m.media-amazon.com/images/I/31ariPz2FZL._SX425_.jpg",
       "gallery": [],
       "match_tier": "image_sourced_searched",
-      "id": "shh009"
+      "id": "shh009",
+      "variant_group": "vg-21",
+      "variant_label": "7.5 LTR",
+      "variant_order": 0
     },
     {
       "sku": "SHH010",
@@ -15267,7 +15480,10 @@
       "hero": "https://m.media-amazon.com/images/I/31FOHQEwTeL._SX425_.jpg",
       "gallery": [],
       "match_tier": "image_sourced_searched",
-      "id": "shh010"
+      "id": "shh010",
+      "variant_group": "vg-21",
+      "variant_label": "12 LTR",
+      "variant_order": 1
     },
     {
       "sku": "SMS005",

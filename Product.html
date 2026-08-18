@@ -555,7 +555,7 @@
         <span class="trust"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg>Made in India · Since 1971</span>
       </div>
       <div class="vsel">
-        <div class="vlbl">Variant <b id="vCurrent"></b></div>
+        <div class="vlbl">Size <b id="vCurrent"></b></div>
         <div class="vchips" id="vChips"></div>
       </div>
       <div class="qty-row">
@@ -620,7 +620,7 @@
   <div class="spec-grid">
     <div class="spec-table" id="specTable"></div>
     <aside class="spec-side">
-      <h4>Available Variants</h4>
+      <h4 id="vSecHeading">Available Sizes</h4>
       <div class="vchips" id="vChips2"></div>
       <div class="assure">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 7.8-7 9-4-1.2-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg>
@@ -808,7 +808,7 @@
   const brand = BRANDS[prod.b] || Object.values(BRANDS)[0];
   const CAT_TPL_ALIAS = { "electric-appliances": "appliances", "cleaning-aid": "cleaning" };
   const tpl = CAT_TPL[prod.sub] || CAT_TPL[prod.c] || CAT_TPL[CAT_TPL_ALIAS[prod.c]] || Object.values(CAT_TPL)[0];
-  const variants = prod.variants || tpl.variants;
+  const siblings = prod.vgroup ? P.filter(p => p.vgroup === prod.vgroup).sort((a, b) => a.vorder - b.vorder) : [];
   const specs = Object.assign({}, tpl.specs, prod.specs || {});
   const gallery = [prod.img, ...(prod.gallery || [])].filter(Boolean);
 
@@ -852,12 +852,24 @@
     '<a href="https://www.jiomart.com/search/' + _q + '" target="_blank" rel="noopener nofollow sponsored">JioMart</a>';
   (function () { var qi = document.getElementById("qtyInput"); var mn = document.getElementById("qtyMinus"), pl = document.getElementById("qtyPlus"); if (qi && mn && pl) { mn.onclick = function () { qi.value = Math.max(1, (parseInt(qi.value, 10) || 1) - 1); }; pl.onclick = function () { qi.value = (parseInt(qi.value, 10) || 1) + 1; }; } })();
 
-  function renderVariants(elId) {
-    document.getElementById(elId).innerHTML = variants.map((v, i) => `<button class="vchip${i===0?' active':''}" data-v="${v}">${v}</button>`).join("");
+  function renderSizeChips(elId) {
+    document.getElementById(elId).innerHTML = siblings.map(p => `<button class="vchip${p.id===prod.id?' active':''}" data-id="${p.id}">${p.vlabel}</button>`).join("");
   }
-  renderVariants("vChips");
-  renderVariants("vChips2");
-  document.getElementById("vCurrent").textContent = "· " + variants[0];
+  const vsel = document.querySelector(".vsel");
+  const vSecHeading = document.getElementById("vSecHeading");
+  const vChips2El = document.getElementById("vChips2");
+  if (siblings.length > 1) {
+    if (vsel) vsel.style.display = "";
+    if (vSecHeading) vSecHeading.style.display = "";
+    if (vChips2El) vChips2El.style.display = "";
+    renderSizeChips("vChips");
+    renderSizeChips("vChips2");
+    document.getElementById("vCurrent").textContent = "· " + prod.vlabel;
+  } else {
+    if (vsel) vsel.style.display = "none";
+    if (vSecHeading) vSecHeading.style.display = "none";
+    if (vChips2El) vChips2El.style.display = "none";
+  }
 
   // hero highlight list = first 3 feature titles + a warranty line
   const hiItems = tpl.features.slice(0, 3).map(f => f[1]).concat([(specs.Warranty ? specs.Warranty + " warranty" : "Crystal assured quality")]);
@@ -937,6 +949,7 @@
         img: p.hero || "about-assets/placeholder.svg", gallery: p.gallery || [], tags: p.tags || [],
         intro: p.highlight || p.description || "", desc: p.description || p.highlight || "",
         variants: undefined, mrp: p.mrp,
+        vgroup: p.variant_group || null, vlabel: p.variant_label || null, vorder: p.variant_order || 0,
       }));
       BY_ID = Object.fromEntries(P.map(p => [p.id, p]));
     } catch (e) {
@@ -945,12 +958,11 @@
     renderProduct();
   })();
 
-  /* ---- variant selection (sync both groups) ---- */
-  function pickVariant(v) {
-    document.querySelectorAll(".vchip").forEach(c => c.classList.toggle("active", c.dataset.v === v));
-    document.getElementById("vCurrent").textContent = "· " + v;
-  }
-  document.body.addEventListener("click", e => { const c = e.target.closest(".vchip"); if (c) pickVariant(c.dataset.v); });
+  /* ---- size selection: each chip is a real sibling product, navigate to it ---- */
+  document.body.addEventListener("click", e => {
+    const c = e.target.closest(".vchip");
+    if (c && c.dataset.id) location.href = "Product.html?p=" + encodeURIComponent(c.dataset.id);
+  });
 
   /* ---- word split ---- */
   function splitWords(el) {
