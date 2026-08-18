@@ -151,3 +151,15 @@
 - This session hit the same environment cross-talk noted by prior sessions: port 4567 was already serving this repo from another concurrent session (used 4593 instead, per the task's own fallback instruction), and `git status` showed a large pre-existing untracked/modified set (including `memory.md`/`BUILD_LOG.md` themselves) from parallel sessions before this task even started — none of it was touched or attributed to this task's diff.
 
 **Not touched (per instructions):** `Cleaning-Aid.html`, `index-v2.html`, `All-Products.html`, `product-data/products.json`, any other existing page.
+
+## 2026-08-18 — Fix Product.html breadcrumb overlapping fixed nav header
+
+**Task:** User reported (screenshot) breadcrumb/content on `Product.html` sitting almost flush against the fixed nav header.
+
+**Root cause:** `.crumb { padding-top: clamp(94px, 11vh, 116px) }` was calibrated for the old header position (`inset: 14px`); a prior site-wide support-bar migration pushed the header to `inset: 38px`, leaving insufficient clearance.
+
+**Fix:** `.crumb` padding-top changed to `clamp(118px, 13vh, 140px)` (Product.html:117).
+
+**Verification:** `http://localhost:4567/Product.html?p=ctp-tp-001` — `#hdr` bottom = 95.6px, `.crumb` content top = 118px (computed padding-top), ~22px clear gap, no overlap.
+
+**Committed & pushed** to `main`.
