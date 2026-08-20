@@ -139,9 +139,11 @@
         "use": "Long / Commercial",
         "mechanism": "Mechanical"
       },
-      "hero": "product-photos/LI007/hero.webp",
-      "gallery": [],
-      "match_tier": "exact_sku",
+      "hero": "product-photos/LI007/hero.jpg",
+      "gallery": [
+        "product-photos/LI007/g1.jpg"
+      ],
+      "match_tier": "dump_sku_match",
       "id": "li007",
       "variant_group": "vg-01",
       "variant_label": "12\"",
@@ -168,9 +170,11 @@
         "use": "Long / Commercial",
         "mechanism": "Mechanical"
       },
-      "hero": "product-photos/LI008/hero.webp",
-      "gallery": [],
-      "match_tier": "exact_sku",
+      "hero": "product-photos/LI008/hero.jpg",
+      "gallery": [
+        "product-photos/LI008/g1.jpg"
+      ],
+      "match_tier": "dump_sku_match",
       "id": "li008",
       "variant_group": "vg-01",
       "variant_label": "15\"",
@@ -197,9 +201,11 @@
         "use": "Long / Commercial",
         "mechanism": "Mechanical"
       },
-      "hero": "product-photos/LI009/hero.webp",
-      "gallery": [],
-      "match_tier": "exact_sku",
+      "hero": "product-photos/LI009/hero.jpg",
+      "gallery": [
+        "product-photos/LI009/g1.jpg"
+      ],
+      "match_tier": "dump_sku_match",
       "id": "li009",
       "variant_group": "vg-01",
       "variant_label": "18\"",
@@ -226,13 +232,14 @@
         "use": "Domestic",
         "mechanism": "Mechanical"
       },
-      "hero": "product-photos/LI010/hero.webp",
+      "hero": "product-photos/LI010/hero.png",
       "gallery": [
-        "product-photos/LI010/g1.webp",
-        "product-photos/LI010/g2.webp",
-        "product-photos/LI010/g3.webp"
+        "product-photos/LI010/g1.jpg",
+        "product-photos/LI010/g2.jpg",
+        "product-photos/LI010/g3.jpg",
+        "product-photos/LI010/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "li010"
     },
     {
@@ -260,14 +267,14 @@
         "use": "Domestic",
         "mechanism": "Battery Operated"
       },
-      "hero": "product-photos/LI011/hero.webp",
+      "hero": "product-photos/LI011/hero.jpg",
       "gallery": [
-        "product-photos/LI011/g1.webp",
-        "product-photos/LI011/g2.webp",
-        "product-photos/LI011/g3.webp",
-        "product-photos/LI011/g4.webp"
+        "product-photos/LI011/g1.jpg",
+        "product-photos/LI011/g2.jpg",
+        "product-photos/LI011/g3.jpg",
+        "product-photos/LI011/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "li011"
     },
     {
@@ -350,12 +357,13 @@
         "blade_edge_type": "Serrated",
         "coating_type": "None"
       },
-      "hero": "product-photos/CL-007/hero.webp",
+      "hero": "product-photos/CL-007/hero.jpg",
       "gallery": [
-        "product-photos/CL-007/g1.webp",
-        "product-photos/CL-007/g2.webp"
+        "product-photos/CL-007/g1.jpg",
+        "product-photos/CL-007/g2.jpg",
+        "product-photos/CL-007/g3.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cl-007"
     },
     {
@@ -383,9 +391,11 @@
         "blade_edge_type": "Plain",
         "coating_type": "None"
       },
-      "hero": "product-photos/CL-008/hero.webp",
-      "gallery": [],
-      "match_tier": "exact_sku",
+      "hero": "product-photos/CL-008/hero.jpg",
+      "gallery": [
+        "product-photos/CL-008/g1.jpg"
+      ],
+      "match_tier": "dump_sku_match",
       "id": "cl-008"
     },
     {
@@ -419,11 +429,12 @@
         "blade_edge_type": "Serrated",
         "coating_type": "None"
       },
-      "hero": "product-photos/CL-010/hero.webp",
+      "hero": "product-photos/CL-010/hero.jpg",
       "gallery": [
-        "product-photos/CL-010/g1.webp"
+        "product-photos/CL-010/g1.jpg",
+        "product-photos/CL-010/g2.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cl-010"
     },
     {
@@ -451,13 +462,14 @@
         "blade_edge_type": "Plain",
         "coating_type": "None"
       },
-      "hero": "product-photos/CL-011/hero.webp",
+      "hero": "product-photos/CL-011/hero.jpg",
       "gallery": [
-        "product-photos/CL-011/g1.webp",
-        "product-photos/CL-011/g2.webp",
-        "product-photos/CL-011/g3.webp"
+        "product-photos/CL-011/g1.jpg",
+        "product-photos/CL-011/g2.jpg",
+        "product-photos/CL-011/g3.jpg",
+        "product-photos/CL-011/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cl-011"
     },
     {
@@ -485,9 +497,13 @@
         "blade_edge_type": "Plain",
         "coating_type": "None"
       },
-      "hero": "https://m.media-amazon.com/images/I/71Ky6FO3aiL._SX425_.jpg",
-      "gallery": [],
-      "match_tier": "image_sourced_amazon_link",
+      "hero": "product-photos/CL-459N/hero.jpg",
+      "gallery": [
+        "product-photos/CL-459N/g1.jpg",
+        "product-photos/CL-459N/g2.jpg",
+        "product-photos/CL-459N/g3.jpg"
+      ],
+      "match_tier": "dump_sku_match",
       "id": "cl-459n"
     },
     {
@@ -517,11 +533,11 @@
         "blade_edge_type": "Plain",
         "coating_type": "None"
       },
-      "hero": "product-photos/CL-804/hero.webp",
+      "hero": "product-photos/CL-804/hero.jpg",
       "gallery": [
-        "product-photos/CL-804/g1.webp"
+        "product-photos/CL-804/g1.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cl-804"
     },
     {
@@ -549,11 +565,12 @@
         "blade_edge_type": "Plain",
         "coating_type": "None"
       },
-      "hero": "product-photos/CL-122/hero.webp",
+      "hero": "product-photos/CL-122/hero.jpg",
       "gallery": [
-        "product-photos/CL-122/g1.webp"
+        "product-photos/CL-122/g1.jpg",
+        "product-photos/CL-122/g2.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cl-122",
       "variant_group": "vg-02",
       "variant_label": "20.32 CM",
@@ -584,11 +601,12 @@
         "blade_edge_type": "Plain",
         "coating_type": "None"
       },
-      "hero": "product-photos/CL-123/hero.webp",
+      "hero": "product-photos/CL-123/hero.jpg",
       "gallery": [
-        "product-photos/CL-123/g1.webp"
+        "product-photos/CL-123/g1.jpg",
+        "product-photos/CL-123/g2.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cl-123",
       "variant_group": "vg-02",
       "variant_label": "22.86 CM",
@@ -619,12 +637,13 @@
         "blade_edge_type": "Plain",
         "coating_type": "None"
       },
-      "hero": "product-photos/CL-124/hero.webp",
+      "hero": "product-photos/CL-124/hero.jpeg",
       "gallery": [
-        "product-photos/CL-124/g1.webp",
-        "product-photos/CL-124/g2.webp"
+        "product-photos/CL-124/g1.jpg",
+        "product-photos/CL-124/g2.jpg",
+        "product-photos/CL-124/g3.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cl-124",
       "variant_group": "vg-02",
       "variant_label": "25.4 CM",
@@ -656,9 +675,9 @@
         "blade_edge_type": "NA",
         "coating_type": "None"
       },
-      "hero": "product-photos/CL-125/hero.webp",
+      "hero": "product-photos/CL-125/hero.jpg",
       "gallery": [],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cl-125"
     },
     {
@@ -685,9 +704,9 @@
         "blade_edge_type": "NA",
         "coating_type": "None"
       },
-      "hero": "product-photos/CL-126/hero.webp",
+      "hero": "product-photos/CL-126/hero.jpg",
       "gallery": [],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cl-126"
     },
     {
@@ -714,9 +733,9 @@
         "blade_edge_type": "NA",
         "coating_type": "None"
       },
-      "hero": "https://m.media-amazon.com/images/I/71DaWt9SgyL._SX425_.jpg",
+      "hero": "product-photos/CL-127/hero.png",
       "gallery": [],
-      "match_tier": "image_sourced_amazon_link",
+      "match_tier": "dump_sku_match",
       "id": "cl-127"
     },
     {
@@ -749,14 +768,14 @@
         "blade_edge_type": "NA",
         "coating_type": "None"
       },
-      "hero": "product-photos/CL-128/hero.webp",
+      "hero": "product-photos/CL-128/hero.jpg",
       "gallery": [
-        "product-photos/CL-128/g1.webp",
-        "product-photos/CL-128/g2.webp",
-        "product-photos/CL-128/g3.webp",
-        "product-photos/CL-128/g4.webp"
+        "product-photos/CL-128/g1.jpg",
+        "product-photos/CL-128/g2.jpg",
+        "product-photos/CL-128/g3.jpg",
+        "product-photos/CL-128/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cl-128"
     },
     {
@@ -842,11 +861,11 @@
         "blade_edge_type": "Serrated",
         "coating_type": "None"
       },
-      "hero": "product-photos/CL-019/hero.webp",
+      "hero": "product-photos/CL-019/hero.jpg",
       "gallery": [
-        "product-photos/CL-019/g1.webp"
+        "product-photos/CL-019/g1.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cl-019"
     },
     {
@@ -877,11 +896,12 @@
         "blade_edge_type": "Serrated",
         "coating_type": "None"
       },
-      "hero": "product-photos/CL-211/hero.webp",
+      "hero": "product-photos/CL-211/hero.jpg",
       "gallery": [
-        "product-photos/CL-211/g1.webp"
+        "product-photos/CL-211/g1.jpg",
+        "product-photos/CL-211/g2.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cl-211"
     },
     {
@@ -909,11 +929,12 @@
         "blade_edge_type": "Serrated",
         "coating_type": "None"
       },
-      "hero": "product-photos/CL-212/hero.webp",
+      "hero": "product-photos/CL-212/hero.jpg",
       "gallery": [
-        "product-photos/CL-212/g1.webp"
+        "product-photos/CL-212/g1.jpg",
+        "product-photos/CL-212/g2.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cl-212"
     },
     {
@@ -941,11 +962,12 @@
         "blade_edge_type": "Serrated",
         "coating_type": "None"
       },
-      "hero": "product-photos/CL-213/hero.webp",
+      "hero": "product-photos/CL-213/hero.jpg",
       "gallery": [
-        "product-photos/CL-213/g1.webp"
+        "product-photos/CL-213/g1.jpg",
+        "product-photos/CL-213/g2.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cl-213"
     },
     {
@@ -976,11 +998,12 @@
         "blade_edge_type": "Serrated",
         "coating_type": "None"
       },
-      "hero": "product-photos/CL-214/hero.webp",
+      "hero": "product-photos/CL-214/hero.jpg",
       "gallery": [
-        "product-photos/CL-214/g1.webp"
+        "product-photos/CL-214/g1.jpg",
+        "product-photos/CL-214/g2.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cl-214"
     },
     {
@@ -1011,11 +1034,12 @@
         "blade_edge_type": "Serrated",
         "coating_type": "None"
       },
-      "hero": "product-photos/CL-215/hero.webp",
+      "hero": "product-photos/CL-215/hero.jpg",
       "gallery": [
-        "product-photos/CL-215/g1.webp"
+        "product-photos/CL-215/g1.jpeg",
+        "product-photos/CL-215/g2.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cl-215"
     },
     {
@@ -1045,12 +1069,13 @@
         "blade_edge_type": "Serrated",
         "coating_type": "None"
       },
-      "hero": "product-photos/CL-216/hero.webp",
+      "hero": "product-photos/CL-216/hero.jpeg",
       "gallery": [
-        "product-photos/CL-216/g1.webp",
-        "product-photos/CL-216/g2.webp"
+        "product-photos/CL-216/g1.jpg",
+        "product-photos/CL-216/g2.jpg",
+        "product-photos/CL-216/g3.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cl-216"
     },
     {
@@ -1078,11 +1103,12 @@
         "blade_edge_type": "Serrated",
         "coating_type": "None"
       },
-      "hero": "product-photos/CL-217/hero.webp",
+      "hero": "product-photos/CL-217/hero.jpg",
       "gallery": [
-        "product-photos/CL-217/g1.webp"
+        "product-photos/CL-217/g1.jpg",
+        "product-photos/CL-217/g2.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cl-217"
     },
     {
@@ -1112,11 +1138,12 @@
         "blade_edge_type": "Serrated",
         "coating_type": "None"
       },
-      "hero": "product-photos/CL-218/hero.webp",
+      "hero": "product-photos/CL-218/hero.jpg",
       "gallery": [
-        "product-photos/CL-218/g1.webp"
+        "product-photos/CL-218/g1.jpg",
+        "product-photos/CL-218/g2.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cl-218"
     },
     {
@@ -1144,9 +1171,11 @@
         "blade_edge_type": "Plain",
         "coating_type": "None"
       },
-      "hero": "product-photos/CL-023/hero.webp",
-      "gallery": [],
-      "match_tier": "exact_sku",
+      "hero": "product-photos/CL-023/hero.jpg",
+      "gallery": [
+        "product-photos/CL-023/g1.jpg"
+      ],
+      "match_tier": "dump_sku_match",
       "id": "cl-023"
     },
     {
@@ -1174,9 +1203,11 @@
         "blade_edge_type": "Plain",
         "coating_type": "None"
       },
-      "hero": "product-photos/CL-024/hero.webp",
-      "gallery": [],
-      "match_tier": "exact_sku",
+      "hero": "product-photos/CL-024/hero.jpg",
+      "gallery": [
+        "product-photos/CL-024/g1.jpg"
+      ],
+      "match_tier": "dump_sku_match",
       "id": "cl-024"
     },
     {
@@ -1204,9 +1235,11 @@
         "blade_edge_type": "Plain",
         "coating_type": "None"
       },
-      "hero": "product-photos/CL-073/hero.webp",
-      "gallery": [],
-      "match_tier": "exact_sku",
+      "hero": "product-photos/CL-073/hero.jpg",
+      "gallery": [
+        "product-photos/CL-073/g1.jpg"
+      ],
+      "match_tier": "dump_sku_match",
       "id": "cl-073"
     },
     {
@@ -1234,9 +1267,11 @@
         "blade_edge_type": "Plain",
         "coating_type": "None"
       },
-      "hero": "product-photos/CL-074/hero.webp",
-      "gallery": [],
-      "match_tier": "exact_sku",
+      "hero": "product-photos/CL-074/hero.jpg",
+      "gallery": [
+        "product-photos/CL-074/g1.jpg"
+      ],
+      "match_tier": "dump_sku_match",
       "id": "cl-074"
     },
     {
@@ -1264,9 +1299,11 @@
         "blade_edge_type": "Serrated",
         "coating_type": "None"
       },
-      "hero": "product-photos/CL-203/hero.webp",
-      "gallery": [],
-      "match_tier": "exact_sku",
+      "hero": "product-photos/CL-203/hero.jpg",
+      "gallery": [
+        "product-photos/CL-203/g1.jpg"
+      ],
+      "match_tier": "dump_sku_match",
       "id": "cl-203"
     },
     {
@@ -1294,9 +1331,11 @@
         "blade_edge_type": "Serrated",
         "coating_type": "None"
       },
-      "hero": "product-photos/CL-204/hero.webp",
-      "gallery": [],
-      "match_tier": "exact_sku",
+      "hero": "product-photos/CL-204/hero.jpg",
+      "gallery": [
+        "product-photos/CL-204/g1.jpg"
+      ],
+      "match_tier": "dump_sku_match",
       "id": "cl-204"
     },
     {
@@ -1325,9 +1364,11 @@
         "blade_edge_type": "Serrated",
         "coating_type": "None"
       },
-      "hero": "product-photos/CL-206/hero.webp",
-      "gallery": [],
-      "match_tier": "exact_sku",
+      "hero": "product-photos/CL-206/hero.jpg",
+      "gallery": [
+        "product-photos/CL-206/g1.jpg"
+      ],
+      "match_tier": "dump_sku_match",
       "id": "cl-206"
     },
     {
@@ -1357,9 +1398,11 @@
         "blade_edge_type": "Serrated",
         "coating_type": "None"
       },
-      "hero": "product-photos/CL-207/hero.webp",
-      "gallery": [],
-      "match_tier": "exact_sku",
+      "hero": "product-photos/CL-207/hero.jpg",
+      "gallery": [
+        "product-photos/CL-207/g1.jpg"
+      ],
+      "match_tier": "dump_sku_match",
       "id": "cl-207"
     },
     {
@@ -1387,9 +1430,11 @@
         "blade_edge_type": "Plain",
         "coating_type": "None"
       },
-      "hero": "product-photos/CL-401/hero.webp",
-      "gallery": [],
-      "match_tier": "exact_sku",
+      "hero": "product-photos/CL-401/hero.jpg",
+      "gallery": [
+        "product-photos/CL-401/g1.jpg"
+      ],
+      "match_tier": "dump_sku_match",
       "id": "cl-401"
     },
     {
@@ -1419,9 +1464,11 @@
         "blade_edge_type": "Plain",
         "coating_type": "None"
       },
-      "hero": "product-photos/CL-402/hero.webp",
-      "gallery": [],
-      "match_tier": "exact_sku",
+      "hero": "product-photos/CL-402/hero.jpg",
+      "gallery": [
+        "product-photos/CL-402/g1.jpg"
+      ],
+      "match_tier": "dump_sku_match",
       "id": "cl-402"
     },
     {
@@ -1450,9 +1497,11 @@
         "blade_edge_type": "Plain",
         "coating_type": "None"
       },
-      "hero": "product-photos/CL-403/hero.webp",
-      "gallery": [],
-      "match_tier": "exact_sku",
+      "hero": "product-photos/CL-403/hero.jpg",
+      "gallery": [
+        "product-photos/CL-403/g1.jpg"
+      ],
+      "match_tier": "dump_sku_match",
       "id": "cl-403"
     },
     {
@@ -1480,9 +1529,11 @@
         "blade_edge_type": "Plain",
         "coating_type": "None"
       },
-      "hero": "product-photos/CL-701/hero.webp",
-      "gallery": [],
-      "match_tier": "exact_sku",
+      "hero": "product-photos/CL-701/hero.jpg",
+      "gallery": [
+        "product-photos/CL-701/g1.jpg"
+      ],
+      "match_tier": "dump_sku_match",
       "id": "cl-701"
     },
     {
@@ -1579,9 +1630,9 @@
         "blade_edge_type": "Plain",
         "coating_type": "None"
       },
-      "hero": "https://m.media-amazon.com/images/I/316cT0qlPYL._SX425_.jpg",
+      "hero": "product-photos/CL-132/hero.jpg",
       "gallery": [],
-      "match_tier": "image_sourced_searched",
+      "match_tier": "dump_sku_match",
       "id": "cl-132",
       "variant_group": "vg-05",
       "variant_label": "20 CM",
@@ -1613,9 +1664,9 @@
         "blade_edge_type": "Plain",
         "coating_type": "None"
       },
-      "hero": "https://m.media-amazon.com/images/I/31gx6wNtlWL._SY300_SX300_QL70_FMwebp_.jpg",
+      "hero": "product-photos/CL-133/hero.jpg",
       "gallery": [],
-      "match_tier": "image_sourced_searched",
+      "match_tier": "dump_sku_match",
       "id": "cl-133",
       "variant_group": "vg-05",
       "variant_label": "23 CM",
@@ -1711,11 +1762,12 @@
         "blade_edge_type": "Plain",
         "coating_type": "None"
       },
-      "hero": "product-photos/CL-457/hero.webp",
+      "hero": "product-photos/CL-457/hero.jpg",
       "gallery": [
-        "product-photos/CL-457/g1.webp"
+        "product-photos/CL-457/g1.jpg",
+        "product-photos/CL-457/g2.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cl-457"
     },
     {
@@ -1746,11 +1798,12 @@
         "blade_edge_type": "Plain",
         "coating_type": "None"
       },
-      "hero": "product-photos/CL-458/hero.webp",
+      "hero": "product-photos/CL-458/hero.jpg",
       "gallery": [
-        "product-photos/CL-458/g1.webp"
+        "product-photos/CL-458/g1.jpg",
+        "product-photos/CL-458/g2.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cl-458"
     },
     {
@@ -1778,11 +1831,12 @@
         "blade_edge_type": "Serrated",
         "coating_type": "None"
       },
-      "hero": "product-photos/CL-412/hero.webp",
+      "hero": "product-photos/CL-412/hero.jpg",
       "gallery": [
-        "product-photos/CL-412/g1.webp"
+        "product-photos/CL-412/g1.jpg",
+        "product-photos/CL-412/g2.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cl-412"
     },
     {
@@ -1810,11 +1864,12 @@
         "blade_edge_type": "Serrated",
         "coating_type": "None"
       },
-      "hero": "product-photos/CL-413/hero.webp",
+      "hero": "product-photos/CL-413/hero.jpg",
       "gallery": [
-        "product-photos/CL-413/g1.webp"
+        "product-photos/CL-413/g1.jpg",
+        "product-photos/CL-413/g2.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cl-413"
     },
     {
@@ -1847,11 +1902,12 @@
         "blade_edge_type": "Serrated",
         "coating_type": "None"
       },
-      "hero": "product-photos/CL-414/hero.webp",
+      "hero": "product-photos/CL-414/hero.jpg",
       "gallery": [
-        "product-photos/CL-414/g1.webp"
+        "product-photos/CL-414/g1.jpg",
+        "product-photos/CL-414/g2.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cl-414"
     },
     {
@@ -1879,11 +1935,12 @@
         "blade_edge_type": "Serrated",
         "coating_type": "None"
       },
-      "hero": "product-photos/CL-415/hero.webp",
+      "hero": "product-photos/CL-415/hero.jpg",
       "gallery": [
-        "product-photos/CL-415/g1.webp"
+        "product-photos/CL-415/g1.jpg",
+        "product-photos/CL-415/g2.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cl-415"
     },
     {
@@ -1911,12 +1968,13 @@
         "blade_edge_type": "Serrated",
         "coating_type": "None"
       },
-      "hero": "product-photos/CL-416/hero.webp",
+      "hero": "product-photos/CL-416/hero.jpg",
       "gallery": [
-        "product-photos/CL-416/g1.webp",
-        "product-photos/CL-416/g2.webp"
+        "product-photos/CL-416/g1.jpg",
+        "product-photos/CL-416/g2.jpg",
+        "product-photos/CL-416/g3.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cl-416"
     },
     {
@@ -1944,12 +2002,12 @@
         "blade_edge_type": "NA",
         "coating_type": "None"
       },
-      "hero": "product-photos/MKA-065/hero.webp",
+      "hero": "product-photos/MKA-065/hero.jpg",
       "gallery": [
-        "product-photos/MKA-065/g1.webp",
-        "product-photos/MKA-065/g2.webp"
+        "product-photos/MKA-065/g1.jpeg",
+        "product-photos/MKA-065/g2.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "mka-065"
     },
     {
@@ -1979,14 +2037,14 @@
         "blade_edge_type": "NA",
         "coating_type": "None"
       },
-      "hero": "product-photos/CL-143/hero.webp",
+      "hero": "product-photos/CL-143/hero.jpg",
       "gallery": [
-        "product-photos/CL-143/g1.webp",
-        "product-photos/CL-143/g2.webp",
-        "product-photos/CL-143/g3.webp",
-        "product-photos/CL-143/g4.webp"
+        "product-photos/CL-143/g1.jpg",
+        "product-photos/CL-143/g2.jpg",
+        "product-photos/CL-143/g3.jpg",
+        "product-photos/CL-143/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cl-143"
     },
     {
@@ -2014,9 +2072,11 @@
         "blade_edge_type": "Plain",
         "coating_type": "None"
       },
-      "hero": "product-photos/CL-921/hero.webp",
-      "gallery": [],
-      "match_tier": "exact_sku",
+      "hero": "product-photos/CL-921/hero.jpg",
+      "gallery": [
+        "product-photos/CL-921/g1.jpg"
+      ],
+      "match_tier": "dump_sku_match",
       "id": "cl-921"
     },
     {
@@ -2044,9 +2104,11 @@
         "blade_edge_type": "Plain",
         "coating_type": "None"
       },
-      "hero": "product-photos/CL-922/hero.webp",
-      "gallery": [],
-      "match_tier": "exact_sku",
+      "hero": "product-photos/CL-922/hero.jpg",
+      "gallery": [
+        "product-photos/CL-922/g1.jpg"
+      ],
+      "match_tier": "dump_sku_match",
       "id": "cl-922"
     },
     {
@@ -2077,9 +2139,11 @@
         "blade_edge_type": "Plain",
         "coating_type": "None"
       },
-      "hero": "product-photos/CL-923/hero.webp",
-      "gallery": [],
-      "match_tier": "exact_sku",
+      "hero": "product-photos/CL-923/hero.jpg",
+      "gallery": [
+        "product-photos/CL-923/g1.jpg"
+      ],
+      "match_tier": "dump_sku_match",
       "id": "cl-923"
     },
     {
@@ -2107,9 +2171,11 @@
         "blade_edge_type": "Plain",
         "coating_type": "None"
       },
-      "hero": "product-photos/CL-924/hero.webp",
-      "gallery": [],
-      "match_tier": "exact_sku",
+      "hero": "product-photos/CL-924/hero.jpg",
+      "gallery": [
+        "product-photos/CL-924/g1.jpg"
+      ],
+      "match_tier": "dump_sku_match",
       "id": "cl-924"
     },
     {
@@ -2137,9 +2203,11 @@
         "blade_edge_type": "Plain",
         "coating_type": "None"
       },
-      "hero": "product-photos/CL-925/hero.webp",
-      "gallery": [],
-      "match_tier": "exact_sku",
+      "hero": "product-photos/CL-925/hero.jpg",
+      "gallery": [
+        "product-photos/CL-925/g1.jpg"
+      ],
+      "match_tier": "dump_sku_match",
       "id": "cl-925"
     },
     {
@@ -2167,9 +2235,11 @@
         "blade_edge_type": "Plain",
         "coating_type": "None"
       },
-      "hero": "product-photos/CL-926/hero.webp",
-      "gallery": [],
-      "match_tier": "exact_sku",
+      "hero": "product-photos/CL-926/hero.jpg",
+      "gallery": [
+        "product-photos/CL-926/g1.jpg"
+      ],
+      "match_tier": "dump_sku_match",
       "id": "cl-926"
     },
     {
@@ -2200,9 +2270,11 @@
         "blade_edge_type": "Plain",
         "coating_type": "None"
       },
-      "hero": "product-photos/CL-927/hero.webp",
-      "gallery": [],
-      "match_tier": "exact_sku",
+      "hero": "product-photos/CL-927/hero.jpg",
+      "gallery": [
+        "product-photos/CL-927/g1.jpg"
+      ],
+      "match_tier": "dump_sku_match",
       "id": "cl-927"
     },
     {
@@ -2230,9 +2302,11 @@
         "blade_edge_type": "Plain",
         "coating_type": "None"
       },
-      "hero": "product-photos/CL-901/hero.webp",
-      "gallery": [],
-      "match_tier": "exact_sku",
+      "hero": "product-photos/CL-901/hero.jpg",
+      "gallery": [
+        "product-photos/CL-901/g1.jpg"
+      ],
+      "match_tier": "dump_sku_match",
       "id": "cl-901"
     },
     {
@@ -2260,9 +2334,11 @@
         "blade_edge_type": "Plain",
         "coating_type": "None"
       },
-      "hero": "product-photos/CL-902/hero.webp",
-      "gallery": [],
-      "match_tier": "exact_sku",
+      "hero": "product-photos/CL-902/hero.jpg",
+      "gallery": [
+        "product-photos/CL-902/g1.jpg"
+      ],
+      "match_tier": "dump_sku_match",
       "id": "cl-902"
     },
     {
@@ -2290,9 +2366,11 @@
         "blade_edge_type": "Plain",
         "coating_type": "None"
       },
-      "hero": "product-photos/CL-903/hero.webp",
-      "gallery": [],
-      "match_tier": "exact_sku",
+      "hero": "product-photos/CL-903/hero.jpg",
+      "gallery": [
+        "product-photos/CL-903/g1.jpg"
+      ],
+      "match_tier": "dump_sku_match",
       "id": "cl-903"
     },
     {
@@ -2320,9 +2398,11 @@
         "blade_edge_type": "Plain",
         "coating_type": "None"
       },
-      "hero": "product-photos/CL-904/hero.webp",
-      "gallery": [],
-      "match_tier": "exact_sku",
+      "hero": "product-photos/CL-904/hero.jpg",
+      "gallery": [
+        "product-photos/CL-904/g1.jpg"
+      ],
+      "match_tier": "dump_sku_match",
       "id": "cl-904"
     },
     {
@@ -2349,9 +2429,11 @@
         "blade_edge_type": "Plain",
         "coating_type": "None"
       },
-      "hero": "product-photos/CL-905/hero.webp",
-      "gallery": [],
-      "match_tier": "exact_sku",
+      "hero": "product-photos/CL-905/hero.jpg",
+      "gallery": [
+        "product-photos/CL-905/g1.jpg"
+      ],
+      "match_tier": "dump_sku_match",
       "id": "cl-905"
     },
     {
@@ -2379,9 +2461,11 @@
         "blade_edge_type": "Plain",
         "coating_type": "None"
       },
-      "hero": "product-photos/CL-906/hero.webp",
-      "gallery": [],
-      "match_tier": "exact_sku",
+      "hero": "product-photos/CL-906/hero.jpg",
+      "gallery": [
+        "product-photos/CL-906/g1.jpg"
+      ],
+      "match_tier": "dump_sku_match",
       "id": "cl-906"
     },
     {
@@ -2409,9 +2493,11 @@
         "blade_edge_type": "Plain",
         "coating_type": "None"
       },
-      "hero": "product-photos/CL-907/hero.webp",
-      "gallery": [],
-      "match_tier": "exact_sku",
+      "hero": "product-photos/CL-907/hero.jpg",
+      "gallery": [
+        "product-photos/CL-907/g1.jpg"
+      ],
+      "match_tier": "dump_sku_match",
       "id": "cl-907"
     },
     {
@@ -2644,9 +2730,14 @@
         "blade_edge_type": "Plain",
         "coating_type": "None"
       },
-      "hero": "https://m.media-amazon.com/images/I/71Ky6FO3aiL._SX425_.jpg",
-      "gallery": [],
-      "match_tier": "image_sourced_amazon_link",
+      "hero": "product-photos/CL-459/hero.jpg",
+      "gallery": [
+        "product-photos/CL-459/g1.jpg",
+        "product-photos/CL-459/g2.jpg",
+        "product-photos/CL-459/g3.jpg",
+        "product-photos/CL-459/g4.jpg"
+      ],
+      "match_tier": "dump_sku_match",
       "id": "cl-459"
     },
     {
@@ -2667,11 +2758,11 @@
       "mrp": null,
       "amazon_link": "https://www.amazon.in/dp/B00UHELSSC",
       "filters": {},
-      "hero": "product-photos/MKA-007/hero.webp",
+      "hero": "product-photos/MKA-007/hero.jpg",
       "gallery": [
-        "product-photos/MKA-007/g1.webp"
+        "product-photos/MKA-007/g1.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "mka-007"
     },
     {
@@ -2692,14 +2783,14 @@
       "mrp": null,
       "amazon_link": "https://www.amazon.in/dp/B00UHELX28",
       "filters": {},
-      "hero": "product-photos/MKA-008/hero.webp",
+      "hero": "product-photos/MKA-008/hero.jpg",
       "gallery": [
-        "product-photos/MKA-008/g1.webp",
-        "product-photos/MKA-008/g2.webp",
-        "product-photos/MKA-008/g3.webp",
-        "product-photos/MKA-008/g4.webp"
+        "product-photos/MKA-008/g1.jpg",
+        "product-photos/MKA-008/g2.jpg",
+        "product-photos/MKA-008/g3.jpg",
+        "product-photos/MKA-008/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "mka-008"
     },
     {
@@ -2720,11 +2811,11 @@
       "mrp": null,
       "amazon_link": "https://www.amazon.in/dp/B004VYG1CW",
       "filters": {},
-      "hero": "product-photos/MKA-009/hero.webp",
+      "hero": "product-photos/MKA-009/hero.jpg",
       "gallery": [
-        "product-photos/MKA-009/g1.webp"
+        "product-photos/MKA-009/g1.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "mka-009"
     },
     {
@@ -2747,14 +2838,14 @@
       "mrp": null,
       "amazon_link": "https://www.amazon.in/dp/B00UHELIOG",
       "filters": {},
-      "hero": "product-photos/MKA-010/hero.webp",
+      "hero": "product-photos/MKA-010/hero.jpg",
       "gallery": [
-        "product-photos/MKA-010/g1.webp",
-        "product-photos/MKA-010/g2.webp",
-        "product-photos/MKA-010/g3.webp",
-        "product-photos/MKA-010/g4.webp"
+        "product-photos/MKA-010/g1.jpeg",
+        "product-photos/MKA-010/g2.jpeg",
+        "product-photos/MKA-010/g3.jpg",
+        "product-photos/MKA-010/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "mka-010"
     },
     {
@@ -2777,9 +2868,9 @@
       "mrp": null,
       "amazon_link": "https://www.amazon.in/dp/B0D8J73CF2",
       "filters": {},
-      "hero": "product-photos/MKA-947/hero.webp",
+      "hero": "product-photos/MKA-947/hero.jpg",
       "gallery": [],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "mka-947"
     },
     {
@@ -2802,14 +2893,11 @@
       "mrp": null,
       "amazon_link": "https://www.amazon.in/dp/B0D8J4XMY7",
       "filters": {},
-      "hero": "product-photos/MKA-948/hero.webp",
+      "hero": "product-photos/MKA-948/hero.jpg",
       "gallery": [
-        "product-photos/MKA-948/g1.webp",
-        "product-photos/MKA-948/g2.webp",
-        "product-photos/MKA-948/g3.webp",
-        "product-photos/MKA-948/g4.webp"
+        "product-photos/MKA-948/g1.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "mka-948"
     },
     {
@@ -2830,11 +2918,12 @@
       "mrp": null,
       "amazon_link": "https://www.amazon.in/dp/B00UHEQM1A",
       "filters": {},
-      "hero": "product-photos/MKA-258/hero.webp",
+      "hero": "product-photos/MKA-258/hero.jpg",
       "gallery": [
-        "product-photos/MKA-258/g1.webp"
+        "product-photos/MKA-258/g1.jpg",
+        "product-photos/MKA-258/g2.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "mka-258"
     },
     {
@@ -2858,11 +2947,11 @@
         "with_blade": "With Blade",
         "with_without_blade": "With Blade"
       },
-      "hero": "product-photos/MKA015/hero.webp",
+      "hero": "product-photos/MKA015/hero.jpg",
       "gallery": [
-        "product-photos/MKA015/g1.webp"
+        "product-photos/MKA015/g1.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "mka015"
     },
     {
@@ -2889,11 +2978,11 @@
         "with_blade": "Without Blade",
         "with_without_blade": "Without Blade"
       },
-      "hero": "product-photos/MKA073/hero.webp",
+      "hero": "product-photos/MKA073/hero.jpg",
       "gallery": [
-        "product-photos/MKA073/g1.webp"
+        "product-photos/MKA073/g1.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "mka073"
     },
     {
@@ -3007,11 +3096,11 @@
         "with_blade": "Without Blade",
         "with_without_blade": "Without Blade"
       },
-      "hero": "product-photos/MKA083/hero.webp",
+      "hero": "product-photos/MKA083/hero.jpg",
       "gallery": [
-        "product-photos/MKA083/g1.webp"
+        "product-photos/MKA083/g1.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "mka083"
     },
     {
@@ -3037,11 +3126,11 @@
         "with_blade": "Without Blade",
         "with_without_blade": "Without Blade"
       },
-      "hero": "product-photos/MKA084/hero.webp",
+      "hero": "product-photos/MKA084/hero.jpg",
       "gallery": [
-        "product-photos/MKA084/g1.webp"
+        "product-photos/MKA084/g1.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "mka084"
     },
     {
@@ -3069,11 +3158,11 @@
         "with_blade": "Without Blade",
         "with_without_blade": "Without Blade"
       },
-      "hero": "product-photos/MKA085/hero.webp",
+      "hero": "product-photos/MKA085/hero.jpg",
       "gallery": [
-        "product-photos/MKA085/g1.webp"
+        "product-photos/MKA085/g1.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "mka085"
     },
     {
@@ -3099,11 +3188,11 @@
         "with_blade": "With Blade",
         "with_without_blade": "With Blade"
       },
-      "hero": "product-photos/MKA086/hero.webp",
+      "hero": "product-photos/MKA086/hero.jpg",
       "gallery": [
-        "product-photos/MKA086/g1.webp"
+        "product-photos/MKA086/g1.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "mka086"
     },
     {
@@ -3131,12 +3220,12 @@
         "with_blade": "Without Blade",
         "with_without_blade": "Without Blade"
       },
-      "hero": "product-photos/MKA097/hero.webp",
+      "hero": "product-photos/MKA097/hero.jpeg",
       "gallery": [
-        "product-photos/MKA097/g1.webp",
-        "product-photos/MKA097/g2.webp"
+        "product-photos/MKA097/g1.jpg",
+        "product-photos/MKA097/g2.jpeg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "mka097"
     },
     {
@@ -3324,12 +3413,12 @@
         "with_blade": "Without Blade",
         "with_without_blade": "Without Blade"
       },
-      "hero": "product-photos/MKA937/hero.webp",
+      "hero": "product-photos/MKA937/hero.jpg",
       "gallery": [
-        "product-photos/MKA937/g1.webp",
-        "product-photos/MKA937/g2.webp"
+        "product-photos/MKA937/g1.jpg",
+        "product-photos/MKA937/g2.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "mka937"
     },
     {
@@ -3355,11 +3444,11 @@
         "with_blade": "Without Blade",
         "with_without_blade": "Without Blade"
       },
-      "hero": "product-photos/MKA938/hero.webp",
+      "hero": "product-photos/MKA938/hero.jpg",
       "gallery": [
-        "product-photos/MKA938/g1.webp"
+        "product-photos/MKA938/g1.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "mka938"
     },
     {
@@ -3385,13 +3474,13 @@
         "with_blade": "Without Blade",
         "with_without_blade": "Without Blade"
       },
-      "hero": "product-photos/MKA939/hero.webp",
+      "hero": "product-photos/MKA939/hero.jpg",
       "gallery": [
-        "product-photos/MKA939/g1.webp",
-        "product-photos/MKA939/g2.webp",
-        "product-photos/MKA939/g3.webp"
+        "product-photos/MKA939/g1.jpg",
+        "product-photos/MKA939/g2.jpg",
+        "product-photos/MKA939/g3.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "mka939"
     },
     {
@@ -3419,11 +3508,11 @@
         "with_blade": "With Blade",
         "with_without_blade": "With Blade"
       },
-      "hero": "product-photos/MKA909/hero.webp",
+      "hero": "product-photos/MKA909/hero.jpg",
       "gallery": [
-        "product-photos/MKA909/g1.webp"
+        "product-photos/MKA909/g1.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "mka909"
     },
     {
@@ -3450,13 +3539,13 @@
         "design": "Round",
         "shape_design": "Round"
       },
-      "hero": "product-photos/MKA919/hero.webp",
+      "hero": "product-photos/MKA919/hero.jpg",
       "gallery": [
-        "product-photos/MKA919/g1.webp",
-        "product-photos/MKA919/g2.webp",
-        "product-photos/MKA919/g3.webp"
+        "product-photos/MKA919/g1.jpg",
+        "product-photos/MKA919/g2.jpg",
+        "product-photos/MKA919/g3.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "mka919"
     },
     {
@@ -3481,13 +3570,13 @@
         "design": "Square",
         "shape_design": "Square"
       },
-      "hero": "product-photos/MKA921/hero.webp",
+      "hero": "product-photos/MKA921/hero.jpg",
       "gallery": [
-        "product-photos/MKA921/g1.webp",
-        "product-photos/MKA921/g2.webp",
-        "product-photos/MKA921/g3.webp"
+        "product-photos/MKA921/g1.jpg",
+        "product-photos/MKA921/g2.jpg",
+        "product-photos/MKA921/g3.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "mka921"
     },
     {
@@ -3512,14 +3601,14 @@
         "design": "Flat",
         "shape_design": "Flat"
       },
-      "hero": "product-photos/MKA924/hero.webp",
+      "hero": "product-photos/MKA924/hero.jpg",
       "gallery": [
-        "product-photos/MKA924/g1.webp",
-        "product-photos/MKA924/g2.webp",
-        "product-photos/MKA924/g3.webp",
-        "product-photos/MKA924/g4.webp"
+        "product-photos/MKA924/g1.jpg",
+        "product-photos/MKA924/g2.jpg",
+        "product-photos/MKA924/g3.jpg",
+        "product-photos/MKA924/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "mka924"
     },
     {
@@ -3542,9 +3631,9 @@
       "filters": {
         "use": "Fruit Fork"
       },
-      "hero": "product-photos/MKA-005/hero.webp",
+      "hero": "product-photos/MKA-005/hero.jpg",
       "gallery": [],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "mka-005"
     },
     {
@@ -3568,9 +3657,9 @@
       "filters": {
         "use": "Fruit Fork"
       },
-      "hero": "product-photos/MKA-006/hero.webp",
+      "hero": "product-photos/MKA-006/hero.jpg",
       "gallery": [],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "mka-006"
     },
     {
@@ -3598,12 +3687,14 @@
       "filters": {
         "use": "Bottle & Can Opener"
       },
-      "hero": "product-photos/MKA011/hero.webp",
+      "hero": "product-photos/MKA011/hero.png",
       "gallery": [
-        "product-photos/MKA011/g1.webp",
-        "product-photos/MKA011/g2.webp"
+        "product-photos/MKA011/g1.png",
+        "product-photos/MKA011/g2.jpg",
+        "product-photos/MKA011/g3.jpg",
+        "product-photos/MKA011/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "mka011"
     },
     {
@@ -3628,14 +3719,14 @@
       "filters": {
         "use": "Serving Tong"
       },
-      "hero": "product-photos/MKA-012/hero.webp",
+      "hero": "product-photos/MKA-012/hero.png",
       "gallery": [
-        "product-photos/MKA-012/g1.webp",
-        "product-photos/MKA-012/g2.webp",
-        "product-photos/MKA-012/g3.webp",
-        "product-photos/MKA-012/g4.webp"
+        "product-photos/MKA-012/g1.jpg",
+        "product-photos/MKA-012/g2.jpeg",
+        "product-photos/MKA-012/g3.jpg",
+        "product-photos/MKA-012/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "mka-012"
     },
     {
@@ -3660,12 +3751,12 @@
       "filters": {
         "use": "Sharpener"
       },
-      "hero": "product-photos/MKA013/hero.webp",
+      "hero": "product-photos/MKA013/hero.jpg",
       "gallery": [
-        "product-photos/MKA013/g1.webp",
-        "product-photos/MKA013/g2.webp"
+        "product-photos/MKA013/g1.jpg",
+        "product-photos/MKA013/g2.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "mka013"
     },
     {
@@ -3691,14 +3782,14 @@
       "filters": {
         "use": "Grater"
       },
-      "hero": "product-photos/MKA023/hero.webp",
+      "hero": "product-photos/MKA023/hero.png",
       "gallery": [
-        "product-photos/MKA023/g1.webp",
-        "product-photos/MKA023/g2.webp",
-        "product-photos/MKA023/g3.webp",
-        "product-photos/MKA023/g4.webp"
+        "product-photos/MKA023/g1.jpg",
+        "product-photos/MKA023/g2.jpg",
+        "product-photos/MKA023/g3.jpg",
+        "product-photos/MKA023/g4.png"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "mka023"
     },
     {
@@ -3723,14 +3814,14 @@
       "filters": {
         "use": "Pizza Cutter"
       },
-      "hero": "product-photos/MKA-069/hero.webp",
+      "hero": "product-photos/MKA-069/hero.jpg",
       "gallery": [
-        "product-photos/MKA-069/g1.webp",
-        "product-photos/MKA-069/g2.webp",
-        "product-photos/MKA-069/g3.webp",
-        "product-photos/MKA-069/g4.webp"
+        "product-photos/MKA-069/g1.jpg",
+        "product-photos/MKA-069/g2.jpg",
+        "product-photos/MKA-069/g3.jpeg",
+        "product-photos/MKA-069/g4.jpeg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "mka-069"
     },
     {
@@ -3753,12 +3844,12 @@
       "filters": {
         "use": "S.S. Lemon Squeezer"
       },
-      "hero": "product-photos/MKA072/hero.webp",
+      "hero": "product-photos/MKA072/hero.jpg",
       "gallery": [
-        "product-photos/MKA072/g1.webp",
-        "product-photos/MKA072/g2.webp"
+        "product-photos/MKA072/g1.jpg",
+        "product-photos/MKA072/g2.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "mka072"
     },
     {
@@ -3783,11 +3874,11 @@
       "filters": {
         "use": "Glass Stand"
       },
-      "hero": "product-photos/MKA075/hero.webp",
+      "hero": "product-photos/MKA075/hero.jpg",
       "gallery": [
-        "product-photos/MKA075/g1.webp"
+        "product-photos/MKA075/g1.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "mka075"
     },
     {
@@ -3812,14 +3903,14 @@
       "filters": {
         "use": "Ice-Cream Scoop"
       },
-      "hero": "product-photos/MKA102/hero.webp",
+      "hero": "product-photos/MKA102/hero.jpg",
       "gallery": [
-        "product-photos/MKA102/g1.webp",
-        "product-photos/MKA102/g2.webp",
-        "product-photos/MKA102/g3.webp",
-        "product-photos/MKA102/g4.webp"
+        "product-photos/MKA102/g1.jpg",
+        "product-photos/MKA102/g2.jpg",
+        "product-photos/MKA102/g3.jpg",
+        "product-photos/MKA102/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "mka102"
     },
     {
@@ -3842,14 +3933,14 @@
       "filters": {
         "use": "Potato Masher"
       },
-      "hero": "product-photos/MKA104/hero.webp",
+      "hero": "product-photos/MKA104/hero.jpg",
       "gallery": [
-        "product-photos/MKA104/g1.webp",
-        "product-photos/MKA104/g2.webp",
-        "product-photos/MKA104/g3.webp",
-        "product-photos/MKA104/g4.webp"
+        "product-photos/MKA104/g1.jpg",
+        "product-photos/MKA104/g2.jpg",
+        "product-photos/MKA104/g3.jpg",
+        "product-photos/MKA104/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "mka104"
     },
     {
@@ -3874,12 +3965,12 @@
       "filters": {
         "use": "Push N Scoop"
       },
-      "hero": "product-photos/MKA109/hero.webp",
+      "hero": "product-photos/MKA109/hero.jpg",
       "gallery": [
-        "product-photos/MKA109/g1.webp",
-        "product-photos/MKA109/g2.webp"
+        "product-photos/MKA109/g1.jpg",
+        "product-photos/MKA109/g2.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "mka109"
     },
     {
@@ -3903,14 +3994,14 @@
       "filters": {
         "use": "Strainer"
       },
-      "hero": "product-photos/MKA112/hero.webp",
+      "hero": "product-photos/MKA112/hero.jpg",
       "gallery": [
-        "product-photos/MKA112/g1.webp",
-        "product-photos/MKA112/g2.webp",
-        "product-photos/MKA112/g3.webp",
-        "product-photos/MKA112/g4.webp"
+        "product-photos/MKA112/g1.jpg",
+        "product-photos/MKA112/g2.jpg",
+        "product-photos/MKA112/g3.jpg",
+        "product-photos/MKA112/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "mka112"
     },
     {
@@ -3933,14 +4024,14 @@
       "filters": {
         "use": "Strainer"
       },
-      "hero": "product-photos/MKA113/hero.webp",
+      "hero": "product-photos/MKA113/hero.jpg",
       "gallery": [
-        "product-photos/MKA113/g1.webp",
-        "product-photos/MKA113/g2.webp",
-        "product-photos/MKA113/g3.webp",
-        "product-photos/MKA113/g4.webp"
+        "product-photos/MKA113/g1.jpg",
+        "product-photos/MKA113/g2.jpg",
+        "product-photos/MKA113/g3.jpg",
+        "product-photos/MKA113/g4.jpeg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "mka113"
     },
     {
@@ -3963,13 +4054,13 @@
       "filters": {
         "use": "Strainer"
       },
-      "hero": "product-photos/MKA114/hero.webp",
+      "hero": "product-photos/MKA114/hero.jpg",
       "gallery": [
-        "product-photos/MKA114/g1.webp",
-        "product-photos/MKA114/g2.webp",
-        "product-photos/MKA114/g3.webp"
+        "product-photos/MKA114/g1.jpg",
+        "product-photos/MKA114/g2.jpg",
+        "product-photos/MKA114/g3.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "mka114"
     },
     {
@@ -3994,9 +4085,12 @@
       "filters": {
         "use": "Sprouter"
       },
-      "hero": "product-photos/MKA908/hero.webp",
-      "gallery": [],
-      "match_tier": "exact_sku",
+      "hero": "product-photos/MKA908/hero.jpg",
+      "gallery": [
+        "product-photos/MKA908/g1.jpg",
+        "product-photos/MKA908/g2.jpg"
+      ],
+      "match_tier": "dump_sku_match",
       "id": "mka908"
     },
     {
@@ -4015,13 +4109,13 @@
       "filters": {
         "use": "S.S. Glass Stand"
       },
-      "hero": "product-photos/MKA910/hero.webp",
+      "hero": "product-photos/MKA910/hero.jpg",
       "gallery": [
-        "product-photos/MKA910/g1.webp",
-        "product-photos/MKA910/g2.webp",
-        "product-photos/MKA910/g3.webp"
+        "product-photos/MKA910/g1.jpg",
+        "product-photos/MKA910/g2.jpg",
+        "product-photos/MKA910/g3.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "mka910"
     },
     {
@@ -4046,14 +4140,14 @@
       "filters": {
         "use": "Lemon Squeezer"
       },
-      "hero": "product-photos/MKA940/hero.webp",
+      "hero": "product-photos/MKA940/hero.jpg",
       "gallery": [
-        "product-photos/MKA940/g1.webp",
-        "product-photos/MKA940/g2.webp",
-        "product-photos/MKA940/g3.webp",
-        "product-photos/MKA940/g4.webp"
+        "product-photos/MKA940/g1.jpg",
+        "product-photos/MKA940/g2.jpg",
+        "product-photos/MKA940/g3.jpg",
+        "product-photos/MKA940/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "mka940"
     },
     {
@@ -4078,9 +4172,14 @@
       "filters": {
         "use": "Organiser"
       },
-      "hero": "product-photos/MKA941/hero.webp",
-      "gallery": [],
-      "match_tier": "exact_sku",
+      "hero": "product-photos/MKA941/hero.jpg",
+      "gallery": [
+        "product-photos/MKA941/g1.jpg",
+        "product-photos/MKA941/g2.jpg",
+        "product-photos/MKA941/g3.jpg",
+        "product-photos/MKA941/g4.jpg"
+      ],
+      "match_tier": "dump_sku_match",
       "id": "mka941"
     },
     {
@@ -4101,9 +4200,9 @@
       "mrp": null,
       "amazon_link": null,
       "filters": {},
-      "hero": "product-photos/MKA-949/hero.webp",
+      "hero": "product-photos/MKA-949/hero.jpg",
       "gallery": [],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "mka-949"
     },
     {
@@ -4365,9 +4464,14 @@
       "filters": {
         "use": "Grinder"
       },
-      "hero": "product-photos/MKA042/hero.webp",
-      "gallery": [],
-      "match_tier": "exact_sku",
+      "hero": "product-photos/MKA042/hero.jpg",
+      "gallery": [
+        "product-photos/MKA042/g1.jpg",
+        "product-photos/MKA042/g2.jpg",
+        "product-photos/MKA042/g3.jpg",
+        "product-photos/MKA042/g4.jpg"
+      ],
+      "match_tier": "dump_sku_match",
       "id": "mka042"
     },
     {
@@ -4390,9 +4494,9 @@
       "filters": {
         "use": "Chopper"
       },
-      "hero": "product-photos/MKA-043/hero.webp",
+      "hero": "product-photos/MKA-043/hero.jpg",
       "gallery": [],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "mka-043"
     },
     {
@@ -4449,14 +4553,14 @@
       "filters": {
         "use": "Cutter"
       },
-      "hero": "product-photos/MKA-095/hero.webp",
+      "hero": "product-photos/MKA-095/hero.jpg",
       "gallery": [
-        "product-photos/MKA-095/g1.webp",
-        "product-photos/MKA-095/g2.webp",
-        "product-photos/MKA-095/g3.webp",
-        "product-photos/MKA-095/g4.webp"
+        "product-photos/MKA-095/g1.jpg",
+        "product-photos/MKA-095/g2.jpg",
+        "product-photos/MKA-095/g3.jpg",
+        "product-photos/MKA-095/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "mka-095"
     },
     {
@@ -4482,14 +4586,14 @@
       "filters": {
         "use": "Chopper"
       },
-      "hero": "product-photos/MKA096/hero.webp",
+      "hero": "product-photos/MKA096/hero.jpg",
       "gallery": [
-        "product-photos/MKA096/g1.webp",
-        "product-photos/MKA096/g2.webp",
-        "product-photos/MKA096/g3.webp",
-        "product-photos/MKA096/g4.webp"
+        "product-photos/MKA096/g1.jpg",
+        "product-photos/MKA096/g2.jpg",
+        "product-photos/MKA096/g3.jpg",
+        "product-photos/MKA096/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "mka096"
     },
     {
@@ -4539,14 +4643,14 @@
       "filters": {
         "use": "Juicer"
       },
-      "hero": "product-photos/MKA901/hero.webp",
+      "hero": "product-photos/MKA901/hero.jpg",
       "gallery": [
-        "product-photos/MKA901/g1.webp",
-        "product-photos/MKA901/g2.webp",
-        "product-photos/MKA901/g3.webp",
-        "product-photos/MKA901/g4.webp"
+        "product-photos/MKA901/g1.jpg",
+        "product-photos/MKA901/g2.jpg",
+        "product-photos/MKA901/g3.jpg",
+        "product-photos/MKA901/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "mka901"
     },
     {
@@ -4570,14 +4674,13 @@
       "filters": {
         "use": "Cutter"
       },
-      "hero": "product-photos/MKA902A/hero.webp",
+      "hero": "product-photos/MKA902A/hero.jpg",
       "gallery": [
-        "product-photos/MKA902A/g1.webp",
-        "product-photos/MKA902A/g2.webp",
-        "product-photos/MKA902A/g3.webp",
-        "product-photos/MKA902A/g4.webp"
+        "product-photos/MKA902A/g1.jpg",
+        "product-photos/MKA902A/g2.jpg",
+        "product-photos/MKA902A/g3.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "mka902a"
     },
     {
@@ -4602,14 +4705,14 @@
       "filters": {
         "use": "Beater"
       },
-      "hero": "product-photos/MKA904A/hero.webp",
+      "hero": "product-photos/MKA904A/hero.jpg",
       "gallery": [
-        "product-photos/MKA904A/g1.webp",
-        "product-photos/MKA904A/g2.webp",
-        "product-photos/MKA904A/g3.webp",
-        "product-photos/MKA904A/g4.webp"
+        "product-photos/MKA904A/g1.jpg",
+        "product-photos/MKA904A/g2.jpg",
+        "product-photos/MKA904A/g3.jpg",
+        "product-photos/MKA904A/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "mka904a"
     },
     {
@@ -4633,14 +4736,14 @@
       "filters": {
         "use": "Other"
       },
-      "hero": "product-photos/MKA912/hero.webp",
+      "hero": "product-photos/MKA912/hero.jpg",
       "gallery": [
-        "product-photos/MKA912/g1.webp",
-        "product-photos/MKA912/g2.webp",
-        "product-photos/MKA912/g3.webp",
-        "product-photos/MKA912/g4.webp"
+        "product-photos/MKA912/g1.jpg",
+        "product-photos/MKA912/g2.jpg",
+        "product-photos/MKA912/g3.jpg",
+        "product-photos/MKA912/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "mka912"
     },
     {
@@ -4663,14 +4766,14 @@
       "filters": {
         "use": "Cutter"
       },
-      "hero": "product-photos/MKA913/hero.webp",
+      "hero": "product-photos/MKA913/hero.jpg",
       "gallery": [
-        "product-photos/MKA913/g1.webp",
-        "product-photos/MKA913/g2.webp",
-        "product-photos/MKA913/g3.webp",
-        "product-photos/MKA913/g4.webp"
+        "product-photos/MKA913/g1.jpg",
+        "product-photos/MKA913/g2.jpg",
+        "product-photos/MKA913/g3.jpg",
+        "product-photos/MKA913/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "mka913"
     },
     {
@@ -4693,14 +4796,14 @@
       "filters": {
         "use": "Juicer"
       },
-      "hero": "product-photos/MKA914/hero.webp",
+      "hero": "product-photos/MKA914/hero.jpg",
       "gallery": [
-        "product-photos/MKA914/g1.webp",
-        "product-photos/MKA914/g2.webp",
-        "product-photos/MKA914/g3.webp",
-        "product-photos/MKA914/g4.webp"
+        "product-photos/MKA914/g1.jpg",
+        "product-photos/MKA914/g2.jpg",
+        "product-photos/MKA914/g3.jpg",
+        "product-photos/MKA914/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "mka914"
     },
     {
@@ -4723,14 +4826,14 @@
       "filters": {
         "use": "Dicer"
       },
-      "hero": "product-photos/MKA916A/hero.webp",
+      "hero": "product-photos/MKA916A/hero.jpg",
       "gallery": [
-        "product-photos/MKA916A/g1.webp",
-        "product-photos/MKA916A/g2.webp",
-        "product-photos/MKA916A/g3.webp",
-        "product-photos/MKA916A/g4.webp"
+        "product-photos/MKA916A/g1.jpg",
+        "product-photos/MKA916A/g2.jpg",
+        "product-photos/MKA916A/g3.jpg",
+        "product-photos/MKA916A/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "mka916a"
     },
     {
@@ -4754,9 +4857,9 @@
       "filters": {
         "use": "Other"
       },
-      "hero": "product-photos/MKA923/hero.webp",
+      "hero": "product-photos/MKA923/hero.jpg",
       "gallery": [],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "mka923"
     },
     {
@@ -4780,9 +4883,13 @@
       "filters": {
         "use": "Slicer"
       },
-      "hero": "product-photos/MKA927/hero.webp",
-      "gallery": [],
-      "match_tier": "exact_sku",
+      "hero": "product-photos/MKA927/hero.jpg",
+      "gallery": [
+        "product-photos/MKA927/g1.jpg",
+        "product-photos/MKA927/g2.jpg",
+        "product-photos/MKA927/g3.jpg"
+      ],
+      "match_tier": "dump_sku_match",
       "id": "mka927"
     },
     {
@@ -4808,14 +4915,14 @@
       "filters": {
         "use": "Dicer"
       },
-      "hero": "product-photos/MKA930/hero.webp",
+      "hero": "product-photos/MKA930/hero.jpg",
       "gallery": [
-        "product-photos/MKA930/g1.webp",
-        "product-photos/MKA930/g2.webp",
-        "product-photos/MKA930/g3.webp",
-        "product-photos/MKA930/g4.webp"
+        "product-photos/MKA930/g1.jpg",
+        "product-photos/MKA930/g2.jpg",
+        "product-photos/MKA930/g3.jpg",
+        "product-photos/MKA930/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "mka930"
     },
     {
@@ -4840,14 +4947,14 @@
       "filters": {
         "use": "Kneader"
       },
-      "hero": "product-photos/MKA933/hero.webp",
+      "hero": "product-photos/MKA933/hero.jpg",
       "gallery": [
-        "product-photos/MKA933/g1.webp",
-        "product-photos/MKA933/g2.webp",
-        "product-photos/MKA933/g3.webp",
-        "product-photos/MKA933/g4.webp"
+        "product-photos/MKA933/g1.jpg",
+        "product-photos/MKA933/g2.jpg",
+        "product-photos/MKA933/g3.jpg",
+        "product-photos/MKA933/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "mka933"
     },
     {
@@ -4872,14 +4979,14 @@
       "filters": {
         "use": "Beater"
       },
-      "hero": "product-photos/MKA942/hero.webp",
+      "hero": "product-photos/MKA942/hero.jpg",
       "gallery": [
-        "product-photos/MKA942/g1.webp",
-        "product-photos/MKA942/g2.webp",
-        "product-photos/MKA942/g3.webp",
-        "product-photos/MKA942/g4.webp"
+        "product-photos/MKA942/g1.jpg",
+        "product-photos/MKA942/g2.jpg",
+        "product-photos/MKA942/g3.jpg",
+        "product-photos/MKA942/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "mka942"
     },
     {
@@ -4904,14 +5011,14 @@
       "filters": {
         "use": "Juicer"
       },
-      "hero": "product-photos/MKA943/hero.webp",
+      "hero": "product-photos/MKA943/hero.jpg",
       "gallery": [
-        "product-photos/MKA943/g1.webp",
-        "product-photos/MKA943/g2.webp",
-        "product-photos/MKA943/g3.webp",
-        "product-photos/MKA943/g4.webp"
+        "product-photos/MKA943/g1.png",
+        "product-photos/MKA943/g2.jpg",
+        "product-photos/MKA943/g3.jpg",
+        "product-photos/MKA943/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "mka943"
     },
     {
@@ -4936,14 +5043,14 @@
       "filters": {
         "use": "Dicer"
       },
-      "hero": "product-photos/MKA944/hero.webp",
+      "hero": "product-photos/MKA944/hero.jpg",
       "gallery": [
-        "product-photos/MKA944/g1.webp",
-        "product-photos/MKA944/g2.webp",
-        "product-photos/MKA944/g3.webp",
-        "product-photos/MKA944/g4.webp"
+        "product-photos/MKA944/g1.jpg",
+        "product-photos/MKA944/g2.jpg",
+        "product-photos/MKA944/g3.jpg",
+        "product-photos/MKA944/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "mka944"
     },
     {
@@ -4969,11 +5076,11 @@
       "filters": {
         "use": "Beater"
       },
-      "hero": "product-photos/MKA945/hero.webp",
+      "hero": "product-photos/MKA945/hero.jpg",
       "gallery": [
-        "product-photos/MKA945/g1.webp"
+        "product-photos/MKA945/g1.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "mka945"
     },
     {
@@ -5151,12 +5258,12 @@
       "filters": {
         "use": "Beater"
       },
-      "hero": "product-photos/CLMK-022/hero.webp",
+      "hero": "product-photos/CLMK-022/hero.jpg",
       "gallery": [
-        "product-photos/CLMK-022/g1.webp",
-        "product-photos/CLMK-022/g2.webp"
+        "product-photos/CLMK-022/g1.jpg",
+        "product-photos/CLMK-022/g2.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "clmk-022"
     },
     {
@@ -5237,9 +5344,14 @@
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
-      "hero": "product-photos/MKA-231/hero.webp",
-      "gallery": [],
-      "match_tier": "exact_sku",
+      "hero": "product-photos/MKA-231/hero.jpg",
+      "gallery": [
+        "product-photos/MKA-231/g1.jpg",
+        "product-photos/MKA-231/g2.jpg",
+        "product-photos/MKA-231/g3.jpg",
+        "product-photos/MKA-231/g4.jpg"
+      ],
+      "match_tier": "dump_sku_match",
       "id": "mka-231"
     },
     {
@@ -5267,9 +5379,11 @@
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
-      "hero": "product-photos/MKA-241/hero.webp",
-      "gallery": [],
-      "match_tier": "exact_sku",
+      "hero": "product-photos/MKA-241/hero.jpeg",
+      "gallery": [
+        "product-photos/MKA-241/g1.jpeg"
+      ],
+      "match_tier": "dump_sku_match",
       "id": "mka-241"
     },
     {
@@ -5300,9 +5414,11 @@
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
-      "hero": "product-photos/MKA-301/hero.webp",
-      "gallery": [],
-      "match_tier": "exact_sku",
+      "hero": "product-photos/MKA-301/hero.jpeg",
+      "gallery": [
+        "product-photos/MKA-301/g1.jpeg"
+      ],
+      "match_tier": "dump_sku_match",
       "id": "mka-301"
     },
     {
@@ -5333,11 +5449,9 @@
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
-      "hero": "product-photos/MKA-302/hero.webp",
-      "gallery": [
-        "product-photos/MKA-302/g1.webp"
-      ],
-      "match_tier": "fuzzy_name",
+      "hero": "product-photos/MKA-302/hero.jpeg",
+      "gallery": [],
+      "match_tier": "dump_sku_match",
       "id": "mka-302"
     },
     {
@@ -5365,9 +5479,14 @@
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
-      "hero": "product-photos/MKA-411/hero.webp",
-      "gallery": [],
-      "match_tier": "exact_sku",
+      "hero": "product-photos/MKA-411/hero.jpg",
+      "gallery": [
+        "product-photos/MKA-411/g1.jpg",
+        "product-photos/MKA-411/g2.jpg",
+        "product-photos/MKA-411/g3.jpg",
+        "product-photos/MKA-411/g4.jpg"
+      ],
+      "match_tier": "dump_sku_match",
       "id": "mka-411"
     },
     {
@@ -5395,9 +5514,14 @@
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
-      "hero": "product-photos/MKA-412/hero.webp",
-      "gallery": [],
-      "match_tier": "exact_sku",
+      "hero": "product-photos/MKA-412/hero.jpg",
+      "gallery": [
+        "product-photos/MKA-412/g1.jpg",
+        "product-photos/MKA-412/g2.jpg",
+        "product-photos/MKA-412/g3.jpg",
+        "product-photos/MKA-412/g4.jpg"
+      ],
+      "match_tier": "dump_sku_match",
       "id": "mka-412"
     },
     {
@@ -5425,9 +5549,14 @@
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
-      "hero": "product-photos/MKA-413/hero.webp",
-      "gallery": [],
-      "match_tier": "exact_sku",
+      "hero": "product-photos/MKA-413/hero.jpg",
+      "gallery": [
+        "product-photos/MKA-413/g1.jpg",
+        "product-photos/MKA-413/g2.jpg",
+        "product-photos/MKA-413/g3.jpg",
+        "product-photos/MKA-413/g4.jpg"
+      ],
+      "match_tier": "dump_sku_match",
       "id": "mka-413"
     },
     {
@@ -5455,9 +5584,14 @@
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
-      "hero": "product-photos/MKA-414/hero.webp",
-      "gallery": [],
-      "match_tier": "exact_sku",
+      "hero": "product-photos/MKA-414/hero.jpg",
+      "gallery": [
+        "product-photos/MKA-414/g1.jpg",
+        "product-photos/MKA-414/g2.jpg",
+        "product-photos/MKA-414/g3.jpg",
+        "product-photos/MKA-414/g4.jpg"
+      ],
+      "match_tier": "dump_sku_match",
       "id": "mka-414"
     },
     {
@@ -5485,9 +5619,14 @@
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
-      "hero": "product-photos/MKA-415/hero.webp",
-      "gallery": [],
-      "match_tier": "exact_sku",
+      "hero": "product-photos/MKA-415/hero.jpg",
+      "gallery": [
+        "product-photos/MKA-415/g1.jpg",
+        "product-photos/MKA-415/g2.jpg",
+        "product-photos/MKA-415/g3.jpg",
+        "product-photos/MKA-415/g4.jpg"
+      ],
+      "match_tier": "dump_sku_match",
       "id": "mka-415"
     },
     {
@@ -5515,9 +5654,14 @@
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
-      "hero": "product-photos/MKA-416/hero.webp",
-      "gallery": [],
-      "match_tier": "exact_sku",
+      "hero": "product-photos/MKA-416/hero.jpg",
+      "gallery": [
+        "product-photos/MKA-416/g1.jpg",
+        "product-photos/MKA-416/g2.jpg",
+        "product-photos/MKA-416/g3.jpg",
+        "product-photos/MKA-416/g4.jpg"
+      ],
+      "match_tier": "dump_sku_match",
       "id": "mka-416"
     },
     {
@@ -5546,9 +5690,14 @@
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
-      "hero": "product-photos/MKA-417/hero.webp",
-      "gallery": [],
-      "match_tier": "exact_sku",
+      "hero": "product-photos/MKA-417/hero.jpg",
+      "gallery": [
+        "product-photos/MKA-417/g1.jpg",
+        "product-photos/MKA-417/g2.jpg",
+        "product-photos/MKA-417/g3.jpg",
+        "product-photos/MKA-417/g4.jpg"
+      ],
+      "match_tier": "dump_sku_match",
       "id": "mka-417"
     },
     {
@@ -5576,12 +5725,12 @@
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
-      "hero": "product-photos/CC-841/hero.webp",
+      "hero": "product-photos/CC-841/hero.jpg",
       "gallery": [
-        "product-photos/CC-841/g1.webp",
-        "product-photos/CC-841/g2.webp"
+        "product-photos/CC-841/g1.jpg",
+        "product-photos/CC-841/g2.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cc-841"
     },
     {
@@ -5609,12 +5758,12 @@
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
-      "hero": "product-photos/CC-842/hero.webp",
+      "hero": "product-photos/CC-842/hero.jpg",
       "gallery": [
-        "product-photos/CC-842/g1.webp",
-        "product-photos/CC-842/g2.webp"
+        "product-photos/CC-842/g1.jpg",
+        "product-photos/CC-842/g2.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cc-842"
     },
     {
@@ -5642,12 +5791,12 @@
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
-      "hero": "product-photos/CC-843/hero.webp",
+      "hero": "product-photos/CC-843/hero.jpg",
       "gallery": [
-        "product-photos/CC-843/g1.webp",
-        "product-photos/CC-843/g2.webp"
+        "product-photos/CC-843/g1.jpg",
+        "product-photos/CC-843/g2.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cc-843"
     },
     {
@@ -5676,11 +5825,11 @@
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
-      "hero": "product-photos/CC-844/hero.webp",
+      "hero": "product-photos/CC-844/hero.jpg",
       "gallery": [
-        "product-photos/CC-844/g1.webp"
+        "product-photos/CC-844/g1.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cc-844"
     },
     {
@@ -5745,12 +5894,12 @@
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
-      "hero": "product-photos/CC-846/hero.webp",
+      "hero": "product-photos/CC-846/hero.jpg",
       "gallery": [
-        "product-photos/CC-846/g1.webp",
-        "product-photos/CC-846/g2.webp"
+        "product-photos/CC-846/g1.jpg",
+        "product-photos/CC-846/g2.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cc-846"
     },
     {
@@ -5862,9 +6011,9 @@
         "set_type": "Individual",
         "individual_set": "Individual"
       },
-      "hero": "product-photos/CC-850/hero.webp",
+      "hero": "product-photos/CC-850/hero.jpg",
       "gallery": [],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cc-850"
     },
     {
@@ -5886,9 +6035,9 @@
         "set_type": "Individual",
         "individual_set": "Individual"
       },
-      "hero": "product-photos/CC-851/hero.webp",
+      "hero": "product-photos/CC-851/hero.jpg",
       "gallery": [],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cc-851"
     },
     {
@@ -5918,13 +6067,12 @@
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
-      "hero": "product-photos/CC-951/hero.webp",
+      "hero": "product-photos/CC-951/hero.jpg",
       "gallery": [
-        "product-photos/CC-951/g1.webp",
-        "product-photos/CC-951/g2.webp",
-        "product-photos/CC-951/g3.webp"
+        "product-photos/CC-951/g1.jpg",
+        "product-photos/CC-951/g2.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cc-951"
     },
     {
@@ -5953,13 +6101,12 @@
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
-      "hero": "product-photos/CC-952/hero.webp",
+      "hero": "product-photos/CC-952/hero.jpg",
       "gallery": [
-        "product-photos/CC-952/g1.webp",
-        "product-photos/CC-952/g2.webp",
-        "product-photos/CC-952/g3.webp"
+        "product-photos/CC-952/g1.jpg",
+        "product-photos/CC-952/g2.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cc-952"
     },
     {
@@ -5988,14 +6135,13 @@
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
-      "hero": "product-photos/CC-953/hero.webp",
+      "hero": "product-photos/CC-953/hero.jpg",
       "gallery": [
-        "product-photos/CC-953/g1.webp",
-        "product-photos/CC-953/g2.webp",
-        "product-photos/CC-953/g3.webp",
-        "product-photos/CC-953/g4.webp"
+        "product-photos/CC-953/g1.jpg",
+        "product-photos/CC-953/g2.jpg",
+        "product-photos/CC-953/g3.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cc-953"
     },
     {
@@ -6024,11 +6170,9 @@
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
-      "hero": "product-photos/CC-954/hero.webp",
-      "gallery": [
-        "product-photos/CC-954/g1.webp"
-      ],
-      "match_tier": "exact_sku",
+      "hero": "product-photos/CC-954/hero.jpg",
+      "gallery": [],
+      "match_tier": "dump_sku_match",
       "id": "cc-954"
     },
     {
@@ -6057,13 +6201,12 @@
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
-      "hero": "product-photos/CC-955/hero.webp",
+      "hero": "product-photos/CC-955/hero.jpg",
       "gallery": [
-        "product-photos/CC-955/g1.webp",
-        "product-photos/CC-955/g2.webp",
-        "product-photos/CC-955/g3.webp"
+        "product-photos/CC-955/g1.jpg",
+        "product-photos/CC-955/g2.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cc-955"
     },
     {
@@ -6091,13 +6234,12 @@
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
-      "hero": "product-photos/CC-956/hero.webp",
+      "hero": "product-photos/CC-956/hero.jpg",
       "gallery": [
-        "product-photos/CC-956/g1.webp",
-        "product-photos/CC-956/g2.webp",
-        "product-photos/CC-956/g3.webp"
+        "product-photos/CC-956/g1.jpg",
+        "product-photos/CC-956/g2.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cc-956"
     },
     {
@@ -6125,14 +6267,13 @@
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
-      "hero": "product-photos/CC-957/hero.webp",
+      "hero": "product-photos/CC-957/hero.jpg",
       "gallery": [
-        "product-photos/CC-957/g1.webp",
-        "product-photos/CC-957/g2.webp",
-        "product-photos/CC-957/g3.webp",
-        "product-photos/CC-957/g4.webp"
+        "product-photos/CC-957/g1.jpg",
+        "product-photos/CC-957/g2.jpg",
+        "product-photos/CC-957/g3.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cc-957"
     },
     {
@@ -6164,11 +6305,9 @@
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
-      "hero": "product-photos/CC-958/hero.webp",
-      "gallery": [
-        "product-photos/CC-958/g1.webp"
-      ],
-      "match_tier": "exact_sku",
+      "hero": "product-photos/CC-958/hero.jpg",
+      "gallery": [],
+      "match_tier": "dump_sku_match",
       "id": "cc-958"
     },
     {
@@ -6197,11 +6336,9 @@
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
-      "hero": "product-photos/CC-959/hero.webp",
-      "gallery": [
-        "product-photos/CC-959/g1.webp"
-      ],
-      "match_tier": "exact_sku",
+      "hero": "product-photos/CC-959/hero.jpg",
+      "gallery": [],
+      "match_tier": "dump_sku_match",
       "id": "cc-959"
     },
     {
@@ -6229,13 +6366,12 @@
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
-      "hero": "product-photos/CC-960/hero.webp",
+      "hero": "product-photos/CC-960/hero.jpg",
       "gallery": [
-        "product-photos/CC-960/g1.webp",
-        "product-photos/CC-960/g2.webp",
-        "product-photos/CC-960/g3.webp"
+        "product-photos/CC-960/g1.jpg",
+        "product-photos/CC-960/g2.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cc-960"
     },
     {
@@ -6263,13 +6399,12 @@
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
-      "hero": "product-photos/CC-961/hero.webp",
+      "hero": "product-photos/CC-961/hero.jpg",
       "gallery": [
-        "product-photos/CC-961/g1.webp",
-        "product-photos/CC-961/g2.webp",
-        "product-photos/CC-961/g3.webp"
+        "product-photos/CC-961/g1.jpg",
+        "product-photos/CC-961/g2.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cc-961"
     },
     {
@@ -6301,11 +6436,11 @@
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
-      "hero": "product-photos/CC-962/hero.webp",
+      "hero": "product-photos/CC-962/hero.jpg",
       "gallery": [
-        "product-photos/CC-962/g1.webp"
+        "product-photos/CC-962/g1.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cc-962"
     },
     {
@@ -6333,11 +6468,9 @@
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
-      "hero": "product-photos/CC-965/hero.webp",
-      "gallery": [
-        "product-photos/CC-965/g1.webp"
-      ],
-      "match_tier": "exact_sku",
+      "hero": "product-photos/CC-965/hero.jpg",
+      "gallery": [],
+      "match_tier": "dump_sku_match",
       "id": "cc-965"
     },
     {
@@ -6365,11 +6498,9 @@
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
-      "hero": "product-photos/CC-966/hero.webp",
-      "gallery": [
-        "product-photos/CC-966/g1.webp"
-      ],
-      "match_tier": "exact_sku",
+      "hero": "product-photos/CC-966/hero.jpg",
+      "gallery": [],
+      "match_tier": "dump_sku_match",
       "id": "cc-966"
     },
     {
@@ -6398,11 +6529,11 @@
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
-      "hero": "product-photos/CC-971/hero.webp",
+      "hero": "product-photos/CC-971/hero.jpg",
       "gallery": [
-        "product-photos/CC-971/g1.webp"
+        "product-photos/CC-971/g1.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cc-971"
     },
     {
@@ -6431,11 +6562,11 @@
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
-      "hero": "product-photos/CC-972/hero.webp",
+      "hero": "product-photos/CC-972/hero.jpg",
       "gallery": [
-        "product-photos/CC-972/g1.webp"
+        "product-photos/CC-972/g1.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cc-972"
     },
     {
@@ -6464,11 +6595,11 @@
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
-      "hero": "product-photos/CC-973/hero.webp",
+      "hero": "product-photos/CC-973/hero.jpg",
       "gallery": [
-        "product-photos/CC-973/g1.webp"
+        "product-photos/CC-973/g1.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cc-973"
     },
     {
@@ -6497,11 +6628,11 @@
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
-      "hero": "product-photos/CC-974/hero.webp",
+      "hero": "product-photos/CC-974/hero.jpg",
       "gallery": [
-        "product-photos/CC-974/g1.webp"
+        "product-photos/CC-974/g1.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cc-974"
     },
     {
@@ -6530,11 +6661,11 @@
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
-      "hero": "product-photos/CC-975/hero.webp",
+      "hero": "product-photos/CC-975/hero.jpg",
       "gallery": [
-        "product-photos/CC-975/g1.webp"
+        "product-photos/CC-975/g1.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cc-975"
     },
     {
@@ -6563,11 +6694,11 @@
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
-      "hero": "product-photos/CC-976/hero.webp",
+      "hero": "product-photos/CC-976/hero.jpg",
       "gallery": [
-        "product-photos/CC-976/g1.webp"
+        "product-photos/CC-976/g1.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cc-976"
     },
     {
@@ -6596,11 +6727,11 @@
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
-      "hero": "product-photos/CC-977/hero.webp",
+      "hero": "product-photos/CC-977/hero.jpg",
       "gallery": [
-        "product-photos/CC-977/g1.webp"
+        "product-photos/CC-977/g1.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cc-977"
     },
     {
@@ -6629,11 +6760,11 @@
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
-      "hero": "product-photos/CC-978/hero.webp",
+      "hero": "product-photos/CC-978/hero.jpg",
       "gallery": [
-        "product-photos/CC-978/g1.webp"
+        "product-photos/CC-978/g1.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cc-978"
     },
     {
@@ -6662,11 +6793,11 @@
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
-      "hero": "product-photos/CC-979/hero.webp",
+      "hero": "product-photos/CC-979/hero.jpg",
       "gallery": [
-        "product-photos/CC-979/g1.webp"
+        "product-photos/CC-979/g1.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cc-979"
     },
     {
@@ -6695,9 +6826,9 @@
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
-      "hero": "product-photos/CC-980/hero.webp",
+      "hero": "product-photos/CC-980/hero.jpg",
       "gallery": [],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cc-980"
     },
     {
@@ -6726,11 +6857,11 @@
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
-      "hero": "product-photos/CC-981/hero.webp",
+      "hero": "product-photos/CC-981/hero.jpg",
       "gallery": [
-        "product-photos/CC-981/g1.webp"
+        "product-photos/CC-981/g1.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cc-981"
     },
     {
@@ -6759,11 +6890,12 @@
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
-      "hero": "product-photos/CC-982/hero.webp",
+      "hero": "product-photos/CC-982/hero.png",
       "gallery": [
-        "product-photos/CC-982/g1.webp"
+        "product-photos/CC-982/g1.jpg",
+        "product-photos/CC-982/g2.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cc-982"
     },
     {
@@ -6792,11 +6924,11 @@
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
-      "hero": "product-photos/CC-983/hero.webp",
+      "hero": "product-photos/CC-983/hero.jpg",
       "gallery": [
-        "product-photos/CC-983/g1.webp"
+        "product-photos/CC-983/g1.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cc-983"
     },
     {
@@ -6825,11 +6957,11 @@
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
-      "hero": "product-photos/CC-984/hero.webp",
+      "hero": "product-photos/CC-984/hero.jpg",
       "gallery": [
-        "product-photos/CC-984/g1.webp"
+        "product-photos/CC-984/g1.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cc-984"
     },
     {
@@ -6858,11 +6990,11 @@
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
-      "hero": "product-photos/CC-985/hero.webp",
+      "hero": "product-photos/CC-985/hero.jpg",
       "gallery": [
-        "product-photos/CC-985/g1.webp"
+        "product-photos/CC-985/g1.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cc-985"
     },
     {
@@ -6891,11 +7023,11 @@
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
-      "hero": "product-photos/CC-986/hero.webp",
+      "hero": "product-photos/CC-986/hero.jpg",
       "gallery": [
-        "product-photos/CC-986/g1.webp"
+        "product-photos/CC-986/g1.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cc-986"
     },
     {
@@ -6953,12 +7085,12 @@
         "set_type": "Individual",
         "individual_set": "Individual"
       },
-      "hero": "product-photos/CC-988/hero.webp",
+      "hero": "product-photos/CC-988/hero.jpg",
       "gallery": [
-        "product-photos/CC-988/g1.webp",
-        "product-photos/CC-988/g2.webp"
+        "product-photos/CC-988/g1.jpg",
+        "product-photos/CC-988/g2.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cc-988"
     },
     {
@@ -6986,12 +7118,12 @@
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
-      "hero": "product-photos/CC-991/hero.webp",
+      "hero": "product-photos/CC-991/hero.jpg",
       "gallery": [
-        "product-photos/CC-991/g1.webp",
-        "product-photos/CC-991/g2.webp"
+        "product-photos/CC-991/g1.jpg",
+        "product-photos/CC-991/g2.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cc-991"
     },
     {
@@ -7019,12 +7151,12 @@
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
-      "hero": "product-photos/CC-992/hero.webp",
+      "hero": "product-photos/CC-992/hero.jpg",
       "gallery": [
-        "product-photos/CC-992/g1.webp",
-        "product-photos/CC-992/g2.webp"
+        "product-photos/CC-992/g1.jpg",
+        "product-photos/CC-992/g2.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cc-992"
     },
     {
@@ -7052,13 +7184,13 @@
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
-      "hero": "product-photos/CC-993/hero.webp",
+      "hero": "product-photos/CC-993/hero.jpg",
       "gallery": [
-        "product-photos/CC-993/g1.webp",
-        "product-photos/CC-993/g2.webp",
-        "product-photos/CC-993/g3.webp"
+        "product-photos/CC-993/g1.jpg",
+        "product-photos/CC-993/g2.jpg",
+        "product-photos/CC-993/g3.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cc-993"
     },
     {
@@ -7125,14 +7257,14 @@
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
-      "hero": "product-photos/CC-995/hero.webp",
+      "hero": "product-photos/CC-995/hero.jpg",
       "gallery": [
-        "product-photos/CC-995/g1.webp",
-        "product-photos/CC-995/g2.webp",
-        "product-photos/CC-995/g3.webp",
-        "product-photos/CC-995/g4.webp"
+        "product-photos/CC-995/g1.jpg",
+        "product-photos/CC-995/g2.jpg",
+        "product-photos/CC-995/g3.jpg",
+        "product-photos/CC-995/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cc-995"
     },
     {
@@ -7160,12 +7292,12 @@
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
-      "hero": "product-photos/CC-996/hero.webp",
+      "hero": "product-photos/CC-996/hero.jpg",
       "gallery": [
-        "product-photos/CC-996/g1.webp",
-        "product-photos/CC-996/g2.webp"
+        "product-photos/CC-996/g1.jpg",
+        "product-photos/CC-996/g2.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cc-996"
     },
     {
@@ -7197,12 +7329,12 @@
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
-      "hero": "product-photos/CC-997/hero.webp",
+      "hero": "product-photos/CC-997/hero.jpg",
       "gallery": [
-        "product-photos/CC-997/g1.webp",
-        "product-photos/CC-997/g2.webp"
+        "product-photos/CC-997/g1.jpg",
+        "product-photos/CC-997/g2.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cc-997"
     },
     {
@@ -7228,9 +7360,11 @@
         "set_type": "Set",
         "individual_set": "Set"
       },
-      "hero": "product-photos/MKA-247/hero.webp",
-      "gallery": [],
-      "match_tier": "exact_sku",
+      "hero": "product-photos/MKA-247/hero.jpg",
+      "gallery": [
+        "product-photos/MKA-247/g1.jpg"
+      ],
+      "match_tier": "dump_sku_match",
       "id": "mka-247"
     },
     {
@@ -7259,9 +7393,11 @@
         "set_type": "Individual",
         "individual_set": "Individual"
       },
-      "hero": "https://m.media-amazon.com/images/I/51ToXGNaMZL._SX425_.jpg",
-      "gallery": [],
-      "match_tier": "image_sourced_amazon_link",
+      "hero": "product-photos/MKA-291/hero.jpg",
+      "gallery": [
+        "product-photos/MKA-291/g1.jpg"
+      ],
+      "match_tier": "dump_sku_match",
       "id": "mka-291"
     },
     {
@@ -7287,9 +7423,11 @@
         "set_type": "Individual",
         "individual_set": "Individual"
       },
-      "hero": "https://m.media-amazon.com/images/I/5131M2YCbIL._SX425_.jpg",
-      "gallery": [],
-      "match_tier": "image_sourced_amazon_link",
+      "hero": "product-photos/MKA-292/hero.jpg",
+      "gallery": [
+        "product-photos/MKA-292/g1.jpg"
+      ],
+      "match_tier": "dump_sku_match",
       "id": "mka-292"
     },
     {
@@ -7315,9 +7453,11 @@
         "set_type": "Individual",
         "individual_set": "Individual"
       },
-      "hero": "https://m.media-amazon.com/images/I/51LQ6Fze95L._SX425_.jpg",
-      "gallery": [],
-      "match_tier": "image_sourced_amazon_link",
+      "hero": "product-photos/MKA-293/hero.jpg",
+      "gallery": [
+        "product-photos/MKA-293/g1.jpg"
+      ],
+      "match_tier": "dump_sku_match",
       "id": "mka-293"
     },
     {
@@ -7343,9 +7483,11 @@
         "set_type": "Individual",
         "individual_set": "Individual"
       },
-      "hero": "https://m.media-amazon.com/images/I/51lVZ9cMdUL._SX425_.jpg",
-      "gallery": [],
-      "match_tier": "image_sourced_amazon_link",
+      "hero": "product-photos/MKA-294/hero.jpg",
+      "gallery": [
+        "product-photos/MKA-294/g1.jpg"
+      ],
+      "match_tier": "dump_sku_match",
       "id": "mka-294"
     },
     {
@@ -7371,9 +7513,12 @@
         "set_type": "Individual",
         "individual_set": "Individual"
       },
-      "hero": "https://m.media-amazon.com/images/I/619CPM9N0AL._SX425_.jpg",
-      "gallery": [],
-      "match_tier": "image_sourced_amazon_link",
+      "hero": "product-photos/MKA-295/hero.jpg",
+      "gallery": [
+        "product-photos/MKA-295/g1.jpg",
+        "product-photos/MKA-295/g2.jpg"
+      ],
+      "match_tier": "dump_sku_match",
       "id": "mka-295"
     },
     {
@@ -7399,9 +7544,11 @@
         "set_type": "Individual",
         "individual_set": "Individual"
       },
-      "hero": "https://m.media-amazon.com/images/I/51u8rYGxibL._SX425_.jpg",
-      "gallery": [],
-      "match_tier": "image_sourced_amazon_link",
+      "hero": "product-photos/MKA-296/hero.jpg",
+      "gallery": [
+        "product-photos/MKA-296/g1.jpg"
+      ],
+      "match_tier": "dump_sku_match",
       "id": "mka-296"
     },
     {
@@ -7427,9 +7574,14 @@
         "set_type": "Individual",
         "individual_set": "Individual"
       },
-      "hero": "https://m.media-amazon.com/images/I/517y1+KbzHL._SX425_.jpg",
-      "gallery": [],
-      "match_tier": "image_sourced_amazon_link",
+      "hero": "product-photos/MKA-321/hero.jpg",
+      "gallery": [
+        "product-photos/MKA-321/g1.jpg",
+        "product-photos/MKA-321/g2.jpg",
+        "product-photos/MKA-321/g3.jpg",
+        "product-photos/MKA-321/g4.jpg"
+      ],
+      "match_tier": "dump_sku_match",
       "id": "mka-321"
     },
     {
@@ -7455,9 +7607,11 @@
         "set_type": "Individual",
         "individual_set": "Individual"
       },
-      "hero": "https://m.media-amazon.com/images/I/51B2CnKKJhL._SX425_.jpg",
-      "gallery": [],
-      "match_tier": "image_sourced_amazon_link",
+      "hero": "product-photos/MKA-322/hero.jpg",
+      "gallery": [
+        "product-photos/MKA-322/g1.jpg"
+      ],
+      "match_tier": "dump_sku_match",
       "id": "mka-322"
     },
     {
@@ -7483,9 +7637,11 @@
         "set_type": "Individual",
         "individual_set": "Individual"
       },
-      "hero": "https://m.media-amazon.com/images/I/51HbH-0LEzL._SX425_.jpg",
-      "gallery": [],
-      "match_tier": "image_sourced_amazon_link",
+      "hero": "product-photos/MKA-323/hero.jpg",
+      "gallery": [
+        "product-photos/MKA-323/g1.jpg"
+      ],
+      "match_tier": "dump_sku_match",
       "id": "mka-323"
     },
     {
@@ -7511,9 +7667,11 @@
         "set_type": "Individual",
         "individual_set": "Individual"
       },
-      "hero": "https://m.media-amazon.com/images/I/51WyJ+Wu-vL._SX425_.jpg",
-      "gallery": [],
-      "match_tier": "image_sourced_amazon_link",
+      "hero": "product-photos/MKA-324/hero.jpg",
+      "gallery": [
+        "product-photos/MKA-324/g1.jpg"
+      ],
+      "match_tier": "dump_sku_match",
       "id": "mka-324"
     },
     {
@@ -7542,9 +7700,14 @@
         "set_type": "Individual",
         "individual_set": "Individual"
       },
-      "hero": "https://m.media-amazon.com/images/I/61RR17iGnaL._SX425_.jpg",
-      "gallery": [],
-      "match_tier": "image_sourced_amazon_link",
+      "hero": "product-photos/MKA-325/hero.jpg",
+      "gallery": [
+        "product-photos/MKA-325/g1.jpg",
+        "product-photos/MKA-325/g2.jpg",
+        "product-photos/MKA-325/g3.jpg",
+        "product-photos/MKA-325/g4.jpg"
+      ],
+      "match_tier": "dump_sku_match",
       "id": "mka-325"
     },
     {
@@ -7570,9 +7733,11 @@
         "set_type": "Set",
         "individual_set": "Set"
       },
-      "hero": "product-photos/MKA-203/hero.webp",
-      "gallery": [],
-      "match_tier": "exact_sku",
+      "hero": "product-photos/MKA-203/hero.jpg",
+      "gallery": [
+        "product-photos/MKA-203/g1.jpg"
+      ],
+      "match_tier": "dump_sku_match",
       "id": "mka-203"
     },
     {
@@ -7599,9 +7764,11 @@
         "set_type": "Set",
         "individual_set": "Set"
       },
-      "hero": "product-photos/MKA-205/hero.webp",
-      "gallery": [],
-      "match_tier": "exact_sku",
+      "hero": "product-photos/MKA-205/hero.jpg",
+      "gallery": [
+        "product-photos/MKA-205/g1.jpg"
+      ],
+      "match_tier": "dump_sku_match",
       "id": "mka-205"
     },
     {
@@ -7628,11 +7795,12 @@
         "set_type": "Individual",
         "individual_set": "Individual"
       },
-      "hero": "product-photos/CC-934/hero.webp",
+      "hero": "product-photos/CC-934/hero.jpg",
       "gallery": [
-        "product-photos/CC-934/g1.webp"
+        "product-photos/CC-934/g1.jpg",
+        "product-photos/CC-934/g2.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cc-934"
     },
     {
@@ -7659,12 +7827,13 @@
         "set_type": "Individual",
         "individual_set": "Individual"
       },
-      "hero": "product-photos/CC-935/hero.webp",
+      "hero": "product-photos/CC-935/hero.jpg",
       "gallery": [
-        "product-photos/CC-935/g1.webp",
-        "product-photos/CC-935/g2.webp"
+        "product-photos/CC-935/g1.jpg",
+        "product-photos/CC-935/g2.jpg",
+        "product-photos/CC-935/g3.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cc-935"
     },
     {
@@ -7691,11 +7860,12 @@
         "set_type": "Individual",
         "individual_set": "Individual"
       },
-      "hero": "product-photos/CC-936/hero.webp",
+      "hero": "product-photos/CC-936/hero.jpg",
       "gallery": [
-        "product-photos/CC-936/g1.webp"
+        "product-photos/CC-936/g1.jpg",
+        "product-photos/CC-936/g2.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cc-936"
     },
     {
@@ -7722,12 +7892,13 @@
         "set_type": "Individual",
         "individual_set": "Individual"
       },
-      "hero": "product-photos/CC-937/hero.webp",
+      "hero": "product-photos/CC-937/hero.jpg",
       "gallery": [
-        "product-photos/CC-937/g1.webp",
-        "product-photos/CC-937/g2.webp"
+        "product-photos/CC-937/g1.jpg",
+        "product-photos/CC-937/g2.jpg",
+        "product-photos/CC-937/g3.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cc-937"
     },
     {
@@ -7754,12 +7925,13 @@
         "set_type": "Individual",
         "individual_set": "Individual"
       },
-      "hero": "product-photos/CC-938/hero.webp",
+      "hero": "product-photos/CC-938/hero.jpg",
       "gallery": [
-        "product-photos/CC-938/g1.webp",
-        "product-photos/CC-938/g2.webp"
+        "product-photos/CC-938/g1.jpg",
+        "product-photos/CC-938/g2.jpg",
+        "product-photos/CC-938/g3.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cc-938"
     },
     {
@@ -7786,11 +7958,12 @@
         "set_type": "Individual",
         "individual_set": "Individual"
       },
-      "hero": "product-photos/CC-939/hero.webp",
+      "hero": "product-photos/CC-939/hero.jpg",
       "gallery": [
-        "product-photos/CC-939/g1.webp"
+        "product-photos/CC-939/g1.jpg",
+        "product-photos/CC-939/g2.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cc-939"
     },
     {
@@ -7817,13 +7990,14 @@
         "set_type": "Set",
         "individual_set": "Set"
       },
-      "hero": "product-photos/CC-940/hero.webp",
+      "hero": "product-photos/CC-940/hero.jpg",
       "gallery": [
-        "product-photos/CC-940/g1.webp",
-        "product-photos/CC-940/g2.webp",
-        "product-photos/CC-940/g3.webp"
+        "product-photos/CC-940/g1.jpg",
+        "product-photos/CC-940/g2.jpg",
+        "product-photos/CC-940/g3.jpg",
+        "product-photos/CC-940/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cc-940"
     },
     {
@@ -7850,11 +8024,12 @@
         "set_type": "Individual",
         "individual_set": "Individual"
       },
-      "hero": "product-photos/CC-941/hero.webp",
+      "hero": "product-photos/CC-941/hero.jpg",
       "gallery": [
-        "product-photos/CC-941/g1.webp"
+        "product-photos/CC-941/g1.jpg",
+        "product-photos/CC-941/g2.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cc-941"
     },
     {
@@ -7881,12 +8056,13 @@
         "set_type": "Individual",
         "individual_set": "Individual"
       },
-      "hero": "product-photos/CC-942/hero.webp",
+      "hero": "product-photos/CC-942/hero.jpg",
       "gallery": [
-        "product-photos/CC-942/g1.webp",
-        "product-photos/CC-942/g2.webp"
+        "product-photos/CC-942/g1.jpg",
+        "product-photos/CC-942/g2.jpg",
+        "product-photos/CC-942/g3.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cc-942"
     },
     {
@@ -7914,11 +8090,12 @@
         "set_type": "Individual",
         "individual_set": "Individual"
       },
-      "hero": "product-photos/CC-943/hero.webp",
+      "hero": "product-photos/CC-943/hero.jpg",
       "gallery": [
-        "product-photos/CC-943/g1.webp"
+        "product-photos/CC-943/g1.jpg",
+        "product-photos/CC-943/g2.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cc-943"
     },
     {
@@ -7945,11 +8122,12 @@
         "set_type": "Individual",
         "individual_set": "Individual"
       },
-      "hero": "product-photos/CC-944/hero.webp",
+      "hero": "product-photos/CC-944/hero.jpg",
       "gallery": [
-        "product-photos/CC-944/g1.webp"
+        "product-photos/CC-944/g1.jpg",
+        "product-photos/CC-944/g2.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cc-944"
     },
     {
@@ -7976,13 +8154,14 @@
         "set_type": "Individual",
         "individual_set": "Individual"
       },
-      "hero": "product-photos/CC-945/hero.webp",
+      "hero": "product-photos/CC-945/hero.jpg",
       "gallery": [
-        "product-photos/CC-945/g1.webp",
-        "product-photos/CC-945/g2.webp",
-        "product-photos/CC-945/g3.webp"
+        "product-photos/CC-945/g1.jpg",
+        "product-photos/CC-945/g2.jpg",
+        "product-photos/CC-945/g3.jpg",
+        "product-photos/CC-945/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cc-945"
     },
     {
@@ -8009,12 +8188,13 @@
         "set_type": "Individual",
         "individual_set": "Individual"
       },
-      "hero": "product-photos/CC-946/hero.webp",
+      "hero": "product-photos/CC-946/hero.jpg",
       "gallery": [
-        "product-photos/CC-946/g1.webp",
-        "product-photos/CC-946/g2.webp"
+        "product-photos/CC-946/g1.jpg",
+        "product-photos/CC-946/g2.jpg",
+        "product-photos/CC-946/g3.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cc-946"
     },
     {
@@ -8041,13 +8221,14 @@
         "set_type": "Individual",
         "individual_set": "Individual"
       },
-      "hero": "product-photos/CC-947/hero.webp",
+      "hero": "product-photos/CC-947/hero.jpg",
       "gallery": [
-        "product-photos/CC-947/g1.webp",
-        "product-photos/CC-947/g2.webp",
-        "product-photos/CC-947/g3.webp"
+        "product-photos/CC-947/g1.jpg",
+        "product-photos/CC-947/g2.jpg",
+        "product-photos/CC-947/g3.jpg",
+        "product-photos/CC-947/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cc-947"
     },
     {
@@ -8074,11 +8255,12 @@
         "set_type": "Individual",
         "individual_set": "Individual"
       },
-      "hero": "product-photos/CC-948/hero.webp",
+      "hero": "product-photos/CC-948/hero.jpg",
       "gallery": [
-        "product-photos/CC-948/g1.webp"
+        "product-photos/CC-948/g1.jpg",
+        "product-photos/CC-948/g2.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cc-948"
     },
     {
@@ -8105,9 +8287,11 @@
         "set_type": "Individual",
         "individual_set": "Individual"
       },
-      "hero": "product-photos/CC-949/hero.webp",
-      "gallery": [],
-      "match_tier": "exact_sku",
+      "hero": "product-photos/CC-949/hero.jpg",
+      "gallery": [
+        "product-photos/CC-949/g1.jpg"
+      ],
+      "match_tier": "dump_sku_match",
       "id": "cc-949"
     },
     {
@@ -8135,11 +8319,12 @@
         "set_type": "Individual",
         "individual_set": "Individual"
       },
-      "hero": "product-photos/CC-921/hero.webp",
+      "hero": "product-photos/CC-921/hero.jpg",
       "gallery": [
-        "product-photos/CC-921/g1.webp"
+        "product-photos/CC-921/g1.jpg",
+        "product-photos/CC-921/g2.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cc-921"
     },
     {
@@ -8167,12 +8352,13 @@
         "set_type": "Individual",
         "individual_set": "Individual"
       },
-      "hero": "product-photos/CC-922/hero.webp",
+      "hero": "product-photos/CC-922/hero.jpg",
       "gallery": [
-        "product-photos/CC-922/g1.webp",
-        "product-photos/CC-922/g2.webp"
+        "product-photos/CC-922/g1.jpg",
+        "product-photos/CC-922/g2.jpg",
+        "product-photos/CC-922/g3.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cc-922"
     },
     {
@@ -8201,11 +8387,12 @@
         "set_type": "Individual",
         "individual_set": "Individual"
       },
-      "hero": "product-photos/CC-923/hero.webp",
+      "hero": "product-photos/CC-923/hero.jpg",
       "gallery": [
-        "product-photos/CC-923/g1.webp"
+        "product-photos/CC-923/g1.jpg",
+        "product-photos/CC-923/g2.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cc-923"
     },
     {
@@ -8232,11 +8419,12 @@
         "set_type": "Individual",
         "individual_set": "Individual"
       },
-      "hero": "product-photos/CC-924/hero.webp",
+      "hero": "product-photos/CC-924/hero.jpg",
       "gallery": [
-        "product-photos/CC-924/g1.webp"
+        "product-photos/CC-924/g1.jpg",
+        "product-photos/CC-924/g2.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cc-924"
     },
     {
@@ -8264,13 +8452,14 @@
         "set_type": "Individual",
         "individual_set": "Individual"
       },
-      "hero": "product-photos/CC-925/hero.webp",
+      "hero": "product-photos/CC-925/hero.jpg",
       "gallery": [
-        "product-photos/CC-925/g1.webp",
-        "product-photos/CC-925/g2.webp",
-        "product-photos/CC-925/g3.webp"
+        "product-photos/CC-925/g1.jpg",
+        "product-photos/CC-925/g2.jpg",
+        "product-photos/CC-925/g3.jpg",
+        "product-photos/CC-925/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cc-925"
     },
     {
@@ -8298,12 +8487,13 @@
         "set_type": "Individual",
         "individual_set": "Individual"
       },
-      "hero": "product-photos/CC-926/hero.webp",
+      "hero": "product-photos/CC-926/hero.jpg",
       "gallery": [
-        "product-photos/CC-926/g1.webp",
-        "product-photos/CC-926/g2.webp"
+        "product-photos/CC-926/g1.jpg",
+        "product-photos/CC-926/g2.jpg",
+        "product-photos/CC-926/g3.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cc-926"
     },
     {
@@ -8330,13 +8520,14 @@
         "set_type": "Individual",
         "individual_set": "Individual"
       },
-      "hero": "product-photos/CC-927/hero.webp",
+      "hero": "product-photos/CC-927/hero.jpg",
       "gallery": [
-        "product-photos/CC-927/g1.webp",
-        "product-photos/CC-927/g2.webp",
-        "product-photos/CC-927/g3.webp"
+        "product-photos/CC-927/g1.jpg",
+        "product-photos/CC-927/g2.jpg",
+        "product-photos/CC-927/g3.jpg",
+        "product-photos/CC-927/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cc-927"
     },
     {
@@ -8364,13 +8555,14 @@
         "set_type": "Individual",
         "individual_set": "Individual"
       },
-      "hero": "product-photos/CC-928/hero.webp",
+      "hero": "product-photos/CC-928/hero.jpg",
       "gallery": [
-        "product-photos/CC-928/g1.webp",
-        "product-photos/CC-928/g2.webp",
-        "product-photos/CC-928/g3.webp"
+        "product-photos/CC-928/g1.jpg",
+        "product-photos/CC-928/g2.jpg",
+        "product-photos/CC-928/g3.jpg",
+        "product-photos/CC-928/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cc-928"
     },
     {
@@ -8398,9 +8590,11 @@
         "set_type": "Individual",
         "individual_set": "Individual"
       },
-      "hero": "product-photos/CC-929/hero.webp",
-      "gallery": [],
-      "match_tier": "exact_sku",
+      "hero": "product-photos/CC-929/hero.jpg",
+      "gallery": [
+        "product-photos/CC-929/g1.jpg"
+      ],
+      "match_tier": "dump_sku_match",
       "id": "cc-929"
     },
     {
@@ -8428,11 +8622,12 @@
         "set_type": "Individual",
         "individual_set": "Individual"
       },
-      "hero": "product-photos/CC-931/hero.webp",
+      "hero": "product-photos/CC-931/hero.jpg",
       "gallery": [
-        "product-photos/CC-931/g1.webp"
+        "product-photos/CC-931/g1.jpg",
+        "product-photos/CC-931/g2.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cc-931"
     },
     {
@@ -8459,12 +8654,13 @@
         "set_type": "Individual",
         "individual_set": "Individual"
       },
-      "hero": "product-photos/CC-930/hero.webp",
+      "hero": "product-photos/CC-930/hero.jpg",
       "gallery": [
-        "product-photos/CC-930/g1.webp",
-        "product-photos/CC-930/g2.webp"
+        "product-photos/CC-930/g1.jpg",
+        "product-photos/CC-930/g2.jpg",
+        "product-photos/CC-930/g3.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cc-930"
     },
     {
@@ -8486,13 +8682,14 @@
         "set_type": "Individual",
         "individual_set": "Individual"
       },
-      "hero": "product-photos/CC-932/hero.webp",
+      "hero": "product-photos/CC-932/hero.jpg",
       "gallery": [
-        "product-photos/CC-932/g1.webp",
-        "product-photos/CC-932/g2.webp",
-        "product-photos/CC-932/g3.webp"
+        "product-photos/CC-932/g1.jpg",
+        "product-photos/CC-932/g2.jpg",
+        "product-photos/CC-932/g3.jpg",
+        "product-photos/CC-932/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cc-932"
     },
     {
@@ -8519,14 +8716,14 @@
         "set_type": "Individual",
         "individual_set": "Individual"
       },
-      "hero": "product-photos/CC-933/hero.webp",
+      "hero": "product-photos/CC-933/hero.jpg",
       "gallery": [
-        "product-photos/CC-933/g1.webp",
-        "product-photos/CC-933/g2.webp",
-        "product-photos/CC-933/g3.webp",
-        "product-photos/CC-933/g4.webp"
+        "product-photos/CC-933/g1.jpg",
+        "product-photos/CC-933/g2.jpg",
+        "product-photos/CC-933/g3.jpg",
+        "product-photos/CC-933/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cc-933"
     },
     {
@@ -8552,9 +8749,11 @@
         "set_type": "Individual",
         "individual_set": "Individual"
       },
-      "hero": "https://m.media-amazon.com/images/I/51JmZWHw4HL._SX425_.jpg",
-      "gallery": [],
-      "match_tier": "image_sourced_amazon_link",
+      "hero": "product-photos/CC-891/hero.jpg",
+      "gallery": [
+        "product-photos/CC-891/g1.jpg"
+      ],
+      "match_tier": "dump_sku_match",
       "id": "cc-891"
     },
     {
@@ -8580,9 +8779,11 @@
         "set_type": "Individual",
         "individual_set": "Individual"
       },
-      "hero": "https://m.media-amazon.com/images/I/51RN5c2jFWL._SX425_.jpg",
-      "gallery": [],
-      "match_tier": "image_sourced_amazon_link",
+      "hero": "product-photos/CC-892/hero.jpg",
+      "gallery": [
+        "product-photos/CC-892/g1.jpg"
+      ],
+      "match_tier": "dump_sku_match",
       "id": "cc-892"
     },
     {
@@ -8611,9 +8812,11 @@
         "set_type": "Individual",
         "individual_set": "Individual"
       },
-      "hero": "https://m.media-amazon.com/images/I/51+1xCPZdcL._SX425_.jpg",
-      "gallery": [],
-      "match_tier": "image_sourced_amazon_link",
+      "hero": "product-photos/CC-893/hero.jpg",
+      "gallery": [
+        "product-photos/CC-893/g1.jpg"
+      ],
+      "match_tier": "dump_sku_match",
       "id": "cc-893"
     },
     {
@@ -8639,9 +8842,11 @@
         "set_type": "Individual",
         "individual_set": "Individual"
       },
-      "hero": "https://m.media-amazon.com/images/I/51T9gBmqTEL._SX425_.jpg",
-      "gallery": [],
-      "match_tier": "image_sourced_amazon_link",
+      "hero": "product-photos/CC-894/hero.jpg",
+      "gallery": [
+        "product-photos/CC-894/g1.jpg"
+      ],
+      "match_tier": "dump_sku_match",
       "id": "cc-894"
     },
     {
@@ -8667,9 +8872,11 @@
         "set_type": "Individual",
         "individual_set": "Individual"
       },
-      "hero": "https://m.media-amazon.com/images/I/51ZuMaG-knL._SX425_.jpg",
-      "gallery": [],
-      "match_tier": "image_sourced_amazon_link",
+      "hero": "product-photos/CC-895/hero.jpg",
+      "gallery": [
+        "product-photos/CC-895/g1.jpg"
+      ],
+      "match_tier": "dump_sku_match",
       "id": "cc-895"
     },
     {
@@ -8860,9 +9067,9 @@
         "set_type": "Individual",
         "individual_set": "Individual"
       },
-      "hero": "https://m.media-amazon.com/images/I/61zqH6U-LSL._SX425_.jpg",
+      "hero": "product-photos/CC-856/hero.jpg",
       "gallery": [],
-      "match_tier": "image_sourced_amazon_link",
+      "match_tier": "dump_sku_match",
       "id": "cc-856"
     },
     {
@@ -8888,9 +9095,9 @@
         "set_type": "Individual",
         "individual_set": "Individual"
       },
-      "hero": "https://m.media-amazon.com/images/I/5120PAPZHvL._SX425_.jpg",
+      "hero": "product-photos/CC-857/hero.jpg",
       "gallery": [],
-      "match_tier": "image_sourced_amazon_link",
+      "match_tier": "dump_sku_match",
       "id": "cc-857"
     },
     {
@@ -8917,9 +9124,9 @@
         "set_type": "Individual",
         "individual_set": "Individual"
       },
-      "hero": "https://m.media-amazon.com/images/I/41qI4t4ZbRL._SX425_.jpg",
+      "hero": "product-photos/CC-858/hero.jpg",
       "gallery": [],
-      "match_tier": "image_sourced_amazon_link",
+      "match_tier": "dump_sku_match",
       "id": "cc-858"
     },
     {
@@ -8945,9 +9152,9 @@
         "set_type": "Individual",
         "individual_set": "Individual"
       },
-      "hero": "https://m.media-amazon.com/images/I/61duTcvZryL._SX425_.jpg",
+      "hero": "product-photos/CC-859/hero.jpg",
       "gallery": [],
-      "match_tier": "image_sourced_amazon_link",
+      "match_tier": "dump_sku_match",
       "id": "cc-859"
     },
     {
@@ -8973,9 +9180,9 @@
         "set_type": "Individual",
         "individual_set": "Individual"
       },
-      "hero": "https://m.media-amazon.com/images/I/61dj6RnU-LL._SX425_.jpg",
+      "hero": "product-photos/CC-860/hero.jpg",
       "gallery": [],
-      "match_tier": "image_sourced_amazon_link",
+      "match_tier": "dump_sku_match",
       "id": "cc-860"
     },
     {
@@ -9001,9 +9208,9 @@
         "set_type": "Individual",
         "individual_set": "Individual"
       },
-      "hero": "https://m.media-amazon.com/images/I/615m-3eQesL._SX425_.jpg",
+      "hero": "product-photos/CC-861/hero.jpg",
       "gallery": [],
-      "match_tier": "image_sourced_amazon_link",
+      "match_tier": "dump_sku_match",
       "id": "cc-861"
     },
     {
@@ -9025,11 +9232,12 @@
         "set_type": "Set",
         "individual_set": "Set"
       },
-      "hero": "product-photos/CCS-001/hero.webp",
+      "hero": "product-photos/CCS-001/hero.jpeg",
       "gallery": [
-        "product-photos/CCS-001/g1.webp"
+        "product-photos/CCS-001/g1.jpg",
+        "product-photos/CCS-001/g2.jpeg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "ccs-001"
     },
     {
@@ -9052,14 +9260,14 @@
       "filters": {
         "capacity": "18"
       },
-      "hero": "product-photos/WF001/hero.webp",
+      "hero": "product-photos/WF001/hero.jpg",
       "gallery": [
-        "product-photos/WF001/g1.webp",
-        "product-photos/WF001/g2.webp",
-        "product-photos/WF001/g3.webp",
-        "product-photos/WF001/g4.webp"
+        "product-photos/WF001/g1.jpg",
+        "product-photos/WF001/g2.jpg",
+        "product-photos/WF001/g3.jpg",
+        "product-photos/WF001/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "wf001"
     },
     {
@@ -9082,14 +9290,14 @@
       "filters": {
         "capacity": "24"
       },
-      "hero": "product-photos/WF002/hero.webp",
+      "hero": "product-photos/WF002/hero.jpg",
       "gallery": [
-        "product-photos/WF002/g1.webp",
-        "product-photos/WF002/g2.webp",
-        "product-photos/WF002/g3.webp",
-        "product-photos/WF002/g4.webp"
+        "product-photos/WF002/g1.jpg",
+        "product-photos/WF002/g2.jpg",
+        "product-photos/WF002/g3.jpg",
+        "product-photos/WF002/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "wf002"
     },
     {
@@ -9112,14 +9320,14 @@
       "filters": {
         "capacity": "30"
       },
-      "hero": "product-photos/WF003/hero.webp",
+      "hero": "product-photos/WF003/hero.jpg",
       "gallery": [
-        "product-photos/WF003/g1.webp",
-        "product-photos/WF003/g2.webp",
-        "product-photos/WF003/g3.webp",
-        "product-photos/WF003/g4.webp"
+        "product-photos/WF003/g1.jpg",
+        "product-photos/WF003/g2.jpg",
+        "product-photos/WF003/g3.jpg",
+        "product-photos/WF003/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "wf003"
     },
     {
@@ -9143,12 +9351,13 @@
       "filters": {
         "capacity": "NA"
       },
-      "hero": "product-photos/WF011/hero.webp",
+      "hero": "product-photos/WF011/hero.jpg",
       "gallery": [
-        "product-photos/WF011/g1.webp",
-        "product-photos/WF011/g2.webp"
+        "product-photos/WF011/g1.jpg",
+        "product-photos/WF011/g2.jpg",
+        "product-photos/WF011/g3.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "wf011"
     },
     {
@@ -9172,14 +9381,14 @@
         "type": "Single Wall",
         "material": "Stainless Steel"
       },
-      "hero": "product-photos/CWB-031/hero.webp",
+      "hero": "product-photos/CWB-031/hero.jpg",
       "gallery": [
-        "product-photos/CWB-031/g1.webp",
-        "product-photos/CWB-031/g2.webp",
-        "product-photos/CWB-031/g3.webp",
-        "product-photos/CWB-031/g4.webp"
+        "product-photos/CWB-031/g1.jpg",
+        "product-photos/CWB-031/g2.jpg",
+        "product-photos/CWB-031/g3.jpg",
+        "product-photos/CWB-031/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cwb-031"
     },
     {
@@ -9203,14 +9412,14 @@
         "type": "Single Wall",
         "material": "Stainless Steel"
       },
-      "hero": "product-photos/CWB-032/hero.webp",
+      "hero": "product-photos/CWB-032/hero.jpg",
       "gallery": [
-        "product-photos/CWB-032/g1.webp",
-        "product-photos/CWB-032/g2.webp",
-        "product-photos/CWB-032/g3.webp",
-        "product-photos/CWB-032/g4.webp"
+        "product-photos/CWB-032/g1.jpg",
+        "product-photos/CWB-032/g2.jpg",
+        "product-photos/CWB-032/g3.jpg",
+        "product-photos/CWB-032/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cwb-032"
     },
     {
@@ -9234,14 +9443,14 @@
         "type": "Single Wall",
         "material": "Stainless Steel"
       },
-      "hero": "product-photos/CWB-033/hero.webp",
+      "hero": "product-photos/CWB-033/hero.jpg",
       "gallery": [
-        "product-photos/CWB-033/g1.webp",
-        "product-photos/CWB-033/g2.webp",
-        "product-photos/CWB-033/g3.webp",
-        "product-photos/CWB-033/g4.webp"
+        "product-photos/CWB-033/g1.jpg",
+        "product-photos/CWB-033/g2.jpg",
+        "product-photos/CWB-033/g3.jpg",
+        "product-photos/CWB-033/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cwb-033",
       "variant_group": "vg-06",
       "variant_label": "800 ML",
@@ -9268,14 +9477,14 @@
         "type": "Single Wall",
         "material": "Stainless Steel"
       },
-      "hero": "product-photos/CWB-034/hero.webp",
+      "hero": "product-photos/CWB-034/hero.png",
       "gallery": [
-        "product-photos/CWB-034/g1.webp",
-        "product-photos/CWB-034/g2.webp",
-        "product-photos/CWB-034/g3.webp",
-        "product-photos/CWB-034/g4.webp"
+        "product-photos/CWB-034/g1.jpg",
+        "product-photos/CWB-034/g2.jpg",
+        "product-photos/CWB-034/g3.jpg",
+        "product-photos/CWB-034/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cwb-034",
       "variant_group": "vg-06",
       "variant_label": "1100 ML",
@@ -9302,14 +9511,14 @@
         "type": "Single Wall",
         "material": "Stainless Steel"
       },
-      "hero": "product-photos/CWB-043/hero.webp",
+      "hero": "product-photos/CWB-043/hero.jpg",
       "gallery": [
-        "product-photos/CWB-043/g1.webp",
-        "product-photos/CWB-043/g2.webp",
-        "product-photos/CWB-043/g3.webp",
-        "product-photos/CWB-043/g4.webp"
+        "product-photos/CWB-043/g1.jpg",
+        "product-photos/CWB-043/g2.jpg",
+        "product-photos/CWB-043/g3.jpg",
+        "product-photos/CWB-043/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cwb-043"
     },
     {
@@ -9336,14 +9545,14 @@
         "type": "Single Wall",
         "material": "Stainless Steel"
       },
-      "hero": "product-photos/CWB-044/hero.webp",
+      "hero": "product-photos/CWB-044/hero.jpg",
       "gallery": [
-        "product-photos/CWB-044/g1.webp",
-        "product-photos/CWB-044/g2.webp",
-        "product-photos/CWB-044/g3.webp",
-        "product-photos/CWB-044/g4.webp"
+        "product-photos/CWB-044/g1.jpg",
+        "product-photos/CWB-044/g2.jpg",
+        "product-photos/CWB-044/g3.jpg",
+        "product-photos/CWB-044/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cwb-044"
     },
     {
@@ -9367,14 +9576,14 @@
         "type": "Single Wall",
         "material": "Stainless Steel"
       },
-      "hero": "product-photos/CWB-045/hero.webp",
+      "hero": "product-photos/CWB-045/hero.jpg",
       "gallery": [
-        "product-photos/CWB-045/g1.webp",
-        "product-photos/CWB-045/g2.webp",
-        "product-photos/CWB-045/g3.webp",
-        "product-photos/CWB-045/g4.webp"
+        "product-photos/CWB-045/g1.jpg",
+        "product-photos/CWB-045/g2.jpg",
+        "product-photos/CWB-045/g3.jpg",
+        "product-photos/CWB-045/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cwb-045"
     },
     {
@@ -9398,14 +9607,14 @@
         "type": "Single Wall",
         "material": "Stainless Steel"
       },
-      "hero": "product-photos/CWB040/hero.webp",
+      "hero": "product-photos/CWB040/hero.jpg",
       "gallery": [
-        "product-photos/CWB040/g1.webp",
-        "product-photos/CWB040/g2.webp",
-        "product-photos/CWB040/g3.webp",
-        "product-photos/CWB040/g4.webp"
+        "product-photos/CWB040/g1.jpg",
+        "product-photos/CWB040/g2.jpg",
+        "product-photos/CWB040/g3.jpg",
+        "product-photos/CWB040/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cwb040"
     },
     {
@@ -9429,14 +9638,14 @@
         "type": "Single Wall",
         "material": "Stainless Steel"
       },
-      "hero": "product-photos/CWB041/hero.webp",
+      "hero": "product-photos/CWB041/hero.jpg",
       "gallery": [
-        "product-photos/CWB041/g1.webp",
-        "product-photos/CWB041/g2.webp",
-        "product-photos/CWB041/g3.webp",
-        "product-photos/CWB041/g4.webp"
+        "product-photos/CWB041/g1.jpg",
+        "product-photos/CWB041/g2.jpg",
+        "product-photos/CWB041/g3.jpg",
+        "product-photos/CWB041/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cwb041"
     },
     {
@@ -9460,14 +9669,14 @@
         "type": "Insulated",
         "material": "Stainless Steel"
       },
-      "hero": "product-photos/CWB042/hero.webp",
+      "hero": "product-photos/CWB042/hero.jpg",
       "gallery": [
-        "product-photos/CWB042/g1.webp",
-        "product-photos/CWB042/g2.webp",
-        "product-photos/CWB042/g3.webp",
-        "product-photos/CWB042/g4.webp"
+        "product-photos/CWB042/g1.jpg",
+        "product-photos/CWB042/g2.jpg",
+        "product-photos/CWB042/g3.jpg",
+        "product-photos/CWB042/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cwb042"
     },
     {
@@ -9491,12 +9700,13 @@
         "material": "Stainless Steel",
         "use": "Pourer"
       },
-      "hero": "product-photos/COP-001/hero.webp",
+      "hero": "product-photos/COP-001/hero.jpg",
       "gallery": [
-        "product-photos/COP-001/g1.webp",
-        "product-photos/COP-001/g2.webp"
+        "product-photos/COP-001/g1.jpg",
+        "product-photos/COP-001/g2.jpg",
+        "product-photos/COP-001/g3.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cop-001",
       "variant_group": "vg-07",
       "variant_label": "350 ML",
@@ -9525,12 +9735,13 @@
         "material": "Stainless Steel",
         "use": "Pourer"
       },
-      "hero": "product-photos/COP-002/hero.webp",
+      "hero": "product-photos/COP-002/hero.jpg",
       "gallery": [
-        "product-photos/COP-002/g1.webp",
-        "product-photos/COP-002/g2.webp"
+        "product-photos/COP-002/g1.jpg",
+        "product-photos/COP-002/g2.jpg",
+        "product-photos/COP-002/g3.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cop-002",
       "variant_group": "vg-07",
       "variant_label": "500 ML",
@@ -9557,12 +9768,13 @@
         "material": "Stainless Steel",
         "use": "Pourer"
       },
-      "hero": "product-photos/COP-003/hero.webp",
+      "hero": "product-photos/COP-003/hero.jpg",
       "gallery": [
-        "product-photos/COP-003/g1.webp",
-        "product-photos/COP-003/g2.webp"
+        "product-photos/COP-003/g1.jpg",
+        "product-photos/COP-003/g2.jpg",
+        "product-photos/COP-003/g3.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cop-003",
       "variant_group": "vg-07",
       "variant_label": "750 ML",
@@ -9591,14 +9803,14 @@
         "material": "Stainless Steel",
         "use": "Pourer"
       },
-      "hero": "product-photos/COP-004/hero.webp",
+      "hero": "product-photos/COP-004/hero.jpg",
       "gallery": [
-        "product-photos/COP-004/g1.webp",
-        "product-photos/COP-004/g2.webp",
-        "product-photos/COP-004/g3.webp",
-        "product-photos/COP-004/g4.webp"
+        "product-photos/COP-004/g1.jpg",
+        "product-photos/COP-004/g2.jpg",
+        "product-photos/COP-004/g3.jpg",
+        "product-photos/COP-004/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cop-004",
       "variant_group": "vg-07",
       "variant_label": "1000 ML",
@@ -9625,12 +9837,13 @@
         "material": "Stainless Steel",
         "use": "Pourer"
       },
-      "hero": "product-photos/COP-005/hero.webp",
+      "hero": "product-photos/COP-005/hero.jpg",
       "gallery": [
-        "product-photos/COP-005/g1.webp",
-        "product-photos/COP-005/g2.webp"
+        "product-photos/COP-005/g1.jpg",
+        "product-photos/COP-005/g2.jpg",
+        "product-photos/COP-005/g3.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cop-005"
     },
     {
@@ -9684,14 +9897,12 @@
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
-      "hero": "product-photos/CPW-001/hero.webp",
+      "hero": "product-photos/CPW-001/hero.jpg",
       "gallery": [
-        "product-photos/CPW-001/g1.webp",
-        "product-photos/CPW-001/g2.webp",
-        "product-photos/CPW-001/g3.webp",
-        "product-photos/CPW-001/g4.webp"
+        "product-photos/CPW-001/g1.jpg",
+        "product-photos/CPW-001/g2.jpg"
       ],
-      "match_tier": "fuzzy_name",
+      "match_tier": "dump_sku_match",
       "id": "cpw-001"
     },
     {
@@ -9777,9 +9988,12 @@
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
-      "hero": "https://m.media-amazon.com/images/I/31S3JDNp+0L._SY300_SX300_QL70_FMwebp_.jpg",
-      "gallery": [],
-      "match_tier": "image_sourced_amazon_link",
+      "hero": "product-photos/CPW-004/hero.jpg",
+      "gallery": [
+        "product-photos/CPW-004/g1.jpg",
+        "product-photos/CPW-004/g2.jpg"
+      ],
+      "match_tier": "dump_sku_match",
       "id": "cpw-004"
     },
     {
@@ -9864,9 +10078,12 @@
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
-      "hero": "https://m.media-amazon.com/images/I/51ujPa+NEKL._SX425_.jpg",
-      "gallery": [],
-      "match_tier": "image_sourced_amazon_link",
+      "hero": "product-photos/CPW-007/hero.jpg",
+      "gallery": [
+        "product-photos/CPW-007/g1.jpg",
+        "product-photos/CPW-007/g2.jpg"
+      ],
+      "match_tier": "dump_sku_match",
       "id": "cpw-007"
     },
     {
@@ -9951,9 +10168,14 @@
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
-      "hero": "https://m.media-amazon.com/images/I/5181WiI2NhL._SX425_.jpg",
-      "gallery": [],
-      "match_tier": "image_sourced_amazon_link",
+      "hero": "product-photos/CPW-010/hero.jpg",
+      "gallery": [
+        "product-photos/CPW-010/g1.jpg",
+        "product-photos/CPW-010/g2.jpg",
+        "product-photos/CPW-010/g3.jpg",
+        "product-photos/CPW-010/g4.jpg"
+      ],
+      "match_tier": "dump_sku_match",
       "id": "cpw-010"
     },
     {
@@ -9980,14 +10202,14 @@
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
-      "hero": "product-photos/CPW-011/hero.webp",
+      "hero": "product-photos/CPW-011/hero.jpg",
       "gallery": [
-        "product-photos/CPW-011/g1.webp",
-        "product-photos/CPW-011/g2.webp",
-        "product-photos/CPW-011/g3.webp",
-        "product-photos/CPW-011/g4.webp"
+        "product-photos/CPW-011/g1.jpg",
+        "product-photos/CPW-011/g2.jpg",
+        "product-photos/CPW-011/g3.jpg",
+        "product-photos/CPW-011/g4.jpg"
       ],
-      "match_tier": "fuzzy_name",
+      "match_tier": "dump_sku_match",
       "id": "cpw-011"
     },
     {
@@ -10014,14 +10236,14 @@
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
-      "hero": "product-photos/CPW-012/hero.webp",
+      "hero": "product-photos/CPW-012/hero.jpg",
       "gallery": [
-        "product-photos/CPW-012/g1.webp",
-        "product-photos/CPW-012/g2.webp",
-        "product-photos/CPW-012/g3.webp",
-        "product-photos/CPW-012/g4.webp"
+        "product-photos/CPW-012/g1.jpg",
+        "product-photos/CPW-012/g2.jpg",
+        "product-photos/CPW-012/g3.jpg",
+        "product-photos/CPW-012/g4.jpg"
       ],
-      "match_tier": "fuzzy_name",
+      "match_tier": "dump_sku_match",
       "id": "cpw-012"
     },
     {
@@ -10048,9 +10270,14 @@
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
-      "hero": "https://m.media-amazon.com/images/I/51CZ2UKWLUL._SX425_.jpg",
-      "gallery": [],
-      "match_tier": "image_sourced_amazon_link",
+      "hero": "product-photos/CPW-013/hero.jpg",
+      "gallery": [
+        "product-photos/CPW-013/g1.jpg",
+        "product-photos/CPW-013/g2.jpg",
+        "product-photos/CPW-013/g3.jpg",
+        "product-photos/CPW-013/g4.jpg"
+      ],
+      "match_tier": "dump_sku_match",
       "id": "cpw-013"
     },
     {
@@ -10208,9 +10435,14 @@
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
-      "hero": "https://m.media-amazon.com/images/I/51K2U4szSPL._SX425_.jpg",
-      "gallery": [],
-      "match_tier": "image_sourced_amazon_link",
+      "hero": "product-photos/CPW-018/hero.jpg",
+      "gallery": [
+        "product-photos/CPW-018/g1.jpg",
+        "product-photos/CPW-018/g2.jpg",
+        "product-photos/CPW-018/g3.jpg",
+        "product-photos/CPW-018/g4.jpg"
+      ],
+      "match_tier": "dump_sku_match",
       "id": "cpw-018"
     },
     {
@@ -10612,9 +10844,9 @@
         "induction_non_induction": "Induction",
         "individual_set": "Individual"
       },
-      "hero": "product-photos/CTP-TP-001/hero.webp",
+      "hero": "product-photos/CTP-TP-001/hero.jpg",
       "gallery": [],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "ctp-tp-001",
       "variant_group": "vg-08",
       "variant_label": "14 CM",
@@ -10850,9 +11082,9 @@
         "induction_non_induction": "Induction",
         "individual_set": "Individual"
       },
-      "hero": "product-photos/CTP-KD-001/hero.webp",
+      "hero": "product-photos/CTP-KD-001/hero.jpg",
       "gallery": [],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "ctp-kd-001",
       "variant_group": "vg-09",
       "variant_label": "18 CM",
@@ -11251,9 +11483,9 @@
         "induction_non_induction": "Induction",
         "individual_set": "Individual"
       },
-      "hero": "product-photos/CTP-TAS-001/hero.webp",
+      "hero": "product-photos/CTP-TAS-001/hero.jpg",
       "gallery": [],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "ctp-tas-001",
       "variant_group": "vg-11",
       "variant_label": "18 CM",
@@ -11521,9 +11753,9 @@
         "induction_non_induction": "Induction",
         "individual_set": "Individual"
       },
-      "hero": "product-photos/CTP-SP-001/hero.webp",
+      "hero": "product-photos/CTP-SP-001/hero.jpg",
       "gallery": [],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "ctp-sp-001",
       "variant_group": "vg-12",
       "variant_label": "14 CM",
@@ -11654,9 +11886,9 @@
         "induction_non_induction": "Induction",
         "individual_set": "Individual"
       },
-      "hero": "product-photos/CTP-FRP-001/hero.webp",
+      "hero": "product-photos/CTP-FRP-001/hero.jpg",
       "gallery": [],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "ctp-frp-001",
       "variant_group": "vg-13",
       "variant_label": "20 CM",
@@ -11786,9 +12018,9 @@
         "induction_non_induction": "Induction",
         "individual_set": "Individual"
       },
-      "hero": "product-photos/CCI-DK-25/hero.webp",
+      "hero": "product-photos/CCI-DK-25/hero.jpg",
       "gallery": [],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cci-dk-25"
     },
     {
@@ -11816,9 +12048,9 @@
         "induction_non_induction": "Induction",
         "individual_set": "Individual"
       },
-      "hero": "product-photos/CCI-DT-30/hero.webp",
+      "hero": "product-photos/CCI-DT-30/hero.jpg",
       "gallery": [],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cci-dt-30"
     },
     {
@@ -11846,9 +12078,9 @@
         "induction_non_induction": "Induction",
         "individual_set": "Individual"
       },
-      "hero": "product-photos/CCI-CT-25/hero.webp",
+      "hero": "product-photos/CCI-CT-25/hero.jpg",
       "gallery": [],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cci-ct-25"
     },
     {
@@ -11876,9 +12108,9 @@
         "induction_non_induction": "Induction",
         "individual_set": "Individual"
       },
-      "hero": "product-photos/CCI-SK-25/hero.webp",
+      "hero": "product-photos/CCI-SK-25/hero.jpg",
       "gallery": [],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cci-sk-25"
     },
     {
@@ -11908,14 +12140,14 @@
         "induction_non_induction": "Non-Induction",
         "individual_set": "Set"
       },
-      "hero": "product-photos/CNS894/hero.webp",
+      "hero": "product-photos/CNS894/hero.jpg",
       "gallery": [
-        "product-photos/CNS894/g1.webp",
-        "product-photos/CNS894/g2.webp",
-        "product-photos/CNS894/g3.webp",
-        "product-photos/CNS894/g4.webp"
+        "product-photos/CNS894/g1.jpg",
+        "product-photos/CNS894/g2.jpg",
+        "product-photos/CNS894/g3.jpg",
+        "product-photos/CNS894/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cns894"
     },
     {
@@ -11945,14 +12177,14 @@
         "induction_non_induction": "Non-Induction",
         "individual_set": "Set"
       },
-      "hero": "product-photos/CNS895/hero.webp",
+      "hero": "product-photos/CNS895/hero.jpg",
       "gallery": [
-        "product-photos/CNS895/g1.webp",
-        "product-photos/CNS895/g2.webp",
-        "product-photos/CNS895/g3.webp",
-        "product-photos/CNS895/g4.webp"
+        "product-photos/CNS895/g1.jpg",
+        "product-photos/CNS895/g2.jpg",
+        "product-photos/CNS895/g3.jpg",
+        "product-photos/CNS895/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cns895"
     },
     {
@@ -11981,13 +12213,13 @@
         "induction_non_induction": "Induction",
         "individual_set": "Set"
       },
-      "hero": "product-photos/CNS794/hero.webp",
+      "hero": "product-photos/CNS794/hero.png",
       "gallery": [
-        "product-photos/CNS794/g1.webp",
-        "product-photos/CNS794/g2.webp",
-        "product-photos/CNS794/g3.webp"
+        "product-photos/CNS794/g1.jpg",
+        "product-photos/CNS794/g2.jpg",
+        "product-photos/CNS794/g3.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cns794"
     },
     {
@@ -12016,14 +12248,14 @@
         "induction_non_induction": "Induction",
         "individual_set": "Set"
       },
-      "hero": "product-photos/CNS989/hero.webp",
+      "hero": "product-photos/CNS989/hero.jpg",
       "gallery": [
-        "product-photos/CNS989/g1.webp",
-        "product-photos/CNS989/g2.webp",
-        "product-photos/CNS989/g3.webp",
-        "product-photos/CNS989/g4.webp"
+        "product-photos/CNS989/g1.jpg",
+        "product-photos/CNS989/g2.jpg",
+        "product-photos/CNS989/g3.jpg",
+        "product-photos/CNS989/g4.png"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cns989"
     },
     {
@@ -12053,11 +12285,11 @@
         "induction_non_induction": "Non-Induction",
         "individual_set": "Set"
       },
-      "hero": "product-photos/CNS-892/hero.webp",
+      "hero": "product-photos/CNS-892/hero.jpg",
       "gallery": [
-        "product-photos/CNS-892/g1.webp"
+        "product-photos/CNS-892/g1.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cns-892"
     },
     {
@@ -12087,14 +12319,14 @@
         "induction_non_induction": "Non-Induction",
         "individual_set": "Set"
       },
-      "hero": "product-photos/CNS-893/hero.webp",
+      "hero": "product-photos/CNS-893/hero.jpeg",
       "gallery": [
-        "product-photos/CNS-893/g1.webp",
-        "product-photos/CNS-893/g2.webp",
-        "product-photos/CNS-893/g3.webp",
-        "product-photos/CNS-893/g4.webp"
+        "product-photos/CNS-893/g1.jpg",
+        "product-photos/CNS-893/g2.jpeg",
+        "product-photos/CNS-893/g3.jpeg",
+        "product-photos/CNS-893/g4.jpeg"
       ],
-      "match_tier": "fuzzy_name",
+      "match_tier": "dump_sku_match",
       "id": "cns-893"
     },
     {
@@ -12161,12 +12393,14 @@
         "induction_non_induction": "Non-Induction",
         "individual_set": "Set"
       },
-      "hero": "product-photos/CNS896/hero.webp",
+      "hero": "product-photos/CNS896/hero.jpg",
       "gallery": [
-        "product-photos/CNS896/g1.webp",
-        "product-photos/CNS896/g2.webp"
+        "product-photos/CNS896/g1.jpg",
+        "product-photos/CNS896/g2.jpg",
+        "product-photos/CNS896/g3.jpg",
+        "product-photos/CNS896/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cns896"
     },
     {
@@ -12691,9 +12925,11 @@
         "induction_non_induction": "Non-Induction",
         "individual_set": "Individual"
       },
-      "hero": "product-photos/CNS-871/hero.webp",
-      "gallery": [],
-      "match_tier": "exact_sku",
+      "hero": "product-photos/CNS-871/hero.jpg",
+      "gallery": [
+        "product-photos/CNS-871/g1.jpg"
+      ],
+      "match_tier": "dump_sku_match",
       "id": "cns-871"
     },
     {
@@ -12722,9 +12958,12 @@
         "induction_non_induction": "Induction",
         "individual_set": "Individual"
       },
-      "hero": "product-photos/CNS-951/hero.webp",
-      "gallery": [],
-      "match_tier": "exact_sku",
+      "hero": "product-photos/CNS-951/hero.jpg",
+      "gallery": [
+        "product-photos/CNS-951/g1.jpg",
+        "product-photos/CNS-951/g2.jpg"
+      ],
+      "match_tier": "dump_sku_match",
       "id": "cns-951"
     },
     {
@@ -12752,9 +12991,11 @@
         "induction_non_induction": "Induction",
         "individual_set": "Individual"
       },
-      "hero": "https://m.media-amazon.com/images/I/51Sd0E6Uj+L.jpg",
-      "gallery": [],
-      "match_tier": "image_sourced_searched",
+      "hero": "product-photos/CNS-954/hero.jpg",
+      "gallery": [
+        "product-photos/CNS-954/g1.jpg"
+      ],
+      "match_tier": "dump_sku_match",
       "id": "cns-954",
       "variant_group": "vg-14",
       "variant_label": "250 MM",
@@ -12853,9 +13094,9 @@
         "induction_non_induction": "Non-Induction",
         "individual_set": "Individual"
       },
-      "hero": "product-photos/CNS-752/hero.webp",
+      "hero": "product-photos/CNS-752/hero.jpg",
       "gallery": [],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cns-752"
     },
     {
@@ -12884,9 +13125,9 @@
         "induction_non_induction": "Non-Induction",
         "individual_set": "Individual"
       },
-      "hero": "product-photos/CNS-753/hero.webp",
+      "hero": "product-photos/CNS-753/hero.jpg",
       "gallery": [],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cns-753"
     },
     {
@@ -12916,9 +13157,9 @@
         "induction_non_induction": "Non-Induction",
         "individual_set": "Individual"
       },
-      "hero": "product-photos/CNS-754/hero.webp",
+      "hero": "product-photos/CNS-754/hero.jpg",
       "gallery": [],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cns-754"
     },
     {
@@ -12948,9 +13189,9 @@
         "induction_non_induction": "Non-Induction",
         "individual_set": "Individual"
       },
-      "hero": "product-photos/CNS-755/hero.webp",
+      "hero": "product-photos/CNS-755/hero.jpg",
       "gallery": [],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cns-755"
     },
     {
@@ -12979,9 +13220,9 @@
         "induction_non_induction": "Non-Induction",
         "individual_set": "Individual"
       },
-      "hero": "product-photos/CNS-756/hero.webp",
+      "hero": "product-photos/CNS-756/hero.jpg",
       "gallery": [],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cns-756"
     },
     {
@@ -13374,9 +13615,14 @@
         "induction_non_induction": "Induction",
         "individual_set": "Individual"
       },
-      "hero": "https://m.media-amazon.com/images/I/515uPCgmacL.jpg",
-      "gallery": [],
-      "match_tier": "image_sourced_amazon_link",
+      "hero": "product-photos/CNS-916/hero.jpg",
+      "gallery": [
+        "product-photos/CNS-916/g1.jpg",
+        "product-photos/CNS-916/g2.jpg",
+        "product-photos/CNS-916/g3.jpg",
+        "product-photos/CNS-916/g4.jpg"
+      ],
+      "match_tier": "dump_sku_match",
       "id": "cns-916",
       "variant_group": "vg-19",
       "variant_label": "225 MM",
@@ -13511,9 +13757,9 @@
         "induction_non_induction": "Non-Induction",
         "individual_set": "Individual"
       },
-      "hero": "https://m.media-amazon.com/images/I/81KWsujhmvL.jpg",
+      "hero": "product-photos/CNS-151/hero.jpg",
       "gallery": [],
-      "match_tier": "image_sourced_amazon_link",
+      "match_tier": "dump_sku_match",
       "id": "cns-151"
     },
     {
@@ -13535,9 +13781,9 @@
         "shape": "Straight",
         "material": "Triply"
       },
-      "hero": "product-photos/CPC-021/hero.webp",
+      "hero": "product-photos/CPC-021/hero.jpg",
       "gallery": [],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cpc-021",
       "variant_group": "vg-20",
       "variant_label": "2 LTR",
@@ -13562,9 +13808,9 @@
         "shape": "Straight",
         "material": "Triply"
       },
-      "hero": "product-photos/CPC-022/hero.webp",
+      "hero": "product-photos/CPC-022/hero.jpg",
       "gallery": [],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cpc-022",
       "variant_group": "vg-20",
       "variant_label": "3 LTR",
@@ -13589,9 +13835,9 @@
         "shape": "Straight",
         "material": "Triply"
       },
-      "hero": "product-photos/CPC-023/hero.webp",
+      "hero": "product-photos/CPC-023/hero.jpg",
       "gallery": [],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "cpc-023",
       "variant_group": "vg-20",
       "variant_label": "5 LTR",
@@ -14219,14 +14465,14 @@
       "mrp": null,
       "amazon_link": null,
       "filters": {},
-      "hero": "product-photos/SMM001/hero.webp",
+      "hero": "product-photos/SMM001/hero.jpg",
       "gallery": [
-        "product-photos/SMM001/g1.webp",
-        "product-photos/SMM001/g2.webp",
-        "product-photos/SMM001/g3.webp",
-        "product-photos/SMM001/g4.webp"
+        "product-photos/SMM001/g1.jpg",
+        "product-photos/SMM001/g2.jpg",
+        "product-photos/SMM001/g3.jpg",
+        "product-photos/SMM001/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "smm001"
     },
     {
@@ -14243,14 +14489,14 @@
       "mrp": null,
       "amazon_link": null,
       "filters": {},
-      "hero": "product-photos/SMM002/hero.webp",
+      "hero": "product-photos/SMM002/hero.jpg",
       "gallery": [
-        "product-photos/SMM002/g1.webp",
-        "product-photos/SMM002/g2.webp",
-        "product-photos/SMM002/g3.webp",
-        "product-photos/SMM002/g4.webp"
+        "product-photos/SMM002/g1.jpg",
+        "product-photos/SMM002/g2.jpg",
+        "product-photos/SMM002/g3.jpg",
+        "product-photos/SMM002/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "smm002"
     },
     {
@@ -14267,14 +14513,14 @@
       "mrp": null,
       "amazon_link": null,
       "filters": {},
-      "hero": "product-photos/SMM003/hero.webp",
+      "hero": "product-photos/SMM003/hero.jpg",
       "gallery": [
-        "product-photos/SMM003/g1.webp",
-        "product-photos/SMM003/g2.webp",
-        "product-photos/SMM003/g3.webp",
-        "product-photos/SMM003/g4.webp"
+        "product-photos/SMM003/g1.jpg",
+        "product-photos/SMM003/g2.jpg",
+        "product-photos/SMM003/g3.jpg",
+        "product-photos/SMM003/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "smm003"
     },
     {
@@ -14291,14 +14537,14 @@
       "mrp": null,
       "amazon_link": null,
       "filters": {},
-      "hero": "product-photos/SMM011/hero.webp",
+      "hero": "product-photos/SMM011/hero.jpg",
       "gallery": [
-        "product-photos/SMM011/g1.webp",
-        "product-photos/SMM011/g2.webp",
-        "product-photos/SMM011/g3.webp",
-        "product-photos/SMM011/g4.webp"
+        "product-photos/SMM011/g1.jpg",
+        "product-photos/SMM011/g2.jpg",
+        "product-photos/SMM011/g3.jpg",
+        "product-photos/SMM011/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "smm011"
     },
     {
@@ -14315,14 +14561,14 @@
       "mrp": null,
       "amazon_link": null,
       "filters": {},
-      "hero": "product-photos/SMM012/hero.webp",
+      "hero": "product-photos/SMM012/hero.jpg",
       "gallery": [
-        "product-photos/SMM012/g1.webp",
-        "product-photos/SMM012/g2.webp",
-        "product-photos/SMM012/g3.webp",
-        "product-photos/SMM012/g4.webp"
+        "product-photos/SMM012/g1.jpg",
+        "product-photos/SMM012/g2.jpg",
+        "product-photos/SMM012/g3.jpg",
+        "product-photos/SMM012/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "smm012"
     },
     {
@@ -14339,14 +14585,14 @@
       "mrp": null,
       "amazon_link": null,
       "filters": {},
-      "hero": "product-photos/SMM013/hero.webp",
+      "hero": "product-photos/SMM013/hero.jpg",
       "gallery": [
-        "product-photos/SMM013/g1.webp",
-        "product-photos/SMM013/g2.webp",
-        "product-photos/SMM013/g3.webp",
-        "product-photos/SMM013/g4.webp"
+        "product-photos/SMM013/g1.jpg",
+        "product-photos/SMM013/g2.jpg",
+        "product-photos/SMM013/g3.jpg",
+        "product-photos/SMM013/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "smm013"
     },
     {
@@ -14363,14 +14609,14 @@
       "mrp": null,
       "amazon_link": null,
       "filters": {},
-      "hero": "product-photos/PSM089/hero.webp",
+      "hero": "product-photos/PSM089/hero.jpg",
       "gallery": [
-        "product-photos/PSM089/g1.webp",
-        "product-photos/PSM089/g2.webp",
-        "product-photos/PSM089/g3.webp",
-        "product-photos/PSM089/g4.webp"
+        "product-photos/PSM089/g1.jpg",
+        "product-photos/PSM089/g2.jpg",
+        "product-photos/PSM089/g3.jpg",
+        "product-photos/PSM089/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "psm089"
     },
     {
@@ -14387,9 +14633,11 @@
       "mrp": null,
       "amazon_link": null,
       "filters": {},
-      "hero": "product-photos/SMG009/hero.webp",
-      "gallery": [],
-      "match_tier": "exact_sku",
+      "hero": "product-photos/SMG009/hero.jpg",
+      "gallery": [
+        "product-photos/SMG009/g1.jpg"
+      ],
+      "match_tier": "dump_sku_match",
       "id": "smg009"
     },
     {
@@ -14406,14 +14654,14 @@
       "mrp": null,
       "amazon_link": null,
       "filters": {},
-      "hero": "product-photos/SMM005/hero.webp",
+      "hero": "product-photos/SMM005/hero.jpg",
       "gallery": [
-        "product-photos/SMM005/g1.webp",
-        "product-photos/SMM005/g2.webp",
-        "product-photos/SMM005/g3.webp",
-        "product-photos/SMM005/g4.webp"
+        "product-photos/SMM005/g1.jpg",
+        "product-photos/SMM005/g2.jpg",
+        "product-photos/SMM005/g3.jpg",
+        "product-photos/SMM005/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "smm005"
     },
     {
@@ -14430,14 +14678,14 @@
       "mrp": null,
       "amazon_link": null,
       "filters": {},
-      "hero": "product-photos/SMM006/hero.webp",
+      "hero": "product-photos/SMM006/hero.jpg",
       "gallery": [
-        "product-photos/SMM006/g1.webp",
-        "product-photos/SMM006/g2.webp",
-        "product-photos/SMM006/g3.webp",
-        "product-photos/SMM006/g4.webp"
+        "product-photos/SMM006/g1.jpg",
+        "product-photos/SMM006/g2.jpg",
+        "product-photos/SMM006/g3.jpg",
+        "product-photos/SMM006/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "smm006"
     },
     {
@@ -14454,14 +14702,14 @@
       "mrp": null,
       "amazon_link": null,
       "filters": {},
-      "hero": "product-photos/SMM007/hero.webp",
+      "hero": "product-photos/SMM007/hero.jpg",
       "gallery": [
-        "product-photos/SMM007/g1.webp",
-        "product-photos/SMM007/g2.webp",
-        "product-photos/SMM007/g3.webp",
-        "product-photos/SMM007/g4.webp"
+        "product-photos/SMM007/g1.jpg",
+        "product-photos/SMM007/g2.jpg",
+        "product-photos/SMM007/g3.jpg",
+        "product-photos/SMM007/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "smm007"
     },
     {
@@ -14478,13 +14726,14 @@
       "mrp": null,
       "amazon_link": null,
       "filters": {},
-      "hero": "product-photos/SMJ001/hero.webp",
+      "hero": "product-photos/SMJ001/hero.jpg",
       "gallery": [
-        "product-photos/SMJ001/g1.webp",
-        "product-photos/SMJ001/g2.webp",
-        "product-photos/SMJ001/g3.webp"
+        "product-photos/SMJ001/g1.jpg",
+        "product-photos/SMJ001/g2.jpg",
+        "product-photos/SMJ001/g3.jpg",
+        "product-photos/SMJ001/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "smj001"
     },
     {
@@ -14501,14 +14750,14 @@
       "mrp": null,
       "amazon_link": null,
       "filters": {},
-      "hero": "product-photos/SMJ002/hero.webp",
+      "hero": "product-photos/SMJ002/hero.jpg",
       "gallery": [
-        "product-photos/SMJ002/g1.webp",
-        "product-photos/SMJ002/g2.webp",
-        "product-photos/SMJ002/g3.webp",
-        "product-photos/SMJ002/g4.webp"
+        "product-photos/SMJ002/g1.jpg",
+        "product-photos/SMJ002/g2.jpg",
+        "product-photos/SMJ002/g3.jpg",
+        "product-photos/SMJ002/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "smj002"
     },
     {
@@ -14525,14 +14774,14 @@
       "mrp": null,
       "amazon_link": null,
       "filters": {},
-      "hero": "product-photos/SMJ003/hero.webp",
+      "hero": "product-photos/SMJ003/hero.jpg",
       "gallery": [
-        "product-photos/SMJ003/g1.webp",
-        "product-photos/SMJ003/g2.webp",
-        "product-photos/SMJ003/g3.webp",
-        "product-photos/SMJ003/g4.webp"
+        "product-photos/SMJ003/g1.jpg",
+        "product-photos/SMJ003/g2.jpg",
+        "product-photos/SMJ003/g3.jpg",
+        "product-photos/SMJ003/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "smj003"
     },
     {
@@ -14549,14 +14798,14 @@
       "mrp": null,
       "amazon_link": null,
       "filters": {},
-      "hero": "product-photos/SMJ004/hero.webp",
+      "hero": "product-photos/SMJ004/hero.jpg",
       "gallery": [
-        "product-photos/SMJ004/g1.webp",
-        "product-photos/SMJ004/g2.webp",
-        "product-photos/SMJ004/g3.webp",
-        "product-photos/SMJ004/g4.webp"
+        "product-photos/SMJ004/g1.jpg",
+        "product-photos/SMJ004/g2.jpg",
+        "product-photos/SMJ004/g3.jpg",
+        "product-photos/SMJ004/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "smj004"
     },
     {
@@ -14573,14 +14822,14 @@
       "mrp": null,
       "amazon_link": null,
       "filters": {},
-      "hero": "product-photos/SMJ005/hero.webp",
+      "hero": "product-photos/SMJ005/hero.jpg",
       "gallery": [
-        "product-photos/SMJ005/g1.webp",
-        "product-photos/SMJ005/g2.webp",
-        "product-photos/SMJ005/g3.webp",
-        "product-photos/SMJ005/g4.webp"
+        "product-photos/SMJ005/g1.jpg",
+        "product-photos/SMJ005/g2.jpg",
+        "product-photos/SMJ005/g3.jpg",
+        "product-photos/SMJ005/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "smj005"
     },
     {
@@ -14597,14 +14846,14 @@
       "mrp": null,
       "amazon_link": null,
       "filters": {},
-      "hero": "product-photos/SMG001/hero.webp",
+      "hero": "product-photos/SMG001/hero.jpg",
       "gallery": [
-        "product-photos/SMG001/g1.webp",
-        "product-photos/SMG001/g2.webp",
-        "product-photos/SMG001/g3.webp",
-        "product-photos/SMG001/g4.webp"
+        "product-photos/SMG001/g1.jpg",
+        "product-photos/SMG001/g2.jpg",
+        "product-photos/SMG001/g3.jpg",
+        "product-photos/SMG001/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "smg001"
     },
     {
@@ -14621,14 +14870,14 @@
       "mrp": null,
       "amazon_link": null,
       "filters": {},
-      "hero": "product-photos/SMG002/hero.webp",
+      "hero": "product-photos/SMG002/hero.jpg",
       "gallery": [
-        "product-photos/SMG002/g1.webp",
-        "product-photos/SMG002/g2.webp",
-        "product-photos/SMG002/g3.webp",
-        "product-photos/SMG002/g4.webp"
+        "product-photos/SMG002/g1.jpg",
+        "product-photos/SMG002/g2.jpg",
+        "product-photos/SMG002/g3.jpg",
+        "product-photos/SMG002/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "smg002"
     },
     {
@@ -14645,14 +14894,14 @@
       "mrp": null,
       "amazon_link": null,
       "filters": {},
-      "hero": "product-photos/SMG005/hero.webp",
+      "hero": "product-photos/SMG005/hero.jpg",
       "gallery": [
-        "product-photos/SMG005/g1.webp",
-        "product-photos/SMG005/g2.webp",
-        "product-photos/SMG005/g3.webp",
-        "product-photos/SMG005/g4.webp"
+        "product-photos/SMG005/g1.jpg",
+        "product-photos/SMG005/g2.jpg",
+        "product-photos/SMG005/g3.jpg",
+        "product-photos/SMG005/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "smg005"
     },
     {
@@ -14669,13 +14918,14 @@
       "mrp": null,
       "amazon_link": null,
       "filters": {},
-      "hero": "product-photos/SMG011/hero.webp",
+      "hero": "product-photos/SMG011/hero.jpg",
       "gallery": [
-        "product-photos/SMG011/g1.webp",
-        "product-photos/SMG011/g2.webp",
-        "product-photos/SMG011/g3.webp"
+        "product-photos/SMG011/g1.jpg",
+        "product-photos/SMG011/g2.jpg",
+        "product-photos/SMG011/g3.jpg",
+        "product-photos/SMG011/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "smg011"
     },
     {
@@ -14692,14 +14942,14 @@
       "mrp": null,
       "amazon_link": null,
       "filters": {},
-      "hero": "product-photos/SMG007/hero.webp",
+      "hero": "product-photos/SMG007/hero.jpg",
       "gallery": [
-        "product-photos/SMG007/g1.webp",
-        "product-photos/SMG007/g2.webp",
-        "product-photos/SMG007/g3.webp",
-        "product-photos/SMG007/g4.webp"
+        "product-photos/SMG007/g1.jpg",
+        "product-photos/SMG007/g2.jpg",
+        "product-photos/SMG007/g3.jpg",
+        "product-photos/SMG007/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "smg007"
     },
     {
@@ -14716,14 +14966,14 @@
       "mrp": null,
       "amazon_link": null,
       "filters": {},
-      "hero": "product-photos/SMG008/hero.webp",
+      "hero": "product-photos/SMG008/hero.jpg",
       "gallery": [
-        "product-photos/SMG008/g1.webp",
-        "product-photos/SMG008/g2.webp",
-        "product-photos/SMG008/g3.webp",
-        "product-photos/SMG008/g4.webp"
+        "product-photos/SMG008/g1.jpg",
+        "product-photos/SMG008/g2.jpg",
+        "product-photos/SMG008/g3.jpg",
+        "product-photos/SMG008/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "smg008"
     },
     {
@@ -14740,13 +14990,14 @@
       "mrp": null,
       "amazon_link": null,
       "filters": {},
-      "hero": "product-photos/SMG012/hero.webp",
+      "hero": "product-photos/SMG012/hero.jpg",
       "gallery": [
-        "product-photos/SMG012/g1.webp",
-        "product-photos/SMG012/g2.webp",
-        "product-photos/SMG012/g3.webp"
+        "product-photos/SMG012/g1.jpg",
+        "product-photos/SMG012/g2.jpg",
+        "product-photos/SMG012/g3.jpg",
+        "product-photos/SMG012/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "smg012"
     },
     {
@@ -14763,14 +15014,14 @@
       "mrp": null,
       "amazon_link": null,
       "filters": {},
-      "hero": "product-photos/SMG013/hero.webp",
+      "hero": "product-photos/SMG013/hero.jpg",
       "gallery": [
-        "product-photos/SMG013/g1.webp",
-        "product-photos/SMG013/g2.webp",
-        "product-photos/SMG013/g3.webp",
-        "product-photos/SMG013/g4.webp"
+        "product-photos/SMG013/g1.jpg",
+        "product-photos/SMG013/g2.jpg",
+        "product-photos/SMG013/g3.jpg",
+        "product-photos/SMG013/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "smg013"
     },
     {
@@ -14787,14 +15038,14 @@
       "mrp": null,
       "amazon_link": null,
       "filters": {},
-      "hero": "product-photos/SMG014/hero.webp",
+      "hero": "product-photos/SMG014/hero.jpg",
       "gallery": [
-        "product-photos/SMG014/g1.webp",
-        "product-photos/SMG014/g2.webp",
-        "product-photos/SMG014/g3.webp",
-        "product-photos/SMG014/g4.webp"
+        "product-photos/SMG014/g1.jpg",
+        "product-photos/SMG014/g2.jpg",
+        "product-photos/SMG014/g3.jpg",
+        "product-photos/SMG014/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "smg014"
     },
     {
@@ -14811,14 +15062,14 @@
       "mrp": null,
       "amazon_link": null,
       "filters": {},
-      "hero": "product-photos/SMG015/hero.webp",
+      "hero": "product-photos/SMG015/hero.jpg",
       "gallery": [
-        "product-photos/SMG015/g1.webp",
-        "product-photos/SMG015/g2.webp",
-        "product-photos/SMG015/g3.webp",
-        "product-photos/SMG015/g4.webp"
+        "product-photos/SMG015/g1.jpg",
+        "product-photos/SMG015/g2.jpg",
+        "product-photos/SMG015/g3.jpg",
+        "product-photos/SMG015/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "smg015"
     },
     {
@@ -14835,9 +15086,9 @@
       "mrp": null,
       "amazon_link": null,
       "filters": {},
-      "hero": "https://m.media-amazon.com/images/I/51BhK3fRlQL._SX425_.jpg",
+      "hero": "product-photos/SMG022/hero.jpg",
       "gallery": [],
-      "match_tier": "image_sourced_searched",
+      "match_tier": "dump_sku_match",
       "id": "smg022"
     },
     {
@@ -14854,14 +15105,14 @@
       "mrp": null,
       "amazon_link": null,
       "filters": {},
-      "hero": "product-photos/SMW003/hero.webp",
+      "hero": "product-photos/SMW003/hero.jpg",
       "gallery": [
-        "product-photos/SMW003/g1.webp",
-        "product-photos/SMW003/g2.webp",
-        "product-photos/SMW003/g3.webp",
-        "product-photos/SMW003/g4.webp"
+        "product-photos/SMW003/g1.jpg",
+        "product-photos/SMW003/g2.jpg",
+        "product-photos/SMW003/g3.jpg",
+        "product-photos/SMW003/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "smw003"
     },
     {
@@ -14878,13 +15129,14 @@
       "mrp": null,
       "amazon_link": null,
       "filters": {},
-      "hero": "product-photos/SMW004/hero.webp",
+      "hero": "product-photos/SMW004/hero.jpg",
       "gallery": [
-        "product-photos/SMW004/g1.webp",
-        "product-photos/SMW004/g2.webp",
-        "product-photos/SMW004/g3.webp"
+        "product-photos/SMW004/g1.jpg",
+        "product-photos/SMW004/g2.jpg",
+        "product-photos/SMW004/g3.jpg",
+        "product-photos/SMW004/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "smw004"
     },
     {
@@ -14901,14 +15153,14 @@
       "mrp": null,
       "amazon_link": null,
       "filters": {},
-      "hero": "product-photos/SMW005/hero.webp",
+      "hero": "product-photos/SMW005/hero.jpg",
       "gallery": [
-        "product-photos/SMW005/g1.webp",
-        "product-photos/SMW005/g2.webp",
-        "product-photos/SMW005/g3.webp",
-        "product-photos/SMW005/g4.webp"
+        "product-photos/SMW005/g1.jpg",
+        "product-photos/SMW005/g2.jpg",
+        "product-photos/SMW005/g3.jpg",
+        "product-photos/SMW005/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "smw005"
     },
     {
@@ -14925,14 +15177,14 @@
       "mrp": null,
       "amazon_link": null,
       "filters": {},
-      "hero": "product-photos/PSM011/hero.webp",
+      "hero": "product-photos/PSM011/hero.jpg",
       "gallery": [
-        "product-photos/PSM011/g1.webp",
-        "product-photos/PSM011/g2.webp",
-        "product-photos/PSM011/g3.webp",
-        "product-photos/PSM011/g4.webp"
+        "product-photos/PSM011/g1.jpg",
+        "product-photos/PSM011/g2.jpg",
+        "product-photos/PSM011/g3.jpg",
+        "product-photos/PSM011/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "psm011"
     },
     {
@@ -14949,14 +15201,14 @@
       "mrp": null,
       "amazon_link": null,
       "filters": {},
-      "hero": "product-photos/PSM010/hero.webp",
+      "hero": "product-photos/PSM010/hero.jpg",
       "gallery": [
-        "product-photos/PSM010/g1.webp",
-        "product-photos/PSM010/g2.webp",
-        "product-photos/PSM010/g3.webp",
-        "product-photos/PSM010/g4.webp"
+        "product-photos/PSM010/g1.jpg",
+        "product-photos/PSM010/g2.jpg",
+        "product-photos/PSM010/g3.jpg",
+        "product-photos/PSM010/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "psm010"
     },
     {
@@ -14997,14 +15249,14 @@
       "mrp": null,
       "amazon_link": null,
       "filters": {},
-      "hero": "product-photos/PSMB010/hero.webp",
+      "hero": "product-photos/PSMB010/hero.jpg",
       "gallery": [
-        "product-photos/PSMB010/g1.webp",
-        "product-photos/PSMB010/g2.webp",
-        "product-photos/PSMB010/g3.webp",
-        "product-photos/PSMB010/g4.webp"
+        "product-photos/PSMB010/g1.jpg",
+        "product-photos/PSMB010/g2.jpg",
+        "product-photos/PSMB010/g3.jpg",
+        "product-photos/PSMB010/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "psmb010"
     },
     {
@@ -15021,14 +15273,14 @@
       "mrp": null,
       "amazon_link": null,
       "filters": {},
-      "hero": "product-photos/PSMB011/hero.webp",
+      "hero": "product-photos/PSMB011/hero.jpg",
       "gallery": [
-        "product-photos/PSMB011/g1.webp",
-        "product-photos/PSMB011/g2.webp",
-        "product-photos/PSMB011/g3.webp",
-        "product-photos/PSMB011/g4.webp"
+        "product-photos/PSMB011/g1.jpg",
+        "product-photos/PSMB011/g2.jpg",
+        "product-photos/PSMB011/g3.jpg",
+        "product-photos/PSMB011/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "psmb011"
     },
     {
@@ -15045,14 +15297,14 @@
       "mrp": null,
       "amazon_link": null,
       "filters": {},
-      "hero": "product-photos/SMB002/hero.webp",
+      "hero": "product-photos/SMB002/hero.jpg",
       "gallery": [
-        "product-photos/SMB002/g1.webp",
-        "product-photos/SMB002/g2.webp",
-        "product-photos/SMB002/g3.webp",
-        "product-photos/SMB002/g4.webp"
+        "product-photos/SMB002/g1.jpg",
+        "product-photos/SMB002/g2.jpg",
+        "product-photos/SMB002/g3.jpg",
+        "product-photos/SMB002/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "smb002"
     },
     {
@@ -15069,9 +15321,9 @@
       "mrp": null,
       "amazon_link": null,
       "filters": {},
-      "hero": "product-photos/SMB009/hero.webp",
+      "hero": "product-photos/SMB009/hero.jpg",
       "gallery": [],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "smb009"
     },
     {
@@ -15088,14 +15340,14 @@
       "mrp": null,
       "amazon_link": null,
       "filters": {},
-      "hero": "product-photos/SMB004/hero.webp",
+      "hero": "product-photos/SMB004/hero.jpg",
       "gallery": [
-        "product-photos/SMB004/g1.webp",
-        "product-photos/SMB004/g2.webp",
-        "product-photos/SMB004/g3.webp",
-        "product-photos/SMB004/g4.webp"
+        "product-photos/SMB004/g1.jpg",
+        "product-photos/SMB004/g2.jpg",
+        "product-photos/SMB004/g3.jpg",
+        "product-photos/SMB004/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "smb004"
     },
     {
@@ -15112,14 +15364,14 @@
       "mrp": null,
       "amazon_link": null,
       "filters": {},
-      "hero": "product-photos/SMB005/hero.webp",
+      "hero": "product-photos/SMB005/hero.jpg",
       "gallery": [
-        "product-photos/SMB005/g1.webp",
-        "product-photos/SMB005/g2.webp",
-        "product-photos/SMB005/g3.webp",
-        "product-photos/SMB005/g4.webp"
+        "product-photos/SMB005/g1.jpg",
+        "product-photos/SMB005/g2.jpg",
+        "product-photos/SMB005/g3.jpg",
+        "product-photos/SMB005/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "smb005"
     },
     {
@@ -15136,14 +15388,14 @@
       "mrp": null,
       "amazon_link": null,
       "filters": {},
-      "hero": "product-photos/SMB006/hero.webp",
+      "hero": "product-photos/SMB006/hero.jpg",
       "gallery": [
-        "product-photos/SMB006/g1.webp",
-        "product-photos/SMB006/g2.webp",
-        "product-photos/SMB006/g3.webp",
-        "product-photos/SMB006/g4.webp"
+        "product-photos/SMB006/g1.jpg",
+        "product-photos/SMB006/g2.jpg",
+        "product-photos/SMB006/g3.jpg",
+        "product-photos/SMB006/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "smb006"
     },
     {
@@ -15160,14 +15412,14 @@
       "mrp": null,
       "amazon_link": null,
       "filters": {},
-      "hero": "product-photos/SMB007/hero.webp",
+      "hero": "product-photos/SMB007/hero.jpg",
       "gallery": [
-        "product-photos/SMB007/g1.webp",
-        "product-photos/SMB007/g2.webp",
-        "product-photos/SMB007/g3.webp",
-        "product-photos/SMB007/g4.webp"
+        "product-photos/SMB007/g1.jpg",
+        "product-photos/SMB007/g2.jpg",
+        "product-photos/SMB007/g3.jpg",
+        "product-photos/SMB007/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "smb007"
     },
     {
@@ -15184,14 +15436,14 @@
       "mrp": null,
       "amazon_link": null,
       "filters": {},
-      "hero": "product-photos/SMB008/hero.webp",
+      "hero": "product-photos/SMB008/hero.jpg",
       "gallery": [
-        "product-photos/SMB008/g1.webp",
-        "product-photos/SMB008/g2.webp",
-        "product-photos/SMB008/g3.webp",
-        "product-photos/SMB008/g4.webp"
+        "product-photos/SMB008/g1.jpg",
+        "product-photos/SMB008/g2.jpg",
+        "product-photos/SMB008/g3.jpg",
+        "product-photos/SMB008/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "smb008"
     },
     {
@@ -15208,14 +15460,14 @@
       "mrp": null,
       "amazon_link": null,
       "filters": {},
-      "hero": "product-photos/SMS001/hero.webp",
+      "hero": "product-photos/SMS001/hero.jpg",
       "gallery": [
-        "product-photos/SMS001/g1.webp",
-        "product-photos/SMS001/g2.webp",
-        "product-photos/SMS001/g3.webp",
-        "product-photos/SMS001/g4.webp"
+        "product-photos/SMS001/g1.jpg",
+        "product-photos/SMS001/g2.jpg",
+        "product-photos/SMS001/g3.jpg",
+        "product-photos/SMS001/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "sms001"
     },
     {
@@ -15232,14 +15484,14 @@
       "mrp": null,
       "amazon_link": null,
       "filters": {},
-      "hero": "product-photos/SMS003/hero.webp",
+      "hero": "product-photos/SMS003/hero.jpg",
       "gallery": [
-        "product-photos/SMS003/g1.webp",
-        "product-photos/SMS003/g2.webp",
-        "product-photos/SMS003/g3.webp",
-        "product-photos/SMS003/g4.webp"
+        "product-photos/SMS003/g1.jpg",
+        "product-photos/SMS003/g2.jpg",
+        "product-photos/SMS003/g3.jpg",
+        "product-photos/SMS003/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "sms003"
     },
     {
@@ -15256,14 +15508,14 @@
       "mrp": null,
       "amazon_link": null,
       "filters": {},
-      "hero": "product-photos/SMS004/hero.webp",
+      "hero": "product-photos/SMS004/hero.jpg",
       "gallery": [
-        "product-photos/SMS004/g1.webp",
-        "product-photos/SMS004/g2.webp",
-        "product-photos/SMS004/g3.webp",
-        "product-photos/SMS004/g4.webp"
+        "product-photos/SMS004/g1.jpg",
+        "product-photos/SMS004/g2.jpg",
+        "product-photos/SMS004/g3.jpg",
+        "product-photos/SMS004/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "sms004"
     },
     {
@@ -15280,14 +15532,14 @@
       "mrp": null,
       "amazon_link": null,
       "filters": {},
-      "hero": "product-photos/SHH004/hero.webp",
+      "hero": "product-photos/SHH004/hero.jpg",
       "gallery": [
-        "product-photos/SHH004/g1.webp",
-        "product-photos/SHH004/g2.webp",
-        "product-photos/SHH004/g3.webp",
-        "product-photos/SHH004/g4.webp"
+        "product-photos/SHH004/g1.jpg",
+        "product-photos/SHH004/g2.jpg",
+        "product-photos/SHH004/g3.jpg",
+        "product-photos/SHH004/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "shh004"
     },
     {
@@ -15304,13 +15556,14 @@
       "mrp": null,
       "amazon_link": null,
       "filters": {},
-      "hero": "product-photos/SHH005/hero.webp",
+      "hero": "product-photos/SHH005/hero.jpg",
       "gallery": [
-        "product-photos/SHH005/g1.webp",
-        "product-photos/SHH005/g2.webp",
-        "product-photos/SHH005/g3.webp"
+        "product-photos/SHH005/g1.jpg",
+        "product-photos/SHH005/g2.jpg",
+        "product-photos/SHH005/g3.jpg",
+        "product-photos/SHH005/g4.jpg"
       ],
-      "match_tier": "exact_sku",
+      "match_tier": "dump_sku_match",
       "id": "shh005"
     },
     {
@@ -15327,9 +15580,11 @@
       "mrp": null,
       "amazon_link": null,
       "filters": {},
-      "hero": "product-photos/SMG010/hero.webp",
-      "gallery": [],
-      "match_tier": "exact_sku",
+      "hero": "product-photos/SMG010/hero.jpg",
+      "gallery": [
+        "product-photos/SMG010/g1.jpg"
+      ],
+      "match_tier": "dump_sku_match",
       "id": "smg010"
     },
     {
@@ -15365,9 +15620,9 @@
       "mrp": null,
       "amazon_link": null,
       "filters": {},
-      "hero": "https://m.media-amazon.com/images/I/A1s1L7H6FyL._SX425_.jpg",
+      "hero": "product-photos/SHH007/hero.jpg",
       "gallery": [],
-      "match_tier": "image_sourced_searched",
+      "match_tier": "dump_sku_match",
       "id": "shh007"
     },
     {
@@ -15422,9 +15677,9 @@
       "mrp": null,
       "amazon_link": null,
       "filters": {},
-      "hero": "https://m.media-amazon.com/images/I/61d12Ik+80L._AC_UL320_.jpg",
+      "hero": "product-photos/SMG021/hero.jpg",
       "gallery": [],
-      "match_tier": "image_sourced_searched",
+      "match_tier": "dump_sku_match",
       "id": "smg021"
     },
     {
@@ -15460,9 +15715,9 @@
       "mrp": null,
       "amazon_link": null,
       "filters": {},
-      "hero": "https://m.media-amazon.com/images/I/31ariPz2FZL._SX425_.jpg",
+      "hero": "product-photos/SHH009/hero.jpg",
       "gallery": [],
-      "match_tier": "image_sourced_searched",
+      "match_tier": "dump_sku_match",
       "id": "shh009",
       "variant_group": "vg-21",
       "variant_label": "7.5 LTR",
@@ -15482,9 +15737,9 @@
       "mrp": null,
       "amazon_link": null,
       "filters": {},
-      "hero": "https://m.media-amazon.com/images/I/31FOHQEwTeL._SX425_.jpg",
+      "hero": "product-photos/SHH010/hero.jpg",
       "gallery": [],
-      "match_tier": "image_sourced_searched",
+      "match_tier": "dump_sku_match",
       "id": "shh010",
       "variant_group": "vg-21",
       "variant_label": "12 LTR",
@@ -15504,9 +15759,9 @@
       "mrp": null,
       "amazon_link": null,
       "filters": {},
-      "hero": "https://m.media-amazon.com/images/I/81vT8bu4dkL._SX425_.jpg",
+      "hero": "product-photos/SMS005/hero.jpg",
       "gallery": [],
-      "match_tier": "image_sourced_searched",
+      "match_tier": "dump_sku_match",
       "id": "sms005"
     },
     {
@@ -15523,9 +15778,9 @@
       "mrp": null,
       "amazon_link": null,
       "filters": {},
-      "hero": "https://m.media-amazon.com/images/I/71dgn7AQSBL._SX425_.jpg",
+      "hero": "product-photos/SMG019/hero.jpg",
       "gallery": [],
-      "match_tier": "image_sourced_searched",
+      "match_tier": "dump_sku_match",
       "id": "smg019"
     },
     {
@@ -15561,9 +15816,9 @@
       "mrp": null,
       "amazon_link": null,
       "filters": {},
-      "hero": "https://m.media-amazon.com/images/I/513-ZnJqlFL._AC_UL320_.jpg",
+      "hero": "product-photos/SMM014/hero.jpg",
       "gallery": [],
-      "match_tier": "image_sourced_searched",
+      "match_tier": "dump_sku_match",
       "id": "smm014"
     },
     {
@@ -15599,9 +15854,9 @@
       "mrp": null,
       "amazon_link": null,
       "filters": {},
-      "hero": "https://m.media-amazon.com/images/I/61zXGXfhMyL._AC_UL320_.jpg",
+      "hero": "product-photos/SMM010/hero.jpg",
       "gallery": [],
-      "match_tier": "image_sourced_searched",
+      "match_tier": "dump_sku_match",
       "id": "smm010"
     },
     {
@@ -15618,9 +15873,9 @@
       "mrp": null,
       "amazon_link": null,
       "filters": {},
-      "hero": "https://m.media-amazon.com/images/I/61noWx8PcyL._AC_UL320_.jpg",
+      "hero": "product-photos/SMM009/hero.jpg",
       "gallery": [],
-      "match_tier": "image_sourced_searched",
+      "match_tier": "dump_sku_match",
       "id": "smm009"
     },
     {
