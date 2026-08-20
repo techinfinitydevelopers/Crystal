@@ -913,7 +913,7 @@
         return `<div class="fgroup${active ? " has-value" : ""}${openGroupKey === k ? " open" : ""}" data-key="${k}">` +
           `<button type="button" class="fbtn">${ATTR_LABELS[k] || k}${active ? `<span class="fbtn-badge">1</span>` : ""}` +
           `<svg class="fcaret" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M1 1l4 4 4-4"/></svg></button>` +
-          `<div class="fpanel"><div class="fpanel-opts">${opts.map(v => `<button type="button" class="fopt${active === v ? ' active' : ''}" data-key="${k}" data-val="${v.replace(/"/g, '&quot;')}">${optLabel(v)}</button>`).join("")}</div></div>` +
+          `<div class="fpanel"><div class="fpanel-opts">${opts.map(v => `<button type="button" class="fopt${active === v ? ' active' : ''}" data-key="${k}" data-val="${String(v).replace(/"/g, '&quot;')}">${optLabel(v)}</button>`).join("")}</div></div>` +
           `</div>`;
       }).join("") +
       `</div>` +

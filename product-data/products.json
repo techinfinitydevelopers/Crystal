@@ -1240,7 +1240,10 @@
         "product-photos/CL-073/g1.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cl-073"
+      "id": "cl-073",
+      "variant_group": "vg-22",
+      "variant_label": "20.32 CM",
+      "variant_order": 0
     },
     {
       "sku": "CL-074",
@@ -1272,7 +1275,10 @@
         "product-photos/CL-074/g1.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cl-074"
+      "id": "cl-074",
+      "variant_group": "vg-22",
+      "variant_label": "22.86 CM",
+      "variant_order": 1
     },
     {
       "sku": "CL-203",
