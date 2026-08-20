@@ -12537,9 +12537,16 @@
         "induction_non_induction": "Induction",
         "individual_set": "Set"
       },
-      "hero": null,
-      "gallery": [],
-      "match_tier": "unmatched",
+      "hero": "product-photos/CTV-097/hero.jpg",
+      "gallery": [
+        "product-photos/CTV-097/g1.jpg",
+        "product-photos/CTV-097/g2.jpg",
+        "product-photos/CTV-097/g3.jpg",
+        "product-photos/CTV-097/g4.jpg",
+        "product-photos/CTV-097/g5.jpg",
+        "product-photos/CTV-097/g6.jpg"
+      ],
+      "match_tier": "dump_name_match",
       "id": "ctv-097"
     },
     {
