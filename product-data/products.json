@@ -10077,9 +10077,14 @@
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
-      "hero": null,
-      "gallery": [],
-      "match_tier": "unmatched",
+      "hero": "product-photos/CPW-014/hero.jpg",
+      "gallery": [
+        "product-photos/CPW-014/g1.jpg",
+        "product-photos/CPW-014/g2.jpg",
+        "product-photos/CPW-014/g3.jpg",
+        "product-photos/CPW-014/g4.jpg"
+      ],
+      "match_tier": "dump_name_match",
       "id": "cpw-014"
     },
     {
@@ -15694,9 +15699,14 @@
       "mrp": null,
       "amazon_link": null,
       "filters": {},
-      "hero": null,
-      "gallery": [],
-      "match_tier": "from_excel",
+      "hero": "product-photos/CLMK-007/hero.jpg",
+      "gallery": [
+        "product-photos/CLMK-007/g1.jpg",
+        "product-photos/CLMK-007/g2.jpg",
+        "product-photos/CLMK-007/g3.jpg",
+        "product-photos/CLMK-007/g4.jpg"
+      ],
+      "match_tier": "dump_name_match",
       "id": "clmk-007"
     },
     {
