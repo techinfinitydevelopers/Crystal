@@ -12869,9 +12869,15 @@
         "induction_non_induction": "Induction",
         "individual_set": "Set"
       },
-      "hero": null,
-      "gallery": [],
-      "match_tier": "unmatched",
+      "hero": "product-photos/CSI-096FCS/hero.jpg",
+      "gallery": [
+        "product-photos/CSI-096FCS/g1.jpg",
+        "product-photos/CSI-096FCS/g2.jpg",
+        "product-photos/CSI-096FCS/g3.jpg",
+        "product-photos/CSI-096FCS/g4.jpg",
+        "product-photos/CSI-096FCS/g5.jpg"
+      ],
+      "match_tier": "user_provided",
       "id": "csi-096fcs"
     },
     {
