@@ -1511,9 +1511,9 @@
         "blade_edge_type": "Plain",
         "coating_type": "None"
       },
-      "hero": null,
+      "hero": "product-photos/CL-101/hero.jpg",
       "gallery": [],
-      "match_tier": "unmatched",
+      "match_tier": "dump_sku_match",
       "id": "cl-101",
       "variant_group": "vg-04",
       "variant_label": "28 CM",
@@ -1545,9 +1545,9 @@
         "blade_edge_type": "Plain",
         "coating_type": "None"
       },
-      "hero": null,
+      "hero": "product-photos/CL-102/hero.jpg",
       "gallery": [],
-      "match_tier": "unmatched",
+      "match_tier": "dump_sku_match",
       "id": "cl-102",
       "variant_group": "vg-04",
       "variant_label": "33 CM",
@@ -1647,9 +1647,9 @@
         "blade_edge_type": "Plain",
         "coating_type": "None"
       },
-      "hero": null,
+      "hero": "product-photos/CL-134/hero.jpg",
       "gallery": [],
-      "match_tier": "unmatched",
+      "match_tier": "dump_sku_match",
       "id": "cl-134",
       "variant_group": "vg-05",
       "variant_label": "25 CM",
@@ -1681,9 +1681,9 @@
         "blade_edge_type": "Plain",
         "coating_type": "None"
       },
-      "hero": null,
+      "hero": "product-photos/CL-135/hero.jpg",
       "gallery": [],
-      "match_tier": "unmatched",
+      "match_tier": "dump_sku_match",
       "id": "cl-135"
     },
     {
@@ -4127,9 +4127,9 @@
       "filters": {
         "use": "Toaster Bag"
       },
-      "hero": null,
+      "hero": "product-photos/CTB-001/hero.jpg",
       "gallery": [],
-      "match_tier": "unmatched",
+      "match_tier": "dump_sku_match",
       "id": "ctb-001"
     },
     {
@@ -4153,9 +4153,9 @@
       "filters": {
         "use": "Oven Liner"
       },
-      "hero": null,
+      "hero": "product-photos/CTB-002/hero.jpg",
       "gallery": [],
-      "match_tier": "unmatched",
+      "match_tier": "dump_sku_match",
       "id": "ctb-002"
     },
     {
@@ -4179,9 +4179,9 @@
       "filters": {
         "use": "BBQ Grill Mat"
       },
-      "hero": null,
+      "hero": "product-photos/CTB-003/hero.jpg",
       "gallery": [],
-      "match_tier": "unmatched",
+      "match_tier": "dump_sku_match",
       "id": "ctb-003"
     },
     {
@@ -15398,9 +15398,9 @@
       "mrp": null,
       "amazon_link": null,
       "filters": {},
-      "hero": null,
+      "hero": "product-photos/SMG018/hero.jpg",
       "gallery": [],
-      "match_tier": "unmatched",
+      "match_tier": "dump_sku_match",
       "id": "smg018"
     },
     {
@@ -15436,9 +15436,9 @@
       "mrp": null,
       "amazon_link": null,
       "filters": {},
-      "hero": null,
+      "hero": "product-photos/SHH008/hero.jpg",
       "gallery": [],
-      "match_tier": "unmatched",
+      "match_tier": "dump_sku_match",
       "id": "shh008"
     },
     {
@@ -15537,9 +15537,9 @@
       "mrp": null,
       "amazon_link": null,
       "filters": {},
-      "hero": null,
+      "hero": "product-photos/SMG020/hero.jpg",
       "gallery": [],
-      "match_tier": "unmatched",
+      "match_tier": "dump_sku_match",
       "id": "smg020"
     },
     {
@@ -15575,9 +15575,9 @@
       "mrp": null,
       "amazon_link": null,
       "filters": {},
-      "hero": null,
+      "hero": "product-photos/SMG016/hero.jpg",
       "gallery": [],
-      "match_tier": "unmatched",
+      "match_tier": "dump_sku_match",
       "id": "smg016"
     },
     {
@@ -15756,9 +15756,14 @@
       "mrp": null,
       "amazon_link": null,
       "filters": {},
-      "hero": null,
-      "gallery": [],
-      "match_tier": "from_excel",
+      "hero": "product-photos/SMS002/hero.jpg",
+      "gallery": [
+        "product-photos/SMS002/g1.jpg",
+        "product-photos/SMS002/g2.jpg",
+        "product-photos/SMS002/g3.jpg",
+        "product-photos/SMS002/g4.jpg"
+      ],
+      "match_tier": "dump_sku_match",
       "id": "sms002"
     }
   ]
