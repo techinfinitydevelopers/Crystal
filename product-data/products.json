@@ -2700,9 +2700,9 @@
         "blade_edge_type": "Serrated",
         "coating_type": "None"
       },
-      "hero": null,
+      "hero": "product-photos/VMC-007/hero.png",
       "gallery": [],
-      "match_tier": "unmatched",
+      "match_tier": "canva_sku_match",
       "id": "vmc-007"
     },
     {
@@ -4304,9 +4304,9 @@
       "filters": {
         "use": "Ice-Cream Scoop"
       },
-      "hero": null,
+      "hero": "product-photos/CLMK-009/hero.png",
       "gallery": [],
-      "match_tier": "unmatched",
+      "match_tier": "canva_sku_match",
       "id": "clmk-009"
     },
     {
@@ -4330,9 +4330,9 @@
       "filters": {
         "use": "Pizza Cutter"
       },
-      "hero": null,
+      "hero": "product-photos/CLMK-010/hero.png",
       "gallery": [],
-      "match_tier": "unmatched",
+      "match_tier": "canva_sku_match",
       "id": "clmk-010"
     },
     {
@@ -4408,9 +4408,9 @@
       "filters": {
         "use": "Wine Opener"
       },
-      "hero": null,
+      "hero": "product-photos/CLMK-013/hero.png",
       "gallery": [],
-      "match_tier": "unmatched",
+      "match_tier": "canva_sku_match",
       "id": "clmk-013"
     },
     {
@@ -4434,9 +4434,9 @@
       "filters": {
         "use": "Bottle Opener"
       },
-      "hero": null,
+      "hero": "product-photos/CLMK-014/hero.png",
       "gallery": [],
-      "match_tier": "unmatched",
+      "match_tier": "canva_sku_match",
       "id": "clmk-014"
     },
     {
@@ -5105,9 +5105,9 @@
       "filters": {
         "use": "Cutter"
       },
-      "hero": null,
+      "hero": "product-photos/CLMK-015/hero.png",
       "gallery": [],
-      "match_tier": "unmatched",
+      "match_tier": "canva_sku_match",
       "id": "clmk-015"
     },
     {
@@ -5288,9 +5288,9 @@
       "filters": {
         "use": "Chopper"
       },
-      "hero": null,
+      "hero": "product-photos/VMA-001/hero.png",
       "gallery": [],
-      "match_tier": "unmatched",
+      "match_tier": "canva_sku_match",
       "id": "vma-001"
     },
     {
@@ -8901,9 +8901,9 @@
         "set_type": "Individual",
         "individual_set": "Individual"
       },
-      "hero": null,
+      "hero": "product-photos/CLMK-001A/hero.png",
       "gallery": [],
-      "match_tier": "unmatched",
+      "match_tier": "canva_sku_match",
       "id": "clmk-001a"
     },
     {
@@ -8928,9 +8928,9 @@
         "set_type": "Individual",
         "individual_set": "Individual"
       },
-      "hero": null,
+      "hero": "product-photos/CLMK-002A/hero.png",
       "gallery": [],
-      "match_tier": "unmatched",
+      "match_tier": "canva_sku_match",
       "id": "clmk-002a"
     },
     {
@@ -8955,9 +8955,9 @@
         "set_type": "Individual",
         "individual_set": "Individual"
       },
-      "hero": null,
+      "hero": "product-photos/CLMK-003A/hero.png",
       "gallery": [],
-      "match_tier": "unmatched",
+      "match_tier": "canva_sku_match",
       "id": "clmk-003a"
     },
     {
@@ -8983,9 +8983,9 @@
         "set_type": "Individual",
         "individual_set": "Individual"
       },
-      "hero": null,
+      "hero": "product-photos/CLMK-004A/hero.png",
       "gallery": [],
-      "match_tier": "unmatched",
+      "match_tier": "canva_sku_match",
       "id": "clmk-004a"
     },
     {
@@ -9011,9 +9011,9 @@
         "set_type": "Individual",
         "individual_set": "Individual"
       },
-      "hero": null,
+      "hero": "product-photos/CLMK-005A/hero.png",
       "gallery": [],
-      "match_tier": "unmatched",
+      "match_tier": "canva_sku_match",
       "id": "clmk-005a"
     },
     {
@@ -9039,9 +9039,9 @@
         "set_type": "Individual",
         "individual_set": "Individual"
       },
-      "hero": null,
+      "hero": "product-photos/CLMK-006A/hero.png",
       "gallery": [],
-      "match_tier": "unmatched",
+      "match_tier": "canva_sku_match",
       "id": "clmk-006a"
     },
     {
@@ -14020,9 +14020,9 @@
       "filters": {
         "type": "Food Processor"
       },
-      "hero": null,
+      "hero": "product-photos/CFP-001/hero.png",
       "gallery": [],
-      "match_tier": "unmatched",
+      "match_tier": "canva_sku_match",
       "id": "cfp-001"
     },
     {
@@ -14085,9 +14085,9 @@
         "type": "Gas Stove",
         "material": "Glass"
       },
-      "hero": null,
+      "hero": "product-photos/CGBS-011/hero.png",
       "gallery": [],
-      "match_tier": "unmatched",
+      "match_tier": "canva_sku_match",
       "id": "cgbs-011"
     },
     {
@@ -14108,9 +14108,9 @@
         "type": "Gas Stove",
         "material": "Glass"
       },
-      "hero": null,
+      "hero": "product-photos/CGBS-012/hero.png",
       "gallery": [],
-      "match_tier": "unmatched",
+      "match_tier": "canva_sku_match",
       "id": "cgbs-012"
     },
     {
@@ -14131,9 +14131,9 @@
         "type": "Gas Stove",
         "material": "Glass"
       },
-      "hero": null,
+      "hero": "product-photos/CGBS-013/hero.png",
       "gallery": [],
-      "match_tier": "unmatched",
+      "match_tier": "canva_sku_match",
       "id": "cgbs-013"
     },
     {
@@ -14154,9 +14154,9 @@
         "type": "Gas Stove",
         "material": "Glass"
       },
-      "hero": null,
+      "hero": "product-photos/CGBS-016/hero.png",
       "gallery": [],
-      "match_tier": "unmatched",
+      "match_tier": "canva_sku_match",
       "id": "cgbs-016"
     },
     {
@@ -14177,9 +14177,9 @@
         "type": "Gas Stove",
         "material": "Glass"
       },
-      "hero": null,
+      "hero": "product-photos/CGBS-017/hero.png",
       "gallery": [],
-      "match_tier": "unmatched",
+      "match_tier": "canva_sku_match",
       "id": "cgbs-017"
     },
     {
@@ -14223,9 +14223,9 @@
         "type": "Gas Stove",
         "material": "Glass"
       },
-      "hero": null,
+      "hero": "product-photos/CGBS-021/hero.png",
       "gallery": [],
-      "match_tier": "unmatched",
+      "match_tier": "canva_sku_match",
       "id": "cgbs-021"
     },
     {
@@ -14246,9 +14246,9 @@
         "type": "Gas Stove",
         "material": "Glass"
       },
-      "hero": null,
+      "hero": "product-photos/CGBS-022/hero.png",
       "gallery": [],
-      "match_tier": "unmatched",
+      "match_tier": "canva_sku_match",
       "id": "cgbs-022"
     },
     {
@@ -14269,9 +14269,9 @@
         "type": "Hob Top",
         "material": "Glass"
       },
-      "hero": null,
+      "hero": "product-photos/CGBS-031/hero.png",
       "gallery": [],
-      "match_tier": "unmatched",
+      "match_tier": "canva_sku_match",
       "id": "cgbs-031"
     },
     {
@@ -14292,9 +14292,9 @@
         "type": "Hob Top",
         "material": "Glass"
       },
-      "hero": null,
+      "hero": "product-photos/CGBS-032/hero.png",
       "gallery": [],
-      "match_tier": "unmatched",
+      "match_tier": "canva_sku_match",
       "id": "cgbs-032"
     },
     {
@@ -14315,9 +14315,9 @@
         "type": "Infrared",
         "material": "Glass"
       },
-      "hero": null,
+      "hero": "product-photos/CGIRF-041/hero.png",
       "gallery": [],
-      "match_tier": "unmatched",
+      "match_tier": "canva_sku_match",
       "id": "cgirf-041"
     },
     {
