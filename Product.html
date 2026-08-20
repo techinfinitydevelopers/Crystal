@@ -800,22 +800,6 @@
   let P = [];
   let BY_ID = {};
 
-  /* ---- size-variant visual scaling: bigger cm/ml/mm = bigger on-screen image ---- */
-  const MIN_IMG_SCALE = 0.62;
-  function parseSizeNum(label) {
-    const m = /(\d+(\.\d+)?)/.exec(label || "");
-    return m ? parseFloat(m[1]) : null;
-  }
-  function sizeScaleFor(siblingsArr, p) {
-    if (!siblingsArr || siblingsArr.length < 2) return 1;
-    const nums = siblingsArr.map(s => parseSizeNum(s.vlabel)).filter(n => n !== null);
-    const own = parseSizeNum(p.vlabel);
-    if (own === null || !nums.length) return 1;
-    const min = Math.min(...nums), max = Math.max(...nums);
-    if (max === min) return 1;
-    return MIN_IMG_SCALE + (own - min) / (max - min) * (1 - MIN_IMG_SCALE);
-  }
-
   /* ---- resolve product ---- */
   function renderProduct() {
   const params = new URLSearchParams(location.search);
@@ -846,8 +830,9 @@
   /* ---- hero ---- */
   document.getElementById("gMain").src = gallery[0];
   document.getElementById("gMain").alt = prod.n;
-  document.getElementById("gMain").style.transform = "scale(" + sizeScaleFor(siblings, prod) + ")";
-  document.getElementById("gThumbs").innerHTML = gallery.map((src, i) => `<div class="g-thumb${i===0?' active':''}" data-i="${i}"><img src="${src}" alt="${prod.n} view ${i+1}" loading="lazy"></div>`).join("");
+  document.getElementById("gThumbs").innerHTML = siblings.length > 1
+    ? siblings.map(s => `<div class="g-thumb${s.id===prod.id?' active':''}" data-vid="${s.id}"><img src="${s.img}" alt="${s.n} — ${s.vlabel}" loading="lazy"></div>`).join("")
+    : gallery.map((src, i) => `<div class="g-thumb${i===0?' active':''}" data-i="${i}"><img src="${src}" alt="${prod.n} view ${i+1}" loading="lazy"></div>`).join("");
   document.getElementById("infoEyebrow").innerHTML = `<span class="pip"></span>${brand.name} · ${prod.col}`;
   document.getElementById("catChip").textContent = CAT_LABEL[prod.c];
   document.getElementById("pTitle").textContent = prod.n;
@@ -869,23 +854,18 @@
     '<a href="https://www.jiomart.com/search/' + _q + '" target="_blank" rel="noopener nofollow sponsored">JioMart</a>';
   (function () { var qi = document.getElementById("qtyInput"); var mn = document.getElementById("qtyMinus"), pl = document.getElementById("qtyPlus"); if (qi && mn && pl) { mn.onclick = function () { qi.value = Math.max(1, (parseInt(qi.value, 10) || 1) - 1); }; pl.onclick = function () { qi.value = (parseInt(qi.value, 10) || 1) + 1; }; } })();
 
-  function renderSizeChips(elId, activeId) {
-    document.getElementById(elId).innerHTML = siblings.map(p => `<button class="vchip${p.id===activeId?' active':''}" data-id="${p.id}">${p.vlabel}</button>`).join("");
-  }
+  // Size selection now happens via the gallery thumbnails (one photo per size);
+  // the old text-pill selector is retired, keeping only the "Size · X" label.
   const vsel = document.querySelector(".vsel");
   const vSecHeading = document.getElementById("vSecHeading");
   const vChips2El = document.getElementById("vChips2");
+  if (vSecHeading) vSecHeading.style.display = "none";
+  if (vChips2El) vChips2El.style.display = "none";
   if (siblings.length > 1) {
     if (vsel) vsel.style.display = "";
-    if (vSecHeading) vSecHeading.style.display = "";
-    if (vChips2El) vChips2El.style.display = "";
-    renderSizeChips("vChips", prod.id);
-    renderSizeChips("vChips2", prod.id);
     document.getElementById("vCurrent").textContent = "· " + prod.vlabel;
   } else {
     if (vsel) vsel.style.display = "none";
-    if (vSecHeading) vSecHeading.style.display = "none";
-    if (vChips2El) vChips2El.style.display = "none";
   }
 
   /* ---- size switch: update image + code + title + copy in place, no page reload ---- */
@@ -898,12 +878,12 @@
     document.getElementById("pIntro").textContent = newP.intro;
     document.getElementById("gMain").src = newGallery[0];
     document.getElementById("gMain").alt = newP.n;
-    document.getElementById("gMain").style.transform = "scale(" + sizeScaleFor(siblings, newP) + ")";
-    document.getElementById("gThumbs").innerHTML = newGallery.map((src, i) => `<div class="g-thumb${i===0?' active':''}" data-i="${i}"><img src="${src}" alt="${newP.n} view ${i+1}" loading="lazy"></div>`).join("");
+    document.getElementById("gThumbs").innerHTML = siblings.length > 1
+      ? siblings.map(s => `<div class="g-thumb${s.id===newP.id?' active':''}" data-vid="${s.id}"><img src="${s.img}" alt="${s.n} — ${s.vlabel}" loading="lazy"></div>`).join("")
+      : newGallery.map((src, i) => `<div class="g-thumb${i===0?' active':''}" data-i="${i}"><img src="${src}" alt="${newP.n} view ${i+1}" loading="lazy"></div>`).join("");
     const crumbCur = document.querySelector("#crumb .cur");
     if (crumbCur) crumbCur.textContent = newP.n;
     document.getElementById("vCurrent").textContent = "· " + newP.vlabel;
-    document.querySelectorAll(".vchip").forEach(c => c.classList.toggle("active", c.dataset.id === newP.id));
     wireEnq(document.getElementById("enqAddBtn"), newP, newGallery);
     wireEnq(document.getElementById("sEnq"), newP, newGallery);
     document.getElementById("buyNowBtn").dataset.name = newP.n;
@@ -923,12 +903,6 @@
     history.replaceState(null, "", "Product.html?p=" + encodeURIComponent(newP.id));
     currentId = newP.id;
   }
-  document.body.addEventListener("click", e => {
-    const c = e.target.closest(".vchip");
-    if (!c || !c.dataset.id || c.dataset.id === currentId) return;
-    const newP = BY_ID[c.dataset.id];
-    if (newP) applySizeVariant(newP);
-  });
 
   // hero highlight list = first 3 feature titles + a warranty line
   const hiItems = tpl.features.slice(0, 3).map(f => f[1]).concat([(specs.Warranty ? specs.Warranty + " warranty" : "Crystal assured quality")]);
@@ -989,9 +963,15 @@
   document.getElementById("bsBrandName").textContent = brand.name;
   document.getElementById("bsBrandBtn").href = "All-Products.html?brand=" + prod.b;
 
-  /* ---- gallery thumb switch ---- */
+  /* ---- gallery thumb switch (size-variant thumbs call applySizeVariant; plain photo thumbs just swap the main image) ---- */
   document.getElementById("gThumbs").addEventListener("click", e => {
     const t = e.target.closest(".g-thumb"); if (!t) return;
+    if (t.dataset.vid) {
+      if (t.dataset.vid === currentId) return;
+      const newP = BY_ID[t.dataset.vid];
+      if (newP) applySizeVariant(newP);
+      return;
+    }
     const i = +t.dataset.i;
     document.getElementById("gMain").src = gallery[i];
     document.querySelectorAll(".g-thumb").forEach(x => x.classList.toggle("active", x === t));
