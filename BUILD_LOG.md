@@ -179,3 +179,19 @@
 **Committed & pushed** to `main`.
 
 **Follow-up same day:** user wanted size-chip clicks to NOT do a full page navigation — only swap image/code/title in place on the same page load. Reworked `applySizeVariant()` in `renderProduct()`: chip click now directly updates `#gMain`/`#gThumbs` (new gallery), `#pTitle`, `#pSku`, `#crumb .cur`, `#vCurrent`, active chip class, and re-wires the Enquire/Buy buttons' `dataset` (id/name/img) to the new SKU — then calls `history.replaceState(null, "", "Product.html?p="+id)` so the URL/refresh/share-link stay correct without an actual navigation. `wireEnq(btn)` signature extended to `wireEnq(btn, p, gal)` (defaults to the initially-loaded `prod`/`gallery`) so it can be reused for both the initial render and each in-place variant swap. Overview/specs/features/related-products sections intentionally left untouched on swap (out of scope — data doesn't vary per size anyway). Verified via `beforeunload` listener + before/after DOM state that no real navigation occurs, and that image/code/title/breadcrumb/active-chip/enquire-button dataset all update correctly.
+
+## 2026-08-20 — Category page restructure, typography, and image gray-background fix
+
+**Task:** Multiple follow-up requests on the 46 category/sub-category listing pages and product photos.
+
+**Changes:**
+1. Moved "Browse / Product Grid" section to appear right after Hero (before Category Nav/Collections/Marquee/Brand Value/CTA) across all 46 listing pages — filter bar + products now visible immediately below the hero CTA buttons.
+2. Removed the hero-tiles image-preview strip (looked like cropped photos) and its JS population line.
+3. `.hero h1` font-size: `clamp(40px,7vw,92px)` → `clamp(40px,5.5vw,70px)`.
+4. `.sec-head h2` font-size: `clamp(32px,5.4vw,70px)` → `clamp(28px,4vw,50px)`.
+5. Added, then (per follow-up instruction) removed, 15 lifestyle banner images across 5 Cookware + 10 Kitchenware sub-pages — net no banners remain; `category-banners/` folder deleted.
+6. Fixed 107 product photos site-wide that had a light-gray (#f1f1f1-ish) studio-backdrop band baked into the image pixels (not a CSS issue) — used PIL flood-fill from all 4 corners (tolerance 18) to convert the connected gray background to pure white, leaving the product itself untouched. Verified on samples before running on the full affected set.
+
+**Verification:** Fresh-tab console checks on multiple pages (no new errors beyond pre-existing unrelated 404s), computed-style checks confirming font-size and section order, before/after image comparison on 3 sample photos before full rollout.
+
+**Committed & pushed** to `main`.
