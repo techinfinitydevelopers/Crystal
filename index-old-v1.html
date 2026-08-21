@@ -4,11 +4,11 @@
 <meta charset="UTF-8" />
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>CRYSTAL — Cook N Serve Products</title>
+<title>CRYSTAL — Social Media Agency</title>
 <script>document.documentElement.className += " js";</script>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
 <script src="image-slot.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
@@ -26,8 +26,8 @@
     --muted-d: #D5D5D5;
     --line: rgba(26,24,22,0.13);
     --line-d: rgba(213,213,213,0.18);
-    --head: "Inter", sans-serif;
-    --body: "Inter", sans-serif;
+    --head: "Space Grotesk", sans-serif;
+    --body: "DM Sans", sans-serif;
     --maxw: 1240px;
     --pad: clamp(18px, 5vw, 70px);
     --r: 20px;
@@ -39,7 +39,7 @@
   a { color: inherit; text-decoration: none; }
 
   .wrap { max-width: var(--maxw); margin: 0 auto; padding-inline: var(--pad); width: 100%; }
-  h1, h2, h3, h4 { font-family: var(--head); font-weight: 800; line-height: 0.98; letter-spacing: -0.025em; }
+  h1, h2, h3, h4 { font-family: var(--head); font-weight: 700; line-height: 0.98; letter-spacing: -0.02em; }
   .sec-dark { background: var(--ink-deep); color: var(--white); }
   .sec-cream { background: var(--cream); }
 
@@ -85,8 +85,8 @@
   .dd-menu a span { font-size: 12px; color: var(--muted); font-weight: 600; }
   .dd-menu a:hover span { color: rgba(255,255,255,0.72); }
   .mm-brands { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 18px; margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.16); }
-  .mobile-menu .mm-brands a { font-family: var(--body); font-weight: 600; text-transform: none; font-size: 16px; color: var(--muted-d); }
-  .mobile-menu .mm-brands a:hover { color: var(--red); }
+  .mm-brands a { font-family: var(--body); font-weight: 600; text-transform: none; font-size: 16px; color: var(--muted-d); }
+  .mm-brands a:hover { color: var(--red); }
     /* Products mega menu (nav) */
   .has-mega { position: static; }
   .has-mega:hover .dd-toggle .cv, .has-mega:focus-within .dd-toggle .cv { transform: rotate(180deg); }
@@ -146,10 +146,6 @@
 
   /* ===== Section scaffold ===== */
   section { position: relative; }
-  #about { z-index: 1; }
-  #works { z-index: 2; background: var(--white); }
-  #services { z-index: 3; }
-  #process { z-index: 4; }
   .sec { padding-block: clamp(60px, 9vw, 128px); }
   .sec-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 26px; flex-wrap: wrap; margin-bottom: clamp(30px, 5vw, 54px); }
   .sec-head h2 { font-size: clamp(34px, 6vw, 82px); text-transform: uppercase; }
@@ -157,18 +153,14 @@
   .sec-dark .sec-head .lead { color: var(--muted-d); }
 
   /* ===== WHO ===== */
-  .who-grid { display: grid; grid-template-columns: 1fr auto; gap: clamp(28px, 5vw, 64px); align-items: start; }
-  .who-statement { font-family: var(--head); font-weight: 500; font-size: clamp(19px, 2.3vw, 30px); line-height: 1.3; letter-spacing: -0.01em; }
-  .who-statement b { font-weight: 700; }
-  .who-statement b .word { background: var(--grad-red); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .who-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: clamp(28px, 5vw, 64px); align-items: center; }
+  .who-statement { font-family: var(--head); font-weight: 500; font-size: clamp(24px, 3.4vw, 46px); line-height: 1.12; letter-spacing: -0.015em; }
+  .who-statement b { font-weight: 700; background: var(--grad-red); -webkit-background-clip: text; background-clip: text; color: transparent; }
   .who-actions { margin-top: 30px; display: flex; gap: 16px; align-items: center; flex-wrap: wrap; font-weight: 600; }
   .who-actions .hi { color: var(--red); }
   .who-media { position: relative; }
-  .who-media .ph { position: relative; width: clamp(280px, 46vw, 540px); aspect-ratio: 1.35; border-radius: var(--r); overflow: hidden; border: 1.5px solid var(--line); background: var(--cream); }
-  @media (max-width: 960px) { .who-media .ph { width: 100%; height: auto; aspect-ratio: 1.35; } }
+  .who-media .ph { aspect-ratio: 4/5; border-radius: var(--r); overflow: hidden; border: 1.5px solid var(--line); }
   .who-media image-slot { width: 100%; height: 122%; margin-top: -11%; }
-  .who-media .ph .who-img-layer { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 68%; opacity: 0; transition: opacity 0.7s ease; }
-  .who-media .ph .who-img-layer.active { opacity: 1; z-index: 2; }
   .who-media .tag { position: absolute; bottom: -14px; left: -14px; background: var(--grad-red); color: #fff; font-family: var(--head); font-weight: 700; text-transform: uppercase; font-size: 13px; padding: 12px 18px; border-radius: 100px; transform: rotate(-4deg); box-shadow: 0 12px 26px -12px rgba(237,51,56,0.7); }
 
   /* ===== WORKS (stacking cards) ===== */
@@ -211,7 +203,6 @@
   @media (max-width: 860px) {
     .svc-item { opacity: 1; margin-bottom: 56px; grid-template-columns: 1fr; }
     .svc-stage { height: auto !important; }
-    .svc-prog { display: none; }
   }
 
   /* ===== MARQUEE ===== */
@@ -235,18 +226,14 @@
   .ms-row { display: flex; flex-direction: column; gap: clamp(22px, 3.5vw, 46px); position: relative; z-index: 1; }
   .ms { display: grid; grid-template-columns: 23px 1fr; gap: clamp(20px, 3vw, 42px); align-items: start; }
   .ms-dot { width: 23px; height: 23px; border-radius: 50%; background: #fff; border: 3px solid var(--red); box-shadow: 0 0 0 6px rgba(237,51,56,0.10); margin-top: 10px; z-index: 3; }
-  .ms-card { display: grid; grid-template-columns: clamp(160px, 20vw, 240px) 1fr; align-items: stretch; background: var(--white); border: 1.5px solid var(--line); border-radius: var(--enp-r-xl, 24px); padding: 0; overflow: hidden; box-shadow: 0 26px 54px -34px rgba(15,15,15,0.4); transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s; }
+  .ms-card { display: grid; grid-template-columns: minmax(150px, 28%) 1fr; gap: clamp(20px, 3.4vw, 48px); align-items: center; background: var(--white); border: 1.5px solid var(--line); border-radius: var(--enp-r-xl, 24px); padding: clamp(24px, 3vw, 40px); box-shadow: 0 26px 54px -34px rgba(15,15,15,0.4); transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s; }
   .ms:hover .ms-card { transform: translateY(-6px); box-shadow: 0 36px 64px -34px rgba(237,51,56,0.34); }
-  .ms-photo { position: relative; min-height: 180px; }
-  .ms-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
-  .ms-photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(15,15,15,0.02), rgba(15,15,15,0.28)); }
-  .ms-idx-badge { position: absolute; top: 14px; left: 14px; z-index: 2; font-family: var(--head); font-weight: 700; font-size: 13px; color: #fff; background: rgba(15,15,15,0.55); backdrop-filter: blur(6px); padding: 5px 12px; border-radius: 100px; letter-spacing: 0.02em; }
-  .ms-body { display: grid; grid-template-columns: minmax(70px, 88px) 1fr; gap: clamp(18px, 3vw, 36px); align-items: center; padding: clamp(22px, 2.8vw, 36px); }
+  .ms-idx { display: block; font-family: var(--head); font-weight: 700; font-size: clamp(34px, 4vw, 52px); line-height: 0.9; color: rgba(26,24,22,0.10); letter-spacing: -0.03em; margin-bottom: 6px; }
   .ms-ic { width: 52px; height: 52px; border-radius: 15px; display: grid; place-items: center; background: rgba(237,51,56,0.10); margin-bottom: 16px; }
-  .ms-metric { font-family: var(--head); font-weight: 700; font-size: clamp(26px, 3vw, 40px); line-height: 1.02; overflow-wrap: break-word; background: var(--grad-red); -webkit-background-clip: text; background-clip: text; color: transparent; letter-spacing: -0.02em; }
+  .ms-metric { font-family: var(--head); font-weight: 700; font-size: clamp(26px, 3vw, 42px); line-height: 1.02; overflow-wrap: break-word; background: var(--grad-red); -webkit-background-clip: text; background-clip: text; color: transparent; letter-spacing: -0.02em; }
   .ms h4 { font-family: var(--head); font-weight: 700; text-transform: uppercase; font-size: 20px; margin-bottom: 8px; letter-spacing: -0.01em; }
   .ms p { color: var(--muted); font-size: 15px; line-height: 1.55; max-width: 460px; }
-  @media (max-width: 640px) { .ms-card { grid-template-columns: 1fr; } .ms-photo { min-height: 160px; } .ms-body { grid-template-columns: 1fr; gap: 10px; } .ms-metric { font-size: clamp(34px, 10vw, 46px); } }
+  @media (max-width: 640px) { .ms-card { grid-template-columns: 1fr; gap: 14px; } .ms-metric { font-size: clamp(34px, 10vw, 46px); } }
 
   /* ===== INFRASTRUCTURE — stat tiles ===== */
   .infra-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-top: 44px; }
@@ -279,7 +266,7 @@
   .tst-track { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
   .tst-card { background: var(--white); border: 1.5px solid var(--line); border-radius: var(--r); padding: 26px; transition: transform .3s, box-shadow .3s; }
   @media (max-width: 860px) { .tst-track { grid-template-columns: 1fr 1fr; } }
-  @media (max-width: 560px) { .tst-track { grid-template-columns: 1fr; } }
+  @media (max-width: 560px) { .tst-track { grid-template-columns: 1fr; } }s, box-shadow .3s; }
   .tst-card:hover { transform: translateY(-8px); box-shadow: 0 26px 50px -30px rgba(0,0,0,0.35); }
   .tst-card .ph { aspect-ratio: 16/10; border-radius: 14px; overflow: hidden; margin-bottom: 18px; }
   .tst-card .ph image-slot { width: 100%; height: 100%; }
@@ -325,28 +312,12 @@
     background-position: var(--wavex) calc(100% - var(--level) - 8px), var(--wavex2) calc(100% - var(--level) - 12px), left bottom; }
   .foot-bottom { padding-top: 24px; border-top: 1.5px solid var(--line-d); display: flex; justify-content: space-between; gap: 14px; flex-wrap: wrap; color: var(--muted-d); font-size: 14px; }
 
-  /* ===== SEARCH OVERLAY ===== */
-  .search-ov { position: fixed; inset: 0; z-index: 110; background: rgba(15,15,15,0.55); backdrop-filter: blur(6px); display: none; align-items: flex-start; justify-content: center; padding: clamp(60px, 12vh, 140px) 20px; }
-  .search-ov.open { display: flex; }
-  .search-panel { width: min(640px, 100%); background: var(--white); border-radius: 20px; box-shadow: 0 40px 90px -30px rgba(0,0,0,0.55); overflow: hidden; }
-  .search-row { display: flex; align-items: center; gap: 12px; padding: 18px 22px; border-bottom: 1px solid var(--line); color: var(--muted); }
-  .search-row input { flex: 1; border: none; outline: none; font-size: 17px; font-family: inherit; background: transparent; color: var(--ink); }
-  .search-row button { border: none; background: transparent; font-size: 26px; line-height: 1; color: var(--muted); cursor: pointer; padding: 0 4px; }
-  .search-row button:hover { color: var(--red); }
-  .search-results { max-height: min(60vh, 480px); overflow-y: auto; }
-  .search-hit { display: flex; align-items: center; gap: 14px; padding: 12px 22px; text-decoration: none; color: var(--ink); transition: background .15s; }
-  .search-hit:hover { background: var(--cream); }
-  .search-hit img { width: 46px; height: 46px; border-radius: 10px; object-fit: cover; background: var(--cream); flex-shrink: 0; }
-  .search-hit .sh-name { font-weight: 600; font-size: 14.5px; }
-  .search-hit .sh-cat { font-size: 12.5px; color: var(--muted); text-transform: capitalize; }
-  .search-empty, .search-hint { padding: 26px 22px; color: var(--muted); font-size: 14.5px; text-align: center; }
-
   /* ===== MOBILE MENU ===== */
   .mobile-menu { position: fixed; inset: 0; z-index: 101; background: var(--ink); color: #fff; transform: translateY(-100%); transition: transform .45s cubic-bezier(.2,.8,.2,1); display: flex; flex-direction: column; justify-content: center; padding: var(--pad); }
   .mobile-menu.open { transform: none; }
   .mobile-menu ul { list-style: none; display: grid; gap: 6px; }
-  .mobile-menu a, .mobile-menu .mm-acc-tog { font-family: var(--head); font-weight: 700; text-transform: uppercase; font-size: clamp(34px, 11vw, 60px); width: 100%; text-align: left; }
-  .mobile-menu a:hover, .mobile-menu .mm-acc-tog:hover { color: var(--red); }
+  .mobile-menu a { font-family: var(--head); font-weight: 700; text-transform: uppercase; font-size: clamp(34px, 11vw, 60px); }
+  .mobile-menu a:hover { color: var(--red); }
   .mm-close { position: absolute; top: 24px; right: var(--pad); background: var(--grad-red); color: #fff; border: none; width: 50px; height: 50px; border-radius: 50%; font-size: 26px; cursor: pointer; }
 
   /* ===== RESPONSIVE ===== */
@@ -400,9 +371,7 @@
   @media (max-height: 820px) { .scroll-hint { display: none; } }
   @media (max-width: 820px) { .cta { background-attachment: scroll; } }
   /* Crystal content helpers */
-  .hero-bg video { width: 100%; height: 100%; object-fit: cover; animation: heroKenBurns 18s ease-in-out infinite alternate; transform-origin: center; }
-  @keyframes heroKenBurns { 0% { transform: scale(1); } 100% { transform: scale(1.12); } }
-  @media (prefers-reduced-motion: reduce) { .hero-bg video { animation: none; } }
+  .hero-bg video { width: 100%; height: 100%; object-fit: cover; }
   .why-logo-chip { background: #fff; border-radius: 14px; width: 132px; height: 62px; display: grid; place-items: center; padding: 10px 16px; box-shadow: 0 8px 22px -14px rgba(0,0,0,0.5); }
   .why-logo-chip img { max-height: 36px; max-width: 100%; width: auto; object-fit: contain; display: block; }
   .tst-card .date { color: var(--muted); font-size: 13px; font-weight: 600; margin-bottom: 12px; }
@@ -438,82 +407,7 @@
   .twk-sw button { width: 30px; height: 30px; border-radius: 50%; border: 2px solid transparent; cursor: pointer; padding: 0; box-shadow: inset 0 0 0 1.5px rgba(255,255,255,0.65); transition: transform .2s; }
   .twk-sw button:hover { transform: scale(1.08); }
   .twk-sw button.on { border-color: #1A1A1A; }
-
-  /* ================================================================
-     ===== V2 — MODERN FACELIFT (visual refinements only) ===========
-     Same sections/data/JS as v1 — refined type scale, glass surfaces,
-     softer colored shadows, cleaner cards, premium spacing.
-     ================================================================ */
-  html { scroll-behavior: smooth; }
-  body { letter-spacing: -0.003em; }
-  h1, h2, h3, h4 { letter-spacing: -0.03em; }
-  .eyebrow { padding: 6px 14px 6px 10px; border-radius: 100px; background: rgba(237,51,56,0.08); }
-
-  /* buttons: softer, more premium */
-  .btn { border-radius: 100px; font-size: 14.5px; padding: 16px 28px; }
-  .btn-red { box-shadow: 0 14px 32px -16px rgba(237,51,56,0.55); }
-
-  /* HERO v2 — trust strip under the CTA row */
-  .hero-trust { display: flex; justify-content: center; gap: clamp(18px,3vw,40px); flex-wrap: wrap; margin-top: 40px; padding-top: 28px; border-top: 1px solid rgba(26,24,22,0.1); }
-  .hero-trust .ht-item { text-align: center; }
-  .hero-trust .ht-num { font-family: var(--head); font-weight: 700; font-size: clamp(20px,2.4vw,30px); background: var(--grad-red); -webkit-background-clip: text; background-clip: text; color: transparent; line-height: 1; }
-  .hero-trust .ht-lbl { font-size: 12px; font-weight: 600; color: var(--muted); margin-top: 6px; letter-spacing: 0.02em; }
-  body.t-noir .hero-trust { border-color: rgba(255,255,255,0.12); }
-  body.t-noir .hero-trust .ht-lbl { color: var(--muted-d); }
-  @media (max-width: 600px) { .hero-trust { margin-top: 28px; padding-top: 20px; gap: 22px; } }
-
-  /* ABOUT v2 — inline stat row beneath the statement */
-  .about-stats { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; margin-top: 34px; padding-top: 30px; border-top: 1px solid var(--line); }
-  .about-stats .as-num { font-family: var(--head); font-weight: 700; font-size: clamp(24px,2.6vw,36px); line-height: 1; }
-  .about-stats .as-lbl { font-size: 12.5px; color: var(--muted); font-weight: 600; margin-top: 6px; }
-  @media (max-width: 640px) { .about-stats { grid-template-columns: repeat(2,1fr); row-gap: 22px; } }
-  .who-media .ph { border-radius: 28px; box-shadow: 0 40px 80px -40px rgba(15,15,15,0.45); }
-
-  /* WORKS v2 — softer stacked cards, refined chip */
-  .work-card { border-radius: 28px; box-shadow: 0 36px 80px -36px rgba(15,15,15,0.5); }
-  .wc-tag { background: rgba(255,255,255,0.16); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.28); }
-
-  /* MADE IN INDIA v2 — dot-grid backdrop + glass cards */
-  #process { position: relative; background-image: radial-gradient(rgba(26,24,22,0.09) 1px, transparent 1px); background-size: 22px 22px; }
-  .ms-card { border-radius: 26px; background: rgba(255,255,255,0.86); backdrop-filter: blur(6px); }
-  .ms-dot { box-shadow: 0 0 0 8px rgba(237,51,56,0.08); }
-
-  /* INFRA v2 */
-  .infra-card { border-radius: 26px; border-color: rgba(26,24,22,0.08); }
-  .infra-card:hover { border-color: rgba(237,51,56,0.3); }
-
-  /* TRUSTED v2 — fade the marquee edges for a seamless loop */
-  .logos-wrap { -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
-  .lg-plate img { filter: grayscale(1); opacity: 0.6; transition: filter .3s, opacity .3s; }
-  .lg-plate:hover img { filter: grayscale(0); opacity: 1; }
-
-  /* BRANDS (why) v2 — glass cards, gradient ring on hover */
-  /* perspective parent must stay overflow:visible and untransformed, or the
-     3D context gets flattened/clipped and the back face never shows */
-  .why-card { border-radius: 26px; position: relative; overflow: visible; perspective: 1200px; padding: 0; border: none; background: none !important; transition: none; }
-  .why-card::after { content: none; }
-  .why-card:hover { transform: none; }
-  .why-flip { position: relative; width: 100%; height: 100%; min-height: 264px; transition: transform .7s cubic-bezier(.4,.2,.2,1); transform-style: preserve-3d; }
-  .why-card:hover .why-flip, .why-card.flipped .why-flip { transform: rotateY(180deg); }
-  .why-face { position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; border-radius: 26px; overflow: hidden; border: 1.5px solid var(--line-d); padding: 28px 24px 32px; display: flex; flex-direction: column; justify-content: space-between; gap: 18px; }
-  .why-face.why-back { transform: rotateY(180deg); padding: 0; border-color: rgba(237,51,56,.5); }
-  .why-face.why-back img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .why-face.why-back .why-back-label { position: absolute; left: 0; right: 0; bottom: 0; padding: 16px 20px; background: linear-gradient(180deg, transparent, rgba(0,0,0,.65)); color: #fff; font-family: var(--head); font-weight: 700; text-transform: uppercase; font-size: 16px; }
-
-  /* BLOG v2 */
-  .tst-card { border-radius: 24px; }
-  .tst-card .ph { border-radius: 18px; }
-
-  /* CTA v2 — bigger, cleaner */
-  .cta h2 { line-height: 0.94; }
-
-  /* FOOTER v2 */
-  .foot-col a, .foot-brand, .foot-cta { position: relative; }
-  footer { border-top-left-radius: 32px; border-top-right-radius: 32px; }
-
-  /* ================================================================
-     ===== V2 HERO/HEADER — edge-to-edge, reference-matched layout ==
-     ================================================================ */
+  /* ===== UNIFIED HEADER (support bar / icon nav) ===== */
   .support-bar { position: fixed; top: 0; left: 0; right: 0; z-index: 102; background: var(--grad-red); color: #fff; text-align: center; font-size: 13px; font-weight: 600; letter-spacing: 0.02em; padding: 9px 16px; }
   header { position: fixed; inset: 38px 0 auto 0; z-index: 100; }
   .icon-btn { display: inline-flex; align-items: center; gap: 6px; color: var(--ink); width: auto; height: auto; padding: 8px; border-radius: 50%; transition: background .2s, color .2s; }
@@ -525,60 +419,25 @@
   .btn-outline:hover { background: var(--ink); color: #fff; transform: translateY(-2px); }
   .nav-right > a, .nav-right > button { white-space: nowrap; flex-shrink: 0; }
   .nav-right { flex: none; margin-left: auto; }
-  .btn-black { background: #111; color: #fff; text-transform: uppercase; font-size: 13px; letter-spacing: 0.04em; padding: 17px 32px; }
-  .btn-black:hover { background: var(--red); transform: translateY(-3px) scale(1.02); }
-
-  .hero-v2 { min-height: 100svh; padding-top: 150px; padding-bottom: 90px; align-items: center; }
-  .hero-v2 .hero-bg { inset: 0; height: 100%; }
-  .hero-v2 .hero-bg::after { background: linear-gradient(0deg, rgba(0,0,0,0.42) 0%, rgba(0,0,0,0.18) 45%, rgba(0,0,0,0.12) 100%); }
-  .hero-v2 .wrap { text-align: center; max-width: 980px; margin: 0 auto; transform: translateY(100px); }
-  .hero-v2 .hero-v2-h1 { font-family: var(--head); font-weight: 600; text-transform: none; letter-spacing: -0.01em; font-size: clamp(18px, 1.8vw, 26px); line-height: 1.4; color: #fff; max-width: 42ch; margin: 0 auto; text-shadow: 0 2px 10px rgba(0,0,0,0.55); }
-  .hero-v2 .hero-v2-h1 .hi-red { color: #ff5a5f; font-weight: 700; }
-  .hero-v2 .hero-cta { justify-content: center; margin-top: 30px; }
-  .hero-v2 .scroll-hint { display: none; }
-
-  .wa-float { position: fixed; right: 22px; bottom: 22px; z-index: 90; width: 58px; height: 58px; border-radius: 50%; background: #25D366; display: grid; place-items: center; box-shadow: 0 14px 30px -12px rgba(37,211,102,0.6); transition: transform .25s; }
-  .wa-float:hover { transform: scale(1.08); }
-
   @media (max-width: 960px) {
     .nav-right .icon-btn, .nav-right .enq-inline, .nav-right .btn-outline { display: none !important; }
     .support-bar { font-size: 11.5px; padding: 7px 10px; }
     header { inset: 32px 0 auto 0; }
-    .hero-v2 { padding-top: 120px; }
-    .hero-v2 .wrap { margin-inline: var(--pad); max-width: none; }
-    .hero-v2 .hero-v2-h1 { max-width: none; font-size: clamp(20px, 5vw, 28px); }
-    .wa-float { width: 50px; height: 50px; right: 14px; bottom: 14px; }
   }
   @media (max-width: 480px) {
     .support-bar { font-size: 10.5px; }
-    .hero-v2 .hero-v2-h1 { font-size: clamp(18px, 6vw, 24px); }
-    .btn-black { padding: 14px 24px; font-size: 12px; }
-  }
-  /* Nav overflow-relief zone: between the 960px burger breakpoint and ~1200px the
-     full-width nav (5 text links + icons + Contact Us) doesn't fit and was squashing
-     the logo to 0 width (and wrapping "Knowledge Centre" to 2 lines). Extend the
-     compact/burger nav through this gap instead of letting it squeeze. Scoped to
-     header-only selectors so it doesn't touch the shared max-width:960px block that
-     other sections rely on. */
-  @media (max-width: 1200px) and (min-width: 961px) {
-    .nav-links { display: none; }
-    .nav-right .icon-btn, .nav-right .enq-inline, .nav-right .btn-outline { display: none !important; }
-    .burger { display: flex; }
   }
 </style>
+
 </head>
 <body>
 
-<!-- ===== SUPPORT BAR ===== -->
-<div class="support-bar">Customer Support - 022-49702803/06</div>
-
 <!-- ===== HEADER ===== -->
+<div class="support-bar">Customer Support - 022-49702803/06</div>
 <header id="hdr">
   <div class="wrap">
     <div class="nav">
-      <a href="#top" class="logo">
-        <img src="logo.png" alt="CRYSTAL — Cook N Serve Products Pvt Ltd." style="height:44px;width:auto;display:block;">
-      </a>
+      <a href="#top" class="logo"><img src="logo.png" alt="CRYSTAL" style="height:44px;width:auto;display:block;"></a>
       <ul class="nav-links">
         <li><a href="About.html">About</a></li>
                 <li class="has-mega">
@@ -666,17 +525,6 @@
   </div>
 </header>
 
-<div class="search-ov" id="searchOv">
-  <div class="search-panel">
-    <div class="search-row">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
-      <input type="text" id="searchInput" placeholder="Search products, categories, brands…" autocomplete="off">
-      <button id="searchClose" aria-label="Close search">&times;</button>
-    </div>
-    <div class="search-results" id="searchResults"></div>
-  </div>
-</div>
-
 <div class="mobile-menu" id="mobileMenu">
   <button class="mm-close" id="mmClose" aria-label="Close">&times;</button>
   <ul>
@@ -748,43 +596,43 @@
 <span id="top"></span>
 
 <!-- ===== 01 HERO ===== -->
-<section class="hero hero-v2" id="hero">
+<section class="hero" id="hero">
   <div class="hero-bg" data-hero-bg><video autoplay muted loop playsinline poster="https://proj.leo9studio.in/projects/crystal-wp/wp-content/uploads/2026/04/3-1.jpg"><source src="https://proj.leo9studio.in/projects/crystal-wp/wp-content/uploads/2026/05/AV-FILM.mp4" type="video/mp4"></video></div>
+  <span class="float f1 anim-float float-prod" style="width:112px;height:132px;border-radius:26px">
+    <image-slot id="float-1" src="https://proj.leo9studio.in/projects/crystal-wp/wp-content/uploads/2026/04/3-1.jpg" placeholder="Product" fit="cover"></image-slot>
+  </span>
+  <span class="float f2 anim-float d float-prod round" style="width:104px;height:104px">
+    <image-slot id="float-2" src="https://proj.leo9studio.in/projects/crystal-wp/wp-content/uploads/2026/04/6.jpg" placeholder="Product" fit="cover"></image-slot>
+  </span>
+  <span class="float f3 anim-float float-prod round" style="width:86px;height:86px">
+    <image-slot id="float-3" src="https://proj.leo9studio.in/projects/crystal-wp/wp-content/uploads/2026/04/4-2.jpg" placeholder="Product" fit="cover"></image-slot>
+  </span>
   <div class="wrap">
-    <h1 class="hero-v2-h1" data-split>Simplifying daily chores, adding pride to every home <span class="hi-red">Since 1971</span></h1>
+    <div class="pre" data-fade>Crystal · Since 1971</div>
+    <h1 data-split>SIMPLIFYING <span class="grad">DAILY&nbsp;CHORES</span></h1>
+    <h1 data-split>ADDING PRIDE TO EVERY HOME</h1>
+    <p class="hero-sub" data-fade>From cooking to serving to cleaning — making everyday living effortless, elegant &amp; extraordinary, with a wide &amp; reliable range trusted by homes and retailers alike.</p>
     <div class="hero-cta" data-fade>
       <a href="#cta" class="btn btn-red">Get in Touch <span class="arr">↗</span></a>
-      <a href="All-Products.html" class="btn btn-black">Explore Products</a>
+      <a href="#works" class="btn btn-dark">Explore Products</a>
     </div>
   </div>
+  <div class="scroll-hint"><span>Scroll</span><span class="ln"></span></div>
 </section>
-
-<a class="wa-float" href="https://wa.me/912249702803" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
-  <svg viewBox="0 0 32 32" width="30" height="30" fill="#fff"><path d="M16 3C9 3 3.3 8.6 3.3 15.5c0 2.4.7 4.7 1.9 6.7L3 29l7-2.1c1.9 1 4 1.6 6 1.6 7 0 12.7-5.6 12.7-12.5S23 3 16 3zm0 22.7c-1.9 0-3.7-.5-5.3-1.4l-.4-.2-4.2 1.3 1.3-4.1-.3-.4a10.3 10.3 0 0 1-1.7-5.6C5.4 9.7 10.2 5 16 5s10.6 4.7 10.6 10.5S21.8 25.7 16 25.7zm5.8-7.9c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-.9 1.2-.3.2-.6 0a8.6 8.6 0 0 1-2.5-1.6 9.5 9.5 0 0 1-1.7-2.2c-.2-.3 0-.5.1-.6l.5-.5c.2-.2.2-.3.3-.5s0-.4 0-.5-.7-1.7-1-2.3-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.2 3.4 5.3 4.7.7.3 1.3.5 1.8.7.7.2 1.4.2 1.9.1.6-.1 1.9-.8 2.1-1.5s.3-1.4.2-1.5z"/></svg>
-</a>
 
 <!-- ===== 02 WHO WE ARE ===== -->
 <section class="sec wrap" id="about">
   <div class="who-grid">
     <div>
       <span class="eyebrow" data-fade><span class="pip"></span>About Us</span>
-      <p class="who-statement" data-lines style="margin-top:22px">From cooking to serving to cleaning — making everyday living <b>effortless, elegant &amp; extraordinary,</b> with a wide &amp; reliable range trusted by homes and retailers alike.</p>
+      <p class="who-statement" data-lines style="margin-top:22px">Half a century of trust, a lifetime of <b>home pride.</b> Crystal brings together smart designs, durable material and everyday practicality to enhance every corner of your home.</p>
       <div class="who-actions" data-fade>
         <a href="#cta" class="btn btn-dark">Know More <span class="arr">↗</span></a>
         <span>trusted by homes <span class="hi">since 1971</span></span>
       </div>
-      <div class="about-stats" data-fade>
-        <div><div class="as-num"><span data-count="50">0</span>+</div><div class="as-lbl">Years of Experience</div></div>
-        <div><div class="as-num"><span data-count="2000">0</span>+</div><div class="as-lbl">Employees</div></div>
-        <div><div class="as-num"><span data-count="1000">0</span>+</div><div class="as-lbl">Products</div></div>
-        <div><div class="as-num"><span data-count="1000">0</span>+</div><div class="as-lbl">Satisfied Customers</div></div>
-      </div>
     </div>
     <div class="who-media" data-img-right>
-      <div class="ph">
-        <img id="who-img-a" class="who-img-layer active" src="about-assets/about-4-cookware-set.webp" alt="Crystal product">
-        <img id="who-img-b" class="who-img-layer" src="about-assets/about-4-cookware-set.webp" alt="Crystal product">
-      </div>
+      <div class="ph"><image-slot id="who-img" src="about-assets/about-us-crystal-range.png" placeholder="Drop image" fit="cover"></image-slot></div>
       <span class="tag">since 1971</span>
     </div>
   </div>
@@ -989,9 +837,9 @@
     </article>`).join("");
 
   const services = [
-    { t: "Cookware", d: "Tri-ply, cast iron, non-stick and hard anodised — engineered to last a lifetime of cooking.", s: ["Tri-Pro","Cast Iron","Non-Stick","Hard Anodised"], img: "about-assets/svc-cookware.jpeg" },
-    { t: "Kitchenware", d: "Everyday tools that make prep effortless — from blade to board to table.", s: ["Knives & Peelers","Chopping Boards","Cutlery & Servers","Kitchen Tools"], img: "about-assets/svc-kitchenware.jpeg" },
-    { t: "Cleaning Aid", d: "Smart cleaning essentials for a sparkling, effortless home.", s: ["Spin Mops","Brooms & Dust Pans","Wipers & Brushes","Scrubbers & Bins"], img: "about-assets/svc-cleaning-aid.jpeg" },
+    { t: "Cookware", d: "Tri-ply, cast iron, non-stick and hard anodised — engineered to last a lifetime of cooking.", s: ["Tri-Pro","Cast Iron","Non-Stick","Hard Anodised"], img: "2026/05/CTV-097.jpg" },
+    { t: "Kitchenware", d: "Everyday tools that make prep effortless — from blade to board to table.", s: ["Knives & Peelers","Chopping Boards","Cutlery & Servers","Kitchen Tools"], img: "2026/01/Crystal-5-Pcs-Knife-Set.jpg" },
+    { t: "Cleaning Aid", d: "Smart cleaning essentials for a sparkling, effortless home.", s: ["Spin Mops","Brooms & Dust Pans","Wipers & Brushes","Scrubbers & Bins"], img: "2026/05/SMM013-1024x1024.jpg" },
     { t: "Electric Appliances", d: "Modern appliances built for the modern Indian kitchen.", s: ["Chimney & Cooktop","Kettle & Iron","Air Fryer & OTG","Rice Cooker & JMG"], img: "2026/04/8.jpg" },
     { t: "Everyday Essentials", d: "Reliable cooking and storage companions for daily living.", s: ["Pressure Cookers","Water Bottles","Lunch Boxes","Wood Range"], img: "2026/04/CPC_023.jpg" },
   ];
@@ -1003,21 +851,19 @@
         <p class="desc">${s.d}</p>
         <ul class="svc-steps">${s.s.map((x,j)=>`<li class="sub-item"><span class="n">0${j+1}</span> ${x}</li>`).join("")}</ul>
       </div>
-      <div class="svc-media"><image-slot id="svc-${i}" src="${localImg(s.img)}" placeholder="Image" fit="cover"></image-slot></div>
+      <div class="svc-media"><image-slot id="svc-${i}" src="${U}${s.img}" placeholder="Image" fit="cover"></image-slot></div>
     </div>`).join("");
   document.getElementById("svcProg").textContent = "01 / 0" + services.length;
 
   const procIcons = [
-    '<svg viewBox="0 0 48 48" width="30" height="30" fill="none" stroke="#ED3338" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"><path d="M10 43V10l14-5 14 5v33"/><path d="M10 43h28M18 20h4M26 20h4M18 28h4M26 28h4M21 43v-9h6v9"/></svg>',
-    '<svg viewBox="0 0 48 48" width="30" height="30" fill="none" stroke="#ED3338" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"><path d="M6 43V21l8-8 8 8v22M22 21l8-8 8 8v22"/><path d="M6 43h36M12 30h.02M28 30h.02"/></svg>',
-    '<svg viewBox="0 0 48 48" width="30" height="30" fill="none" stroke="#ED3338" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"><path d="M8 20v20h32V20M6 12h36l3 8H3z"/><path d="M17 40v-9h14v9"/></svg>',
-    '<svg viewBox="0 0 48 48" width="30" height="30" fill="none" stroke="#ED3338" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"><path d="M8 18h32v22H8zM8 18l3-9h26l3 9"/><path d="M18 40v-9a6 6 0 0 1 12 0v9"/></svg>',
+    '<svg viewBox="0 0 48 48" width="30" height="30" fill="none" stroke="#ED3338" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"><path d="M24 5c7.5 6.5 13 11.5 13 19.5A13 13 0 0 1 11 24.5C11 16.5 16.5 11.5 24 5z"/><circle cx="24" cy="24" r="5" fill="#ED3338" stroke="none"/></svg>',
+    '<svg viewBox="0 0 48 48" width="30" height="30" fill="none" stroke="#ED3338" stroke-width="3" stroke-linecap="round"><circle cx="24" cy="9" r="4.2"/><circle cx="10" cy="36" r="4.2"/><circle cx="38" cy="36" r="4.2"/><path d="M22 12.5 12 32.5M26 12.5 36 32.5M14.5 36h19"/></svg>',
+    '<svg viewBox="0 0 48 48" width="30" height="30" fill="none" stroke="#ED3338" stroke-width="3"><circle cx="24" cy="24" r="17"/><path d="M7 24h34M24 7c5 5 7.5 11 7.5 17S29 36 24 41c-5-5-7.5-11-7.5-17S19 12 24 7z"/></svg>',
   ];
   const proc = [
-    { m: "03", t: "Offices", d: "Corporate offices driving operations across India.", img: "about-assets/Office.jpg" },
-    { m: "03", t: "Factories", d: "In-house manufacturing units in Gujarat.", img: "about-assets/Factories.jpg" },
-    { m: "05", t: "Warehouses", d: "Distribution warehouses supplying the country.", img: "about-assets/Warehouse.jpg" },
-    { m: "1000+", t: "Outlets", d: "Retail outlets stocking Crystal products nationwide.", img: "about-assets/Outlets.jpg" },
+    { m: "1971", t: "Made in India", d: "Designed &amp; manufactured in our own Gujarat facilities." },
+    { m: "1000", t: "Pan-India Reach", d: "Available in retail outlets right across the country." },
+    { m: "Worldwide", t: "Global Presence", d: "Now trusted in homes across multiple countries." },
   ];
   document.getElementById("procGrid").innerHTML =
     '<div class="rail"><span class="rail-fill"></span></div><div class="ms-row">' +
@@ -1025,17 +871,14 @@
       <article class="ms" data-proc>
         <span class="ms-dot"></span>
         <div class="ms-card">
-          <div class="ms-photo">
-            <img src="${localImg(p.img)}" alt="${p.t}" loading="lazy">
-            <span class="ms-idx-badge">0${i+1}</span>
-          </div>
-          <div class="ms-body">
+          <div class="ms-left">
+            <span class="ms-idx">0${i+1}</span>
             <div class="ms-metric">${p.m}</div>
-            <div class="ms-right">
-              <span class="ms-ic proc-icon">${procIcons[i]}</span>
-              <h4>${p.t}</h4>
-              <p>${p.d}</p>
-            </div>
+          </div>
+          <div class="ms-right">
+            <span class="ms-ic proc-icon">${procIcons[i]}</span>
+            <h4>${p.t}</h4>
+            <p>${p.d}</p>
           </div>
         </div>
       </article>`).join("") + '</div>';
@@ -1050,28 +893,17 @@
     '<svg viewBox="0 0 60 60" width="54" height="54"><path d="M32 6L14 34h12l-4 20 20-30H30z" fill="#fff" stroke="#ED3338" stroke-width="3" stroke-linejoin="round"/></svg>',
   ];
   const why = [
-    { t: "Crystal", d: "World of Kitchenware", logo: "2026/01/company1.svg", bg: "var(--grad-red)", fg: "#fff", img: "brand-images/crystal.webp" },
-    { t: "Crystalina", d: "Splendid Finish", logo: "2026/01/company3.svg", bg: "var(--ink-soft)", img: "brand-images/crystalina.webp" },
-    { t: "SparkMate", d: "Cleaning Simplified", logo: "2026/01/company2.svg", bg: "var(--ink-soft)", img: "brand-images/sparkmate.webp" },
-    { t: "ValMate", d: "Value for Money", logo: "2026/01/company4.svg", bg: "var(--grad-red)", fg: "#fff", img: "brand-images/valmate.png" },
+    { t: "Crystal", d: "World of Kitchenware", logo: "2026/01/company1.svg", bg: "var(--grad-red)", fg: "#fff" },
+    { t: "Crystalina", d: "Splendid Finish", logo: "2026/01/company3.svg", bg: "var(--ink-soft)" },
+    { t: "SparkMate", d: "Cleaning Simplified", logo: "2026/01/company2.svg", bg: "var(--ink-soft)" },
+    { t: "ValMate", d: "Value for Money", logo: "2026/01/company4.svg", bg: "var(--grad-red)", fg: "#fff" },
   ];
   document.getElementById("whyGrid").innerHTML = why.map((w, i) => `
-    <div class="why-card" data-why>
-      <div class="why-flip">
-        <div class="why-face why-front" style="background:${w.bg};${w.fg?'color:'+w.fg:''}">
-          <span class="wn" ${w.fg?'style=\"color:#fff\"':''}>0${i+1}</span>
-          <div class="why-logo-chip why-icon"><img src="${U}${w.logo}" alt="${w.t}"></div>
-          <div><h4>${w.t}</h4><p ${w.fg?'style=\"color:rgba(255,255,255,.85)\"':''}>${w.d}</p></div>
-        </div>
-        <div class="why-face why-back">
-          <img src="${w.img}" alt="${w.t}">
-          <span class="why-back-label">${w.t}</span>
-        </div>
-      </div>
+    <div class="why-card" data-why style="background:${w.bg};${w.fg?'color:'+w.fg:''}">
+      <span class="wn" ${w.fg?'style=\"color:#fff\"':''}>0${i+1}</span>
+      <div class="why-logo-chip why-icon"><img src="${U}${w.logo}" alt="${w.t}"></div>
+      <div><h4>${w.t}</h4><p ${w.fg?'style=\"color:rgba(255,255,255,.85)\"':''}>${w.d}</p></div>
     </div>`).join("");
-  document.querySelectorAll(".why-card").forEach(card => {
-    card.addEventListener("click", () => card.classList.toggle("flipped"));
-  });
 
   const tsts = [
     { q: "Built for the Way India Cooks", date: "8 February, 2026", img: "2026/04/10.jpg" },
@@ -1129,7 +961,10 @@
     /* HERO load timeline */
     const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
     tl.from("#hero [data-split] .word", { yPercent: 118, duration: 0.9, stagger: 0.05, delay: 0.15 })
-      .from(".hero-cta", { y: 20, opacity: 0, duration: 0.55 }, "-=0.3");
+      .from("#hero .pre", { y: 30, opacity: 0, duration: 0.6 }, 0.1)
+      .from(".hero-sub", { y: 24, opacity: 0, duration: 0.6 }, "-=0.35")
+      .from(".hero-cta", { y: 20, opacity: 0, duration: 0.55 }, "-=0.3")
+      .from(".float", { scale: 0, opacity: 0, duration: 0.6, stagger: 0.12, ease: "back.out(1.7)" }, "-=0.5");
 
     /* generic split-heading reveal on scroll (non-hero) */
     gsap.utils.toArray("[data-split]").forEach(h => {
@@ -1143,55 +978,22 @@
       gsap.from(el, { y: 38, opacity: 0, duration: 0.7, ease: "power2.out", scrollTrigger: { trigger: el, start: "top 88%", once: true } });
     });
 
-    /* about: PINNED section — text fills word-by-word + image cycles through 4 shots while pinned,
-       then releases into the next section once the reveal completes */
+    /* about: scroll-SCRUBBED word reveal — words light up as you scroll through the section */
     const aboutWords = gsap.utils.toArray("[data-lines] .word");
-    const aboutImgs = [
-      "about-assets/about-4-cookware-set.webp",
-      "about-assets/about-3-cooktop.webp",
-      "about-assets/about-2-gas-lighter.webp",
-      "about-assets/about-1-spin-mop.webp"
-    ];
-    let aboutImgIdx = 0;
-    let aboutFront = "a";
-    function swapAboutImage(src) {
-      const frontEl = document.getElementById("who-img-" + aboutFront);
-      const backId = aboutFront === "a" ? "b" : "a";
-      const backEl = document.getElementById("who-img-" + backId);
-      if (!backEl || !frontEl) return;
-      backEl.setAttribute("src", src);
-      frontEl.classList.remove("active");
-      backEl.classList.add("active");
-      aboutFront = backId;
-    }
-    if (aboutWords.length) gsap.set(aboutWords, { opacity: 0.16, yPercent: 0 });
-    const aboutIsWide = innerWidth > 860;
-    const aboutTl = gsap.timeline({
-      scrollTrigger: {
-        trigger: "#about",
-        ...(aboutIsWide
-          ? { start: "top top", end: "+=1800", pin: true, anticipatePin: 1, refreshPriority: 2 }
-          : { start: "top 80%", end: "bottom 45%" }),
-        scrub: aboutIsWide ? 0.6 : 1,
-        onUpdate: self => {
-          const idx = Math.min(aboutImgs.length - 1, Math.floor(self.progress * aboutImgs.length));
-          if (idx !== aboutImgIdx) {
-            aboutImgIdx = idx;
-            swapAboutImage(aboutImgs[idx]);
-          }
-        }
-      }
-    });
     if (aboutWords.length) {
-      aboutTl.to(aboutWords, { opacity: 1, ease: "none", stagger: { each: 0.5 } }, 0);
+      gsap.set(aboutWords, { opacity: 0.16, yPercent: 0 });
+      gsap.to(aboutWords, {
+        opacity: 1, ease: "none", stagger: { each: 0.5 },
+        scrollTrigger: { trigger: "#about", start: "top 78%", end: "center 42%", scrub: 0.6 }
+      });
     }
     /* about image: scrubbed clip-reveal + gentle parallax tied to scroll */
     gsap.fromTo("[data-img-right] .ph",
       { clipPath: "inset(0% 0% 100% 0%)" },
       { clipPath: "inset(0% 0% 0% 0%)", ease: "none",
         scrollTrigger: { trigger: "[data-img-right]", start: "top 88%", end: "top 42%", scrub: 0.5 } });
-    gsap.fromTo("[data-img-right] .ph .who-img-layer",
-      { yPercent: -2 }, { yPercent: 2, ease: "none",
+    gsap.fromTo("[data-img-right] .ph image-slot",
+      { yPercent: -10 }, { yPercent: 10, ease: "none",
         scrollTrigger: { trigger: "#about", start: "top bottom", end: "bottom top", scrub: true } });
     /* about "SINCE 1971" tag: pop-in entrance, then a gentle continuous bob */
     const sinceTag = document.querySelector(".who-media .tag");
@@ -1233,14 +1035,13 @@
     msArr.forEach((card, i) => {
       jtl.to(".rail-fill", { height: (((i + 0.5) / N) * 100) + "%", ease: "none", duration: 1 });
       jtl.to(card.querySelector(".ms-dot"), { borderColor: "#ED3338", scale: 1, boxShadow: "0 0 0 6px rgba(237,51,56,0.12)", duration: 0.35, ease: "back.out(2)" }, "<")
-        .to(card.querySelector(".ms-card"), { opacity: 1, x: 0, duration: 0.55, ease: "power2.out" }, "<0.05");
-      const icon = card.querySelector(".proc-icon");
-      if (icon) jtl.to(icon, { scale: 1, duration: 0.35, ease: "back.out(1.8)" }, "<");
+        .to(card.querySelector(".ms-card"), { opacity: 1, x: 0, duration: 0.55, ease: "power2.out" }, "<0.05")
+        .to(card.querySelector(".proc-icon"), { scale: 1, duration: 0.35, ease: "back.out(1.8)" }, "<");
     });
     jtl.to(".rail-fill", { height: "100%", ease: "none", duration: 0.5 });
 
     /* why cards + icon drop */
-    gsap.from("[data-why]", { y: 45, opacity: 0, scale: 0.94, duration: 0.6, stagger: 0.1, ease: "power2.out", clearProps: "transform", scrollTrigger: { trigger: ".why-grid", start: "top 85%", once: true } });
+    gsap.from("[data-why]", { y: 60, opacity: 0, duration: 0.6, stagger: 0.12, ease: "power2.out", scrollTrigger: { trigger: ".why-grid", start: "top 80%", once: true } });
     gsap.from(".why-icon", { y: -20, scale: 0.7, opacity: 0, duration: 0.5, stagger: 0.12, ease: "back.out(1.7)", scrollTrigger: { trigger: ".why-grid", start: "top 80%", once: true } });
 
     /* blog cards stagger up into the grid */
@@ -1260,16 +1061,8 @@
     let cur = -1;
     function setSvc(i) {
       if (i === cur) return; cur = i;
-      items.forEach((it, idx) => {
-        gsap.to(it, {
-          opacity: idx === i ? 1 : 0,
-          y: idx === i ? 0 : (idx < i ? -26 : 26),
-          duration: 0.55, ease: "power2.out", overwrite: true
-        });
-      });
-      const media = items[i].querySelector(".svc-media");
-      if (media) gsap.fromTo(media, { scale: 1.1 }, { scale: 1, duration: 0.8, ease: "power2.out", overwrite: true });
-      gsap.from(items[i].querySelectorAll(".sub-item"), { x: -22, opacity: 0, stagger: 0.07, duration: 0.4, delay: 0.14, overwrite: true });
+      items.forEach((it, idx) => gsap.to(it, { opacity: idx === i ? 1 : 0, duration: 0.4, overwrite: true }));
+      gsap.from(items[i].querySelectorAll(".sub-item"), { x: -22, opacity: 0, stagger: 0.07, duration: 0.4, delay: 0.12, overwrite: true });
       prog.textContent = "0" + (i + 1) + " / 0" + items.length;
     }
     const mm = gsap.matchMedia();
@@ -1307,49 +1100,6 @@
   document.getElementById("mmClose").addEventListener("click", () => mm2.classList.remove("open"));
   document.querySelectorAll(".mm-link").forEach(a => a.addEventListener("click", () => mm2.classList.remove("open")));
 
-  /* site search: loads the real product catalog and filters by name/category/brand/tags */
-  (function () {
-    const ov = document.getElementById("searchOv"), input = document.getElementById("searchInput"),
-      results = document.getElementById("searchResults"), closeBtn = document.getElementById("searchClose");
-    let items = [], loaded = false;
-
-    function openSearch() {
-      ov.classList.add("open");
-      setTimeout(() => input.focus(), 50);
-      if (!loaded) {
-        loaded = true;
-        fetch("product-data/products.json").then(r => r.json()).then(data => {
-          items = (data.products || []).map(p => ({
-            name: p.name, cat: p.subcategory || p.category || "", brand: p.brand || "",
-            img: p.hero || "about-assets/placeholder.svg", id: p.id || p.sku || "",
-            hay: [p.name, p.category, p.subcategory, p.brand, p.sku, p.id, ...(p.tags || [])].join(" ").toLowerCase(),
-          }));
-          renderResults(input.value.trim());
-        }).catch(() => { results.innerHTML = '<div class="search-empty">Could not load product catalog.</div>'; });
-      }
-    }
-    function closeSearch() { ov.classList.remove("open"); input.value = ""; results.innerHTML = ""; }
-    function renderResults(q) {
-      if (!q) { results.innerHTML = '<div class="search-hint">Start typing to search products…</div>'; return; }
-      const ql = q.toLowerCase();
-      const hits = items.filter(p => p.hay.includes(ql)).slice(0, 8);
-      if (!hits.length) { results.innerHTML = '<div class="search-empty">No products found for “' + q + '”.</div>'; return; }
-      results.innerHTML = hits.map(p =>
-        `<a class="search-hit" href="Product.html?p=${encodeURIComponent(p.id)}">
-          <img src="${p.img.startsWith('about-assets/') || p.img.startsWith('product-photos/') ? p.img : 'about-assets/placeholder.svg'}" alt="" loading="lazy">
-          <div><div class="sh-name">${p.name}</div><div class="sh-cat">${p.cat}${p.brand ? " · " + p.brand : ""}</div></div>
-        </a>`).join("");
-    }
-
-    document.getElementById("searchBtn").addEventListener("click", openSearch);
-    closeBtn.addEventListener("click", closeSearch);
-    ov.addEventListener("click", e => { if (e.target === ov) closeSearch(); });
-    document.addEventListener("keydown", e => {
-      if (e.key === "Escape" && ov.classList.contains("open")) closeSearch();
-    });
-    input.addEventListener("input", () => renderResults(input.value.trim()));
-  })();
-
   /* counters */
   const counted = new Set();
   function countUp(el) {
@@ -1383,7 +1133,7 @@
   // clear any from-states so no content is ever stuck invisible.
   function failsafeReveal() {
     if (window.gsap) {
-      gsap.set("[data-split] .word, [data-lines] .word, [data-fade], [data-work], [data-proc], .ms-card, .ms-dot, .rail-fill, .proc-icon, [data-why], .why-icon, [data-tst], [data-img-right], .who-media .tag, .hero-cta, .svc-item", { clearProps: "opacity,transform,x,y,xPercent,yPercent,scale,rotation,clipPath" });
+      gsap.set("[data-split] .word, [data-lines] .word, [data-fade], [data-work], [data-proc], .ms-card, .ms-dot, .rail-fill, .proc-icon, [data-why], .why-icon, [data-tst], [data-img-right], .who-media .tag, #hero .pre, .hero-sub, .hero-cta, .float, .svc-item", { clearProps: "opacity,transform,x,y,xPercent,yPercent,scale,rotation,clipPath" });
     }
     document.querySelectorAll(".svc-item").forEach((it, i) => { if (innerWidth <= 860) it.style.opacity = 1; });
     countEls.forEach(el => { if (!counted.has(el)) { counted.add(el); const t = parseFloat(el.dataset.count); el.textContent = (t % 1 ? t.toFixed(1) : t) + (el.dataset.suffix || ""); } });
@@ -1393,10 +1143,8 @@
   requestAnimationFrame(() => { clockOK = true; });
   setTimeout(() => { if (!clockOK) failsafeReveal(); }, 1100);
   document.addEventListener("visibilitychange", () => { if (!document.hidden && window.ScrollTrigger) ScrollTrigger.refresh(); });
-  // refresh once everything (esp. external images + web fonts) has loaded + a settle pass,
-  // so pin spacers & trigger positions are accurate and don't jump mid-scroll as content reflows
+  // refresh once everything (esp. external images) has loaded + a settle pass, so pin spacers & trigger positions are accurate
   addEventListener("load", () => { if (window.ScrollTrigger) ScrollTrigger.refresh(); });
-  if (document.fonts && document.fonts.ready) { document.fonts.ready.then(() => { if (window.ScrollTrigger) ScrollTrigger.refresh(); }); }
   setTimeout(() => { if (window.ScrollTrigger) ScrollTrigger.refresh(); }, 1400);
 </script>
 
