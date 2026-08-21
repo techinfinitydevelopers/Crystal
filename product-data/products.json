@@ -9274,7 +9274,10 @@
         "product-photos/WF001/g4.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "wf001"
+      "id": "wf001",
+      "variant_group": "vg-23",
+      "variant_label": "18 LTR",
+      "variant_order": 0
     },
     {
       "sku": "WF002",
@@ -9304,7 +9307,10 @@
         "product-photos/WF002/g4.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "wf002"
+      "id": "wf002",
+      "variant_group": "vg-23",
+      "variant_label": "24 LTR",
+      "variant_order": 1
     },
     {
       "sku": "WF003",
@@ -9334,7 +9340,10 @@
         "product-photos/WF003/g4.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "wf003"
+      "id": "wf003",
+      "variant_group": "vg-23",
+      "variant_label": "30 LTR",
+      "variant_order": 2
     },
     {
       "sku": "WF011",
