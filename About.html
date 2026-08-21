@@ -218,14 +218,17 @@
   .ms-row { display: flex; flex-direction: column; gap: clamp(22px, 3.5vw, 46px); position: relative; z-index: 1; }
   .ms { display: grid; grid-template-columns: 23px 1fr; gap: clamp(20px, 3vw, 42px); align-items: start; }
   .ms-dot { width: 23px; height: 23px; border-radius: 50%; background: #fff; border: 3px solid var(--red); box-shadow: 0 0 0 6px rgba(237,51,56,0.10); margin-top: 10px; z-index: 3; }
-  .ms-card { display: grid; grid-template-columns: minmax(150px, 28%) 1fr; gap: clamp(20px, 3.4vw, 48px); align-items: center; background: var(--white); border: 1.5px solid var(--line); border-radius: 24px; padding: clamp(24px, 3vw, 40px); box-shadow: 0 26px 54px -34px rgba(15,15,15,0.4); transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s; }
+  .ms-card { display: block; background: var(--white); border: 1.5px solid var(--line); border-radius: 24px; padding: 0; overflow: hidden; box-shadow: 0 26px 54px -34px rgba(15,15,15,0.4); transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s; }
   .ms:hover .ms-card { transform: translateY(-6px); box-shadow: 0 36px 64px -34px rgba(237,51,56,0.34); }
-  .ms-idx { display: block; font-family: var(--head); font-weight: 700; font-size: clamp(34px, 4vw, 52px); line-height: 0.9; color: rgba(26,24,22,0.10); letter-spacing: -0.03em; margin-bottom: 6px; }
+  .ms-photo { position: relative; width: 100%; aspect-ratio: 2 / 1; background: var(--cream); }
+  .ms-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; display: block; }
+  .ms-idx-badge { position: absolute; top: 14px; left: 14px; z-index: 2; font-family: var(--head); font-weight: 700; font-size: 13px; color: #fff; background: rgba(15,15,15,0.55); backdrop-filter: blur(6px); padding: 5px 12px; border-radius: 100px; letter-spacing: 0.02em; }
+  .ms-body { display: grid; grid-template-columns: minmax(90px, 30%) 1fr; gap: clamp(20px, 3.4vw, 48px); align-items: center; padding: clamp(22px, 2.8vw, 36px); }
   .ms-ic { width: 52px; height: 52px; border-radius: 15px; display: grid; place-items: center; background: rgba(237,51,56,0.10); margin-bottom: 16px; }
   .ms-metric { font-family: var(--head); font-weight: 700; font-size: clamp(23px, 2.5vw, 33px); line-height: 1.02; overflow-wrap: break-word; background: var(--grad-red); -webkit-background-clip: text; background-clip: text; color: transparent; letter-spacing: -0.02em; }
   .ms h4 { font-family: var(--head); font-weight: 700; text-transform: uppercase; font-size: 20px; margin-bottom: 8px; letter-spacing: -0.01em; }
   .ms p { color: var(--muted); font-size: 15px; line-height: 1.55; max-width: 480px; }
-  @media (max-width: 640px) { .ms-card { grid-template-columns: 1fr; gap: 14px; } .ms-metric { font-size: clamp(28px, 8vw, 38px); } }
+  @media (max-width: 640px) { .ms-body { grid-template-columns: 1fr; gap: 10px; } .ms-metric { font-size: clamp(28px, 8vw, 38px); } }
 
   /* ===== SUSTAINABILITY ===== */
   .sustain-card { background: var(--ink-deep); color: #fff; border-radius: clamp(24px, 3vw, 40px); padding: clamp(36px, 5vw, 64px); display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 4vw, 60px); align-items: center; overflow: hidden; }
@@ -799,13 +802,13 @@
     '<svg viewBox="0 0 48 48" width="30" height="30" fill="none" stroke="#ED3338" stroke-width="3" stroke-linejoin="round"><rect x="7" y="7" width="14" height="14" rx="2.5"/><rect x="27" y="7" width="14" height="14" rx="2.5"/><rect x="7" y="27" width="14" height="14" rx="2.5"/><rect x="27" y="27" width="14" height="14" rx="2.5"/></svg>',
   ];
   const story = [
-    { m: "1971", t: "The Spark", d: "Crystal began where India's lighter industry had no organised maker — crafting precision flint-stone gas lighters that brought dependable, everyday quality into the modern kitchen." },
-    { m: "108+ Knives", t: "Crystal Kitchen Knives", d: "We pioneered India's first surgical stainless-steel kitchen knives. The 1994 laser-edge series sharpened the craft further — today over 108 shapes and sizes make it the country's widest knife range." },
-    { m: "Made in Rajkot", t: "Kitchen Aids &amp; Cutlery", d: "Kitchenware India was founded in Rajkot to craft modern kitchen aids and cutlery to international standards — embraced across domestic and export markets, and refined through constant R&amp;D." },
-    { m: "Beyond the Kitchen", t: "Samurai Home Care", d: "Under the Samurai brand, Crystal stepped beyond cooking into everyday home care with mosquito-repellent machines and mats — extending the same trusted reliability to family wellbeing." },
-    { m: "Crystal Global", t: "Scaling Up", d: "A dedicated plant, Crystal Global, was established to expand capacity for gas lighters and kitchen-aid products — building the manufacturing backbone for everything that followed." },
-    { m: "DuPont USA", t: "Into Cookware", d: "Crystal launched premium 3-coat Platinum Teflon non-stick cookware as a certified DuPont USA licensee — every piece engineered to international quality standards." },
-    { m: "Six Brands", t: "Brands &amp; Appliances", d: "The portfolio bloomed — SparkMate, Crystalina Elite, Professional and ValMate joined the family alongside a full Appliances category, completing the ecosystem for the modern Indian home." },
+    { m: "1971", t: "The Spark", d: "Crystal began where India's lighter industry had no organised maker — crafting precision flint-stone gas lighters that brought dependable, everyday quality into the modern kitchen.", img: "about-assets/story-1-the-spark.jpg" },
+    { m: "108+ Knives", t: "Crystal Kitchen Knives", d: "We pioneered India's first surgical stainless-steel kitchen knives. The 1994 laser-edge series sharpened the craft further — today over 108 shapes and sizes make it the country's widest knife range.", img: "about-assets/story-2-knives.jpg" },
+    { m: "Made in Rajkot", t: "Kitchen Aids &amp; Cutlery", d: "Kitchenware India was founded in Rajkot to craft modern kitchen aids and cutlery to international standards — embraced across domestic and export markets, and refined through constant R&amp;D.", img: "about-assets/story-3-kitchen-aids.jpg" },
+    { m: "Beyond the Kitchen", t: "Samurai Home Care", d: "Under the Samurai brand, Crystal stepped beyond cooking into everyday home care with mosquito-repellent machines and mats — extending the same trusted reliability to family wellbeing.", img: "about-assets/story-4-samurai.jpg" },
+    { m: "Crystal Global", t: "Scaling Up", d: "A dedicated plant, Crystal Global, was established to expand capacity for gas lighters and kitchen-aid products — building the manufacturing backbone for everything that followed.", img: "about-assets/story-5-scaling-up.jpg" },
+    { m: "DuPont USA", t: "Into Cookware", d: "Crystal launched premium 3-coat Platinum Teflon non-stick cookware as a certified DuPont USA licensee — every piece engineered to international quality standards.", img: "about-assets/story-6-non-stick.jpg" },
+    { m: "Six Brands", t: "Brands &amp; Appliances", d: "The portfolio bloomed — SparkMate, Crystalina Elite, Professional and ValMate joined the family alongside a full Appliances category, completing the ecosystem for the modern Indian home.", img: "about-assets/story-7-appliances.jpg" },
   ];
   document.getElementById("storyGrid").innerHTML =
     '<div class="rail"><span class="rail-fill"></span></div><div class="ms-row">' +
@@ -813,14 +816,17 @@
       <article class="ms" data-ms>
         <span class="ms-dot"></span>
         <div class="ms-card">
-          <div class="ms-left">
-            <span class="ms-idx">0${i + 1}</span>
-            <div class="ms-metric">${p.m}</div>
+          <div class="ms-photo">
+            <img src="${p.img}" alt="${p.t}" loading="lazy">
+            <span class="ms-idx-badge">0${i + 1}</span>
           </div>
-          <div class="ms-right">
-            <span class="ms-ic">${storyIcons[i]}</span>
-            <h4>${p.t}</h4>
-            <p>${p.d}</p>
+          <div class="ms-body">
+            <div class="ms-metric">${p.m}</div>
+            <div class="ms-right">
+              <span class="ms-ic">${storyIcons[i]}</span>
+              <h4>${p.t}</h4>
+              <p>${p.d}</p>
+            </div>
           </div>
         </div>
       </article>`).join("") + '</div>';
