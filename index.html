@@ -969,10 +969,10 @@
   const U = "https://proj.leo9studio.in/projects/crystal-wp/wp-content/uploads/";
   const localImg = im => (im.startsWith("about-assets/") || im.startsWith("uploads/")) ? im : U + im;
   const works = [
-    { cat: "Cookware", name: "Tri-Ply, Cast Iron & Non-Stick", desc: "Built to last a lifetime of everyday Indian cooking — even heat, lasting durability.", img: "about-assets/cookware-tri-ply-cast-iron-non-stick.png" },
-    { cat: "Kitchenware", name: "Knives, Cutlery & Tools", desc: "Everyday tools that make prep effortless, from blade to board to table.", img: "about-assets/kitchenware-knives-cutlery-tools.png" },
-    { cat: "Cleaning Aid", name: "Mops, Brooms & Wipers", desc: "Smart cleaning essentials for a sparkling, effortless home.", img: "about-assets/cleaning-aid-mops-brooms-wipers.png" },
-    { cat: "Electric Appliances", name: "Chimneys, Kettles & Air Fryers", desc: "Modern appliances built for the modern Indian kitchen.", img: "about-assets/electric-appliances-chimneys-kettles-air-fryers.png" },
+    { cat: "Cookware", name: "Tri-Ply, Cast Iron & Non-Stick", desc: "Built to last a lifetime of everyday Indian cooking — even heat, lasting durability.", img: "about-assets/svc-cookware.jpeg" },
+    { cat: "Kitchenware", name: "Knives, Cutlery & Tools", desc: "Everyday tools that make prep effortless, from blade to board to table.", img: "about-assets/svc-kitchenware.jpeg" },
+    { cat: "Cleaning Aid", name: "Mops, Brooms & Wipers", desc: "Smart cleaning essentials for a sparkling, effortless home.", img: "about-assets/svc-cleaning-aid.jpeg" },
+    { cat: "Electric Appliances", name: "Chimneys, Kettles & Air Fryers", desc: "Modern appliances built for the modern Indian kitchen.", img: "about-assets/svc-electric-appliances.png" },
     { cat: "Pressure Cookers", name: "Tri-Pro — Cook Faster, Every Day", desc: "Triply, induction-ready cookers that save fuel and time on every meal.", img: "about-assets/pressure-cookers-tri-pro.png" },
   ];
   document.getElementById("worksGrid").innerHTML = works.map((w, i) => `
@@ -992,7 +992,7 @@
     { t: "Cookware", d: "Tri-ply, cast iron, non-stick and hard anodised — engineered to last a lifetime of cooking.", s: ["Tri-Pro","Cast Iron","Non-Stick","Hard Anodised"], img: "about-assets/svc-cookware.jpeg" },
     { t: "Kitchenware", d: "Everyday tools that make prep effortless — from blade to board to table.", s: ["Knives & Peelers","Chopping Boards","Cutlery & Servers","Kitchen Tools"], img: "about-assets/svc-kitchenware.jpeg" },
     { t: "Cleaning Aid", d: "Smart cleaning essentials for a sparkling, effortless home.", s: ["Spin Mops","Brooms & Dust Pans","Wipers & Brushes","Scrubbers & Bins"], img: "about-assets/svc-cleaning-aid.jpeg" },
-    { t: "Electric Appliances", d: "Modern appliances built for the modern Indian kitchen.", s: ["Chimney & Cooktop","Kettle & Iron","Air Fryer & OTG","Rice Cooker & JMG"], img: "2026/04/8.jpg" },
+    { t: "Electric Appliances", d: "Modern appliances built for the modern Indian kitchen.", s: ["Chimney & Cooktop","Kettle & Iron","Air Fryer & OTG","Rice Cooker & JMG"], img: "about-assets/svc-electric-appliances.png" },
     { t: "Everyday Essentials", d: "Reliable cooking and storage companions for daily living.", s: ["Pressure Cookers","Water Bottles","Lunch Boxes","Wood Range"], img: "2026/04/CPC_023.jpg" },
   ];
   document.getElementById("svcStage").innerHTML = services.map((s, i) => `
