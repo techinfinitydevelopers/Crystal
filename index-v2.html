@@ -468,10 +468,16 @@
   .lg-plate:hover img { filter: grayscale(0); opacity: 1; }
 
   /* BRANDS (why) v2 — glass cards, gradient ring on hover */
-  .why-card { border-radius: 26px; position: relative; overflow: hidden; }
-  .why-card::after { content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 1.5px; background: var(--grad-red); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; opacity: 0; transition: opacity .3s; pointer-events: none; }
+  .why-card { border-radius: 26px; position: relative; overflow: hidden; perspective: 1200px; padding: 0; }
+  .why-card::after { content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 1.5px; background: var(--grad-red); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; opacity: 0; transition: opacity .3s; pointer-events: none; z-index: 2; }
   .why-card:hover::after { opacity: 1; }
   .why-card:hover { transform: translateY(-8px) rotate(0deg); }
+  .why-flip { position: relative; width: 100%; height: 100%; min-height: 264px; transition: transform .7s cubic-bezier(.4,.2,.2,1); transform-style: preserve-3d; }
+  .why-card:hover .why-flip, .why-card.flipped .why-flip { transform: rotateY(180deg); }
+  .why-face { position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; padding: 28px 24px 32px; display: flex; flex-direction: column; justify-content: space-between; gap: 18px; }
+  .why-face.why-back { transform: rotateY(180deg); padding: 0; }
+  .why-face.why-back img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .why-face.why-back .why-back-label { position: absolute; left: 0; right: 0; bottom: 0; padding: 16px 20px; background: linear-gradient(180deg, transparent, rgba(0,0,0,.65)); color: #fff; font-family: var(--head); font-weight: 700; text-transform: uppercase; font-size: 16px; }
 
   /* BLOG v2 */
   .tst-card { border-radius: 24px; }
@@ -1007,17 +1013,28 @@
     '<svg viewBox="0 0 60 60" width="54" height="54"><path d="M32 6L14 34h12l-4 20 20-30H30z" fill="#fff" stroke="#ED3338" stroke-width="3" stroke-linejoin="round"/></svg>',
   ];
   const why = [
-    { t: "Crystal", d: "World of Kitchenware", logo: "2026/01/company1.svg", bg: "var(--grad-red)", fg: "#fff" },
-    { t: "Crystalina", d: "Splendid Finish", logo: "2026/01/company3.svg", bg: "var(--ink-soft)" },
-    { t: "SparkMate", d: "Cleaning Simplified", logo: "2026/01/company2.svg", bg: "var(--ink-soft)" },
-    { t: "ValMate", d: "Value for Money", logo: "2026/01/company4.svg", bg: "var(--grad-red)", fg: "#fff" },
+    { t: "Crystal", d: "World of Kitchenware", logo: "2026/01/company1.svg", bg: "var(--grad-red)", fg: "#fff", img: "brand-images/crystal.webp" },
+    { t: "Crystalina", d: "Splendid Finish", logo: "2026/01/company3.svg", bg: "var(--ink-soft)", img: "brand-images/crystalina.webp" },
+    { t: "SparkMate", d: "Cleaning Simplified", logo: "2026/01/company2.svg", bg: "var(--ink-soft)", img: "brand-images/sparkmate.webp" },
+    { t: "ValMate", d: "Value for Money", logo: "2026/01/company4.svg", bg: "var(--grad-red)", fg: "#fff", img: "brand-images/valmate.png" },
   ];
   document.getElementById("whyGrid").innerHTML = why.map((w, i) => `
-    <div class="why-card" data-why style="background:${w.bg};${w.fg?'color:'+w.fg:''}">
-      <span class="wn" ${w.fg?'style=\"color:#fff\"':''}>0${i+1}</span>
-      <div class="why-logo-chip why-icon"><img src="${U}${w.logo}" alt="${w.t}"></div>
-      <div><h4>${w.t}</h4><p ${w.fg?'style=\"color:rgba(255,255,255,.85)\"':''}>${w.d}</p></div>
+    <div class="why-card" data-why>
+      <div class="why-flip">
+        <div class="why-face why-front" style="background:${w.bg};${w.fg?'color:'+w.fg:''}">
+          <span class="wn" ${w.fg?'style=\"color:#fff\"':''}>0${i+1}</span>
+          <div class="why-logo-chip why-icon"><img src="${U}${w.logo}" alt="${w.t}"></div>
+          <div><h4>${w.t}</h4><p ${w.fg?'style=\"color:rgba(255,255,255,.85)\"':''}>${w.d}</p></div>
+        </div>
+        <div class="why-face why-back">
+          <img src="${w.img}" alt="${w.t}">
+          <span class="why-back-label">${w.t}</span>
+        </div>
+      </div>
     </div>`).join("");
+  document.querySelectorAll(".why-card").forEach(card => {
+    card.addEventListener("click", () => card.classList.toggle("flipped"));
+  });
 
   const tsts = [
     { q: "Built for the Way India Cooks", date: "8 February, 2026", img: "2026/04/10.jpg" },
