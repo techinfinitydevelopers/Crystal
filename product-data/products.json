@@ -1240,10 +1240,7 @@
         "product-photos/CL-073/g1.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cl-073",
-      "variant_group": "vg-22",
-      "variant_label": "20.32 CM",
-      "variant_order": 0
+      "id": "cl-073"
     },
     {
       "sku": "CL-074",
@@ -1275,10 +1272,7 @@
         "product-photos/CL-074/g1.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cl-074",
-      "variant_group": "vg-22",
-      "variant_label": "22.86 CM",
-      "variant_order": 1
+      "id": "cl-074"
     },
     {
       "sku": "CL-203",
@@ -1774,7 +1768,10 @@
         "product-photos/CL-457/g2.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cl-457"
+      "id": "cl-457",
+      "variant_group": "vg-22",
+      "variant_label": "20.32 CM",
+      "variant_order": 0
     },
     {
       "sku": "CL-458",
@@ -1810,7 +1807,10 @@
         "product-photos/CL-458/g2.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cl-458"
+      "id": "cl-458",
+      "variant_group": "vg-22",
+      "variant_label": "22.86 CM",
+      "variant_order": 1
     },
     {
       "sku": "CL-412",
@@ -3107,7 +3107,10 @@
         "product-photos/MKA083/g1.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "mka083"
+      "id": "mka083",
+      "variant_group": "vg-24",
+      "variant_label": "Small",
+      "variant_order": 0
     },
     {
       "sku": "MKA084",
@@ -3137,7 +3140,10 @@
         "product-photos/MKA084/g1.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "mka084"
+      "id": "mka084",
+      "variant_group": "vg-24",
+      "variant_label": "Medium",
+      "variant_order": 1
     },
     {
       "sku": "MKA085",
@@ -3169,7 +3175,10 @@
         "product-photos/MKA085/g1.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "mka085"
+      "id": "mka085",
+      "variant_group": "vg-24",
+      "variant_label": "Big",
+      "variant_order": 2
     },
     {
       "sku": "MKA086",
@@ -4038,7 +4047,10 @@
         "product-photos/MKA113/g4.jpeg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "mka113"
+      "id": "mka113",
+      "variant_group": "vg-25",
+      "variant_label": "Medium",
+      "variant_order": 0
     },
     {
       "sku": "MKA114",
@@ -4067,7 +4079,10 @@
         "product-photos/MKA114/g3.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "mka114"
+      "id": "mka114",
+      "variant_group": "vg-25",
+      "variant_label": "Big",
+      "variant_order": 1
     },
     {
       "sku": "MKA908",
@@ -9918,7 +9933,10 @@
         "product-photos/CPW-001/g2.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cpw-001"
+      "id": "cpw-001",
+      "variant_group": "vg-26",
+      "variant_label": "Small",
+      "variant_order": 0
     },
     {
       "sku": "CPW-002",
@@ -9948,7 +9966,10 @@
       "hero": "https://m.media-amazon.com/images/I/41ZgUG4cQaL._SX425_.jpg",
       "gallery": [],
       "match_tier": "image_sourced_amazon_link",
-      "id": "cpw-002"
+      "id": "cpw-002",
+      "variant_group": "vg-26",
+      "variant_label": "Medium",
+      "variant_order": 1
     },
     {
       "sku": "CPW-003",
@@ -9977,7 +9998,10 @@
       "hero": "https://m.media-amazon.com/images/I/41ZgUG4cQaL._SX425_.jpg",
       "gallery": [],
       "match_tier": "image_sourced_amazon_link",
-      "id": "cpw-003"
+      "id": "cpw-003",
+      "variant_group": "vg-26",
+      "variant_label": "Large",
+      "variant_order": 2
     },
     {
       "sku": "CPW-004",
@@ -10009,7 +10033,10 @@
         "product-photos/CPW-004/g2.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cpw-004"
+      "id": "cpw-004",
+      "variant_group": "vg-27",
+      "variant_label": "Small",
+      "variant_order": 0
     },
     {
       "sku": "CPW-005",
@@ -10038,7 +10065,10 @@
       "hero": "https://m.media-amazon.com/images/I/51pSDmi4-nL._SX425_.jpg",
       "gallery": [],
       "match_tier": "image_sourced_amazon_link",
-      "id": "cpw-005"
+      "id": "cpw-005",
+      "variant_group": "vg-27",
+      "variant_label": "Medium",
+      "variant_order": 1
     },
     {
       "sku": "CPW-006",
@@ -10067,7 +10097,10 @@
       "hero": "https://m.media-amazon.com/images/I/51pSDmi4-nL._SX425_.jpg",
       "gallery": [],
       "match_tier": "image_sourced_amazon_link",
-      "id": "cpw-006"
+      "id": "cpw-006",
+      "variant_group": "vg-27",
+      "variant_label": "Large",
+      "variant_order": 2
     },
     {
       "sku": "CPW-007",
@@ -10099,7 +10132,10 @@
         "product-photos/CPW-007/g2.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cpw-007"
+      "id": "cpw-007",
+      "variant_group": "vg-28",
+      "variant_label": "Small",
+      "variant_order": 0
     },
     {
       "sku": "CPW-008",
@@ -10128,7 +10164,10 @@
       "hero": "https://m.media-amazon.com/images/I/51ujPa+NEKL._SX425_.jpg",
       "gallery": [],
       "match_tier": "image_sourced_amazon_link",
-      "id": "cpw-008"
+      "id": "cpw-008",
+      "variant_group": "vg-28",
+      "variant_label": "Medium",
+      "variant_order": 1
     },
     {
       "sku": "CPW-009",
@@ -10157,7 +10196,10 @@
       "hero": "https://m.media-amazon.com/images/I/51ujPa+NEKL._SX425_.jpg",
       "gallery": [],
       "match_tier": "image_sourced_amazon_link",
-      "id": "cpw-009"
+      "id": "cpw-009",
+      "variant_group": "vg-28",
+      "variant_label": "Large",
+      "variant_order": 2
     },
     {
       "sku": "CPW-010",
@@ -14762,7 +14804,10 @@
         "product-photos/SMJ001/g4.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "smj001"
+      "id": "smj001",
+      "variant_group": "vg-29",
+      "variant_label": "Regular",
+      "variant_order": 0
     },
     {
       "sku": "SMJ002",
@@ -14786,7 +14831,10 @@
         "product-photos/SMJ002/g4.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "smj002"
+      "id": "smj002",
+      "variant_group": "vg-29",
+      "variant_label": "XL",
+      "variant_order": 1
     },
     {
       "sku": "SMJ003",
@@ -15050,7 +15098,10 @@
         "product-photos/SMG013/g4.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "smg013"
+      "id": "smg013",
+      "variant_group": "vg-30",
+      "variant_label": "Regular",
+      "variant_order": 0
     },
     {
       "sku": "SMG014",
@@ -15074,7 +15125,10 @@
         "product-photos/SMG014/g4.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "smg014"
+      "id": "smg014",
+      "variant_group": "vg-30",
+      "variant_label": "XL",
+      "variant_order": 1
     },
     {
       "sku": "SMG015",
