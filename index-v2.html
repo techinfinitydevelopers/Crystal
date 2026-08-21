@@ -1322,7 +1322,7 @@
           items = (data.products || []).map(p => ({
             name: p.name, cat: p.subcategory || p.category || "", brand: p.brand || "",
             img: p.hero || "about-assets/placeholder.svg", id: p.id || p.sku || "",
-            hay: [p.name, p.category, p.subcategory, p.brand, ...(p.tags || [])].join(" ").toLowerCase(),
+            hay: [p.name, p.category, p.subcategory, p.brand, p.sku, p.id, ...(p.tags || [])].join(" ").toLowerCase(),
           }));
           renderResults(input.value.trim());
         }).catch(() => { results.innerHTML = '<div class="search-empty">Could not load product catalog.</div>'; });
