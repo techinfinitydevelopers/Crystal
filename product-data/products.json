@@ -98,7 +98,8 @@
         "product-photos/LI002A/g5.jpg"
       ],
       "match_tier": "exact_sku",
-      "id": "li002a"
+      "id": "li002a",
+      "video": "product-photos/LI002A/video.mp4"
     },
     {
       "sku": "LI003A",
@@ -3912,7 +3913,8 @@
         "product-photos/MKA921/g7.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "mka921"
+      "id": "mka921",
+      "video": "product-photos/MKA921/video.mp4"
     },
     {
       "sku": "MKA924",
@@ -5435,7 +5437,8 @@
         "product-photos/MKA942/g9.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "mka942"
+      "id": "mka942",
+      "video": "product-photos/MKA942/video.mp4"
     },
     {
       "sku": "MKA943",
@@ -10520,7 +10523,8 @@
       "id": "cop-001",
       "variant_group": "vg-07",
       "variant_label": "350 ML",
-      "variant_order": 0
+      "variant_order": 0,
+      "video": "product-photos/COP-001/video.mp4"
     },
     {
       "sku": "COP-002",
@@ -10554,7 +10558,8 @@
       "id": "cop-002",
       "variant_group": "vg-07",
       "variant_label": "500 ML",
-      "variant_order": 1
+      "variant_order": 1,
+      "video": "product-photos/COP-002/video.mp4"
     },
     {
       "sku": "COP-003",
@@ -10622,7 +10627,8 @@
       "id": "cop-004",
       "variant_group": "vg-07",
       "variant_label": "1000 ML",
-      "variant_order": 3
+      "variant_order": 3,
+      "video": "product-photos/COP-004/video.mp4"
     },
     {
       "sku": "COP-005",
