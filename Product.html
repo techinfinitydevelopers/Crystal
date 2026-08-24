@@ -129,6 +129,12 @@
   .g-main video { display: none; position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; background: #000; }
   .g-main.showing-video img { display: none; }
   .g-main.showing-video video { display: block; }
+  /* hover magnifier: a zoom layer painted over the main image */
+  .g-main.zoomable { cursor: zoom-in; }
+  .g-zoom { position: absolute; inset: 0; z-index: 3; pointer-events: none; opacity: 0; transition: opacity .18s; background: #ffffff no-repeat; }
+  .g-main.zooming .g-zoom { opacity: 1; }
+  .g-main.showing-video .g-zoom { display: none; }
+  @media (hover: none) { .g-main.zoomable { cursor: default; } .g-zoom { display: none; } }
   .g-thumb.g-thumb-video { position: relative; }
   .g-thumb-video .g-play { position: absolute; inset: 0; display: grid; place-items: center; background: rgba(0,0,0,0.28); z-index: 2; }
   .g-thumb-video .g-play svg { width: 22px; height: 22px; filter: drop-shadow(0 1px 3px rgba(0,0,0,0.5)); }
@@ -332,6 +338,7 @@
   body.t-noir header.scrolled .nav, body.t-noir header.solid .nav { background:rgba(20,19,15,0.82); box-shadow:0 12px 30px -20px rgba(0,0,0,0.85); }
   body.t-noir .nav-links > li > a:hover, body.t-noir .nav-links > li > a.current { background:rgba(255,255,255,0.14); color:var(--ink); }
   body.t-noir .g-main, body.t-noir .g-thumb, body.t-noir .rcard .rimg { background:#222019; }
+  body.t-noir .g-zoom { background-color:#222019; }
   body.t-noir .rcard .rbrand { color:#1A1A1A; }
   body.tv-editorial h1, body.tv-editorial h2, body.tv-editorial h3, body.tv-editorial h4 { text-transform:none; font-weight:500; letter-spacing:-0.012em; }
   body.tv-bold h1, body.tv-bold h2, body.tv-bold h3, body.tv-bold h4 { font-weight:700; letter-spacing:-0.045em; text-transform:uppercase; line-height:0.92; }
@@ -572,7 +579,7 @@
 <section class="pdp-hero wrap" id="hero">
   <div class="pdp-grid">
     <div class="gallery">
-      <div class="g-main" id="gMainWrap"><img id="gMain" alt="" /><video id="gMainVideo" playsinline controls></video></div>
+      <div class="g-main" id="gMainWrap"><img id="gMain" alt="" /><video id="gMainVideo" playsinline controls></video><div class="g-zoom" id="gZoom"></div></div>
       <div class="g-thumbs" id="gThumbs"></div>
     </div>
     <div class="info">
@@ -877,6 +884,42 @@
     vid.src = src;
     vid.play().catch(() => {});
   }
+
+  /* Hover magnifier on the main image. The zoom layer repaints the current photo
+     scaled up, positioned so the point under the cursor stays under the cursor.
+     Pointer-only — touch devices keep the plain image. */
+  (function wireZoom() {
+    const wrap = document.getElementById("gMainWrap");
+    const img = document.getElementById("gMain");
+    const lens = document.getElementById("gZoom");
+    if (!wrap || !img || !lens || wrap.dataset.zoomWired) return;
+    if (window.matchMedia("(hover: none)").matches) return;
+    wrap.dataset.zoomWired = "1";
+    wrap.classList.add("zoomable");
+    const ZOOM = 2.5;
+
+    function place(e) {
+      if (wrap.classList.contains("showing-video")) { wrap.classList.remove("zooming"); return; }
+      const nw = img.naturalWidth, nh = img.naturalHeight;
+      if (!nw || !nh) return;
+      const r = wrap.getBoundingClientRect();
+      // the image is object-fit:contain, so work out its rendered box first
+      const scale = Math.min(r.width / nw, r.height / nh);
+      const cw = nw * scale, ch = nh * scale;
+      const ox = (r.width - cw) / 2, oy = (r.height - ch) / 2;
+      const px = e.clientX - r.left, py = e.clientY - r.top;
+      const fx = Math.min(1, Math.max(0, (px - ox) / cw));
+      const fy = Math.min(1, Math.max(0, (py - oy) / ch));
+      const zw = cw * ZOOM, zh = ch * ZOOM;
+      lens.style.backgroundImage = 'url("' + img.currentSrc + '")';
+      lens.style.backgroundSize = zw + "px " + zh + "px";
+      lens.style.backgroundPosition = (px - fx * zw) + "px " + (py - fy * zh) + "px";
+      wrap.classList.add("zooming");
+    }
+
+    wrap.addEventListener("mousemove", place);
+    wrap.addEventListener("mouseleave", () => wrap.classList.remove("zooming"));
+  })();
 
   document.title = prod.n + " — CRYSTAL";
 
