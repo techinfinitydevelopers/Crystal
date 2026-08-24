@@ -57,7 +57,8 @@
         "product-photos/LI001A/g5.jpg"
       ],
       "match_tier": "exact_sku",
-      "id": "li001a"
+      "id": "li001a",
+      "video": "product-photos/LI001A/video.mp4"
     },
     {
       "sku": "LI002A",
@@ -131,7 +132,8 @@
         "product-photos/LI003A/g5.jpg"
       ],
       "match_tier": "exact_sku",
-      "id": "li003a"
+      "id": "li003a",
+      "video": "product-photos/LI003A/video.mp4"
     },
     {
       "sku": "LI007",
@@ -299,7 +301,8 @@
         "product-photos/LI011/g9.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "li011"
+      "id": "li011",
+      "video": "product-photos/LI011/video.mp4"
     },
     {
       "sku": "VML-001",
@@ -329,7 +332,8 @@
         "product-photos/VML-001/g3.jpg"
       ],
       "match_tier": "fuzzy_name",
-      "id": "vml-001"
+      "id": "vml-001",
+      "video": "product-photos/VML-001/video.mp4"
     },
     {
       "sku": "VML-002",
@@ -431,7 +435,8 @@
         "product-photos/CL-008/g6.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cl-008"
+      "id": "cl-008",
+      "video": "product-photos/CL-008/video.mp4"
     },
     {
       "sku": "CL-010",
@@ -807,7 +812,8 @@
         "product-photos/CL-127/g5.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cl-127"
+      "id": "cl-127",
+      "video": "product-photos/CL-127/video.mp4"
     },
     {
       "sku": "CL-128",
@@ -1418,7 +1424,8 @@
         "product-photos/CL-203/g6.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cl-203"
+      "id": "cl-203",
+      "video": "product-photos/CL-203/video.mp4"
     },
     {
       "sku": "CL-204",
@@ -2412,7 +2419,8 @@
         "product-photos/CL-926/g6.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cl-926"
+      "id": "cl-926",
+      "video": "product-photos/CL-926/video.mp4"
     },
     {
       "sku": "CL-927",
@@ -3028,7 +3036,8 @@
         "product-photos/MKA-008/g9.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "mka-008"
+      "id": "mka-008",
+      "video": "product-photos/MKA-008/video.mp4"
     },
     {
       "sku": "MKA-009",
@@ -3093,7 +3102,8 @@
         "product-photos/MKA-010/g9.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "mka-010"
+      "id": "mka-010",
+      "video": "product-photos/MKA-010/video.mp4"
     },
     {
       "sku": "MKA-947",
@@ -3182,7 +3192,8 @@
         "product-photos/MKA-258/g3.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "mka-258"
+      "id": "mka-258",
+      "video": "product-photos/MKA-258/video.mp4"
     },
     {
       "sku": "MKA015",
@@ -3759,7 +3770,8 @@
         "product-photos/MKA938/g6.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "mka938"
+      "id": "mka938",
+      "video": "product-photos/MKA938/video.mp4"
     },
     {
       "sku": "MKA939",
@@ -4028,7 +4040,8 @@
         "product-photos/MKA011/g9.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "mka011"
+      "id": "mka011",
+      "video": "product-photos/MKA011/video.mp4"
     },
     {
       "sku": "MKA-012",
@@ -4171,7 +4184,8 @@
         "product-photos/MKA-069/g7.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "mka-069"
+      "id": "mka-069",
+      "video": "product-photos/MKA-069/video.mp4"
     },
     {
       "sku": "MKA072",
@@ -4517,7 +4531,8 @@
         "product-photos/MKA940/g9.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "mka940"
+      "id": "mka940",
+      "video": "product-photos/MKA940/video.mp4"
     },
     {
       "sku": "MKA941",
@@ -5345,7 +5360,8 @@
         "product-photos/MKA930/g9.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "mka930"
+      "id": "mka930",
+      "video": "product-photos/MKA930/video.mp4"
     },
     {
       "sku": "MKA933",
@@ -5456,7 +5472,8 @@
         "product-photos/MKA943/g9.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "mka943"
+      "id": "mka943",
+      "video": "product-photos/MKA943/video.mp4"
     },
     {
       "sku": "MKA944",
@@ -5493,7 +5510,8 @@
         "product-photos/MKA944/g9.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "mka944"
+      "id": "mka944",
+      "video": "product-photos/MKA944/video.mp4"
     },
     {
       "sku": "MKA945",
@@ -5821,7 +5839,8 @@
         "product-photos/MKA-231/g9.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "mka-231"
+      "id": "mka-231",
+      "video": "product-photos/MKA-231/video.mp4"
     },
     {
       "sku": "MKA-241",
@@ -7032,7 +7051,8 @@
         "product-photos/CC-962/g6.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cc-962"
+      "id": "cc-962",
+      "video": "product-photos/CC-962/video.mp4"
     },
     {
       "sku": "CC-965",
@@ -8067,7 +8087,8 @@
         "product-photos/MKA-293/g6.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "mka-293"
+      "id": "mka-293",
+      "video": "product-photos/MKA-293/video.mp4"
     },
     {
       "sku": "MKA-294",
@@ -8350,7 +8371,8 @@
         "product-photos/MKA-325/g9.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "mka-325"
+      "id": "mka-325",
+      "video": "product-photos/MKA-325/video.mp4"
     },
     {
       "sku": "MKA-203",
@@ -8444,7 +8466,8 @@
         "product-photos/CC-934/g6.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cc-934"
+      "id": "cc-934",
+      "video": "product-photos/_shared/video-de77e888eb.mp4"
     },
     {
       "sku": "CC-935",
@@ -8738,7 +8761,8 @@
         "product-photos/CC-943/g7.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cc-943"
+      "id": "cc-943",
+      "video": "product-photos/CC-943/video.mp4"
     },
     {
       "sku": "CC-944",
@@ -8967,7 +8991,8 @@
         "product-photos/CC-921/g10.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cc-921"
+      "id": "cc-921",
+      "video": "product-photos/_shared/video-de77e888eb.mp4"
     },
     {
       "sku": "CC-922",
@@ -9008,7 +9033,8 @@
         "product-photos/CC-922/g11.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cc-922"
+      "id": "cc-922",
+      "video": "product-photos/_shared/video-de77e888eb.mp4"
     },
     {
       "sku": "CC-923",
@@ -9045,7 +9071,8 @@
         "product-photos/CC-923/g6.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cc-923"
+      "id": "cc-923",
+      "video": "product-photos/_shared/video-de77e888eb.mp4"
     },
     {
       "sku": "CC-924",
@@ -9080,7 +9107,8 @@
         "product-photos/CC-924/g6.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cc-924"
+      "id": "cc-924",
+      "video": "product-photos/_shared/video-de77e888eb.mp4"
     },
     {
       "sku": "CC-925",
@@ -9156,7 +9184,8 @@
         "product-photos/CC-926/g7.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cc-926"
+      "id": "cc-926",
+      "video": "product-photos/_shared/video-de77e888eb.mp4"
     },
     {
       "sku": "CC-927",
@@ -9194,7 +9223,8 @@
         "product-photos/CC-927/g9.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cc-927"
+      "id": "cc-927",
+      "video": "product-photos/_shared/video-de77e888eb.mp4"
     },
     {
       "sku": "CC-928",
@@ -9268,7 +9298,8 @@
         "product-photos/CC-929/g5.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cc-929"
+      "id": "cc-929",
+      "video": "product-photos/_shared/video-de77e888eb.mp4"
     },
     {
       "sku": "CC-931",
@@ -9304,7 +9335,8 @@
         "product-photos/CC-931/g6.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cc-931"
+      "id": "cc-931",
+      "video": "product-photos/CC-931/video.mp4"
     },
     {
       "sku": "CC-930",
@@ -9341,7 +9373,8 @@
         "product-photos/CC-930/g8.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cc-930"
+      "id": "cc-930",
+      "video": "product-photos/_shared/video-de77e888eb.mp4"
     },
     {
       "sku": "CC-932",
@@ -9412,7 +9445,8 @@
         "product-photos/CC-933/g9.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cc-933"
+      "id": "cc-933",
+      "video": "product-photos/CC-933/video.mp4"
     },
     {
       "sku": "CC-891",
@@ -10272,7 +10306,8 @@
         "product-photos/CWB-043/g9.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cwb-043"
+      "id": "cwb-043",
+      "video": "product-photos/CWB-043/video.mp4"
     },
     {
       "sku": "CWB-044",
@@ -10311,7 +10346,8 @@
         "product-photos/CWB-044/g9.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cwb-044"
+      "id": "cwb-044",
+      "video": "product-photos/CWB-044/video.mp4"
     },
     {
       "sku": "CWB-045",
@@ -10347,7 +10383,8 @@
         "product-photos/CWB-045/g9.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cwb-045"
+      "id": "cwb-045",
+      "video": "product-photos/CWB-045/video.mp4"
     },
     {
       "sku": "CWB040",
@@ -10383,7 +10420,8 @@
         "product-photos/CWB040/g9.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cwb040"
+      "id": "cwb040",
+      "video": "product-photos/CWB040/video.mp4"
     },
     {
       "sku": "CWB041",
