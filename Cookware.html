@@ -967,7 +967,6 @@
           <a class="pc-go" href="${pdpHref(p)}"><h3 class="pname">${p.n}</h3></a>
           ${p.sku ? `<span class="psku">Code: ${p.sku.toUpperCase()}</span>` : ""}
           <p class="phl">${p.hl}</p>
-          <div class="ptags">${p.tags.map(t => `<span class="ptag">${t}</span>`).join("")}</div>
           <div class="pcta">
             <button type="button" class="enq-add pc-enq" data-id="${PID[p.n] || ''}" data-name="${p.n.replace(/"/g, '&quot;')}" data-brand="${brandName(p.b)}" data-cat="${CAT_LABEL[p.c] || p.c}" data-img="${p.img}"><span class="enq-lbl">Enquire</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></button>
             <button type="button" class="enq-buy pc-buy" data-name="${p.n.replace(/"/g, '&quot;')}">Buy Now</button>
