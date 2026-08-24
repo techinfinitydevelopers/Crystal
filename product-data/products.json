@@ -58,7 +58,22 @@
       ],
       "match_tier": "exact_sku",
       "id": "li001a",
-      "video": "product-photos/LI001A/video.mp4"
+      "video": "product-photos/LI001A/video.mp4",
+      "specs": {
+        "weight_g": 80,
+        "pack_dimensions_cm": {
+          "length": 19,
+          "breadth": 5,
+          "height": 2
+        },
+        "case_pack_qty": 100,
+        "packaging": "carton",
+        "hsn_code": "LI001A",
+        "manufacturer": "Crystal Cook N Serve Products Pvt. Ltd",
+        "manufacturer_address": "G.I.D.C. Metoda, Plot No. 2601-2-3, District : Rajkot 360021 Gujarat, India",
+        "customer_service_phone": "022-49702803/06",
+        "customer_service_email": "sales@crystalcook.com"
+      }
     },
     {
       "sku": "LI002A",
@@ -99,7 +114,22 @@
       ],
       "match_tier": "exact_sku",
       "id": "li002a",
-      "video": "product-photos/LI002A/video.mp4"
+      "video": "product-photos/LI002A/video.mp4",
+      "specs": {
+        "weight_g": 77,
+        "pack_dimensions_cm": {
+          "length": 17,
+          "breadth": 5,
+          "height": 2
+        },
+        "case_pack_qty": 100,
+        "packaging": "carton",
+        "hsn_code": "LI002A",
+        "manufacturer": "Crystal Cook N Serve Products Pvt. Ltd",
+        "manufacturer_address": "G.I.D.C. Metoda, Plot No. 2601-2-3, District : Rajkot 360021 Gujarat, India",
+        "customer_service_phone": "022-49702803/06",
+        "customer_service_email": "sales@crystalcook.com"
+      }
     },
     {
       "sku": "LI003A",
@@ -134,7 +164,22 @@
       ],
       "match_tier": "exact_sku",
       "id": "li003a",
-      "video": "product-photos/LI003A/video.mp4"
+      "video": "product-photos/LI003A/video.mp4",
+      "specs": {
+        "weight_g": 78,
+        "pack_dimensions_cm": {
+          "length": 17,
+          "breadth": 5,
+          "height": 2
+        },
+        "case_pack_qty": 100,
+        "packaging": "carton",
+        "hsn_code": "LI003A",
+        "manufacturer": "Crystal Cook N Serve Products Pvt. Ltd",
+        "manufacturer_address": "G.I.D.C. Metoda, Plot No. 2601-2-3, District : Rajkot 360021 Gujarat, India",
+        "customer_service_phone": "022-49702803/06",
+        "customer_service_email": "sales@crystalcook.com"
+      }
     },
     {
       "sku": "LI007",
@@ -303,7 +348,22 @@
       ],
       "match_tier": "dump_sku_match",
       "id": "li011",
-      "video": "product-photos/LI011/video.mp4"
+      "video": "product-photos/LI011/video.mp4",
+      "specs": {
+        "weight_g": 350,
+        "pack_dimensions_cm": {
+          "length": 35,
+          "breadth": 15,
+          "height": 6
+        },
+        "case_pack_qty": 72,
+        "packaging": "carton",
+        "hsn_code": "LI011",
+        "manufacturer": "Crystal Cook N Serve Products Pvt. Ltd",
+        "manufacturer_address": "G.I.D.C. Metoda, Plot No. 2601-2-3, District : Rajkot 360021 Gujarat, India",
+        "customer_service_phone": "022-49702803/06",
+        "customer_service_email": "sales@crystalcook.com"
+      }
     },
     {
       "sku": "VML-001",
@@ -334,7 +394,22 @@
       ],
       "match_tier": "fuzzy_name",
       "id": "vml-001",
-      "video": "product-photos/VML-001/video.mp4"
+      "video": "product-photos/VML-001/video.mp4",
+      "specs": {
+        "weight_g": 93,
+        "pack_dimensions_cm": {
+          "length": 18,
+          "breadth": 18,
+          "height": 1.5
+        },
+        "case_pack_qty": 150,
+        "packaging": "carton",
+        "hsn_code": "VML-001",
+        "manufacturer": "Crystal Cook N Serve Products Pvt. Ltd",
+        "manufacturer_address": "G.I.D.C. Metoda, Plot No. 2601-2-3, District : Rajkot 360021 Gujarat, India",
+        "customer_service_phone": "022-49702803/06",
+        "customer_service_email": "sales@crystalcook.com"
+      }
     },
     {
       "sku": "VML-002",
