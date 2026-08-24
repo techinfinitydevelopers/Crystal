@@ -667,9 +667,9 @@
         "blade_edge_type": "Plain",
         "coating_type": "None"
       },
-      "hero": "product-photos/CL-804/hero.jpg",
+      "hero": "product-photos/CL-804/g1.jpg",
       "gallery": [
-        "product-photos/CL-804/g1.jpg"
+        "product-photos/CL-804/hero.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cl-804"
@@ -699,10 +699,10 @@
         "blade_edge_type": "Plain",
         "coating_type": "None"
       },
-      "hero": "product-photos/CL-122/hero.jpg",
+      "hero": "product-photos/CL-122/g2.jpg",
       "gallery": [
         "product-photos/CL-122/g1.jpg",
-        "product-photos/CL-122/g2.jpg"
+        "product-photos/CL-122/hero.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cl-122",
@@ -735,10 +735,10 @@
         "blade_edge_type": "Plain",
         "coating_type": "None"
       },
-      "hero": "product-photos/CL-123/hero.jpg",
+      "hero": "product-photos/CL-123/g2.jpg",
       "gallery": [
         "product-photos/CL-123/g1.jpg",
-        "product-photos/CL-123/g2.jpg"
+        "product-photos/CL-123/hero.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cl-123",
@@ -879,9 +879,9 @@
         "blade_edge_type": "NA",
         "coating_type": "None"
       },
-      "hero": "product-photos/CL-127/hero.png",
+      "hero": "product-photos/CL-127/g1.jpg",
       "gallery": [
-        "product-photos/CL-127/g1.jpg",
+        "product-photos/CL-127/hero.png",
         "product-photos/CL-127/g2.jpg",
         "product-photos/CL-127/g3.jpg",
         "product-photos/CL-127/g4.jpg",
@@ -1029,11 +1029,11 @@
         "blade_edge_type": "Serrated",
         "coating_type": "None"
       },
-      "hero": "product-photos/CL-019/hero.jpg",
+      "hero": "product-photos/CL-019/g3.jpg",
       "gallery": [
         "product-photos/CL-019/g1.jpg",
         "product-photos/CL-019/g2.jpg",
-        "product-photos/CL-019/g3.jpg"
+        "product-photos/CL-019/hero.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cl-019"
@@ -1133,10 +1133,10 @@
         "blade_edge_type": "Serrated",
         "coating_type": "None"
       },
-      "hero": "product-photos/CL-213/hero.jpg",
+      "hero": "product-photos/CL-213/g2.jpg",
       "gallery": [
         "product-photos/CL-213/g1.jpg",
-        "product-photos/CL-213/g2.jpg"
+        "product-photos/CL-213/hero.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cl-213"
@@ -1169,10 +1169,10 @@
         "blade_edge_type": "Serrated",
         "coating_type": "None"
       },
-      "hero": "product-photos/CL-214/hero.jpg",
+      "hero": "product-photos/CL-214/g2.jpg",
       "gallery": [
         "product-photos/CL-214/g1.jpg",
-        "product-photos/CL-214/g2.jpg",
+        "product-photos/CL-214/hero.jpg",
         "product-photos/CL-214/g3.jpg",
         "product-photos/CL-214/g4.jpg",
         "product-photos/CL-214/g5.jpg"
@@ -1208,12 +1208,12 @@
         "blade_edge_type": "Serrated",
         "coating_type": "None"
       },
-      "hero": "product-photos/CL-215/hero.jpg",
+      "hero": "product-photos/CL-215/g4.jpg",
       "gallery": [
         "product-photos/CL-215/g1.jpeg",
         "product-photos/CL-215/g2.jpg",
         "product-photos/CL-215/g3.jpg",
-        "product-photos/CL-215/g4.jpg",
+        "product-photos/CL-215/hero.jpg",
         "product-photos/CL-215/g5.jpg"
       ],
       "match_tier": "dump_sku_match",
@@ -1283,10 +1283,10 @@
         "blade_edge_type": "Serrated",
         "coating_type": "None"
       },
-      "hero": "product-photos/CL-217/hero.jpg",
+      "hero": "product-photos/CL-217/g2.jpg",
       "gallery": [
         "product-photos/CL-217/g1.jpg",
-        "product-photos/CL-217/g2.jpg",
+        "product-photos/CL-217/hero.jpg",
         "product-photos/CL-217/g3.jpg",
         "product-photos/CL-217/g4.jpg",
         "product-photos/CL-217/g5.jpg"
@@ -3944,12 +3944,12 @@
         "design": "Round",
         "shape_design": "Round"
       },
-      "hero": "product-photos/MKA919/hero.jpg",
+      "hero": "product-photos/MKA919/g5.jpg",
       "gallery": [
         "product-photos/MKA919/g2.jpg",
         "product-photos/MKA919/g3.jpg",
         "product-photos/MKA919/g4.jpg",
-        "product-photos/MKA919/g5.jpg",
+        "product-photos/MKA919/hero.jpg",
         "product-photos/MKA919/g6.jpg",
         "product-photos/MKA919/g7.jpg",
         "product-photos/MKA919/g8.jpg"
@@ -4250,13 +4250,13 @@
       "filters": {
         "use": "Pizza Cutter"
       },
-      "hero": "product-photos/MKA-069/hero.jpg",
+      "hero": "product-photos/MKA-069/g4.jpg",
       "gallery": [
         "product-photos/MKA-069/g1.jpg",
         "product-photos/MKA-069/g3.jpeg",
         "product-photos/MKA-069/g4.jpeg",
         "product-photos/MKA-069/g3.jpg",
-        "product-photos/MKA-069/g4.jpg",
+        "product-photos/MKA-069/hero.jpg",
         "product-photos/MKA-069/g5.jpg",
         "product-photos/MKA-069/g6.jpg",
         "product-photos/MKA-069/g7.jpg"
@@ -4349,13 +4349,13 @@
       "filters": {
         "use": "Ice-Cream Scoop"
       },
-      "hero": "product-photos/MKA102/hero.jpg",
+      "hero": "product-photos/MKA102/g6.jpg",
       "gallery": [
         "product-photos/MKA102/g1.jpg",
         "product-photos/MKA102/g3.jpg",
         "product-photos/MKA102/g4.jpg",
         "product-photos/MKA102/g5.jpg",
-        "product-photos/MKA102/g6.jpg",
+        "product-photos/MKA102/hero.jpg",
         "product-photos/MKA102/g7.jpg",
         "product-photos/MKA102/g8.jpg",
         "product-photos/MKA102/g9.jpg"
@@ -4383,12 +4383,12 @@
       "filters": {
         "use": "Potato Masher"
       },
-      "hero": "product-photos/MKA104/hero.jpg",
+      "hero": "product-photos/MKA104/g5.jpg",
       "gallery": [
         "product-photos/MKA104/g1.jpg",
         "product-photos/MKA104/g2.jpg",
         "product-photos/MKA104/g4.jpg",
-        "product-photos/MKA104/g5.jpg",
+        "product-photos/MKA104/hero.jpg",
         "product-photos/MKA104/g6.jpg",
         "product-photos/MKA104/g7.jpg"
       ],
@@ -5906,11 +5906,11 @@
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
-      "hero": "product-photos/MKA-231/hero.jpg",
+      "hero": "product-photos/MKA-231/g4.jpg",
       "gallery": [
         "product-photos/MKA-231/g2.jpg",
         "product-photos/MKA-231/g3.jpg",
-        "product-photos/MKA-231/g4.jpg",
+        "product-photos/MKA-231/hero.jpg",
         "product-photos/MKA-231/g5.jpg",
         "product-photos/MKA-231/g6.jpg",
         "product-photos/MKA-231/g7.jpg",
@@ -6245,13 +6245,13 @@
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
-      "hero": "product-photos/MKA-416/hero.jpg",
+      "hero": "product-photos/MKA-416/g5.jpg",
       "gallery": [
         "product-photos/MKA-416/g1.jpg",
         "product-photos/MKA-416/g2.jpg",
         "product-photos/MKA-416/g3.jpg",
         "product-photos/MKA-416/g4.jpg",
-        "product-photos/MKA-416/g5.jpg",
+        "product-photos/MKA-416/hero.jpg",
         "product-photos/MKA-416/g6.jpg",
         "product-photos/MKA-416/g7.jpg"
       ],
@@ -6723,11 +6723,11 @@
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
-      "hero": "product-photos/CC-951/hero.jpg",
+      "hero": "product-photos/CC-951/g3.jpg",
       "gallery": [
         "product-photos/CC-951/g1.jpg",
         "product-photos/CC-951/g2.jpg",
-        "product-photos/CC-951/g3.jpg",
+        "product-photos/CC-951/hero.jpg",
         "product-photos/CC-951/g4.jpg",
         "product-photos/CC-951/g5.jpg",
         "product-photos/CC-951/g6.jpg",
@@ -6762,11 +6762,11 @@
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
-      "hero": "product-photos/CC-952/hero.jpg",
+      "hero": "product-photos/CC-952/g3.jpg",
       "gallery": [
         "product-photos/CC-952/g1.jpg",
         "product-photos/CC-952/g2.jpg",
-        "product-photos/CC-952/g3.jpg",
+        "product-photos/CC-952/hero.jpg",
         "product-photos/CC-952/g4.jpg",
         "product-photos/CC-952/g5.jpg",
         "product-photos/CC-952/g6.jpg",
@@ -6801,11 +6801,11 @@
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
-      "hero": "product-photos/CC-953/hero.jpg",
+      "hero": "product-photos/CC-953/g3.jpg",
       "gallery": [
         "product-photos/CC-953/g1.jpg",
         "product-photos/CC-953/g2.jpg",
-        "product-photos/CC-953/g3.jpg",
+        "product-photos/CC-953/hero.jpg",
         "product-photos/CC-953/g4.jpg",
         "product-photos/CC-953/g5.jpg",
         "product-photos/CC-953/g6.jpg",
@@ -6872,10 +6872,10 @@
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
-      "hero": "product-photos/CC-955/hero.jpg",
+      "hero": "product-photos/CC-955/g2.jpg",
       "gallery": [
         "product-photos/CC-955/g1.jpg",
-        "product-photos/CC-955/g2.jpg",
+        "product-photos/CC-955/hero.jpg",
         "product-photos/CC-955/g3.jpg",
         "product-photos/CC-955/g4.jpg",
         "product-photos/CC-955/g5.jpg",
@@ -6910,11 +6910,11 @@
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
-      "hero": "product-photos/CC-956/hero.jpg",
+      "hero": "product-photos/CC-956/g3.jpg",
       "gallery": [
         "product-photos/CC-956/g1.jpg",
         "product-photos/CC-956/g2.jpg",
-        "product-photos/CC-956/g3.jpg",
+        "product-photos/CC-956/hero.jpg",
         "product-photos/CC-956/g4.jpg",
         "product-photos/CC-956/g5.jpg",
         "product-photos/CC-956/g6.jpg",
@@ -6948,11 +6948,11 @@
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
-      "hero": "product-photos/CC-957/hero.jpg",
+      "hero": "product-photos/CC-957/g3.jpg",
       "gallery": [
         "product-photos/CC-957/g1.jpg",
         "product-photos/CC-957/g2.jpg",
-        "product-photos/CC-957/g3.jpg",
+        "product-photos/CC-957/hero.jpg",
         "product-photos/CC-957/g4.jpg",
         "product-photos/CC-957/g5.jpg",
         "product-photos/CC-957/g6.jpg",
@@ -7058,10 +7058,10 @@
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
-      "hero": "product-photos/CC-960/hero.jpg",
+      "hero": "product-photos/CC-960/g2.jpg",
       "gallery": [
         "product-photos/CC-960/g1.jpg",
-        "product-photos/CC-960/g2.jpg",
+        "product-photos/CC-960/hero.jpg",
         "product-photos/CC-960/g3.jpg",
         "product-photos/CC-960/g4.jpg",
         "product-photos/CC-960/g5.jpg",
@@ -7095,12 +7095,12 @@
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
-      "hero": "product-photos/CC-961/hero.jpg",
+      "hero": "product-photos/CC-961/g4.jpg",
       "gallery": [
         "product-photos/CC-961/g1.jpg",
         "product-photos/CC-961/g2.jpg",
         "product-photos/CC-961/g3.jpg",
-        "product-photos/CC-961/g4.jpg",
+        "product-photos/CC-961/hero.jpg",
         "product-photos/CC-961/g5.jpg",
         "product-photos/CC-961/g6.jpg",
         "product-photos/CC-961/g7.jpg"
@@ -9208,10 +9208,10 @@
         "set_type": "Individual",
         "individual_set": "Individual"
       },
-      "hero": "product-photos/CC-924/hero.jpg",
+      "hero": "product-photos/CC-924/g3.jpg",
       "gallery": [
         "product-photos/CC-924/g1.jpg",
-        "product-photos/CC-924/g3.jpg",
+        "product-photos/CC-924/hero.jpg",
         "product-photos/CC-924/g4.jpg",
         "product-photos/CC-924/g5.jpg",
         "product-photos/CC-924/g6.jpg"
@@ -9245,12 +9245,12 @@
         "set_type": "Individual",
         "individual_set": "Individual"
       },
-      "hero": "product-photos/CC-925/hero.jpg",
+      "hero": "product-photos/CC-925/g5.jpg",
       "gallery": [
         "product-photos/CC-925/g1.jpg",
         "product-photos/CC-925/g3.jpg",
         "product-photos/CC-925/g4.jpg",
-        "product-photos/CC-925/g5.jpg",
+        "product-photos/CC-925/hero.jpg",
         "product-photos/CC-925/g6.jpg",
         "product-photos/CC-925/g7.jpg",
         "product-photos/CC-925/g8.jpg",
@@ -9284,11 +9284,11 @@
         "set_type": "Individual",
         "individual_set": "Individual"
       },
-      "hero": "product-photos/CC-926/hero.jpg",
+      "hero": "product-photos/CC-926/g4.jpg",
       "gallery": [
         "product-photos/CC-926/g1.jpg",
         "product-photos/CC-926/g2.jpg",
-        "product-photos/CC-926/g4.jpg",
+        "product-photos/CC-926/hero.jpg",
         "product-photos/CC-926/g5.jpg",
         "product-photos/CC-926/g6.jpg",
         "product-photos/CC-926/g7.jpg"
@@ -9321,12 +9321,12 @@
         "set_type": "Individual",
         "individual_set": "Individual"
       },
-      "hero": "product-photos/CC-927/hero.jpg",
+      "hero": "product-photos/CC-927/g5.jpg",
       "gallery": [
         "product-photos/CC-927/g1.jpg",
         "product-photos/CC-927/g2.jpg",
         "product-photos/CC-927/g4.jpg",
-        "product-photos/CC-927/g5.jpg",
+        "product-photos/CC-927/hero.jpg",
         "product-photos/CC-927/g6.jpg",
         "product-photos/CC-927/g7.jpg",
         "product-photos/CC-927/g8.jpg",
@@ -9361,12 +9361,12 @@
         "set_type": "Individual",
         "individual_set": "Individual"
       },
-      "hero": "product-photos/CC-928/hero.jpg",
+      "hero": "product-photos/CC-928/g5.jpg",
       "gallery": [
         "product-photos/CC-928/g1.jpg",
         "product-photos/CC-928/g3.jpg",
         "product-photos/CC-928/g4.jpg",
-        "product-photos/CC-928/g5.jpg",
+        "product-photos/CC-928/hero.jpg",
         "product-photos/CC-928/g6.jpg",
         "product-photos/CC-928/g7.jpg",
         "product-photos/CC-928/g8.jpg",
