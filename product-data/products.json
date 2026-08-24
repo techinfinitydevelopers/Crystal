@@ -10902,7 +10902,11 @@
         "individual_set": "Individual"
       },
       "hero": "product-photos/CTP-TP-001/hero.jpg",
-      "gallery": [],
+      "gallery": [
+        "product-photos/CTP-TP-001/g1.jpg",
+        "product-photos/CTP-TP-001/g2.jpg",
+        "product-photos/CTP-TP-001/g3.jpg"
+      ],
       "match_tier": "dump_sku_match",
       "id": "ctp-tp-001",
       "variant_group": "vg-08",
@@ -10936,8 +10940,13 @@
         "induction_non_induction": "Induction",
         "individual_set": "Individual"
       },
-      "hero": "product-photos/CTP-TP-002/hero.webp",
-      "gallery": [],
+      "hero": "product-photos/CTP-TP-002/hero.jpg",
+      "gallery": [
+        "product-photos/CTP-TP-002/g1.jpg",
+        "product-photos/CTP-TP-002/g2.jpg",
+        "product-photos/CTP-TP-002/g3.jpg",
+        "product-photos/CTP-TP-002/g4.jpg"
+      ],
       "match_tier": "exact_sku",
       "id": "ctp-tp-002",
       "variant_group": "vg-08",
@@ -10970,8 +10979,12 @@
         "induction_non_induction": "Induction",
         "individual_set": "Individual"
       },
-      "hero": "product-photos/CTP-TP-003/hero.webp",
-      "gallery": [],
+      "hero": "product-photos/CTP-TP-003/hero.jpg",
+      "gallery": [
+        "product-photos/CTP-TP-003/g1.jpg",
+        "product-photos/CTP-TP-003/g2.jpg",
+        "product-photos/CTP-TP-003/g3.jpg"
+      ],
       "match_tier": "exact_sku",
       "id": "ctp-tp-003",
       "variant_group": "vg-08",
@@ -11004,8 +11017,12 @@
         "induction_non_induction": "Induction",
         "individual_set": "Individual"
       },
-      "hero": "product-photos/CTP-TP-004/hero.webp",
-      "gallery": [],
+      "hero": "product-photos/CTP-TP-004/hero.jpg",
+      "gallery": [
+        "product-photos/CTP-TP-004/g1.jpg",
+        "product-photos/CTP-TP-004/g2.jpg",
+        "product-photos/CTP-TP-004/g3.jpg"
+      ],
       "match_tier": "exact_sku",
       "id": "ctp-tp-004",
       "variant_group": "vg-08",
@@ -11038,8 +11055,13 @@
         "induction_non_induction": "Induction",
         "individual_set": "Individual"
       },
-      "hero": "product-photos/CTP-TP-005/hero.webp",
-      "gallery": [],
+      "hero": "product-photos/CTP-TP-005/hero.jpg",
+      "gallery": [
+        "product-photos/CTP-TP-005/g1.jpg",
+        "product-photos/CTP-TP-005/g2.jpg",
+        "product-photos/CTP-TP-005/g3.jpg",
+        "product-photos/CTP-TP-005/g4.jpg"
+      ],
       "match_tier": "exact_sku",
       "id": "ctp-tp-005",
       "variant_group": "vg-08",
@@ -11072,8 +11094,12 @@
         "induction_non_induction": "Induction",
         "individual_set": "Individual"
       },
-      "hero": "product-photos/CTP-TP-006/hero.webp",
-      "gallery": [],
+      "hero": "product-photos/CTP-TP-006/hero.jpg",
+      "gallery": [
+        "product-photos/CTP-TP-006/g1.jpg",
+        "product-photos/CTP-TP-006/g2.jpg",
+        "product-photos/CTP-TP-006/g3.jpg"
+      ],
       "match_tier": "exact_sku",
       "id": "ctp-tp-006",
       "variant_group": "vg-08",
@@ -11106,8 +11132,12 @@
         "induction_non_induction": "Induction",
         "individual_set": "Individual"
       },
-      "hero": "product-photos/CTP-TP-007/hero.webp",
-      "gallery": [],
+      "hero": "product-photos/CTP-TP-007/hero.jpg",
+      "gallery": [
+        "product-photos/CTP-TP-007/g1.jpg",
+        "product-photos/CTP-TP-007/g2.jpg",
+        "product-photos/CTP-TP-007/g3.jpg"
+      ],
       "match_tier": "exact_sku",
       "id": "ctp-tp-007",
       "variant_group": "vg-08",
