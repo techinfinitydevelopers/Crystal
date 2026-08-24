@@ -195,3 +195,14 @@
 **Verification:** Fresh-tab console checks on multiple pages (no new errors beyond pre-existing unrelated 404s), computed-style checks confirming font-size and section order, before/after image comparison on 3 sample photos before full rollout.
 
 **Committed & pushed** to `main`.
+
+## 2026-08-24 — Fix 3 mis-scraped Amazon product ASINs (cross-tab contamination)
+
+**Task:** 3 ASINs (`B098MVMKBT`, `B098MV5MKJ`, `B0DZGQ5W78`) in `amazon-products/` had wrong product data saved from an earlier parallel batch scrape (cross-tab contamination). Re-scraped each fresh in its own tab with title verification before saving.
+
+**Results:**
+- `B098MVMKBT` -> "Crystal TriPro -Triply Stainless Steel Tasla - 26 cm (Induction Bottom)" — old img-1/2/3.jpg deleted, 5 new images saved, info.json overwritten.
+- `B098MV5MKJ` -> "Crystal TriPro -Triply Stainless Steel Saucepan with Lid - 20 cm (Induction Bottom)" — old img-1..5.jpg deleted, 4 new images saved (only 4 available on listing), info.json overwritten.
+- `B0DZGQ5W78` -> "Crystal Trival Triply Stainless Steel 2 Pc Cookware Set (Fry Pan-22cm & Tea/Milk Saucepan-16cm), Silver" — old img-1..5.jpg deleted, 5 new images saved, info.json overwritten.
+
+Titles confirmed to match expected products before any save. Old images deleted prior to downloading replacements in all 3 folders.

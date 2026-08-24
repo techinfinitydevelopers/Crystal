@@ -11863,7 +11863,9 @@
       "hero": "product-photos/CTP-TAS-005/hero.jpg",
       "gallery": [
         "product-photos/CTP-TAS-005/g1.jpg",
-        "product-photos/CTP-TAS-005/g2.jpg"
+        "product-photos/CTP-TAS-005/g2.jpg",
+        "product-photos/CTP-TAS-005/g3.jpg",
+        "product-photos/CTP-TAS-005/g4.jpg"
       ],
       "match_tier": "exact_sku",
       "id": "ctp-tas-005",
@@ -12127,8 +12129,7 @@
       "gallery": [
         "product-photos/CTP-SP-004/g1.jpg",
         "product-photos/CTP-SP-004/g2.jpg",
-        "product-photos/CTP-SP-004/g3.jpg",
-        "product-photos/CTP-SP-004/g4.jpg"
+        "product-photos/CTP-SP-004/g3.jpg"
       ],
       "match_tier": "exact_sku",
       "id": "ctp-sp-004",
