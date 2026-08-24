@@ -46,5 +46,26 @@ the working folder is untracked and has been wiped three times.
 
 ### Still open
 - ~219 scraped products not yet wired into `products.json` — waiting on SKU tables.
-- Product-image hover magnifier: awaiting a choice between a lens + side-panel
-  (Amazon style) and inline background-position zoom (Flipkart style).
+
+---
+
+## 2026-08-24 — Product image hover magnifier
+
+**Commit:** `a7387aa` Add hover magnifier to the product image gallery
+
+Inline zoom (Flipkart/Myntra style) rather than Amazon's lens + side panel, since
+the PDP's right column holds the product info and a side panel would cover it.
+
+- `.g-zoom` layer inside `#gMainWrap` repaints the current photo at 2.5x, offset so
+  the point under the cursor stays under the cursor. The offset math accounts for
+  `object-fit: contain` letterboxing, so it stays correct for non-square photos.
+- Cursor is `zoom-in` (the native magnifying glass).
+- The `zooming` class is set inside the mousemove handler, not on `mouseenter` —
+  `mouseenter` does not reliably fire when the pointer is already inside the box.
+- Suppressed while a video is playing; disabled entirely under `(hover: none)` so
+  touch devices keep the plain image.
+
+**Verified** at 1280x900: zoom engages with correct background-size/position on
+COP-004; suppressed on CPW-001 with its video playing; at the 375x812 mobile preset
+the layer is `display:none`, nothing is wired, and the cursor stays default. No
+console errors, all gallery requests 200.
