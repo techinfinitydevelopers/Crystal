@@ -125,6 +125,11 @@
   /* ===== Section scaffold ===== */
   section { position: relative; }
   .sec { padding-block: clamp(46px, 6vw, 92px); }
+  .wood-why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px 32px; }
+  .wood-why-item { display: flex; align-items: flex-start; gap: 14px; padding: 18px 20px; border: 1.5px solid var(--line); border-radius: var(--r); background: var(--white); }
+  .wood-why-item .wic { flex-shrink: 0; width: 30px; height: 30px; border-radius: 50%; background: rgba(237,51,56,0.1); display: grid; place-items: center; }
+  .wood-why-item p { font-size: 15px; line-height: 1.5; color: var(--ink); font-weight: 500; }
+  @media (max-width: 760px) { .wood-why-grid { grid-template-columns: 1fr; } }
   .sec-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 26px; flex-wrap: wrap; margin-bottom: clamp(30px, 5vw, 54px); }
   .sec-head h2 { font-size: clamp(28px, 4vw, 50px); text-transform: uppercase; }
   .sec-head .lead { max-width: 400px; color: var(--muted); font-size: 16px; line-height: 1.55; }
@@ -621,6 +626,24 @@
   <div class="cat-grid" id="catGrid"></div>
 </section>
 
+<!-- ===== WHY OUR WOODEN RANGE ===== -->
+<section class="sec wrap" id="woodWhy">
+  <div class="sec-head">
+    <div>
+      <span class="eyebrow" data-fade><span class="pip"></span>Why choose teakwood</span>
+      <h2 data-split style="margin-top:14px">Why our<br>Wooden Range</h2>
+    </div>
+  </div>
+  <div class="wood-why-grid">
+    <div class="wood-why-item" data-fade><span class="wic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ED3338" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><p>Crafted from 100% seasoned natural wood</p></div>
+    <div class="wood-why-item" data-fade><span class="wic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ED3338" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><p>Smooth finish for a refined look</p></div>
+    <div class="wood-why-item" data-fade><span class="wic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ED3338" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><p>Durable &amp; hygienic construction</p></div>
+    <div class="wood-why-item" data-fade><span class="wic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ED3338" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><p>Beautifully designed side handle for easy movement</p></div>
+    <div class="wood-why-item" data-fade><span class="wic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ED3338" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><p>Natural hygienic surface for food preparation — avoids bacteria growth, gentle on knives</p></div>
+    <div class="wood-why-item" data-fade><span class="wic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ED3338" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><p>Adds warmth, elegance &amp; long-lasting utility</p></div>
+  </div>
+</section>
+
 <!-- ===== FEATURED COLLECTIONS ===== -->
 <section class="sec wrap" id="collections">
   <div class="sec-head">
@@ -849,20 +872,24 @@
     // those across categories (e.g. the "All" view) produced one
     // undifferentiated wall of 15+ groups, so category-specific facets only
     // build once the view is actually scoped to one category.
+    // This page is locked to one category (Wood Range), so Brand/Material/Use
+    // are always shown as filters here even with a single current value —
+    // unlike the multi-category views, a single-value filter still tells the
+    // shopper what they're looking at and is ready to differentiate as soon
+    // as a second wood type/brand is added, without waiting on that count.
     const groups = {};
     const brandSet = new Set(scoped.map(p => p.b).filter(Boolean));
-    if (brandSet.size > 1) groups.brand = brandSet;
+    if (brandSet.size) groups.brand = brandSet;
 
-    const distinctCats = new Set(scoped.map(p => p.c));
-    if (distinctCats.size === 1) {
-      scoped.forEach(p => {
-        Object.entries(p.attrs || {}).forEach(([k, v]) => {
-          if (!v) return;
-          (groups[k] || (groups[k] = new Set())).add(v);
-        });
+    const WOOD_FILTER_KEYS = ["material", "use"];
+    scoped.forEach(p => {
+      WOOD_FILTER_KEYS.forEach(k => {
+        const v = (p.attrs || {})[k];
+        if (!v) return;
+        (groups[k] || (groups[k] = new Set())).add(v);
       });
-    }
-    const keys = Object.keys(groups).filter(k => groups[k].size > 1);
+    });
+    const keys = Object.keys(groups);
     if (!keys.length) { attrChipsEl.innerHTML = ""; attrChipsEl.classList.remove("show"); return; }
 
     const activeCount = Object.values(state.attrFilters).filter(Boolean).length;
