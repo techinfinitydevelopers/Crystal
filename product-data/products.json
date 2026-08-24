@@ -129,7 +129,29 @@
         "manufacturer_address": "G.I.D.C. Metoda, Plot No. 2601-2-3, District : Rajkot 360021 Gujarat, India",
         "customer_service_phone": "022-49702803/06",
         "customer_service_email": "sales@crystalcook.com"
-      }
+      },
+      "features": [
+        [
+          "shield",
+          "Sturdy Stainless Steel Construction",
+          ""
+        ],
+        [
+          "refill",
+          "Refillable and Reusable Gas Lighter",
+          ""
+        ],
+        [
+          "shine",
+          "Multicolour Finish for a Modern Touch",
+          ""
+        ],
+        [
+          "heat",
+          "Safe and Easy to Use with a Strong Flame",
+          ""
+        ]
+      ]
     },
     {
       "sku": "LI003A",
@@ -179,7 +201,29 @@
         "manufacturer_address": "G.I.D.C. Metoda, Plot No. 2601-2-3, District : Rajkot 360021 Gujarat, India",
         "customer_service_phone": "022-49702803/06",
         "customer_service_email": "sales@crystalcook.com"
-      }
+      },
+      "features": [
+        [
+          "power",
+          "More Than 10 Lakhs Sparks Ensured",
+          ""
+        ],
+        [
+          "blade",
+          "Largest Selling Lighter in Its Category",
+          ""
+        ],
+        [
+          "blade",
+          "This Lighter From Crystal Comes",
+          "This lighter from crystal comes with a German piezo ignitor."
+        ],
+        [
+          "shield",
+          "Color: Multicolour, Material: Stainless Steel",
+          ""
+        ]
+      ]
     },
     {
       "sku": "LI007",
@@ -307,7 +351,29 @@
         "product-photos/LI010/g8.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "li010"
+      "id": "li010",
+      "features": [
+        [
+          "power",
+          "Comes with Double Piezo- Multiple Sparks in One ",
+          ""
+        ],
+        [
+          "blade",
+          "Suitable for Pipeline and Cylinder",
+          ""
+        ],
+        [
+          "blade",
+          "Designed in Italy",
+          ""
+        ],
+        [
+          "blade",
+          "Comes with Table Top Stand",
+          ""
+        ]
+      ]
     },
     {
       "sku": "LI011",
@@ -363,7 +429,29 @@
         "manufacturer_address": "G.I.D.C. Metoda, Plot No. 2601-2-3, District : Rajkot 360021 Gujarat, India",
         "customer_service_phone": "022-49702803/06",
         "customer_service_email": "sales@crystalcook.com"
-      }
+      },
+      "features": [
+        [
+          "power",
+          "High-quality Stainless Steel Spark Lighter",
+          "High-quality stainless steel spark lighter for long-lasting use."
+        ],
+        [
+          "power",
+          "Continuous Spark Mechanism Ensures Safe",
+          "Continuous spark mechanism ensures safe and easy ignition."
+        ],
+        [
+          "grip",
+          "Ergonomically Designed Handle for Comfortable Gr",
+          ""
+        ],
+        [
+          "leaf",
+          "No Batteries or Fuel Required",
+          "Eco-friendly and reliable."
+        ]
+      ]
     },
     {
       "sku": "VML-001",
@@ -409,7 +497,29 @@
         "manufacturer_address": "G.I.D.C. Metoda, Plot No. 2601-2-3, District : Rajkot 360021 Gujarat, India",
         "customer_service_phone": "022-49702803/06",
         "customer_service_email": "sales@crystalcook.com"
-      }
+      },
+      "features": [
+        [
+          "blade",
+          "Stanless Steel Body",
+          ""
+        ],
+        [
+          "power",
+          "Japanese Piezo",
+          "5 lakh sparks."
+        ],
+        [
+          "grip",
+          "Ergonomic Design",
+          "Hand Comfort Grip."
+        ],
+        [
+          "blade",
+          "Water Proof",
+          ""
+        ]
+      ]
     },
     {
       "sku": "VML-002",
@@ -474,7 +584,29 @@
         "product-photos/CL-007/g5.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cl-007"
+      "id": "cl-007",
+      "features": [
+        [
+          "blade",
+          "Precision Laser Edge Blade for Sharp Cutting",
+          ""
+        ],
+        [
+          "blade",
+          "8-inch Size Perfect for Versatile Kitchen Use",
+          ""
+        ],
+        [
+          "power",
+          "Strong Stainless Steel Construction",
+          ""
+        ],
+        [
+          "precision",
+          "Comfortable Handle for Better Control",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CL-008",
@@ -512,7 +644,29 @@
       ],
       "match_tier": "dump_sku_match",
       "id": "cl-008",
-      "video": "product-photos/CL-008/video.mp4"
+      "video": "product-photos/CL-008/video.mp4",
+      "features": [
+        [
+          "blade",
+          "Daily Utility Knife",
+          ""
+        ],
+        [
+          "grip",
+          "Multi Color Handle",
+          ""
+        ],
+        [
+          "grip",
+          "Comfortable Shape",
+          ""
+        ],
+        [
+          "blade",
+          "Color: Silver, Material: Plastic and Steel",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CL-010",
@@ -559,7 +713,29 @@
         "product-photos/CL-010/g10.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cl-010"
+      "id": "cl-010",
+      "features": [
+        [
+          "blade",
+          "Made From High-quality Stainless Steel",
+          "Made from high-quality stainless steel for long-lasting sharpness."
+        ],
+        [
+          "blade",
+          "Serrated Edge Ideal for Slicing",
+          "Serrated edge ideal for slicing bread, cakes, and soft fruits."
+        ],
+        [
+          "blade",
+          "Ergonomic Handle Ensures Comfortable Grip",
+          "Ergonomic handle ensures comfortable grip and safe cutting."
+        ],
+        [
+          "shield",
+          "Rust-resistant and Easy to Clean",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CL-011",
@@ -599,7 +775,29 @@
         "product-photos/CL-011/g9.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cl-011"
+      "id": "cl-011",
+      "features": [
+        [
+          "blade",
+          "Sleek and Stylish Plain-edge Knife",
+          ""
+        ],
+        [
+          "blade",
+          "20.32 Cm Stainless Steel Blade for Clean Cuts",
+          ""
+        ],
+        [
+          "grip",
+          "Multicolour Handle for Vibrant Kitchen Aesthetic",
+          ""
+        ],
+        [
+          "grip",
+          "Lightweight and Easy to Handle",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CL-459N",
@@ -638,7 +836,29 @@
         "product-photos/CL-459N/g8.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cl-459n"
+      "id": "cl-459n",
+      "features": [
+        [
+          "grip",
+          "Soft Grip Handle",
+          ""
+        ],
+        [
+          "blade",
+          "Easy to Use",
+          ""
+        ],
+        [
+          "grip",
+          "Good Grip",
+          ""
+        ],
+        [
+          "blade",
+          "Color: Multicolour, Material: Rubber",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CL-804",
@@ -708,7 +928,19 @@
       "id": "cl-122",
       "variant_group": "vg-02",
       "variant_label": "20.32 CM",
-      "variant_order": 0
+      "variant_order": 0,
+      "features": [
+        [
+          "blade",
+          "Made of Surgical Steel",
+          ""
+        ],
+        [
+          "blade",
+          "Manufactured Using HSSS Technology",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CL-123",
@@ -744,7 +976,24 @@
       "id": "cl-123",
       "variant_group": "vg-02",
       "variant_label": "22.86 CM",
-      "variant_order": 1
+      "variant_order": 1,
+      "features": [
+        [
+          "blade",
+          "Made of Surgical Steel",
+          ""
+        ],
+        [
+          "blade",
+          "Manufactured Using Hsss Technology",
+          ""
+        ],
+        [
+          "blade",
+          "This Knife From Crystal Is",
+          "This knife from crystal is used for cutting and chopping purpose."
+        ]
+      ]
     },
     {
       "sku": "CL-124",
@@ -781,7 +1030,29 @@
       "id": "cl-124",
       "variant_group": "vg-02",
       "variant_label": "25.4 CM",
-      "variant_order": 2
+      "variant_order": 2,
+      "features": [
+        [
+          "blade",
+          "Made of Surgical Steel",
+          ""
+        ],
+        [
+          "blade",
+          "Manufactured Using Hsss Technology",
+          ""
+        ],
+        [
+          "blade",
+          "This Knife From Crystal Is",
+          "This knife from crystal is used for cutting and chopping purpose."
+        ],
+        [
+          "shield",
+          "Color: Multicolour, Material: Stainless Steel",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CL-125",
@@ -853,7 +1124,29 @@
         "product-photos/CL-126/g5.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cl-126"
+      "id": "cl-126",
+      "features": [
+        [
+          "shield",
+          "Rust Free",
+          ""
+        ],
+        [
+          "shield",
+          "Durable",
+          ""
+        ],
+        [
+          "blade",
+          "Color:Multicolour, Material:Plastic",
+          ""
+        ],
+        [
+          "blade",
+          "Package Contents: 2-Piece Knife and 1-Piece Peel",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CL-127",
@@ -889,7 +1182,29 @@
       ],
       "match_tier": "dump_sku_match",
       "id": "cl-127",
-      "video": "product-photos/CL-127/video.mp4"
+      "video": "product-photos/CL-127/video.mp4",
+      "features": [
+        [
+          "blade",
+          "Premium Stainless Steel Knife",
+          ""
+        ],
+        [
+          "shield",
+          "No Staining or Sticking and No Corrosion",
+          ""
+        ],
+        [
+          "blade",
+          "Long Lasting Sharpness",
+          ""
+        ],
+        [
+          "blade",
+          "Blades Tempered From Quality Surgical",
+          "Blades tempered from quality surgical stainless steel."
+        ]
+      ]
     },
     {
       "sku": "CL-128",
@@ -934,7 +1249,29 @@
         "product-photos/CL-128/g9.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cl-128"
+      "id": "cl-128",
+      "features": [
+        [
+          "blade",
+          "Knife Tempered From the Highest",
+          "Knife tempered from the highest quality surgical steel blade."
+        ],
+        [
+          "blade",
+          "Blade Hardened At 1050 °c",
+          "Blade hardened at 1050 °c to get long lasting sharp edge."
+        ],
+        [
+          "blade",
+          "Laser Serrated Edge for Increased",
+          "Laser serrated edge for increased surface cutting area & Effortless cutting."
+        ],
+        [
+          "grip",
+          "Ergonomic Handle",
+          "A perfect grip."
+        ]
+      ]
     },
     {
       "sku": "CL-129",
@@ -968,7 +1305,29 @@
         "product-photos/CL-129/g4.jpg"
       ],
       "match_tier": "image_sourced_amazon_link",
-      "id": "cl-129"
+      "id": "cl-129",
+      "features": [
+        [
+          "blade",
+          "Knife Tempered From the Highest",
+          "Knife Tempered from the highest quality Surgical Steel Blade."
+        ],
+        [
+          "blade",
+          "Blade Hardened At 1050 °c",
+          "Blade hardened at 1050 °c to get long lasting sharp edge."
+        ],
+        [
+          "grip",
+          "Premium Wood Handle",
+          ""
+        ],
+        [
+          "blade",
+          "Sturdy Long Lasting Wooden Handles",
+          "Sturdy Long Lasting Wooden Handles & Long Lasting sharpness."
+        ]
+      ]
     },
     {
       "sku": "CL-130",
@@ -1002,7 +1361,29 @@
         "product-photos/CL-130/g4.jpg"
       ],
       "match_tier": "image_sourced_amazon_link",
-      "id": "cl-130"
+      "id": "cl-130",
+      "features": [
+        [
+          "blade",
+          "Knife Tempered From the Highest",
+          "Knife Tempered from the highest quality Surgical Steel Blade."
+        ],
+        [
+          "blade",
+          "Blade Hardened At 1050 °c",
+          "Blade hardened at 1050 °c to get long lasting sharp edge."
+        ],
+        [
+          "grip",
+          "Premium Wood Handle",
+          ""
+        ],
+        [
+          "blade",
+          "Sturdy Long Lasting Wooden Handles",
+          "Sturdy Long Lasting Wooden Handles & Long Lasting sharpness."
+        ]
+      ]
     },
     {
       "sku": "CL-019",
@@ -1073,7 +1454,19 @@
         "product-photos/CL-211/g3.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cl-211"
+      "id": "cl-211",
+      "features": [
+        [
+          "shield",
+          "Made From High Grade Stainless Steel",
+          ""
+        ],
+        [
+          "blade",
+          "Specially Used for Cheese",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CL-212",
@@ -1178,7 +1571,29 @@
         "product-photos/CL-214/g5.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cl-214"
+      "id": "cl-214",
+      "features": [
+        [
+          "blade",
+          "Black Plastic Handle Knife",
+          ""
+        ],
+        [
+          "blade",
+          "Laser Edge Serrate Knife",
+          ""
+        ],
+        [
+          "grip",
+          "Comfortable Shape",
+          ""
+        ],
+        [
+          "blade",
+          "Color: Silver, Material: Plastic and Steel",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CL-215",
@@ -1217,7 +1632,29 @@
         "product-photos/CL-215/g5.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cl-215"
+      "id": "cl-215",
+      "features": [
+        [
+          "blade",
+          "Versatile 9-inch Knife for All Cutting Needs",
+          ""
+        ],
+        [
+          "blade",
+          "Durable Stainless Steel Blade",
+          ""
+        ],
+        [
+          "grip",
+          "Comfortable Grip for Long Kitchen Tasks",
+          ""
+        ],
+        [
+          "blade",
+          "Ideal for Meat, Vegetables, and Fruits",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CL-216",
@@ -1256,7 +1693,29 @@
         "product-photos/CL-216/g6.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cl-216"
+      "id": "cl-216",
+      "features": [
+        [
+          "blade",
+          "Made of Surgical Steel",
+          ""
+        ],
+        [
+          "blade",
+          "Manufactured Using Hsss Technology",
+          ""
+        ],
+        [
+          "blade",
+          "This Knife From Crystal Is",
+          "This knife from crystal is used for cutting and chopping purpose."
+        ],
+        [
+          "shield",
+          "Color: Multicolour, Material: Stainless Steel",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CL-217",
@@ -1292,7 +1751,29 @@
         "product-photos/CL-217/g5.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cl-217"
+      "id": "cl-217",
+      "features": [
+        [
+          "blade",
+          "Black Plastic Handle Knife",
+          ""
+        ],
+        [
+          "blade",
+          "Laser Edge Serrate Knife",
+          ""
+        ],
+        [
+          "grip",
+          "Comfortable Shape",
+          ""
+        ],
+        [
+          "blade",
+          "Color: Silver, Material: Plastic and Steel",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CL-218",
@@ -1362,7 +1843,29 @@
         "product-photos/CL-023/g4.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cl-023"
+      "id": "cl-023",
+      "features": [
+        [
+          "grip",
+          "Rose Wood Handle Grip",
+          ""
+        ],
+        [
+          "blade",
+          "Curved Knife",
+          ""
+        ],
+        [
+          "grip",
+          "Comfortable Shape",
+          ""
+        ],
+        [
+          "blade",
+          "Color: Silver, Material: Rosewood and Steel",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CL-024",
@@ -1396,7 +1899,29 @@
         "product-photos/CL-024/g3.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cl-024"
+      "id": "cl-024",
+      "features": [
+        [
+          "grip",
+          "Rose Wood Handle Grip",
+          ""
+        ],
+        [
+          "blade",
+          "Curved Knife",
+          ""
+        ],
+        [
+          "grip",
+          "Comfortable Shape",
+          ""
+        ],
+        [
+          "blade",
+          "Color: Silver, Material: Rosewood and Steel",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CL-073",
@@ -1430,7 +1955,29 @@
         "product-photos/CL-073/g3.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cl-073"
+      "id": "cl-073",
+      "features": [
+        [
+          "blade",
+          "Made of Surgical Steel",
+          ""
+        ],
+        [
+          "blade",
+          "Manufactured Using Hsss Technology",
+          ""
+        ],
+        [
+          "blade",
+          "This Knife From Crystal Is",
+          "This knife from crystal is used for cutting and chopping purpose."
+        ],
+        [
+          "shield",
+          "Color: Multicolour, Material: Stainless Steel",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CL-074",
@@ -1463,7 +2010,29 @@
         "product-photos/CL-074/g2.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cl-074"
+      "id": "cl-074",
+      "features": [
+        [
+          "blade",
+          "Made of Surgical Steel",
+          ""
+        ],
+        [
+          "blade",
+          "Manufactured Using Hsss Technology",
+          ""
+        ],
+        [
+          "blade",
+          "This Knife From Crystal Is",
+          "This knife from crystal is used for cutting and chopping purpose."
+        ],
+        [
+          "shield",
+          "Color: Multicolour, Material: Stainless Steel",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CL-203",
@@ -1501,7 +2070,29 @@
       ],
       "match_tier": "dump_sku_match",
       "id": "cl-203",
-      "video": "product-photos/CL-203/video.mp4"
+      "video": "product-photos/CL-203/video.mp4",
+      "features": [
+        [
+          "grip",
+          "Rose Wood Handle Grip",
+          ""
+        ],
+        [
+          "blade",
+          "Laser Serrated Edge",
+          ""
+        ],
+        [
+          "grip",
+          "Comfortable Shape",
+          ""
+        ],
+        [
+          "blade",
+          "Color: Silver, Material: Rosewood and Steel",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CL-204",
@@ -1536,7 +2127,29 @@
         "product-photos/CL-204/g4.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cl-204"
+      "id": "cl-204",
+      "features": [
+        [
+          "grip",
+          "Rose Wood Handle Grip",
+          ""
+        ],
+        [
+          "blade",
+          "Laser Serrated Edge",
+          ""
+        ],
+        [
+          "grip",
+          "Comfortable Shape",
+          ""
+        ],
+        [
+          "blade",
+          "Color: Silver, Material: Rosewood and Steel",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CL-206",
@@ -1608,7 +2221,29 @@
         "product-photos/CL-207/g6.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cl-207"
+      "id": "cl-207",
+      "features": [
+        [
+          "grip",
+          "Rose Wood Handle Grip",
+          ""
+        ],
+        [
+          "blade",
+          "Laser Serrated Edge",
+          ""
+        ],
+        [
+          "grip",
+          "Comfortable Shape",
+          ""
+        ],
+        [
+          "blade",
+          "Color: Silver, Material: Rosewood and Steel",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CL-401",
@@ -1643,7 +2278,29 @@
         "product-photos/CL-401/g4.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cl-401"
+      "id": "cl-401",
+      "features": [
+        [
+          "grip",
+          "Rosewood Handle",
+          ""
+        ],
+        [
+          "blade",
+          "Multi Purpose Knives",
+          ""
+        ],
+        [
+          "blade",
+          "Blade Thickhness-2mm",
+          ""
+        ],
+        [
+          "blade",
+          "HSS (harden Surgical Steel) Edge Process",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CL-402",
@@ -1744,7 +2401,29 @@
         "product-photos/CL-701/g3.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cl-701"
+      "id": "cl-701",
+      "features": [
+        [
+          "grip",
+          "Rosewood Handle",
+          ""
+        ],
+        [
+          "blade",
+          "Multi Purpose Knives",
+          ""
+        ],
+        [
+          "blade",
+          "Blade Thickhness-2mm",
+          ""
+        ],
+        [
+          "blade",
+          "Hss (harden Surgical Steel) Edge Process",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CL-101",
@@ -1981,7 +2660,29 @@
       "id": "cl-457",
       "variant_group": "vg-22",
       "variant_label": "20.32 CM",
-      "variant_order": 0
+      "variant_order": 0,
+      "features": [
+        [
+          "blade",
+          "Made of Surgical Steel",
+          ""
+        ],
+        [
+          "blade",
+          "Manufactured Using Hsss Technology",
+          ""
+        ],
+        [
+          "blade",
+          "This Knife From Crystal Is",
+          "This knife from crystal is used for cutting and chopping purpose."
+        ],
+        [
+          "shield",
+          "Color: Multicolour, Material: Stainless Steel",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CL-458",
@@ -2020,7 +2721,29 @@
       "id": "cl-458",
       "variant_group": "vg-22",
       "variant_label": "22.86 CM",
-      "variant_order": 1
+      "variant_order": 1,
+      "features": [
+        [
+          "blade",
+          "Made of Surgical Steel",
+          ""
+        ],
+        [
+          "blade",
+          "Manufactured Using Hsss Technology",
+          ""
+        ],
+        [
+          "blade",
+          "This Knife From Crystal Is",
+          "This knife from crystal is used for cutting and chopping purpose."
+        ],
+        [
+          "shield",
+          "Color: Multicolour, Material: Stainless Steel",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CL-412",
@@ -2056,7 +2779,29 @@
         "product-photos/CL-412/g5.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cl-412"
+      "id": "cl-412",
+      "features": [
+        [
+          "blade",
+          "Made of Surgical Steel",
+          ""
+        ],
+        [
+          "blade",
+          "Manufactured Using Hsss Technology",
+          ""
+        ],
+        [
+          "blade",
+          "This Knife From Crystal Is",
+          "This knife from crystal is used for cutting and chopping purpose."
+        ],
+        [
+          "shield",
+          "Color: Multicolour, Material: Stainless Steel",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CL-413",
@@ -2092,7 +2837,29 @@
         "product-photos/CL-413/g5.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cl-413"
+      "id": "cl-413",
+      "features": [
+        [
+          "blade",
+          "Made of Surgical Steel",
+          ""
+        ],
+        [
+          "blade",
+          "Manufactured Using Hsss Technology",
+          ""
+        ],
+        [
+          "blade",
+          "This Knife From Crystal Is",
+          "This knife from crystal is used for cutting and chopping purpose."
+        ],
+        [
+          "shield",
+          "Color: Multicolour, Material: Stainless Steel",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CL-414",
@@ -2135,7 +2902,29 @@
         "product-photos/CL-414/g7.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cl-414"
+      "id": "cl-414",
+      "features": [
+        [
+          "blade",
+          "Multipurpose Stainless Steel Utility Knife",
+          "Multipurpose stainless steel utility knife for kitchen use."
+        ],
+        [
+          "blade",
+          "Sharp Plain Edge Suitable for",
+          "Sharp plain edge suitable for cutting vegetables, fruits, and meat."
+        ],
+        [
+          "blade",
+          "Comfortable Ergonomic Handle for Safe",
+          "Comfortable ergonomic handle for safe and precise cutting."
+        ],
+        [
+          "shield",
+          "Durable, Rust-resistant, and Easy to Clean",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CL-415",
@@ -2203,7 +2992,29 @@
         "product-photos/CL-416/g5.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cl-416"
+      "id": "cl-416",
+      "features": [
+        [
+          "blade",
+          "Knife Has Been Tempered From",
+          "Knife has been tempered from the highest quality surgical stainless steel."
+        ],
+        [
+          "blade",
+          "The Blade Has Been Hardened",
+          "The blade has been hardened at as high as 1050 * c to get long lasting sharp edge."
+        ],
+        [
+          "blade",
+          "Knife Has a Specifically Designed",
+          "Knife has a specifically designed edge to give maximum efficiency at a minimum effort."
+        ],
+        [
+          "shield",
+          "Material: Stainless Steel",
+          ""
+        ]
+      ]
     },
     {
       "sku": "MKA-065",
@@ -2313,7 +3124,19 @@
         "product-photos/CL-921/g6.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cl-921"
+      "id": "cl-921",
+      "features": [
+        [
+          "blade",
+          "Made of High Grade of German Steel",
+          ""
+        ],
+        [
+          "blade",
+          "Super Sharp Edges",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CL-922",
@@ -2423,7 +3246,19 @@
         "product-photos/CL-924/g6.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cl-924"
+      "id": "cl-924",
+      "features": [
+        [
+          "blade",
+          "Made of High Grade of German Steel",
+          ""
+        ],
+        [
+          "blade",
+          "Super Sharp Edges",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CL-925",
@@ -2535,7 +3370,29 @@
         "product-photos/CL-927/g6.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cl-927"
+      "id": "cl-927",
+      "features": [
+        [
+          "blade",
+          "Made of High Grade of German Steel",
+          ""
+        ],
+        [
+          "blade",
+          "Super Sharp Edges",
+          ""
+        ],
+        [
+          "blade",
+          "Edge Sharpness Retained Even After Prolonged Usa",
+          ""
+        ],
+        [
+          "shield",
+          "High Resistance to Corrosion",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CL-901",
@@ -2570,7 +3427,24 @@
         "product-photos/CL-901/g5.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cl-901"
+      "id": "cl-901",
+      "features": [
+        [
+          "blade",
+          "Made of High Grade of German Steel",
+          ""
+        ],
+        [
+          "blade",
+          "Super Sharp Edges",
+          ""
+        ],
+        [
+          "blade",
+          "Edge Sharpness Retained Even After Prolonged Usa",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CL-902",
@@ -2606,7 +3480,29 @@
         "product-photos/CL-902/g6.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cl-902"
+      "id": "cl-902",
+      "features": [
+        [
+          "blade",
+          "Made of High Grade of German Steel",
+          ""
+        ],
+        [
+          "blade",
+          "Super Sharp Edges",
+          ""
+        ],
+        [
+          "blade",
+          "Edge Sharpness Retained Even After Prolonged Usa",
+          ""
+        ],
+        [
+          "shield",
+          "High Resistance to Corrosion",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CL-903",
@@ -2642,7 +3538,19 @@
         "product-photos/CL-903/g6.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cl-903"
+      "id": "cl-903",
+      "features": [
+        [
+          "blade",
+          "Made of High Grade of German Steel",
+          ""
+        ],
+        [
+          "blade",
+          "Super Sharp Edges",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CL-904",
@@ -2713,7 +3621,19 @@
         "product-photos/CL-905/g6.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cl-905"
+      "id": "cl-905",
+      "features": [
+        [
+          "blade",
+          "Made of High Grade of German Steel",
+          ""
+        ],
+        [
+          "blade",
+          "Super Sharp Edges",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CL-906",
@@ -2785,7 +3705,29 @@
         "product-photos/CL-907/g6.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cl-907"
+      "id": "cl-907",
+      "features": [
+        [
+          "blade",
+          "Made of High Grade of German Steel",
+          ""
+        ],
+        [
+          "blade",
+          "Super Sharp Edges",
+          ""
+        ],
+        [
+          "blade",
+          "Edge Sharpness Retained Even After Prolonged Usa",
+          ""
+        ],
+        [
+          "shield",
+          "High Resistance to Corrosion",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CLCL-001",
@@ -2940,7 +3882,29 @@
         "product-photos/CLCL-004/g4.jpg"
       ],
       "match_tier": "image_sourced_amazon_link",
-      "id": "clcl-004"
+      "id": "clcl-004",
+      "features": [
+        [
+          "blade",
+          "Premium Stainless Steel Knife with Ceramic Coati",
+          ""
+        ],
+        [
+          "shield",
+          "No Staining or Sticking and No Corrosion",
+          ""
+        ],
+        [
+          "blade",
+          "Long Lasting Sharpness with Protective Blade Cov",
+          ""
+        ],
+        [
+          "blade",
+          "Blades Tempered From Surgical Stainless Steel",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CLCL-005",
@@ -3052,7 +4016,29 @@
         "product-photos/CL-459/g9.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cl-459"
+      "id": "cl-459",
+      "features": [
+        [
+          "grip",
+          "Soft Grip Handle",
+          ""
+        ],
+        [
+          "blade",
+          "Easy to Use",
+          ""
+        ],
+        [
+          "grip",
+          "Good Grip",
+          ""
+        ],
+        [
+          "blade",
+          "Color: Multicolour, Material: Rubber",
+          ""
+        ]
+      ]
     },
     {
       "sku": "MKA-007",
@@ -3079,7 +4065,29 @@
         "product-photos/MKA-007/g3.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "mka-007"
+      "id": "mka-007",
+      "features": [
+        [
+          "grip",
+          "Peeler with Plastic Handle",
+          ""
+        ],
+        [
+          "shield",
+          "Stainless Steel Peeler",
+          ""
+        ],
+        [
+          "blade",
+          "This Peeler From Crystal Is Used for Fruit Peeli",
+          ""
+        ],
+        [
+          "shield",
+          "Color: Multicolour, Material: Stainless Steel",
+          ""
+        ]
+      ]
     },
     {
       "sku": "MKA-008",
@@ -3113,7 +4121,29 @@
       ],
       "match_tier": "dump_sku_match",
       "id": "mka-008",
-      "video": "product-photos/MKA-008/video.mp4"
+      "video": "product-photos/MKA-008/video.mp4",
+      "features": [
+        [
+          "shield",
+          "Multipurpose Quality Peelers. It Comes",
+          "Multipurpose quality peelers. It comes in Assorted colours."
+        ],
+        [
+          "blade",
+          "Effecting for Fruit and Vegetable Peeling",
+          ""
+        ],
+        [
+          "blade",
+          "Available in Different Shape",
+          ""
+        ],
+        [
+          "blade",
+          "Attractive Colours",
+          ""
+        ]
+      ]
     },
     {
       "sku": "MKA-009",
@@ -3143,7 +4173,29 @@
         "product-photos/MKA-009/g6.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "mka-009"
+      "id": "mka-009",
+      "features": [
+        [
+          "grip",
+          "Peeler Cum Scrapper with Plastic Handle",
+          ""
+        ],
+        [
+          "shield",
+          "Stainless Steel Peeler",
+          ""
+        ],
+        [
+          "blade",
+          "This Peeler/scrapper Is Used in the Kitchen",
+          ""
+        ],
+        [
+          "shield",
+          "Color: Multicolour, Material: Stainless Steel",
+          ""
+        ]
+      ]
     },
     {
       "sku": "MKA-010",
@@ -3179,7 +4231,29 @@
       ],
       "match_tier": "dump_sku_match",
       "id": "mka-010",
-      "video": "product-photos/MKA-010/video.mp4"
+      "video": "product-photos/MKA-010/video.mp4",
+      "features": [
+        [
+          "blade",
+          "Sharp Stainless Steel Blade for Effortless Peeli",
+          ""
+        ],
+        [
+          "blade",
+          "Swivel Design Adjusts Easily to",
+          "Swivel design adjusts easily to the shape of fruits and vegetables."
+        ],
+        [
+          "grip",
+          "Ergonomic Handle Provides a Firm, Comfortable Gr",
+          ""
+        ],
+        [
+          "shield",
+          "Lightweight, Durable, and Rust-resistant",
+          ""
+        ]
+      ]
     },
     {
       "sku": "MKA-947",
@@ -3210,7 +4284,29 @@
         "product-photos/MKA-947/g5.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "mka-947"
+      "id": "mka-947",
+      "features": [
+        [
+          "grip",
+          "Ergonomic Design: Comfortably Fits in",
+          "Ergonomic Design: Comfortably fits in your hand for extended peeling sessions without causing fatigue."
+        ],
+        [
+          "blade",
+          "Sharp Stainless Steel Blade: High-quality",
+          "Sharp Stainless Steel Blade: High-quality blade ensures precise, effortless peeling and maintains sharpness over time."
+        ],
+        [
+          "grip",
+          "Compact Size: Perfect for Peeling",
+          "Compact Size: Perfect for peeling fruits and vegetables of all sizes, fitting neatly into kitchen drawers or utensil holders."
+        ],
+        [
+          "blade",
+          "Versatile Use: Ideal for Peeling",
+          "Versatile Use: Ideal for peeling potatoes, apples, carrots, and more, making it a versatile addition to any kitchen."
+        ]
+      ]
     },
     {
       "sku": "MKA-948",
@@ -3241,7 +4337,29 @@
         "product-photos/MKA-948/g6.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "mka-948"
+      "id": "mka-948",
+      "features": [
+        [
+          "blade",
+          "Swivel Blade Technology: Features a",
+          "Swivel Blade Technology: Features a swivel blade that adjusts to the contours of your fruits and vegetables, ensuring efficient and smooth peeling."
+        ],
+        [
+          "blade",
+          "Ultra-Sharp Stainless Steel Blade: Provides",
+          "Ultra-Sharp Stainless Steel Blade: Provides precision peeling with minimal effort, retaining sharpness for long-term use."
+        ],
+        [
+          "grip",
+          "Compact and Lightweight: Easy to",
+          "Compact and Lightweight: Easy to handle and store, fitting neatly into kitchen drawers or utensil holders."
+        ],
+        [
+          "precision",
+          "Non-Slip Grip: Handle Has a",
+          "Non-Slip Grip: Handle has a non-slip surface, offering secure handling even when wet or greasy."
+        ]
+      ]
     },
     {
       "sku": "MKA-258",
@@ -3363,7 +4481,29 @@
         "product-photos/MKA-078/g4.jpg"
       ],
       "match_tier": "image_sourced_amazon_link",
-      "id": "mka-078"
+      "id": "mka-078",
+      "features": [
+        [
+          "shield",
+          "Made From Premium Food-grade Stainless Steel",
+          ""
+        ],
+        [
+          "blade",
+          "Oval Shape Design for Stylish",
+          "Oval shape design for stylish and spacious cutting surface."
+        ],
+        [
+          "blade",
+          "Suitable for Vegetables, Fruits, Bread, and Meat",
+          ""
+        ],
+        [
+          "shield",
+          "Non-porous & Rust-resistant Surface for",
+          "Non-porous & rust-resistant surface for hygiene and durability."
+        ]
+      ]
     },
     {
       "sku": "MKA-079",
@@ -3397,7 +4537,29 @@
         "product-photos/MKA-079/g4.jpg"
       ],
       "match_tier": "image_sourced_amazon_link",
-      "id": "mka-079"
+      "id": "mka-079",
+      "features": [
+        [
+          "blade",
+          "Xtra Large Size Provides Ample",
+          "Xtra large size provides ample space for all chopping needs."
+        ],
+        [
+          "leaf",
+          "Made From High-quality Stainless Steel",
+          "Rust-free & food-safe."
+        ],
+        [
+          "blade",
+          "Ideal for Vegetables, Fruits, Meat,",
+          "Ideal for vegetables, fruits, meat, and multi-prep tasks."
+        ],
+        [
+          "blade",
+          "Sturdy and Stable for Safe Cutting",
+          ""
+        ]
+      ]
     },
     {
       "sku": "MKA-080",
@@ -3432,7 +4594,29 @@
         "product-photos/MKA-080/g5.jpg"
       ],
       "match_tier": "image_sourced_amazon_link",
-      "id": "mka-080"
+      "id": "mka-080",
+      "features": [
+        [
+          "blade",
+          "Large Surface Area Ideal for Daily Kitchen Use",
+          ""
+        ],
+        [
+          "shield",
+          "Crafted From Durable Stainless Steel",
+          "Safe for food contact."
+        ],
+        [
+          "blade",
+          "Great for Chopping Vegetables, Fruits,",
+          "Great for chopping vegetables, fruits, and light meat prep."
+        ],
+        [
+          "shield",
+          "Scratch-resistant, Rust-free, and Long-lasting",
+          ""
+        ]
+      ]
     },
     {
       "sku": "MKA083",
@@ -3465,7 +4649,29 @@
       "id": "mka083",
       "variant_group": "vg-24",
       "variant_label": "Small",
-      "variant_order": 0
+      "variant_order": 0,
+      "features": [
+        [
+          "leaf",
+          "Made of Virgin Plastic",
+          ""
+        ],
+        [
+          "blade",
+          "Scratch Proof",
+          ""
+        ],
+        [
+          "leaf",
+          "Made of Virgin Plastic, Heavy",
+          "Made of virgin plastic, heavy thickness, good for chopping."
+        ],
+        [
+          "blade",
+          "Color: Multicolour, Material: Plastic",
+          ""
+        ]
+      ]
     },
     {
       "sku": "MKA084",
@@ -3498,7 +4704,29 @@
       "id": "mka084",
       "variant_group": "vg-24",
       "variant_label": "Medium",
-      "variant_order": 1
+      "variant_order": 1,
+      "features": [
+        [
+          "leaf",
+          "Made of Virgin Plastic",
+          ""
+        ],
+        [
+          "blade",
+          "Scratch Proof",
+          ""
+        ],
+        [
+          "leaf",
+          "Made of Virgin Plastic, Heavy",
+          "Made of virgin plastic, heavy thickness, good for chopping."
+        ],
+        [
+          "blade",
+          "Color: Multicolour, Material: Plastic",
+          ""
+        ]
+      ]
     },
     {
       "sku": "MKA085",
@@ -3565,7 +4793,29 @@
         "product-photos/MKA086/g3.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "mka086"
+      "id": "mka086",
+      "features": [
+        [
+          "leaf",
+          "Made of Virgin Plastic",
+          ""
+        ],
+        [
+          "blade",
+          "Scratch Proof",
+          ""
+        ],
+        [
+          "blade",
+          "This Chopping Board Comes with",
+          "This chopping board comes with knife for vegetable cutting."
+        ],
+        [
+          "blade",
+          "Color: Multicolour, Material: Plastic",
+          ""
+        ]
+      ]
     },
     {
       "sku": "MKA097",
@@ -3602,7 +4852,29 @@
         "product-photos/MKA097/g6.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "mka097"
+      "id": "mka097",
+      "features": [
+        [
+          "leaf",
+          "Made From Eco Friendly & Seasoned Wood",
+          ""
+        ],
+        [
+          "blade",
+          "Double Sided Usage",
+          ""
+        ],
+        [
+          "blade",
+          "Moisture Proof, Easy To Use & Easy To Clean",
+          ""
+        ],
+        [
+          "stack",
+          "Easy To Store",
+          "Convenient to Hang."
+        ]
+      ]
     },
     {
       "sku": "MKA091A",
@@ -3700,7 +4972,29 @@
         "product-photos/MKA092A/g5.jpg"
       ],
       "match_tier": "exact_sku",
-      "id": "mka092a"
+      "id": "mka092a",
+      "features": [
+        [
+          "blade",
+          "Made From Premium-grade Teakwood",
+          ""
+        ],
+        [
+          "precision",
+          "Smooth Surface for Safe Chopping",
+          ""
+        ],
+        [
+          "blade",
+          "Anti-slip Base for Stable Chopping",
+          ""
+        ],
+        [
+          "blade",
+          "Easy to Clean and Maintain",
+          ""
+        ]
+      ]
     },
     {
       "sku": "MKA-099",
@@ -3735,7 +5029,29 @@
         "product-photos/MKA-099/g4.jpg"
       ],
       "match_tier": "image_sourced_amazon_link",
-      "id": "mka-099"
+      "id": "mka-099",
+      "features": [
+        [
+          "blade",
+          "100% Food Grade Stainless Steel:",
+          "100% Food Grade Stainless Steel: Crystal cutting board are made from high quality, top-grade, eco-friendly, 100% BPA-free Stainless Steel & doesn’t contain any chemicals or toxic elements."
+        ],
+        [
+          "blade",
+          "Chop, Scrape & Dice",
+          "Crystal Chopping Board is strong and durable, can withstand heavy cutting, slicing, dicing and will not cause any damage the cutting knife, only produce slight scratches, more durable than w"
+        ],
+        [
+          "blade",
+          "Care Instruction: Compared with Wooden",
+          "Care Instruction: Compared with wooden and plastic cutting boards, stainless steel will not produce debris during the cutting process, nor will it leave food residues and peculiar smells. Cl"
+        ],
+        [
+          "shield",
+          "Safe Handling: The Rounded Corner",
+          "Safe Handling: The rounded corner protection design will not hurt your hands."
+        ]
+      ]
     },
     {
       "sku": "MKA-120",
@@ -3774,7 +5090,29 @@
         "product-photos/MKA-120/g5.jpg"
       ],
       "match_tier": "fuzzy_name",
-      "id": "mka-120"
+      "id": "mka-120",
+      "features": [
+        [
+          "shield",
+          "Dual-surface Board: Teakwood and Stainless Steel",
+          ""
+        ],
+        [
+          "blade",
+          "Perfect for Both Cutting and Serving",
+          ""
+        ],
+        [
+          "blade",
+          "Stylish and Premium 2-in-1 Design",
+          ""
+        ],
+        [
+          "shield",
+          "Hygienic, Rust-proof Steel Surface",
+          ""
+        ]
+      ]
     },
     {
       "sku": "MKA937",
@@ -3918,7 +5256,29 @@
         "product-photos/MKA909/g2.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "mka909"
+      "id": "mka909",
+      "features": [
+        [
+          "leaf",
+          "Made of Virgin Plastic",
+          ""
+        ],
+        [
+          "blade",
+          "Blade Made of High Grade Stainless Steel",
+          ""
+        ],
+        [
+          "blade",
+          "This 3 in 1 From",
+          "This 3 in 1 from crystal is used for cutting, chopping and washing."
+        ],
+        [
+          "blade",
+          "Color: Multicolour, Material: Plastic",
+          ""
+        ]
+      ]
     },
     {
       "sku": "MKA919",
@@ -3955,7 +5315,24 @@
         "product-photos/MKA919/g8.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "mka919"
+      "id": "mka919",
+      "features": [
+        [
+          "shield",
+          "Plastic or Stainless Steel Material",
+          ""
+        ],
+        [
+          "blade",
+          "Rolling Wheels",
+          ""
+        ],
+        [
+          "blade",
+          "Unique Design",
+          ""
+        ]
+      ]
     },
     {
       "sku": "MKA921",
@@ -3990,7 +5367,29 @@
       ],
       "match_tier": "dump_sku_match",
       "id": "mka921",
-      "video": "product-photos/MKA921/video.mp4"
+      "video": "product-photos/MKA921/video.mp4",
+      "features": [
+        [
+          "precision",
+          "This Plastic Cylinder Trolley Comes",
+          "This plastic cylinder trolley comes with heavy duty and durable swivelling castor wheels for smooth movement and perfect balance."
+        ],
+        [
+          "blade",
+          "Made From Good Plastic Material",
+          ""
+        ],
+        [
+          "blade",
+          "Unique Square Design",
+          ""
+        ],
+        [
+          "blade",
+          "Color: Multicolour, Material: Plastic",
+          ""
+        ]
+      ]
     },
     {
       "sku": "MKA924",
@@ -4025,7 +5424,29 @@
         "product-photos/MKA924/g8.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "mka924"
+      "id": "mka924",
+      "features": [
+        [
+          "shield",
+          "Made of Quality Material",
+          ""
+        ],
+        [
+          "stack",
+          "Compact and Durable",
+          ""
+        ],
+        [
+          "blade",
+          "Comes with Nylon Rollers",
+          ""
+        ],
+        [
+          "stack",
+          "Easy to Move and Store",
+          ""
+        ]
+      ]
     },
     {
       "sku": "MKA-005",
@@ -4053,7 +5474,29 @@
         "product-photos/MKA-005/g2.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "mka-005"
+      "id": "mka-005",
+      "features": [
+        [
+          "shield",
+          "Fruit Fork Set Stainless Steel",
+          ""
+        ],
+        [
+          "grip",
+          "Plastic Handle for Perfect Grip",
+          ""
+        ],
+        [
+          "blade",
+          "This Set From Crystal Contains",
+          "This set from crystal contains 10 pcs for fruit fork this can be used for eating cut fruits."
+        ],
+        [
+          "shield",
+          "Color: Multicolour, Material: Stainless Steel",
+          ""
+        ]
+      ]
     },
     {
       "sku": "MKA-006",
@@ -4119,7 +5562,29 @@
       ],
       "match_tier": "dump_sku_match",
       "id": "mka011",
-      "video": "product-photos/MKA011/video.mp4"
+      "video": "product-photos/MKA011/video.mp4",
+      "features": [
+        [
+          "blade",
+          "Dual-function Opener for Bottles and Cans",
+          ""
+        ],
+        [
+          "shield",
+          "Durable Stainless Steel Build",
+          ""
+        ],
+        [
+          "blade",
+          "Multicolour Design Adds a Fun Look",
+          ""
+        ],
+        [
+          "stack",
+          "Compact and Easy to Store",
+          ""
+        ]
+      ]
     },
     {
       "sku": "MKA-012",
@@ -4189,7 +5654,19 @@
         "product-photos/MKA013/g5.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "mka013"
+      "id": "mka013",
+      "features": [
+        [
+          "blade",
+          "Knife Cum Scissor Sharpener Plastic Body",
+          ""
+        ],
+        [
+          "blade",
+          "Blades Made of High Grade Stainless Steel",
+          ""
+        ]
+      ]
     },
     {
       "sku": "MKA023",
@@ -4263,7 +5740,29 @@
       ],
       "match_tier": "dump_sku_match",
       "id": "mka-069",
-      "video": "product-photos/MKA-069/video.mp4"
+      "video": "product-photos/MKA-069/video.mp4",
+      "features": [
+        [
+          "blade",
+          "Sharp Stainless Steel Wheel for",
+          "Sharp stainless steel wheel for smooth and easy cutting."
+        ],
+        [
+          "precision",
+          "Ergonomic Handle Provides Firm Grip and Control",
+          ""
+        ],
+        [
+          "shield",
+          "Rust-proof, Durable, and Dishwasher Safe",
+          ""
+        ],
+        [
+          "blade",
+          "Perfect for Cutting Pizzas, Flatbreads,",
+          "Perfect for cutting pizzas, flatbreads, and pastry dough."
+        ]
+      ]
     },
     {
       "sku": "MKA072",
@@ -4361,7 +5860,29 @@
         "product-photos/MKA102/g9.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "mka102"
+      "id": "mka102",
+      "features": [
+        [
+          "grip",
+          "Plastic Handle for Perfect Grip",
+          ""
+        ],
+        [
+          "shield",
+          "Stainless Steel Scoop",
+          ""
+        ],
+        [
+          "blade",
+          "This Ice Cream Scoop From",
+          "This ice cream scoop from crystal is used to serve ice cream scoop."
+        ],
+        [
+          "shield",
+          "Color: Multicolour, Material: Stainless Steel",
+          ""
+        ]
+      ]
     },
     {
       "sku": "MKA104",
@@ -4393,7 +5914,19 @@
         "product-photos/MKA104/g7.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "mka104"
+      "id": "mka104",
+      "features": [
+        [
+          "blade",
+          "Perfect Design to Ensure Smashing",
+          "Perfect design to ensure smashing action with minimum effort."
+        ],
+        [
+          "grip",
+          "Stainless Steel Body with Plastic Handle",
+          ""
+        ]
+      ]
     },
     {
       "sku": "MKA109",
@@ -4454,7 +5987,29 @@
         "product-photos/MKA112/g6.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "mka112"
+      "id": "mka112",
+      "features": [
+        [
+          "shield",
+          "High Quality Stainless Steel Mesh",
+          ""
+        ],
+        [
+          "grip",
+          "Plastic Handle for Perfect Grip",
+          ""
+        ],
+        [
+          "blade",
+          "This Strainer From Crystal Is Used to Strain",
+          ""
+        ],
+        [
+          "shield",
+          "Color: Multicolour, Material: Stainless Steel",
+          ""
+        ]
+      ]
     },
     {
       "sku": "MKA113",
@@ -4486,7 +6041,29 @@
       "id": "mka113",
       "variant_group": "vg-25",
       "variant_label": "Medium",
-      "variant_order": 0
+      "variant_order": 0,
+      "features": [
+        [
+          "shield",
+          "Stainless Steel Mesh",
+          ""
+        ],
+        [
+          "grip",
+          "Plastic Handle for Perfect Grip",
+          ""
+        ],
+        [
+          "blade",
+          "This Strainer From Crystal Is Used to Strain",
+          ""
+        ],
+        [
+          "shield",
+          "Color: Multicolour, Material: Stainless Steel",
+          ""
+        ]
+      ]
     },
     {
       "sku": "MKA114",
@@ -4517,7 +6094,29 @@
       "id": "mka114",
       "variant_group": "vg-25",
       "variant_label": "Big",
-      "variant_order": 1
+      "variant_order": 1,
+      "features": [
+        [
+          "shield",
+          "Stainless Steel Mesh",
+          ""
+        ],
+        [
+          "grip",
+          "Plastic Handle for Perfect Grip",
+          ""
+        ],
+        [
+          "blade",
+          "This Strainer From Crystal Is Used to Strain",
+          ""
+        ],
+        [
+          "shield",
+          "Color: Multicolour, Material: Stainless Steel",
+          ""
+        ]
+      ]
     },
     {
       "sku": "MKA908",
@@ -4548,7 +6147,29 @@
         "product-photos/MKA908/g4.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "mka908"
+      "id": "mka908",
+      "features": [
+        [
+          "blade",
+          "Made of Food Grade Plastic",
+          ""
+        ],
+        [
+          "blade",
+          "Design for Easy and Quick Sprouting",
+          ""
+        ],
+        [
+          "blade",
+          "This Sprouts Maker From Crystal",
+          "This sprouts maker from crystal is used for making the sprouts."
+        ],
+        [
+          "blade",
+          "Color: Multicolour, Material: Plastic",
+          ""
+        ]
+      ]
     },
     {
       "sku": "MKA910",
@@ -4647,7 +6268,19 @@
         "product-photos/MKA941/g9.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "mka941"
+      "id": "mka941",
+      "features": [
+        [
+          "leaf",
+          "Made From Virgin Unbreakable Food Grade Material",
+          ""
+        ],
+        [
+          "blade",
+          "Masala Rack",
+          ""
+        ]
+      ]
     },
     {
       "sku": "MKA-949",
@@ -4970,7 +6603,29 @@
         "product-photos/MKA-043/g5.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "mka-043"
+      "id": "mka-043",
+      "features": [
+        [
+          "blade",
+          "Unbreakable Virgin Food Grade Container",
+          "Unbreakable Virgin Food Grade Container with Surgical Steel Blade."
+        ],
+        [
+          "blade",
+          "Greater Efficiency, Faster Response. It",
+          "Greater Efficiency, Faster Response. It Requires Less Maintenance."
+        ],
+        [
+          "blade",
+          "Chop: Vegetable, Chilli, Fruit, Dry Fruit, Herbs",
+          ""
+        ],
+        [
+          "blade",
+          "Makes Dips Chutneys And Baby Food Instantly",
+          ""
+        ]
+      ]
     },
     {
       "sku": "MKA-094N",
@@ -5077,7 +6732,29 @@
         "product-photos/MKA096/g5.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "mka096"
+      "id": "mka096",
+      "features": [
+        [
+          "blade",
+          "5 Blade Chopping System",
+          ""
+        ],
+        [
+          "blade",
+          "Surgical Stainless Steel Blades",
+          ""
+        ],
+        [
+          "leaf",
+          "Unbreakable Virgin Food Grade ABS Container",
+          ""
+        ],
+        [
+          "blade",
+          "Chop: Dryfruits, Fruits, Vegetables, Onion,",
+          "Chop: Dryfruits, Fruits, Vegetables, Onion, Garlic, Chillies, Spices and Herbs."
+        ]
+      ]
     },
     {
       "sku": "MKA116A",
@@ -5139,7 +6816,29 @@
         "product-photos/MKA901/g9.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "mka901"
+      "id": "mka901",
+      "features": [
+        [
+          "shield",
+          "Made of High Quality Food Grade Plastic",
+          ""
+        ],
+        [
+          "blade",
+          "Provided with Rubber Bushes At",
+          "Provided with rubber bushes at the bottom to avoid slipping."
+        ],
+        [
+          "blade",
+          "Manual Juicer Used for Extracting",
+          "Manual juicer used for extracting juice from wide variety of fruits."
+        ],
+        [
+          "blade",
+          "Color: Multicolour, Material: Plastic",
+          ""
+        ]
+      ]
     },
     {
       "sku": "MKA902A",
@@ -5205,7 +6904,29 @@
         "product-photos/MKA904A/g8.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "mka904a"
+      "id": "mka904a",
+      "features": [
+        [
+          "blade",
+          "Ideal Usage: Beating Cream, Eggs",
+          "Ideal usage: Beating cream, eggs etc, liquidizing: Tomato soup, dal etc, churning."
+        ],
+        [
+          "shield",
+          "Completely Rust Proof",
+          ""
+        ],
+        [
+          "grip",
+          "Easy to Grip, Extra Durability,",
+          "Easy to grip, extra durability, heavy duty gear system, quick to clean, easy to store."
+        ],
+        [
+          "blade",
+          "100 Percent Stainless Steel Wire",
+          "100 percent stainless steel wire blade, abs plastic material, gear system."
+        ]
+      ]
     },
     {
       "sku": "MKA912",
@@ -5240,7 +6961,29 @@
         "product-photos/MKA912/g8.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "mka912"
+      "id": "mka912",
+      "features": [
+        [
+          "blade",
+          "Designed for Perfect Scrapping with Minimum Effo",
+          ""
+        ],
+        [
+          "blade",
+          "This Product From Crystal Is",
+          "This product from crystal is used for coconut scraping."
+        ],
+        [
+          "shield",
+          "Color: Multicolour, Material: Stainless Steel",
+          ""
+        ],
+        [
+          "blade",
+          "Package Contents: 1-Piece Coconut Scraper",
+          ""
+        ]
+      ]
     },
     {
       "sku": "MKA913",
@@ -5271,7 +7014,29 @@
         "product-photos/MKA913/g5.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "mka913"
+      "id": "mka913",
+      "features": [
+        [
+          "blade",
+          "Made of Food Grade Plastic",
+          ""
+        ],
+        [
+          "blade",
+          "Blades Made of Stainless Steel",
+          ""
+        ],
+        [
+          "blade",
+          "This Product From Crystal Is Used to Cut Onions",
+          ""
+        ],
+        [
+          "blade",
+          "Color: Multicolour, Material: Plastic",
+          ""
+        ]
+      ]
     },
     {
       "sku": "MKA914",
@@ -5309,7 +7074,29 @@
         "product-photos/MKA914/g12.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "mka914"
+      "id": "mka914",
+      "features": [
+        [
+          "blade",
+          "India's First Juicer, Dicer and Grater Combo",
+          ""
+        ],
+        [
+          "blade",
+          "High End Food Grade Plastic and Steel Blades",
+          ""
+        ],
+        [
+          "leaf",
+          "Made From Virgin ABS Material",
+          ""
+        ],
+        [
+          "blade",
+          "Non Slip Vacuum Base. Plastic Type",
+          "PVC."
+        ]
+      ]
     },
     {
       "sku": "MKA916A",
@@ -5344,7 +7131,29 @@
         "product-photos/MKA916A/g9.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "mka916a"
+      "id": "mka916a",
+      "features": [
+        [
+          "blade",
+          "Made of Food Grade Plastic",
+          ""
+        ],
+        [
+          "blade",
+          "2 Attachments with Plastic Tool to Clear the Bla",
+          ""
+        ],
+        [
+          "blade",
+          "This Product From Crystal Is",
+          "This product from crystal is used for dicing of vegetables and fruits."
+        ],
+        [
+          "blade",
+          "Color: Multicolour, Material: Plastic",
+          ""
+        ]
+      ]
     },
     {
       "sku": "MKA923",
@@ -5439,7 +7248,29 @@
       ],
       "match_tier": "dump_sku_match",
       "id": "mka930",
-      "video": "product-photos/MKA930/video.mp4"
+      "video": "product-photos/MKA930/video.mp4",
+      "features": [
+        [
+          "blade",
+          "Made of Food Grade Plastic",
+          ""
+        ],
+        [
+          "blade",
+          "Blades Made of Stainless Steel",
+          ""
+        ],
+        [
+          "blade",
+          "This Product From Crystal Is",
+          "This product from crystal is used for dicing of vegetables and fruits."
+        ],
+        [
+          "blade",
+          "Color: Multicolour, Material: Plastic",
+          ""
+        ]
+      ]
     },
     {
       "sku": "MKA933",
@@ -5476,7 +7307,29 @@
         "product-photos/MKA933/g9.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "mka933"
+      "id": "mka933",
+      "features": [
+        [
+          "blade",
+          "Made From Food Grade Plastic Material",
+          ""
+        ],
+        [
+          "blade",
+          "Includes 3 Measuring Cups for Atta, Water and Oi",
+          ""
+        ],
+        [
+          "blade",
+          "This Product Is Used for Kneading the Atta",
+          ""
+        ],
+        [
+          "blade",
+          "Color: Multicolour, Material: Plastic",
+          ""
+        ]
+      ]
     },
     {
       "sku": "MKA942",
@@ -5514,7 +7367,24 @@
       ],
       "match_tier": "dump_sku_match",
       "id": "mka942",
-      "video": "product-photos/MKA942/video.mp4"
+      "video": "product-photos/MKA942/video.mp4",
+      "features": [
+        [
+          "blade",
+          "Ideal for Beating, Liquidizing and Churning",
+          ""
+        ],
+        [
+          "blade",
+          "Works on High Speed Nylon",
+          "Works on High speed Nylon Glass Filled Gears Technology."
+        ],
+        [
+          "blade",
+          "1 Handle Rotation Gives 25 Blade Rotations",
+          ""
+        ]
+      ]
     },
     {
       "sku": "MKA943",
@@ -5552,7 +7422,29 @@
       ],
       "match_tier": "dump_sku_match",
       "id": "mka943",
-      "video": "product-photos/MKA943/video.mp4"
+      "video": "product-photos/MKA943/video.mp4",
+      "features": [
+        [
+          "blade",
+          "Manual Handy Juicer for Fruits and Vegetables",
+          ""
+        ],
+        [
+          "blade",
+          "2-in-1 Design Works As Juicer and Extractor",
+          ""
+        ],
+        [
+          "shield",
+          "Made From Food-grade Plastic, Safe and Durable",
+          ""
+        ],
+        [
+          "stack",
+          "Compact and Lightweight Design, Easy",
+          "Compact and lightweight design, easy to store and clean."
+        ]
+      ]
     },
     {
       "sku": "MKA944",
@@ -5590,7 +7482,29 @@
       ],
       "match_tier": "dump_sku_match",
       "id": "mka944",
-      "video": "product-photos/MKA944/video.mp4"
+      "video": "product-photos/MKA944/video.mp4",
+      "features": [
+        [
+          "grip",
+          "Unbreakable Container with Rubber Grip",
+          "Unbreakable container with rubber grip base which holds it firmly in place."
+        ],
+        [
+          "blade",
+          "High-quality Stainless Steel Blades for",
+          "High-quality stainless steel blades for easy chopping, Sharp blade for efficient and smooth cutting."
+        ],
+        [
+          "blade",
+          "Fastest, Safest and Easiest Way",
+          "Fastest, safest and easiest way to chop or dice fruits and vegetables."
+        ],
+        [
+          "blade",
+          "Unbreakable ABS Body",
+          ""
+        ]
+      ]
     },
     {
       "sku": "MKA945",
@@ -5620,7 +7534,29 @@
         "product-photos/MKA945/g2.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "mka945"
+      "id": "mka945",
+      "features": [
+        [
+          "blade",
+          "High Speed Nylon Glass Filled Gear Technology",
+          ""
+        ],
+        [
+          "blade",
+          "Stainless Steel Blades",
+          ""
+        ],
+        [
+          "blade",
+          "Specific Rack and Pinion Gear",
+          "Specific Rack and pinion gear made from high grade material."
+        ],
+        [
+          "leaf",
+          "Made From Virgin High Grade ABS Plastic",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CLMK-015",
@@ -5705,7 +7641,29 @@
         "product-photos/CLMK-018/g3.jpg"
       ],
       "match_tier": "image_sourced_amazon_link",
-      "id": "clmk-018"
+      "id": "clmk-018",
+      "features": [
+        [
+          "shield",
+          "Premium Life Style Products ,High",
+          "Premium life style products ,High quality kitchen and tableware tools."
+        ],
+        [
+          "lock",
+          "Beautiful Rose Gold Finish for Premium Locks",
+          ""
+        ],
+        [
+          "blade",
+          "Adjustable Knob to Choose Degree",
+          "Adjustable knob to choose degree of conseness while grinding , fine to course grinding possible."
+        ],
+        [
+          "lock",
+          "Lid Covers Given for Better",
+          "Lid covers given for better hygiene and moisture lock."
+        ]
+      ]
     },
     {
       "sku": "CLMK-019",
@@ -5794,7 +7752,29 @@
         "product-photos/CLMK-021/g4.jpg"
       ],
       "match_tier": "image_sourced_amazon_link",
-      "id": "clmk-021"
+      "id": "clmk-021",
+      "features": [
+        [
+          "shield",
+          "Premium Life Style Products ,High",
+          "Premium life style products ,High quality kitchen and tableware tools."
+        ],
+        [
+          "lock",
+          "Beautiful Rose Gold Finish for Premium Locks",
+          ""
+        ],
+        [
+          "blade",
+          "Adjustable Knob to Choose Degree",
+          "Adjustable knob to choose degree of conseness while grinding , fine to course grinding possible."
+        ],
+        [
+          "power",
+          "Battery Operated Mill , Special",
+          "Battery operated mill , Special led lights , just tilt and mill starts grinding with light."
+        ]
+      ]
     },
     {
       "sku": "CLMK-022",
@@ -5826,7 +7806,29 @@
         "product-photos/CLMK-022/g4.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "clmk-022"
+      "id": "clmk-022",
+      "features": [
+        [
+          "shield",
+          "Premium Life Style Products, High",
+          "Premium life style products, high quality kitchen and tableware tools."
+        ],
+        [
+          "blade",
+          "Best for Frothing or Making",
+          "Best for frothing or making sherbet, yogurt, lassi or cold coffee or protein shake at gym or espresso cappuccino."
+        ],
+        [
+          "leaf",
+          "In Just 10-15 Seconds, Your",
+          "In just 10-15 seconds, your milk will be transformed into rich, creamy froth."
+        ],
+        [
+          "grip",
+          "Easy to Clean with Damp",
+          "Easy to clean with damp cloth, simple on/off button for easy operation, non-stick, flexible and easy to handle; warranty: 6 months warranty provided by the manufacturer from date of purchase"
+        ]
+      ]
     },
     {
       "sku": "VMA-001",
@@ -5919,7 +7921,29 @@
       ],
       "match_tier": "dump_sku_match",
       "id": "mka-231",
-      "video": "product-photos/MKA-231/video.mp4"
+      "video": "product-photos/MKA-231/video.mp4",
+      "features": [
+        [
+          "blade",
+          "Cutlery Set Includes 6 Pieces",
+          "Cutlery set includes 6 pieces each of tea spoon, baby spoon, dessert spoon and dessert fork."
+        ],
+        [
+          "blade",
+          "This Cutlery From Crystal Will",
+          "This cutlery from crystal will enhance your dining experience."
+        ],
+        [
+          "blade",
+          "Size: Standard",
+          ""
+        ],
+        [
+          "shield",
+          "Color: Silver, Material: Stainless Steel",
+          ""
+        ]
+      ]
     },
     {
       "sku": "MKA-241",
@@ -5951,7 +7975,29 @@
         "product-photos/MKA-241/g1.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "mka-241"
+      "id": "mka-241",
+      "features": [
+        [
+          "blade",
+          "Stainless Steel Cutlery Set with Plastic Handles",
+          ""
+        ],
+        [
+          "blade",
+          "This Steel Cutlery Set From",
+          "This steel cutlery set from crystal will enhance your dining experience."
+        ],
+        [
+          "blade",
+          "This Is a Complete Set of Spoons, Forks, Knives",
+          ""
+        ],
+        [
+          "shield",
+          "Color: Multicolour, Material: Stainless Steel",
+          ""
+        ]
+      ]
     },
     {
       "sku": "MKA-301",
@@ -5986,7 +8032,19 @@
         "product-photos/MKA-301/g1.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "mka-301"
+      "id": "mka-301",
+      "features": [
+        [
+          "blade",
+          "Cutlery Set Includes 6 Pieces",
+          "Cutlery set includes 6 pieces each of tea spoon, table spoon, table knife and table fork."
+        ],
+        [
+          "blade",
+          "This Cutlery From Crystal Will",
+          "This cutlery from crystal will enhance your dining experience."
+        ]
+      ]
     },
     {
       "sku": "MKA-302",
@@ -6097,7 +8155,29 @@
         "product-photos/MKA-412/g9.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "mka-412"
+      "id": "mka-412",
+      "features": [
+        [
+          "blade",
+          "New Modern and Durable Cutlery",
+          ""
+        ],
+        [
+          "shield",
+          "Designer Sturdy Stands",
+          ""
+        ],
+        [
+          "shine",
+          "Superior Mirror Polish",
+          ""
+        ],
+        [
+          "shield",
+          "Color: Silver, Material: Stainless Steel",
+          ""
+        ]
+      ]
     },
     {
       "sku": "MKA-413",
@@ -6138,7 +8218,24 @@
         "product-photos/MKA-413/g11.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "mka-413"
+      "id": "mka-413",
+      "features": [
+        [
+          "blade",
+          "New Modern and Durable Cutlery",
+          ""
+        ],
+        [
+          "shield",
+          "Designer Sturdy Stands",
+          ""
+        ],
+        [
+          "shine",
+          "Superior Mirror Polish",
+          ""
+        ]
+      ]
     },
     {
       "sku": "MKA-414",
@@ -6178,7 +8275,29 @@
         "product-photos/MKA-414/g9.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "mka-414"
+      "id": "mka-414",
+      "features": [
+        [
+          "blade",
+          "New Modern and Durable Cutlery",
+          ""
+        ],
+        [
+          "shield",
+          "Designer Sturdy Stands",
+          ""
+        ],
+        [
+          "shine",
+          "Superior Mirror Polish",
+          ""
+        ],
+        [
+          "shield",
+          "Color: Silver, Material: Stainless Steel",
+          ""
+        ]
+      ]
     },
     {
       "sku": "MKA-415",
@@ -6256,7 +8375,19 @@
         "product-photos/MKA-416/g7.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "mka-416"
+      "id": "mka-416",
+      "features": [
+        [
+          "blade",
+          "Special Vapourised Coating Ensures Long",
+          "Special vapourised coating ensures long durability of cutlery."
+        ],
+        [
+          "shield",
+          "Heavy Guage Stainless Steel (1.8 Mm Thickness)",
+          ""
+        ]
+      ]
     },
     {
       "sku": "MKA-417",
@@ -6328,7 +8459,29 @@
         "product-photos/CC-841/g7.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cc-841"
+      "id": "cc-841",
+      "features": [
+        [
+          "blade",
+          "Premium Titanium Coating",
+          ""
+        ],
+        [
+          "shine",
+          "Superior Mirror Finish",
+          ""
+        ],
+        [
+          "blade",
+          "Modern and Durable Cutlery",
+          ""
+        ],
+        [
+          "blade",
+          "Colour: Rosegold",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CC-842",
@@ -6365,7 +8518,29 @@
         "product-photos/CC-842/g7.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cc-842"
+      "id": "cc-842",
+      "features": [
+        [
+          "blade",
+          "Premium Titanium Coating",
+          ""
+        ],
+        [
+          "shine",
+          "Superior Mirror Finish",
+          ""
+        ],
+        [
+          "blade",
+          "Modern and Durable Cutlery",
+          ""
+        ],
+        [
+          "blade",
+          "Colour: Rosegold",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CC-843",
@@ -6402,7 +8577,29 @@
         "product-photos/CC-843/g7.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cc-843"
+      "id": "cc-843",
+      "features": [
+        [
+          "blade",
+          "Premium Titanium Coating",
+          ""
+        ],
+        [
+          "shine",
+          "Superior Mirror Finish",
+          ""
+        ],
+        [
+          "blade",
+          "Modern and Durable Cutlery",
+          ""
+        ],
+        [
+          "blade",
+          "Colour: Rosegold",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CC-844",
@@ -6446,7 +8643,29 @@
         "product-photos/CC-844/g12.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cc-844"
+      "id": "cc-844",
+      "features": [
+        [
+          "blade",
+          "Premium Titanium Coating",
+          ""
+        ],
+        [
+          "shine",
+          "Superior Mirror Finish",
+          ""
+        ],
+        [
+          "blade",
+          "Modern and Durable Cutlery",
+          ""
+        ],
+        [
+          "blade",
+          "Colour: Rosegold",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CC-845",
@@ -6487,7 +8706,29 @@
         "product-photos/CC-845/g5.jpg"
       ],
       "match_tier": "fuzzy_name",
-      "id": "cc-845"
+      "id": "cc-845",
+      "features": [
+        [
+          "blade",
+          "Premium Titanium Coating",
+          ""
+        ],
+        [
+          "shine",
+          "Superior Mirror Finish",
+          ""
+        ],
+        [
+          "blade",
+          "Modern and Durable Cutlery",
+          ""
+        ],
+        [
+          "blade",
+          "Colour: Rosegold",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CC-846",
@@ -6531,7 +8772,29 @@
         "product-photos/CC-846/g12.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cc-846"
+      "id": "cc-846",
+      "features": [
+        [
+          "blade",
+          "Premium Titanium Coating",
+          ""
+        ],
+        [
+          "shine",
+          "Superior Mirror Finish",
+          ""
+        ],
+        [
+          "blade",
+          "Modern and Durable Cutlery",
+          ""
+        ],
+        [
+          "blade",
+          "Colour: Rosegold",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CC-847",
@@ -6567,7 +8830,29 @@
         "product-photos/CC-847/g5.jpg"
       ],
       "match_tier": "fuzzy_name",
-      "id": "cc-847"
+      "id": "cc-847",
+      "features": [
+        [
+          "blade",
+          "Premium Titanium Coating",
+          ""
+        ],
+        [
+          "shine",
+          "Superior Mirror Finish",
+          ""
+        ],
+        [
+          "blade",
+          "Modern and Durable Cutlery",
+          ""
+        ],
+        [
+          "blade",
+          "Colour: Rosegold",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CC-848",
@@ -6603,7 +8888,29 @@
         "product-photos/CC-848/g5.jpg"
       ],
       "match_tier": "fuzzy_name",
-      "id": "cc-848"
+      "id": "cc-848",
+      "features": [
+        [
+          "blade",
+          "Premium Titanium Coating",
+          ""
+        ],
+        [
+          "shine",
+          "Superior Mirror Finish",
+          ""
+        ],
+        [
+          "blade",
+          "Modern and Durable Cutlery",
+          ""
+        ],
+        [
+          "blade",
+          "Colour: Rosegold",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CC-849",
@@ -6646,7 +8953,29 @@
         "product-photos/CC-849/g12.jpg"
       ],
       "match_tier": "image_sourced_amazon_link",
-      "id": "cc-849"
+      "id": "cc-849",
+      "features": [
+        [
+          "blade",
+          "Premium Titanium Coating",
+          ""
+        ],
+        [
+          "shine",
+          "Superior Mirror Finish",
+          ""
+        ],
+        [
+          "blade",
+          "Modern and Durable Cutlery",
+          ""
+        ],
+        [
+          "blade",
+          "Colour: Rosegold",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CC-850",
@@ -6734,7 +9063,29 @@
         "product-photos/CC-951/g7.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cc-951"
+      "id": "cc-951",
+      "features": [
+        [
+          "shield",
+          "Set of 6 Premium Stainless Steel Tea Spoons",
+          ""
+        ],
+        [
+          "grip",
+          "Compact, Ergonomic Design for Comfortable Grip",
+          ""
+        ],
+        [
+          "shield",
+          "Rust-free and Long-lasting",
+          ""
+        ],
+        [
+          "blade",
+          "Suitable for Tea, Desserts, or Everyday Dining",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CC-952",
@@ -6773,7 +9124,29 @@
         "product-photos/CC-952/g7.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cc-952"
+      "id": "cc-952",
+      "features": [
+        [
+          "blade",
+          "Utility in Every Kitchen",
+          ""
+        ],
+        [
+          "grip",
+          "Sleek Design and Elegant Handle Ensures Perfect ",
+          ""
+        ],
+        [
+          "shield",
+          "Color: Silver, Material: Stainless Steel",
+          ""
+        ],
+        [
+          "blade",
+          "Package Contents: 6-pieces Dessert Spoon",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CC-953",
@@ -6813,7 +9186,29 @@
         "product-photos/CC-953/g8.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cc-953"
+      "id": "cc-953",
+      "features": [
+        [
+          "blade",
+          "Utility in Every Kitchen",
+          ""
+        ],
+        [
+          "grip",
+          "Sleek Design and Elegant Handle Ensures Perfect ",
+          ""
+        ],
+        [
+          "shield",
+          "Color: Silver, Material: Stainless Steel",
+          ""
+        ],
+        [
+          "blade",
+          "Package Contents: 6-Pieces Dessert Fork",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CC-954",
@@ -6883,7 +9278,29 @@
         "product-photos/CC-955/g7.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cc-955"
+      "id": "cc-955",
+      "features": [
+        [
+          "blade",
+          "Utility in Every Kitchen",
+          ""
+        ],
+        [
+          "grip",
+          "Sleek Design and Elegant Handle Ensures Perfect ",
+          ""
+        ],
+        [
+          "shield",
+          "Color: Silver, Material: Stainless Steel",
+          ""
+        ],
+        [
+          "blade",
+          "Package Contents: 6-pieces Ice Cream Spoon",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CC-956",
@@ -6921,7 +9338,29 @@
         "product-photos/CC-956/g7.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cc-956"
+      "id": "cc-956",
+      "features": [
+        [
+          "blade",
+          "Smallest Size in the Series of Spoons",
+          ""
+        ],
+        [
+          "blade",
+          "Suitable for Kids",
+          ""
+        ],
+        [
+          "shield",
+          "Color: Silver, Material: Stainless Steel",
+          ""
+        ],
+        [
+          "blade",
+          "Package Contents: 6-pieces Baby Spoon",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CC-957",
@@ -6960,7 +9399,29 @@
         "product-photos/CC-957/g8.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cc-957"
+      "id": "cc-957",
+      "features": [
+        [
+          "blade",
+          "Smallest Size in the Series of Forks",
+          ""
+        ],
+        [
+          "blade",
+          "Suitable for Kids",
+          ""
+        ],
+        [
+          "shield",
+          "Color: Silver, Material: Stainless Steel",
+          ""
+        ],
+        [
+          "blade",
+          "Package Contents: 6-pieces Baby Fork",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CC-958",
@@ -6994,7 +9455,29 @@
       "hero": "product-photos/CC-958/hero.jpg",
       "gallery": [],
       "match_tier": "dump_sku_match",
-      "id": "cc-958"
+      "id": "cc-958",
+      "features": [
+        [
+          "blade",
+          "Used for Soups",
+          ""
+        ],
+        [
+          "blade",
+          "This Cutlery From Crystal Will",
+          "This cutlery from crystal will enhance your dining experience."
+        ],
+        [
+          "shield",
+          "Color: Silver, Material: Stainless Steel",
+          ""
+        ],
+        [
+          "blade",
+          "Package Contents: 6-pieces Baby Soup Spoon",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CC-959",
@@ -7031,7 +9514,29 @@
         "product-photos/CC-959/g5.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cc-959"
+      "id": "cc-959",
+      "features": [
+        [
+          "blade",
+          "Is Used for Soups",
+          ""
+        ],
+        [
+          "blade",
+          "This Cutlery From Crystal Will",
+          "This cutlery from crystal will enhance your dining experience."
+        ],
+        [
+          "shield",
+          "Color: Silver, Material: Stainless Steel",
+          ""
+        ],
+        [
+          "blade",
+          "Package Contents: 6-pieces Dessert Soup Spoon",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CC-960",
@@ -7068,7 +9573,29 @@
         "product-photos/CC-960/g6.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cc-960"
+      "id": "cc-960",
+      "features": [
+        [
+          "blade",
+          "Suitable for Stirring and Sipping",
+          "Suitable for stirring and sipping the contents of a cup of tea or coffee or adding a portion of loose sugar to it."
+        ],
+        [
+          "blade",
+          "This Cutlery From Crystal Will",
+          "This cutlery from crystal will enhance your dining experience."
+        ],
+        [
+          "shield",
+          "Color: Silver, Material: Stainless Steel",
+          ""
+        ],
+        [
+          "blade",
+          "Package Contents: 6-pieces Coffee Spoon",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CC-961",
@@ -7106,7 +9633,29 @@
         "product-photos/CC-961/g7.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cc-961"
+      "id": "cc-961",
+      "features": [
+        [
+          "blade",
+          "Used for Eating Cut Fruits",
+          ""
+        ],
+        [
+          "blade",
+          "This Cutlery From Crystal Will",
+          "This cutlery from crystal will enhance your dining experience."
+        ],
+        [
+          "shield",
+          "Color: Silver, Material: Stainless Steel",
+          ""
+        ],
+        [
+          "blade",
+          "Package Contents: 6-pieces Fruit Fork",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CC-962",
@@ -7147,7 +9696,29 @@
       ],
       "match_tier": "dump_sku_match",
       "id": "cc-962",
-      "video": "product-photos/CC-962/video.mp4"
+      "video": "product-photos/CC-962/video.mp4",
+      "features": [
+        [
+          "blade",
+          "Is Used to Spread Butter",
+          ""
+        ],
+        [
+          "blade",
+          "This Cutlery From Crystal Will",
+          "This cutlery from crystal will enhance your dining experience. Thickness:1 to 1.8 Millimeter (mm)."
+        ],
+        [
+          "shield",
+          "Color: Silver, Material: Stainless Steel",
+          ""
+        ],
+        [
+          "blade",
+          "Package Contents: 1-piece Butter Knife",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CC-965",
@@ -7183,7 +9754,29 @@
         "product-photos/CC-965/g5.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cc-965"
+      "id": "cc-965",
+      "features": [
+        [
+          "blade",
+          "Used for Having Meal",
+          ""
+        ],
+        [
+          "blade",
+          "This Cutlery From Crystal Will",
+          "This cutlery from crystal will enhance your dining experience."
+        ],
+        [
+          "shield",
+          "Color: Silver, Material: Stainless Steel",
+          ""
+        ],
+        [
+          "blade",
+          "Package Contents: 2-pieces Table Spoon",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CC-966",
@@ -7219,7 +9812,29 @@
         "product-photos/CC-966/g5.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cc-966"
+      "id": "cc-966",
+      "features": [
+        [
+          "blade",
+          "Used for Having Meal",
+          ""
+        ],
+        [
+          "blade",
+          "This Cutlery From Crystal Will",
+          "This cutlery from crystal will enhance your dining experience."
+        ],
+        [
+          "shield",
+          "Color: Silver, Material: Stainless Steel",
+          ""
+        ],
+        [
+          "blade",
+          "Package Contents: 2-pieces Table Fork",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CC-971",
@@ -8006,7 +10621,29 @@
         "product-photos/CC-996/g7.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cc-996"
+      "id": "cc-996",
+      "features": [
+        [
+          "blade",
+          "Smallest Size in the Series of Forks",
+          ""
+        ],
+        [
+          "blade",
+          "Suitable for Kids",
+          ""
+        ],
+        [
+          "shield",
+          "Color: Silver, Material: Stainless Steel",
+          ""
+        ],
+        [
+          "blade",
+          "Package Contents: 6-pieces Baby Fork",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CC-997",
@@ -8077,7 +10714,29 @@
         "product-photos/MKA-247/g3.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "mka-247"
+      "id": "mka-247",
+      "features": [
+        [
+          "grip",
+          "Handle Made of Steel and Plastic",
+          ""
+        ],
+        [
+          "blade",
+          "This Cooking and Serving Set",
+          "This cooking and serving set from crystal can be used for nonstick utensils."
+        ],
+        [
+          "blade",
+          "Made of Dupont Nylon",
+          ""
+        ],
+        [
+          "blade",
+          "Color: Multicolour, Material: Nylon",
+          ""
+        ]
+      ]
     },
     {
       "sku": "MKA-291",
@@ -8114,7 +10773,29 @@
         "product-photos/MKA-291/g6.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "mka-291"
+      "id": "mka-291",
+      "features": [
+        [
+          "shield",
+          "Made of High Quality Stainless Steel & Nylon",
+          ""
+        ],
+        [
+          "shine",
+          "Superior Mirror Polished Steel. Durable",
+          "Superior Mirror Polished Steel. Durable & Modern Look."
+        ],
+        [
+          "blade",
+          "Suitable for Non-Stick Cookware",
+          ""
+        ],
+        [
+          "blade",
+          "Dual Usage",
+          "Cook & Serve."
+        ]
+      ]
     },
     {
       "sku": "MKA-292",
@@ -8148,7 +10829,29 @@
         "product-photos/MKA-292/g6.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "mka-292"
+      "id": "mka-292",
+      "features": [
+        [
+          "shield",
+          "Made of High Quality Stainless Steel & Nylon",
+          ""
+        ],
+        [
+          "shine",
+          "Superior Mirror Polished Steel. Durable",
+          "Superior Mirror Polished Steel. Durable & Modern Look."
+        ],
+        [
+          "blade",
+          "Suitable for Non-Stick Cookware",
+          ""
+        ],
+        [
+          "blade",
+          "Dual Usage",
+          "Cook & Serve."
+        ]
+      ]
     },
     {
       "sku": "MKA-293",
@@ -8183,7 +10886,29 @@
       ],
       "match_tier": "dump_sku_match",
       "id": "mka-293",
-      "video": "product-photos/MKA-293/video.mp4"
+      "video": "product-photos/MKA-293/video.mp4",
+      "features": [
+        [
+          "blade",
+          "Basting Spoon Made of Nylon",
+          ""
+        ],
+        [
+          "blade",
+          "Ideal for Use with Non Stick Cookware",
+          ""
+        ],
+        [
+          "blade",
+          "This Spoon Is From Crystal",
+          "This spoon is from crystal is specially used for serving needs."
+        ],
+        [
+          "shield",
+          "It Is Made Up of",
+          "It is made up of high grade stainless steel and DuPont nylon."
+        ]
+      ]
     },
     {
       "sku": "MKA-294",
@@ -8217,7 +10942,29 @@
         "product-photos/MKA-294/g6.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "mka-294"
+      "id": "mka-294",
+      "features": [
+        [
+          "blade",
+          "Basting Spoon Made of Nylon",
+          ""
+        ],
+        [
+          "blade",
+          "Ideal for Use with Non Stick Cookware",
+          ""
+        ],
+        [
+          "blade",
+          "This Spoon Is From Crystal",
+          "This spoon is from crystal is specially used for serving needs."
+        ],
+        [
+          "shield",
+          "It Is Made Up of",
+          "It is made up of high grade stainless steel and dupont nylon."
+        ]
+      ]
     },
     {
       "sku": "MKA-295",
@@ -8252,7 +10999,29 @@
         "product-photos/MKA-295/g7.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "mka-295"
+      "id": "mka-295",
+      "features": [
+        [
+          "blade",
+          "Basting Spoon Made of Nylon",
+          ""
+        ],
+        [
+          "blade",
+          "Ideal for Use with Non Stick Cookware",
+          ""
+        ],
+        [
+          "blade",
+          "This Spoon Is From Crystal",
+          "This spoon is from crystal is specially used for serving needs."
+        ],
+        [
+          "shield",
+          "It Is Made Up of",
+          "It is made up of high grade stainless steel and dupont nylon."
+        ]
+      ]
     },
     {
       "sku": "MKA-296",
@@ -8286,7 +11055,29 @@
         "product-photos/MKA-296/g6.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "mka-296"
+      "id": "mka-296",
+      "features": [
+        [
+          "blade",
+          "Basting Spoon Made of Nylon",
+          ""
+        ],
+        [
+          "blade",
+          "Ideal for Use with Non Stick Cookware",
+          ""
+        ],
+        [
+          "blade",
+          "This Spoon Is From Crystal",
+          "This spoon is from crystal is specially used for serving needs."
+        ],
+        [
+          "shield",
+          "It Is Made Up of",
+          "It is made up of high grade stainless steel and dupont nylon."
+        ]
+      ]
     },
     {
       "sku": "MKA-321",
@@ -8323,7 +11114,29 @@
         "product-photos/MKA-321/g9.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "mka-321"
+      "id": "mka-321",
+      "features": [
+        [
+          "shield",
+          "Made of High Quality Stainless Steel & Nylon",
+          ""
+        ],
+        [
+          "shine",
+          "Superior Mirror Polished Steel. Durable",
+          "Superior Mirror Polished Steel. Durable & Modern Look."
+        ],
+        [
+          "blade",
+          "Suitable for Non-Stick Cookware",
+          ""
+        ],
+        [
+          "blade",
+          "Dual Usage",
+          "Cook & Serve."
+        ]
+      ]
     },
     {
       "sku": "MKA-322",
@@ -8357,7 +11170,29 @@
         "product-photos/MKA-322/g6.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "mka-322"
+      "id": "mka-322",
+      "features": [
+        [
+          "shield",
+          "Made of High Quality Stainless Steel & Nylon",
+          ""
+        ],
+        [
+          "shine",
+          "Superior Mirror Polished Steel. Durable",
+          "Superior Mirror Polished Steel. Durable & Modern Look."
+        ],
+        [
+          "blade",
+          "Suitable for Non-Stick Cookware",
+          ""
+        ],
+        [
+          "blade",
+          "Dual Usage",
+          "Cook & Serve."
+        ]
+      ]
     },
     {
       "sku": "MKA-323",
@@ -8391,7 +11226,29 @@
         "product-photos/MKA-323/g6.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "mka-323"
+      "id": "mka-323",
+      "features": [
+        [
+          "shield",
+          "Made of High Quality Stainless Steel & Nylon",
+          ""
+        ],
+        [
+          "shine",
+          "Superior Mirror Polished Steel. Durable",
+          "Superior Mirror Polished Steel. Durable & Modern Look."
+        ],
+        [
+          "blade",
+          "Suitable for Non-Stick Cookware",
+          ""
+        ],
+        [
+          "blade",
+          "Dual Usage",
+          "Cook & Serve."
+        ]
+      ]
     },
     {
       "sku": "MKA-324",
@@ -8425,7 +11282,29 @@
         "product-photos/MKA-324/g6.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "mka-324"
+      "id": "mka-324",
+      "features": [
+        [
+          "shield",
+          "Made of High Quality Stainless Steel & Nylon",
+          ""
+        ],
+        [
+          "shine",
+          "Superior Mirror Polished Steel. Durable",
+          "Superior Mirror Polished Steel. Durable & Modern Look."
+        ],
+        [
+          "blade",
+          "Suitable for Non-Stick Cookware",
+          ""
+        ],
+        [
+          "blade",
+          "Dual Usage",
+          "Cook & Serve."
+        ]
+      ]
     },
     {
       "sku": "MKA-325",
@@ -8467,7 +11346,29 @@
       ],
       "match_tier": "dump_sku_match",
       "id": "mka-325",
-      "video": "product-photos/MKA-325/video.mp4"
+      "video": "product-photos/MKA-325/video.mp4",
+      "features": [
+        [
+          "shield",
+          "Made of High Quality Stainless Steel & Nylon",
+          ""
+        ],
+        [
+          "shine",
+          "Superior Mirror Polished Steel. Durable",
+          "Superior Mirror Polished Steel. Durable & Modern Look."
+        ],
+        [
+          "blade",
+          "Suitable for Non-Stick Cookware",
+          ""
+        ],
+        [
+          "blade",
+          "Dual Usage",
+          "Cook & Serve."
+        ]
+      ]
     },
     {
       "sku": "MKA-203",
@@ -8497,7 +11398,29 @@
         "product-photos/MKA-203/g2.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "mka-203"
+      "id": "mka-203",
+      "features": [
+        [
+          "shield",
+          "Stainless Steel Serving Set",
+          ""
+        ],
+        [
+          "grip",
+          "Plastic Handle for Perfect Grip",
+          ""
+        ],
+        [
+          "blade",
+          "This Set From Crystal Is",
+          "This set from crystal is useful for all serving and cooking needs in kitchen."
+        ],
+        [
+          "shield",
+          "Color: Multicolour, Material: Stainless Steel",
+          ""
+        ]
+      ]
     },
     {
       "sku": "MKA-205",
@@ -8562,7 +11485,29 @@
       ],
       "match_tier": "dump_sku_match",
       "id": "cc-934",
-      "video": "product-photos/_shared/video-de77e888eb.mp4"
+      "video": "product-photos/_shared/video-de77e888eb.mp4",
+      "features": [
+        [
+          "blade",
+          "Useful for Serving Needs",
+          ""
+        ],
+        [
+          "grip",
+          "Its Sleek Design and Elegant",
+          "Its sleek design and elegant handle ensures perfect grip."
+        ],
+        [
+          "shield",
+          "Color: Silver, Material: Stainless Steel",
+          ""
+        ],
+        [
+          "blade",
+          "Package Contents: 1-Piece Serving Spoon",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CC-935",
@@ -8857,7 +11802,29 @@
       ],
       "match_tier": "dump_sku_match",
       "id": "cc-943",
-      "video": "product-photos/CC-943/video.mp4"
+      "video": "product-photos/CC-943/video.mp4",
+      "features": [
+        [
+          "shield",
+          "Made From High-quality Stainless Steel",
+          "Made from high-quality stainless steel for durability and strength."
+        ],
+        [
+          "shine",
+          "Elegant Oval Design for Easy Serving",
+          ""
+        ],
+        [
+          "shine",
+          "Mirror Finish for a Sleek, Modern Look",
+          ""
+        ],
+        [
+          "shield",
+          "Rust-resistant and Dishwasher Safe",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CC-944",
@@ -9095,7 +12062,29 @@
       ],
       "match_tier": "dump_sku_match",
       "id": "cc-921",
-      "video": "product-photos/_shared/video-de77e888eb.mp4"
+      "video": "product-photos/_shared/video-de77e888eb.mp4",
+      "features": [
+        [
+          "blade",
+          "Useful for Serving Needs",
+          ""
+        ],
+        [
+          "grip",
+          "Its Sleek Design and Elegant",
+          "Its sleek design and elegant handle ensures perfect grip."
+        ],
+        [
+          "blade",
+          "Serving Size No 3",
+          "Regular."
+        ],
+        [
+          "shield",
+          "Color: Silver, Material: Stainless Steel",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CC-922",
@@ -9144,7 +12133,29 @@
       ],
       "match_tier": "dump_sku_match",
       "id": "cc-922",
-      "video": "product-photos/_shared/video-de77e888eb.mp4"
+      "video": "product-photos/_shared/video-de77e888eb.mp4",
+      "features": [
+        [
+          "blade",
+          "Useful for Serving Needs",
+          ""
+        ],
+        [
+          "grip",
+          "Its Sleek Design and Elegant",
+          "Its sleek design and elegant handle ensures perfect grip."
+        ],
+        [
+          "blade",
+          "Serving Size No 3",
+          "Regular."
+        ],
+        [
+          "shield",
+          "Color: Silver, Material: Stainless Steel",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CC-923",
@@ -9182,7 +12193,29 @@
       ],
       "match_tier": "dump_sku_match",
       "id": "cc-923",
-      "video": "product-photos/_shared/video-de77e888eb.mp4"
+      "video": "product-photos/_shared/video-de77e888eb.mp4",
+      "features": [
+        [
+          "blade",
+          "Useful for Serving Needs",
+          ""
+        ],
+        [
+          "grip",
+          "Its Sleek Design and Elegant",
+          "Its sleek design and elegant handle ensures perfect grip."
+        ],
+        [
+          "blade",
+          "Serving Size No 3",
+          "Regular."
+        ],
+        [
+          "shield",
+          "Color: Silver, Material: Stainless Steel",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CC-924",
@@ -9218,7 +12251,29 @@
       ],
       "match_tier": "dump_sku_match",
       "id": "cc-924",
-      "video": "product-photos/_shared/video-de77e888eb.mp4"
+      "video": "product-photos/_shared/video-de77e888eb.mp4",
+      "features": [
+        [
+          "blade",
+          "Useful for Serving Needs",
+          ""
+        ],
+        [
+          "grip",
+          "Its Sleek Design and Elegant",
+          "Its sleek design and elegant handle ensures perfect grip."
+        ],
+        [
+          "blade",
+          "Serving Size No 3",
+          "Regular."
+        ],
+        [
+          "shield",
+          "Color: Silver, Material: Stainless Steel",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CC-925",
@@ -9257,7 +12312,29 @@
         "product-photos/CC-925/g9.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cc-925"
+      "id": "cc-925",
+      "features": [
+        [
+          "blade",
+          "Useful for Serving Needs",
+          ""
+        ],
+        [
+          "grip",
+          "Its Sleek Design and Elegant",
+          "Its sleek design and elegant handle ensures perfect grip."
+        ],
+        [
+          "blade",
+          "Serving Size No 3",
+          "Regular."
+        ],
+        [
+          "shield",
+          "Color: Silver, Material: Stainless Steel",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CC-926",
@@ -9295,7 +12372,29 @@
       ],
       "match_tier": "dump_sku_match",
       "id": "cc-926",
-      "video": "product-photos/_shared/video-de77e888eb.mp4"
+      "video": "product-photos/_shared/video-de77e888eb.mp4",
+      "features": [
+        [
+          "blade",
+          "Useful for Serving Needs",
+          ""
+        ],
+        [
+          "grip",
+          "Its Sleek Design and Elegant",
+          "Its sleek design and elegant handle ensures perfect grip."
+        ],
+        [
+          "blade",
+          "Serving Size No 3",
+          "Regular."
+        ],
+        [
+          "shield",
+          "Color: Silver, Material: Stainless Steel",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CC-927",
@@ -9334,7 +12433,29 @@
       ],
       "match_tier": "dump_sku_match",
       "id": "cc-927",
-      "video": "product-photos/_shared/video-de77e888eb.mp4"
+      "video": "product-photos/_shared/video-de77e888eb.mp4",
+      "features": [
+        [
+          "blade",
+          "Useful for Serving Needs",
+          ""
+        ],
+        [
+          "grip",
+          "Its Sleek Design and Elegant",
+          "Its sleek design and elegant handle ensures perfect grip."
+        ],
+        [
+          "blade",
+          "Serving Size No 3",
+          "Regular."
+        ],
+        [
+          "shield",
+          "Color: Silver, Material: Stainless Steel",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CC-928",
@@ -9373,7 +12494,29 @@
         "product-photos/CC-928/g9.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cc-928"
+      "id": "cc-928",
+      "features": [
+        [
+          "blade",
+          "Useful for Serving Needs",
+          ""
+        ],
+        [
+          "grip",
+          "Its Sleek Design and Elegant",
+          "Its sleek design and elegant handle ensures perfect grip."
+        ],
+        [
+          "blade",
+          "Serving Size No 3",
+          "Regular."
+        ],
+        [
+          "shield",
+          "Color: Silver, Material: Stainless Steel",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CC-929",
@@ -9409,7 +12552,29 @@
       ],
       "match_tier": "dump_sku_match",
       "id": "cc-929",
-      "video": "product-photos/_shared/video-de77e888eb.mp4"
+      "video": "product-photos/_shared/video-de77e888eb.mp4",
+      "features": [
+        [
+          "blade",
+          "Useful for Serving Needs",
+          ""
+        ],
+        [
+          "grip",
+          "Its Sleek Design and Elegant",
+          "Its sleek design and elegant handle ensures perfect grip."
+        ],
+        [
+          "blade",
+          "Serving Size No 3",
+          "Regular."
+        ],
+        [
+          "shield",
+          "Color: Silver, Material: Stainless Steel",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CC-931",
@@ -9446,7 +12611,29 @@
       ],
       "match_tier": "dump_sku_match",
       "id": "cc-931",
-      "video": "product-photos/CC-931/video.mp4"
+      "video": "product-photos/CC-931/video.mp4",
+      "features": [
+        [
+          "blade",
+          "Useful for Serving Needs",
+          ""
+        ],
+        [
+          "grip",
+          "Its Sleek Design and Elegant",
+          "Its sleek design and elegant handle ensures perfect grip."
+        ],
+        [
+          "blade",
+          "Serving Size No 3",
+          "Regular."
+        ],
+        [
+          "grip",
+          "Useful for Serving Needs, Its",
+          "Useful for serving needs, its sleek design and elegant handle ensures perfect grip."
+        ]
+      ]
     },
     {
       "sku": "CC-930",
@@ -9484,7 +12671,29 @@
       ],
       "match_tier": "dump_sku_match",
       "id": "cc-930",
-      "video": "product-photos/_shared/video-de77e888eb.mp4"
+      "video": "product-photos/_shared/video-de77e888eb.mp4",
+      "features": [
+        [
+          "blade",
+          "Useful for Serving Needs",
+          ""
+        ],
+        [
+          "grip",
+          "Its Sleek Design and Elegant",
+          "Its sleek design and elegant handle ensures perfect grip."
+        ],
+        [
+          "blade",
+          "Serving Size No 6",
+          "Large useful for serving needs."
+        ],
+        [
+          "shield",
+          "Color: Silver, Material: Stainless Steel;",
+          "Color: silver, material: stainless steel; package contents: 1-piece skimmer."
+        ]
+      ]
     },
     {
       "sku": "CC-932",
@@ -9517,7 +12726,29 @@
         "product-photos/CC-932/g9.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cc-932"
+      "id": "cc-932",
+      "features": [
+        [
+          "blade",
+          "Useful for Serving Needs",
+          ""
+        ],
+        [
+          "grip",
+          "Its Sleek Design and Elegant",
+          "Its sleek design and elegant handle ensures perfect grip."
+        ],
+        [
+          "blade",
+          "Serving Size No 6",
+          ""
+        ],
+        [
+          "shield",
+          "Color: Silver, Material: Stainless Steel",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CC-933",
@@ -9556,7 +12787,29 @@
       ],
       "match_tier": "dump_sku_match",
       "id": "cc-933",
-      "video": "product-photos/CC-933/video.mp4"
+      "video": "product-photos/CC-933/video.mp4",
+      "features": [
+        [
+          "blade",
+          "Useful for Serving Needs",
+          ""
+        ],
+        [
+          "grip",
+          "Its Sleek Design and Elegant",
+          "Its sleek design and elegant handle ensures perfect grip."
+        ],
+        [
+          "blade",
+          "Serving Size No 6",
+          "Large."
+        ],
+        [
+          "shield",
+          "Color: Silver, Material: Stainless Steel",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CC-891",
@@ -9590,7 +12843,29 @@
         "product-photos/CC-891/g6.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cc-891"
+      "id": "cc-891",
+      "features": [
+        [
+          "shield",
+          "Made of High Quality Stainless Steel",
+          ""
+        ],
+        [
+          "shine",
+          "Superior Mirror Polished Steel",
+          ""
+        ],
+        [
+          "shield",
+          "Durable & Modern Look",
+          ""
+        ],
+        [
+          "blade",
+          "Dual Usage",
+          "Cook & Serve."
+        ]
+      ]
     },
     {
       "sku": "CC-892",
@@ -9624,7 +12899,29 @@
         "product-photos/CC-892/g6.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cc-892"
+      "id": "cc-892",
+      "features": [
+        [
+          "shield",
+          "Made of High Quality Stainless Steel",
+          ""
+        ],
+        [
+          "shine",
+          "Superior Mirror Polished Steel",
+          ""
+        ],
+        [
+          "shield",
+          "Durable & Modern Look",
+          ""
+        ],
+        [
+          "blade",
+          "Dual Usage",
+          "Cook & Serve."
+        ]
+      ]
     },
     {
       "sku": "CC-893",
@@ -9661,7 +12958,29 @@
         "product-photos/CC-893/g6.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cc-893"
+      "id": "cc-893",
+      "features": [
+        [
+          "shield",
+          "Made of High Quality Stainless Steel",
+          ""
+        ],
+        [
+          "shine",
+          "Superior Mirror Polished Steel",
+          ""
+        ],
+        [
+          "shield",
+          "Durable & Modern Look",
+          ""
+        ],
+        [
+          "blade",
+          "Dual Usage",
+          "Cook & Serve."
+        ]
+      ]
     },
     {
       "sku": "CC-894",
@@ -9697,7 +13016,29 @@
         "product-photos/CC-894/g7.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cc-894"
+      "id": "cc-894",
+      "features": [
+        [
+          "shield",
+          "Made of High Quality Stainless Steel",
+          ""
+        ],
+        [
+          "shine",
+          "Superior Mirror Polished Steel",
+          ""
+        ],
+        [
+          "shield",
+          "Durable & Modern Look",
+          ""
+        ],
+        [
+          "blade",
+          "Dual Usage",
+          "Cook & Serve."
+        ]
+      ]
     },
     {
       "sku": "CC-895",
@@ -9733,7 +13074,29 @@
         "product-photos/CC-895/g7.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cc-895"
+      "id": "cc-895",
+      "features": [
+        [
+          "shield",
+          "Made of High Quality Stainless Steel",
+          ""
+        ],
+        [
+          "shine",
+          "Superior Mirror Polished Steel",
+          ""
+        ],
+        [
+          "shield",
+          "Durable & Modern Look",
+          ""
+        ],
+        [
+          "blade",
+          "Dual Usage",
+          "Cook & Serve."
+        ]
+      ]
     },
     {
       "sku": "CLMK-001A",
@@ -9932,7 +13295,29 @@
         "product-photos/CC-856/g5.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cc-856"
+      "id": "cc-856",
+      "features": [
+        [
+          "blade",
+          "Premium Titanium Coating",
+          ""
+        ],
+        [
+          "shine",
+          "Superior Mirror Finish",
+          ""
+        ],
+        [
+          "blade",
+          "Modern and Durable Cutlery",
+          ""
+        ],
+        [
+          "blade",
+          "Colour: Rosegold",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CC-857",
@@ -9966,7 +13351,29 @@
         "product-photos/CC-857/g5.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cc-857"
+      "id": "cc-857",
+      "features": [
+        [
+          "blade",
+          "Premium Titanium Coating",
+          ""
+        ],
+        [
+          "shine",
+          "Superior Mirror Finish",
+          ""
+        ],
+        [
+          "blade",
+          "Modern and Durable Cutlery",
+          ""
+        ],
+        [
+          "blade",
+          "Colour: Rosegold",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CC-858",
@@ -10001,7 +13408,29 @@
         "product-photos/CC-858/g5.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cc-858"
+      "id": "cc-858",
+      "features": [
+        [
+          "blade",
+          "Premium Titanium Coating",
+          ""
+        ],
+        [
+          "shine",
+          "Superior Mirror Finish",
+          ""
+        ],
+        [
+          "blade",
+          "Modern and Durable Cutlery",
+          ""
+        ],
+        [
+          "blade",
+          "Colour: Rosegold",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CC-859",
@@ -10039,7 +13468,29 @@
         "product-photos/CC-859/g9.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cc-859"
+      "id": "cc-859",
+      "features": [
+        [
+          "blade",
+          "Premium Titanium Coating",
+          ""
+        ],
+        [
+          "shine",
+          "Superior Mirror Finish",
+          ""
+        ],
+        [
+          "blade",
+          "Modern and Durable Cutlery",
+          ""
+        ],
+        [
+          "blade",
+          "Colour: Rosegold",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CC-860",
@@ -10073,7 +13524,29 @@
         "product-photos/CC-860/g5.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cc-860"
+      "id": "cc-860",
+      "features": [
+        [
+          "blade",
+          "Premium Titanium Coating",
+          ""
+        ],
+        [
+          "shine",
+          "Superior Mirror Finish",
+          ""
+        ],
+        [
+          "blade",
+          "Modern and Durable Cutlery",
+          ""
+        ],
+        [
+          "blade",
+          "Colour: Rosegold",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CC-861",
@@ -10107,7 +13580,29 @@
         "product-photos/CC-861/g5.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cc-861"
+      "id": "cc-861",
+      "features": [
+        [
+          "blade",
+          "Premium Titanium Coating",
+          ""
+        ],
+        [
+          "shine",
+          "Superior Mirror Finish",
+          ""
+        ],
+        [
+          "blade",
+          "Modern and Durable Cutlery",
+          ""
+        ],
+        [
+          "blade",
+          "Colour: Rosegold",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CCS-001",
@@ -10321,7 +13816,29 @@
         "product-photos/CWB-032/g6.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cwb-032"
+      "id": "cwb-032",
+      "features": [
+        [
+          "shield",
+          "Crystal Brings to You Top",
+          "Crystal brings to you top quality stainless steel fridge water bottle specially designed for variety of use."
+        ],
+        [
+          "lock",
+          "Thick Body Makes It Durable,",
+          "Thick body makes it durable, leak Proof with food grade silicon ring. Wide mouth to fill any type of ice cubes, so carry your chilled water for long distances."
+        ],
+        [
+          "lock",
+          "No Contamination of Liquid and",
+          "No contamination of liquid and no damages due to exposure to sun."
+        ],
+        [
+          "shield",
+          "Package Contents",
+          "1 stainless steel pyramid water bottles, 1 litre each."
+        ]
+      ]
     },
     {
       "sku": "CWB-033",
@@ -10425,7 +13942,29 @@
       ],
       "match_tier": "dump_sku_match",
       "id": "cwb-043",
-      "video": "product-photos/CWB-043/video.mp4"
+      "video": "product-photos/CWB-043/video.mp4",
+      "features": [
+        [
+          "shield",
+          "100% Stainless Steel Fridge Bottle",
+          ""
+        ],
+        [
+          "lock",
+          "Thick Body Makes It Durable and Leak Proof",
+          ""
+        ],
+        [
+          "lock",
+          "Fits Perfectly in Fridge or Side Pocket of Bag",
+          ""
+        ],
+        [
+          "shield",
+          "Warranty: 1 Year",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CWB-044",
@@ -10465,7 +14004,19 @@
       ],
       "match_tier": "dump_sku_match",
       "id": "cwb-044",
-      "video": "product-photos/CWB-044/video.mp4"
+      "video": "product-photos/CWB-044/video.mp4",
+      "features": [
+        [
+          "shield",
+          "1% Stainless Steel Fridge Bottle",
+          ""
+        ],
+        [
+          "lock",
+          "Thick Body Makes It Durable and Leak Proof",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CWB-045",
@@ -10502,7 +14053,29 @@
       ],
       "match_tier": "dump_sku_match",
       "id": "cwb-045",
-      "video": "product-photos/CWB-045/video.mp4"
+      "video": "product-photos/CWB-045/video.mp4",
+      "features": [
+        [
+          "shield",
+          "100% Stainless Steel Fridge Bottle",
+          ""
+        ],
+        [
+          "lock",
+          "Thick Body Makes It Durable and Leak Proof",
+          ""
+        ],
+        [
+          "lock",
+          "Fits Perfectly in Fridge or Side Pocket of Bag",
+          ""
+        ],
+        [
+          "shield",
+          "Warranty: 1 Year",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CWB040",
@@ -10539,7 +14112,29 @@
       ],
       "match_tier": "dump_sku_match",
       "id": "cwb040",
-      "video": "product-photos/CWB040/video.mp4"
+      "video": "product-photos/CWB040/video.mp4",
+      "features": [
+        [
+          "lock",
+          "High Grade Stainless Steel Bottle. Food Grade Si",
+          "Leak Proof."
+        ],
+        [
+          "lock",
+          "Conveniently Fits In The Side",
+          "Conveniently Fits In The Side Pocket Of School/Office/Trekking Bags."
+        ],
+        [
+          "lock",
+          "Colour Options Available",
+          "Red, Blue, Silver, Copper. Ideal for School, Office, Travel, Fridge."
+        ],
+        [
+          "shield",
+          "Wide Mouth",
+          "Easy To Clean / Easy To Fill Ice Cubes. Thick Walled Bottle- Very Durable. Fridge Safe."
+        ]
+      ]
     },
     {
       "sku": "CWB041",
@@ -10575,7 +14170,29 @@
         "product-photos/CWB041/g9.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cwb041"
+      "id": "cwb041",
+      "features": [
+        [
+          "shield",
+          "Made of Stainless Steel",
+          ""
+        ],
+        [
+          "lock",
+          "Leak Proof and Easy to Carry",
+          ""
+        ],
+        [
+          "lock",
+          "Stylish and Trendy Fliptop Cover",
+          ""
+        ],
+        [
+          "lock",
+          "Easy to Fill and Carry",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CWB042",
@@ -10639,7 +14256,29 @@
       "variant_group": "vg-07",
       "variant_label": "350 ML",
       "variant_order": 0,
-      "video": "product-photos/COP-001/video.mp4"
+      "video": "product-photos/COP-001/video.mp4",
+      "features": [
+        [
+          "precision",
+          "Available in 4 Sizes to Suit Your Kitchen Needs",
+          ""
+        ],
+        [
+          "shield",
+          "Stainless Steel Body for Durability and Hygiene",
+          ""
+        ],
+        [
+          "lock",
+          "Spill-proof Nozzle for Easy Pouring",
+          ""
+        ],
+        [
+          "precision",
+          "Sleek Design Fits Modern Kitchens",
+          ""
+        ]
+      ]
     },
     {
       "sku": "COP-002",
@@ -10674,7 +14313,29 @@
       "variant_group": "vg-07",
       "variant_label": "500 ML",
       "variant_order": 1,
-      "video": "product-photos/COP-002/video.mp4"
+      "video": "product-photos/COP-002/video.mp4",
+      "features": [
+        [
+          "precision",
+          "Available in 4 Sizes to Suit Your Kitchen Needs",
+          ""
+        ],
+        [
+          "shield",
+          "Stainless Steel Body for Durability and Hygiene",
+          ""
+        ],
+        [
+          "lock",
+          "Spill-proof Nozzle for Easy Pouring",
+          ""
+        ],
+        [
+          "precision",
+          "Sleek Design Fits Modern Kitchens",
+          ""
+        ]
+      ]
     },
     {
       "sku": "COP-003",
@@ -10706,7 +14367,29 @@
       "id": "cop-003",
       "variant_group": "vg-07",
       "variant_label": "750 ML",
-      "variant_order": 2
+      "variant_order": 2,
+      "features": [
+        [
+          "precision",
+          "Available in 4 Sizes to Suit Your Kitchen Needs",
+          ""
+        ],
+        [
+          "shield",
+          "Stainless Steel Body for Durability and Hygiene",
+          ""
+        ],
+        [
+          "lock",
+          "Spill-proof Nozzle for Easy Pouring",
+          ""
+        ],
+        [
+          "precision",
+          "Sleek Design Fits Modern Kitchens",
+          ""
+        ]
+      ]
     },
     {
       "sku": "COP-004",
@@ -10743,7 +14426,29 @@
       "variant_group": "vg-07",
       "variant_label": "1000 ML",
       "variant_order": 3,
-      "video": "product-photos/COP-004/video.mp4"
+      "video": "product-photos/COP-004/video.mp4",
+      "features": [
+        [
+          "precision",
+          "Available in 4 Sizes to Suit Your Kitchen Needs",
+          ""
+        ],
+        [
+          "shield",
+          "Stainless Steel Body for Durability and Hygiene",
+          ""
+        ],
+        [
+          "lock",
+          "Spill-proof Nozzle for Easy Pouring",
+          ""
+        ],
+        [
+          "precision",
+          "Sleek Design Fits Modern Kitchens",
+          ""
+        ]
+      ]
     },
     {
       "sku": "COP-005",
@@ -10777,7 +14482,29 @@
         "product-photos/COP-005/g7.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cop-005"
+      "id": "cop-005",
+      "features": [
+        [
+          "shield",
+          "Made of High Grade Stainless Steel",
+          ""
+        ],
+        [
+          "grip",
+          "Comes with Handles for Easy Grip and Use",
+          ""
+        ],
+        [
+          "precision",
+          "Anti-drip Design to Prevent Oil",
+          "Anti-drip design to prevent oil leaks, keeping the pot clean and dry."
+        ],
+        [
+          "precision",
+          "Dust Cover Designed to Prevent",
+          "Dust cover designed to prevent dust and insects to contaminate the spout."
+        ]
+      ]
     },
     {
       "sku": "CLMK-017",
@@ -10842,7 +14569,29 @@
       "variant_group": "vg-26",
       "variant_label": "Small",
       "variant_order": 0,
-      "video": "product-photos/CPW-001/video.mp4"
+      "video": "product-photos/CPW-001/video.mp4",
+      "features": [
+        [
+          "shield",
+          "Made From High-quality Teak Wood",
+          ""
+        ],
+        [
+          "stack",
+          "Compact and Lightweight Design",
+          ""
+        ],
+        [
+          "leaf",
+          "Perfect for Serving Tea, Snacks, or Desserts",
+          ""
+        ],
+        [
+          "precision",
+          "Smooth Finish with Easy-to-grip Handles",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CPW-002",
@@ -10881,7 +14630,29 @@
       "variant_group": "vg-26",
       "variant_label": "Medium",
       "variant_order": 1,
-      "video": "product-photos/CPW-002/video.mp4"
+      "video": "product-photos/CPW-002/video.mp4",
+      "features": [
+        [
+          "leaf",
+          "Medium-sized Tray for Versatile Use",
+          ""
+        ],
+        [
+          "leaf",
+          "Crafted From Premium Teak Wood",
+          ""
+        ],
+        [
+          "leaf",
+          "Stylish and Functional Design",
+          ""
+        ],
+        [
+          "grip",
+          "Comfortable Grip Handles",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CPW-003",
@@ -10918,7 +14689,29 @@
       "id": "cpw-003",
       "variant_group": "vg-26",
       "variant_label": "Large",
-      "variant_order": 2
+      "variant_order": 2,
+      "features": [
+        [
+          "leaf",
+          "Spacious Tray Ideal for Serving Meals or Drinks",
+          ""
+        ],
+        [
+          "power",
+          "Made From Strong Teak Wood for Durability",
+          ""
+        ],
+        [
+          "grip",
+          "Ergonomic Handles for Easy Carrying",
+          ""
+        ],
+        [
+          "leaf",
+          "Natural Wood Grain Finish",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CPW-004",
@@ -10956,7 +14749,29 @@
       "variant_group": "vg-27",
       "variant_label": "Small",
       "variant_order": 0,
-      "video": "product-photos/CPW-004/video.mp4"
+      "video": "product-photos/CPW-004/video.mp4",
+      "features": [
+        [
+          "blade",
+          "Unique Curved Edge Design",
+          ""
+        ],
+        [
+          "leaf",
+          "Premium Teak Wood Craftsmanship",
+          ""
+        ],
+        [
+          "shine",
+          "Compact Yet Elegant",
+          ""
+        ],
+        [
+          "leaf",
+          "Ideal for Stylish Tea or Snack Service",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CPW-005",
@@ -10993,7 +14808,29 @@
       "id": "cpw-005",
       "variant_group": "vg-27",
       "variant_label": "Medium",
-      "variant_order": 1
+      "variant_order": 1,
+      "features": [
+        [
+          "shine",
+          "Made From High-quality Teak Wood",
+          "Made from high-quality teak wood for durability and rich finish."
+        ],
+        [
+          "shine",
+          "Unique Curvy Design Adds an Elegant Touch",
+          ""
+        ],
+        [
+          "leaf",
+          "Perfect for Serving Tea, Snacks, or Desserts",
+          ""
+        ],
+        [
+          "precision",
+          "Smooth Surface and Comfortable Grip Handles",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CPW-006",
@@ -11030,7 +14867,29 @@
       "id": "cpw-006",
       "variant_group": "vg-27",
       "variant_label": "Large",
-      "variant_order": 2
+      "variant_order": 2,
+      "features": [
+        [
+          "leaf",
+          "Large Size Ideal for Hosting Guests and Parties",
+          ""
+        ],
+        [
+          "leaf",
+          "Crafted From Premium-grade Teak Wood",
+          ""
+        ],
+        [
+          "leaf",
+          "Stylish Curvy Design with a Natural Finish",
+          ""
+        ],
+        [
+          "grip",
+          "Comfortable Handles for Easy Carrying",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CPW-007",
@@ -11069,7 +14928,29 @@
       "variant_group": "vg-28",
       "variant_label": "Small",
       "variant_order": 0,
-      "video": "product-photos/CPW-007/video.mp4"
+      "video": "product-photos/CPW-007/video.mp4",
+      "features": [
+        [
+          "shield",
+          "Made From Premium Quality Teak",
+          "Made from premium quality teak wood for durability and elegance."
+        ],
+        [
+          "leaf",
+          "Equipped with a Weighted Arm",
+          "Equipped with a weighted arm to keep napkins securely in place."
+        ],
+        [
+          "shield",
+          "Rustic and Modern Design That",
+          "Rustic and modern design that suits any kitchen or dining décor."
+        ],
+        [
+          "grip",
+          "Non-slip Base Ensures Stability During Use",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CPW-008",
@@ -11106,7 +14987,29 @@
       "id": "cpw-008",
       "variant_group": "vg-28",
       "variant_label": "Medium",
-      "variant_order": 1
+      "variant_order": 1,
+      "features": [
+        [
+          "shield",
+          "Combination of Teak Wood and",
+          "Combination of teak wood and stainless steel for a modern look."
+        ],
+        [
+          "leaf",
+          "Medium Size Ideal for Versatile Use",
+          ""
+        ],
+        [
+          "shine",
+          "Strong and Durable with a Polished Finish",
+          ""
+        ],
+        [
+          "leaf",
+          "Easy to Carry and Clean",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CPW-009",
@@ -11143,7 +15046,29 @@
       "id": "cpw-009",
       "variant_group": "vg-28",
       "variant_label": "Large",
-      "variant_order": 2
+      "variant_order": 2,
+      "features": [
+        [
+          "leaf",
+          "Large Tray with Teak Wood and Inox Details",
+          ""
+        ],
+        [
+          "leaf",
+          "Ideal for Serving Drinks, Meals, or Snacks",
+          ""
+        ],
+        [
+          "shield",
+          "Sturdy and Stylish Dual-material Construction",
+          ""
+        ],
+        [
+          "leaf",
+          "Great for Formal Gatherings or Everyday Use",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CPW-010",
@@ -11182,7 +15107,29 @@
         "product-photos/CPW-010/g9.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cpw-010"
+      "id": "cpw-010",
+      "features": [
+        [
+          "leaf",
+          "Durable, Termite-resistant, and Naturally Elegan",
+          "Durable, termite-resistant, and naturally elegant for long-lasting use."
+        ],
+        [
+          "leaf",
+          "Ideal for Storing a Wide",
+          "Ideal for storing a wide variety of spices, herbs, or condiments in one organized place."
+        ],
+        [
+          "leaf",
+          "Allows Easy Viewing of Contents",
+          "Allows easy viewing of contents without opening the box, keeping spices fresh and dust-free."
+        ],
+        [
+          "blade",
+          "Smooth Finish and Clean Edges",
+          "Smooth finish and clean edges crafted by skilled artisans for a traditional yet modern look."
+        ]
+      ]
     },
     {
       "sku": "CPW-011",
@@ -11305,7 +15252,19 @@
         "product-photos/CPW-013/g11.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cpw-013"
+      "id": "cpw-013",
+      "features": [
+        [
+          "leaf",
+          "Handcrafted",
+          ""
+        ],
+        [
+          "leaf",
+          "Portable",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CPW-014",
@@ -11345,7 +15304,29 @@
         "product-photos/CPW-014/g10.jpg"
       ],
       "match_tier": "dump_name_match",
-      "id": "cpw-014"
+      "id": "cpw-014",
+      "features": [
+        [
+          "leaf",
+          "Premium Square-shaped Teakwood Design",
+          ""
+        ],
+        [
+          "heat",
+          "Protects Surfaces From Heat Rings and Stains",
+          ""
+        ],
+        [
+          "precision",
+          "Smooth Finish with Natural Wood Grains",
+          ""
+        ],
+        [
+          "leaf",
+          "Ideal for Tea Cups, Mugs, or Glasses",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CPW-015",
@@ -11385,7 +15366,29 @@
         "product-photos/CPW-015/g10.jpg"
       ],
       "match_tier": "fuzzy_name",
-      "id": "cpw-015"
+      "id": "cpw-015",
+      "features": [
+        [
+          "shine",
+          "Round-shaped Teakwood Coaster with Polished Fini",
+          ""
+        ],
+        [
+          "heat",
+          "Heat-resistant and Anti-slip Surface",
+          ""
+        ],
+        [
+          "leaf",
+          "Natural Wood Design Suitable for All Decors",
+          ""
+        ],
+        [
+          "leaf",
+          "Perfect for Serving Guests or Daily Use",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CPW-016",
@@ -11426,7 +15429,29 @@
         "product-photos/CPW-016/g11.jpg"
       ],
       "match_tier": "image_sourced_amazon_link",
-      "id": "cpw-016"
+      "id": "cpw-016",
+      "features": [
+        [
+          "leaf",
+          "Unique \"cup-shaped\" or Grooved Coaster Design",
+          ""
+        ],
+        [
+          "leaf",
+          "Crafted From Premium-grade Teakwood",
+          ""
+        ],
+        [
+          "leaf",
+          "Enhances Tea Serving Aesthetics",
+          ""
+        ],
+        [
+          "stack",
+          "Compact, Stylish, and Easy to Maintain",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CPW-017",
@@ -11465,7 +15490,29 @@
         "product-photos/CPW-017/g9.jpg"
       ],
       "match_tier": "fuzzy_name",
-      "id": "cpw-017"
+      "id": "cpw-017",
+      "features": [
+        [
+          "shield",
+          "Made From Premium Quality Teak",
+          "Made from premium quality teak wood for durability and elegance."
+        ],
+        [
+          "leaf",
+          "Equipped with a Weighted Arm",
+          "Equipped with a weighted arm to keep napkins securely in place."
+        ],
+        [
+          "shield",
+          "Rustic and Modern Design That",
+          "Rustic and modern design that suits any kitchen or dining décor."
+        ],
+        [
+          "grip",
+          "Non-slip Base Ensures Stability During Use",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CPW-018",
@@ -11506,7 +15553,29 @@
         "product-photos/CPW-018/g11.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cpw-018"
+      "id": "cpw-018",
+      "features": [
+        [
+          "heat",
+          "Set of 3 Teakwood Square Hot Mats",
+          ""
+        ],
+        [
+          "heat",
+          "Protects Surfaces From Hot Pots, Pans, and Serve",
+          ""
+        ],
+        [
+          "heat",
+          "Compact, Stackable, and Heat-resistant",
+          ""
+        ],
+        [
+          "shine",
+          "Elegant Wooden Finish for Stylish Table Setting",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CPW-019",
@@ -11547,7 +15616,29 @@
       ],
       "match_tier": "image_sourced_amazon_link",
       "id": "cpw-019",
-      "video": "product-photos/CPW-019/video.mp4"
+      "video": "product-photos/CPW-019/video.mp4",
+      "features": [
+        [
+          "shine",
+          "Crafted with High-quality Teakwood for",
+          "Crafted with high-quality teakwood for a rich, elegant appearance and long-lasting durability."
+        ],
+        [
+          "shine",
+          "A Beautifully Polished Tray Ensures",
+          "A beautifully polished tray ensures easy serving and a tidy, organized look."
+        ],
+        [
+          "shield",
+          "Combines Practicality with Rustic Charm—ideal",
+          "Combines practicality with rustic charm—ideal for both everyday use and special occasions."
+        ],
+        [
+          "precision",
+          "Removable Jars and Smooth Wooden",
+          "Removable jars and smooth wooden surfaces make cleaning hassle-free."
+        ]
+      ]
     },
     {
       "sku": "CPW-020",
@@ -11588,7 +15679,29 @@
       ],
       "match_tier": "fuzzy_name",
       "id": "cpw-020",
-      "video": "product-photos/CPW-020/video.mp4"
+      "video": "product-photos/CPW-020/video.mp4",
+      "features": [
+        [
+          "shine",
+          "Crafted with High-quality Teakwood for",
+          "Crafted with high-quality teakwood for a rich, elegant appearance and long-lasting durability."
+        ],
+        [
+          "shine",
+          "A Beautifully Polished Tray Ensures",
+          "A beautifully polished tray ensures easy serving and a tidy, organized look."
+        ],
+        [
+          "shield",
+          "Combines Practicality with Rustic Charm—ideal",
+          "Combines practicality with rustic charm—ideal for both everyday use and special occasions."
+        ],
+        [
+          "precision",
+          "Removable Jars and Smooth Wooden",
+          "Removable jars and smooth wooden surfaces make cleaning hassle-free."
+        ]
+      ]
     },
     {
       "sku": "CPW-021",
@@ -11629,7 +15742,29 @@
         "product-photos/CPW-021/g11.jpg"
       ],
       "match_tier": "image_sourced_amazon_link",
-      "id": "cpw-021"
+      "id": "cpw-021",
+      "features": [
+        [
+          "heat",
+          "Thick, Solid Round Hotmat Made From Teakwood",
+          ""
+        ],
+        [
+          "heat",
+          "Designed to Handle High Temperatures",
+          ""
+        ],
+        [
+          "shield",
+          "Scratch-resistant and Anti-slip Base",
+          ""
+        ],
+        [
+          "leaf",
+          "Suitable for Dining, Kitchen, or Teapots",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CPW-022",
@@ -11670,7 +15805,29 @@
         "product-photos/CPW-022/g11.jpg"
       ],
       "match_tier": "image_sourced_amazon_link",
-      "id": "cpw-022"
+      "id": "cpw-022",
+      "features": [
+        [
+          "heat",
+          "Square Solid Hotmat with Rich Teak Finish",
+          ""
+        ],
+        [
+          "heat",
+          "Withstands High Heat From Cookware or Teapots",
+          ""
+        ],
+        [
+          "precision",
+          "Prevents Burn Marks on Dining or Kitchen Surface",
+          ""
+        ],
+        [
+          "shield",
+          "Sturdy and Easy to Clean",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CPW-023",
@@ -11709,7 +15866,29 @@
         "product-photos/CPW-023/g8.jpg"
       ],
       "match_tier": "image_sourced_amazon_link",
-      "id": "cpw-023"
+      "id": "cpw-023",
+      "features": [
+        [
+          "shield",
+          "Made with High-grade Teakwood and Stainless Stee",
+          ""
+        ],
+        [
+          "leaf",
+          "Extra Deep and Spacious for Multipurpose Serving",
+          ""
+        ],
+        [
+          "grip",
+          "Sturdy Handles for Easy Grip and Safe Handling",
+          ""
+        ],
+        [
+          "leaf",
+          "Perfect for Parties, Festive Meals, and Daily Us",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CPW-024",
@@ -11747,7 +15926,29 @@
         "product-photos/CPW-024/g8.jpg"
       ],
       "match_tier": "image_sourced_amazon_link",
-      "id": "cpw-024"
+      "id": "cpw-024",
+      "features": [
+        [
+          "shield",
+          "Crafted From Durable and Stylish Teakwood",
+          ""
+        ],
+        [
+          "shine",
+          "Unique Curved Design for an Elegant Look",
+          ""
+        ],
+        [
+          "leaf",
+          "Deep Tray Ideal for Carrying",
+          "Deep tray ideal for carrying food, drinks, or condiments."
+        ],
+        [
+          "blade",
+          "Easy to Carry with Ergonomic Edges",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CPW-025",
@@ -11787,7 +15988,29 @@
         "product-photos/CPW-025/g10.jpg"
       ],
       "match_tier": "image_sourced_amazon_link",
-      "id": "cpw-025"
+      "id": "cpw-025",
+      "features": [
+        [
+          "leaf",
+          "Made From High-quality Teakwood with",
+          "Made from high-quality teakwood with a natural finish."
+        ],
+        [
+          "spin",
+          "360° Revolving Base for Easy",
+          "360° revolving base for easy access to all compartments."
+        ],
+        [
+          "leaf",
+          "Three Spacious Compartments for Efficient",
+          "Three spacious compartments for efficient organization."
+        ],
+        [
+          "leaf",
+          "Ideal for Storing Dry Fruits,",
+          "Ideal for storing dry fruits, snacks, condiments, or office supplies."
+        ]
+      ]
     },
     {
       "sku": "CPW-026",
@@ -11850,7 +16073,29 @@
         "product-photos/CPW-027/g9.jpg"
       ],
       "match_tier": "image_sourced_amazon_link",
-      "id": "cpw-027"
+      "id": "cpw-027",
+      "features": [
+        [
+          "precision",
+          "360° Revolving Mechanism for Smooth Rotation",
+          ""
+        ],
+        [
+          "leaf",
+          "12-inch Spacious Round Surface for",
+          "12-inch spacious round surface for better organization."
+        ],
+        [
+          "shield",
+          "Made From High-quality, Durable Teakwood",
+          ""
+        ],
+        [
+          "leaf",
+          "Ideal for Condiments, Sauces, Fruits, and Snacks",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CPW-028",
@@ -11889,7 +16134,29 @@
         "product-photos/CPW-028/g9.jpg"
       ],
       "match_tier": "image_sourced_amazon_link",
-      "id": "cpw-028"
+      "id": "cpw-028",
+      "features": [
+        [
+          "precision",
+          "Made From Durable, Natural Teakwood",
+          "Made from durable, natural teakwood with a smooth finish."
+        ],
+        [
+          "stack",
+          "Large Size Fits Standard Tissue",
+          "Large size fits standard tissue boxes or stacks of napkins."
+        ],
+        [
+          "lock",
+          "Sliding Base or Top Opening for Easy Refilling",
+          ""
+        ],
+        [
+          "leaf",
+          "Blends Seamlessly with Modern, Rustic,",
+          "Blends seamlessly with modern, rustic, or traditional decor."
+        ]
+      ]
     },
     {
       "sku": "CPW-029",
@@ -11928,7 +16195,29 @@
         "product-photos/CPW-029/g9.jpg"
       ],
       "match_tier": "image_sourced_amazon_link",
-      "id": "cpw-029"
+      "id": "cpw-029",
+      "features": [
+        [
+          "leaf",
+          "Unique “Designo” Pattern for Visual Appeal",
+          ""
+        ],
+        [
+          "shield",
+          "Lightweight and Durable Construction",
+          ""
+        ],
+        [
+          "leaf",
+          "Perfect for Serving Starters, Appetizers, or Sna",
+          ""
+        ],
+        [
+          "blade",
+          "Smooth Surface and Edges for Safe Handling",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CPW-030",
@@ -11968,7 +16257,29 @@
         "product-photos/CPW-030/g10.jpg"
       ],
       "match_tier": "image_sourced_amazon_link",
-      "id": "cpw-030"
+      "id": "cpw-030",
+      "features": [
+        [
+          "leaf",
+          "Large Rectangular Surface for Generous Servings",
+          ""
+        ],
+        [
+          "leaf",
+          "Premium Teakwood Ensures Longevity and Elegance",
+          ""
+        ],
+        [
+          "leaf",
+          "Easy to Clean and Maintain",
+          ""
+        ],
+        [
+          "leaf",
+          "Ideal for Festive or Everyday Serving",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CPW-031",
@@ -12180,7 +16491,29 @@
       "id": "ctp-tp-005",
       "variant_group": "vg-08",
       "variant_label": "22 CM",
-      "variant_order": 4
+      "variant_order": 4,
+      "features": [
+        [
+          "heat",
+          "Premium Triply Cookware",
+          "304 Grade steel."
+        ],
+        [
+          "heat",
+          "Faster Cooking and Saves Time",
+          ""
+        ],
+        [
+          "heat",
+          "No Stiking / Burning",
+          ""
+        ],
+        [
+          "shield",
+          "5 Years Warranty",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CTP-TP-006",
@@ -12292,7 +16625,24 @@
       "id": "ctp-kd-001",
       "variant_group": "vg-09",
       "variant_label": "18 CM",
-      "variant_order": 0
+      "variant_order": 0,
+      "features": [
+        [
+          "heat",
+          "Premium Triply Cookware",
+          "304 Grade steel."
+        ],
+        [
+          "heat",
+          "Faster Cooking and Saves Time",
+          ""
+        ],
+        [
+          "heat",
+          "No Stiking / Burning",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CTP-KD-002",
@@ -12331,7 +16681,29 @@
       "variant_group": "vg-09",
       "variant_label": "20 CM",
       "variant_order": 1,
-      "video": "product-photos/CTP-KD-002/video.mp4"
+      "video": "product-photos/CTP-KD-002/video.mp4",
+      "features": [
+        [
+          "heat",
+          "Premium Triply Cookware",
+          "304 Grade steel."
+        ],
+        [
+          "heat",
+          "Faster Cooking and Saves Time",
+          ""
+        ],
+        [
+          "heat",
+          "No Stiking / Burning",
+          ""
+        ],
+        [
+          "shield",
+          "5 Years Warranty",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CTP-KD-003",
@@ -12369,7 +16741,19 @@
       "id": "ctp-kd-003",
       "variant_group": "vg-09",
       "variant_label": "22 CM",
-      "variant_order": 2
+      "variant_order": 2,
+      "features": [
+        [
+          "heat",
+          "Premium Triply Cookware",
+          "304 Grade steel."
+        ],
+        [
+          "heat",
+          "Faster Cooking and Saves Time",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CTP-KD-004",
@@ -12407,7 +16791,19 @@
       "id": "ctp-kd-004",
       "variant_group": "vg-09",
       "variant_label": "24 CM",
-      "variant_order": 3
+      "variant_order": 3,
+      "features": [
+        [
+          "heat",
+          "Premium Triply Cookware",
+          "304 Grade steel."
+        ],
+        [
+          "heat",
+          "Faster Cooking and Saves Time",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CTP-KD-005",
@@ -12445,7 +16841,29 @@
       "id": "ctp-kd-005",
       "variant_group": "vg-09",
       "variant_label": "26 CM",
-      "variant_order": 4
+      "variant_order": 4,
+      "features": [
+        [
+          "heat",
+          "Premium Triply Cookware",
+          "304 Grade steel."
+        ],
+        [
+          "heat",
+          "Faster Cooking and Saves Time",
+          ""
+        ],
+        [
+          "heat",
+          "No Stiking / Burning",
+          ""
+        ],
+        [
+          "shield",
+          "5 Years Warranty",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CTP-KD-006",
@@ -12483,7 +16901,29 @@
       "id": "ctp-kd-006",
       "variant_group": "vg-09",
       "variant_label": "28 CM",
-      "variant_order": 5
+      "variant_order": 5,
+      "features": [
+        [
+          "heat",
+          "Premium Triply Cookware",
+          "304 Grade steel."
+        ],
+        [
+          "heat",
+          "Faster Cooking and Saves Time",
+          ""
+        ],
+        [
+          "heat",
+          "No Stiking / Burning",
+          ""
+        ],
+        [
+          "shield",
+          "5 Years Warranty",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CTP-KD-007",
@@ -12521,7 +16961,19 @@
       "id": "ctp-kd-007",
       "variant_group": "vg-09",
       "variant_label": "30 CM",
-      "variant_order": 6
+      "variant_order": 6,
+      "features": [
+        [
+          "heat",
+          "Premium Triply Cookware",
+          "304 Grade steel."
+        ],
+        [
+          "heat",
+          "Faster Cooking and Saves Time",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CTP-KD-008",
@@ -12559,7 +17011,19 @@
       "id": "ctp-kd-008",
       "variant_group": "vg-09",
       "variant_label": "32 CM",
-      "variant_order": 7
+      "variant_order": 7,
+      "features": [
+        [
+          "heat",
+          "Premium Triply Cookware",
+          "304 Grade steel."
+        ],
+        [
+          "heat",
+          "Faster Cooking and Saves Time",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CTP-EDK-001",
@@ -12596,7 +17060,19 @@
         "product-photos/CTP-EDK-001/g4.jpg"
       ],
       "match_tier": "exact_sku",
-      "id": "ctp-edk-001"
+      "id": "ctp-edk-001",
+      "features": [
+        [
+          "heat",
+          "Premium Triply Cookware",
+          "304 Grade steel."
+        ],
+        [
+          "heat",
+          "Faster Cooking and Saves Time",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CTP-EDK-002",
@@ -12740,7 +17216,29 @@
       "variant_group": "vg-11",
       "variant_label": "18 CM",
       "variant_order": 0,
-      "video": "product-photos/CTP-TAS-001/video.mp4"
+      "video": "product-photos/CTP-TAS-001/video.mp4",
+      "features": [
+        [
+          "heat",
+          "Premium Triply Cookware",
+          "304 Grade steel."
+        ],
+        [
+          "heat",
+          "Faster Cooking and Saves Time",
+          ""
+        ],
+        [
+          "heat",
+          "No Stiking / Burning",
+          ""
+        ],
+        [
+          "shield",
+          "5 Years Warranty",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CTP-TAS-002",
@@ -12816,7 +17314,29 @@
       "id": "ctp-tas-003",
       "variant_group": "vg-11",
       "variant_label": "22 CM",
-      "variant_order": 2
+      "variant_order": 2,
+      "features": [
+        [
+          "heat",
+          "Premium Triply Cookware",
+          "304 Grade steel."
+        ],
+        [
+          "heat",
+          "Faster Cooking and Saves Time",
+          ""
+        ],
+        [
+          "heat",
+          "No Stiking / Burning",
+          ""
+        ],
+        [
+          "shield",
+          "5 Years Warranty",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CTP-TAS-004",
@@ -12855,7 +17375,29 @@
       "id": "ctp-tas-004",
       "variant_group": "vg-11",
       "variant_label": "24 CM",
-      "variant_order": 3
+      "variant_order": 3,
+      "features": [
+        [
+          "heat",
+          "Premium Triply Cookware",
+          "304 Grade steel."
+        ],
+        [
+          "heat",
+          "Faster Cooking and Saves Time",
+          ""
+        ],
+        [
+          "heat",
+          "No Stiking / Burning",
+          ""
+        ],
+        [
+          "shield",
+          "5 Years Warranty",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CTP-TAS-005",
@@ -13049,7 +17591,19 @@
       "id": "ctp-sp-001",
       "variant_group": "vg-12",
       "variant_label": "14 CM",
-      "variant_order": 0
+      "variant_order": 0,
+      "features": [
+        [
+          "heat",
+          "Premium Triply Cookware",
+          "304 Grade steel."
+        ],
+        [
+          "heat",
+          "Faster Cooking and Saves Time",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CTP-SP-002",
@@ -13158,7 +17712,19 @@
       "id": "ctp-sp-004",
       "variant_group": "vg-12",
       "variant_label": "20 CM",
-      "variant_order": 2
+      "variant_order": 2,
+      "features": [
+        [
+          "heat",
+          "Premium Triply Cookware",
+          "304 Grade steel."
+        ],
+        [
+          "heat",
+          "Faster Cooking and Saves Time",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CTP-FRP-001",
@@ -13266,7 +17832,19 @@
       "id": "ctp-frp-003",
       "variant_group": "vg-13",
       "variant_label": "24 CM",
-      "variant_order": 2
+      "variant_order": 2,
+      "features": [
+        [
+          "heat",
+          "Premium Triply Cookware",
+          "304 Grade steel."
+        ],
+        [
+          "heat",
+          "Faster Cooking and Saves Time",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CTP-FRP-004",
@@ -13302,7 +17880,29 @@
       "id": "ctp-frp-004",
       "variant_group": "vg-13",
       "variant_label": "26 CM",
-      "variant_order": 3
+      "variant_order": 3,
+      "features": [
+        [
+          "heat",
+          "Premium Triply Cookware",
+          "304 Grade steel."
+        ],
+        [
+          "heat",
+          "Faster Cooking and Saves Time",
+          ""
+        ],
+        [
+          "heat",
+          "No Stiking / Burning",
+          ""
+        ],
+        [
+          "shield",
+          "5 Years Warranty",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CCI-DK-25",
@@ -13337,7 +17937,29 @@
         "product-photos/CCI-DK-25/g4.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cci-dk-25"
+      "id": "cci-dk-25",
+      "features": [
+        [
+          "leaf",
+          "Pre-seasoned Surface for Natural Non-stick Cooki",
+          ""
+        ],
+        [
+          "heat",
+          "Made From Durable Cast Iron",
+          "Made from durable cast iron for excellent heat retention and distribution."
+        ],
+        [
+          "grip",
+          "Features Sturdy Handles for Easy",
+          "Features sturdy handles for easy lifting and carrying."
+        ],
+        [
+          "induction",
+          "Versatile for Use on Gas,",
+          "Versatile for use on gas, electric, or induction cooktops."
+        ]
+      ]
     },
     {
       "sku": "CCI-DT-30",
@@ -13372,7 +17994,29 @@
         "product-photos/CCI-DT-30/g4.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cci-dt-30"
+      "id": "cci-dt-30",
+      "features": [
+        [
+          "leaf",
+          "Pre-seasoned Surface for Natural Non-stick Cooki",
+          ""
+        ],
+        [
+          "heat",
+          "Made of Durable Cast Iron for Even Heat Distribu",
+          ""
+        ],
+        [
+          "grip",
+          "Features Two Handles for Easy Handling and Flipp",
+          ""
+        ],
+        [
+          "induction",
+          "Versatile for Use on Gas,",
+          "Versatile for use on gas, electric, or induction cooktops."
+        ]
+      ]
     },
     {
       "sku": "CCI-CT-25",
@@ -13407,7 +18051,29 @@
         "product-photos/CCI-CT-25/g4.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cci-ct-25"
+      "id": "cci-ct-25",
+      "features": [
+        [
+          "leaf",
+          "Pre-seasoned Surface for Natural Non-stick Cooki",
+          ""
+        ],
+        [
+          "heat",
+          "Made of Durable Cast Iron for Even Heat Distribu",
+          ""
+        ],
+        [
+          "grip",
+          "Features Two Handles for Easy Handling and Flipp",
+          ""
+        ],
+        [
+          "induction",
+          "Versatile for Use on Gas,",
+          "Versatile for use on gas, electric, or induction cooktops."
+        ]
+      ]
     },
     {
       "sku": "CCI-SK-25",
@@ -13442,7 +18108,29 @@
         "product-photos/CCI-SK-25/g4.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cci-sk-25"
+      "id": "cci-sk-25",
+      "features": [
+        [
+          "leaf",
+          "Pre-seasoned Surface for Natural Non-stick Cooki",
+          ""
+        ],
+        [
+          "heat",
+          "Made From Durable Cast Iron",
+          "Made from durable cast iron for excellent heat retention and distribution."
+        ],
+        [
+          "grip",
+          "Features Sturdy Handles for Easy",
+          "Features sturdy handles for easy lifting and carrying."
+        ],
+        [
+          "induction",
+          "Versatile for Use on Gas,",
+          "Versatile for use on gas, electric, or induction cooktops."
+        ]
+      ]
     },
     {
       "sku": "CNS894",
@@ -13479,7 +18167,29 @@
         "product-photos/CNS894/g4.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cns894"
+      "id": "cns894",
+      "features": [
+        [
+          "heat",
+          "Nonstick Coating for Hassle-free Cooking",
+          ""
+        ],
+        [
+          "lock",
+          "Includes Flat Tawa (250mm) and",
+          "Includes Flat Tawa (250mm) and Kadai (240mm) with Glass Lid (240mm)."
+        ],
+        [
+          "heat",
+          "Sturdy Build with Heat-resistant Handles",
+          ""
+        ],
+        [
+          "induction",
+          "Suitable for Gas Stoves Only",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CNS895",
@@ -13516,7 +18226,29 @@
         "product-photos/CNS895/g4.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cns895"
+      "id": "cns895",
+      "features": [
+        [
+          "heat",
+          "Set Includes Flat Tawa (250mm) and Fry Pan (225m",
+          ""
+        ],
+        [
+          "precision",
+          "Durable Nonstick Surface Prevents Food From Stic",
+          ""
+        ],
+        [
+          "grip",
+          "Lightweight and Easy to Handle",
+          ""
+        ],
+        [
+          "induction",
+          "Suitable for Gas Stoves Only",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CNS794",
@@ -13623,7 +18355,29 @@
         "product-photos/CNS-892/g4.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cns-892"
+      "id": "cns-892",
+      "features": [
+        [
+          "lock",
+          "Includes Fry Pan (240mm), Kadai",
+          "Includes Fry Pan (240mm), Kadai (240mm) with Glass Lid, and a Nylon Cooking Spoon."
+        ],
+        [
+          "heat",
+          "Nonstick Surface for Easy Food Release",
+          ""
+        ],
+        [
+          "shield",
+          "High-quality Aluminum Construction for Durabilit",
+          ""
+        ],
+        [
+          "induction",
+          "Suitable for Gas Stoves Only",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CNS-893",
@@ -13734,7 +18488,29 @@
         "product-photos/CNS896/g4.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cns896"
+      "id": "cns896",
+      "features": [
+        [
+          "lock",
+          "Comprehensive Set with Flat Tawa",
+          "Comprehensive set with Flat Tawa (250mm), Kadai (240mm), Fry Pan (240mm), Glass Lid (240mm), and Tadka Pan (105mm)."
+        ],
+        [
+          "heat",
+          "Nonstick Coating Ensures Minimal Oil Usage",
+          ""
+        ],
+        [
+          "heat",
+          "Sturdy and Heat-resistant Handles",
+          ""
+        ],
+        [
+          "induction",
+          "Suitable for Gas Stoves Only",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CNS-90C2",
@@ -13811,7 +18587,29 @@
         "product-photos/CTV-099/g4.jpg"
       ],
       "match_tier": "image_sourced_amazon_link",
-      "id": "ctv-099"
+      "id": "ctv-099",
+      "features": [
+        [
+          "heat",
+          "Combines Three Layers for Superior",
+          "Combines three layers for superior heat distribution, ensuring even cooking without hot spots."
+        ],
+        [
+          "shine",
+          "Built to Withstand Regular Use",
+          "Built to withstand regular use while maintaining its shine and performance."
+        ],
+        [
+          "heat",
+          "Heats Up Quickly and Retains",
+          "Heats up quickly and retains heat longer, saving both time and energy."
+        ],
+        [
+          "grip",
+          "Provides a Secure Grip for Easy Handling",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CTV-098",
@@ -13849,7 +18647,29 @@
         "product-photos/CTV-098/g4.jpg"
       ],
       "match_tier": "image_sourced_amazon_link",
-      "id": "ctv-098"
+      "id": "ctv-098",
+      "features": [
+        [
+          "heat",
+          "Combines Three Layers for Superior",
+          "Combines three layers for superior heat distribution, ensuring even cooking without hot spots."
+        ],
+        [
+          "shine",
+          "Built to Withstand Regular Use",
+          "Built to withstand regular use while maintaining its shine and performance."
+        ],
+        [
+          "heat",
+          "Heats Up Quickly and Retains",
+          "Heats up quickly and retains heat longer, saving both time and energy."
+        ],
+        [
+          "grip",
+          "Provides a Secure Grip for Easy Handling",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CTV-097",
@@ -13927,7 +18747,29 @@
         "product-photos/CTV-096/g4.jpg"
       ],
       "match_tier": "image_sourced_amazon_link",
-      "id": "ctv-096"
+      "id": "ctv-096",
+      "features": [
+        [
+          "heat",
+          "Combines Three Layers for Superior",
+          "Combines three layers for superior heat distribution, ensuring even cooking without hot spots."
+        ],
+        [
+          "shine",
+          "Built to Withstand Regular Use",
+          "Built to withstand regular use while maintaining its shine and performance."
+        ],
+        [
+          "heat",
+          "Heats Up Quickly and Retains",
+          "Heats up quickly and retains heat longer, saving both time and energy."
+        ],
+        [
+          "grip",
+          "Provides a Secure Grip for Easy Handling",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CTV-095",
@@ -14128,7 +18970,29 @@
         "product-photos/CSI-097/g4.jpg"
       ],
       "match_tier": "image_sourced_amazon_link",
-      "id": "csi-097"
+      "id": "csi-097",
+      "features": [
+        [
+          "heat",
+          "All-in-one Kitchen Combi Cookware Set",
+          "All-in-one kitchen combi cookware set for diverse cooking needs."
+        ],
+        [
+          "power",
+          "Crafted with High-quality Materials for",
+          "Crafted with high-quality materials for durability and reliable performance."
+        ],
+        [
+          "heat",
+          "Designed for Efficient Heat Distribution",
+          "Designed for efficient heat distribution and even cooking results."
+        ],
+        [
+          "heat",
+          "Nonstick Surfaces Ensure Easy Food",
+          "Nonstick surfaces ensure easy food release and quick cleanup."
+        ]
+      ]
     },
     {
       "sku": "CSI-098",
@@ -14166,7 +19030,29 @@
       ],
       "match_tier": "image_sourced_amazon_link",
       "id": "csi-098",
-      "video": "product-photos/CSI-098/video.mp4"
+      "video": "product-photos/CSI-098/video.mp4",
+      "features": [
+        [
+          "heat",
+          "All-in-one Kitchen Combi Cookware Set",
+          "All-in-one kitchen combi cookware set for diverse cooking needs."
+        ],
+        [
+          "power",
+          "Crafted with High-quality Materials for",
+          "Crafted with high-quality materials for durability and reliable performance."
+        ],
+        [
+          "heat",
+          "Designed for Efficient Heat Distribution",
+          "Designed for efficient heat distribution and even cooking results."
+        ],
+        [
+          "heat",
+          "Nonstick Surfaces Ensure Easy Food",
+          "Nonstick surfaces ensure easy food release and quick cleanup."
+        ]
+      ]
     },
     {
       "sku": "CSI-099",
@@ -14474,7 +19360,29 @@
         "product-photos/CNS-752/g4.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cns-752"
+      "id": "cns-752",
+      "features": [
+        [
+          "heat",
+          "165mm Mini Kadai Ideal for Small Servings",
+          ""
+        ],
+        [
+          "heat",
+          "Non-stick Coated Surface for Oil-free Cooking",
+          ""
+        ],
+        [
+          "induction",
+          "Compatible with Gas Stoves",
+          ""
+        ],
+        [
+          "heat",
+          "Even Heat Distribution for Efficient Cooking",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CNS-753",
@@ -14510,7 +19418,29 @@
         "product-photos/CNS-753/g4.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cns-753"
+      "id": "cns-753",
+      "features": [
+        [
+          "heat",
+          "200mm Tawa Perfect for Quick Snacks and Small Me",
+          ""
+        ],
+        [
+          "precision",
+          "Non-stick Surface for Smooth, Low-oil Cooking",
+          ""
+        ],
+        [
+          "induction",
+          "Ideal for Gas Stove Use Only",
+          ""
+        ],
+        [
+          "heat",
+          "Comfortable Heat-resistant Handle",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CNS-754",
@@ -14547,7 +19477,29 @@
         "product-photos/CNS-754/g4.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cns-754"
+      "id": "cns-754",
+      "features": [
+        [
+          "heat",
+          "140mm Round Fry Pan for Eggs, Fries, or Snacks",
+          ""
+        ],
+        [
+          "shield",
+          "High-quality Non-stick Coating",
+          ""
+        ],
+        [
+          "stack",
+          "Compact Size",
+          "Perfect for single servings."
+        ],
+        [
+          "shield",
+          "Durable and Easy to Clean",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CNS-755",
@@ -14584,7 +19536,29 @@
         "product-photos/CNS-755/g4.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cns-755"
+      "id": "cns-755",
+      "features": [
+        [
+          "heat",
+          "130mm Mini Saucepan for Milk, Tea, or Sauces",
+          ""
+        ],
+        [
+          "heat",
+          "Non-stick Interior for Hassle-free Cleaning",
+          ""
+        ],
+        [
+          "induction",
+          "Gas Stove Compatible",
+          ""
+        ],
+        [
+          "heat",
+          "Heatproof Bakelite Handle",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CNS-756",
@@ -14625,7 +19599,29 @@
         "product-photos/CNS-756/g9.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cns-756"
+      "id": "cns-756",
+      "features": [
+        [
+          "heat",
+          "Compact Mini Grill Pan",
+          "Perfect for sandwiches, cutlets, and veggies."
+        ],
+        [
+          "heat",
+          "Ribbed Base for Authentic Grill Marks",
+          ""
+        ],
+        [
+          "shield",
+          "Durable Non-stick Coating",
+          ""
+        ],
+        [
+          "induction",
+          "Gas Stove Compatible",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CNS-904A",
@@ -14658,7 +19654,29 @@
       "id": "cns-904a",
       "variant_group": "vg-15",
       "variant_label": "250 MM",
-      "variant_order": 0
+      "variant_order": 0,
+      "features": [
+        [
+          "heat",
+          "Base Material Aluminum with Ptfe (teflon) Coatin",
+          ""
+        ],
+        [
+          "induction",
+          "Induction Friendly with 3 Layer of Teflon Coatin",
+          ""
+        ],
+        [
+          "heat",
+          "This Range From Crystal Will",
+          "This range from crystal will make your daily cooking job easy."
+        ],
+        [
+          "heat",
+          "This Product Has 3 Layer of Nonstick Coating",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CNS-905A",
@@ -14691,7 +19709,29 @@
       "id": "cns-905a",
       "variant_group": "vg-15",
       "variant_label": "280 MM",
-      "variant_order": 1
+      "variant_order": 1,
+      "features": [
+        [
+          "heat",
+          "Base Material Aluminum with Ptfe (teflon) Coatin",
+          ""
+        ],
+        [
+          "induction",
+          "Induction Friendly with 3 Layer of Teflon Coatin",
+          ""
+        ],
+        [
+          "heat",
+          "This Range From Crystal Will",
+          "This range from crystal will make your daily cooking job easy."
+        ],
+        [
+          "heat",
+          "This Product Has 3 Layer of Nonstick Coating",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CNS-906A",
@@ -14759,7 +19799,29 @@
       "id": "cns-907a",
       "variant_group": "vg-16",
       "variant_label": "225 MM",
-      "variant_order": 0
+      "variant_order": 0,
+      "features": [
+        [
+          "heat",
+          "Base Material Aluminum with Ptfe (teflon) Coatin",
+          ""
+        ],
+        [
+          "induction",
+          "Induction Friendly with 3 Layer of Teflon Coatin",
+          ""
+        ],
+        [
+          "heat",
+          "This Range From Crystal Will",
+          "This range from crystal will make your daily cooking job easy."
+        ],
+        [
+          "heat",
+          "This Product Has 3 Layer of Nonstick Coating",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CNS-908A",
@@ -14792,7 +19854,29 @@
       "id": "cns-908a",
       "variant_group": "vg-16",
       "variant_label": "250 MM",
-      "variant_order": 1
+      "variant_order": 1,
+      "features": [
+        [
+          "heat",
+          "Base Material Aluminum with Ptfe (teflon) Coatin",
+          ""
+        ],
+        [
+          "induction",
+          "Induction Friendly with 3 Layer of Teflon Coatin",
+          ""
+        ],
+        [
+          "heat",
+          "This Range From Crystal Will",
+          "This range from crystal will make your daily cooking job easy."
+        ],
+        [
+          "heat",
+          "This Product Has 3 Layer of Nonstick Coating",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CNS-910A",
@@ -14825,7 +19909,29 @@
       "id": "cns-910a",
       "variant_group": "vg-17",
       "variant_label": "225 MM",
-      "variant_order": 0
+      "variant_order": 0,
+      "features": [
+        [
+          "heat",
+          "Base Material Aluminum with Ptfe (teflon) Coatin",
+          ""
+        ],
+        [
+          "induction",
+          "Induction Friendly with 3 Layer of Teflon Coatin",
+          ""
+        ],
+        [
+          "heat",
+          "This Range From Crystal Will",
+          "This range from crystal will make your daily cooking job easy."
+        ],
+        [
+          "heat",
+          "This Product Has 3 Layer of Nonstick Coating",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CNS-911A",
@@ -14859,7 +19965,29 @@
       "variant_group": "vg-17",
       "variant_label": "250 MM",
       "variant_order": 1,
-      "video": "product-photos/CNS-911A/video.mp4"
+      "video": "product-photos/CNS-911A/video.mp4",
+      "features": [
+        [
+          "heat",
+          "Base Material Aluminum with Ptfe (teflon) Coatin",
+          ""
+        ],
+        [
+          "induction",
+          "Induction Friendly with 3 Layer of Teflon Coatin",
+          ""
+        ],
+        [
+          "heat",
+          "This Range From Crystal Will",
+          "This range from crystal will make your daily cooking job easy."
+        ],
+        [
+          "heat",
+          "This Product Has 3 Layer of Nonstick Coating",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CNS-912A",
@@ -14892,7 +20020,29 @@
       "id": "cns-912a",
       "variant_group": "vg-17",
       "variant_label": "280 MM",
-      "variant_order": 2
+      "variant_order": 2,
+      "features": [
+        [
+          "heat",
+          "Base Material Aluminum with Ptfe (teflon) Coatin",
+          ""
+        ],
+        [
+          "induction",
+          "Induction Friendly with 3 Layer of Teflon Coatin",
+          ""
+        ],
+        [
+          "heat",
+          "This Range From Crystal Will",
+          "This range from crystal will make your daily cooking job easy."
+        ],
+        [
+          "heat",
+          "This Product Has 3 Layer of Nonstick Coating",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CNS-913A",
@@ -14925,7 +20075,29 @@
       "id": "cns-913a",
       "variant_group": "vg-18",
       "variant_label": "225 MM",
-      "variant_order": 0
+      "variant_order": 0,
+      "features": [
+        [
+          "heat",
+          "Base Material Aluminum with Ptfe (teflon) Coatin",
+          ""
+        ],
+        [
+          "induction",
+          "Induction Friendly with 3 Layer of Teflon Coatin",
+          ""
+        ],
+        [
+          "heat",
+          "This Range From Crystal Will",
+          "This range from crystal will make your daily cooking job easy."
+        ],
+        [
+          "heat",
+          "This Product Has 3 Layer of Nonstick Coating",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CNS-914A",
@@ -14960,7 +20132,29 @@
       "id": "cns-914a",
       "variant_group": "vg-18",
       "variant_label": "250 MM",
-      "variant_order": 1
+      "variant_order": 1,
+      "features": [
+        [
+          "heat",
+          "Base Material Aluminum with Ptfe (teflon) Coatin",
+          ""
+        ],
+        [
+          "induction",
+          "Induction Friendly with 3 Layer of Teflon Coatin",
+          ""
+        ],
+        [
+          "heat",
+          "This Range From Crystal Will",
+          "This range from crystal will make your daily cooking job easy."
+        ],
+        [
+          "heat",
+          "This Product Has 3 Layer of Nonstick Coating",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CNS-915A",
@@ -14993,7 +20187,29 @@
       "id": "cns-915a",
       "variant_group": "vg-18",
       "variant_label": "280 MM",
-      "variant_order": 2
+      "variant_order": 2,
+      "features": [
+        [
+          "heat",
+          "Base Material Aluminum with Ptfe (teflon) Coatin",
+          ""
+        ],
+        [
+          "induction",
+          "Induction Friendly with 3 Layer of Teflon Coatin",
+          ""
+        ],
+        [
+          "heat",
+          "This Range From Crystal Will",
+          "This range from crystal will make your daily cooking job easy."
+        ],
+        [
+          "heat",
+          "This Product Has 3 Layer of Nonstick Coating",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CNS-916",
@@ -15033,7 +20249,29 @@
       "id": "cns-916",
       "variant_group": "vg-19",
       "variant_label": "225 MM",
-      "variant_order": 0
+      "variant_order": 0,
+      "features": [
+        [
+          "heat",
+          "225mm Non-stick Deep Kadai",
+          "Ideal for 2-3 servings."
+        ],
+        [
+          "induction",
+          "Induction and Gas Stove Compatible",
+          ""
+        ],
+        [
+          "shield",
+          "Durable Non-stick Coating for Oil-free Cooking",
+          ""
+        ],
+        [
+          "lock",
+          "Tempered Glass Lid with Steam",
+          "Tempered glass lid with steam vent for easy monitoring."
+        ]
+      ]
     },
     {
       "sku": "CNS-917",
@@ -15073,7 +20311,29 @@
       "id": "cns-917",
       "variant_group": "vg-19",
       "variant_label": "250 MM",
-      "variant_order": 1
+      "variant_order": 1,
+      "features": [
+        [
+          "heat",
+          "250mm Kadai Size",
+          "Ideal for 3-4 people."
+        ],
+        [
+          "heat",
+          "Non-stick Surface for Easy Cooking and Cleaning",
+          ""
+        ],
+        [
+          "induction",
+          "Induction & Gas Stove Compatible",
+          ""
+        ],
+        [
+          "lock",
+          "Glass Lid with Vent to",
+          "Glass lid with vent to retain moisture and monitor food."
+        ]
+      ]
     },
     {
       "sku": "CNS-918",
@@ -15113,7 +20373,29 @@
       "id": "cns-918",
       "variant_group": "vg-19",
       "variant_label": "280 MM",
-      "variant_order": 2
+      "variant_order": 2,
+      "features": [
+        [
+          "heat",
+          "Large 280mm Size",
+          "Suitable for 5+ servings."
+        ],
+        [
+          "leaf",
+          "Advanced Non-stick Coating for Oil-free,",
+          "Advanced non-stick coating for oil-free, healthy cooking."
+        ],
+        [
+          "induction",
+          "Induction and Gas Compatible for All Kitchen Typ",
+          ""
+        ],
+        [
+          "lock",
+          "Comes with a Tempered Glass Lid for Convenience",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CNS-098",
@@ -15149,7 +20431,29 @@
         "product-photos/CNS-098/g3.jpg"
       ],
       "match_tier": "image_sourced_amazon_link",
-      "id": "cns-098"
+      "id": "cns-098",
+      "features": [
+        [
+          "heat",
+          "Made From High-quality Aluminium for",
+          "Made from high-quality aluminium for even heat distribution."
+        ],
+        [
+          "heat",
+          "Ideal for Tempering Spices and",
+          "Ideal for tempering spices and preparing tadka for curries and dals."
+        ],
+        [
+          "grip",
+          "Sturdy Handle for Safe and Easy Handling",
+          ""
+        ],
+        [
+          "shield",
+          "Lightweight, Durable, and Easy to Clean",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CNS-151",
@@ -15183,7 +20487,29 @@
         "product-photos/CNS-151/g1.jpg"
       ],
       "match_tier": "dump_sku_match",
-      "id": "cns-151"
+      "id": "cns-151",
+      "features": [
+        [
+          "heat",
+          "Base Material Aluminum with Ptfe (teflon) Coatin",
+          ""
+        ],
+        [
+          "induction",
+          "Induction Friendly with 3 Layer of Teflon Coatin",
+          ""
+        ],
+        [
+          "heat",
+          "This Range From Crystal Will",
+          "This range from crystal will make your daily cooking job easy."
+        ],
+        [
+          "heat",
+          "This Product Has 3 Layer of Nonstick Coating",
+          ""
+        ]
+      ]
     },
     {
       "sku": "CPC-021",

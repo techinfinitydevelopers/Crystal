@@ -1035,8 +1035,12 @@
     currentId = newP.id;
   }
 
+  /* This product's own Amazon bullets when we have them; the category
+     boilerplate otherwise, so every item still shows four features. */
+  const FEATURES = prod.feats || tpl.features;
+
   // hero highlight list = first 3 feature titles + a warranty line
-  const hiItems = tpl.features.slice(0, 3).map(f => f[1]).concat([(specs.Warranty ? specs.Warranty + " warranty" : "Crystal assured quality")]);
+  const hiItems = FEATURES.slice(0, 3).map(f => f[1]).concat([(specs.Warranty ? specs.Warranty + " warranty" : "Crystal assured quality")]);
   document.getElementById("hiList").innerHTML = hiItems.map(t => `<li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 6"/></svg></span>${t}</li>`).join("");
 
   /* ---- overview ---- */
@@ -1044,11 +1048,11 @@
   document.getElementById("ovDesc").innerHTML = `<p>${prod.desc}</p>`;
   document.getElementById("ovImg").src = gallery[1] || gallery[0];
   document.getElementById("ovImg").alt = prod.n;
-  const benefits = tpl.features.map(f => f[1] + " — " + f[2]);
+  const benefits = FEATURES.map(f => f[2] ? f[1] + " — " + f[2] : f[1]);
   document.getElementById("ovBenefits").innerHTML = benefits.map(b => `<li><span class="d"></span><span>${b}</span></li>`).join("");
 
   /* ---- features ---- */
-  document.getElementById("featGrid").innerHTML = tpl.features.map(f => `
+  document.getElementById("featGrid").innerHTML = FEATURES.map(f => `
     <div class="feat-card" data-fade>
       <span class="feat-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">${ICONS[f[0]] || ICONS.shield}</svg></span>
       <h4>${f[1]}</h4>
@@ -1133,6 +1137,7 @@
         intro: p.highlight || p.description || "", desc: p.description || p.highlight || "",
         variants: undefined, mrp: p.mrp, alink: p.amazon_link || "", video: p.video || "",
         vgroup: p.variant_group || null, vlabel: p.variant_label || null, vorder: p.variant_order || 0,
+    feats: Array.isArray(p.features) && p.features.length ? p.features : null,
       }));
       BY_ID = Object.fromEntries(P.map(p => [p.id, p]));
     } catch (e) {
