@@ -124,8 +124,14 @@
   .pdp-hero { padding-top: 20px; padding-bottom: clamp(28px, 4vw, 56px); }
   .pdp-grid { display: grid; grid-template-columns: 1.02fr 0.98fr; gap: clamp(26px, 4vw, 60px); align-items: start; }
   .gallery { position: sticky; top: 100px; }
-  .g-main { aspect-ratio: 1/1; border-radius: var(--r); overflow: hidden; border: 1.5px solid var(--line); background: #ffffff; }
+  .g-main { position: relative; aspect-ratio: 1/1; border-radius: var(--r); overflow: hidden; border: 1.5px solid var(--line); background: #ffffff; }
   .g-main img { width: 100%; height: 100%; object-fit: contain; transition: opacity .3s, transform .4s cubic-bezier(.2,.8,.2,1); transform-origin: center center; }
+  .g-main video { display: none; position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; background: #000; }
+  .g-main.showing-video img { display: none; }
+  .g-main.showing-video video { display: block; }
+  .g-thumb.g-thumb-video { position: relative; }
+  .g-thumb-video .g-play { position: absolute; inset: 0; display: grid; place-items: center; background: rgba(0,0,0,0.28); z-index: 2; }
+  .g-thumb-video .g-play svg { width: 22px; height: 22px; filter: drop-shadow(0 1px 3px rgba(0,0,0,0.5)); }
   .g-thumbs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 12px; }
   .g-thumb { aspect-ratio: 1/1; border-radius: 13px; overflow: hidden; border: 1.5px solid var(--line); background: #ffffff; cursor: pointer; opacity: 0.62; transition: opacity .25s, border-color .25s, transform .25s; }
   .g-thumb:hover { opacity: 0.92; transform: translateY(-2px); }
@@ -539,7 +545,7 @@
 <section class="pdp-hero wrap" id="hero">
   <div class="pdp-grid">
     <div class="gallery">
-      <div class="g-main"><img id="gMain" alt="" /></div>
+      <div class="g-main" id="gMainWrap"><img id="gMain" alt="" /><video id="gMainVideo" playsinline controls></video></div>
       <div class="g-thumbs" id="gThumbs"></div>
     </div>
     <div class="info">
@@ -827,6 +833,23 @@
   const siblings = prod.vgroup ? P.filter(p => p.vgroup === prod.vgroup).sort((a, b) => a.vorder - b.vorder) : [];
   const specs = Object.assign({}, tpl.specs, prod.specs || {});
   let gallery = [prod.img, ...(prod.gallery || [])].filter(Boolean);
+  const PLAY_ICON = '<svg viewBox="0 0 24 24" fill="#fff" stroke="none"><path d="M8 5v14l11-7z"/></svg>';
+  function videoThumbHtml(p) {
+    return p.video ? `<div class="g-thumb g-thumb-video" data-video="${p.video}"><img src="${p.img}" alt="${p.n} video" loading="lazy"><span class="g-play">${PLAY_ICON}</span></div>` : "";
+  }
+  function showMainImage(src, alt) {
+    const wrap = document.getElementById("gMainWrap"), vid = document.getElementById("gMainVideo");
+    wrap.classList.remove("showing-video");
+    vid.pause(); vid.removeAttribute("src"); vid.load();
+    document.getElementById("gMain").src = src;
+    document.getElementById("gMain").alt = alt;
+  }
+  function showMainVideo(src) {
+    const wrap = document.getElementById("gMainWrap"), vid = document.getElementById("gMainVideo");
+    wrap.classList.add("showing-video");
+    vid.src = src;
+    vid.play().catch(() => {});
+  }
 
   document.title = prod.n + " — CRYSTAL";
 
@@ -844,11 +867,14 @@
     <li class="cur">${prod.n}</li>`;
 
   /* ---- hero ---- */
-  document.getElementById("gMain").src = gallery[0];
-  document.getElementById("gMain").alt = prod.n;
+  showMainImage(gallery[0], prod.n);
   document.getElementById("gMain").style.transform = "scale(" + sizeScaleFor(siblings, prod) + ")";
-  document.getElementById("gThumbs").innerHTML =
-    gallery.map((src, i) => `<div class="g-thumb${i===0?' active':''}" data-i="${i}"><img src="${src}" alt="${prod.n} view ${i+1}" loading="lazy"></div>`).join("");
+  {
+    const thumbs = gallery.map((src, i) => `<div class="g-thumb${i===0?' active':''}" data-i="${i}"><img src="${src}" alt="${prod.n} view ${i+1}" loading="lazy"></div>`);
+    const vThumb = videoThumbHtml(prod);
+    if (vThumb) thumbs.splice(1, 0, vThumb);
+    document.getElementById("gThumbs").innerHTML = thumbs.join("");
+  }
   document.getElementById("infoEyebrow").innerHTML = `<span class="pip"></span>${brand.name} · ${prod.col}`;
   document.getElementById("catChip").textContent = CAT_LABEL[prod.c];
   document.getElementById("pTitle").textContent = prod.n;
@@ -898,11 +924,14 @@
     document.getElementById("pTitle").textContent = newP.n;
     document.getElementById("pSku").textContent = newP.sku ? "Code: " + newP.sku.toUpperCase() : "";
     document.getElementById("pIntro").textContent = newP.intro;
-    document.getElementById("gMain").src = newGallery[0];
-    document.getElementById("gMain").alt = newP.n;
+    showMainImage(newGallery[0], newP.n);
     document.getElementById("gMain").style.transform = "scale(" + sizeScaleFor(siblings, newP) + ")";
-    document.getElementById("gThumbs").innerHTML =
-      newGallery.map((src, i) => `<div class="g-thumb${i===0?' active':''}" data-i="${i}"><img src="${src}" alt="${newP.n} view ${i+1}" loading="lazy"></div>`).join("");
+    {
+      const thumbs = newGallery.map((src, i) => `<div class="g-thumb${i===0?' active':''}" data-i="${i}"><img src="${src}" alt="${newP.n} view ${i+1}" loading="lazy"></div>`);
+      const vThumb = videoThumbHtml(newP);
+      if (vThumb) thumbs.splice(1, 0, vThumb);
+      document.getElementById("gThumbs").innerHTML = thumbs.join("");
+    }
     const crumbCur = document.querySelector("#crumb .cur");
     if (crumbCur) crumbCur.textContent = newP.n;
     document.getElementById("vCurrent").textContent = "· " + newP.vlabel;
@@ -1004,8 +1033,13 @@
       if (newP) applySizeVariant(newP);
       return;
     }
+    if (t.dataset.video) {
+      showMainVideo(t.dataset.video);
+      document.querySelectorAll(".g-thumb").forEach(x => x.classList.toggle("active", x === t));
+      return;
+    }
     const i = +t.dataset.i;
-    document.getElementById("gMain").src = gallery[i];
+    showMainImage(gallery[i], prod.n);
     document.querySelectorAll(".g-thumb").forEach(x => x.classList.toggle("active", x === t));
   });
   } // end renderProduct()
@@ -1019,7 +1053,7 @@
         id: p.id, sku: p.sku || p.id || "", n: p.name, b: p.brand, c: p.category, sub: p.subcategory, col: p.collection || p.subcategory || "",
         img: p.hero || "about-assets/placeholder.svg", gallery: p.gallery || [], tags: p.tags || [],
         intro: p.highlight || p.description || "", desc: p.description || p.highlight || "",
-        variants: undefined, mrp: p.mrp, alink: p.amazon_link || "",
+        variants: undefined, mrp: p.mrp, alink: p.amazon_link || "", video: p.video || "",
         vgroup: p.variant_group || null, vlabel: p.variant_label || null, vorder: p.variant_order || 0,
       }));
       BY_ID = Object.fromEntries(P.map(p => [p.id, p]));

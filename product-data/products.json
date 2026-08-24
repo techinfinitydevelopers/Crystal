@@ -9938,7 +9938,8 @@
       "id": "cpw-001",
       "variant_group": "vg-26",
       "variant_label": "Small",
-      "variant_order": 0
+      "variant_order": 0,
+      "video": "product-photos/CPW-001/video.mp4"
     },
     {
       "sku": "CPW-002",
@@ -9976,7 +9977,8 @@
       "id": "cpw-002",
       "variant_group": "vg-26",
       "variant_label": "Medium",
-      "variant_order": 1
+      "variant_order": 1,
+      "video": "product-photos/CPW-002/video.mp4"
     },
     {
       "sku": "CPW-003",
@@ -10050,7 +10052,8 @@
       "id": "cpw-004",
       "variant_group": "vg-27",
       "variant_label": "Small",
-      "variant_order": 0
+      "variant_order": 0,
+      "video": "product-photos/CPW-004/video.mp4"
     },
     {
       "sku": "CPW-005",
@@ -10161,7 +10164,8 @@
       "id": "cpw-007",
       "variant_group": "vg-28",
       "variant_label": "Small",
-      "variant_order": 0
+      "variant_order": 0,
+      "video": "product-photos/CPW-007/video.mp4"
     },
     {
       "sku": "CPW-008",
@@ -10575,7 +10579,8 @@
         "product-photos/CPW-019/g4.jpg"
       ],
       "match_tier": "image_sourced_amazon_link",
-      "id": "cpw-019"
+      "id": "cpw-019",
+      "video": "product-photos/CPW-019/video.mp4"
     },
     {
       "sku": "CPW-020",
@@ -10609,7 +10614,8 @@
         "product-photos/CPW-020/g4.jpg"
       ],
       "match_tier": "fuzzy_name",
-      "id": "cpw-020"
+      "id": "cpw-020",
+      "video": "product-photos/CPW-020/video.mp4"
     },
     {
       "sku": "CPW-021",
@@ -11302,7 +11308,8 @@
       "id": "ctp-kd-002",
       "variant_group": "vg-09",
       "variant_label": "20 CM",
-      "variant_order": 1
+      "variant_order": 1,
+      "video": "product-photos/CTP-KD-002/video.mp4"
     },
     {
       "sku": "CTP-KD-003",
@@ -11709,7 +11716,8 @@
       "id": "ctp-tas-001",
       "variant_group": "vg-11",
       "variant_label": "18 CM",
-      "variant_order": 0
+      "variant_order": 0,
+      "video": "product-photos/CTP-TAS-001/video.mp4"
     },
     {
       "sku": "CTP-TAS-002",
@@ -13134,7 +13142,8 @@
         "product-photos/CSI-098/g4.jpg"
       ],
       "match_tier": "image_sourced_amazon_link",
-      "id": "csi-098"
+      "id": "csi-098",
+      "video": "product-photos/CSI-098/video.mp4"
     },
     {
       "sku": "CSI-099",
@@ -13821,7 +13830,8 @@
       "id": "cns-911a",
       "variant_group": "vg-17",
       "variant_label": "250 MM",
-      "variant_order": 1
+      "variant_order": 1,
+      "video": "product-photos/CNS-911A/video.mp4"
     },
     {
       "sku": "CNS-912A",
