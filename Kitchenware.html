@@ -1156,7 +1156,7 @@
   const mmEl = document.getElementById("mobileMenu");
   document.getElementById("burger").addEventListener("click", () => mmEl.classList.add("open"));
   document.getElementById("mmClose").addEventListener("click", () => mmEl.classList.remove("open"));
-  document.querySelectorAll(".mm-link").forEach(a => a.addEventListener("click", () => mmEl.classList.remove("open")));
+  document.querySelectorAll(".mm-link:not(.mm-acc-tog)").forEach(a => a.addEventListener("click", () => mmEl.classList.remove("open")));
 
   /* site search: loads the real product catalog and filters by name/category/brand/tags */
   (function () {

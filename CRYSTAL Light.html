@@ -853,7 +853,7 @@
   const mm2 = document.getElementById("mobileMenu");
   document.getElementById("burger").addEventListener("click", () => mm2.classList.add("open"));
   document.getElementById("mmClose").addEventListener("click", () => mm2.classList.remove("open"));
-  document.querySelectorAll(".mm-link").forEach(a => a.addEventListener("click", () => mm2.classList.remove("open")));
+  document.querySelectorAll(".mm-link:not(.mm-acc-tog)").forEach(a => a.addEventListener("click", () => mm2.classList.remove("open")));
 
   /* counters */
   const counted = new Set();
