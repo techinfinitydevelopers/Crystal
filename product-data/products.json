@@ -49,7 +49,12 @@
         "product-photos/LI001A/g1.webp",
         "product-photos/LI001A/g2.webp",
         "product-photos/LI001A/g3.webp",
-        "product-photos/LI001A/g4.webp"
+        "product-photos/LI001A/g4.webp",
+        "product-photos/LI001A/g1.jpg",
+        "product-photos/LI001A/g2.jpg",
+        "product-photos/LI001A/g3.jpg",
+        "product-photos/LI001A/g4.jpg",
+        "product-photos/LI001A/g5.jpg"
       ],
       "match_tier": "exact_sku",
       "id": "li001a"
@@ -84,7 +89,12 @@
         "product-photos/LI002A/g1.webp",
         "product-photos/LI002A/g2.webp",
         "product-photos/LI002A/g3.webp",
-        "product-photos/LI002A/g4.webp"
+        "product-photos/LI002A/g4.webp",
+        "product-photos/LI002A/g1.jpg",
+        "product-photos/LI002A/g2.jpg",
+        "product-photos/LI002A/g3.jpg",
+        "product-photos/LI002A/g4.jpg",
+        "product-photos/LI002A/g5.jpg"
       ],
       "match_tier": "exact_sku",
       "id": "li002a"
@@ -113,7 +123,12 @@
       "hero": "product-photos/LI003A/hero.webp",
       "gallery": [
         "product-photos/LI003A/g1.webp",
-        "product-photos/LI003A/g2.webp"
+        "product-photos/LI003A/g2.webp",
+        "product-photos/LI003A/g1.jpg",
+        "product-photos/LI003A/g2.jpg",
+        "product-photos/LI003A/g3.jpg",
+        "product-photos/LI003A/g4.jpg",
+        "product-photos/LI003A/g5.jpg"
       ],
       "match_tier": "exact_sku",
       "id": "li003a"
@@ -237,7 +252,11 @@
         "product-photos/LI010/g1.jpg",
         "product-photos/LI010/g2.jpg",
         "product-photos/LI010/g3.jpg",
-        "product-photos/LI010/g4.jpg"
+        "product-photos/LI010/g4.jpg",
+        "product-photos/LI010/g5.jpg",
+        "product-photos/LI010/g6.jpg",
+        "product-photos/LI010/g7.jpg",
+        "product-photos/LI010/g8.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "li010"
@@ -272,7 +291,12 @@
         "product-photos/LI011/g1.jpg",
         "product-photos/LI011/g2.jpg",
         "product-photos/LI011/g3.jpg",
-        "product-photos/LI011/g4.jpg"
+        "product-photos/LI011/g4.jpg",
+        "product-photos/LI011/g5.jpg",
+        "product-photos/LI011/g6.jpg",
+        "product-photos/LI011/g7.jpg",
+        "product-photos/LI011/g8.jpg",
+        "product-photos/LI011/g9.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "li011"
@@ -299,7 +323,11 @@
         "mechanism": "Mechanical"
       },
       "hero": "product-photos/VML-001/hero.webp",
-      "gallery": [],
+      "gallery": [
+        "product-photos/VML-001/g1.jpg",
+        "product-photos/VML-001/g2.jpg",
+        "product-photos/VML-001/g3.jpg"
+      ],
       "match_tier": "fuzzy_name",
       "id": "vml-001"
     },
@@ -361,7 +389,9 @@
       "gallery": [
         "product-photos/CL-007/g1.jpg",
         "product-photos/CL-007/g2.jpg",
-        "product-photos/CL-007/g3.jpg"
+        "product-photos/CL-007/g3.jpg",
+        "product-photos/CL-007/g4.jpg",
+        "product-photos/CL-007/g5.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cl-007"
@@ -393,7 +423,12 @@
       },
       "hero": "product-photos/CL-008/hero.jpg",
       "gallery": [
-        "product-photos/CL-008/g1.jpg"
+        "product-photos/CL-008/g1.jpg",
+        "product-photos/CL-008/g2.jpg",
+        "product-photos/CL-008/g3.jpg",
+        "product-photos/CL-008/g4.jpg",
+        "product-photos/CL-008/g5.jpg",
+        "product-photos/CL-008/g6.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cl-008"
@@ -432,7 +467,15 @@
       "hero": "product-photos/CL-010/hero.jpg",
       "gallery": [
         "product-photos/CL-010/g1.jpg",
-        "product-photos/CL-010/g2.jpg"
+        "product-photos/CL-010/g2.jpg",
+        "product-photos/CL-010/g3.jpg",
+        "product-photos/CL-010/g4.jpg",
+        "product-photos/CL-010/g5.jpg",
+        "product-photos/CL-010/g6.jpg",
+        "product-photos/CL-010/g7.jpg",
+        "product-photos/CL-010/g8.jpg",
+        "product-photos/CL-010/g9.jpg",
+        "product-photos/CL-010/g10.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cl-010"
@@ -467,7 +510,12 @@
         "product-photos/CL-011/g1.jpg",
         "product-photos/CL-011/g2.jpg",
         "product-photos/CL-011/g3.jpg",
-        "product-photos/CL-011/g4.jpg"
+        "product-photos/CL-011/g4.jpg",
+        "product-photos/CL-011/g5.jpg",
+        "product-photos/CL-011/g6.jpg",
+        "product-photos/CL-011/g7.jpg",
+        "product-photos/CL-011/g8.jpg",
+        "product-photos/CL-011/g9.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cl-011"
@@ -501,7 +549,12 @@
       "gallery": [
         "product-photos/CL-459N/g1.jpg",
         "product-photos/CL-459N/g2.jpg",
-        "product-photos/CL-459N/g3.jpg"
+        "product-photos/CL-459N/g3.jpg",
+        "product-photos/CL-459N/g4.jpg",
+        "product-photos/CL-459N/g5.jpg",
+        "product-photos/CL-459N/g6.jpg",
+        "product-photos/CL-459N/g7.jpg",
+        "product-photos/CL-459N/g8.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cl-459n"
@@ -676,7 +729,13 @@
         "coating_type": "None"
       },
       "hero": "product-photos/CL-125/hero.jpg",
-      "gallery": [],
+      "gallery": [
+        "product-photos/CL-125/g1.jpg",
+        "product-photos/CL-125/g2.jpg",
+        "product-photos/CL-125/g3.jpg",
+        "product-photos/CL-125/g4.jpg",
+        "product-photos/CL-125/g5.jpg"
+      ],
       "match_tier": "dump_sku_match",
       "id": "cl-125"
     },
@@ -705,7 +764,13 @@
         "coating_type": "None"
       },
       "hero": "product-photos/CL-126/hero.jpg",
-      "gallery": [],
+      "gallery": [
+        "product-photos/CL-126/g1.jpg",
+        "product-photos/CL-126/g2.jpg",
+        "product-photos/CL-126/g3.jpg",
+        "product-photos/CL-126/g4.jpg",
+        "product-photos/CL-126/g5.jpg"
+      ],
       "match_tier": "dump_sku_match",
       "id": "cl-126"
     },
@@ -734,7 +799,13 @@
         "coating_type": "None"
       },
       "hero": "product-photos/CL-127/hero.png",
-      "gallery": [],
+      "gallery": [
+        "product-photos/CL-127/g1.jpg",
+        "product-photos/CL-127/g2.jpg",
+        "product-photos/CL-127/g3.jpg",
+        "product-photos/CL-127/g4.jpg",
+        "product-photos/CL-127/g5.jpg"
+      ],
       "match_tier": "dump_sku_match",
       "id": "cl-127"
     },
@@ -773,7 +844,12 @@
         "product-photos/CL-128/g1.jpg",
         "product-photos/CL-128/g2.jpg",
         "product-photos/CL-128/g3.jpg",
-        "product-photos/CL-128/g4.jpg"
+        "product-photos/CL-128/g4.jpg",
+        "product-photos/CL-128/g5.jpg",
+        "product-photos/CL-128/g6.jpg",
+        "product-photos/CL-128/g7.jpg",
+        "product-photos/CL-128/g8.jpg",
+        "product-photos/CL-128/g9.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cl-128"
@@ -873,7 +949,9 @@
       },
       "hero": "product-photos/CL-019/hero.jpg",
       "gallery": [
-        "product-photos/CL-019/g1.jpg"
+        "product-photos/CL-019/g1.jpg",
+        "product-photos/CL-019/g2.jpg",
+        "product-photos/CL-019/g3.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cl-019"
@@ -909,7 +987,8 @@
       "hero": "product-photos/CL-211/hero.jpg",
       "gallery": [
         "product-photos/CL-211/g1.jpg",
-        "product-photos/CL-211/g2.jpg"
+        "product-photos/CL-211/g2.jpg",
+        "product-photos/CL-211/g3.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cl-211"
@@ -1011,7 +1090,10 @@
       "hero": "product-photos/CL-214/hero.jpg",
       "gallery": [
         "product-photos/CL-214/g1.jpg",
-        "product-photos/CL-214/g2.jpg"
+        "product-photos/CL-214/g2.jpg",
+        "product-photos/CL-214/g3.jpg",
+        "product-photos/CL-214/g4.jpg",
+        "product-photos/CL-214/g5.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cl-214"
@@ -1047,7 +1129,10 @@
       "hero": "product-photos/CL-215/hero.jpg",
       "gallery": [
         "product-photos/CL-215/g1.jpeg",
-        "product-photos/CL-215/g2.jpg"
+        "product-photos/CL-215/g2.jpg",
+        "product-photos/CL-215/g3.jpg",
+        "product-photos/CL-215/g4.jpg",
+        "product-photos/CL-215/g5.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cl-215"
@@ -1083,7 +1168,10 @@
       "gallery": [
         "product-photos/CL-216/g1.jpg",
         "product-photos/CL-216/g2.jpg",
-        "product-photos/CL-216/g3.jpg"
+        "product-photos/CL-216/g3.jpg",
+        "product-photos/CL-216/g4.jpg",
+        "product-photos/CL-216/g5.jpg",
+        "product-photos/CL-216/g6.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cl-216"
@@ -1116,7 +1204,10 @@
       "hero": "product-photos/CL-217/hero.jpg",
       "gallery": [
         "product-photos/CL-217/g1.jpg",
-        "product-photos/CL-217/g2.jpg"
+        "product-photos/CL-217/g2.jpg",
+        "product-photos/CL-217/g3.jpg",
+        "product-photos/CL-217/g4.jpg",
+        "product-photos/CL-217/g5.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cl-217"
@@ -1183,7 +1274,10 @@
       },
       "hero": "product-photos/CL-023/hero.jpg",
       "gallery": [
-        "product-photos/CL-023/g1.jpg"
+        "product-photos/CL-023/g1.jpg",
+        "product-photos/CL-023/g2.jpg",
+        "product-photos/CL-023/g3.jpg",
+        "product-photos/CL-023/g4.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cl-023"
@@ -1215,7 +1309,9 @@
       },
       "hero": "product-photos/CL-024/hero.jpg",
       "gallery": [
-        "product-photos/CL-024/g1.jpg"
+        "product-photos/CL-024/g1.jpg",
+        "product-photos/CL-024/g2.jpg",
+        "product-photos/CL-024/g3.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cl-024"
@@ -1247,7 +1343,9 @@
       },
       "hero": "product-photos/CL-073/hero.jpg",
       "gallery": [
-        "product-photos/CL-073/g1.jpg"
+        "product-photos/CL-073/g1.jpg",
+        "product-photos/CL-073/g2.jpg",
+        "product-photos/CL-073/g3.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cl-073"
@@ -1279,7 +1377,8 @@
       },
       "hero": "product-photos/CL-074/hero.jpg",
       "gallery": [
-        "product-photos/CL-074/g1.jpg"
+        "product-photos/CL-074/g1.jpg",
+        "product-photos/CL-074/g2.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cl-074"
@@ -1311,7 +1410,12 @@
       },
       "hero": "product-photos/CL-203/hero.jpg",
       "gallery": [
-        "product-photos/CL-203/g1.jpg"
+        "product-photos/CL-203/g1.jpg",
+        "product-photos/CL-203/g2.jpg",
+        "product-photos/CL-203/g3.jpg",
+        "product-photos/CL-203/g4.jpg",
+        "product-photos/CL-203/g5.jpg",
+        "product-photos/CL-203/g6.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cl-203"
@@ -1343,7 +1447,10 @@
       },
       "hero": "product-photos/CL-204/hero.jpg",
       "gallery": [
-        "product-photos/CL-204/g1.jpg"
+        "product-photos/CL-204/g1.jpg",
+        "product-photos/CL-204/g2.jpg",
+        "product-photos/CL-204/g3.jpg",
+        "product-photos/CL-204/g4.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cl-204"
@@ -1410,7 +1517,12 @@
       },
       "hero": "product-photos/CL-207/hero.jpg",
       "gallery": [
-        "product-photos/CL-207/g1.jpg"
+        "product-photos/CL-207/g1.jpg",
+        "product-photos/CL-207/g2.jpg",
+        "product-photos/CL-207/g3.jpg",
+        "product-photos/CL-207/g4.jpg",
+        "product-photos/CL-207/g5.jpg",
+        "product-photos/CL-207/g6.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cl-207"
@@ -1442,7 +1554,10 @@
       },
       "hero": "product-photos/CL-401/hero.jpg",
       "gallery": [
-        "product-photos/CL-401/g1.jpg"
+        "product-photos/CL-401/g1.jpg",
+        "product-photos/CL-401/g2.jpg",
+        "product-photos/CL-401/g3.jpg",
+        "product-photos/CL-401/g4.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cl-401"
@@ -1541,7 +1656,9 @@
       },
       "hero": "product-photos/CL-701/hero.jpg",
       "gallery": [
-        "product-photos/CL-701/g1.jpg"
+        "product-photos/CL-701/g1.jpg",
+        "product-photos/CL-701/g2.jpg",
+        "product-photos/CL-701/g3.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cl-701"
@@ -1850,7 +1967,10 @@
       "hero": "product-photos/CL-412/hero.jpg",
       "gallery": [
         "product-photos/CL-412/g1.jpg",
-        "product-photos/CL-412/g2.jpg"
+        "product-photos/CL-412/g2.jpg",
+        "product-photos/CL-412/g3.jpg",
+        "product-photos/CL-412/g4.jpg",
+        "product-photos/CL-412/g5.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cl-412"
@@ -1883,7 +2003,10 @@
       "hero": "product-photos/CL-413/hero.jpg",
       "gallery": [
         "product-photos/CL-413/g1.jpg",
-        "product-photos/CL-413/g2.jpg"
+        "product-photos/CL-413/g2.jpg",
+        "product-photos/CL-413/g3.jpg",
+        "product-photos/CL-413/g4.jpg",
+        "product-photos/CL-413/g5.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cl-413"
@@ -1921,7 +2044,12 @@
       "hero": "product-photos/CL-414/hero.jpg",
       "gallery": [
         "product-photos/CL-414/g1.jpg",
-        "product-photos/CL-414/g2.jpg"
+        "product-photos/CL-414/g2.jpg",
+        "product-photos/CL-414/g3.jpg",
+        "product-photos/CL-414/g4.jpg",
+        "product-photos/CL-414/g5.jpg",
+        "product-photos/CL-414/g6.jpg",
+        "product-photos/CL-414/g7.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cl-414"
@@ -1986,9 +2114,10 @@
       },
       "hero": "product-photos/CL-416/hero.jpg",
       "gallery": [
-        "product-photos/CL-416/g1.jpg",
         "product-photos/CL-416/g2.jpg",
-        "product-photos/CL-416/g3.jpg"
+        "product-photos/CL-416/g3.jpg",
+        "product-photos/CL-416/g4.jpg",
+        "product-photos/CL-416/g5.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cl-416"
@@ -2058,7 +2187,11 @@
         "product-photos/CL-143/g1.jpg",
         "product-photos/CL-143/g2.jpg",
         "product-photos/CL-143/g3.jpg",
-        "product-photos/CL-143/g4.jpg"
+        "product-photos/CL-143/g4.jpg",
+        "product-photos/CL-143/g5.jpg",
+        "product-photos/CL-143/g6.jpg",
+        "product-photos/CL-143/g7.jpg",
+        "product-photos/CL-143/g8.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cl-143"
@@ -2090,7 +2223,11 @@
       },
       "hero": "product-photos/CL-921/hero.jpg",
       "gallery": [
-        "product-photos/CL-921/g1.jpg"
+        "product-photos/CL-921/g2.jpg",
+        "product-photos/CL-921/g3.jpg",
+        "product-photos/CL-921/g4.jpg",
+        "product-photos/CL-921/g5.jpg",
+        "product-photos/CL-921/g6.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cl-921"
@@ -2122,7 +2259,10 @@
       },
       "hero": "product-photos/CL-922/hero.jpg",
       "gallery": [
-        "product-photos/CL-922/g1.jpg"
+        "product-photos/CL-922/g2.jpg",
+        "product-photos/CL-922/g3.jpg",
+        "product-photos/CL-922/g4.jpg",
+        "product-photos/CL-922/g5.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cl-922"
@@ -2157,7 +2297,11 @@
       },
       "hero": "product-photos/CL-923/hero.jpg",
       "gallery": [
-        "product-photos/CL-923/g1.jpg"
+        "product-photos/CL-923/g2.jpg",
+        "product-photos/CL-923/g3.jpg",
+        "product-photos/CL-923/g4.jpg",
+        "product-photos/CL-923/g5.jpg",
+        "product-photos/CL-923/g6.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cl-923"
@@ -2189,7 +2333,11 @@
       },
       "hero": "product-photos/CL-924/hero.jpg",
       "gallery": [
-        "product-photos/CL-924/g1.jpg"
+        "product-photos/CL-924/g2.jpg",
+        "product-photos/CL-924/g3.jpg",
+        "product-photos/CL-924/g4.jpg",
+        "product-photos/CL-924/g5.jpg",
+        "product-photos/CL-924/g6.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cl-924"
@@ -2221,7 +2369,11 @@
       },
       "hero": "product-photos/CL-925/hero.jpg",
       "gallery": [
-        "product-photos/CL-925/g1.jpg"
+        "product-photos/CL-925/g2.jpg",
+        "product-photos/CL-925/g3.jpg",
+        "product-photos/CL-925/g4.jpg",
+        "product-photos/CL-925/g5.jpg",
+        "product-photos/CL-925/g6.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cl-925"
@@ -2253,7 +2405,11 @@
       },
       "hero": "product-photos/CL-926/hero.jpg",
       "gallery": [
-        "product-photos/CL-926/g1.jpg"
+        "product-photos/CL-926/g2.jpg",
+        "product-photos/CL-926/g3.jpg",
+        "product-photos/CL-926/g4.jpg",
+        "product-photos/CL-926/g5.jpg",
+        "product-photos/CL-926/g6.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cl-926"
@@ -2288,7 +2444,11 @@
       },
       "hero": "product-photos/CL-927/hero.jpg",
       "gallery": [
-        "product-photos/CL-927/g1.jpg"
+        "product-photos/CL-927/g2.jpg",
+        "product-photos/CL-927/g3.jpg",
+        "product-photos/CL-927/g4.jpg",
+        "product-photos/CL-927/g5.jpg",
+        "product-photos/CL-927/g6.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cl-927"
@@ -2320,7 +2480,10 @@
       },
       "hero": "product-photos/CL-901/hero.jpg",
       "gallery": [
-        "product-photos/CL-901/g1.jpg"
+        "product-photos/CL-901/g2.jpg",
+        "product-photos/CL-901/g3.jpg",
+        "product-photos/CL-901/g4.jpg",
+        "product-photos/CL-901/g5.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cl-901"
@@ -2352,7 +2515,11 @@
       },
       "hero": "product-photos/CL-902/hero.jpg",
       "gallery": [
-        "product-photos/CL-902/g1.jpg"
+        "product-photos/CL-902/g2.jpg",
+        "product-photos/CL-902/g3.jpg",
+        "product-photos/CL-902/g4.jpg",
+        "product-photos/CL-902/g5.jpg",
+        "product-photos/CL-902/g6.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cl-902"
@@ -2384,7 +2551,11 @@
       },
       "hero": "product-photos/CL-903/hero.jpg",
       "gallery": [
-        "product-photos/CL-903/g1.jpg"
+        "product-photos/CL-903/g2.jpg",
+        "product-photos/CL-903/g3.jpg",
+        "product-photos/CL-903/g4.jpg",
+        "product-photos/CL-903/g5.jpg",
+        "product-photos/CL-903/g6.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cl-903"
@@ -2416,7 +2587,11 @@
       },
       "hero": "product-photos/CL-904/hero.jpg",
       "gallery": [
-        "product-photos/CL-904/g1.jpg"
+        "product-photos/CL-904/g2.jpg",
+        "product-photos/CL-904/g3.jpg",
+        "product-photos/CL-904/g4.jpg",
+        "product-photos/CL-904/g5.jpg",
+        "product-photos/CL-904/g6.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cl-904"
@@ -2447,7 +2622,11 @@
       },
       "hero": "product-photos/CL-905/hero.jpg",
       "gallery": [
-        "product-photos/CL-905/g1.jpg"
+        "product-photos/CL-905/g2.jpg",
+        "product-photos/CL-905/g3.jpg",
+        "product-photos/CL-905/g4.jpg",
+        "product-photos/CL-905/g5.jpg",
+        "product-photos/CL-905/g6.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cl-905"
@@ -2479,7 +2658,11 @@
       },
       "hero": "product-photos/CL-906/hero.jpg",
       "gallery": [
-        "product-photos/CL-906/g1.jpg"
+        "product-photos/CL-906/g2.jpg",
+        "product-photos/CL-906/g3.jpg",
+        "product-photos/CL-906/g4.jpg",
+        "product-photos/CL-906/g5.jpg",
+        "product-photos/CL-906/g6.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cl-906"
@@ -2511,7 +2694,11 @@
       },
       "hero": "product-photos/CL-907/hero.jpg",
       "gallery": [
-        "product-photos/CL-907/g1.jpg"
+        "product-photos/CL-907/g2.jpg",
+        "product-photos/CL-907/g3.jpg",
+        "product-photos/CL-907/g4.jpg",
+        "product-photos/CL-907/g5.jpg",
+        "product-photos/CL-907/g6.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cl-907"
@@ -2773,7 +2960,12 @@
         "product-photos/CL-459/g1.jpg",
         "product-photos/CL-459/g2.jpg",
         "product-photos/CL-459/g3.jpg",
-        "product-photos/CL-459/g4.jpg"
+        "product-photos/CL-459/g4.jpg",
+        "product-photos/CL-459/g5.jpg",
+        "product-photos/CL-459/g6.jpg",
+        "product-photos/CL-459/g7.jpg",
+        "product-photos/CL-459/g8.jpg",
+        "product-photos/CL-459/g9.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cl-459"
@@ -2798,7 +2990,9 @@
       "filters": {},
       "hero": "product-photos/MKA-007/hero.jpg",
       "gallery": [
-        "product-photos/MKA-007/g1.jpg"
+        "product-photos/MKA-007/g1.jpg",
+        "product-photos/MKA-007/g2.jpg",
+        "product-photos/MKA-007/g3.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "mka-007"
@@ -2826,7 +3020,12 @@
         "product-photos/MKA-008/g1.jpg",
         "product-photos/MKA-008/g2.jpg",
         "product-photos/MKA-008/g3.jpg",
-        "product-photos/MKA-008/g4.jpg"
+        "product-photos/MKA-008/g4.jpg",
+        "product-photos/MKA-008/g5.jpg",
+        "product-photos/MKA-008/g6.jpg",
+        "product-photos/MKA-008/g7.jpg",
+        "product-photos/MKA-008/g8.jpg",
+        "product-photos/MKA-008/g9.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "mka-008"
@@ -2851,7 +3050,12 @@
       "filters": {},
       "hero": "product-photos/MKA-009/hero.jpg",
       "gallery": [
-        "product-photos/MKA-009/g1.jpg"
+        "product-photos/MKA-009/g1.jpg",
+        "product-photos/MKA-009/g2.jpg",
+        "product-photos/MKA-009/g3.jpg",
+        "product-photos/MKA-009/g4.jpg",
+        "product-photos/MKA-009/g5.jpg",
+        "product-photos/MKA-009/g6.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "mka-009"
@@ -2881,7 +3085,12 @@
         "product-photos/MKA-010/g1.jpeg",
         "product-photos/MKA-010/g2.jpeg",
         "product-photos/MKA-010/g3.jpg",
-        "product-photos/MKA-010/g4.jpg"
+        "product-photos/MKA-010/g4.jpg",
+        "product-photos/MKA-010/g5.jpg",
+        "product-photos/MKA-010/g6.jpg",
+        "product-photos/MKA-010/g7.jpg",
+        "product-photos/MKA-010/g8.jpg",
+        "product-photos/MKA-010/g9.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "mka-010"
@@ -2907,7 +3116,13 @@
       "amazon_link": "https://www.amazon.in/dp/B0D8J73CF2",
       "filters": {},
       "hero": "product-photos/MKA-947/hero.jpg",
-      "gallery": [],
+      "gallery": [
+        "product-photos/MKA-947/g1.jpg",
+        "product-photos/MKA-947/g2.jpg",
+        "product-photos/MKA-947/g3.jpg",
+        "product-photos/MKA-947/g4.jpg",
+        "product-photos/MKA-947/g5.jpg"
+      ],
       "match_tier": "dump_sku_match",
       "id": "mka-947"
     },
@@ -2933,7 +3148,11 @@
       "filters": {},
       "hero": "product-photos/MKA-948/hero.jpg",
       "gallery": [
-        "product-photos/MKA-948/g1.jpg"
+        "product-photos/MKA-948/g2.jpg",
+        "product-photos/MKA-948/g3.jpg",
+        "product-photos/MKA-948/g4.jpg",
+        "product-photos/MKA-948/g5.jpg",
+        "product-photos/MKA-948/g6.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "mka-948"
@@ -2959,7 +3178,8 @@
       "hero": "product-photos/MKA-258/hero.jpg",
       "gallery": [
         "product-photos/MKA-258/g1.jpg",
-        "product-photos/MKA-258/g2.jpg"
+        "product-photos/MKA-258/g2.jpg",
+        "product-photos/MKA-258/g3.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "mka-258"
@@ -3252,7 +3472,9 @@
       },
       "hero": "product-photos/MKA086/hero.jpg",
       "gallery": [
-        "product-photos/MKA086/g1.jpg"
+        "product-photos/MKA086/g1.jpg",
+        "product-photos/MKA086/g2.jpg",
+        "product-photos/MKA086/g3.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "mka086"
@@ -3285,7 +3507,11 @@
       "hero": "product-photos/MKA097/hero.jpeg",
       "gallery": [
         "product-photos/MKA097/g1.jpg",
-        "product-photos/MKA097/g2.jpeg"
+        "product-photos/MKA097/g2.jpg",
+        "product-photos/MKA097/g3.jpg",
+        "product-photos/MKA097/g4.jpg",
+        "product-photos/MKA097/g5.jpg",
+        "product-photos/MKA097/g6.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "mka097"
@@ -3317,9 +3543,7 @@
         "with_without_blade": "Without Blade"
       },
       "hero": "product-photos/MKA091A/hero.webp",
-      "gallery": [
-        "product-photos/MKA091A/g1.webp"
-      ],
+      "gallery": [],
       "match_tier": "exact_sku",
       "id": "mka091a"
     },
@@ -3350,9 +3574,7 @@
         "with_without_blade": "Without Blade"
       },
       "hero": "product-photos/MKA093A/hero.webp",
-      "gallery": [
-        "product-photos/MKA093A/g1.webp"
-      ],
+      "gallery": [],
       "match_tier": "exact_sku",
       "id": "mka093a"
     },
@@ -3382,7 +3604,13 @@
         "with_without_blade": "Without Blade"
       },
       "hero": "product-photos/MKA092A/hero.webp",
-      "gallery": [],
+      "gallery": [
+        "product-photos/MKA092A/g1.jpg",
+        "product-photos/MKA092A/g2.jpg",
+        "product-photos/MKA092A/g3.jpg",
+        "product-photos/MKA092A/g4.jpg",
+        "product-photos/MKA092A/g5.jpg"
+      ],
       "match_tier": "exact_sku",
       "id": "mka092a"
     },
@@ -3450,7 +3678,12 @@
         "product-photos/MKA-120/g1.webp",
         "product-photos/MKA-120/g2.webp",
         "product-photos/MKA-120/g3.webp",
-        "product-photos/MKA-120/g4.webp"
+        "product-photos/MKA-120/g4.webp",
+        "product-photos/MKA-120/g1.jpg",
+        "product-photos/MKA-120/g2.jpg",
+        "product-photos/MKA-120/g3.jpg",
+        "product-photos/MKA-120/g4.jpg",
+        "product-photos/MKA-120/g5.jpg"
       ],
       "match_tier": "fuzzy_name",
       "id": "mka-120"
@@ -3483,7 +3716,12 @@
       "hero": "product-photos/MKA937/hero.jpg",
       "gallery": [
         "product-photos/MKA937/g1.jpg",
-        "product-photos/MKA937/g2.jpg"
+        "product-photos/MKA937/g2.jpg",
+        "product-photos/MKA937/g3.jpg",
+        "product-photos/MKA937/g4.jpg",
+        "product-photos/MKA937/g5.jpg",
+        "product-photos/MKA937/g6.jpg",
+        "product-photos/MKA937/g7.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "mka937"
@@ -3513,7 +3751,12 @@
       },
       "hero": "product-photos/MKA938/hero.jpg",
       "gallery": [
-        "product-photos/MKA938/g1.jpg"
+        "product-photos/MKA938/g1.jpg",
+        "product-photos/MKA938/g2.jpg",
+        "product-photos/MKA938/g3.jpg",
+        "product-photos/MKA938/g4.jpg",
+        "product-photos/MKA938/g5.jpg",
+        "product-photos/MKA938/g6.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "mka938"
@@ -3545,7 +3788,12 @@
       "gallery": [
         "product-photos/MKA939/g1.jpg",
         "product-photos/MKA939/g2.jpg",
-        "product-photos/MKA939/g3.jpg"
+        "product-photos/MKA939/g3.jpg",
+        "product-photos/MKA939/g4.jpg",
+        "product-photos/MKA939/g5.jpg",
+        "product-photos/MKA939/g6.jpg",
+        "product-photos/MKA939/g7.jpg",
+        "product-photos/MKA939/g8.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "mka939"
@@ -3577,7 +3825,8 @@
       },
       "hero": "product-photos/MKA909/hero.jpg",
       "gallery": [
-        "product-photos/MKA909/g1.jpg"
+        "product-photos/MKA909/g1.jpg",
+        "product-photos/MKA909/g2.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "mka909"
@@ -3608,9 +3857,13 @@
       },
       "hero": "product-photos/MKA919/hero.jpg",
       "gallery": [
-        "product-photos/MKA919/g1.jpg",
         "product-photos/MKA919/g2.jpg",
-        "product-photos/MKA919/g3.jpg"
+        "product-photos/MKA919/g3.jpg",
+        "product-photos/MKA919/g4.jpg",
+        "product-photos/MKA919/g5.jpg",
+        "product-photos/MKA919/g6.jpg",
+        "product-photos/MKA919/g7.jpg",
+        "product-photos/MKA919/g8.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "mka919"
@@ -3640,8 +3893,11 @@
       "hero": "product-photos/MKA921/hero.jpg",
       "gallery": [
         "product-photos/MKA921/g1.jpg",
-        "product-photos/MKA921/g2.jpg",
-        "product-photos/MKA921/g3.jpg"
+        "product-photos/MKA921/g3.jpg",
+        "product-photos/MKA921/g4.jpg",
+        "product-photos/MKA921/g5.jpg",
+        "product-photos/MKA921/g6.jpg",
+        "product-photos/MKA921/g7.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "mka921"
@@ -3671,9 +3927,12 @@
       "hero": "product-photos/MKA924/hero.jpg",
       "gallery": [
         "product-photos/MKA924/g1.jpg",
-        "product-photos/MKA924/g2.jpg",
         "product-photos/MKA924/g3.jpg",
-        "product-photos/MKA924/g4.jpg"
+        "product-photos/MKA924/g4.jpg",
+        "product-photos/MKA924/g5.jpg",
+        "product-photos/MKA924/g6.jpg",
+        "product-photos/MKA924/g7.jpg",
+        "product-photos/MKA924/g8.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "mka924"
@@ -3699,7 +3958,10 @@
         "use": "Fruit Fork"
       },
       "hero": "product-photos/MKA-005/hero.jpg",
-      "gallery": [],
+      "gallery": [
+        "product-photos/MKA-005/g1.jpg",
+        "product-photos/MKA-005/g2.jpg"
+      ],
       "match_tier": "dump_sku_match",
       "id": "mka-005"
     },
@@ -3756,10 +4018,14 @@
       },
       "hero": "product-photos/MKA011/hero.png",
       "gallery": [
-        "product-photos/MKA011/g1.png",
         "product-photos/MKA011/g2.jpg",
         "product-photos/MKA011/g3.jpg",
-        "product-photos/MKA011/g4.jpg"
+        "product-photos/MKA011/g4.jpg",
+        "product-photos/MKA011/g5.jpg",
+        "product-photos/MKA011/g6.jpg",
+        "product-photos/MKA011/g7.jpg",
+        "product-photos/MKA011/g8.jpg",
+        "product-photos/MKA011/g9.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "mka011"
@@ -3791,7 +4057,12 @@
         "product-photos/MKA-012/g1.jpg",
         "product-photos/MKA-012/g2.jpeg",
         "product-photos/MKA-012/g3.jpg",
-        "product-photos/MKA-012/g4.jpg"
+        "product-photos/MKA-012/g4.jpg",
+        "product-photos/MKA-012/g5.jpg",
+        "product-photos/MKA-012/g6.jpg",
+        "product-photos/MKA-012/g7.jpg",
+        "product-photos/MKA-012/g8.jpg",
+        "product-photos/MKA-012/g9.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "mka-012"
@@ -3821,7 +4092,10 @@
       "hero": "product-photos/MKA013/hero.jpg",
       "gallery": [
         "product-photos/MKA013/g1.jpg",
-        "product-photos/MKA013/g2.jpg"
+        "product-photos/MKA013/g2.jpg",
+        "product-photos/MKA013/g3.jpg",
+        "product-photos/MKA013/g4.jpg",
+        "product-photos/MKA013/g5.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "mka013"
@@ -3852,9 +4126,13 @@
       "hero": "product-photos/MKA023/hero.png",
       "gallery": [
         "product-photos/MKA023/g1.jpg",
-        "product-photos/MKA023/g2.jpg",
         "product-photos/MKA023/g3.jpg",
-        "product-photos/MKA023/g4.png"
+        "product-photos/MKA023/g4.png",
+        "product-photos/MKA023/g4.jpg",
+        "product-photos/MKA023/g5.jpg",
+        "product-photos/MKA023/g6.jpg",
+        "product-photos/MKA023/g7.jpg",
+        "product-photos/MKA023/g8.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "mka023"
@@ -3884,9 +4162,13 @@
       "hero": "product-photos/MKA-069/hero.jpg",
       "gallery": [
         "product-photos/MKA-069/g1.jpg",
-        "product-photos/MKA-069/g2.jpg",
         "product-photos/MKA-069/g3.jpeg",
-        "product-photos/MKA-069/g4.jpeg"
+        "product-photos/MKA-069/g4.jpeg",
+        "product-photos/MKA-069/g3.jpg",
+        "product-photos/MKA-069/g4.jpg",
+        "product-photos/MKA-069/g5.jpg",
+        "product-photos/MKA-069/g6.jpg",
+        "product-photos/MKA-069/g7.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "mka-069"
@@ -3914,7 +4196,11 @@
       "hero": "product-photos/MKA072/hero.jpg",
       "gallery": [
         "product-photos/MKA072/g1.jpg",
-        "product-photos/MKA072/g2.jpg"
+        "product-photos/MKA072/g2.jpg",
+        "product-photos/MKA072/g3.jpg",
+        "product-photos/MKA072/g4.jpg",
+        "product-photos/MKA072/g5.jpg",
+        "product-photos/MKA072/g6.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "mka072"
@@ -3943,7 +4229,8 @@
       },
       "hero": "product-photos/MKA075/hero.jpg",
       "gallery": [
-        "product-photos/MKA075/g1.jpg"
+        "product-photos/MKA075/g1.jpg",
+        "product-photos/MKA075/g2.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "mka075"
@@ -3973,9 +4260,13 @@
       "hero": "product-photos/MKA102/hero.jpg",
       "gallery": [
         "product-photos/MKA102/g1.jpg",
-        "product-photos/MKA102/g2.jpg",
         "product-photos/MKA102/g3.jpg",
-        "product-photos/MKA102/g4.jpg"
+        "product-photos/MKA102/g4.jpg",
+        "product-photos/MKA102/g5.jpg",
+        "product-photos/MKA102/g6.jpg",
+        "product-photos/MKA102/g7.jpg",
+        "product-photos/MKA102/g8.jpg",
+        "product-photos/MKA102/g9.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "mka102"
@@ -4004,8 +4295,10 @@
       "gallery": [
         "product-photos/MKA104/g1.jpg",
         "product-photos/MKA104/g2.jpg",
-        "product-photos/MKA104/g3.jpg",
-        "product-photos/MKA104/g4.jpg"
+        "product-photos/MKA104/g4.jpg",
+        "product-photos/MKA104/g5.jpg",
+        "product-photos/MKA104/g6.jpg",
+        "product-photos/MKA104/g7.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "mka104"
@@ -4034,8 +4327,7 @@
       },
       "hero": "product-photos/MKA109/hero.jpg",
       "gallery": [
-        "product-photos/MKA109/g1.jpg",
-        "product-photos/MKA109/g2.jpg"
+        "product-photos/MKA109/g1.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "mka109"
@@ -4065,8 +4357,9 @@
       "gallery": [
         "product-photos/MKA112/g1.jpg",
         "product-photos/MKA112/g2.jpg",
-        "product-photos/MKA112/g3.jpg",
-        "product-photos/MKA112/g4.jpg"
+        "product-photos/MKA112/g4.jpg",
+        "product-photos/MKA112/g5.jpg",
+        "product-photos/MKA112/g6.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "mka112"
@@ -4093,7 +4386,6 @@
       },
       "hero": "product-photos/MKA113/hero.jpg",
       "gallery": [
-        "product-photos/MKA113/g1.jpg",
         "product-photos/MKA113/g2.jpg",
         "product-photos/MKA113/g3.jpg",
         "product-photos/MKA113/g4.jpeg"
@@ -4127,8 +4419,7 @@
       "hero": "product-photos/MKA114/hero.jpg",
       "gallery": [
         "product-photos/MKA114/g1.jpg",
-        "product-photos/MKA114/g2.jpg",
-        "product-photos/MKA114/g3.jpg"
+        "product-photos/MKA114/g2.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "mka114",
@@ -4161,7 +4452,8 @@
       "hero": "product-photos/MKA908/hero.jpg",
       "gallery": [
         "product-photos/MKA908/g1.jpg",
-        "product-photos/MKA908/g2.jpg"
+        "product-photos/MKA908/g3.jpg",
+        "product-photos/MKA908/g4.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "mka908"
@@ -4184,7 +4476,6 @@
       },
       "hero": "product-photos/MKA910/hero.jpg",
       "gallery": [
-        "product-photos/MKA910/g1.jpg",
         "product-photos/MKA910/g2.jpg",
         "product-photos/MKA910/g3.jpg"
       ],
@@ -4218,7 +4509,12 @@
         "product-photos/MKA940/g1.jpg",
         "product-photos/MKA940/g2.jpg",
         "product-photos/MKA940/g3.jpg",
-        "product-photos/MKA940/g4.jpg"
+        "product-photos/MKA940/g4.jpg",
+        "product-photos/MKA940/g5.jpg",
+        "product-photos/MKA940/g6.jpg",
+        "product-photos/MKA940/g7.jpg",
+        "product-photos/MKA940/g8.jpg",
+        "product-photos/MKA940/g9.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "mka940"
@@ -4250,7 +4546,12 @@
         "product-photos/MKA941/g1.jpg",
         "product-photos/MKA941/g2.jpg",
         "product-photos/MKA941/g3.jpg",
-        "product-photos/MKA941/g4.jpg"
+        "product-photos/MKA941/g4.jpg",
+        "product-photos/MKA941/g5.jpg",
+        "product-photos/MKA941/g6.jpg",
+        "product-photos/MKA941/g7.jpg",
+        "product-photos/MKA941/g8.jpg",
+        "product-photos/MKA941/g9.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "mka941"
@@ -4568,7 +4869,13 @@
         "use": "Chopper"
       },
       "hero": "product-photos/MKA-043/hero.jpg",
-      "gallery": [],
+      "gallery": [
+        "product-photos/MKA-043/g1.jpg",
+        "product-photos/MKA-043/g2.jpg",
+        "product-photos/MKA-043/g3.jpg",
+        "product-photos/MKA-043/g4.jpg",
+        "product-photos/MKA-043/g5.jpg"
+      ],
       "match_tier": "dump_sku_match",
       "id": "mka-043"
     },
@@ -4599,7 +4906,13 @@
         "product-photos/MKA-094N/g1.webp",
         "product-photos/MKA-094N/g2.webp",
         "product-photos/MKA-094N/g3.webp",
-        "product-photos/MKA-094N/g4.webp"
+        "product-photos/MKA-094N/g4.webp",
+        "product-photos/MKA-094N/g1.jpg",
+        "product-photos/MKA-094N/g2.jpg",
+        "product-photos/MKA-094N/g3.jpg",
+        "product-photos/MKA-094N/g4.jpg",
+        "product-photos/MKA-094N/g5.jpg",
+        "product-photos/MKA-094N/g6.jpg"
       ],
       "match_tier": "exact_sku",
       "id": "mka-094n"
@@ -4631,7 +4944,10 @@
         "product-photos/MKA-095/g1.jpg",
         "product-photos/MKA-095/g2.jpg",
         "product-photos/MKA-095/g3.jpg",
-        "product-photos/MKA-095/g4.jpg"
+        "product-photos/MKA-095/g4.jpg",
+        "product-photos/MKA-095/g5.jpg",
+        "product-photos/MKA-095/g6.jpg",
+        "product-photos/MKA-095/g7.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "mka-095"
@@ -4664,7 +4980,8 @@
         "product-photos/MKA096/g1.jpg",
         "product-photos/MKA096/g2.jpg",
         "product-photos/MKA096/g3.jpg",
-        "product-photos/MKA096/g4.jpg"
+        "product-photos/MKA096/g4.jpg",
+        "product-photos/MKA096/g5.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "mka096"
@@ -4721,7 +5038,12 @@
         "product-photos/MKA901/g1.jpg",
         "product-photos/MKA901/g2.jpg",
         "product-photos/MKA901/g3.jpg",
-        "product-photos/MKA901/g4.jpg"
+        "product-photos/MKA901/g4.jpg",
+        "product-photos/MKA901/g5.jpg",
+        "product-photos/MKA901/g6.jpg",
+        "product-photos/MKA901/g7.jpg",
+        "product-photos/MKA901/g8.jpg",
+        "product-photos/MKA901/g9.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "mka901"
@@ -4783,7 +5105,11 @@
         "product-photos/MKA904A/g1.jpg",
         "product-photos/MKA904A/g2.jpg",
         "product-photos/MKA904A/g3.jpg",
-        "product-photos/MKA904A/g4.jpg"
+        "product-photos/MKA904A/g4.jpg",
+        "product-photos/MKA904A/g5.jpg",
+        "product-photos/MKA904A/g6.jpg",
+        "product-photos/MKA904A/g7.jpg",
+        "product-photos/MKA904A/g8.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "mka904a"
@@ -4814,7 +5140,11 @@
         "product-photos/MKA912/g1.jpg",
         "product-photos/MKA912/g2.jpg",
         "product-photos/MKA912/g3.jpg",
-        "product-photos/MKA912/g4.jpg"
+        "product-photos/MKA912/g4.jpg",
+        "product-photos/MKA912/g5.jpg",
+        "product-photos/MKA912/g6.jpg",
+        "product-photos/MKA912/g7.jpg",
+        "product-photos/MKA912/g8.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "mka912"
@@ -4844,7 +5174,8 @@
         "product-photos/MKA913/g1.jpg",
         "product-photos/MKA913/g2.jpg",
         "product-photos/MKA913/g3.jpg",
-        "product-photos/MKA913/g4.jpg"
+        "product-photos/MKA913/g4.jpg",
+        "product-photos/MKA913/g5.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "mka913"
@@ -4874,7 +5205,15 @@
         "product-photos/MKA914/g1.jpg",
         "product-photos/MKA914/g2.jpg",
         "product-photos/MKA914/g3.jpg",
-        "product-photos/MKA914/g4.jpg"
+        "product-photos/MKA914/g4.jpg",
+        "product-photos/MKA914/g5.jpg",
+        "product-photos/MKA914/g6.jpg",
+        "product-photos/MKA914/g7.jpg",
+        "product-photos/MKA914/g8.jpg",
+        "product-photos/MKA914/g9.jpg",
+        "product-photos/MKA914/g10.jpg",
+        "product-photos/MKA914/g11.jpg",
+        "product-photos/MKA914/g12.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "mka914"
@@ -4904,7 +5243,12 @@
         "product-photos/MKA916A/g1.jpg",
         "product-photos/MKA916A/g2.jpg",
         "product-photos/MKA916A/g3.jpg",
-        "product-photos/MKA916A/g4.jpg"
+        "product-photos/MKA916A/g4.jpg",
+        "product-photos/MKA916A/g5.jpg",
+        "product-photos/MKA916A/g6.jpg",
+        "product-photos/MKA916A/g7.jpg",
+        "product-photos/MKA916A/g8.jpg",
+        "product-photos/MKA916A/g9.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "mka916a"
@@ -4993,7 +5337,12 @@
         "product-photos/MKA930/g1.jpg",
         "product-photos/MKA930/g2.jpg",
         "product-photos/MKA930/g3.jpg",
-        "product-photos/MKA930/g4.jpg"
+        "product-photos/MKA930/g4.jpg",
+        "product-photos/MKA930/g5.jpg",
+        "product-photos/MKA930/g6.jpg",
+        "product-photos/MKA930/g7.jpg",
+        "product-photos/MKA930/g8.jpg",
+        "product-photos/MKA930/g9.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "mka930"
@@ -5025,7 +5374,12 @@
         "product-photos/MKA933/g1.jpg",
         "product-photos/MKA933/g2.jpg",
         "product-photos/MKA933/g3.jpg",
-        "product-photos/MKA933/g4.jpg"
+        "product-photos/MKA933/g4.jpg",
+        "product-photos/MKA933/g5.jpg",
+        "product-photos/MKA933/g6.jpg",
+        "product-photos/MKA933/g7.jpg",
+        "product-photos/MKA933/g8.jpg",
+        "product-photos/MKA933/g9.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "mka933"
@@ -5057,7 +5411,12 @@
         "product-photos/MKA942/g1.jpg",
         "product-photos/MKA942/g2.jpg",
         "product-photos/MKA942/g3.jpg",
-        "product-photos/MKA942/g4.jpg"
+        "product-photos/MKA942/g4.jpg",
+        "product-photos/MKA942/g5.jpg",
+        "product-photos/MKA942/g6.jpg",
+        "product-photos/MKA942/g7.jpg",
+        "product-photos/MKA942/g8.jpg",
+        "product-photos/MKA942/g9.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "mka942"
@@ -5089,7 +5448,12 @@
         "product-photos/MKA943/g1.png",
         "product-photos/MKA943/g2.jpg",
         "product-photos/MKA943/g3.jpg",
-        "product-photos/MKA943/g4.jpg"
+        "product-photos/MKA943/g4.jpg",
+        "product-photos/MKA943/g5.jpg",
+        "product-photos/MKA943/g6.jpg",
+        "product-photos/MKA943/g7.jpg",
+        "product-photos/MKA943/g8.jpg",
+        "product-photos/MKA943/g9.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "mka943"
@@ -5121,7 +5485,12 @@
         "product-photos/MKA944/g1.jpg",
         "product-photos/MKA944/g2.jpg",
         "product-photos/MKA944/g3.jpg",
-        "product-photos/MKA944/g4.jpg"
+        "product-photos/MKA944/g4.jpg",
+        "product-photos/MKA944/g5.jpg",
+        "product-photos/MKA944/g6.jpg",
+        "product-photos/MKA944/g7.jpg",
+        "product-photos/MKA944/g8.jpg",
+        "product-photos/MKA944/g9.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "mka944"
@@ -5151,7 +5520,7 @@
       },
       "hero": "product-photos/MKA945/hero.jpg",
       "gallery": [
-        "product-photos/MKA945/g1.jpg"
+        "product-photos/MKA945/g2.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "mka945"
@@ -5355,7 +5724,9 @@
       "hero": "product-photos/CLMK-022/hero.jpg",
       "gallery": [
         "product-photos/CLMK-022/g1.jpg",
-        "product-photos/CLMK-022/g2.jpg"
+        "product-photos/CLMK-022/g2.jpg",
+        "product-photos/CLMK-022/g3.jpg",
+        "product-photos/CLMK-022/g4.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "clmk-022"
@@ -5440,10 +5811,14 @@
       },
       "hero": "product-photos/MKA-231/hero.jpg",
       "gallery": [
-        "product-photos/MKA-231/g1.jpg",
         "product-photos/MKA-231/g2.jpg",
         "product-photos/MKA-231/g3.jpg",
-        "product-photos/MKA-231/g4.jpg"
+        "product-photos/MKA-231/g4.jpg",
+        "product-photos/MKA-231/g5.jpg",
+        "product-photos/MKA-231/g6.jpg",
+        "product-photos/MKA-231/g7.jpg",
+        "product-photos/MKA-231/g8.jpg",
+        "product-photos/MKA-231/g9.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "mka-231"
@@ -5475,7 +5850,7 @@
       },
       "hero": "product-photos/MKA-241/hero.jpeg",
       "gallery": [
-        "product-photos/MKA-241/g1.jpeg"
+        "product-photos/MKA-241/g1.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "mka-241"
@@ -5510,7 +5885,7 @@
       },
       "hero": "product-photos/MKA-301/hero.jpeg",
       "gallery": [
-        "product-photos/MKA-301/g1.jpeg"
+        "product-photos/MKA-301/g1.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "mka-301"
@@ -5578,7 +5953,11 @@
         "product-photos/MKA-411/g1.jpg",
         "product-photos/MKA-411/g2.jpg",
         "product-photos/MKA-411/g3.jpg",
-        "product-photos/MKA-411/g4.jpg"
+        "product-photos/MKA-411/g5.jpg",
+        "product-photos/MKA-411/g6.jpg",
+        "product-photos/MKA-411/g7.jpg",
+        "product-photos/MKA-411/g8.jpg",
+        "product-photos/MKA-411/g9.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "mka-411"
@@ -5612,8 +5991,12 @@
       "gallery": [
         "product-photos/MKA-412/g1.jpg",
         "product-photos/MKA-412/g2.jpg",
-        "product-photos/MKA-412/g3.jpg",
-        "product-photos/MKA-412/g4.jpg"
+        "product-photos/MKA-412/g4.jpg",
+        "product-photos/MKA-412/g5.jpg",
+        "product-photos/MKA-412/g6.jpg",
+        "product-photos/MKA-412/g7.jpg",
+        "product-photos/MKA-412/g8.jpg",
+        "product-photos/MKA-412/g9.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "mka-412"
@@ -5647,8 +6030,14 @@
       "gallery": [
         "product-photos/MKA-413/g1.jpg",
         "product-photos/MKA-413/g2.jpg",
-        "product-photos/MKA-413/g3.jpg",
-        "product-photos/MKA-413/g4.jpg"
+        "product-photos/MKA-413/g4.jpg",
+        "product-photos/MKA-413/g5.jpg",
+        "product-photos/MKA-413/g6.jpg",
+        "product-photos/MKA-413/g7.jpg",
+        "product-photos/MKA-413/g8.jpg",
+        "product-photos/MKA-413/g9.jpg",
+        "product-photos/MKA-413/g10.jpg",
+        "product-photos/MKA-413/g11.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "mka-413"
@@ -5683,7 +6072,12 @@
         "product-photos/MKA-414/g1.jpg",
         "product-photos/MKA-414/g2.jpg",
         "product-photos/MKA-414/g3.jpg",
-        "product-photos/MKA-414/g4.jpg"
+        "product-photos/MKA-414/g4.jpg",
+        "product-photos/MKA-414/g5.jpg",
+        "product-photos/MKA-414/g6.jpg",
+        "product-photos/MKA-414/g7.jpg",
+        "product-photos/MKA-414/g8.jpg",
+        "product-photos/MKA-414/g9.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "mka-414"
@@ -5718,7 +6112,12 @@
         "product-photos/MKA-415/g1.jpg",
         "product-photos/MKA-415/g2.jpg",
         "product-photos/MKA-415/g3.jpg",
-        "product-photos/MKA-415/g4.jpg"
+        "product-photos/MKA-415/g4.jpg",
+        "product-photos/MKA-415/g5.jpg",
+        "product-photos/MKA-415/g6.jpg",
+        "product-photos/MKA-415/g7.jpg",
+        "product-photos/MKA-415/g8.jpg",
+        "product-photos/MKA-415/g9.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "mka-415"
@@ -5753,7 +6152,10 @@
         "product-photos/MKA-416/g1.jpg",
         "product-photos/MKA-416/g2.jpg",
         "product-photos/MKA-416/g3.jpg",
-        "product-photos/MKA-416/g4.jpg"
+        "product-photos/MKA-416/g4.jpg",
+        "product-photos/MKA-416/g5.jpg",
+        "product-photos/MKA-416/g6.jpg",
+        "product-photos/MKA-416/g7.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "mka-416"
@@ -5786,7 +6188,6 @@
       },
       "hero": "product-photos/MKA-417/hero.jpg",
       "gallery": [
-        "product-photos/MKA-417/g1.jpg",
         "product-photos/MKA-417/g2.jpg",
         "product-photos/MKA-417/g3.jpg",
         "product-photos/MKA-417/g4.jpg"
@@ -5822,7 +6223,11 @@
       "hero": "product-photos/CC-841/hero.jpg",
       "gallery": [
         "product-photos/CC-841/g1.jpg",
-        "product-photos/CC-841/g2.jpg"
+        "product-photos/CC-841/g3.jpg",
+        "product-photos/CC-841/g4.jpg",
+        "product-photos/CC-841/g5.jpg",
+        "product-photos/CC-841/g6.jpg",
+        "product-photos/CC-841/g7.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cc-841"
@@ -5855,7 +6260,11 @@
       "hero": "product-photos/CC-842/hero.jpg",
       "gallery": [
         "product-photos/CC-842/g1.jpg",
-        "product-photos/CC-842/g2.jpg"
+        "product-photos/CC-842/g3.jpg",
+        "product-photos/CC-842/g4.jpg",
+        "product-photos/CC-842/g5.jpg",
+        "product-photos/CC-842/g6.jpg",
+        "product-photos/CC-842/g7.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cc-842"
@@ -5887,8 +6296,12 @@
       },
       "hero": "product-photos/CC-843/hero.jpg",
       "gallery": [
-        "product-photos/CC-843/g1.jpg",
-        "product-photos/CC-843/g2.jpg"
+        "product-photos/CC-843/g2.jpg",
+        "product-photos/CC-843/g3.jpg",
+        "product-photos/CC-843/g4.jpg",
+        "product-photos/CC-843/g5.jpg",
+        "product-photos/CC-843/g6.jpg",
+        "product-photos/CC-843/g7.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cc-843"
@@ -5921,7 +6334,11 @@
       },
       "hero": "product-photos/CC-844/hero.jpg",
       "gallery": [
-        "product-photos/CC-844/g1.jpg"
+        "product-photos/CC-844/g2.jpg",
+        "product-photos/CC-844/g3.jpg",
+        "product-photos/CC-844/g4.jpg",
+        "product-photos/CC-844/g5.jpg",
+        "product-photos/CC-844/g6.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cc-844"
@@ -5957,7 +6374,12 @@
         "product-photos/CC-845/g1.webp",
         "product-photos/CC-845/g2.webp",
         "product-photos/CC-845/g3.webp",
-        "product-photos/CC-845/g4.webp"
+        "product-photos/CC-845/g4.webp",
+        "product-photos/CC-845/g1.jpg",
+        "product-photos/CC-845/g2.jpg",
+        "product-photos/CC-845/g3.jpg",
+        "product-photos/CC-845/g4.jpg",
+        "product-photos/CC-845/g5.jpg"
       ],
       "match_tier": "fuzzy_name",
       "id": "cc-845"
@@ -5990,8 +6412,12 @@
       },
       "hero": "product-photos/CC-846/hero.jpg",
       "gallery": [
-        "product-photos/CC-846/g1.jpg",
-        "product-photos/CC-846/g2.jpg"
+        "product-photos/CC-846/g2.jpg",
+        "product-photos/CC-846/g3.jpg",
+        "product-photos/CC-846/g4.jpg",
+        "product-photos/CC-846/g5.jpg",
+        "product-photos/CC-846/g6.jpg",
+        "product-photos/CC-846/g7.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cc-846"
@@ -6022,7 +6448,13 @@
         "veg_non_veg": "Veg"
       },
       "hero": "product-photos/CC-847/hero.webp",
-      "gallery": [],
+      "gallery": [
+        "product-photos/CC-847/g1.jpg",
+        "product-photos/CC-847/g2.jpg",
+        "product-photos/CC-847/g3.jpg",
+        "product-photos/CC-847/g4.jpg",
+        "product-photos/CC-847/g5.jpg"
+      ],
       "match_tier": "fuzzy_name",
       "id": "cc-847"
     },
@@ -6052,7 +6484,13 @@
         "veg_non_veg": "Veg"
       },
       "hero": "product-photos/CC-848/hero.webp",
-      "gallery": [],
+      "gallery": [
+        "product-photos/CC-848/g1.jpg",
+        "product-photos/CC-848/g2.jpg",
+        "product-photos/CC-848/g3.jpg",
+        "product-photos/CC-848/g4.jpg",
+        "product-photos/CC-848/g5.jpg"
+      ],
       "match_tier": "fuzzy_name",
       "id": "cc-848"
     },
@@ -6169,7 +6607,12 @@
       "hero": "product-photos/CC-951/hero.jpg",
       "gallery": [
         "product-photos/CC-951/g1.jpg",
-        "product-photos/CC-951/g2.jpg"
+        "product-photos/CC-951/g2.jpg",
+        "product-photos/CC-951/g3.jpg",
+        "product-photos/CC-951/g4.jpg",
+        "product-photos/CC-951/g5.jpg",
+        "product-photos/CC-951/g6.jpg",
+        "product-photos/CC-951/g7.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cc-951"
@@ -6203,7 +6646,12 @@
       "hero": "product-photos/CC-952/hero.jpg",
       "gallery": [
         "product-photos/CC-952/g1.jpg",
-        "product-photos/CC-952/g2.jpg"
+        "product-photos/CC-952/g2.jpg",
+        "product-photos/CC-952/g3.jpg",
+        "product-photos/CC-952/g4.jpg",
+        "product-photos/CC-952/g5.jpg",
+        "product-photos/CC-952/g6.jpg",
+        "product-photos/CC-952/g7.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cc-952"
@@ -6238,7 +6686,12 @@
       "gallery": [
         "product-photos/CC-953/g1.jpg",
         "product-photos/CC-953/g2.jpg",
-        "product-photos/CC-953/g3.jpg"
+        "product-photos/CC-953/g3.jpg",
+        "product-photos/CC-953/g4.jpg",
+        "product-photos/CC-953/g5.jpg",
+        "product-photos/CC-953/g6.jpg",
+        "product-photos/CC-953/g7.jpg",
+        "product-photos/CC-953/g8.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cc-953"
@@ -6303,7 +6756,12 @@
       "hero": "product-photos/CC-955/hero.jpg",
       "gallery": [
         "product-photos/CC-955/g1.jpg",
-        "product-photos/CC-955/g2.jpg"
+        "product-photos/CC-955/g2.jpg",
+        "product-photos/CC-955/g3.jpg",
+        "product-photos/CC-955/g4.jpg",
+        "product-photos/CC-955/g5.jpg",
+        "product-photos/CC-955/g6.jpg",
+        "product-photos/CC-955/g7.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cc-955"
@@ -6336,7 +6794,12 @@
       "hero": "product-photos/CC-956/hero.jpg",
       "gallery": [
         "product-photos/CC-956/g1.jpg",
-        "product-photos/CC-956/g2.jpg"
+        "product-photos/CC-956/g2.jpg",
+        "product-photos/CC-956/g3.jpg",
+        "product-photos/CC-956/g4.jpg",
+        "product-photos/CC-956/g5.jpg",
+        "product-photos/CC-956/g6.jpg",
+        "product-photos/CC-956/g7.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cc-956"
@@ -6370,7 +6833,12 @@
       "gallery": [
         "product-photos/CC-957/g1.jpg",
         "product-photos/CC-957/g2.jpg",
-        "product-photos/CC-957/g3.jpg"
+        "product-photos/CC-957/g3.jpg",
+        "product-photos/CC-957/g4.jpg",
+        "product-photos/CC-957/g5.jpg",
+        "product-photos/CC-957/g6.jpg",
+        "product-photos/CC-957/g7.jpg",
+        "product-photos/CC-957/g8.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cc-957"
@@ -6405,7 +6873,12 @@
         "veg_non_veg": "Veg"
       },
       "hero": "product-photos/CC-958/hero.jpg",
-      "gallery": [],
+      "gallery": [
+        "product-photos/CC-958/g1.jpg",
+        "product-photos/CC-958/g2.jpg",
+        "product-photos/CC-958/g3.jpg",
+        "product-photos/CC-958/g4.jpg"
+      ],
       "match_tier": "dump_sku_match",
       "id": "cc-958"
     },
@@ -6436,7 +6909,13 @@
         "veg_non_veg": "Veg"
       },
       "hero": "product-photos/CC-959/hero.jpg",
-      "gallery": [],
+      "gallery": [
+        "product-photos/CC-959/g1.jpg",
+        "product-photos/CC-959/g2.jpg",
+        "product-photos/CC-959/g3.jpg",
+        "product-photos/CC-959/g4.jpg",
+        "product-photos/CC-959/g5.jpg"
+      ],
       "match_tier": "dump_sku_match",
       "id": "cc-959"
     },
@@ -6468,7 +6947,11 @@
       "hero": "product-photos/CC-960/hero.jpg",
       "gallery": [
         "product-photos/CC-960/g1.jpg",
-        "product-photos/CC-960/g2.jpg"
+        "product-photos/CC-960/g2.jpg",
+        "product-photos/CC-960/g3.jpg",
+        "product-photos/CC-960/g4.jpg",
+        "product-photos/CC-960/g5.jpg",
+        "product-photos/CC-960/g6.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cc-960"
@@ -6501,7 +6984,12 @@
       "hero": "product-photos/CC-961/hero.jpg",
       "gallery": [
         "product-photos/CC-961/g1.jpg",
-        "product-photos/CC-961/g2.jpg"
+        "product-photos/CC-961/g2.jpg",
+        "product-photos/CC-961/g3.jpg",
+        "product-photos/CC-961/g4.jpg",
+        "product-photos/CC-961/g5.jpg",
+        "product-photos/CC-961/g6.jpg",
+        "product-photos/CC-961/g7.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cc-961"
@@ -6537,7 +7025,11 @@
       },
       "hero": "product-photos/CC-962/hero.jpg",
       "gallery": [
-        "product-photos/CC-962/g1.jpg"
+        "product-photos/CC-962/g2.jpg",
+        "product-photos/CC-962/g3.jpg",
+        "product-photos/CC-962/g4.jpg",
+        "product-photos/CC-962/g5.jpg",
+        "product-photos/CC-962/g6.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cc-962"
@@ -6568,7 +7060,13 @@
         "veg_non_veg": "Veg"
       },
       "hero": "product-photos/CC-965/hero.jpg",
-      "gallery": [],
+      "gallery": [
+        "product-photos/CC-965/g1.jpg",
+        "product-photos/CC-965/g2.jpg",
+        "product-photos/CC-965/g3.jpg",
+        "product-photos/CC-965/g4.jpg",
+        "product-photos/CC-965/g5.jpg"
+      ],
       "match_tier": "dump_sku_match",
       "id": "cc-965"
     },
@@ -6598,7 +7096,13 @@
         "veg_non_veg": "Veg"
       },
       "hero": "product-photos/CC-966/hero.jpg",
-      "gallery": [],
+      "gallery": [
+        "product-photos/CC-966/g1.jpg",
+        "product-photos/CC-966/g2.jpg",
+        "product-photos/CC-966/g3.jpg",
+        "product-photos/CC-966/g4.jpg",
+        "product-photos/CC-966/g5.jpg"
+      ],
       "match_tier": "dump_sku_match",
       "id": "cc-966"
     },
@@ -6629,9 +7133,7 @@
         "veg_non_veg": "Veg"
       },
       "hero": "product-photos/CC-971/hero.jpg",
-      "gallery": [
-        "product-photos/CC-971/g1.jpg"
-      ],
+      "gallery": [],
       "match_tier": "dump_sku_match",
       "id": "cc-971"
     },
@@ -6662,9 +7164,7 @@
         "veg_non_veg": "Veg"
       },
       "hero": "product-photos/CC-972/hero.jpg",
-      "gallery": [
-        "product-photos/CC-972/g1.jpg"
-      ],
+      "gallery": [],
       "match_tier": "dump_sku_match",
       "id": "cc-972"
     },
@@ -6695,9 +7195,7 @@
         "veg_non_veg": "Veg"
       },
       "hero": "product-photos/CC-973/hero.jpg",
-      "gallery": [
-        "product-photos/CC-973/g1.jpg"
-      ],
+      "gallery": [],
       "match_tier": "dump_sku_match",
       "id": "cc-973"
     },
@@ -6728,9 +7226,7 @@
         "veg_non_veg": "Veg"
       },
       "hero": "product-photos/CC-974/hero.jpg",
-      "gallery": [
-        "product-photos/CC-974/g1.jpg"
-      ],
+      "gallery": [],
       "match_tier": "dump_sku_match",
       "id": "cc-974"
     },
@@ -6761,9 +7257,7 @@
         "veg_non_veg": "Veg"
       },
       "hero": "product-photos/CC-975/hero.jpg",
-      "gallery": [
-        "product-photos/CC-975/g1.jpg"
-      ],
+      "gallery": [],
       "match_tier": "dump_sku_match",
       "id": "cc-975"
     },
@@ -6794,9 +7288,7 @@
         "veg_non_veg": "Veg"
       },
       "hero": "product-photos/CC-976/hero.jpg",
-      "gallery": [
-        "product-photos/CC-976/g1.jpg"
-      ],
+      "gallery": [],
       "match_tier": "dump_sku_match",
       "id": "cc-976"
     },
@@ -6827,9 +7319,7 @@
         "veg_non_veg": "Veg"
       },
       "hero": "product-photos/CC-977/hero.jpg",
-      "gallery": [
-        "product-photos/CC-977/g1.jpg"
-      ],
+      "gallery": [],
       "match_tier": "dump_sku_match",
       "id": "cc-977"
     },
@@ -6860,9 +7350,7 @@
         "veg_non_veg": "Veg"
       },
       "hero": "product-photos/CC-978/hero.jpg",
-      "gallery": [
-        "product-photos/CC-978/g1.jpg"
-      ],
+      "gallery": [],
       "match_tier": "dump_sku_match",
       "id": "cc-978"
     },
@@ -6893,9 +7381,7 @@
         "veg_non_veg": "Veg"
       },
       "hero": "product-photos/CC-979/hero.jpg",
-      "gallery": [
-        "product-photos/CC-979/g1.jpg"
-      ],
+      "gallery": [],
       "match_tier": "dump_sku_match",
       "id": "cc-979"
     },
@@ -6957,9 +7443,7 @@
         "veg_non_veg": "Veg"
       },
       "hero": "product-photos/CC-981/hero.jpg",
-      "gallery": [
-        "product-photos/CC-981/g1.jpg"
-      ],
+      "gallery": [],
       "match_tier": "dump_sku_match",
       "id": "cc-981"
     },
@@ -6991,8 +7475,7 @@
       },
       "hero": "product-photos/CC-982/hero.png",
       "gallery": [
-        "product-photos/CC-982/g1.jpg",
-        "product-photos/CC-982/g2.jpg"
+        "product-photos/CC-982/g1.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cc-982"
@@ -7024,9 +7507,7 @@
         "veg_non_veg": "Veg"
       },
       "hero": "product-photos/CC-983/hero.jpg",
-      "gallery": [
-        "product-photos/CC-983/g1.jpg"
-      ],
+      "gallery": [],
       "match_tier": "dump_sku_match",
       "id": "cc-983"
     },
@@ -7057,9 +7538,7 @@
         "veg_non_veg": "Veg"
       },
       "hero": "product-photos/CC-984/hero.jpg",
-      "gallery": [
-        "product-photos/CC-984/g1.jpg"
-      ],
+      "gallery": [],
       "match_tier": "dump_sku_match",
       "id": "cc-984"
     },
@@ -7090,9 +7569,7 @@
         "veg_non_veg": "Veg"
       },
       "hero": "product-photos/CC-985/hero.jpg",
-      "gallery": [
-        "product-photos/CC-985/g1.jpg"
-      ],
+      "gallery": [],
       "match_tier": "dump_sku_match",
       "id": "cc-985"
     },
@@ -7123,9 +7600,7 @@
         "veg_non_veg": "Veg"
       },
       "hero": "product-photos/CC-986/hero.jpg",
-      "gallery": [
-        "product-photos/CC-986/g1.jpg"
-      ],
+      "gallery": [],
       "match_tier": "dump_sku_match",
       "id": "cc-986"
     },
@@ -7186,8 +7661,7 @@
       },
       "hero": "product-photos/CC-988/hero.jpg",
       "gallery": [
-        "product-photos/CC-988/g1.jpg",
-        "product-photos/CC-988/g2.jpg"
+        "product-photos/CC-988/g1.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cc-988"
@@ -7219,8 +7693,11 @@
       },
       "hero": "product-photos/CC-991/hero.jpg",
       "gallery": [
-        "product-photos/CC-991/g1.jpg",
-        "product-photos/CC-991/g2.jpg"
+        "product-photos/CC-991/g2.jpg",
+        "product-photos/CC-991/g3.jpg",
+        "product-photos/CC-991/g4.jpg",
+        "product-photos/CC-991/g5.jpg",
+        "product-photos/CC-991/g6.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cc-991"
@@ -7252,8 +7729,11 @@
       },
       "hero": "product-photos/CC-992/hero.jpg",
       "gallery": [
-        "product-photos/CC-992/g1.jpg",
-        "product-photos/CC-992/g2.jpg"
+        "product-photos/CC-992/g2.jpg",
+        "product-photos/CC-992/g3.jpg",
+        "product-photos/CC-992/g4.jpg",
+        "product-photos/CC-992/g5.jpg",
+        "product-photos/CC-992/g6.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cc-992"
@@ -7286,8 +7766,10 @@
       "hero": "product-photos/CC-993/hero.jpg",
       "gallery": [
         "product-photos/CC-993/g1.jpg",
-        "product-photos/CC-993/g2.jpg",
-        "product-photos/CC-993/g3.jpg"
+        "product-photos/CC-993/g3.jpg",
+        "product-photos/CC-993/g4.jpg",
+        "product-photos/CC-993/g5.jpg",
+        "product-photos/CC-993/g6.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cc-993"
@@ -7322,7 +7804,13 @@
         "product-photos/CC-994/g1.webp",
         "product-photos/CC-994/g2.webp",
         "product-photos/CC-994/g3.webp",
-        "product-photos/CC-994/g4.webp"
+        "product-photos/CC-994/g4.webp",
+        "product-photos/CC-994/g1.jpg",
+        "product-photos/CC-994/g2.jpg",
+        "product-photos/CC-994/g3.jpg",
+        "product-photos/CC-994/g4.jpg",
+        "product-photos/CC-994/g5.jpg",
+        "product-photos/CC-994/g6.jpg"
       ],
       "match_tier": "fuzzy_name",
       "id": "cc-994"
@@ -7360,8 +7848,10 @@
       "gallery": [
         "product-photos/CC-995/g1.jpg",
         "product-photos/CC-995/g2.jpg",
-        "product-photos/CC-995/g3.jpg",
-        "product-photos/CC-995/g4.jpg"
+        "product-photos/CC-995/g4.jpg",
+        "product-photos/CC-995/g5.jpg",
+        "product-photos/CC-995/g6.jpg",
+        "product-photos/CC-995/g7.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cc-995"
@@ -7393,8 +7883,12 @@
       },
       "hero": "product-photos/CC-996/hero.jpg",
       "gallery": [
-        "product-photos/CC-996/g1.jpg",
-        "product-photos/CC-996/g2.jpg"
+        "product-photos/CC-996/g2.jpg",
+        "product-photos/CC-996/g3.jpg",
+        "product-photos/CC-996/g4.jpg",
+        "product-photos/CC-996/g5.jpg",
+        "product-photos/CC-996/g6.jpg",
+        "product-photos/CC-996/g7.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cc-996"
@@ -7430,8 +7924,11 @@
       },
       "hero": "product-photos/CC-997/hero.jpg",
       "gallery": [
-        "product-photos/CC-997/g1.jpg",
-        "product-photos/CC-997/g2.jpg"
+        "product-photos/CC-997/g2.jpg",
+        "product-photos/CC-997/g3.jpg",
+        "product-photos/CC-997/g4.jpg",
+        "product-photos/CC-997/g5.jpg",
+        "product-photos/CC-997/g6.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cc-997"
@@ -7461,7 +7958,8 @@
       },
       "hero": "product-photos/MKA-247/hero.jpg",
       "gallery": [
-        "product-photos/MKA-247/g1.jpg"
+        "product-photos/MKA-247/g2.jpg",
+        "product-photos/MKA-247/g3.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "mka-247"
@@ -7494,7 +7992,11 @@
       },
       "hero": "product-photos/MKA-291/hero.jpg",
       "gallery": [
-        "product-photos/MKA-291/g1.jpg"
+        "product-photos/MKA-291/g2.jpg",
+        "product-photos/MKA-291/g3.jpg",
+        "product-photos/MKA-291/g4.jpg",
+        "product-photos/MKA-291/g5.jpg",
+        "product-photos/MKA-291/g6.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "mka-291"
@@ -7524,7 +8026,11 @@
       },
       "hero": "product-photos/MKA-292/hero.jpg",
       "gallery": [
-        "product-photos/MKA-292/g1.jpg"
+        "product-photos/MKA-292/g2.jpg",
+        "product-photos/MKA-292/g3.jpg",
+        "product-photos/MKA-292/g4.jpg",
+        "product-photos/MKA-292/g5.jpg",
+        "product-photos/MKA-292/g6.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "mka-292"
@@ -7554,7 +8060,11 @@
       },
       "hero": "product-photos/MKA-293/hero.jpg",
       "gallery": [
-        "product-photos/MKA-293/g1.jpg"
+        "product-photos/MKA-293/g2.jpg",
+        "product-photos/MKA-293/g3.jpg",
+        "product-photos/MKA-293/g4.jpg",
+        "product-photos/MKA-293/g5.jpg",
+        "product-photos/MKA-293/g6.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "mka-293"
@@ -7584,7 +8094,11 @@
       },
       "hero": "product-photos/MKA-294/hero.jpg",
       "gallery": [
-        "product-photos/MKA-294/g1.jpg"
+        "product-photos/MKA-294/g2.jpg",
+        "product-photos/MKA-294/g3.jpg",
+        "product-photos/MKA-294/g4.jpg",
+        "product-photos/MKA-294/g5.jpg",
+        "product-photos/MKA-294/g6.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "mka-294"
@@ -7614,8 +8128,12 @@
       },
       "hero": "product-photos/MKA-295/hero.jpg",
       "gallery": [
-        "product-photos/MKA-295/g1.jpg",
-        "product-photos/MKA-295/g2.jpg"
+        "product-photos/MKA-295/g2.jpg",
+        "product-photos/MKA-295/g3.jpg",
+        "product-photos/MKA-295/g4.jpg",
+        "product-photos/MKA-295/g5.jpg",
+        "product-photos/MKA-295/g6.jpg",
+        "product-photos/MKA-295/g7.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "mka-295"
@@ -7645,7 +8163,11 @@
       },
       "hero": "product-photos/MKA-296/hero.jpg",
       "gallery": [
-        "product-photos/MKA-296/g1.jpg"
+        "product-photos/MKA-296/g2.jpg",
+        "product-photos/MKA-296/g3.jpg",
+        "product-photos/MKA-296/g4.jpg",
+        "product-photos/MKA-296/g5.jpg",
+        "product-photos/MKA-296/g6.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "mka-296"
@@ -7675,10 +8197,14 @@
       },
       "hero": "product-photos/MKA-321/hero.jpg",
       "gallery": [
-        "product-photos/MKA-321/g1.jpg",
         "product-photos/MKA-321/g2.jpg",
         "product-photos/MKA-321/g3.jpg",
-        "product-photos/MKA-321/g4.jpg"
+        "product-photos/MKA-321/g4.jpg",
+        "product-photos/MKA-321/g5.jpg",
+        "product-photos/MKA-321/g6.jpg",
+        "product-photos/MKA-321/g7.jpg",
+        "product-photos/MKA-321/g8.jpg",
+        "product-photos/MKA-321/g9.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "mka-321"
@@ -7708,7 +8234,11 @@
       },
       "hero": "product-photos/MKA-322/hero.jpg",
       "gallery": [
-        "product-photos/MKA-322/g1.jpg"
+        "product-photos/MKA-322/g2.jpg",
+        "product-photos/MKA-322/g3.jpg",
+        "product-photos/MKA-322/g4.jpg",
+        "product-photos/MKA-322/g5.jpg",
+        "product-photos/MKA-322/g6.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "mka-322"
@@ -7738,7 +8268,11 @@
       },
       "hero": "product-photos/MKA-323/hero.jpg",
       "gallery": [
-        "product-photos/MKA-323/g1.jpg"
+        "product-photos/MKA-323/g2.jpg",
+        "product-photos/MKA-323/g3.jpg",
+        "product-photos/MKA-323/g4.jpg",
+        "product-photos/MKA-323/g5.jpg",
+        "product-photos/MKA-323/g6.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "mka-323"
@@ -7768,7 +8302,11 @@
       },
       "hero": "product-photos/MKA-324/hero.jpg",
       "gallery": [
-        "product-photos/MKA-324/g1.jpg"
+        "product-photos/MKA-324/g2.jpg",
+        "product-photos/MKA-324/g3.jpg",
+        "product-photos/MKA-324/g4.jpg",
+        "product-photos/MKA-324/g5.jpg",
+        "product-photos/MKA-324/g6.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "mka-324"
@@ -7804,7 +8342,12 @@
         "product-photos/MKA-325/g1.jpg",
         "product-photos/MKA-325/g2.jpg",
         "product-photos/MKA-325/g3.jpg",
-        "product-photos/MKA-325/g4.jpg"
+        "product-photos/MKA-325/g4.jpg",
+        "product-photos/MKA-325/g5.jpg",
+        "product-photos/MKA-325/g6.jpg",
+        "product-photos/MKA-325/g7.jpg",
+        "product-photos/MKA-325/g8.jpg",
+        "product-photos/MKA-325/g9.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "mka-325"
@@ -7834,7 +8377,7 @@
       },
       "hero": "product-photos/MKA-203/hero.jpg",
       "gallery": [
-        "product-photos/MKA-203/g1.jpg"
+        "product-photos/MKA-203/g2.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "mka-203"
@@ -7864,9 +8407,7 @@
         "individual_set": "Set"
       },
       "hero": "product-photos/MKA-205/hero.jpg",
-      "gallery": [
-        "product-photos/MKA-205/g1.jpg"
-      ],
+      "gallery": [],
       "match_tier": "dump_sku_match",
       "id": "mka-205"
     },
@@ -7897,7 +8438,10 @@
       "hero": "product-photos/CC-934/hero.jpg",
       "gallery": [
         "product-photos/CC-934/g1.jpg",
-        "product-photos/CC-934/g2.jpg"
+        "product-photos/CC-934/g3.jpg",
+        "product-photos/CC-934/g4.jpg",
+        "product-photos/CC-934/g5.jpg",
+        "product-photos/CC-934/g6.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cc-934"
@@ -7929,8 +8473,7 @@
       "hero": "product-photos/CC-935/hero.jpg",
       "gallery": [
         "product-photos/CC-935/g1.jpg",
-        "product-photos/CC-935/g2.jpg",
-        "product-photos/CC-935/g3.jpg"
+        "product-photos/CC-935/g2.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cc-935"
@@ -7961,8 +8504,7 @@
       },
       "hero": "product-photos/CC-936/hero.jpg",
       "gallery": [
-        "product-photos/CC-936/g1.jpg",
-        "product-photos/CC-936/g2.jpg"
+        "product-photos/CC-936/g1.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cc-936"
@@ -7994,7 +8536,6 @@
       "hero": "product-photos/CC-937/hero.jpg",
       "gallery": [
         "product-photos/CC-937/g1.jpg",
-        "product-photos/CC-937/g2.jpg",
         "product-photos/CC-937/g3.jpg"
       ],
       "match_tier": "dump_sku_match",
@@ -8027,7 +8568,6 @@
       "hero": "product-photos/CC-938/hero.jpg",
       "gallery": [
         "product-photos/CC-938/g1.jpg",
-        "product-photos/CC-938/g2.jpg",
         "product-photos/CC-938/g3.jpg"
       ],
       "match_tier": "dump_sku_match",
@@ -8059,8 +8599,7 @@
       },
       "hero": "product-photos/CC-939/hero.jpg",
       "gallery": [
-        "product-photos/CC-939/g1.jpg",
-        "product-photos/CC-939/g2.jpg"
+        "product-photos/CC-939/g1.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cc-939"
@@ -8091,10 +8630,12 @@
       },
       "hero": "product-photos/CC-940/hero.jpg",
       "gallery": [
-        "product-photos/CC-940/g1.jpg",
         "product-photos/CC-940/g2.jpg",
         "product-photos/CC-940/g3.jpg",
-        "product-photos/CC-940/g4.jpg"
+        "product-photos/CC-940/g4.jpg",
+        "product-photos/CC-940/g5.jpg",
+        "product-photos/CC-940/g6.jpg",
+        "product-photos/CC-940/g7.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cc-940"
@@ -8125,8 +8666,7 @@
       },
       "hero": "product-photos/CC-941/hero.jpg",
       "gallery": [
-        "product-photos/CC-941/g1.jpg",
-        "product-photos/CC-941/g2.jpg"
+        "product-photos/CC-941/g1.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cc-941"
@@ -8158,8 +8698,7 @@
       "hero": "product-photos/CC-942/hero.jpg",
       "gallery": [
         "product-photos/CC-942/g1.jpg",
-        "product-photos/CC-942/g2.jpg",
-        "product-photos/CC-942/g3.jpg"
+        "product-photos/CC-942/g2.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cc-942"
@@ -8192,7 +8731,11 @@
       "hero": "product-photos/CC-943/hero.jpg",
       "gallery": [
         "product-photos/CC-943/g1.jpg",
-        "product-photos/CC-943/g2.jpg"
+        "product-photos/CC-943/g3.jpg",
+        "product-photos/CC-943/g4.jpg",
+        "product-photos/CC-943/g5.jpg",
+        "product-photos/CC-943/g6.jpg",
+        "product-photos/CC-943/g7.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cc-943"
@@ -8223,8 +8766,7 @@
       },
       "hero": "product-photos/CC-944/hero.jpg",
       "gallery": [
-        "product-photos/CC-944/g1.jpg",
-        "product-photos/CC-944/g2.jpg"
+        "product-photos/CC-944/g1.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cc-944"
@@ -8256,7 +8798,6 @@
       "hero": "product-photos/CC-945/hero.jpg",
       "gallery": [
         "product-photos/CC-945/g1.jpg",
-        "product-photos/CC-945/g2.jpg",
         "product-photos/CC-945/g3.jpg",
         "product-photos/CC-945/g4.jpg"
       ],
@@ -8290,8 +8831,7 @@
       "hero": "product-photos/CC-946/hero.jpg",
       "gallery": [
         "product-photos/CC-946/g1.jpg",
-        "product-photos/CC-946/g2.jpg",
-        "product-photos/CC-946/g3.jpg"
+        "product-photos/CC-946/g2.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cc-946"
@@ -8323,7 +8863,6 @@
       "hero": "product-photos/CC-947/hero.jpg",
       "gallery": [
         "product-photos/CC-947/g1.jpg",
-        "product-photos/CC-947/g2.jpg",
         "product-photos/CC-947/g3.jpg",
         "product-photos/CC-947/g4.jpg"
       ],
@@ -8356,8 +8895,7 @@
       },
       "hero": "product-photos/CC-948/hero.jpg",
       "gallery": [
-        "product-photos/CC-948/g1.jpg",
-        "product-photos/CC-948/g2.jpg"
+        "product-photos/CC-948/g1.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cc-948"
@@ -8387,9 +8925,7 @@
         "individual_set": "Individual"
       },
       "hero": "product-photos/CC-949/hero.jpg",
-      "gallery": [
-        "product-photos/CC-949/g1.jpg"
-      ],
+      "gallery": [],
       "match_tier": "dump_sku_match",
       "id": "cc-949"
     },
@@ -8421,7 +8957,14 @@
       "hero": "product-photos/CC-921/hero.jpg",
       "gallery": [
         "product-photos/CC-921/g1.jpg",
-        "product-photos/CC-921/g2.jpg"
+        "product-photos/CC-921/g3.jpg",
+        "product-photos/CC-921/g4.jpg",
+        "product-photos/CC-921/g5.jpg",
+        "product-photos/CC-921/g6.jpg",
+        "product-photos/CC-921/g7.jpg",
+        "product-photos/CC-921/g8.jpg",
+        "product-photos/CC-921/g9.jpg",
+        "product-photos/CC-921/g10.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cc-921"
@@ -8454,8 +8997,15 @@
       "hero": "product-photos/CC-922/hero.jpg",
       "gallery": [
         "product-photos/CC-922/g1.jpg",
-        "product-photos/CC-922/g2.jpg",
-        "product-photos/CC-922/g3.jpg"
+        "product-photos/CC-922/g3.jpg",
+        "product-photos/CC-922/g4.jpg",
+        "product-photos/CC-922/g5.jpg",
+        "product-photos/CC-922/g6.jpg",
+        "product-photos/CC-922/g7.jpg",
+        "product-photos/CC-922/g8.jpg",
+        "product-photos/CC-922/g9.jpg",
+        "product-photos/CC-922/g10.jpg",
+        "product-photos/CC-922/g11.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cc-922"
@@ -8488,8 +9038,11 @@
       },
       "hero": "product-photos/CC-923/hero.jpg",
       "gallery": [
-        "product-photos/CC-923/g1.jpg",
-        "product-photos/CC-923/g2.jpg"
+        "product-photos/CC-923/g2.jpg",
+        "product-photos/CC-923/g3.jpg",
+        "product-photos/CC-923/g4.jpg",
+        "product-photos/CC-923/g5.jpg",
+        "product-photos/CC-923/g6.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cc-923"
@@ -8521,7 +9074,10 @@
       "hero": "product-photos/CC-924/hero.jpg",
       "gallery": [
         "product-photos/CC-924/g1.jpg",
-        "product-photos/CC-924/g2.jpg"
+        "product-photos/CC-924/g3.jpg",
+        "product-photos/CC-924/g4.jpg",
+        "product-photos/CC-924/g5.jpg",
+        "product-photos/CC-924/g6.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cc-924"
@@ -8554,9 +9110,13 @@
       "hero": "product-photos/CC-925/hero.jpg",
       "gallery": [
         "product-photos/CC-925/g1.jpg",
-        "product-photos/CC-925/g2.jpg",
         "product-photos/CC-925/g3.jpg",
-        "product-photos/CC-925/g4.jpg"
+        "product-photos/CC-925/g4.jpg",
+        "product-photos/CC-925/g5.jpg",
+        "product-photos/CC-925/g6.jpg",
+        "product-photos/CC-925/g7.jpg",
+        "product-photos/CC-925/g8.jpg",
+        "product-photos/CC-925/g9.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cc-925"
@@ -8590,7 +9150,10 @@
       "gallery": [
         "product-photos/CC-926/g1.jpg",
         "product-photos/CC-926/g2.jpg",
-        "product-photos/CC-926/g3.jpg"
+        "product-photos/CC-926/g4.jpg",
+        "product-photos/CC-926/g5.jpg",
+        "product-photos/CC-926/g6.jpg",
+        "product-photos/CC-926/g7.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cc-926"
@@ -8623,8 +9186,12 @@
       "gallery": [
         "product-photos/CC-927/g1.jpg",
         "product-photos/CC-927/g2.jpg",
-        "product-photos/CC-927/g3.jpg",
-        "product-photos/CC-927/g4.jpg"
+        "product-photos/CC-927/g4.jpg",
+        "product-photos/CC-927/g5.jpg",
+        "product-photos/CC-927/g6.jpg",
+        "product-photos/CC-927/g7.jpg",
+        "product-photos/CC-927/g8.jpg",
+        "product-photos/CC-927/g9.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cc-927"
@@ -8657,9 +9224,13 @@
       "hero": "product-photos/CC-928/hero.jpg",
       "gallery": [
         "product-photos/CC-928/g1.jpg",
-        "product-photos/CC-928/g2.jpg",
         "product-photos/CC-928/g3.jpg",
-        "product-photos/CC-928/g4.jpg"
+        "product-photos/CC-928/g4.jpg",
+        "product-photos/CC-928/g5.jpg",
+        "product-photos/CC-928/g6.jpg",
+        "product-photos/CC-928/g7.jpg",
+        "product-photos/CC-928/g8.jpg",
+        "product-photos/CC-928/g9.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cc-928"
@@ -8691,7 +9262,10 @@
       },
       "hero": "product-photos/CC-929/hero.jpg",
       "gallery": [
-        "product-photos/CC-929/g1.jpg"
+        "product-photos/CC-929/g2.jpg",
+        "product-photos/CC-929/g3.jpg",
+        "product-photos/CC-929/g4.jpg",
+        "product-photos/CC-929/g5.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cc-929"
@@ -8724,7 +9298,10 @@
       "hero": "product-photos/CC-931/hero.jpg",
       "gallery": [
         "product-photos/CC-931/g1.jpg",
-        "product-photos/CC-931/g2.jpg"
+        "product-photos/CC-931/g3.jpg",
+        "product-photos/CC-931/g4.jpg",
+        "product-photos/CC-931/g5.jpg",
+        "product-photos/CC-931/g6.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cc-931"
@@ -8755,9 +9332,13 @@
       },
       "hero": "product-photos/CC-930/hero.jpg",
       "gallery": [
-        "product-photos/CC-930/g1.jpg",
         "product-photos/CC-930/g2.jpg",
-        "product-photos/CC-930/g3.jpg"
+        "product-photos/CC-930/g3.jpg",
+        "product-photos/CC-930/g4.jpg",
+        "product-photos/CC-930/g5.jpg",
+        "product-photos/CC-930/g6.jpg",
+        "product-photos/CC-930/g7.jpg",
+        "product-photos/CC-930/g8.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cc-930"
@@ -8784,9 +9365,13 @@
       "hero": "product-photos/CC-932/hero.jpg",
       "gallery": [
         "product-photos/CC-932/g1.jpg",
-        "product-photos/CC-932/g2.jpg",
         "product-photos/CC-932/g3.jpg",
-        "product-photos/CC-932/g4.jpg"
+        "product-photos/CC-932/g4.jpg",
+        "product-photos/CC-932/g5.jpg",
+        "product-photos/CC-932/g6.jpg",
+        "product-photos/CC-932/g7.jpg",
+        "product-photos/CC-932/g8.jpg",
+        "product-photos/CC-932/g9.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cc-932"
@@ -8820,7 +9405,11 @@
         "product-photos/CC-933/g1.jpg",
         "product-photos/CC-933/g2.jpg",
         "product-photos/CC-933/g3.jpg",
-        "product-photos/CC-933/g4.jpg"
+        "product-photos/CC-933/g5.jpg",
+        "product-photos/CC-933/g6.jpg",
+        "product-photos/CC-933/g7.jpg",
+        "product-photos/CC-933/g8.jpg",
+        "product-photos/CC-933/g9.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cc-933"
@@ -8850,7 +9439,11 @@
       },
       "hero": "product-photos/CC-891/hero.jpg",
       "gallery": [
-        "product-photos/CC-891/g1.jpg"
+        "product-photos/CC-891/g2.jpg",
+        "product-photos/CC-891/g3.jpg",
+        "product-photos/CC-891/g4.jpg",
+        "product-photos/CC-891/g5.jpg",
+        "product-photos/CC-891/g6.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cc-891"
@@ -8880,7 +9473,11 @@
       },
       "hero": "product-photos/CC-892/hero.jpg",
       "gallery": [
-        "product-photos/CC-892/g1.jpg"
+        "product-photos/CC-892/g2.jpg",
+        "product-photos/CC-892/g3.jpg",
+        "product-photos/CC-892/g4.jpg",
+        "product-photos/CC-892/g5.jpg",
+        "product-photos/CC-892/g6.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cc-892"
@@ -8913,7 +9510,11 @@
       },
       "hero": "product-photos/CC-893/hero.jpg",
       "gallery": [
-        "product-photos/CC-893/g1.jpg"
+        "product-photos/CC-893/g2.jpg",
+        "product-photos/CC-893/g3.jpg",
+        "product-photos/CC-893/g4.jpg",
+        "product-photos/CC-893/g5.jpg",
+        "product-photos/CC-893/g6.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cc-893"
@@ -8943,7 +9544,11 @@
       },
       "hero": "product-photos/CC-894/hero.jpg",
       "gallery": [
-        "product-photos/CC-894/g1.jpg"
+        "product-photos/CC-894/g2.jpg",
+        "product-photos/CC-894/g3.jpg",
+        "product-photos/CC-894/g4.jpg",
+        "product-photos/CC-894/g5.jpg",
+        "product-photos/CC-894/g6.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cc-894"
@@ -8973,7 +9578,11 @@
       },
       "hero": "product-photos/CC-895/hero.jpg",
       "gallery": [
-        "product-photos/CC-895/g1.jpg"
+        "product-photos/CC-895/g2.jpg",
+        "product-photos/CC-895/g3.jpg",
+        "product-photos/CC-895/g4.jpg",
+        "product-photos/CC-895/g5.jpg",
+        "product-photos/CC-895/g6.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cc-895"
@@ -9167,7 +9776,13 @@
         "individual_set": "Individual"
       },
       "hero": "product-photos/CC-856/hero.jpg",
-      "gallery": [],
+      "gallery": [
+        "product-photos/CC-856/g1.jpg",
+        "product-photos/CC-856/g2.jpg",
+        "product-photos/CC-856/g3.jpg",
+        "product-photos/CC-856/g4.jpg",
+        "product-photos/CC-856/g5.jpg"
+      ],
       "match_tier": "dump_sku_match",
       "id": "cc-856"
     },
@@ -9195,7 +9810,13 @@
         "individual_set": "Individual"
       },
       "hero": "product-photos/CC-857/hero.jpg",
-      "gallery": [],
+      "gallery": [
+        "product-photos/CC-857/g1.jpg",
+        "product-photos/CC-857/g2.jpg",
+        "product-photos/CC-857/g3.jpg",
+        "product-photos/CC-857/g4.jpg",
+        "product-photos/CC-857/g5.jpg"
+      ],
       "match_tier": "dump_sku_match",
       "id": "cc-857"
     },
@@ -9224,7 +9845,13 @@
         "individual_set": "Individual"
       },
       "hero": "product-photos/CC-858/hero.jpg",
-      "gallery": [],
+      "gallery": [
+        "product-photos/CC-858/g1.jpg",
+        "product-photos/CC-858/g2.jpg",
+        "product-photos/CC-858/g3.jpg",
+        "product-photos/CC-858/g4.jpg",
+        "product-photos/CC-858/g5.jpg"
+      ],
       "match_tier": "dump_sku_match",
       "id": "cc-858"
     },
@@ -9252,7 +9879,13 @@
         "individual_set": "Individual"
       },
       "hero": "product-photos/CC-859/hero.jpg",
-      "gallery": [],
+      "gallery": [
+        "product-photos/CC-859/g1.jpg",
+        "product-photos/CC-859/g2.jpg",
+        "product-photos/CC-859/g3.jpg",
+        "product-photos/CC-859/g4.jpg",
+        "product-photos/CC-859/g5.jpg"
+      ],
       "match_tier": "dump_sku_match",
       "id": "cc-859"
     },
@@ -9280,7 +9913,13 @@
         "individual_set": "Individual"
       },
       "hero": "product-photos/CC-860/hero.jpg",
-      "gallery": [],
+      "gallery": [
+        "product-photos/CC-860/g1.jpg",
+        "product-photos/CC-860/g2.jpg",
+        "product-photos/CC-860/g3.jpg",
+        "product-photos/CC-860/g4.jpg",
+        "product-photos/CC-860/g5.jpg"
+      ],
       "match_tier": "dump_sku_match",
       "id": "cc-860"
     },
@@ -9308,7 +9947,13 @@
         "individual_set": "Individual"
       },
       "hero": "product-photos/CC-861/hero.jpg",
-      "gallery": [],
+      "gallery": [
+        "product-photos/CC-861/g1.jpg",
+        "product-photos/CC-861/g2.jpg",
+        "product-photos/CC-861/g3.jpg",
+        "product-photos/CC-861/g4.jpg",
+        "product-photos/CC-861/g5.jpg"
+      ],
       "match_tier": "dump_sku_match",
       "id": "cc-861"
     },
@@ -9333,8 +9978,7 @@
       },
       "hero": "product-photos/CCS-001/hero.jpeg",
       "gallery": [
-        "product-photos/CCS-001/g1.jpg",
-        "product-photos/CCS-001/g2.jpeg"
+        "product-photos/CCS-001/g1.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "ccs-001"
@@ -9363,7 +10007,6 @@
       "gallery": [
         "product-photos/WF001/g1.jpg",
         "product-photos/WF001/g2.jpg",
-        "product-photos/WF001/g3.jpg",
         "product-photos/WF001/g4.jpg"
       ],
       "match_tier": "dump_sku_match",
@@ -9396,7 +10039,6 @@
       "gallery": [
         "product-photos/WF002/g1.jpg",
         "product-photos/WF002/g2.jpg",
-        "product-photos/WF002/g3.jpg",
         "product-photos/WF002/g4.jpg"
       ],
       "match_tier": "dump_sku_match",
@@ -9429,7 +10071,6 @@
       "gallery": [
         "product-photos/WF003/g1.jpg",
         "product-photos/WF003/g2.jpg",
-        "product-photos/WF003/g3.jpg",
         "product-photos/WF003/g4.jpg"
       ],
       "match_tier": "dump_sku_match",
@@ -9461,8 +10102,6 @@
       },
       "hero": "product-photos/WF011/hero.jpg",
       "gallery": [
-        "product-photos/WF011/g1.jpg",
-        "product-photos/WF011/g2.jpg",
         "product-photos/WF011/g3.jpg"
       ],
       "match_tier": "dump_sku_match",
@@ -9525,7 +10164,9 @@
         "product-photos/CWB-032/g1.jpg",
         "product-photos/CWB-032/g2.jpg",
         "product-photos/CWB-032/g3.jpg",
-        "product-photos/CWB-032/g4.jpg"
+        "product-photos/CWB-032/g4.jpg",
+        "product-photos/CWB-032/g5.jpg",
+        "product-photos/CWB-032/g6.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cwb-032"
@@ -9588,7 +10229,6 @@
       "hero": "product-photos/CWB-034/hero.png",
       "gallery": [
         "product-photos/CWB-034/g1.jpg",
-        "product-photos/CWB-034/g2.jpg",
         "product-photos/CWB-034/g3.jpg",
         "product-photos/CWB-034/g4.jpg"
       ],
@@ -9624,7 +10264,12 @@
         "product-photos/CWB-043/g1.jpg",
         "product-photos/CWB-043/g2.jpg",
         "product-photos/CWB-043/g3.jpg",
-        "product-photos/CWB-043/g4.jpg"
+        "product-photos/CWB-043/g4.jpg",
+        "product-photos/CWB-043/g5.jpg",
+        "product-photos/CWB-043/g6.jpg",
+        "product-photos/CWB-043/g7.jpg",
+        "product-photos/CWB-043/g8.jpg",
+        "product-photos/CWB-043/g9.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cwb-043"
@@ -9658,7 +10303,12 @@
         "product-photos/CWB-044/g1.jpg",
         "product-photos/CWB-044/g2.jpg",
         "product-photos/CWB-044/g3.jpg",
-        "product-photos/CWB-044/g4.jpg"
+        "product-photos/CWB-044/g4.jpg",
+        "product-photos/CWB-044/g5.jpg",
+        "product-photos/CWB-044/g6.jpg",
+        "product-photos/CWB-044/g7.jpg",
+        "product-photos/CWB-044/g8.jpg",
+        "product-photos/CWB-044/g9.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cwb-044"
@@ -9689,7 +10339,12 @@
         "product-photos/CWB-045/g1.jpg",
         "product-photos/CWB-045/g2.jpg",
         "product-photos/CWB-045/g3.jpg",
-        "product-photos/CWB-045/g4.jpg"
+        "product-photos/CWB-045/g4.jpg",
+        "product-photos/CWB-045/g5.jpg",
+        "product-photos/CWB-045/g6.jpg",
+        "product-photos/CWB-045/g7.jpg",
+        "product-photos/CWB-045/g8.jpg",
+        "product-photos/CWB-045/g9.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cwb-045"
@@ -9720,7 +10375,12 @@
         "product-photos/CWB040/g1.jpg",
         "product-photos/CWB040/g2.jpg",
         "product-photos/CWB040/g3.jpg",
-        "product-photos/CWB040/g4.jpg"
+        "product-photos/CWB040/g4.jpg",
+        "product-photos/CWB040/g5.jpg",
+        "product-photos/CWB040/g6.jpg",
+        "product-photos/CWB040/g7.jpg",
+        "product-photos/CWB040/g8.jpg",
+        "product-photos/CWB040/g9.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cwb040"
@@ -9751,7 +10411,12 @@
         "product-photos/CWB041/g1.jpg",
         "product-photos/CWB041/g2.jpg",
         "product-photos/CWB041/g3.jpg",
-        "product-photos/CWB041/g4.jpg"
+        "product-photos/CWB041/g4.jpg",
+        "product-photos/CWB041/g5.jpg",
+        "product-photos/CWB041/g6.jpg",
+        "product-photos/CWB041/g7.jpg",
+        "product-photos/CWB041/g8.jpg",
+        "product-photos/CWB041/g9.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cwb041"
@@ -9946,7 +10611,11 @@
       "gallery": [
         "product-photos/COP-005/g1.jpg",
         "product-photos/COP-005/g2.jpg",
-        "product-photos/COP-005/g3.jpg"
+        "product-photos/COP-005/g3.jpg",
+        "product-photos/COP-005/g4.jpg",
+        "product-photos/COP-005/g5.jpg",
+        "product-photos/COP-005/g6.jpg",
+        "product-photos/COP-005/g7.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cop-005"
@@ -10345,7 +11014,12 @@
         "product-photos/CPW-010/g1.jpg",
         "product-photos/CPW-010/g2.jpg",
         "product-photos/CPW-010/g3.jpg",
-        "product-photos/CPW-010/g4.jpg"
+        "product-photos/CPW-010/g4.jpg",
+        "product-photos/CPW-010/g5.jpg",
+        "product-photos/CPW-010/g6.jpg",
+        "product-photos/CPW-010/g7.jpg",
+        "product-photos/CPW-010/g8.jpg",
+        "product-photos/CPW-010/g9.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cpw-010"
@@ -10379,7 +11053,14 @@
         "product-photos/CPW-011/g1.jpg",
         "product-photos/CPW-011/g2.jpg",
         "product-photos/CPW-011/g3.jpg",
-        "product-photos/CPW-011/g4.jpg"
+        "product-photos/CPW-011/g4.jpg",
+        "product-photos/CPW-011/g5.jpg",
+        "product-photos/CPW-011/g6.jpg",
+        "product-photos/CPW-011/g7.jpg",
+        "product-photos/CPW-011/g8.jpg",
+        "product-photos/CPW-011/g9.jpg",
+        "product-photos/CPW-011/g10.jpg",
+        "product-photos/CPW-011/g11.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cpw-011"
@@ -10413,7 +11094,14 @@
         "product-photos/CPW-012/g1.jpg",
         "product-photos/CPW-012/g2.jpg",
         "product-photos/CPW-012/g3.jpg",
-        "product-photos/CPW-012/g4.jpg"
+        "product-photos/CPW-012/g4.jpg",
+        "product-photos/CPW-012/g5.jpg",
+        "product-photos/CPW-012/g6.jpg",
+        "product-photos/CPW-012/g7.jpg",
+        "product-photos/CPW-012/g8.jpg",
+        "product-photos/CPW-012/g9.jpg",
+        "product-photos/CPW-012/g10.jpg",
+        "product-photos/CPW-012/g11.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cpw-012"
@@ -10447,7 +11135,14 @@
         "product-photos/CPW-013/g1.jpg",
         "product-photos/CPW-013/g2.jpg",
         "product-photos/CPW-013/g3.jpg",
-        "product-photos/CPW-013/g4.jpg"
+        "product-photos/CPW-013/g4.jpg",
+        "product-photos/CPW-013/g5.jpg",
+        "product-photos/CPW-013/g6.jpg",
+        "product-photos/CPW-013/g7.jpg",
+        "product-photos/CPW-013/g8.jpg",
+        "product-photos/CPW-013/g9.jpg",
+        "product-photos/CPW-013/g10.jpg",
+        "product-photos/CPW-013/g11.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cpw-013"
@@ -10481,7 +11176,13 @@
         "product-photos/CPW-014/g1.jpg",
         "product-photos/CPW-014/g2.jpg",
         "product-photos/CPW-014/g3.jpg",
-        "product-photos/CPW-014/g4.jpg"
+        "product-photos/CPW-014/g4.jpg",
+        "product-photos/CPW-014/g5.jpg",
+        "product-photos/CPW-014/g6.jpg",
+        "product-photos/CPW-014/g7.jpg",
+        "product-photos/CPW-014/g8.jpg",
+        "product-photos/CPW-014/g9.jpg",
+        "product-photos/CPW-014/g10.jpg"
       ],
       "match_tier": "dump_name_match",
       "id": "cpw-014"
@@ -10515,7 +11216,13 @@
         "product-photos/CPW-015/g1.jpg",
         "product-photos/CPW-015/g2.jpg",
         "product-photos/CPW-015/g3.jpg",
-        "product-photos/CPW-015/g4.jpg"
+        "product-photos/CPW-015/g4.jpg",
+        "product-photos/CPW-015/g5.jpg",
+        "product-photos/CPW-015/g6.jpg",
+        "product-photos/CPW-015/g7.jpg",
+        "product-photos/CPW-015/g8.jpg",
+        "product-photos/CPW-015/g9.jpg",
+        "product-photos/CPW-015/g10.jpg"
       ],
       "match_tier": "fuzzy_name",
       "id": "cpw-015"
@@ -10549,7 +11256,14 @@
         "product-photos/CPW-016/g1.jpg",
         "product-photos/CPW-016/g2.jpg",
         "product-photos/CPW-016/g3.jpg",
-        "product-photos/CPW-016/g4.jpg"
+        "product-photos/CPW-016/g4.jpg",
+        "product-photos/CPW-016/g5.jpg",
+        "product-photos/CPW-016/g6.jpg",
+        "product-photos/CPW-016/g7.jpg",
+        "product-photos/CPW-016/g8.jpg",
+        "product-photos/CPW-016/g9.jpg",
+        "product-photos/CPW-016/g10.jpg",
+        "product-photos/CPW-016/g11.jpg"
       ],
       "match_tier": "image_sourced_amazon_link",
       "id": "cpw-016"
@@ -10583,7 +11297,12 @@
         "product-photos/CPW-017/g1.jpg",
         "product-photos/CPW-017/g2.jpg",
         "product-photos/CPW-017/g3.jpg",
-        "product-photos/CPW-017/g4.jpg"
+        "product-photos/CPW-017/g4.jpg",
+        "product-photos/CPW-017/g5.jpg",
+        "product-photos/CPW-017/g6.jpg",
+        "product-photos/CPW-017/g7.jpg",
+        "product-photos/CPW-017/g8.jpg",
+        "product-photos/CPW-017/g9.jpg"
       ],
       "match_tier": "fuzzy_name",
       "id": "cpw-017"
@@ -10617,7 +11336,14 @@
         "product-photos/CPW-018/g1.jpg",
         "product-photos/CPW-018/g2.jpg",
         "product-photos/CPW-018/g3.jpg",
-        "product-photos/CPW-018/g4.jpg"
+        "product-photos/CPW-018/g4.jpg",
+        "product-photos/CPW-018/g5.jpg",
+        "product-photos/CPW-018/g6.jpg",
+        "product-photos/CPW-018/g7.jpg",
+        "product-photos/CPW-018/g8.jpg",
+        "product-photos/CPW-018/g9.jpg",
+        "product-photos/CPW-018/g10.jpg",
+        "product-photos/CPW-018/g11.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cpw-018"
@@ -10651,7 +11377,13 @@
         "product-photos/CPW-019/g1.jpg",
         "product-photos/CPW-019/g2.jpg",
         "product-photos/CPW-019/g3.jpg",
-        "product-photos/CPW-019/g4.jpg"
+        "product-photos/CPW-019/g4.jpg",
+        "product-photos/CPW-019/g5.jpg",
+        "product-photos/CPW-019/g6.jpg",
+        "product-photos/CPW-019/g7.jpg",
+        "product-photos/CPW-019/g8.jpg",
+        "product-photos/CPW-019/g9.jpg",
+        "product-photos/CPW-019/g10.jpg"
       ],
       "match_tier": "image_sourced_amazon_link",
       "id": "cpw-019",
@@ -10686,7 +11418,13 @@
         "product-photos/CPW-020/g1.jpg",
         "product-photos/CPW-020/g2.jpg",
         "product-photos/CPW-020/g3.jpg",
-        "product-photos/CPW-020/g4.jpg"
+        "product-photos/CPW-020/g4.jpg",
+        "product-photos/CPW-020/g5.jpg",
+        "product-photos/CPW-020/g6.jpg",
+        "product-photos/CPW-020/g7.jpg",
+        "product-photos/CPW-020/g8.jpg",
+        "product-photos/CPW-020/g9.jpg",
+        "product-photos/CPW-020/g10.jpg"
       ],
       "match_tier": "fuzzy_name",
       "id": "cpw-020",
@@ -10721,7 +11459,14 @@
         "product-photos/CPW-021/g1.jpg",
         "product-photos/CPW-021/g2.jpg",
         "product-photos/CPW-021/g3.jpg",
-        "product-photos/CPW-021/g4.jpg"
+        "product-photos/CPW-021/g4.jpg",
+        "product-photos/CPW-021/g5.jpg",
+        "product-photos/CPW-021/g6.jpg",
+        "product-photos/CPW-021/g7.jpg",
+        "product-photos/CPW-021/g8.jpg",
+        "product-photos/CPW-021/g9.jpg",
+        "product-photos/CPW-021/g10.jpg",
+        "product-photos/CPW-021/g11.jpg"
       ],
       "match_tier": "image_sourced_amazon_link",
       "id": "cpw-021"
@@ -10755,7 +11500,14 @@
         "product-photos/CPW-022/g1.jpg",
         "product-photos/CPW-022/g2.jpg",
         "product-photos/CPW-022/g3.jpg",
-        "product-photos/CPW-022/g4.jpg"
+        "product-photos/CPW-022/g4.jpg",
+        "product-photos/CPW-022/g5.jpg",
+        "product-photos/CPW-022/g6.jpg",
+        "product-photos/CPW-022/g7.jpg",
+        "product-photos/CPW-022/g8.jpg",
+        "product-photos/CPW-022/g9.jpg",
+        "product-photos/CPW-022/g10.jpg",
+        "product-photos/CPW-022/g11.jpg"
       ],
       "match_tier": "image_sourced_amazon_link",
       "id": "cpw-022"
@@ -10790,7 +11542,11 @@
         "product-photos/CPW-023/g1.jpg",
         "product-photos/CPW-023/g2.jpg",
         "product-photos/CPW-023/g3.jpg",
-        "product-photos/CPW-023/g4.jpg"
+        "product-photos/CPW-023/g4.jpg",
+        "product-photos/CPW-023/g5.jpg",
+        "product-photos/CPW-023/g6.jpg",
+        "product-photos/CPW-023/g7.jpg",
+        "product-photos/CPW-023/g8.jpg"
       ],
       "match_tier": "image_sourced_amazon_link",
       "id": "cpw-023"
@@ -10824,7 +11580,11 @@
         "product-photos/CPW-024/g1.jpg",
         "product-photos/CPW-024/g2.jpg",
         "product-photos/CPW-024/g3.jpg",
-        "product-photos/CPW-024/g4.jpg"
+        "product-photos/CPW-024/g4.jpg",
+        "product-photos/CPW-024/g5.jpg",
+        "product-photos/CPW-024/g6.jpg",
+        "product-photos/CPW-024/g7.jpg",
+        "product-photos/CPW-024/g8.jpg"
       ],
       "match_tier": "image_sourced_amazon_link",
       "id": "cpw-024"
@@ -10858,7 +11618,13 @@
         "product-photos/CPW-025/g1.jpg",
         "product-photos/CPW-025/g2.jpg",
         "product-photos/CPW-025/g3.jpg",
-        "product-photos/CPW-025/g4.jpg"
+        "product-photos/CPW-025/g4.jpg",
+        "product-photos/CPW-025/g5.jpg",
+        "product-photos/CPW-025/g6.jpg",
+        "product-photos/CPW-025/g7.jpg",
+        "product-photos/CPW-025/g8.jpg",
+        "product-photos/CPW-025/g9.jpg",
+        "product-photos/CPW-025/g10.jpg"
       ],
       "match_tier": "image_sourced_amazon_link",
       "id": "cpw-025"
@@ -10916,7 +11682,12 @@
         "product-photos/CPW-027/g1.jpg",
         "product-photos/CPW-027/g2.jpg",
         "product-photos/CPW-027/g3.jpg",
-        "product-photos/CPW-027/g4.jpg"
+        "product-photos/CPW-027/g4.jpg",
+        "product-photos/CPW-027/g5.jpg",
+        "product-photos/CPW-027/g6.jpg",
+        "product-photos/CPW-027/g7.jpg",
+        "product-photos/CPW-027/g8.jpg",
+        "product-photos/CPW-027/g9.jpg"
       ],
       "match_tier": "image_sourced_amazon_link",
       "id": "cpw-027"
@@ -10950,7 +11721,12 @@
         "product-photos/CPW-028/g1.jpg",
         "product-photos/CPW-028/g2.jpg",
         "product-photos/CPW-028/g3.jpg",
-        "product-photos/CPW-028/g4.jpg"
+        "product-photos/CPW-028/g4.jpg",
+        "product-photos/CPW-028/g5.jpg",
+        "product-photos/CPW-028/g6.jpg",
+        "product-photos/CPW-028/g7.jpg",
+        "product-photos/CPW-028/g8.jpg",
+        "product-photos/CPW-028/g9.jpg"
       ],
       "match_tier": "image_sourced_amazon_link",
       "id": "cpw-028"
@@ -10984,7 +11760,12 @@
         "product-photos/CPW-029/g1.jpg",
         "product-photos/CPW-029/g2.jpg",
         "product-photos/CPW-029/g3.jpg",
-        "product-photos/CPW-029/g4.jpg"
+        "product-photos/CPW-029/g4.jpg",
+        "product-photos/CPW-029/g5.jpg",
+        "product-photos/CPW-029/g6.jpg",
+        "product-photos/CPW-029/g7.jpg",
+        "product-photos/CPW-029/g8.jpg",
+        "product-photos/CPW-029/g9.jpg"
       ],
       "match_tier": "image_sourced_amazon_link",
       "id": "cpw-029"
@@ -11018,7 +11799,13 @@
         "product-photos/CPW-030/g1.jpg",
         "product-photos/CPW-030/g2.jpg",
         "product-photos/CPW-030/g3.jpg",
-        "product-photos/CPW-030/g4.jpg"
+        "product-photos/CPW-030/g4.jpg",
+        "product-photos/CPW-030/g5.jpg",
+        "product-photos/CPW-030/g6.jpg",
+        "product-photos/CPW-030/g7.jpg",
+        "product-photos/CPW-030/g8.jpg",
+        "product-photos/CPW-030/g9.jpg",
+        "product-photos/CPW-030/g10.jpg"
       ],
       "match_tier": "image_sourced_amazon_link",
       "id": "cpw-030"
@@ -12599,8 +13386,7 @@
       "hero": "product-photos/CNS794/hero.png",
       "gallery": [
         "product-photos/CNS794/g1.jpg",
-        "product-photos/CNS794/g2.jpg",
-        "product-photos/CNS794/g3.jpg"
+        "product-photos/CNS794/g2.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cns794"
@@ -15445,7 +16231,6 @@
       "filters": {},
       "hero": "product-photos/SMG008/hero.jpg",
       "gallery": [
-        "product-photos/SMG008/g1.jpg",
         "product-photos/SMG008/g2.jpg",
         "product-photos/SMG008/g3.jpg",
         "product-photos/SMG008/g4.jpg"
@@ -15469,7 +16254,6 @@
       "filters": {},
       "hero": "product-photos/SMG012/hero.jpg",
       "gallery": [
-        "product-photos/SMG012/g1.jpg",
         "product-photos/SMG012/g2.jpg",
         "product-photos/SMG012/g3.jpg",
         "product-photos/SMG012/g4.jpg"
