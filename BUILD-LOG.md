@@ -44,8 +44,62 @@ re-read from the served file.
 newly re-scraped Wood Range and Oil Pourer data. This zip is the only copy;
 the working folder is untracked and has been wiped three times.
 
-### Still open
-- ~219 scraped products not yet wired into `products.json` — waiting on SKU tables.
+---
+
+## 2026-08-24 — Full-catalogue Amazon verification and image sync
+
+**Commit:** `a423ae0` Localize 17 hotlinked product images and fix one contaminated gallery
+
+A batch agent reported that concurrent scraping agents shared one browser tab
+pool and that tabs were reassigned between `navigate` and extract, so a folder
+could hold a different product's data than its name claims. That made every
+scraped folder suspect, so all 309 were re-checked.
+
+### Method
+Stored `info.json` title vs the live amazon.in title, fetched over **curl with a
+browser User-Agent**. curl has no tab-contention failure mode, and unlike
+`urllib` it returns the full page (urllib gets a stripped variant with no
+`#productDescription`, which had silently produced ~85 empty descriptions).
+Diffs were classified by similarity ratio, because Amazon edits its own listing
+copy and a strict compare over-reports.
+
+### Results — 309 scraped folders
+- 294 clean
+- 4 reworded by Amazon, same product (`Haevy`→`Heavy`, `Dishwsher`→`Dishwasher`,
+  `Cmand`→`Cm and`) — no action
+- **11 genuinely contaminated**, all re-scraped over curl. Every one of the 11
+  SKU↔`amazon_link` pairings turned out correct — only the scraped folder data
+  was wrong, never the link.
+- Of those 11, only **CLCL-002** had a wrong image live on the site; the other 10
+  SKUs already had correct studio photos. CLCL-002 is re-synced.
+
+### 13 folders that held only an error.txt
+9 of the 13 error reports were **false** — same tab-contamination, reported as
+"ASIN redirects to a different product". curl recovered all 9, and each title
+matches its SKU name: CL-215, MKA921, MKA075, MKA941, MKA-094N, MKA942, CC-992,
+CC-994, CWB-032. The other 4 are genuine 404s (delisted), confirmed as 404 rather
+than robot-checks.
+
+### Image sync
+17 entries served hero/gallery from `m.media-amazon.com` hotlinks; all are now
+local under `product-photos/<SKU>/`. Final audit: **531 products, 0 broken image
+paths.** 9 hotlinks remain, every one on a product with no Amazon link, left
+untouched per the standing instruction.
+
+### Variants
+29 variant groups, 95 products. 28 groups healthy — labels present, orders
+unique, per-size heroes distinct.
+
+### Needs a decision (not changed)
+- **3 dead `amazon_link`s** — Buy Now sends the customer to a 404:
+  `CL-804`, `CLMK-015`, `CWB042`. Their product pages and images are fine.
+- **`vg-10`** (Extra Deep Kadai, rose gold handle) — CTP-EDK-002/003/004 have no
+  Amazon link, hotlinked heroes, empty galleries, and 003 (26 cm) and 004 (28 cm)
+  share one photo, so the size switcher shows the same image for both. Cannot be
+  fixed from Amazon without a link.
+- **`CTP-EDK-001`** (22 cm, has a link and local images) sits outside `vg-10`, so
+  the size switcher on that group omits 22 cm. May be deliberate — 002-004 are the
+  rose-gold-handle line and 001 is not.
 
 ---
 
