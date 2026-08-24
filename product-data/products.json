@@ -802,8 +802,13 @@
         "blade_edge_type": "NA",
         "coating_type": "None"
       },
-      "hero": "https://m.media-amazon.com/images/I/61cp7LfmSRL._SX425_.jpg",
-      "gallery": [],
+      "hero": "product-photos/CL-129/hero.jpg",
+      "gallery": [
+        "product-photos/CL-129/g1.jpg",
+        "product-photos/CL-129/g2.jpg",
+        "product-photos/CL-129/g3.jpg",
+        "product-photos/CL-129/g4.jpg"
+      ],
       "match_tier": "image_sourced_amazon_link",
       "id": "cl-129"
     },
@@ -831,8 +836,13 @@
         "blade_edge_type": "NA",
         "coating_type": "None"
       },
-      "hero": "https://m.media-amazon.com/images/I/71zA6yx179L._SX425_.jpg",
-      "gallery": [],
+      "hero": "product-photos/CL-130/hero.jpg",
+      "gallery": [
+        "product-photos/CL-130/g1.jpg",
+        "product-photos/CL-130/g2.jpg",
+        "product-photos/CL-130/g3.jpg",
+        "product-photos/CL-130/g4.jpg"
+      ],
       "match_tier": "image_sourced_amazon_link",
       "id": "cl-130"
     },
@@ -2537,13 +2547,12 @@
         "blade_edge_type": "Plain",
         "coating_type": "Ceramic Coated"
       },
-      "hero": "https://m.media-amazon.com/images/I/41S9wNDc+JL.jpg",
+      "hero": "product-photos/CLCL-001/hero.jpg",
       "gallery": [
-        "https://m.media-amazon.com/images/I/513TrH90qLL.jpg",
-        "https://m.media-amazon.com/images/I/51UPcNJF1-L.jpg",
-        "https://m.media-amazon.com/images/I/51yZk2oJXLL.jpg",
-        "https://m.media-amazon.com/images/I/41m8wAm3KML.jpg",
-        "https://m.media-amazon.com/images/I/31inkycRi-L.jpg"
+        "product-photos/CLCL-001/g1.jpg",
+        "product-photos/CLCL-001/g2.jpg",
+        "product-photos/CLCL-001/g3.jpg",
+        "product-photos/CLCL-001/g4.jpg"
       ],
       "match_tier": "verified",
       "id": "clcl-001"
@@ -2574,8 +2583,16 @@
         "blade_edge_type": "Plain",
         "coating_type": "Ceramic Coated"
       },
-      "hero": "https://m.media-amazon.com/images/I/41Zzxs8MWgL._SX425_.jpg",
-      "gallery": [],
+      "hero": "product-photos/CLCL-002/hero.jpg",
+      "gallery": [
+        "product-photos/CLCL-002/g1.jpg",
+        "product-photos/CLCL-002/g2.jpg",
+        "product-photos/CLCL-002/g3.jpg",
+        "product-photos/CLCL-002/g4.jpg",
+        "product-photos/CLCL-002/g5.jpg",
+        "product-photos/CLCL-002/g6.jpg",
+        "product-photos/CLCL-002/g7.jpg"
+      ],
       "match_tier": "image_sourced_amazon_link",
       "id": "clcl-002"
     },
@@ -2608,8 +2625,13 @@
         "blade_edge_type": "Plain",
         "coating_type": "Ceramic Coated"
       },
-      "hero": "https://m.media-amazon.com/images/I/51pdyTOv05L._SX425_.jpg",
-      "gallery": [],
+      "hero": "product-photos/CLCL-003/hero.jpg",
+      "gallery": [
+        "product-photos/CLCL-003/g1.jpg",
+        "product-photos/CLCL-003/g2.jpg",
+        "product-photos/CLCL-003/g3.jpg",
+        "product-photos/CLCL-003/g4.jpg"
+      ],
       "match_tier": "image_sourced_amazon_link",
       "id": "clcl-003"
     },
@@ -2639,8 +2661,13 @@
         "blade_edge_type": "Plain",
         "coating_type": "Ceramic Coated"
       },
-      "hero": "https://m.media-amazon.com/images/I/51aG+AIbNSL._SX425_.jpg",
-      "gallery": [],
+      "hero": "product-photos/CLCL-004/hero.jpg",
+      "gallery": [
+        "product-photos/CLCL-004/g1.jpg",
+        "product-photos/CLCL-004/g2.jpg",
+        "product-photos/CLCL-004/g3.jpg",
+        "product-photos/CLCL-004/g4.jpg"
+      ],
       "match_tier": "image_sourced_amazon_link",
       "id": "clcl-004"
     },
@@ -2670,8 +2697,13 @@
         "blade_edge_type": "Plain",
         "coating_type": "Ceramic Coated"
       },
-      "hero": "https://m.media-amazon.com/images/I/51D8d9xyc8L._SX425_.jpg",
-      "gallery": [],
+      "hero": "product-photos/CLCL-005/hero.jpg",
+      "gallery": [
+        "product-photos/CLCL-005/g1.jpg",
+        "product-photos/CLCL-005/g2.jpg",
+        "product-photos/CLCL-005/g3.jpg",
+        "product-photos/CLCL-005/g4.jpg"
+      ],
       "match_tier": "image_sourced_amazon_link",
       "id": "clcl-005"
     },
@@ -3016,8 +3048,13 @@
         "with_blade": "Without Blade",
         "with_without_blade": "Without Blade"
       },
-      "hero": "https://m.media-amazon.com/images/I/61MO8gJFmwL._SX425_.jpg",
-      "gallery": [],
+      "hero": "product-photos/MKA-078/hero.jpg",
+      "gallery": [
+        "product-photos/MKA-078/g1.jpg",
+        "product-photos/MKA-078/g2.jpg",
+        "product-photos/MKA-078/g3.jpg",
+        "product-photos/MKA-078/g4.jpg"
+      ],
       "match_tier": "image_sourced_amazon_link",
       "id": "mka-078"
     },
@@ -3045,8 +3082,13 @@
         "with_blade": "Without Blade",
         "with_without_blade": "Without Blade"
       },
-      "hero": "https://m.media-amazon.com/images/I/81+sqxQJCkL._SX425_.jpg",
-      "gallery": [],
+      "hero": "product-photos/MKA-079/hero.jpg",
+      "gallery": [
+        "product-photos/MKA-079/g1.jpg",
+        "product-photos/MKA-079/g2.jpg",
+        "product-photos/MKA-079/g3.jpg",
+        "product-photos/MKA-079/g4.jpg"
+      ],
       "match_tier": "image_sourced_amazon_link",
       "id": "mka-079"
     },
@@ -3074,8 +3116,13 @@
         "with_blade": "Without Blade",
         "with_without_blade": "Without Blade"
       },
-      "hero": "https://m.media-amazon.com/images/I/412J0G3aVrL._SY300_SX300_QL70_FMwebp_.jpg",
-      "gallery": [],
+      "hero": "product-photos/MKA-080/hero.jpg",
+      "gallery": [
+        "product-photos/MKA-080/g1.jpg",
+        "product-photos/MKA-080/g2.jpg",
+        "product-photos/MKA-080/g3.jpg",
+        "product-photos/MKA-080/g4.jpg"
+      ],
       "match_tier": "image_sourced_amazon_link",
       "id": "mka-080"
     },
@@ -3364,8 +3411,13 @@
         "with_blade": "Without Blade",
         "with_without_blade": "Without Blade"
       },
-      "hero": "https://m.media-amazon.com/images/I/41zwQxh+RPL._SX425_.jpg",
-      "gallery": [],
+      "hero": "product-photos/MKA-099/hero.jpg",
+      "gallery": [
+        "product-photos/MKA-099/g1.jpg",
+        "product-photos/MKA-099/g2.jpg",
+        "product-photos/MKA-099/g3.jpg",
+        "product-photos/MKA-099/g4.jpg"
+      ],
       "match_tier": "image_sourced_amazon_link",
       "id": "mka-099"
     },
@@ -5151,8 +5203,10 @@
       "filters": {
         "use": "Shaker"
       },
-      "hero": "https://m.media-amazon.com/images/I/512Rw4+M9zL._SX425_.jpg",
-      "gallery": [],
+      "hero": "product-photos/CLMK-016/hero.jpg",
+      "gallery": [
+        "product-photos/CLMK-016/g1.jpg"
+      ],
       "match_tier": "image_sourced_amazon_link",
       "id": "clmk-016"
     },
@@ -5178,8 +5232,12 @@
       "filters": {
         "use": "Grinder"
       },
-      "hero": "https://m.media-amazon.com/images/I/817Y+g9DKlL._SX425_.jpg",
-      "gallery": [],
+      "hero": "product-photos/CLMK-018/hero.jpg",
+      "gallery": [
+        "product-photos/CLMK-018/g1.jpg",
+        "product-photos/CLMK-018/g2.jpg",
+        "product-photos/CLMK-018/g3.jpg"
+      ],
       "match_tier": "image_sourced_amazon_link",
       "id": "clmk-018"
     },
@@ -5203,8 +5261,13 @@
       "filters": {
         "use": "Grinder"
       },
-      "hero": "https://m.media-amazon.com/images/I/61XlLVYyTNS._SX425_.jpg",
-      "gallery": [],
+      "hero": "product-photos/CLMK-019/hero.jpg",
+      "gallery": [
+        "product-photos/CLMK-019/g1.jpg",
+        "product-photos/CLMK-019/g2.jpg",
+        "product-photos/CLMK-019/g3.jpg",
+        "product-photos/CLMK-019/g4.jpg"
+      ],
       "match_tier": "image_sourced_amazon_link",
       "id": "clmk-019"
     },
@@ -5227,8 +5290,13 @@
       "filters": {
         "use": "Grinder"
       },
-      "hero": "https://m.media-amazon.com/images/I/813EueRaRUL._SX425_.jpg",
-      "gallery": [],
+      "hero": "product-photos/CLMK-020/hero.jpg",
+      "gallery": [
+        "product-photos/CLMK-020/g1.jpg",
+        "product-photos/CLMK-020/g2.jpg",
+        "product-photos/CLMK-020/g3.jpg",
+        "product-photos/CLMK-020/g4.jpg"
+      ],
       "match_tier": "image_sourced_amazon_link",
       "id": "clmk-020"
     },
@@ -5252,8 +5320,13 @@
       "filters": {
         "use": "Grinder"
       },
-      "hero": "https://m.media-amazon.com/images/I/81+N1Pom4tL._SX425_.jpg",
-      "gallery": [],
+      "hero": "product-photos/CLMK-021/hero.jpg",
+      "gallery": [
+        "product-photos/CLMK-021/g1.jpg",
+        "product-photos/CLMK-021/g2.jpg",
+        "product-photos/CLMK-021/g3.jpg",
+        "product-photos/CLMK-021/g4.jpg"
+      ],
       "match_tier": "image_sourced_amazon_link",
       "id": "clmk-021"
     },
@@ -6008,8 +6081,13 @@
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
-      "hero": "https://m.media-amazon.com/images/I/513H5kX36hL._SX425_.jpg",
-      "gallery": [],
+      "hero": "product-photos/CC-849/hero.jpg",
+      "gallery": [
+        "product-photos/CC-849/g1.jpg",
+        "product-photos/CC-849/g2.jpg",
+        "product-photos/CC-849/g3.jpg",
+        "product-photos/CC-849/g4.jpg"
+      ],
       "match_tier": "image_sourced_amazon_link",
       "id": "cc-849"
     },
