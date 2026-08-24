@@ -9732,9 +9732,8 @@
       },
       "hero": "product-photos/COP-001/hero.jpg",
       "gallery": [
-        "product-photos/COP-001/g1.jpg",
         "product-photos/COP-001/g2.jpg",
-        "product-photos/COP-001/g3.jpg"
+        "product-photos/COP-001/carton.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cop-001",
@@ -9767,9 +9766,8 @@
       },
       "hero": "product-photos/COP-002/hero.jpg",
       "gallery": [
-        "product-photos/COP-002/g1.jpg",
         "product-photos/COP-002/g2.jpg",
-        "product-photos/COP-002/g3.jpg"
+        "product-photos/COP-002/carton.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cop-002",
@@ -9800,9 +9798,8 @@
       },
       "hero": "product-photos/COP-003/hero.jpg",
       "gallery": [
-        "product-photos/COP-003/g1.jpg",
         "product-photos/COP-003/g2.jpg",
-        "product-photos/COP-003/g3.jpg"
+        "product-photos/COP-003/carton.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cop-003",
@@ -9835,10 +9832,10 @@
       },
       "hero": "product-photos/COP-004/hero.jpg",
       "gallery": [
-        "product-photos/COP-004/g1.jpg",
         "product-photos/COP-004/g2.jpg",
         "product-photos/COP-004/g3.jpg",
-        "product-photos/COP-004/g4.jpg"
+        "product-photos/COP-004/g4.jpg",
+        "product-photos/COP-004/carton.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cop-004",
@@ -9897,7 +9894,7 @@
         "material": "Glass",
         "use": "Sprayer"
       },
-      "hero": "https://m.media-amazon.com/images/I/61DYK3u0-4L._SX425_.jpg",
+      "hero": "product-photos/CLMK-017/hero.jpg",
       "gallery": [],
       "match_tier": "image_sourced_amazon_link",
       "id": "clmk-017"
