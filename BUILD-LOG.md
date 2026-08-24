@@ -90,9 +90,15 @@ untouched per the standing instruction.
 29 variant groups, 95 products. 28 groups healthy — labels present, orders
 unique, per-size heroes distinct.
 
+### Dead links cleared — `ba58557`
+`CL-804`, `CLMK-015`, `CWB042` pointed at ASINs returning a genuine 404, so their
+`amazon_link` is now empty. Each keeps its page, name and local photos; the
+"Available on: Amazon" link falls back to an Amazon search for the product name,
+a path Product.html already handled, and Buy Now no longer carries a marketplace
+URL. Verified: all three render, every image 200, no other entry references the
+dead ASINs.
+
 ### Needs a decision (not changed)
-- **3 dead `amazon_link`s** — Buy Now sends the customer to a 404:
-  `CL-804`, `CLMK-015`, `CWB042`. Their product pages and images are fine.
 - **`vg-10`** (Extra Deep Kadai, rose gold handle) — CTP-EDK-002/003/004 have no
   Amazon link, hotlinked heroes, empty galleries, and 003 (26 cm) and 004 (28 cm)
   share one photo, so the size switcher shows the same image for both. Cannot be
