@@ -98,6 +98,51 @@ a path Product.html already handled, and Buy Now no longer carries a marketplace
 URL. Verified: all three render, every image 200, no other entry references the
 dead ASINs.
 
+---
+
+## 2026-08-24 — Gallery cleanup, videos wired, footer wordmark removed
+
+**Commits:** `06e2e88` galleries · `a9a75b5` wordmark · `8b5e3fa` videos
+
+### Galleries — `06e2e88`
+- 126 gallery entries repeated a photo the product already showed (usually the
+  hero listed again as a thumbnail). References dropped; files left on disk.
+- 203 standalone products were showing fewer photos than their ASIN folder holds
+  — 908 photos wired in.
+- **Variant groups deliberately excluded.** A first pass enriched all products
+  (1032 photos) and was reverted: Amazon serves one shared image set per size
+  range, so a 20 cm folder also holds 32 cm photos with no reliable way to tell
+  them apart. Enriching there would put the wrong size on the page.
+- Correction to the earlier entry: the "28/29 variant groups healthy" claim came
+  from a check that compared hero *paths* (always distinct, one per SKU folder)
+  rather than image content. Several groups — vg-08, vg-09, vg-11, vg-13 — have
+  always shared one photo across every size, matching what Amazon itself shows.
+  Pre-existing, not introduced here.
+
+### Footer wordmark — `a9a75b5`
+The giant CRYSTAL wordmark is gone from all 62 live pages: markup, CSS (rule plus
+two responsive overrides), and the three GSAP calls that filled the letters on
+scroll and looped the wave layers. Footer now ends at the copyright bar.
+
+Five files (Terms, Career, Privacy, CRYSTAL Light, index-old-v1) carry one extra
+`}` in their CSS — verified against HEAD as pre-existing, left alone.
+
+### Videos — `8b5e3fa`
+48 products now have a video (was 10). Nine cutlery listings share one brand
+video, stored once at `product-photos/_shared/` — copying it per SKU would have
+added 145 MB of identical bytes. Playback verified on both a shared and a
+per-SKU video; the hover magnifier correctly suppresses while a video shows.
+
+`.git` is now 1.5 GB and GitHub warns about large files. If this keeps growing,
+git-lfs or hosting video off-repo is worth considering.
+
+### Not a defect (checked)
+The in-app preview browser reports 404s for `proj.leo9studio.in` assets — 128
+references across 59 pages, including a 68 MB AV film. The host actually returns
+200; the preview browser blocks external origins. Real visitors load them fine.
+Still a third-party dependency: if that staging server goes away, those assets
+break.
+
 ### Needs a decision (not changed)
 - **`vg-10`** (Extra Deep Kadai, rose gold handle) — CTP-EDK-002/003/004 have no
   Amazon link, hotlinked heroes, empty galleries, and 003 (26 cm) and 004 (28 cm)
