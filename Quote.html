@@ -290,6 +290,22 @@
   @media (max-width: 480px) {
     .support-bar { font-size: 10.5px; }
   }
+  /* ===== SEARCH OVERLAY ===== */
+  .search-ov { position: fixed; inset: 0; z-index: 110; background: rgba(15,15,15,0.55); backdrop-filter: blur(6px); display: none; align-items: flex-start; justify-content: center; padding: clamp(60px, 12vh, 140px) 20px; }
+  .search-ov.open { display: flex; }
+  .search-panel { width: min(640px, 100%); background: var(--white); border-radius: 20px; box-shadow: 0 40px 90px -30px rgba(0,0,0,0.55); overflow: hidden; }
+  .search-row { display: flex; align-items: center; gap: 12px; padding: 18px 22px; border-bottom: 1px solid var(--line); color: var(--muted); }
+  .search-row input { flex: 1; border: none; outline: none; font-size: 17px; font-family: inherit; background: transparent; color: var(--ink); }
+  .search-row button { border: none; background: transparent; font-size: 26px; line-height: 1; color: var(--muted); cursor: pointer; padding: 0 4px; }
+  .search-row button:hover { color: var(--red); }
+  .search-results { max-height: min(60vh, 480px); overflow-y: auto; }
+  .search-hit { display: flex; align-items: center; gap: 14px; padding: 12px 22px; text-decoration: none; color: var(--ink); transition: background .15s; }
+  .search-hit:hover { background: var(--cream); }
+  .search-hit img { width: 46px; height: 46px; border-radius: 10px; object-fit: cover; background: var(--cream); flex-shrink: 0; }
+  .search-hit .sh-name { font-weight: 600; font-size: 14.5px; }
+  .search-hit .sh-cat { font-size: 12.5px; color: var(--muted); text-transform: capitalize; }
+  .search-empty, .search-hint { padding: 26px 22px; color: var(--muted); font-size: 14.5px; text-align: center; }
+
 </style>
 
 </head>
@@ -382,6 +398,17 @@
     </div>
   </div>
 </header>
+
+<div class="search-ov" id="searchOv">
+  <div class="search-panel">
+    <div class="search-row">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+      <input type="text" id="searchInput" placeholder="Search products, categories, brands…" autocomplete="off">
+      <button id="searchClose" aria-label="Close search">&times;</button>
+    </div>
+    <div class="search-results" id="searchResults"></div>
+  </div>
+</div>
 
 <div class="mobile-menu" id="mobileMenu">
   <button class="mm-close" id="mmClose" aria-label="Close">&times;</button>
@@ -670,6 +697,50 @@
   document.getElementById("burger").addEventListener("click", () => mmEl.classList.add("open"));
   document.getElementById("mmClose").addEventListener("click", () => mmEl.classList.remove("open"));
   document.querySelectorAll(".mm-link").forEach(a => a.addEventListener("click", () => mmEl.classList.remove("open")));
+
+  /* site search: loads the real product catalog and filters by name/category/brand/tags */
+  (function () {
+    const ov = document.getElementById("searchOv"), input = document.getElementById("searchInput"),
+      results = document.getElementById("searchResults"), closeBtn = document.getElementById("searchClose");
+    let items = [], loaded = false;
+
+    function openSearch() {
+      ov.classList.add("open");
+      setTimeout(() => input.focus(), 50);
+      if (!loaded) {
+        loaded = true;
+        fetch("product-data/products.json").then(r => r.json()).then(data => {
+          items = (data.products || []).map(p => ({
+            name: p.name, cat: p.subcategory || p.category || "", brand: p.brand || "",
+            img: p.hero || "about-assets/placeholder.svg", id: p.id || p.sku || "",
+            hay: [p.name, p.category, p.subcategory, p.brand, p.sku, p.id, ...(p.tags || [])].join(" ").toLowerCase(),
+          }));
+          renderResults(input.value.trim());
+        }).catch(() => { results.innerHTML = '<div class="search-empty">Could not load product catalog.</div>'; });
+      }
+    }
+    function closeSearch() { ov.classList.remove("open"); input.value = ""; results.innerHTML = ""; }
+    function renderResults(q) {
+      if (!q) { results.innerHTML = '<div class="search-hint">Start typing to search products…</div>'; return; }
+      const ql = q.toLowerCase();
+      const hits = items.filter(p => p.hay.includes(ql)).slice(0, 8);
+      if (!hits.length) { results.innerHTML = '<div class="search-empty">No products found for “' + q + '”.</div>'; return; }
+      results.innerHTML = hits.map(p =>
+        `<a class="search-hit" href="Product.html?p=${encodeURIComponent(p.id)}">
+          <img src="${p.img.startsWith('about-assets/') || p.img.startsWith('product-photos/') ? p.img : 'about-assets/placeholder.svg'}" alt="" loading="lazy">
+          <div><div class="sh-name">${p.name}</div><div class="sh-cat">${p.cat}${p.brand ? " · " + p.brand : ""}</div></div>
+        </a>`).join("");
+    }
+
+    document.getElementById("searchBtn").addEventListener("click", openSearch);
+    closeBtn.addEventListener("click", closeSearch);
+    ov.addEventListener("click", e => { if (e.target === ov) closeSearch(); });
+    document.addEventListener("keydown", e => {
+      if (e.key === "Escape" && ov.classList.contains("open")) closeSearch();
+    });
+    input.addEventListener("input", () => renderResults(input.value.trim()));
+  })();
+
 
   /* form validation + success */
   const form = document.getElementById("quoteForm");
