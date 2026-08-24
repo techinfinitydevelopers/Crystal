@@ -9688,11 +9688,13 @@
       },
       "hero": "product-photos/CC-894/hero.jpg",
       "gallery": [
+        "product-photos/CC-894/g1.jpg",
         "product-photos/CC-894/g2.jpg",
         "product-photos/CC-894/g3.jpg",
         "product-photos/CC-894/g4.jpg",
         "product-photos/CC-894/g5.jpg",
-        "product-photos/CC-894/g6.jpg"
+        "product-photos/CC-894/g6.jpg",
+        "product-photos/CC-894/g7.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cc-894"
@@ -10030,7 +10032,11 @@
         "product-photos/CC-859/g2.jpg",
         "product-photos/CC-859/g3.jpg",
         "product-photos/CC-859/g4.jpg",
-        "product-photos/CC-859/g5.jpg"
+        "product-photos/CC-859/g5.jpg",
+        "product-photos/CC-859/g6.jpg",
+        "product-photos/CC-859/g7.jpg",
+        "product-photos/CC-859/g8.jpg",
+        "product-photos/CC-859/g9.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cc-859"
