@@ -170,17 +170,6 @@
   .foot-col ul { list-style: none; display: grid; gap: 11px; }
   .foot-col a { font-weight: 600; font-size: 15.5px; color: #fff; transition: color .2s, padding-left .2s; }
   .foot-col a:hover { color: var(--red); padding-left: 4px; }
-  .foot-wordmark { position: relative; font-family: var(--head); font-weight: 700; text-transform: uppercase; font-size: clamp(64px, 19vw, 300px); line-height: 0.78; letter-spacing: -0.04em; text-align: center; margin: clamp(18px,3vw,38px) 0 -0.05em; user-select: none; pointer-events: none; }
-  .foot-wordmark span { display: block; }
-  .foot-wordmark .wm-outline { color: transparent; -webkit-text-stroke: 1.5px rgba(255,255,255,0.13); }
-  .foot-wordmark .wm-fill { position: absolute; inset: 0; color: transparent; -webkit-background-clip: text; background-clip: text; --level: 0%; --wavex: 0px; --wavex2: 0px;
-    background-image:
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='22' viewBox='0 0 160 22' preserveAspectRatio='none'%3E%3Cpath d='M0 9 Q 40 0 80 9 T 160 9 V22 H0 Z' fill='%23ff5256'/%3E%3C/svg%3E"),
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='26' viewBox='0 0 200 26' preserveAspectRatio='none'%3E%3Cpath d='M0 13 Q 50 3 100 13 T 200 13 V26 H0 Z' fill='%23ED3338'/%3E%3C/svg%3E"),
-      linear-gradient(180deg, #ED3338, #c0282c);
-    background-repeat: repeat-x, repeat-x, no-repeat;
-    background-size: 160px 22px, 200px 26px, 100% var(--level);
-    background-position: var(--wavex) calc(100% - var(--level) - 8px), var(--wavex2) calc(100% - var(--level) - 12px), left bottom; }
   .foot-bottom { padding-top: 24px; border-top: 1.5px solid var(--line-d); display: flex; justify-content: space-between; gap: 14px; flex-wrap: wrap; color: var(--muted-d); font-size: 14px; }
 
   /* ===== MOBILE MENU ===== */
@@ -207,14 +196,12 @@
     .foot-cta { gap: 18px; }
     .foot-cta h3 { font-size: clamp(26px, 8vw, 40px); }
     .foot-cta .btn { width: 100%; justify-content: center; }
-    .foot-wordmark { font-size: clamp(52px, 22vw, 116px); }
     .news-form input { width: 100%; }
     .news-form .btn { width: 100%; justify-content: center; }
   }
   @media (max-width: 400px) {
     .btn { padding: 13px 20px; font-size: 14px; }
     .wrap { padding-inline: 16px; }
-    .foot-wordmark { font-size: 46px; }
     .mobile-menu a { font-size: clamp(30px, 12vw, 48px); }
   }
   /* ===== UNIFIED HEADER (support bar / icon nav) ===== */
@@ -511,7 +498,6 @@
         </ul>
       </div>
     </div>
-    <div class="foot-wordmark"><span class="wm-outline">CRYSTAL</span><span class="wm-fill">CRYSTAL</span></div>
     <div class="foot-bottom">
       <span>© 2026 Crystal. All rights reserved. Designed & Developed by <a href="https://techinfinity.io" target="_blank" style="color:inherit;text-decoration:underline;">TechInfinity</a>.</span>
       <span><a href="Privacy.html">Privacy Policy</a> · <a href="Terms.html">Terms &amp; Condition</a></span>
