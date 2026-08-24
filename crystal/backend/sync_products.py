@@ -93,6 +93,9 @@ def main():
             "is_active": True,
             "price": p.get("mrp") if isinstance(p.get("mrp"), (int, float)) else None,
             "show_price": bool(isinstance(p.get("mrp"), (int, float))),
+            # bulk-imported from the JSON catalogue, not created in the dashboard —
+            # must stay excluded from export_products_json (see that command's docstring)
+            "is_dashboard_managed": False,
         }
         prod, was_created = Product.objects.update_or_create(sku=sku, defaults=defaults)
         if was_created:

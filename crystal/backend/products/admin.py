@@ -1,4 +1,8 @@
-from django.contrib import admin
+import io
+from contextlib import redirect_stderr, redirect_stdout
+
+from django.contrib import admin, messages
+from django.core.management import call_command
 from django.utils.html import format_html, mark_safe
 from django.templatetags.static import static
 from .models import (
@@ -115,10 +119,18 @@ class ProductVariantInline(admin.TabularInline):
 class ProductImageInline(admin.TabularInline):
     model = ProductImage
     extra = 1
-    fields = ['image', 'image_preview', 'order']
+    fields = ['variant', 'image', 'image_preview', 'is_hero', 'order']
     readonly_fields = ['image_preview']
     verbose_name = 'Gallery Image'
     verbose_name_plural = 'Gallery Images'
+
+    def get_formset(self, request, obj=None, **kwargs):
+        # Only offer this product's own sizes/variants in the dropdown — leave the
+        # field blank to attach a photo to the product in general (shown for every
+        # size), or pick a variant to give that one size its own dedicated photos.
+        formset = super().get_formset(request, obj, **kwargs)
+        formset.form.base_fields['variant'].queryset = obj.variants.all() if obj is not None else ProductVariant.objects.none()
+        return formset
 
     @admin.display(description='Preview')
     def image_preview(self, obj):
@@ -201,6 +213,22 @@ class ProductAdmin(admin.ModelAdmin):
         ProductSpecificationInline,
         ProductMarketplaceLinkInline,
     ]
+
+    actions = ['export_to_website']
+
+    @admin.action(description='🚀 Export to website (pushes every dashboard product\'s photos to the live site)')
+    def export_to_website(self, request, queryset):
+        # This exports ALL dashboard-managed products (not just the selected rows) —
+        # export_products_json always rebuilds the full dashboard slice in one go so
+        # sizes sharing a variant_group stay together. Selecting rows just triggers it.
+        out, err = io.StringIO(), io.StringIO()
+        try:
+            with redirect_stdout(out), redirect_stderr(err):
+                call_command('export_products_json')
+        except Exception as exc:
+            self.message_user(request, f"Export failed: {exc}", level=messages.ERROR)
+            return
+        self.message_user(request, out.getvalue().strip() or "Export finished.", level=messages.SUCCESS)
 
     # ── List display helpers ────────────────────────────────────────────
 

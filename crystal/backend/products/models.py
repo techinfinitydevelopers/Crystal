@@ -58,6 +58,11 @@ class Product(models.Model):
     price = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
     featured_image = models.ImageField(upload_to='products/featured/', blank=True, null=True)
     thumbnail = models.ImageField(upload_to='products/thumbnails/', blank=True, null=True)
+    is_dashboard_managed = models.BooleanField(
+        default=True,
+        help_text="Internal — leave this on. Only products created here (rather than bulk-imported from the "
+                   "existing site catalogue) are pushed to the live site by 'Export to website'.",
+    )
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
@@ -74,14 +79,20 @@ class Product(models.Model):
 
 class ProductImage(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='images')
+    variant = models.ForeignKey(
+        'ProductVariant', null=True, blank=True, on_delete=models.CASCADE, related_name='images',
+        help_text="Leave blank for a general product photo. Set this to attach the photo to one specific size/variant only — e.g. so the '16 cm' variant shows its own pan instead of the 14 cm one.",
+    )
     image = models.ImageField(upload_to='products/gallery/')
+    is_hero = models.BooleanField(default=False, help_text='Use as the main/large photo for this product (or this variant, if set).')
     order = models.PositiveIntegerField(default=0)
 
     class Meta:
         ordering = ['order']
 
     def __str__(self):
-        return f"{self.product.name} image {self.order}"
+        scope = f" ({self.variant.name})" if self.variant_id else ""
+        return f"{self.product.name}{scope} image {self.order}"
 
 
 class ProductSpecification(models.Model):
