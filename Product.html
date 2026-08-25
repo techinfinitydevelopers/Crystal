@@ -170,6 +170,11 @@
   .mk-inline { margin-top: 16px; font-size: 13px; font-weight: 600; color: var(--muted); display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
   .mk-inline a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
   .mk-inline a:hover { color: var(--red); }
+  /* Marketplace wordmarks sit in place of the plain text label; the alt text
+     keeps the link readable if the file is missing. */
+  .mk-inline a.mk-brand { text-decoration: none; display: inline-flex; align-items: center; }
+  .mk-inline a.mk-brand img { height: 19px; width: auto; display: block; }
+  .mk-inline a.mk-brand:hover img { opacity: .75; }
   .pdp-sticky { position: fixed; left: 0; right: 0; bottom: 0; z-index: 90; display: none; gap: 10px; padding: 12px 16px calc(12px + env(safe-area-inset-bottom)); background: rgba(255,255,255,0.96); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border-top: 1.5px solid var(--line); }
   .pdp-sticky .btn { flex: 1; justify-content: center; }
   @media (max-width: 760px) { .pdp-sticky { display: flex; } body { padding-bottom: 74px; } }
@@ -965,13 +970,15 @@
   function wireEnq(btn, p, gal) { if (!btn) return; p = p || prod; gal = gal || gallery; btn.dataset.id = p.id; btn.dataset.name = p.n; btn.dataset.brand = brand.name; btn.dataset.cat = CAT_LABEL[p.c] || p.c; btn.dataset.img = gal[0] || ""; }
   wireEnq(document.getElementById("enqAddBtn"));
   wireEnq(document.getElementById("sEnq"));
-  function wireBuy(btn, p) { if (!btn) return; btn.dataset.name = p.n; if (p.alink && p.alink !== "No") { btn.dataset.mk = JSON.stringify([{ name: "Amazon", url: p.alink }]); } else { delete btn.dataset.mk; } }
+  var AMAZON_LOGO = "brand-logos/amazon.svg";
+  function wireBuy(btn, p) { if (!btn) return; btn.dataset.name = p.n; if (p.alink && p.alink !== "No") { btn.dataset.mk = JSON.stringify([{ name: "Amazon", url: p.alink, logo: AMAZON_LOGO }]); } else { delete btn.dataset.mk; } }
   wireBuy(document.getElementById("buyNowBtn"), prod);
   wireBuy(document.getElementById("sBuy"), prod);
   var _q = encodeURIComponent(prod.n);
   var _amzHref = (prod.alink && prod.alink !== "No") ? prod.alink : ("https://www.amazon.in/s?k=" + _q);
   document.getElementById("mkInline").innerHTML = "Available on: " +
-    '<a href="' + _amzHref + '" target="_blank" rel="noopener nofollow sponsored">Amazon</a>' +
+    '<a class="mk-brand" href="' + _amzHref + '" target="_blank" rel="noopener nofollow sponsored">'
+      + '<img src="' + AMAZON_LOGO + '" alt="Amazon" onerror="this.parentNode.textContent=&quot;Amazon&quot;">' + '</a>' +
     '<a href="https://www.flipkart.com/search?q=' + _q + '" target="_blank" rel="noopener nofollow sponsored">Flipkart</a>' +
     '<a href="https://www.jiomart.com/search/' + _q + '" target="_blank" rel="noopener nofollow sponsored">JioMart</a>';
   (function () { var qi = document.getElementById("qtyInput"); var mn = document.getElementById("qtyMinus"), pl = document.getElementById("qtyPlus"); if (qi && mn && pl) { mn.onclick = function () { qi.value = Math.max(1, (parseInt(qi.value, 10) || 1) - 1); }; pl.onclick = function () { qi.value = (parseInt(qi.value, 10) || 1) + 1; }; } })();
@@ -1021,7 +1028,8 @@
     const _q2 = encodeURIComponent(newP.n);
     const _amzHref2 = (newP.alink && newP.alink !== "No") ? newP.alink : ("https://www.amazon.in/s?k=" + _q2);
     document.getElementById("mkInline").innerHTML = "Available on: " +
-      '<a href="' + _amzHref2 + '" target="_blank" rel="noopener nofollow sponsored">Amazon</a>' +
+      '<a class="mk-brand" href="' + _amzHref2 + '" target="_blank" rel="noopener nofollow sponsored">'
+      + '<img src="' + AMAZON_LOGO + '" alt="Amazon" onerror="this.parentNode.textContent=&quot;Amazon&quot;">' + '</a>' +
       '<a href="https://www.flipkart.com/search?q=' + _q2 + '" target="_blank" rel="noopener nofollow sponsored">Flipkart</a>' +
       '<a href="https://www.jiomart.com/search/' + _q2 + '" target="_blank" rel="noopener nofollow sponsored">JioMart</a>';
     document.getElementById("ovLead").textContent = newP.intro;

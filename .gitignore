@@ -10,3 +10,6 @@ crystal/backend/.env
 
 # local data-merge backups/scratch scripts
 product-data/*.backup*
+
+# 66 MB master of the hero film; the page ships AV-FILM-web.mp4 (12 MB)
+home-v3-assets/video/AV-FILM.mp4

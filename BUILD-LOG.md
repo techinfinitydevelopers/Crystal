@@ -174,3 +174,94 @@ the PDP's right column holds the product info and a side panel would cover it.
 COP-004; suppressed on CPW-001 with its video playing; at the 375x812 mobile preset
 the layer is `display:none`, nothing is wired, and the cursor stays default. No
 console errors, all gallery requests 200.
+
+## 2026-08-25 — Home v3 page + Amazon wordmark on product pages
+
+### CRYSTAL-Home-v3.html
+
+A full re-build of the home page against the reference at
+`proj.leo9studio.in/projects/crystal-wp/`, structure, copy and scroll
+choreography included.
+
+Built by a script (`scratchpad/home3/build/build_v3.py`) that swaps only the
+body between the first section and the footer of `index.html`, so the support
+bar, header, mega menu, search overlay, mobile menu, footer, enquiry wiring and
+tweaks panel stay byte-identical to the rest of the site. The old home page's
+own renderer script is dropped with the sections it built; two leftovers in the
+kept half (the testimonial rail's drag handler and the `initGSAP()` call) had to
+go with it or the page threw on load.
+
+Sections and what animates:
+
+| Section | Behaviour |
+|---|---|
+| Hero | Swiper `cards` stack of 5 videos, GSAP opens it to 100vw/100vh, then swaps to a `fade` loop |
+| Since 1971 | Pinned; scroll drives a vertical parallax Swiper and fills the sentence word by word |
+| About | Halves fly in, image morphs circle to rectangle, four counters, red line drawn |
+| Our Brands | Accordion recolours the section + CTA and refilters the gallery per brand |
+| Trusted Partners | 12 logos, grayscale until hover |
+| Made in India | Pinned; the inline India map zooms out from a close crop as the dark panel slides in; five tabs drive its slider |
+| Resources | Three blog cards, one featured spanning two rows |
+| Pre-footer | Image parallax |
+
+Notes worth keeping:
+- `SplitText` and `DrawSVG` are premium GSAP plugins. Neither is used: the words
+  are split by a small local walker, and the red line animates `strokeDashoffset`
+  directly (which is all the reference's DrawSVG call did anyway).
+- Every pin is desktop-only via `gsap.matchMedia("(min-width: 1025px)")`. Below
+  that the sliders autoplay, which is what the reference does and what keeps iOS
+  Safari from fighting pinned sections.
+- A vertical Swiper sizes its slides from its container, so an auto-height
+  container makes the two chase each other. `aspect-ratio` on the mobile wrap
+  grew the page to 26,000,000px; an explicit `height` fixed it.
+- The nav pill is transparent until scrolled, which was fine over the old light
+  hero but hid the red wordmark against dark video. This page floats the light
+  pill from the start.
+
+Assets: 66 files pulled into `home-v3-assets/`. The host answers a JS challenge
+with an HTML body even for `.jpg` URLs, so downloads are validated by their first
+bytes; the session cookie from a browser that solved the challenge is what gets
+curl through. The 68 MB hero film was re-encoded to 12 MB (1280px, CRF 26, no
+audio, faststart) and the master is gitignored.
+
+**Verified** at 1440x900: pins created at 870-4470 (split) and 7866-10366 (map),
+13/27 words filled at scrollY 2600, map panel mid-slide at 9200, accordion switch
+to SparkMate repainted the section to `#6E1A8F` and swapped the gallery to its 5
+photos with the CTA pointing at `Brand-SparkMate.html`, counters ended at
+50/2000/1000/10Cr. At 390x844: no pins, no horizontal overflow
+(`scrollWidth === 390`), hero legible. No console errors at either size.
+
+### Amazon wordmark on product pages
+
+`Product.html` and `enquiry.js` now show the Amazon logo where the word "Amazon"
+was printed: in the "Available on:" row and in the Buy Now marketplace modal.
+
+- `brand-logos/amazon.svg` — the official wordmark, 5.5 KB. It shipped without a
+  `viewBox`, so it would not scale to a CSS height; one was added from its
+  width/height.
+- The modal inverts its rows on hover, which would swallow a black wordmark, so
+  logos there sit on a small white chip.
+- `.mk-row img` was `22x22` square; wordmarks are ~3:1, so it is now
+  `height:20px; width:auto`.
+- If the file is ever missing the `onerror` handler puts the word "Amazon" back,
+  so the link never renders empty.
+
+**Verified** on `Product.html?p=CNS-756`: the logo loads (603x182 natural,
+renders 63x19), the link still points at `amazon.in/dp/B0FHKWJ46X`, and Buy Now's
+`data-mk` carries the logo path.
+
+### About page — hero and legacy media swapped
+
+The film moved into the hero and the couple cut-out moved into the legacy box.
+Both containers needed their inner rules adjusted rather than just their `src`:
+
+- `.hero-couple` was styled for a cut-out (`drop-shadow`, `height:auto`). The
+  video gets `aspect-ratio: 16/9`, `object-fit: cover`, rounded corners and a
+  real box shadow instead.
+- `.legacy-video` is a 16/9 frame with `object-fit: cover`, which would crop the
+  couple at the shoulders. The image uses `contain` on white.
+
+**Verified** at 1440x900: hero holds `about-vid.mp4` at 820x461 with
+`readyState 4`; legacy holds `hero-couple.webp` (810x656 natural) contained in a
+1098x617 frame. No stray `<video>` left in `.legacy-video`, no stray `<img>` in
+`.hero-couple`.

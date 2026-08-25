@@ -47,7 +47,7 @@
   function defaultMarkets(name) {
     var q = encodeURIComponent(name || "Crystal Cook");
     return [
-      { name: "Amazon", url: "https://www.amazon.in/s?k=" + q },
+      { name: "Amazon", url: "https://www.amazon.in/s?k=" + q, logo: "brand-logos/amazon.svg" },
       { name: "Flipkart", url: "https://www.flipkart.com/search?q=" + q },
       { name: "JioMart", url: "https://www.jiomart.com/search/" + q }
     ];
@@ -125,7 +125,7 @@
     ".mk-list{display:grid;gap:8px;}" +
     ".mk-row{display:flex;align-items:center;gap:12px;padding:14px 16px;border:1.5px solid var(--line,#e7e7e7);border-radius:12px;font:700 15px var(--head);color:var(--ink,#1A1A1A);text-decoration:none;transition:background .2s,border-color .2s,color .2s;}" +
     ".mk-row:hover,.mk-row:focus-visible{background:var(--ink,#1A1A1A);color:#fff;border-color:var(--ink,#1A1A1A);outline:none;}" +
-    ".mk-row img{width:22px;height:22px;object-fit:contain;}" +
+    ".mk-row img{height:20px;width:auto;max-width:96px;object-fit:contain;background:#fff;border-radius:4px;padding:2px 5px;}" +
     ".mk-row .mk-arr{margin-left:auto;}" +
     ".mk-note{display:block;margin-top:14px;font:600 11.5px var(--body);color:var(--muted,#888);}" +
     "@media (max-width:560px){.enq-modal-overlay{align-items:flex-end;}.enq-modal{width:100%;border-radius:20px 20px 0 0;}.mk-row{padding:16px;}}" +
