@@ -46,10 +46,10 @@
   /* ---------- marketplace modal ---------- */
   function defaultMarkets(name) {
     var q = encodeURIComponent(name || "Crystal Cook");
+    // Amazon only. With a single entry buy() opens it directly instead of
+    // showing a chooser, which is the whole point of there being one.
     return [
-      { name: "Amazon", url: "https://www.amazon.in/s?k=" + q, logo: "brand-logos/amazon.svg" },
-      { name: "Flipkart", url: "https://www.flipkart.com/search?q=" + q },
-      { name: "JioMart", url: "https://www.jiomart.com/search/" + q }
+      { name: "Amazon", url: "https://www.amazon.in/s?k=" + q, logo: "brand-logos/amazon.svg" }
     ];
   }
   function esc(s) { return String(s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
