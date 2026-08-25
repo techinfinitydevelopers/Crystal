@@ -103,3 +103,9 @@ Not just Browser-pane tabs (see above) — the per-session scratchpad temp direc
 ## Contacts / voice reference
 - Brand tone reference: `About.html`. Don't invent certifications/claims not already stated elsewhere on the site.
 - Footer contact: `sales@crystalcook.com`, `022-49702803/06`, Rajkot (GIDC Metoda) + Mumbai (Andheri E) addresses — already in shared footer, no need to re-derive.
+
+## export_to_json (DB -> products.json), 2026-08-25
+- New command: `python manage.py export_to_json` (crystal/backend/products/management/commands/export_to_json.py). Regenerates `product-data/products.json` from the dashboard DB via `products.serializers.site_product_entries` (same layer as `/api/products/site.json/` — no duplicated mapping).
+- Flags: `--check` (diff only, writes nothing), `--out PATH`. Writes temp file + `os.replace` (atomic), preserves file's SKU order + top-level metadata, refreshes `generated_at`, appends new SKUs after.
+- Round-trip verified 2026-08-25: 531/531 entries, 0 real diffs; only the 8 known amazon_link placeholder products (`"No"`/`""` in file -> `null` in export: LI007, LI008, LI009, VML-002, CL-804, CLCL-003, CLMK-015, CWB042). Note: the file uses `null` (not `""`) for the other 213 link-less products, so export emits `null` for empty links to match.
+- Older `export_products_json` command only handled dashboard_admin entries; `export_to_json` is the full-catalogue exporter to use going forward.

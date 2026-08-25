@@ -206,3 +206,23 @@
 - `B0DZGQ5W78` -> "Crystal Trival Triply Stainless Steel 2 Pc Cookware Set (Fry Pan-22cm & Tea/Milk Saucepan-16cm), Silver" — old img-1..5.jpg deleted, 5 new images saved, info.json overwritten.
 
 Titles confirmed to match expected products before any save. Old images deleted prior to downloading replacements in all 3 folders.
+
+## 2026-08-25 — export_to_json management command (DB is now source of truth for products.json)
+
+**Task:** Make the dashboard DB regenerable into `product-data/products.json` (the live static site's data file) so client edits in the dashboard can reach the site.
+
+**Done:** Added `crystal/backend/products/management/commands/export_to_json.py`. Reuses `site_product_entries` from `products/serializers.py`. Supports `--check` (diff, no write) and `--out PATH`; atomic temp-file replace; preserves current file SKU order and metadata keys; one-line summary (written / new / missing).
+
+**Verified:** `--check`: 531 file entries vs 531 DB entries, order identical, 0 real diffs, 8 known amazon_link placeholder-only diffs ('No'/'' -> null). Independent Python diff of a scratch export confirmed the same 8-and-only-8. `manage.py check`: no issues. Live products.json NOT overwritten; nothing committed.
+
+---
+
+## 2026-08-25 — End-to-end QA of dashboard workflows (Django test client)
+
+**Task:** Client-style QA of six admin flows: add product with variants/features, image inlines, Excel import (create/update/idempotent/bad-row), site.json API parity, template downloads, admin theme CSS.
+
+**Result:** 6/6 PASS, no code changes needed. Evidence: add form saves and round-trips features as "icon | title | detail" lines with 2 variants; changelist shows hero=1/photos=3/variants=2; import reported 1 created + 1 updated, re-upload all unchanged, unknown-brand row skipped with reason while good row landed; /api/products/site.json/ emitted 2 sibling variant entries sharing a variant_group with all products.json core keys; template.xlsx/.csv both 200 with the documented 15-column header; admin/crystal_theme.css found by staticfiles finder and referenced by JAZZMIN_SETTINGS custom_css.
+
+**Cleanup:** All QA products/variants/images deleted, uploaded media files and empty dirs removed, temp superuser deleted. Counts restored to baseline 531 products / 95 variants / 2483 images. products.json untouched; nothing committed.
+
+**Note:** Jazzmin logs a deprecation warning: JAZZMIN_UI_TWEAKS['dark_mode_theme'] is ignored; use default_theme_mode instead.
