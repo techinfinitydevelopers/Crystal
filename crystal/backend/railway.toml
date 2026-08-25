@@ -2,6 +2,7 @@
 builder = "nixpacks"
 
 [deploy]
+preDeployCommand = "python manage.py migrate --no-input && python manage.py collectstatic --no-input"
 startCommand = "gunicorn config.wsgi --workers 2 --bind 0.0.0.0:$PORT"
 healthcheckPath = "/api/products/"
 restartPolicyType = "on_failure"

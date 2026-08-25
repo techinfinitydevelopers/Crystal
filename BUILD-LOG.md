@@ -650,3 +650,48 @@ build where it measured 14/27 at mid-scroll.
 Also confirmed live in the same pass: Trusted Partners is **12/12 loaded and
 12/12 visible** (the invisible-reveal fix holds), hero is 1 video + 4 stills,
 nav is transparent at the top.
+
+## 2026-08-25 (16) — Dashboard prepared for deployment
+
+The Railway project turned out to run **one** service - the static website.
+The dashboard was never deployed; it existed only on the local machine. That
+is why `python` was not found in the console the user tried: no `requirements.txt`
+at the repo root means that container has no Python at all.
+
+Prepared the backend to run as a second service. Repo-side changes:
+
+- **`requirements.txt`** - added `whitenoise`. With `DEBUG=False` Django serves
+  no static files, and `config/urls.py` only calls `static()` while DEBUG is on,
+  so the admin would have loaded completely unstyled - including the Crystal
+  theme built earlier.
+- **`config/settings.py`**
+  - WhiteNoise middleware directly after SecurityMiddleware.
+  - `STORAGES` using `CompressedStaticFilesStorage`. Deliberately not the
+    manifest variant: it fails the whole deploy if any stylesheet references a
+    file that is not present, and Jazzmin ships a few such references.
+  - A production block, all conditional on `not DEBUG`: SSL redirect, secure
+    session/CSRF cookies, HSTS, nosniff, and `SECURE_PROXY_SSL_HEADER`. That
+    header is load-bearing - Railway terminates TLS at its edge and forwards
+    plain HTTP, so `SECURE_SSL_REDIRECT` without it is an infinite redirect.
+  - A hard failure if `SECRET_KEY` is still the `django-insecure-` placeholder
+    while DEBUG is off. A deploy that fails loudly beats one that silently ships
+    forgeable session cookies.
+- **`Procfile` / `railway.toml`** - `collectstatic --no-input` alongside migrate.
+- **`dashboard-seed.json`** - 5,418 records (530 products, 2,474 images, 1,956
+  specs, 317 marketplace links, 95 variants, 41 categories, 4 brands) for
+  loading into Postgres. Excludes `auth.user` on purpose so no password hash
+  goes into git; the superuser is created on the service instead.
+  Note: `dumpdata -o` writes in the Windows locale encoding and produced invalid
+  UTF-8 (a smart quote at byte 24005). Regenerated with `PYTHONUTF8=1` and stdout
+  redirection.
+- **`DEPLOY.md`** - the six dashboard-side steps, which need account access.
+- `.gitignore` - `staticfiles/`, rebuilt on every deploy.
+
+**Verified**: local `check` clean with DEBUG on; production simulation down from
+6 warnings to 1 (HSTS preload, which should not be enabled casually); the
+placeholder-key guard raises as intended; `collectstatic --dry-run` collects 254
+files.
+
+Two things called out in DEPLOY.md that cost data if skipped: Postgres must be
+added (SQLite lives in the container and is wiped every deploy), and a volume
+mounted at `/app/media` (or dashboard-uploaded photos vanish the same way).

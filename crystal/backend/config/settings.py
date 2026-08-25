@@ -57,6 +57,10 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    # Serves the admin's own CSS/JS in production. Without it DEBUG=False means
+    # Django serves no static files at all and the dashboard renders unstyled -
+    # config/urls.py only wires static() up while DEBUG is on.
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -105,6 +109,12 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+# Compressed, not manifest-hashed: a manifest build fails the whole deploy if
+# any stylesheet references a file that is not there, and Jazzmin ships a few.
+STORAGES = {
+    'default': {'BACKEND': 'django.core.files.storage.FileSystemStorage'},
+    'staticfiles': {'BACKEND': 'whitenoise.storage.CompressedStaticFilesStorage'},
+}
 STATICFILES_DIRS = [BASE_DIR / 'static']
 
 MEDIA_URL = '/media/'
@@ -117,6 +127,31 @@ MEDIA_URL = '/media/'
 _site_root = BASE_DIR.parent.parent
 MEDIA_ROOT = Path(env('MEDIA_ROOT', default=str(
     _site_root if (_site_root / 'product-data').is_dir() else BASE_DIR / 'media')))
+
+# ---------------------------------------------------------------------------
+# Production hardening. All of it is conditional on DEBUG being off, so local
+# development is untouched.
+# ---------------------------------------------------------------------------
+if not DEBUG:
+    from django.core.exceptions import ImproperlyConfigured
+
+    if SECRET_KEY.startswith('django-insecure-'):
+        raise ImproperlyConfigured(
+            "SECRET_KEY is still the development placeholder. Set a real "
+            "SECRET_KEY environment variable on the service before deploying - "
+            "session and password-reset tokens are signed with it."
+        )
+
+    # Railway terminates TLS at its edge and forwards over plain HTTP. Without
+    # this header Django cannot tell the request was HTTPS, and SECURE_SSL_REDIRECT
+    # would bounce every request into a redirect loop.
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+    SECURE_SSL_REDIRECT = True
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
+    SECURE_HSTS_SECONDS = 60 * 60 * 24 * 30
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+    SECURE_CONTENT_TYPE_NOSNIFF = True
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
