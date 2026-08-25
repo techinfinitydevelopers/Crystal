@@ -403,3 +403,17 @@ also stopped leaving two-thirds of its width empty:
 
 **Verified** 1280x800: four cards at 324/240/240/240px, all 154px tall,
 row 1114px wide, `scrollWidth` 1265. 430px: single column, no overflow.
+
+## 2026-08-25 (7) — Legacy cut-out scaled down
+
+The couple cut-out was filling the full-width 16:9 frame the video used to
+occupy, so it rendered larger than anything else on the page. The frame now
+sizes to the artwork instead of the column:
+
+- `.legacy-video:has(img)` caps at `min(560px, 100%)` and switches to 4:3,
+  centred with `margin: ... auto 0`. The video keeps the full-width 16:9
+  frame - the rule only matches when the box holds an image.
+- Inner padding added so the cut-out is not flush against the border.
+
+**Verified** 1280x800: box 560x420 (was 1114x627). 430px: 358x269, no
+horizontal overflow.
