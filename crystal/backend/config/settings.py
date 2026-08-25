@@ -59,6 +59,13 @@ if not _pa_host:
 if _pa_host and _pa_host not in ALLOWED_HOSTS:
     ALLOWED_HOSTS.append(_pa_host)
 
+# The public website — a separate service from this dashboard, so its address
+# cannot be derived and has to be configured. Used by the "View Site" link and,
+# more importantly, to resolve the site-root-relative image paths that every
+# imported product carries (see products.admin._public_url).
+PUBLIC_SITE_URL = env('PUBLIC_SITE_URL',
+                      default='https://crystal-cook-production.up.railway.app')
+
 CSRF_TRUSTED_ORIGINS = [
     'http://localhost:3456',
     'http://127.0.0.1:3456',
@@ -233,13 +240,13 @@ JAZZMIN_SETTINGS = {
     # top menu
     "topmenu_links": [
         {"name": "Dashboard", "url": "admin:index", "permissions": ["auth.view_user"]},
-        {"name": "View Site", "url": "http://localhost:3456", "new_window": True},
+        {"name": "View Site", "url": PUBLIC_SITE_URL, "new_window": True},
         {"model": "enquiry.Enquiry"},
     ],
 
     # user menu
     "usermenu_links": [
-        {"name": "View Site", "url": "http://localhost:3456", "new_window": True, "icon": "fas fa-globe"},
+        {"name": "View Site", "url": PUBLIC_SITE_URL, "new_window": True, "icon": "fas fa-globe"},
     ],
 
     # sidebar
@@ -283,6 +290,10 @@ JAZZMIN_SETTINGS = {
     "changeform_format_overrides": {
         "auth.user": "collapsible",
         "auth.group": "vertical_tabs",
+        # Tabs put Sizes and Gallery on mutually exclusive panes, so an admin
+        # could never see a size and its photos at the same time. Stacked cards
+        # on one page is also what the Shopify-style theme is built for.
+        "products.product": "single",
     },
     "language_chooser": False,
 }
@@ -312,7 +323,7 @@ JAZZMIN_UI_TWEAKS = {
     "button_classes": {
         "primary": "btn-danger",
         "secondary": "btn-outline-secondary",
-        "info": "btn-info",
+        "info": "btn-outline-secondary",
         "warning": "btn-warning",
         "danger": "btn-danger",
         "success": "btn-success",

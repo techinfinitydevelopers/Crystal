@@ -1,6 +1,7 @@
 import io
 from contextlib import redirect_stderr, redirect_stdout
 
+from django.conf import settings
 from django.contrib import admin, messages
 from django.core.management import call_command
 from django.db.models import Count, Q
@@ -113,6 +114,42 @@ class CategoryAdmin(admin.ModelAdmin):
 
 
 # ── "What's missing?" list filters ─────────────────────────────────────────
+
+# Top-level folders the static website serves; anything else is dashboard media.
+SITE_CONTENT_DIRS = frozenset({
+    'product-photos', 'about-assets', 'brand-assets', 'home-v3-assets',
+    'uploads', 'brand-logos', 'product-data',
+})
+
+
+def _public_url(value):
+    """Resolve a stored image/video reference to something a browser can fetch.
+
+    Every imported product stores a *site-root-relative* path such as
+    "product-photos/CL-414/hero.jpg" - that is the form the static website
+    wants, and MEDIA_ROOT is rooted at the site tree so /media/<path> serves it.
+
+    Emitted raw into an <img src> the browser resolves it against the current
+    admin URL and requests
+    /admin/products/product/product-photos/CL-414/hero.jpg. Django's legacy
+    catch-all route reads that as an object id, the lookup fails, and the
+    resulting "Product with ID ... doesn't exist" message is queued into the
+    session and shown as a banner on whatever page loads next - which is why it
+    looks unrelated to whatever the admin was doing. 491 products carry such a
+    path, so one changelist page can fire a hundred of these.
+    """
+    if not value:
+        return None
+    if value.startswith(('http://', 'https://', '/', 'data:')):
+        return value
+    # Site content lives on the website service, not here. Locally MEDIA_ROOT
+    # happens to be the site tree so /media/ would also work, but on Railway
+    # MEDIA_ROOT is the dashboard's own volume and these files are not in it.
+    # Resolving against the website is the answer that is right in both places.
+    if value.split('/', 1)[0] in SITE_CONTENT_DIRS:
+        return '%s/%s' % (settings.PUBLIC_SITE_URL.rstrip('/'), value.lstrip('/'))
+    return '%s%s' % (settings.MEDIA_URL, value.lstrip('/'))
+
 
 class _YesNoFilter(admin.SimpleListFilter):
     """Base for the yes/no completeness filters on the product changelist."""
@@ -460,7 +497,7 @@ class ProductAdmin(admin.ModelAdmin):
 
     @admin.display(description='Image')
     def image_preview(self, obj):
-        url = obj.featured_image.url if obj.featured_image else (obj.image_url or None)
+        url = obj.featured_image.url if obj.featured_image else _public_url(obj.image_url)
         if url:
             return format_html(
                 '<img src="{}" style="height:48px;width:48px;object-fit:cover;'
@@ -569,17 +606,19 @@ class ProductAdmin(admin.ModelAdmin):
                 'box-shadow:0 4px 16px rgba(0,0,0,.15);">',
                 obj.featured_image.url,
             )
-        if obj.image_url:
+        url = _public_url(obj.image_url)
+        if url:
+            # No onerror-hide: silently vanishing is what made the previous
+            # breakage invisible and undiagnosable.
             return format_html(
-                '<img src="{}" style="max-height:120px;width:auto;border-radius:10px;'
-                'box-shadow:0 4px 16px rgba(0,0,0,.15);" onerror="this.style.display=\'none\'">',
-                obj.image_url,
+                '<img src="{}" alt="" style="max-height:120px;width:auto;border-radius:10px;box-shadow:0 4px 16px rgba(0,0,0,.15);">',
+                url,
             )
         return mark_safe('<span style="color:#aaa;font-style:italic;">No image yet</span>')
 
     @admin.display(description='Current video')
     def video_status_field(self, obj):
-        url = obj.video.url if obj.video else (obj.video_url or None)
+        url = obj.video.url if obj.video else _public_url(obj.video_url)
         if not url:
             return mark_safe(
                 '<span style="color:#aaa;font-style:italic;">No video yet — upload a '
