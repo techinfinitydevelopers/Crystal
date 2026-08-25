@@ -221,22 +221,22 @@
 
   /* ===== STORY TIMELINE (vertical milestones — ported from home "Made in India") ===== */
   .journey { position: relative; margin-top: 44px; }
-  .rail { position: absolute; left: 10px; top: 16px; bottom: 16px; width: 3px; background: rgba(26,24,22,0.12); border-radius: 3px; z-index: 0; }
+  .rail { display: none; }
   .rail-fill { display: block; width: 100%; height: 0; background: var(--grad-red); border-radius: 3px; }
-  .ms-row { display: flex; flex-direction: column; gap: clamp(22px, 3.5vw, 46px); position: relative; z-index: 1; }
-  .ms { display: grid; grid-template-columns: 23px 1fr; gap: clamp(20px, 3vw, 42px); align-items: start; }
+  .ms-row { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(20px, 2.4vw, 32px); position: relative; z-index: 1; }
+  .ms { display: grid; grid-template-columns: 23px 1fr; gap: clamp(14px, 1.6vw, 22px); align-items: start; }
   .ms-dot { width: 23px; height: 23px; border-radius: 50%; background: #fff; border: 3px solid var(--red); box-shadow: 0 0 0 6px rgba(237,51,56,0.10); margin-top: 10px; z-index: 3; }
   .ms-card { display: block; background: var(--white); border: 1.5px solid var(--line); border-radius: 24px; padding: 0; overflow: hidden; box-shadow: 0 26px 54px -34px rgba(15,15,15,0.4); transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s; }
   .ms:hover .ms-card { transform: translateY(-6px); box-shadow: 0 36px 64px -34px rgba(237,51,56,0.34); }
-  .ms-photo { position: relative; width: 100%; aspect-ratio: 2 / 1; background: var(--cream); }
-  .ms-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; display: block; }
+  .ms-photo { position: relative; width: 100%; aspect-ratio: 16 / 9; background: var(--cream); }
+  .ms-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
   .ms-idx-badge { position: absolute; top: 14px; left: 14px; z-index: 2; font-family: var(--head); font-weight: 700; font-size: 13px; color: #fff; background: rgba(15,15,15,0.55); backdrop-filter: blur(6px); padding: 5px 12px; border-radius: 100px; letter-spacing: 0.02em; }
-  .ms-body { display: grid; grid-template-columns: minmax(90px, 30%) 1fr; gap: clamp(20px, 3.4vw, 48px); align-items: center; padding: clamp(22px, 2.8vw, 36px); }
-  .ms-ic { width: 52px; height: 52px; border-radius: 15px; display: grid; place-items: center; background: rgba(237,51,56,0.10); margin-bottom: 16px; }
-  .ms-metric { font-family: var(--head); font-weight: 700; font-size: clamp(23px, 2.5vw, 33px); line-height: 1.02; overflow-wrap: break-word; background: var(--grad-red); -webkit-background-clip: text; background-clip: text; color: transparent; letter-spacing: -0.02em; }
-  .ms h4 { font-family: var(--head); font-weight: 700; text-transform: uppercase; font-size: 20px; margin-bottom: 8px; letter-spacing: -0.01em; }
-  .ms p { color: var(--muted); font-size: 15px; line-height: 1.55; max-width: 480px; }
-  @media (max-width: 640px) { .ms-body { grid-template-columns: 1fr; gap: 10px; } .ms-metric { font-size: clamp(28px, 8vw, 38px); } }
+  .ms-body { display: grid; grid-template-columns: 1fr; gap: 10px; align-items: start; padding: clamp(16px, 1.6vw, 22px); }
+  .ms-ic { width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; background: rgba(237,51,56,0.10); margin-bottom: 10px; }
+  .ms-metric { font-family: var(--head); font-weight: 700; font-size: clamp(18px, 1.5vw, 22px); line-height: 1.02; overflow-wrap: break-word; background: var(--grad-red); -webkit-background-clip: text; background-clip: text; color: transparent; letter-spacing: -0.02em; }
+  .ms h4 { font-family: var(--head); font-weight: 700; text-transform: uppercase; font-size: 16px; margin-bottom: 6px; letter-spacing: -0.01em; }
+  .ms p { color: var(--muted); font-size: 13.5px; line-height: 1.5; max-width: none; }
+  @media (max-width: 860px) { .ms-row { grid-template-columns: 1fr; } }
 
   /* ===== SUSTAINABILITY ===== */
   .sustain-card { background: var(--ink-deep); color: #fff; border-radius: clamp(24px, 3vw, 40px); padding: clamp(36px, 5vw, 64px); display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 4vw, 60px); align-items: center; overflow: hidden; }

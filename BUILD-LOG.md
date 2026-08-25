@@ -363,3 +363,25 @@ Two overflow fixes came out of this:
 **Verified** at 1280x800 on index/About/Cookware: every h1/h2 computes to
 54px, `scrollWidth` 1265 vs 1280 viewport (no horizontal scroll). At
 390x844: 32px headings, `scrollWidth` exactly 390.
+
+## 2026-08-25 (5) — About: The Crystal Story cards halved
+
+Each milestone was a full-width card with a 2:1 photo and a two-column
+body, so one card filled the screen. Now two fit per viewport:
+
+- `.ms-row` becomes `grid-template-columns: repeat(2, 1fr)` (single column
+  under 860px) instead of a vertical flex stack.
+- Photo goes 2:1 -> 16:9 and `object-fit: contain` -> `cover`; contain left
+  letterbox bars once the card narrowed.
+- `.ms-body` stacks instead of sitting metric-beside-text; icon 52->40px,
+  metric 33->22px, heading 20->16px, copy 15->13.5px.
+- The red rail is hidden: it ran down the left of a single column and no
+  longer threads the dots in a two-column layout. Each card keeps its dot.
+
+**Verified** 1280x800: two 542x483 cards per row, `scrollWidth` 1265.
+390x844: single column, 415px cards, `scrollWidth` exactly 390.
+
+### Deploy confirmed
+
+Live `index.html` is now 371754 bytes (`last-modified` 06:55 UTC) - the v3
+page. The earlier check that showed 104875 bytes was the pre-push build.
