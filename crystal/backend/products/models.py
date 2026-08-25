@@ -1,5 +1,31 @@
+from django.core.exceptions import ValidationError
+from django.core.validators import URLValidator
 from django.db import models
 from django.utils.text import slugify
+
+
+def validate_media_ref(value):
+    """These fields hold EITHER an absolute URL or a path relative to the site
+    root ("product-photos/CL-414/hero.jpg"). 491 products carry the latter,
+    which is the form the website wants and the exporter writes out verbatim.
+
+    They were URLFields, so Django's URL validator rejected every one of those
+    paths and an admin could not save the product at all - "Enter a valid URL"
+    on a value the site itself put there.
+    """
+    if not value:
+        return
+    if value.startswith(('http://', 'https://')):
+        URLValidator(schemes=['http', 'https'])(value)
+        return
+    if value.startswith('/') and not value.startswith('//'):
+        return
+    if value.startswith(('.', '//')) or ' ' in value or '\\' in value:
+        raise ValidationError(
+            '"%(value)s" is neither a web address nor a path inside the site '
+            '(like product-photos/ABC-123/hero.jpg).',
+            params={'value': value},
+        )
 
 
 class Brand(models.Model):
@@ -50,7 +76,8 @@ class Product(models.Model):
     highlight = models.CharField(max_length=300, blank=True)
     collection_name = models.CharField(max_length=200, blank=True)
     tags = models.JSONField(default=list, blank=True)
-    image_url = models.URLField(max_length=500, blank=True)
+    image_url = models.CharField(max_length=500, blank=True,
+                                 validators=[validate_media_ref])
     is_active = models.BooleanField(default=True)
     is_featured = models.BooleanField(default=False)
     is_new = models.BooleanField(default=False)
@@ -64,8 +91,8 @@ class Product(models.Model):
     video = models.FileField(
         upload_to='products/videos/', blank=True, null=True,
         help_text='Product video. Shown as the second thumbnail in the gallery.')
-    video_url = models.URLField(
-        max_length=500, blank=True,
+    video_url = models.CharField(
+        max_length=500, blank=True, validators=[validate_media_ref],
         help_text='Use instead of uploading, when the video is already hosted '
                   '(e.g. product-photos/<SKU>/video.mp4).')
     features = models.JSONField(
@@ -189,14 +216,14 @@ class ProductVariant(models.Model):
     video = models.FileField(
         upload_to='products/videos/', blank=True, null=True,
         help_text='A video for this size only. Leave blank to use the same video as the product above.')
-    image_url = models.URLField(
-        max_length=500, blank=True,
+    image_url = models.CharField(
+        max_length=500, blank=True, validators=[validate_media_ref],
         help_text='Only if this size has no photos of its own and its picture '
                   'lives somewhere else on the web. Leave blank to use the '
                   'photos below, or the picture on the product itself.',
     )
-    video_url = models.URLField(
-        max_length=500, blank=True,
+    video_url = models.CharField(
+        max_length=500, blank=True, validators=[validate_media_ref],
         help_text='Use instead of uploading, when the video for this size is already hosted somewhere. Leave blank to use the same one as the product above.')
     match_tier = models.CharField(
         max_length=64, blank=True,
