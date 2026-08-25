@@ -1,0 +1,61 @@
+{
+  "brands": [
+    {
+      "slug": "crystal",
+      "name": "Crystal",
+      "tagline": "Simplifying kitchen chores",
+      "hero": { "video": "brand-assets/crystal/hero.mp4", "poster": "brand-assets/crystal/hero-poster.jpg" },
+      "about": {
+        "eyebrow": "About Crystal",
+        "title": "Crystal",
+        "body": "Crystal is the quintessential choice for the modern home. Rooted in the philosophy of \"Simplifying kitchen chores\" it offers a seamless blend of innovation and timeless design. Every Crystal product is an exercise in precision crafted from superior materials that prioritize quality without sacrificing aesthetics. With a focus on durability, safety, and modern appeal, Crystal is perceived as a brand that enhances daily living with simplicity, grace, and long lasting reliability.",
+        "image": "brand-assets/crystal/about.jpg"
+      },
+      "portfolio": {
+        "eyebrow": "Brand Portfolio",
+        "title": "Explore the Crystal range",
+        "items": [
+          { "label": "Tri-Pro", "image": "brand-assets/crystal/portfolio/tri-pro.jpg", "href": "Cookware-Tripro.html" },
+          { "label": "Cast Iron", "image": "brand-assets/crystal/portfolio/cast-iron.jpg", "href": "Cookware-Cast-Iron.html" },
+          { "label": "Non-Stick", "image": "brand-assets/crystal/portfolio/non-stick.jpg", "href": "Cookware-Non-Stick.html" },
+          { "label": "Non-Stick Mini", "image": "brand-assets/crystal/portfolio/non-stick-mini.jpg", "href": "Cookware-Non-Stick-Mini.html" },
+          { "label": "Sandwich Bottom Steel", "image": "brand-assets/crystal/portfolio/sandwich-bottom-steel.jpg", "href": "Cookware-Sandwich-Bottom-Steel.html" },
+          { "label": "Cooktop", "image": "brand-assets/crystal/portfolio/cooktop.jpg", "href": "Cooktop.html" },
+          { "label": "Oil Pourers", "image": "brand-assets/crystal/portfolio/oil-pourers.jpg", "href": "Oil-Pourer-Sprayer.html" },
+          { "label": "Lighters", "image": "brand-assets/crystal/portfolio/lighters.jpg", "href": "Kitchenware-Lighters.html" },
+          { "label": "Knives", "image": "brand-assets/crystal/portfolio/knives.jpg", "href": "Kitchenware-Knives.html" },
+          { "label": "Peelers", "image": "brand-assets/crystal/portfolio/peelers.jpg", "href": "Kitchenware-Peelers.html" },
+          { "label": "Chopping Boards", "image": "brand-assets/crystal/portfolio/chopping-boards.jpg", "href": "Kitchenware-Chopping-Boards.html" },
+          { "label": "Manual Kitchen Appliances", "image": "brand-assets/crystal/portfolio/manual-kitchen-appliances.jpg", "href": "Kitchenware-Manual-Appliances.html" },
+          { "label": "Cutlery", "image": "brand-assets/crystal/portfolio/cutlery.jpg", "href": "Kitchenware-Cutlery.html" },
+          { "label": "Servers", "image": "brand-assets/crystal/portfolio/servers.jpg", "href": "Kitchenware-Servers.html" },
+          { "label": "Wood Range", "image": "brand-assets/crystal/portfolio/wood-range.jpg", "href": "Wood-Range.html" }
+        ]
+      },
+      "usps": {
+        "eyebrow": "Our USPs",
+        "title": "What Makes Crystal The Right Choice?",
+        "lead": "Crystal is the right choice for those who value durability, reliability, and long term performance. Built with high quality materials and strict quality standards, Crystal products are designed to withstand daily use while maintaining their strength, finish, and functionality.",
+        "items": [
+          { "title": "Designed for Indian Cooking Styles", "media": "brand-assets/crystal/usp/designed-for-indian-cooking-styles.jpg", "type": "image" },
+          { "title": "Reliable Everyday Performance", "media": "brand-assets/crystal/usp/reliable-everyday-performance.mp4", "type": "video" },
+          { "title": "Durability You Can Trust", "media": "brand-assets/crystal/usp/durability-you-can-trust.jpg", "type": "image" },
+          { "title": "Comfortable & Easy Handling", "media": "brand-assets/crystal/usp/comfortable-easy-handling.jpg", "type": "image" },
+          { "title": "Safe & Thoughtful Materials", "media": "brand-assets/crystal/usp/safe-thoughtful-materials.mp4", "type": "video" },
+          { "title": "Wide Product Range", "media": "brand-assets/crystal/usp/wide-product-range.jpg", "type": "image" },
+          { "title": "Trusted Indian Brand Heritage", "media": "brand-assets/crystal/usp/trusted-indian-brand-heritage.jpg", "type": "image" },
+          { "title": "Great Value for Everyday Homes", "media": "brand-assets/crystal/usp/great-value-for-everyday-homes.jpg", "type": "image" }
+        ]
+      },
+      "resources": {
+        "eyebrow": "Resources",
+        "title": "Blogs",
+        "items": [
+          { "title": "Built for the Way India Cooks", "date": "8th February, 2026", "image": "brand-assets/crystal/resources/built-for-the-way-india-cooks.jpg", "href": "Blog.html" },
+          { "title": "Why Triply Cookware is a Smart Choice", "date": "8th January, 2026", "image": "brand-assets/crystal/resources/why-triply-cookware-is-a-smart-choice.jpg", "href": "Blog.html" },
+          { "title": "Everyday Cooking Made Effortless", "date": "8th December, 2025", "image": "brand-assets/crystal/resources/everyday-cooking-made-effortless.jpg", "href": "Blog.html" }
+        ]
+      }
+    }
+  ]
+}
