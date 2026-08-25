@@ -1,3 +1,5 @@
+import re
+
 from rest_framework import serializers
 from .models import Brand, Category, Product, ProductImage, ProductSpecification, Marketplace, ProductMarketplaceLink, ProductVariant
 
@@ -117,3 +119,219 @@ class ProductDetailSerializer(serializers.ModelSerializer):
             'show_price', 'price', 'featured_image', 'thumbnail',
             'images', 'specifications', 'marketplace_links', 'variants', 'created_at',
         ]
+
+
+# ---------------------------------------------------------------------------
+# Site catalogue shape
+#
+# product-data/products.json is what the static site (index.html /
+# All-Products.html / Product.html) reads today. SiteProductSerializer maps a
+# Product row back onto exactly those keys so the site can point at
+# /api/products/site.json/ instead of the file, with no frontend changes.
+# See products/management/commands/export_products_json.py for the same mapping
+# applied in file-writing form, and sync_products.py for the original import.
+# ---------------------------------------------------------------------------
+
+SITE_DEFAULT_GST = 0.18
+
+
+def site_subcategory(category):
+    """JSON stores the bare sub-slug ("lighters"); the DB slug is parent-prefixed
+    ("kitchenware-lighters") to keep Category.slug globally unique. Top-level
+    products carry null, not "", in products.json."""
+    if not category or not category.parent:
+        return None
+    slug, prefix = category.slug, f"{category.parent.slug}-"
+    return slug[len(prefix):] if slug.startswith(prefix) else slug
+
+
+def _spec_value(value):
+    """ProductSpecification.value is a CharField, but products.json carries a few
+    numeric filter values (e.g. "size": 2.0). Restore the number so filter
+    comparisons on the site behave the same either way."""
+    if re.fullmatch(r"\d+\.\d+", value or ""):
+        return float(value)
+    return value
+
+
+def site_filters(product):
+    return {
+        spec.key.strip().lower().replace(" ", "_"): _spec_value(spec.value)
+        for spec in product.specifications.all()
+        if spec.value
+    }
+
+
+def site_amazon_link(product):
+    """The site's Buy Now target.
+
+    Product.amazon_link is the authority. The marketplace-link fallback exists
+    for products created in the dashboard, where the Amazon URL is entered as a
+    ProductMarketplaceLink row - but it must NOT apply to rows imported from the
+    site catalogue: a handful of those carry a stale Amazon link the live site
+    deliberately does not show, and surfacing it here would put a Buy Now button
+    on a product that has none today."""
+    if product.amazon_link:
+        return product.amazon_link
+    if product.is_dashboard_managed:
+        for link in product.marketplace_links.all():
+            if link.marketplace.slug == "amazon":
+                return link.url
+    return None
+
+
+def site_video(product):
+    if product.video_url:
+        return product.video_url
+    if product.video:
+        return product.video.url
+    return None
+
+
+def _image_url(image_field):
+    """products.json holds site-root-relative paths ("product-photos/<SKU>/hero.webp"),
+    which is exactly ImageField.name here - .url would prepend MEDIA_URL and give
+    the site a path it can't resolve."""
+    return image_field.name or None
+
+
+def site_image_set(images, fallback_hero=""):
+    """Ordered ProductImage list -> (hero, gallery). is_hero picks the hero,
+    the rest keep `order`. A product with no photo gets hero=None, as in
+    products.json - the site tests for a falsy hero."""
+    images = list(images)
+    if not images:
+        return fallback_hero or None, []
+    hero_obj = next((im for im in images if im.is_hero), images[0])
+    hero = _image_url(hero_obj.image) or fallback_hero or None
+    gallery = [
+        url for im in images if im.pk != hero_obj.pk
+        for url in [_image_url(im.image)] if url
+    ]
+    return hero, gallery
+
+
+# Unit spellings that mean the same size. "18 LTR" and "18-LITERS" are one
+# measurement written two ways, so a name reading "...18-LITERS WATER FILTER"
+# already carries the "18 LTR" variant and must not get it appended again.
+_UNIT_ALIASES = [
+    {"l", "lt", "lts", "ltr", "ltrs", "liter", "liters", "litre", "litres"},
+    {"ml"},
+    {"cm", "cms", "centimeter", "centimeters", "centimetre", "centimetres"},
+    {"mm"},
+    {"in", "inch", "inches", '"', "''"},
+    {"g", "gm", "gms", "gram", "grams"},
+    {"kg", "kgs"},
+    {"pc", "pcs", "piece", "pieces"},
+    {"w", "watt", "watts"},
+]
+
+
+def _unit_key(unit):
+    unit = (unit or "").strip().casefold()
+    for index, group in enumerate(_UNIT_ALIASES):
+        if unit in group:
+            return index
+    return unit or None
+
+
+def _name_carries_size(product_name, variant_name):
+    """True when product_name already states the measurement variant_name gives."""
+    match = re.match(r'\s*(\d+(?:\.\d+)?)\s*(.*)$', variant_name or "")
+    if not match:
+        return False
+    number, unit = match.group(1), _unit_key(match.group(2))
+    for found in re.finditer(
+            r'(?<![\d.])' + re.escape(number) + r'(?![\d.])\s*-?\s*([a-z"\']*)',
+            product_name or "", flags=re.IGNORECASE):
+        if unit is None or _unit_key(found.group(1)) == unit:
+            return True
+    return False
+
+
+def _variant_name(product_name, variant_name):
+    """Append the size only when the product name doesn't already carry it -
+    catalogue rows imported from products.json were flattened per variant, so
+    their names already read "... 28CM" (or "...18-LITERS", for a "18 LTR"
+    variant)."""
+    squash = lambda t: "".join((t or "").split()).casefold()
+    if squash(variant_name) and squash(variant_name) in squash(product_name):
+        return product_name
+    if _name_carries_size(product_name, variant_name):
+        return product_name
+    return f"{product_name} {variant_name}".strip()
+
+
+def site_product_entries(product):
+    """One Product -> one entry, or one entry per ProductVariant (matching the
+    way products.json flattens sizes into sibling entries sharing variant_group)."""
+    from django.utils.text import slugify
+
+    base_sku = product.sku or product.slug
+    cat = product.category
+    common = {
+        "brand": product.brand.slug if product.brand else "",
+        "category": cat.parent.slug if (cat and cat.parent) else (cat.slug if cat else ""),
+        "subcategory": site_subcategory(cat),
+        "collection": product.collection_name or "",
+        "highlight": (product.highlight or product.short_description or "")[:300],
+        "description": product.overview or product.short_description or "",
+        "tags": product.tags or [],
+        "gst_pct": float(product.gst_pct) if product.gst_pct is not None else None,
+        "mrp": float(product.price) if product.price is not None else None,
+        "amazon_link": site_amazon_link(product),
+        "filters": site_filters(product),
+        # Provenance only - nothing on the website reads it. Imported rows keep
+        # the tier the catalogue recorded; anything created here is tagged as
+        # such.
+        "match_tier": product.match_tier or (
+            "dashboard_admin" if product.is_dashboard_managed else "imported"),
+    }
+    if product.specs:
+        common["specs"] = product.specs
+    video = site_video(product)
+    features = product.features or []
+
+    all_images = list(product.images.all())
+    general_images = [im for im in all_images if im.variant_id is None]
+    variants = list(product.variants.all())
+
+    entries = []
+    if not variants:
+        hero, gallery = site_image_set(general_images, product.image_url)
+        entry = dict(common, sku=base_sku, name=product.name, hero=hero,
+                     gallery=gallery, id=slugify(base_sku))
+        if product.variant_group:
+            entry["variant_group"] = product.variant_group
+        if video:
+            entry["video"] = video
+        if features:
+            entry["features"] = features
+        entries.append(entry)
+        return entries
+
+    # Size-swapping on the site keys off this shared id, so the stored value
+    # (imported from products.json) wins; only dashboard-born products need a
+    # synthesised one.
+    group = product.variant_group or f"vg-dash-{product.id}"
+    for variant in variants:
+        own = [im for im in all_images if im.variant_id == variant.id]
+        hero, gallery = site_image_set(own or general_images, product.image_url)
+        sku = f"{base_sku}{variant.sku_suffix}"
+        entry = dict(
+            common,
+            sku=sku,
+            name=_variant_name(product.name, variant.name),
+            hero=hero,
+            gallery=gallery,
+            id=slugify(sku),
+            variant_group=group,
+            variant_label=variant.name,
+            variant_order=variant.order,
+        )
+        if video:
+            entry["video"] = video
+        if features:
+            entry["features"] = features
+        entries.append(entry)
+    return entries

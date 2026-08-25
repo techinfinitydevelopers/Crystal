@@ -1,0 +1,335 @@
+/* ==========================================================================
+   Crystal Admin - matched to the public site
+   --------------------------------------------------------------------------
+   Loaded after Jazzmin's own stylesheet, so it overrides rather than replaces.
+   Tokens are copied from the site's :root so the two stay in step: the same
+   red, ink, cream, line colour, Inter, and the 20px corner radius.
+
+   Jazzmin ships AdminLTE/Bootstrap, whose components are already responsive -
+   this only re-skins them and fixes the places where the previous stylesheet
+   fought that (fixed widths, overflow:hidden on tables).
+   ========================================================================== */
+
+:root {
+  --c-white: #ffffff;
+  --c-cream: #ededed;
+  --c-ink: #1A1A1A;
+  --c-ink-deep: #0F0F0F;
+  --c-red: #ED3338;
+  --c-red-deep: #c0282c;
+  --c-grad-red: linear-gradient(135deg, #ED3338 0%, #c0282c 100%);
+  --c-muted: #5f5f5f;
+  --c-muted-d: #D5D5D5;
+  --c-line: rgba(26, 24, 22, 0.13);
+  --c-line-d: rgba(213, 213, 213, 0.18);
+  --c-r: 20px;
+  --c-r-sm: 12px;
+  --c-font: "Inter", -apple-system, "Segoe UI", sans-serif;
+  --c-shadow: 0 24px 46px -28px rgba(15, 15, 15, 0.34);
+}
+
+body,
+.wrapper,
+.main-sidebar,
+.content-wrapper,
+.card,
+.btn,
+.form-control,
+.custom-select,
+input,
+select,
+textarea,
+table {
+  font-family: var(--c-font) !important;
+}
+
+body,
+.content-wrapper {
+  background: #f6f6f6 !important;
+  color: var(--c-ink);
+}
+
+/* ---------- top bar ---------- */
+.main-header.navbar {
+  background: var(--c-ink) !important;
+  border: 0 !important;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+.main-header .nav-link,
+.main-header .navbar-nav .nav-link {
+  color: var(--c-muted-d) !important;
+  font-weight: 600;
+}
+.main-header .nav-link:hover {
+  color: #fff !important;
+}
+
+/* ---------- sidebar ---------- */
+.main-sidebar {
+  background: var(--c-ink-deep) !important;
+}
+.brand-link {
+  background: var(--c-ink-deep) !important;
+  border-bottom: 1px solid var(--c-line-d) !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.01em;
+}
+.brand-link .brand-text {
+  color: #fff !important;
+}
+.nav-sidebar .nav-link {
+  color: var(--c-muted-d) !important;
+  border-radius: var(--c-r-sm);
+  margin: 2px 8px;
+  font-weight: 600;
+  font-size: 14.5px;
+}
+.nav-sidebar .nav-link:hover {
+  background: rgba(255, 255, 255, 0.07) !important;
+  color: #fff !important;
+}
+.nav-sidebar .nav-link.active,
+.nav-sidebar .nav-treeview .nav-link.active {
+  background: var(--c-grad-red) !important;
+  color: #fff !important;
+  box-shadow: 0 12px 22px -14px rgba(237, 51, 56, 0.9);
+}
+.nav-sidebar .nav-header {
+  color: rgba(213, 213, 213, 0.55) !important;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+/* ---------- cards, panels, modules ---------- */
+.card,
+.module,
+.inline-group,
+.dashboard .card {
+  background: var(--c-white);
+  border: 1.5px solid var(--c-line) !important;
+  border-radius: var(--c-r) !important;
+  box-shadow: var(--c-shadow) !important;
+  overflow: visible !important;   /* previous sheet clipped dropdowns */
+}
+.card-header {
+  background: transparent !important;
+  border-bottom: 1.5px solid var(--c-line) !important;
+  border-radius: var(--c-r) var(--c-r) 0 0 !important;
+  padding: 16px 20px !important;
+}
+.card-title,
+.card-header h3 {
+  font-weight: 800 !important;
+  letter-spacing: -0.015em;
+  font-size: 17px !important;
+  color: var(--c-ink);
+}
+
+/* ---------- buttons ---------- */
+.btn {
+  border-radius: 100px !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.01em;
+  padding: 9px 20px !important;
+  border-width: 1.5px !important;
+  transition: transform .2s, box-shadow .2s, background .2s;
+}
+.btn-primary,
+.btn-danger,
+.btn-success,
+.object-tools a,
+.submit-row input[type="submit"],
+.submit-row a.deletelink {
+  background: var(--c-grad-red) !important;
+  border-color: transparent !important;
+  color: #fff !important;
+}
+.btn-primary:hover,
+.btn-danger:hover,
+.btn-success:hover,
+.object-tools a:hover,
+.submit-row input[type="submit"]:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 16px 28px -18px rgba(237, 51, 56, 0.85);
+}
+.btn-secondary,
+.btn-default,
+.btn-outline-secondary {
+  background: var(--c-white) !important;
+  border-color: var(--c-line) !important;
+  color: var(--c-ink) !important;
+}
+.btn-secondary:hover,
+.btn-default:hover {
+  border-color: var(--c-red) !important;
+  color: var(--c-red) !important;
+}
+
+/* ---------- form fields ---------- */
+.form-control,
+.custom-select,
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+select,
+textarea {
+  border: 1.5px solid var(--c-line) !important;
+  border-radius: var(--c-r-sm) !important;
+  padding: 9px 13px !important;
+  font-size: 14.5px !important;
+  color: var(--c-ink);
+  background: var(--c-white);
+  max-width: 100%;
+}
+.form-control:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--c-red) !important;
+  box-shadow: 0 0 0 4px rgba(237, 51, 56, 0.12) !important;
+  outline: none;
+}
+label,
+.form-group > label,
+fieldset .form-row > div > label {
+  font-weight: 700 !important;
+  font-size: 13.5px;
+  color: var(--c-ink);
+}
+.help,
+.help-block,
+small.form-text {
+  color: var(--c-muted) !important;
+  font-size: 12.5px;
+}
+
+/* ---------- tables ---------- */
+.table,
+#result_list {
+  border-radius: var(--c-r-sm);
+  overflow: hidden;
+}
+.table thead th,
+#result_list thead th {
+  background: var(--c-cream) !important;
+  color: var(--c-ink) !important;
+  font-weight: 700 !important;
+  font-size: 12.5px !important;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border-bottom: 1.5px solid var(--c-line) !important;
+  white-space: nowrap;
+}
+.table tbody tr:hover,
+#result_list tbody tr:hover {
+  background: rgba(237, 51, 56, 0.045) !important;
+}
+.table td,
+#result_list td {
+  border-color: var(--c-line) !important;
+  vertical-align: middle;
+  font-size: 14px;
+}
+/* A wide changelist must scroll inside its own box, not push the page sideways */
+.table-responsive,
+#changelist form > .results,
+.results {
+  overflow-x: auto !important;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* ---------- filters ---------- */
+#changelist-filter {
+  background: var(--c-white) !important;
+  border: 1.5px solid var(--c-line) !important;
+  border-radius: var(--c-r) !important;
+  overflow: visible !important;
+}
+#changelist-filter h2,
+#changelist-filter h3 {
+  background: transparent !important;
+  color: var(--c-ink) !important;
+  font-weight: 800 !important;
+  font-size: 14px !important;
+}
+#changelist-filter li.selected a {
+  color: var(--c-red) !important;
+  font-weight: 700;
+}
+
+/* ---------- inlines (variants, images) ---------- */
+.inline-related h3 {
+  background: var(--c-cream) !important;
+  color: var(--c-ink) !important;
+  border-radius: var(--c-r-sm) var(--c-r-sm) 0 0;
+  font-weight: 700 !important;
+  padding: 10px 14px !important;
+}
+.add-row a {
+  font-weight: 700;
+  color: var(--c-red) !important;
+}
+
+/* ---------- messages ---------- */
+.alert,
+.messagelist li {
+  border-radius: var(--c-r-sm) !important;
+  border: 1.5px solid var(--c-line) !important;
+  font-weight: 600;
+}
+.alert-success,
+.messagelist li.success {
+  background: rgba(34, 160, 90, 0.10) !important;
+  color: #14663a !important;
+  border-color: rgba(34, 160, 90, 0.3) !important;
+}
+.alert-danger,
+.messagelist li.error {
+  background: rgba(237, 51, 56, 0.10) !important;
+  color: var(--c-red-deep) !important;
+  border-color: rgba(237, 51, 56, 0.3) !important;
+}
+
+/* ---------- login ---------- */
+.login-page,
+.login-box {
+  background: var(--c-ink-deep) !important;
+}
+.login-box .card,
+.login-card-body {
+  border-radius: var(--c-r) !important;
+  border: 1.5px solid var(--c-line-d) !important;
+}
+
+/* ---------- links ---------- */
+a { color: var(--c-red); }
+a:hover { color: var(--c-red-deep); }
+
+/* ---------- phones and tablets ----------
+   AdminLTE already collapses the sidebar; these fix the content that the
+   previous stylesheet left too wide or too small to tap. */
+@media (max-width: 992px) {
+  .content-wrapper { margin-left: 0 !important; }
+  .card, .module { border-radius: var(--c-r-sm) !important; }
+}
+@media (max-width: 768px) {
+  .content-header h1 { font-size: 22px !important; }
+  .btn { padding: 10px 18px !important; }              /* keep taps >= 40px */
+  .card-header { padding: 13px 15px !important; }
+  #changelist-filter {
+    position: static !important;
+    width: 100% !important;
+    margin: 0 0 16px !important;
+  }
+  .submit-row { display: flex; flex-wrap: wrap; gap: 8px; }
+  .submit-row input, .submit-row a { width: auto; flex: 1 1 auto; text-align: center; }
+  .form-control, input, select, textarea { font-size: 16px !important; }  /* stops iOS zooming on focus */
+}
+@media (max-width: 480px) {
+  .table thead th, #result_list thead th { font-size: 11px !important; }
+  .table td, #result_list td { font-size: 13px; }
+}

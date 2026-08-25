@@ -3,8 +3,14 @@ from contextlib import redirect_stderr, redirect_stdout
 
 from django.contrib import admin, messages
 from django.core.management import call_command
+from django.db.models import Count, Q
+from django.http import HttpResponse
+from django.shortcuts import render
+from django.urls import path, reverse
 from django.utils.html import format_html, mark_safe
 from django.templatetags.static import static
+from . import importer
+from .forms import ProductAdminForm
 from .models import (
     Brand, Category, Product, ProductImage,
     ProductSpecification, Marketplace, ProductMarketplaceLink, ProductVariant,
@@ -106,30 +112,127 @@ class CategoryAdmin(admin.ModelAdmin):
         )
 
 
+# ── "What's missing?" list filters ─────────────────────────────────────────
+
+class _YesNoFilter(admin.SimpleListFilter):
+    """Base for the yes/no completeness filters on the product changelist."""
+
+    yes_label = 'Yes'
+    no_label = 'No'
+    yes_q = Q()
+
+    def lookups(self, request, model_admin):
+        return [('yes', self.yes_label), ('no', self.no_label)]
+
+    def queryset(self, request, queryset):
+        if self.value() == 'yes':
+            return queryset.filter(self.yes_q)
+        if self.value() == 'no':
+            return queryset.exclude(self.yes_q)
+        return queryset
+
+
+class HasHeroImageFilter(_YesNoFilter):
+    title = 'has a hero image'
+    parameter_name = 'has_hero'
+    yes_label = 'Has a hero image'
+    no_label = 'Missing a hero image'
+    yes_q = Q(images__is_hero=True)
+
+    def queryset(self, request, queryset):
+        if self.value() == 'yes':
+            return queryset.filter(self.yes_q).distinct()
+        if self.value() == 'no':
+            return queryset.exclude(id__in=ProductImage.objects.filter(
+                is_hero=True).values('product_id'))
+        return queryset
+
+
+class HasVideoFilter(_YesNoFilter):
+    title = 'has a video'
+    parameter_name = 'has_video'
+    yes_label = 'Has a video'
+    no_label = 'No video'
+    yes_q = ~Q(video='') & Q(video__isnull=False) | ~Q(video_url='')
+
+
+class HasAmazonLinkFilter(_YesNoFilter):
+    title = 'has an Amazon link'
+    parameter_name = 'has_amazon'
+    yes_label = 'Has an Amazon link'
+    no_label = 'No Amazon link'
+    yes_q = ~Q(amazon_link='')
+
+
+class HasVariantsFilter(_YesNoFilter):
+    title = 'has sizes / variants'
+    parameter_name = 'has_variants'
+    yes_label = 'Has sizes / variants'
+    no_label = 'Single size only'
+    yes_q = Q(variants__isnull=False)
+
+    def queryset(self, request, queryset):
+        if self.value() == 'yes':
+            return queryset.filter(variants__isnull=False).distinct()
+        if self.value() == 'no':
+            return queryset.filter(variants__isnull=True)
+        return queryset
+
+
 # ── Inlines ────────────────────────────────────────────────────────────────
 
 class ProductVariantInline(admin.TabularInline):
     model = ProductVariant
     extra = 1
-    fields = ['name', 'sku_suffix', 'is_default', 'order']
+    fields = ['name', 'sku_suffix', 'is_default', 'order', 'image_count']
+    readonly_fields = ['image_count']
+    ordering = ['order', 'id']
     verbose_name = 'Size / Variant'
-    verbose_name_plural = 'Sizes & Variants'
+    verbose_name_plural = 'Step 1 — Sizes & Variants'
+    classes = ['product-variants']
+
+    @admin.display(description='Own photos')
+    def image_count(self, obj):
+        if obj.pk is None:
+            return mark_safe(
+                '<span style="color:#94a3b8;font-style:italic;font-size:11px;">'
+                'Save first, then attach photos to it in “Gallery Images” below.</span>'
+            )
+        count = obj.images.count()
+        if not count:
+            return mark_safe(
+                '<span style="color:#b45309;font-size:11px;">No dedicated photos — '
+                'pick this size in the “Applies to size” column below.</span>'
+            )
+        return format_html(
+            '<span style="background:#dcfce7;color:#166534;padding:2px 9px;'
+            'border-radius:100px;font-weight:700;font-size:12px;">{} photo{}</span>',
+            count, '' if count == 1 else 's',
+        )
 
 
 class ProductImageInline(admin.TabularInline):
     model = ProductImage
-    extra = 1
-    fields = ['variant', 'image', 'image_preview', 'is_hero', 'order']
+    extra = 3
+    fields = ['image', 'image_preview', 'variant', 'is_hero', 'order']
     readonly_fields = ['image_preview']
+    ordering = ['order', 'id']
     verbose_name = 'Gallery Image'
-    verbose_name_plural = 'Gallery Images'
+    verbose_name_plural = 'Step 2 — Gallery Images'
 
     def get_formset(self, request, obj=None, **kwargs):
         # Only offer this product's own sizes/variants in the dropdown — leave the
         # field blank to attach a photo to the product in general (shown for every
         # size), or pick a variant to give that one size its own dedicated photos.
         formset = super().get_formset(request, obj, **kwargs)
-        formset.form.base_fields['variant'].queryset = obj.variants.all() if obj is not None else ProductVariant.objects.none()
+        variant_field = formset.form.base_fields['variant']
+        variant_field.queryset = obj.variants.all() if obj is not None else ProductVariant.objects.none()
+        variant_field.label = 'Applies to size'
+        variant_field.empty_label = '— all sizes —'
+        variant_field.help_text = (
+            'Leave as “all sizes” for a general product photo, or pick one of the '
+            'sizes above to give that size its own photo.'
+        )
         return formset
 
     @admin.display(description='Preview')
@@ -140,7 +243,7 @@ class ProductImageInline(admin.TabularInline):
                 'border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,.15);">',
                 obj.image.url,
             )
-        return '—'
+        return mark_safe('<span style="color:#94a3b8;font-style:italic;">—</span>')
 
 
 class ProductSpecificationInline(admin.StackedInline):
@@ -163,17 +266,33 @@ class ProductMarketplaceLinkInline(admin.TabularInline):
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
+    form = ProductAdminForm
+
     list_display = [
-        'image_preview', 'name', 'brand_badge', 'category_badge',
-        'collection_name', 'variant_count', 'is_active', 'is_featured',
+        'image_preview', 'name', 'sku', 'brand_badge', 'category_badge',
+        'hero_status', 'image_count', 'variant_count',
+        'video_status', 'amazon_status', 'is_active',
     ]
-    search_fields = ['name', 'slug', 'sku', 'collection_name']
-    list_filter = ['brand', 'is_active', 'is_featured', 'is_new', 'category']
-    prepopulated_fields = {'slug': ('name',)}
     list_display_links = ['image_preview', 'name']
+    search_fields = [
+        'name', 'slug', 'sku', 'collection_name', 'short_description',
+        'highlight', 'overview', 'amazon_link',
+    ]
+    list_filter = [
+        'brand', 'category', 'is_active', 'is_featured', 'is_new',
+        'show_price', 'is_dashboard_managed', HasHeroImageFilter,
+        HasVideoFilter, HasAmazonLinkFilter, HasVariantsFilter,
+    ]
+    prepopulated_fields = {'slug': ('name',)}
+    autocomplete_fields = ['brand', 'category']
+    save_on_top = True
 
     fieldsets = (
-        ('Product Identity', {
+        ('Basics — what the product is', {
+            'description': (
+                'Fill this in first. The web address (slug) fills itself in from the '
+                'name; the SKU is the code used to match the product’s photo folder.'
+            ),
             'fields': (
                 ('name', 'slug'),
                 ('brand', 'category'),
@@ -181,31 +300,138 @@ class ProductAdmin(admin.ModelAdmin):
                 'tags',
             ),
         }),
-        ('Content & Description', {
+        ('Description & features — what the customer reads', {
+            'description': (
+                'The short description is the one-liner in listings. The highlight is '
+                'the bold line on the product page. Feature cards are the small '
+                'icon + title + detail boxes further down that page.'
+            ),
             'fields': (
                 'short_description',
                 'highlight',
                 'overview',
+                'features',
             ),
         }),
-        ('Main Image', {
+        ('Media — pictures and video', {
+            'description': (
+                'The main image is what shows in listings. Extra photos (and photos '
+                'for a particular size) go in “Gallery Images” at the bottom of this '
+                'page. For the video either upload a file or paste a link — not both.'
+            ),
             'fields': (
                 ('featured_image', 'main_image_preview'),
                 ('thumbnail', 'thumbnail_preview_field'),
                 'image_url',
+                'video',
+                'video_url',
+                'video_status_field',
             ),
         }),
-        ('Pricing & Visibility', {
+        ('Marketplace — price and where to buy', {
+            'description': (
+                'Tick “show price” only if the price should be visible on the site. '
+                'The Amazon link powers the Buy Now button; other marketplaces go in '
+                'the “Buy Now — Marketplace Links” section at the bottom.'
+            ),
+            'fields': (
+                ('show_price', 'price'),
+                'gst_pct',
+                'amazon_link',
+            ),
+        }),
+        ('Visibility — where it appears on the site', {
             'fields': (
                 ('is_active', 'is_featured', 'is_new'),
-                ('show_price', 'price'),
+                'is_dashboard_managed',
             ),
         }),
     )
 
     readonly_fields = [
-        'main_image_preview', 'thumbnail_preview_field',
+        'main_image_preview', 'thumbnail_preview_field', 'video_status_field',
     ]
+
+    change_list_template = 'admin/products/product/change_list.html'
+
+    # ── Bulk import (Excel / CSV) ───────────────────────────────────────
+
+    def get_urls(self):
+        custom = [
+            path('import/', self.admin_site.admin_view(self.import_view),
+                 name='products_product_import'),
+            path('import/template.<str:extension>',
+                 self.admin_site.admin_view(self.import_template_view),
+                 name='products_product_import_template'),
+        ]
+        return custom + super().get_urls()
+
+    def import_view(self, request):
+        """Upload an .xlsx/.csv and report what happened, row by row."""
+        context = {
+            **self.admin_site.each_context(request),
+            'title': 'Import products from Excel / CSV',
+            'opts': self.model._meta,
+            'columns': importer.COLUMNS,
+            'changelist_url': reverse('admin:products_product_changelist'),
+            'template_xlsx_url': reverse(
+                'admin:products_product_import_template', args=['xlsx']),
+            'template_csv_url': reverse(
+                'admin:products_product_import_template', args=['csv']),
+        }
+
+        if request.method == 'POST':
+            upload = request.FILES.get('file')
+            if upload is None:
+                self.message_user(request, 'Choose a .xlsx or .csv file first.',
+                                  level=messages.ERROR)
+                return render(request, 'admin/products/product/import.html', context)
+            try:
+                rows = importer.read_rows(upload)
+                results, summary = importer.import_rows(rows)
+            except ValueError as exc:
+                self.message_user(request, str(exc), level=messages.ERROR)
+                return render(request, 'admin/products/product/import.html', context)
+            except Exception as exc:                      # unreadable/corrupt file
+                self.message_user(request, f'Could not read that file: {exc}',
+                                  level=messages.ERROR)
+                return render(request, 'admin/products/product/import.html', context)
+
+            context.update(results=results, summary=summary, filename=upload.name)
+            level = messages.WARNING if summary['skipped'] else messages.SUCCESS
+            self.message_user(
+                request,
+                f"{summary['created']} created, {summary['updated']} updated, "
+                f"{summary['unchanged']} unchanged, {summary['skipped']} skipped.",
+                level=level,
+            )
+
+        return render(request, 'admin/products/product/import.html', context)
+
+    def import_template_view(self, request, extension):
+        """Serve the fill-in template — same columns the importer reads."""
+        if extension == 'csv':
+            return HttpResponse(
+                importer.template_csv_bytes(),
+                content_type='text/csv',
+                headers={'Content-Disposition':
+                         'attachment; filename="product-import-template.csv"'},
+            )
+        return HttpResponse(
+            importer.template_xlsx_bytes(),
+            content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+            headers={'Content-Disposition':
+                     'attachment; filename="product-import-template.xlsx"'},
+        )
+
+    def get_queryset(self, request):
+        return super().get_queryset(request).select_related(
+            'brand', 'category__parent',
+        ).annotate(
+            _image_count=Count('images', distinct=True),
+            _variant_count=Count('variants', distinct=True),
+            _hero_count=Count('images', filter=Q(images__is_hero=True), distinct=True),
+        )
 
     inlines = [
         ProductVariantInline,
@@ -276,14 +502,62 @@ class ProductAdmin(admin.ModelAdmin):
             obj.category.name,
         )
 
-    @admin.display(description='Variants')
+    @staticmethod
+    def _pill(text, ok):
+        bg, fg = ('#dcfce7', '#166534') if ok else ('#fee2e2', '#b91c1c')
+        return format_html(
+            '<span style="background:{};color:{};padding:2px 9px;border-radius:100px;'
+            'font-weight:700;font-size:12px;white-space:nowrap;">{}</span>',
+            bg, fg, text,
+        )
+
+    @staticmethod
+    def _count_pill(count):
+        bg, fg = ('#f1f5f9', '#0f172a') if count else ('#fee2e2', '#b91c1c')
+        return format_html(
+            '<span style="background:{};color:{};padding:2px 9px;border-radius:100px;'
+            'font-weight:700;font-size:12px;">{}</span>',
+            bg, fg, count,
+        )
+
+    @admin.display(description='Hero?', ordering='_hero_count')
+    def hero_status(self, obj):
+        has = bool(getattr(obj, '_hero_count', 0))
+        return self._pill('✓ Hero' if has else 'No hero', has)
+
+    @admin.display(description='Photos', ordering='_image_count')
+    def image_count(self, obj):
+        return self._count_pill(getattr(obj, '_image_count', 0) or obj.images.count())
+
+    @admin.display(description='Variants', ordering='_variant_count')
     def variant_count(self, obj):
-        count = obj.variants.count()
+        count = getattr(obj, '_variant_count', None)
+        if count is None:
+            count = obj.variants.count()
         return format_html(
             '<span style="background:#f1f5f9;padding:2px 9px;border-radius:100px;'
             'font-weight:700;font-size:12px;">{}</span>',
             count,
         )
+
+    @admin.display(description='Video?')
+    def video_status(self, obj):
+        if obj.video:
+            return self._pill('✓ File', True)
+        if obj.video_url:
+            return self._pill('✓ Link', True)
+        return self._pill('No video', False)
+
+    @admin.display(description='Amazon?', ordering='amazon_link')
+    def amazon_status(self, obj):
+        if obj.amazon_link:
+            return format_html(
+                '<a href="{}" target="_blank" rel="noopener" style="background:#dcfce7;'
+                'color:#166534;padding:2px 9px;border-radius:100px;font-weight:700;'
+                'font-size:12px;text-decoration:none;">✓ Link</a>',
+                obj.amazon_link,
+            )
+        return self._pill('No link', False)
 
     # ── Form field helpers ──────────────────────────────────────────────
 
@@ -302,6 +576,21 @@ class ProductAdmin(admin.ModelAdmin):
                 obj.image_url,
             )
         return mark_safe('<span style="color:#aaa;font-style:italic;">No image yet</span>')
+
+    @admin.display(description='Current video')
+    def video_status_field(self, obj):
+        url = obj.video.url if obj.video else (obj.video_url or None)
+        if not url:
+            return mark_safe(
+                '<span style="color:#aaa;font-style:italic;">No video yet — upload a '
+                'file above, or paste a link to one that is already online.</span>'
+            )
+        return format_html(
+            '<video src="{}" controls preload="metadata" style="max-height:160px;'
+            'border-radius:10px;box-shadow:0 4px 16px rgba(0,0,0,.15);"></video>'
+            '<br><span style="font-size:11px;color:#64748b;">{}</span>',
+            url, url,
+        )
 
     @admin.display(description='Thumbnail Preview')
     def thumbnail_preview_field(self, obj):

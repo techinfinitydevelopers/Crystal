@@ -108,7 +108,15 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_DIRS = [BASE_DIR / 'static']
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
+# The dashboard's product images are the website's own files: products.json stores
+# paths like "product-photos/CNS-756/hero.jpg", relative to the site root. Rooting
+# media there means /media/<that path> serves the real photo instead of 404ing, and
+# anything uploaded from the dashboard lands where the static site can pick it up.
+# Falls back to backend/media when the site tree isn't alongside (e.g. on Railway,
+# where the backend is deployed as its own service).
+_site_root = BASE_DIR.parent.parent
+MEDIA_ROOT = Path(env('MEDIA_ROOT', default=str(
+    _site_root if (_site_root / 'product-data').is_dir() else BASE_DIR / 'media')))
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
@@ -195,7 +203,7 @@ JAZZMIN_SETTINGS = {
 
     # UI tweaks
     "related_modal_active": True,
-    "custom_css": "admin/crystal_admin.css",
+    "custom_css": "admin/crystal_theme.css",
     "custom_js": None,
     "use_google_fonts_cdn": False,
     "show_ui_builder": False,

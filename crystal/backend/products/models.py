@@ -58,6 +58,40 @@ class Product(models.Model):
     price = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
     featured_image = models.ImageField(upload_to='products/featured/', blank=True, null=True)
     thumbnail = models.ImageField(upload_to='products/thumbnails/', blank=True, null=True)
+    # The site shows a product video and a list of feature bullets, both of which
+    # lived only in product-data/products.json - the dashboard had no field for
+    # either, so editing a product here could never produce them.
+    video = models.FileField(
+        upload_to='products/videos/', blank=True, null=True,
+        help_text='Product video. Shown as the second thumbnail in the gallery.')
+    video_url = models.URLField(
+        max_length=500, blank=True,
+        help_text='Use instead of uploading, when the video is already hosted '
+                  '(e.g. product-photos/<SKU>/video.mp4).')
+    features = models.JSONField(
+        default=list, blank=True,
+        help_text='Feature cards: [[icon, title, detail], ...]. Falls back to the '
+                  'category defaults when empty.')
+    amazon_link = models.URLField(
+        max_length=500, blank=True, help_text='Buy Now sends customers here.')
+    variant_group = models.CharField(
+        max_length=64, blank=True, db_index=True,
+        help_text='Products sharing this value are shown as size options of one '
+                  'another on the website. Leave blank if this product has no '
+                  'size siblings.')
+    match_tier = models.CharField(
+        max_length=64, blank=True,
+        help_text='Internal provenance note carried over from the original site '
+                  'catalogue (how this row was matched during import). Nothing '
+                  'on the website reads it.')
+    specs = models.JSONField(
+        default=dict, blank=True,
+        help_text='Logistics/packaging details shown in the specification table '
+                  '(weight, pack dimensions, HSN code, manufacturer).')
+    gst_pct = models.DecimalField(
+        max_digits=5, decimal_places=4, null=True, blank=True,
+        help_text='As a fraction, e.g. 0.18 for 18%.')
+
     is_dashboard_managed = models.BooleanField(
         default=True,
         help_text="Internal — leave this on. Only products created here (rather than bulk-imported from the "

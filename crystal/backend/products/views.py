@@ -3,7 +3,10 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from django.shortcuts import get_object_or_404
 from .models import Brand, Category, Product, Marketplace
-from .serializers import BrandSerializer, CategorySerializer, ProductListSerializer, ProductDetailSerializer, MarketplaceSerializer
+from .serializers import (
+    BrandSerializer, CategorySerializer, ProductListSerializer,
+    ProductDetailSerializer, MarketplaceSerializer, site_product_entries,
+)
 
 
 class BrandListView(generics.ListAPIView):
@@ -63,3 +66,29 @@ class ProductDetailView(APIView):
         )
         serializer = ProductDetailSerializer(product, context={'request': request})
         return Response(serializer.data)
+
+
+class SiteCatalogueView(APIView):
+    """The catalogue in exactly the shape of product-data/products.json.
+
+    The static site reads that file today; this endpoint lets it read the
+    database instead without any frontend change. Key set and value types are
+    kept identical - see SiteProductSerializer helpers in serializers.py.
+    """
+    authentication_classes = []
+    permission_classes = []
+
+    def get(self, request):
+        products = (
+            Product.objects.filter(is_active=True)
+            .select_related('brand', 'category__parent')
+            .prefetch_related(
+                'images', 'variants', 'specifications',
+                'marketplace_links__marketplace',
+            )
+            .order_by('id')
+        )
+        entries = []
+        for product in products:
+            entries.extend(site_product_entries(product))
+        return Response({'products': entries})

@@ -1,0 +1,113 @@
+{% extends "admin/base_site.html" %}
+
+{% block breadcrumbs %}
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{% url 'admin:index' %}">Home</a></li>
+    <li class="breadcrumb-item"><a href="{{ changelist_url }}">Products</a></li>
+    <li class="breadcrumb-item active">Import</li>
+  </ol>
+{% endblock %}
+
+{% block content %}
+<div class="row">
+  <div class="col-lg-8">
+    <div class="card">
+      <div class="card-header bg-danger text-white">
+        <h3 class="card-title mb-0"><i class="fas fa-file-excel mr-2"></i> Import products from Excel / CSV</h3>
+      </div>
+      <div class="card-body">
+        <form method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="form-group">
+            <label for="id_import_file" style="font-weight:600;">Spreadsheet file (.xlsx or .csv)</label>
+            <input type="file" name="file" id="id_import_file" accept=".xlsx,.csv" class="form-control-file" required>
+          </div>
+          <button type="submit" class="btn btn-danger" style="font-weight:600;">
+            <i class="fas fa-upload mr-1"></i> Upload &amp; import
+          </button>
+          <a href="{{ changelist_url }}" class="btn btn-default ml-2">Cancel</a>
+        </form>
+      </div>
+      <div class="card-footer" style="background:#f8f9fa;">
+        <strong>Not sure of the format?</strong>
+        <a href="{{ template_xlsx_url }}" class="btn btn-sm btn-outline-danger ml-2">
+          <i class="fas fa-download mr-1"></i> Download template (.xlsx)
+        </a>
+        <a href="{{ template_csv_url }}" class="btn btn-sm btn-outline-secondary ml-2">
+          <i class="fas fa-download mr-1"></i> Template (.csv)
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-4">
+    <div class="card">
+      <div class="card-header"><h3 class="card-title mb-0">How it works</h3></div>
+      <div class="card-body" style="font-size:13px;">
+        <ul class="pl-3 mb-2">
+          <li>The first row is the header. Column names are matched ignoring case; unknown columns are ignored.</li>
+          <li><code>sku</code> identifies the product — an existing SKU is <strong>updated in place</strong>, a new one is created. Nothing is ever duplicated.</li>
+          <li>Blank cells leave the existing value alone, so re-uploading the same file changes nothing.</li>
+          <li><code>tags</code> and <code>gallery</code> take several values separated by commas or pipes.</li>
+          <li><code>features</code> is one <code>Title | detail</code> per line (or
+              <code>icon | Title | detail</code>, as on the product edit screen).</li>
+          <li><code>hero</code>, <code>gallery</code> and <code>video</code> hold a path or link (e.g. <code>product-photos/LI001A/hero.webp</code>) — not an uploaded file.</li>
+          <li>Brands and categories must already exist; a row naming an unknown one is reported instead of inventing it.</li>
+          <li>A bad row never stops the import — the good rows still go in.</li>
+        </ul>
+        <p class="mb-0 text-muted"><strong>Columns:</strong> {{ columns|join:", " }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% if results %}
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-header d-flex justify-content-between align-items-center">
+        <h3 class="card-title mb-0">Result — {{ filename }}</h3>
+        <span style="font-size:13px;font-weight:600;">
+          <span class="badge badge-success">{{ summary.created }} created</span>
+          <span class="badge badge-primary">{{ summary.updated }} updated</span>
+          <span class="badge badge-secondary">{{ summary.unchanged }} unchanged</span>
+          <span class="badge badge-danger">{{ summary.skipped }} skipped</span>
+        </span>
+      </div>
+      <div class="card-body p-0">
+        <table class="table table-sm mb-0" style="font-size:13px;">
+          <thead style="background:#f9f9f9;">
+            <tr>
+              <th style="width:70px;">Row</th>
+              <th style="width:110px;">SKU</th>
+              <th>Product</th>
+              <th style="width:110px;">Result</th>
+              <th>Detail</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for r in results %}
+            <tr>
+              <td>{{ r.line }}</td>
+              <td><code>{{ r.sku|default:"—" }}</code></td>
+              <td>{{ r.name|default:"—" }}</td>
+              <td>
+                {% if r.status == 'created' %}<span class="badge badge-success">created</span>
+                {% elif r.status == 'updated' %}<span class="badge badge-primary">updated</span>
+                {% elif r.status == 'unchanged' %}<span class="badge badge-secondary">unchanged</span>
+                {% else %}<span class="badge badge-danger">skipped</span>{% endif %}
+              </td>
+              <td style="color:#64748b;">{{ r.detail }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      <div class="card-footer" style="background:#f8f9fa;">
+        <a href="{{ changelist_url }}" class="btn btn-sm btn-danger">Back to products</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endif %}
+{% endblock %}

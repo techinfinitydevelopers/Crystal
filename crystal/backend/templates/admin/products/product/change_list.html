@@ -1,0 +1,11 @@
+{% extends "admin/change_list.html" %}
+
+{# Adds the "Import products" button next to the usual Add / History tools. #}
+{% block object-tools-items %}
+  <a href="{% url 'admin:products_product_import' %}"
+     class="btn btn-sm"
+     style="background:#ED3338;color:#fff;font-weight:600;margin-right:6px;">
+    <i class="fas fa-file-excel mr-1"></i> Import products
+  </a>
+  {{ block.super }}
+{% endblock %}
