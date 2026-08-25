@@ -132,3 +132,122 @@
   }
 }
 /* === /tag chips === */
+
+/* ==========================================================================
+   Form layout
+   --------------------------------------------------------------------------
+   Django pairs fields as ('brand', 'category'), and jazzmin renders the pair
+   as ONE .row holding label, .fieldBox, label, .fieldBox. Those boxes are
+   .col-auto, so they size to their content — and the four related-widget
+   icons beside a select make the first box wide enough to push the second
+   field's input onto its own line, leaving a label stranded beside nothing.
+
+   A grid fixes it: label / field / label / field, with the fields sharing the
+   remaining width equally regardless of what is inside them.
+   ========================================================================== */
+
+.form-group > .row:has(.fieldBox ~ .fieldBox) {
+  display: grid;
+  grid-template-columns: minmax(96px, 150px) minmax(0, 1fr)
+                         minmax(96px, 150px) minmax(0, 1fr);
+  align-items: start;
+  gap: 6px 18px;
+}
+.form-group > .row:has(.fieldBox ~ .fieldBox) > label {
+  max-width: none;
+  width: auto;
+  flex: none;
+  padding-top: 8px;
+  margin: 0;
+}
+.form-group > .row > .fieldBox {
+  min-width: 0;          /* without this a long select still forces overflow */
+  width: auto;
+  flex: 1 1 auto;
+}
+.form-group > .row > .fieldBox > *,
+.form-group > .row > .fieldBox .form-control,
+.form-group > .row > .fieldBox .select2-container {
+  max-width: 100%;
+}
+
+/* A row can hold three fields, not just two — the visibility switches are
+   is_active / is_featured / is_new. Those are checkboxes, so they read best
+   as one inline run after a single label rather than as three label+field
+   columns. .fieldBox is the only <div> among the row's children, so
+   :nth-of-type counts them. */
+.form-group > .row:has(.fieldBox:nth-of-type(3)) {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 18px;
+}
+.form-group > .row:has(.fieldBox:nth-of-type(3)) > label {
+  flex: 0 0 auto;
+  max-width: none;
+  width: auto;
+  padding-top: 0;
+  margin: 0;
+}
+.form-group > .row:has(.fieldBox:nth-of-type(3)) > .fieldBox {
+  flex: 0 0 auto;
+  margin-right: 4px;
+}
+
+/* Single-field rows get the same label column so every row lines up. */
+.form-group > .row:not(:has(.fieldBox ~ .fieldBox)) > label {
+  padding-top: 8px;
+}
+
+/* The add / change / delete / view links belong beside their select, not
+   wrapped underneath it. */
+.related-widget-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: nowrap;
+  min-width: 0;
+}
+.related-widget-wrapper > .select2-container,
+.related-widget-wrapper > select {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.related-widget-wrapper-link {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--s-radius-sm, 8px);
+}
+.related-widget-wrapper-link:hover { background: var(--s-hover, rgba(0,0,0,.05)); }
+
+/* Help text sits under its own field, not stretched across the row. */
+.form-group > .row > .fieldBox .help-block,
+.form-group > .row > .fieldBox .form-text {
+  margin-top: 5px;
+  font-size: 12px;
+  line-height: 1.45;
+  color: var(--s-ink-soft, #616161);
+}
+
+/* Section descriptions were rendering as a cramped italic run-on. */
+.card .description,
+fieldset .description {
+  font-style: normal;
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--s-ink-soft, #616161);
+  margin: 0 0 4px;
+}
+
+@media (max-width: 900px) {
+  /* Stack: every label above its own field. */
+  .form-group > .row:has(.fieldBox ~ .fieldBox) {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2px;
+  }
+  .form-group > .row:has(.fieldBox ~ .fieldBox) > label { padding-top: 10px; }
+}
