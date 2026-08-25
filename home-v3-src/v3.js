@@ -133,48 +133,63 @@
   }
 
   /* ---------- 02 SPLIT — one scroll pass drives the words AND the slides ----
-     Both sides are read off the same progress value, so the photo changes in
-     step with the sentence filling instead of running on its own timer. No
-     pin: the section scrolls past normally while this plays out. */
+     Both sides read the same progress value, so the photo changes in step with
+     the sentence filling instead of running on its own timer.
+
+     Built inside gsap.matchMedia so the desktop/mobile choice is re-evaluated
+     on resize. Reading matchMedia once at load baked the wrong branch in
+     whenever the page first rendered narrow - which is how the pin silently
+     never appeared. */
   var splitSwiper = parallaxSwiper(".split3-swiper", { loop: false, autoplay: false });
-  var textEl = document.querySelector(".anim-text");
+  var splitText = document.querySelector(".anim-text");
+  var splitWordList = splitText ? splitWords(splitText) : [];
+  if (splitWordList.length) {
+    gsap.set(splitWordList, { backgroundPositionX: "100%", opacity: 0.3 });
+  }
 
-  if (splitSwiper || textEl) {
-    var words = textEl ? splitWords(textEl) : [];
-    if (words.length) gsap.set(words, { backgroundPositionX: "100%", opacity: 0.3 });
+  function splitProgress(p) {
+    if (splitSwiper && splitSwiper.slides.length) {
+      var last = splitSwiper.slides.length - 1;
+      splitSwiper.setTranslate(-p * last * splitSwiper.height);
+      splitSwiper.updateActiveIndex();
+      splitSwiper.updateSlidesClasses();
+    }
+    var filled = Math.floor(p * splitWordList.length);
+    splitWordList.forEach(function (w, i) {
+      gsap.to(w, {
+        backgroundPositionX: i <= filled ? "0%" : "100%",
+        opacity: i <= filled ? 1 : 0.3,
+        duration: 0.15,
+        overwrite: "auto",
+      });
+    });
+  }
 
-    // Pinned on desktop at the user's request: the section holds the viewport
-    // while the photo and the sentence advance together, then releases. The
-    // pin is added only above 1024px - a held viewport fights touch scrolling.
-    ScrollTrigger.create({
-      trigger: ".split3",
-      start: matchMedia("(min-width: 1025px)").matches ? "top top" : "top 75%",
-      end: matchMedia("(min-width: 1025px)").matches
-        ? function () { return "+=" + Math.round(window.innerHeight * 2.2); }
-        : "bottom 40%",
-      pin: matchMedia("(min-width: 1025px)").matches,
-      anticipatePin: 1,
-      scrub: 1,
-      onUpdate: function (self) {
-        var p = self.progress;
+  if (splitSwiper || splitText) {
+    // desktop: the section holds the viewport while both sides advance
+    mm.add(DESK, function () {
+      var st = ScrollTrigger.create({
+        trigger: ".split3",
+        start: "top top",
+        end: function () { return "+=" + Math.round(window.innerHeight * 2.2); },
+        pin: true,
+        anticipatePin: 1,
+        scrub: 1,
+        onUpdate: function (self) { splitProgress(self.progress); },
+      });
+      return function () { st.kill(); };
+    });
 
-        if (splitSwiper && splitSwiper.slides.length) {
-          var last = splitSwiper.slides.length - 1;
-          splitSwiper.setTranslate(-p * last * splitSwiper.height);
-          splitSwiper.updateActiveIndex();
-          splitSwiper.updateSlidesClasses();
-        }
-
-        var filled = Math.floor(p * words.length);
-        words.forEach(function (w, i) {
-          gsap.to(w, {
-            backgroundPositionX: i <= filled ? "0%" : "100%",
-            opacity: i <= filled ? 1 : 0.3,
-            duration: 0.15,
-            overwrite: "auto",
-          });
-        });
-      },
+    // mobile: no pin - a held viewport fights touch scrolling
+    mm.add(MOB, function () {
+      var st = ScrollTrigger.create({
+        trigger: ".split3",
+        start: "top 75%",
+        end: "bottom 40%",
+        scrub: 1,
+        onUpdate: function (self) { splitProgress(self.progress); },
+      });
+      return function () { st.kill(); };
     });
   }
 

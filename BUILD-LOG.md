@@ -619,3 +619,34 @@ Two things would have to be true before this is worth revisiting:
 2. LFS storage is paid for - GitHub's free tier is 1 GB storage and 1 GB
    bandwidth per month, and this repo would need ~1.7 GB plus fresh
    bandwidth on every deploy.
+
+## 2026-08-25 (15) — The Since-1971 pin never actually existed
+
+Checking the live site rather than the built file caught this: the pin was
+in the code but `ScrollTrigger.getAll().filter(t => t.pin)` came back empty,
+and the trigger's range was the mobile one (start 180, end 1152) on a
+1280px-wide desktop viewport.
+
+Cause: `matchMedia("(min-width: 1025px)").matches` was read once, inline, at
+script execution. Whatever the width happened to be at that instant got
+baked into `start`, `end` and `pin` forever. A page that first renders narrow
+- a restoring window, a slow layout, a device rotation - permanently gets the
+mobile branch.
+
+Rebuilt through `gsap.matchMedia()`: a pinned trigger inside `mm.add(DESK)`,
+an unpinned one inside `mm.add(MOB)`, both calling one `splitProgress(p)`
+that drives the slider and the word fill. GSAP now re-evaluates on resize and
+kills the other branch's trigger.
+
+**Verified** by resizing the live page **without reloading**: at 731px, 0
+pins and the mobile range; resized to 1280px, `pins: 1`, range 800->2560,
+one `.pin-spacer` in the DOM. Scrolled through the pin - section top stays at
+0 while the slider tracks progress (0.11/0.51/0.91 -> -273/-1227/-2182px).
+
+Word fill could not be re-measured here - its 0.15s tweens need a real ticker
+and the preview pane throttles - but the code path is unchanged from the
+build where it measured 14/27 at mid-scroll.
+
+Also confirmed live in the same pass: Trusted Partners is **12/12 loaded and
+12/12 visible** (the invisible-reveal fix holds), hero is 1 video + 4 stills,
+nav is transparent at the top.
