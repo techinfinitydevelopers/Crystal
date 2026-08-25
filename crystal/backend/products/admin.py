@@ -244,6 +244,7 @@ class ProductVariantInline(admin.StackedInline):
 
 class ProductImageInline(admin.TabularInline):
     model = ProductImage
+    template = 'admin/products/product/edit_inline/gallery_grid.html'
     extra = 3
     fields = ['image', 'image_preview', 'variant', 'is_hero', 'order']
     readonly_fields = ['image_preview']
@@ -277,6 +278,19 @@ class ProductImageInline(admin.TabularInline):
         return mark_safe('<span style="color:#94a3b8;font-style:italic;">—</span>')
 
 
+def _image_public_url(image_field):
+    """A browser-usable URL for a stored product photo.
+
+    The imported photos are site-root-relative paths and the files live on the
+    website service, so ImageField.url (which prepends MEDIA_URL) 404s in
+    production. The gallery template reads this off the instance.
+    """
+    return _public_url(getattr(image_field, 'name', '') or '')
+
+
+ProductImage.public_image_url = property(lambda self: _image_public_url(self.image))
+
+
 class ProductSpecificationInline(admin.StackedInline):
     model = ProductSpecification
     extra = 1
@@ -304,8 +318,10 @@ class ProductAdmin(admin.ModelAdmin):
         # crystal_theme.css already occupies, so anything scoped to this screen
         # loads here instead.
         css = {'all': ('admin/crystal_product_form.css',
-                       'admin/crystal_variants.css')}
-        js = ('admin/crystal_tags.js', 'admin/crystal_variants.js')
+                       'admin/crystal_variants.css',
+                       'admin/crystal_media.css')}
+        js = ('admin/crystal_tags.js', 'admin/crystal_variants.js',
+              'admin/crystal_media.js')
 
     list_display = [
         'image_preview', 'name_cell', 'brand_badge', 'category_badge',
