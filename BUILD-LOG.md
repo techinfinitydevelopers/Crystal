@@ -491,3 +491,32 @@ changes make the resting position unconditional:
 gap exactly 0, transform `none`. 390x844: gap exactly 0, image 360x274,
 `scrollWidth` 390, and the heart reads as resting on the footer edge in a
 screenshot.
+
+## 2026-08-25 (11) — Heart rests 10% above the footer; map panel heading sized
+
+### Pre-footer heart
+
+Clarified requirement: the heart should *rise as you scroll* and come to rest
+with its lower tip **10% of its own height clear of the footer**, not flush
+against it.
+
+- The 10% lift lives on the artwork: `.pre3-right img { transform:
+  translateY(-10%) }`. A percentage translate resolves against the element's
+  own height, so it holds at every viewport without a magic pixel value, and
+  it leaves `.pre3-right` free for the scroll tween.
+- The rise is a scrub from `y: 140` to 0, ending at `endTrigger: "#footer",
+  end: "top bottom"` - when the footer reaches the bottom of the viewport,
+  roughly a footer's height (627px) before the page bottoms out. That margin
+  is what guarantees the travel has finished by the time scrolling stops;
+  the earlier `end: "bottom bottom"` never completed, which is how the heart
+  kept ending up parked inside the footer.
+
+**Verified** at the page bottom, tween at progress 1: 1280x800 - image 463px
+tall, gap 46px = **10.0%**. 390x844 - image 274px tall, gap 27px = **10.0%**.
+
+### "Available In Multiple Countries"
+
+The site-wide 54px heading rule was applied to a heading sitting in a
+half-width dark panel, where it wrapped to three lines and crowded the
+slider. Overridden to `clamp(22px, 2vw, 30px)` for that panel only - now
+25.3px, one line, 353px inside a 432px panel.

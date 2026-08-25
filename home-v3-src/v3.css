@@ -264,7 +264,9 @@ header:not(.scrolled) .nav {
   border-radius: 10px 0 0 10px; background: #1e0405; width: 50%;
   padding: var(--p30) var(--p60); height: min(86vh, 780px); overflow: hidden;
 }
-.v3 .map3-right .v-head { font-size: var(--f48); margin-bottom: var(--m20); }
+/* This heading sits in a half-width dark panel, so the site-wide 54px is too
+   big for it - it wrapped to three lines and crowded the slider below. */
+.v3 .map3-right .v-head { font-size: clamp(22px, 2vw, 30px) !important; margin-bottom: var(--m20); }
 .v3 .map3-swiper {
   width: 100%; aspect-ratio: 840/316; border-radius: 10px; overflow: hidden; margin-bottom: var(--m20);
 }
@@ -309,6 +311,11 @@ header:not(.scrolled) .nav {
 .v3 .pre3-left { padding-bottom: var(--s80); }
 .v3 .pre3-right { width: 50%; aspect-ratio: 1200/900; }
 .v3 .pre3-right img { height: 100%; width: 100%; object-fit: contain; object-position: bottom; }
+/* The heart comes to rest with its lower tip 10% of its own height clear of
+   the footer. A percentage translate resolves against the element's own
+   height, so this holds at every width without a magic pixel value. It sits
+   on the image, leaving .pre3-right free for the scroll animation. */
+.v3 .pre3-right img { transform: translateY(-10%); }
 
 /* ---------- tablets and phones ----------
    Below 1025px the reference drops every pin: the hero opens full-bleed with
