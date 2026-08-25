@@ -179,6 +179,11 @@ if not DEBUG:
     # would bounce every request into a redirect loop.
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
     SECURE_SSL_REDIRECT = True
+    # The platform's healthcheck reaches the container over plain HTTP on the
+    # internal network, with no X-Forwarded-Proto to tell Django otherwise, so
+    # SECURE_SSL_REDIRECT answers it with a 301 and the check is recorded as a
+    # failure. The healthcheck endpoint is exempt; everything else still redirects.
+    SECURE_REDIRECT_EXEMPT = [r'^api/products/$']
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_SECURE = True
     SECURE_HSTS_SECONDS = 60 * 60 * 24 * 30
