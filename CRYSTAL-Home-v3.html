@@ -1778,16 +1778,11 @@ header:not(.scrolled) .nav {
 /* ==========================================================================
    HOME v3 — scroll choreography
    --------------------------------------------------------------------------
-   Ported from the reference build. Three pieces do the heavy lifting:
-     hero   — a card stack that opens out to full bleed on load, then becomes
-              a plain cross-fade slider
-     split  — pinned; scroll drives a vertical parallax slider on the right
-              while the sentence on the left fills word by word
-     map    — pinned; the India map zooms out from a close crop as the dark
-              panel slides in from the right
-   Everything above is desktop only. At <=1024px the pins are dropped and the
-   sliders autoplay instead, which is what keeps iOS Safari from fighting the
-   pinned sections.
+   No pinned sections and no scroll hijacking: pinning read as "scroll is
+   stuck" and was cut. Every section scrolls past normally; animations are
+   either scrubbed to the section's own passage (word fill, map zoom) or fire
+   once on entry (fly-ins, counters). The hero keeps its card-stack intro on
+   desktop only.
    ========================================================================== */
 (function () {
   if (!window.gsap || !window.Swiper) return;
@@ -1885,12 +1880,16 @@ header:not(.scrolled) .nav {
 
   /* ---------- vertical parallax slider used by split + map ---------- */
   var INTERLEAVE = 0.75;
-  function parallaxOpts(extra) {
-    var base = {
+  function parallaxSwiper(sel, extra) {
+    var el = document.querySelector(sel);
+    if (!el) return null;
+    return new Swiper(el, Object.assign({
       direction: "vertical",
-      speed: 0,
+      speed: 1100,
+      loop: true,
       allowTouchMove: false,
       watchSlidesProgress: true,
+      autoplay: { delay: 3200 },
       on: {
         setTranslate: function () {
           var s = this;
@@ -1899,185 +1898,100 @@ header:not(.scrolled) .nav {
             if (inner) gsap.set(inner, { y: slide.progress * s.height * INTERLEAVE, force3D: true });
           });
         },
-      },
-    };
-    return Object.assign(base, extra || {});
-  }
-
-  /* ---------- 02 SPLIT + 06 MAP + pre-footer (desktop: pinned) ---------- */
-  mm.add(DESK, function () {
-    var section = document.querySelector(".split3");
-    var swiperEl = section && section.querySelector(".split3-swiper");
-    var textEl = section && section.querySelector(".anim-text");
-    var triggers = [];
-
-    if (section && swiperEl && textEl) {
-      // the two halves fly in as the section arrives
-      var inTl = gsap.timeline({
-        scrollTrigger: { trigger: section, start: "top center", end: "+=1500", scrub: 2 },
-      })
-        .from(".split3 .left-txt", { x: -300, opacity: 0 })
-        .from(".split3-swiper-wrap", { x: 1000, opacity: 0 }, 0);
-      triggers.push(inTl);
-
-      var swiper = new Swiper(swiperEl, parallaxOpts());
-      var total = swiper.slides.length;
-      var words = splitWords(textEl);
-
-      gsap.set(words, { backgroundPositionX: "100%", opacity: 0.3 });
-
-      var pin = ScrollTrigger.create({
-        trigger: section,
-        start: "top top+=30",
-        end: function () { return "+=" + Math.round(total * window.innerHeight * 0.6); },
-        scrub: true,
-        pin: true,
-        onUpdate: function (self) {
-          var p = self.progress;
-          swiper.setTranslate(-p * (total - 1) * swiper.height);
-          swiper.updateActiveIndex();
-          swiper.updateSlidesClasses();
-
-          var filled = Math.floor(p * words.length);
-          words.forEach(function (w, i) {
-            gsap.to(w, {
-              backgroundPositionX: i <= filled ? "0%" : "100%",
-              opacity: i <= filled ? 1 : 0.3,
-              duration: 0.15,
-              overwrite: "auto",
-            });
+        setTransition: function (speed) {
+          this.slides.forEach(function (slide) {
+            slide.style.transition = speed + "ms";
+            var inner = slide.querySelector(".slide-inner");
+            if (inner) inner.style.transition = speed + "ms";
           });
         },
-      });
+      },
+    }, extra || {}));
+  }
 
-      // MAP — zoom out from a close crop while the panel slides in
-      var mapLeft = document.querySelector(".map3-left");
-      if (mapLeft) {
-        var startX = (window.innerWidth - mapLeft.getBoundingClientRect().left) * 0.65;
-        var mapTl = gsap.timeline({
-          scrollTrigger: {
-            trigger: ".map3",
-            start: window.innerWidth > 1200 ? "0 0" : "0 5%",
-            end: "+=1600",
-            scrub: 1,
-            pin: true,
-          },
-        })
-          .from(".map3-left", {
-            x: startX,
-            y: window.innerWidth > 1440 ? 700 : 500,
-            scale: window.innerWidth > 1200 ? 2.5 : 2.2,
-          }, 0)
-          .from(".map3-state", { fill: "#ED282E", clearProps: "fill" }, 0)
-          .from(".map3-float", {
-            scale: 1.6,
-            y: window.innerWidth > 1440 ? -300 : -150,
-            x: 400,
-          }, 0)
-          .from(".map3-right", { opacity: 0, x: 1000 });
-        triggers.push(mapTl);
-      }
+  /* ---------- 02 SPLIT — slider autoplays, words fill as it scrolls past ---------- */
+  parallaxSwiper(".split3-swiper");
 
-      var preTl = gsap.timeline({
-        scrollTrigger: {
-          trigger: ".pre3",
-          start: window.innerWidth > 1366 ? "top top+=80" : "top top+=40",
-          end: "bottom center",
-          scrub: 1,
-        },
-      }).to(".pre3-right", { y: 160 });
-      triggers.push(preTl);
+  var textEl = document.querySelector(".anim-text");
+  if (textEl) {
+    var words = splitWords(textEl);
+    gsap.set(words, { backgroundPositionX: "100%", opacity: 0.3 });
+    gsap.to(words, {
+      backgroundPositionX: "0%",
+      opacity: 1,
+      ease: "none",
+      stagger: 0.35,
+      scrollTrigger: { trigger: ".split3", start: "top 75%", end: "bottom 45%", scrub: 1 },
+    });
+  }
 
-      return function () {
-        pin.kill();
-        swiper.destroy(true, true);
-        triggers.forEach(function (t) { t.scrollTrigger && t.scrollTrigger.kill(); t.kill(); });
-      };
-    }
-  });
-
-  /* ---------- 02 SPLIT + 06 MAP (mobile: no pins, autoplay + fade-up) ---------- */
-  mm.add(MOB, function () {
-    var swiper = new Swiper(".split3-swiper", parallaxOpts({
-      speed: 1200,
-      loop: true,
-      autoplay: { delay: 3000 },
-    }));
-
-    var textEl = document.querySelector(".anim-text");
-    var wordTweens = [];
-    if (textEl) {
-      var words = splitWords(textEl);
-      gsap.set(words, { backgroundPositionX: "100%", opacity: 0.3 });
-      wordTweens.push(gsap.to(words, {
-        backgroundPositionX: "0%",
-        opacity: 1,
-        ease: "none",
-        stagger: 0.3,
-        scrollTrigger: { trigger: textEl, start: "top 80%", end: "bottom 60%", scrub: 1 },
-      }));
-    }
-
-    var mapTl = gsap.timeline({
-      scrollTrigger: { trigger: ".map3", start: "top 70%", end: "bottom bottom", toggleActions: "play none none reverse" },
+  mm.add(DESK, function () {
+    var inTl = gsap.timeline({
+      scrollTrigger: { trigger: ".split3", start: "top 85%", end: "top 30%", scrub: 1.5 },
     })
-      .from(".map3-container", { y: 300, opacity: 0 })
-      .from(".map3-right", { y: 300, opacity: 0 });
+      .from(".split3 .left-txt", { x: -220, opacity: 0 })
+      .from(".split3-swiper-wrap", { x: 420, opacity: 0 }, 0);
+
+    /* ---------- 06 MAP — zoomed crop settles as the section scrolls in ---------- */
+    var mapTl = gsap.timeline({
+      scrollTrigger: { trigger: ".map3", start: "top 85%", end: "top 15%", scrub: 1 },
+    })
+      .from(".map3-left", { scale: 1.7, y: 180, transformOrigin: "50% 60%" }, 0)
+      .from(".map3-state", { fill: "#ED282E", clearProps: "fill" }, 0)
+      .from(".map3-float", { scale: 1.4, x: 180, y: -80 }, 0)
+      .from(".map3-right", { opacity: 0, x: 320 }, 0.15);
+
+    var preTl = gsap.timeline({
+      scrollTrigger: { trigger: ".pre3", start: "top 80%", end: "bottom 60%", scrub: 1 },
+    }).to(".pre3-right", { y: 110 });
 
     return function () {
-      swiper.destroy(true, true);
-      wordTweens.forEach(function (t) { t.scrollTrigger && t.scrollTrigger.kill(); t.kill(); });
-      mapTl.scrollTrigger && mapTl.scrollTrigger.kill();
-      mapTl.kill();
+      [inTl, mapTl, preTl].forEach(function (t) {
+        t.scrollTrigger && t.scrollTrigger.kill();
+        t.kill();
+      });
     };
+  });
+
+  mm.add(MOB, function () {
+    var mapTl = gsap.timeline({
+      scrollTrigger: { trigger: ".map3", start: "top 75%", once: true },
+    })
+      .from(".map3-container", { y: 220, opacity: 0, duration: 0.7, ease: "power2.out" })
+      .from(".map3-right", { y: 220, opacity: 0, duration: 0.7, ease: "power2.out" }, "-=0.35");
+    return function () { mapTl.scrollTrigger && mapTl.scrollTrigger.kill(); mapTl.kill(); };
   });
 
   /* ---------- 06 MAP — tabs drive the slider ---------- */
-  var mapSwiper = new Swiper(".map3-swiper .swiper", parallaxOpts({ speed: 800, allowTouchMove: false }));
+  var mapSwiper = parallaxSwiper(".map3-swiper .swiper", { loop: false, autoplay: false, speed: 800 });
   var mapTabs = document.querySelectorAll(".map3-tabs li");
   mapTabs.forEach(function (tab) {
     tab.addEventListener("click", function () {
       mapTabs.forEach(function (t) { t.classList.remove("active"); });
       tab.classList.add("active");
-      mapSwiper.slideTo(+tab.dataset.slide, 800);
+      if (mapSwiper) mapSwiper.slideTo(+tab.dataset.slide, 800);
     });
   });
-  mapSwiper.slideTo(0, 0);
+  if (mapSwiper) mapSwiper.slideTo(0, 0);
 
-  /* ---------- 03 ABOUT — halves in, counters up, red line drawn ---------- */
+  /* ---------- 03 ABOUT — one entry animation, then done ---------- */
   gsap.timeline({
-    scrollTrigger: {
-      trigger: ".about3",
-      start: window.innerWidth > 990 ? "top 70%" : "top 100%",
-      end: "bottom bottom",
-      scrub: 1,
-    },
+    scrollTrigger: { trigger: ".about3", start: "top 75%", once: true },
+    defaults: { duration: 0.8, ease: "power2.out" },
   })
-    .from(".about3-left", {
-      y: window.innerWidth < 990 ? 400 : 0,
-      x: window.innerWidth < 990 ? 0 : -400,
-      opacity: 0,
-    }, 0)
-    .from(".about3-right", {
-      y: window.innerWidth < 990 ? 600 : 0,
-      x: window.innerWidth < 990 ? 0 : 400,
-      opacity: 0,
-      scale: window.innerWidth > 1024 ? 0.5 : 1,
-    }, 0)
-    .from(".counter3", { y: 400, opacity: 0 }, 0)
-    .from(".about3-img", {
-      scale: window.innerWidth > 1024 ? 0.5 : 1,
-      borderRadius: window.innerWidth > 1024 ? "50%" : "10px",
-    }, 0);
+    .from(".about3-left", { x: window.innerWidth > 990 ? -160 : 0, y: window.innerWidth > 990 ? 0 : 120, opacity: 0 })
+    .from(".about3-right", { x: window.innerWidth > 990 ? 160 : 0, y: window.innerWidth > 990 ? 0 : 120, opacity: 0 }, "-=0.55")
+    .from(".counter3-wrap", { y: 60, opacity: 0, stagger: 0.08 }, "-=0.4");
 
-  // the line is drawn with dash offset directly, so no DrawSVG plugin is needed
+  // the line draws with plain dash offset, so no DrawSVG plugin is needed
   var redLine = document.querySelector(".red-line");
   if (redLine && redLine.getTotalLength) {
     var len = redLine.getTotalLength();
     gsap.set(redLine, { strokeDasharray: len + 1, strokeDashoffset: len + 1 });
     gsap.to(redLine, {
       strokeDashoffset: 0,
-      scrollTrigger: { trigger: ".about3", start: "top 100%", end: "bottom 100%", scrub: 4 },
+      ease: "none",
+      scrollTrigger: { trigger: ".about3", start: "top 90%", end: "bottom 55%", scrub: 1 },
     });
   }
 
@@ -2090,7 +2004,7 @@ header:not(.scrolled) .nav {
       duration: 2,
       ease: "power3.out",
       snap: { innerText: 1 },
-      scrollTrigger: { trigger: ".about3", start: "top 20%", once: true },
+      scrollTrigger: { trigger: ".counter3", start: "top 88%", once: true },
       onUpdate: function () {
         counter.textContent = Math.floor(counter.innerText) + suffix;
       },
@@ -2149,29 +2063,13 @@ header:not(.scrolled) .nav {
   });
   if (accItems.length) showBrand(accItems.find(function (i) { return i.classList.contains("active"); }) || accItems[0]);
 
-  var brandTl = gsap.timeline({
-    defaults: { duration: 0.5 },
-    scrollTrigger: {
-      trigger: ".brand3",
-      start: window.innerWidth > 1440 ? "top 40%" : "top 50%",
-      end: "bottom bottom",
-      toggleActions: "play none none reverse",
-    },
+  gsap.timeline({
+    scrollTrigger: { trigger: ".brand3", start: "top 70%", once: true },
+    defaults: { duration: 0.7, ease: "power2.out" },
   })
-    .from(".brand3-left .v-head-wrap", {
-      y: window.innerWidth < 1025 ? 500 : 0,
-      x: window.innerWidth < 1025 ? 0 : -400,
-      opacity: 0,
-    }, 0)
-    .from(".brand3-right", {
-      y: window.innerWidth < 1025 ? 500 : 0,
-      x: window.innerWidth < 1025 ? 0 : 400,
-      opacity: 0,
-    }, 0)
-    .from(".brand3-acc", {
-      y: window.innerWidth < 1025 ? 800 : 500,
-      opacity: 0,
-    }, 0);
+    .from(".brand3-left .v-head-wrap", { x: window.innerWidth > 1024 ? -160 : 0, y: window.innerWidth > 1024 ? 0 : 120, opacity: 0 })
+    .from(".brand3-right", { x: window.innerWidth > 1024 ? 160 : 0, y: window.innerWidth > 1024 ? 0 : 120, opacity: 0 }, "-=0.5")
+    .from(".brand3-acc .acc3-item", { y: 70, opacity: 0, stagger: 0.09 }, "-=0.35");
 
   /* ---------- 05 + 07 simple reveals ---------- */
   gsap.from(".trust3-logo", {

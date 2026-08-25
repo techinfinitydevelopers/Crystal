@@ -306,3 +306,23 @@ the static site deploys straight from this repo and a host that does not
 fetch LFS objects would serve pointer files - every video on production
 would break. The 2.4 GB history predates LFS and only shrinks with a
 history rewrite + force push, which needs its own decision.
+
+## 2026-08-25 (3) — Home v3: pinning removed entirely
+
+Second scroll complaint on desktop. Root call: pinned sections read as
+"scroll is stuck" no matter how they were tuned, so both pins are gone.
+The page now scrolls natively end to end (document went 12141px -> 6364px,
+0 pin spacers):
+
+- Since-1971: slider autoplays with its vertical parallax; the sentence
+  still fills word by word, scrubbed to the section scrolling past
+  (`top 75%` -> `bottom 45%`), halves fly in on entry.
+- Made in India: the map still settles from a zoomed crop and the panel
+  slides in, scrubbed to entry (`top 85%` -> `top 15%`) instead of a pin.
+- About/Brands: entry animations are one-shot `once:true` timelines now,
+  not scrubbed, so nothing feels tied to the wheel.
+
+Testing note for the future: the site CSS has `scroll-behavior: smooth`,
+so a plain `scrollTo()` in a background tab never advances (rAF throttled)
+and reads back the old scrollY - it looks exactly like broken scrolling.
+Use `behavior:"instant"` when driving scroll from the tools.
