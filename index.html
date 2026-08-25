@@ -878,16 +878,19 @@ header:not(.scrolled) .nav {
    padding (the text column carries its own instead) and the columns align to
    the bottom, so the heart's lower tip lands exactly where the footer starts
    once the page is scrolled to the end. */
-.v3 .pre3 { background: var(--v-red); overflow: hidden; padding-bottom: 0; }
+/* The heart deliberately breaks out of this section and overlaps the footer,
+   so the box cannot clip it and it has to paint above the footer, which comes
+   later in the DOM and would otherwise cover it. */
+.v3 .pre3 { background: var(--v-red); overflow: visible; padding-bottom: 0; position: relative; z-index: 2; }
 .v3 .pre3-wrap { display: flex; align-items: flex-end; justify-content: space-between; gap: 30px; }
 .v3 .pre3-left { padding-bottom: var(--s80); }
-.v3 .pre3-right { width: 50%; aspect-ratio: 1200/900; }
+.v3 .pre3-right { width: 50%; aspect-ratio: 1200/900; position: relative; z-index: 3; }
 .v3 .pre3-right img { height: 100%; width: 100%; object-fit: contain; object-position: bottom; }
-/* The heart comes to rest with its lower tip 10% of its own height clear of
-   the footer. A percentage translate resolves against the element's own
-   height, so this holds at every width without a magic pixel value. It sits
-   on the image, leaving .pre3-right free for the scroll animation. */
-.v3 .pre3-right img { transform: translateY(-10%); }
+/* Rest position: the bottom 10% of the heart sits over the footer. A
+   percentage translate resolves against the element's own height, so the
+   overlap stays 10% at every width without a magic pixel value. It lives on
+   the image, leaving .pre3-right free for the scroll animation. */
+.v3 .pre3-right img { transform: translateY(10%); }
 
 /* ---------- tablets and phones ----------
    Below 1025px the reference drops every pin: the hero opens full-bleed with

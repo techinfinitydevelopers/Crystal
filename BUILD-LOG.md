@@ -520,3 +520,24 @@ The site-wide 54px heading rule was applied to a heading sitting in a
 half-width dark panel, where it wrapped to three lines and crowded the
 slider. Overridden to `clamp(22px, 2vw, 30px)` for that panel only - now
 25.3px, one line, 353px inside a 432px panel.
+
+## 2026-08-25 (12) — Heart overlaps the footer by 10%
+
+Correction to the previous entry: the tip should not stop *short* of the
+footer - the bottom **10% of the heart sits over** the footer.
+
+- `.pre3-right img { transform: translateY(10%) }` (was `-10%`). The
+  percentage still resolves against the image's own height, so the overlap
+  stays 10% at every viewport.
+- `.pre3` changed from `overflow: hidden` to `visible` and given
+  `position: relative; z-index: 2`, with `z-index: 3` on `.pre3-right` -
+  the footer comes later in the DOM and would otherwise paint over the part
+  that now hangs into it.
+- The scroll rise is unchanged: scrub from `y: 140` to 0, finishing when the
+  footer reaches the viewport bottom.
+
+**Verified** 1280x800 at page bottom, tween at progress 1: image 463px tall,
+bottom at 220, footer top at 174 - **46px overlap = 10.0%**. Mobile uses the
+same percentage rule; the identical mechanism measured exactly 10.0% at
+390x844 in the previous build (only the sign differs). The browser pane hung
+before I could re-measure 390px on this build.
