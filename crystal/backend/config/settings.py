@@ -319,7 +319,12 @@ JAZZMIN_UI_TWEAKS = {
     "sidebar_nav_legacy_style": False,
     "sidebar_nav_flat_style": False,
     "theme": "default",
-    "dark_mode_theme": None,
+    # jazzmin renders <html data-bs-theme="dark"> unless told otherwise, and on
+    # Bootstrap 5 that one attribute decides every colour. The theme file was
+    # having to override ~40 Bootstrap variables just to undo it; naming the
+    # mode fixes it at the source. "dark_mode_theme" is the deprecated spelling
+    # and is ignored.
+    "default_theme_mode": "light",
     "button_classes": {
         "primary": "btn-danger",
         "secondary": "btn-outline-secondary",

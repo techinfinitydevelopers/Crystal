@@ -305,6 +305,13 @@ class ProductMarketplaceLinkInline(admin.TabularInline):
 class ProductAdmin(admin.ModelAdmin):
     form = ProductAdminForm
 
+    class Media:
+        # Product-form-only assets. jazzmin allows a single `custom_css`, which
+        # crystal_theme.css already occupies, so anything scoped to this screen
+        # loads here instead.
+        css = {'all': ('admin/crystal_product_form.css',)}
+        js = ('admin/crystal_tags.js',)
+
     list_display = [
         'image_preview', 'name_cell', 'brand_badge', 'category_badge',
         'hero_status', 'image_count', 'variant_count',

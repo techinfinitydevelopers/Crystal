@@ -1,0 +1,38 @@
+{% comment %}
+Tag chip input.
+
+Only the hidden input has a `name`, so it is the single thing that posts.
+The chips are rendered here, server-side, so the tags stay readable and the
+raw list stays editable when JavaScript is off (the no-JS box below accepts
+comma-separated text, which `TagListField.clean()` understands).
+{% endcomment %}
+<div class="crystal-tags" data-crystal-tags>
+  <input type="hidden" name="{{ widget.name }}" value="{{ widget.json_value }}" data-tags-value>
+
+  <div class="crystal-tags__box" data-tags-box>
+    <span class="crystal-tags__chips" data-tags-chips>
+      {% for tag in widget.tags %}
+        <span class="crystal-tags__chip" data-tags-chip data-tag="{{ tag }}">
+          <span class="crystal-tags__chip-text">{{ tag }}</span>
+          <button type="button" class="crystal-tags__remove" data-tags-remove
+                  aria-label="Remove tag {{ tag }}" title="Remove">&times;</button>
+        </span>
+      {% endfor %}
+    </span>
+    {# no name: this box must never post a value #}
+    <input type="text" class="crystal-tags__input" data-tags-input
+           autocomplete="off" autocapitalize="none" spellcheck="false"
+           enterkeyhint="done" inputmode="text"
+           placeholder="Type a tag, press Enter"
+           aria-label="Add a tag">
+  </div>
+
+  <noscript>
+    <p class="crystal-tags__nojs">
+      JavaScript is off, so edit the tags as plain text below — separate them
+      with commas.
+    </p>
+    <textarea name="{{ widget.name }}" rows="3" class="crystal-tags__nojs-box"
+      >{% for tag in widget.tags %}{% if not forloop.first %}, {% endif %}{{ tag }}{% endfor %}</textarea>
+  </noscript>
+</div>

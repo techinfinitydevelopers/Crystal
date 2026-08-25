@@ -1,0 +1,134 @@
+/* Crystal admin — product change form.
+ *
+ * One fenced section per widget. Add new sections below, do not edit
+ * somebody else's fence.
+ */
+
+/* === tag chips === */
+.crystal-tags {
+  max-width: 100%;
+}
+
+/* The box is styled to look like the theme's other text inputs, so the chips
+   read as living inside one field rather than floating on the page. */
+.crystal-tags__box {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  min-height: 38px;
+  padding: 6px 8px;
+  background: var(--s-surface);
+  border: 1px solid var(--s-border-strong, var(--s-border));
+  border-radius: var(--s-radius-sm);
+  cursor: text;
+}
+
+.crystal-tags__box:focus-within {
+  border-color: var(--c-red);
+  box-shadow: 0 0 0 3px var(--c-red-soft);
+}
+
+.crystal-tags__chips {
+  display: contents;
+}
+
+/* Geometry matches .badge in crystal_theme.css. */
+.crystal-tags__chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  max-width: 100%;
+  padding: 3px 6px 3px 9px;
+  border-radius: 20px;
+  font-size: 11.5px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--s-ink);
+  background: var(--c-red-soft);
+  border: 1px solid var(--s-border);
+}
+
+.crystal-tags__chip-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 220px;
+}
+
+.crystal-tags__remove {
+  flex: 0 0 auto;
+  width: 16px;
+  height: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 0;
+  border-radius: 20px;
+  background: transparent;
+  color: var(--s-ink-soft);
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.crystal-tags__remove:hover,
+.crystal-tags__remove:focus {
+  background: var(--c-red);
+  color: #fff;
+  outline: none;
+}
+
+/* The typing box carries no name and no chrome — the wrapper is the field. */
+.crystal-tags__input {
+  flex: 1 1 140px;
+  min-width: 120px;
+  border: 0 !important;
+  background: transparent !important;
+  padding: 2px 2px !important;
+  font-size: 13.5px !important;
+  color: var(--s-ink) !important;
+  box-shadow: none !important;
+  outline: none;
+}
+
+.crystal-tags__input::placeholder {
+  color: var(--s-ink-faint, var(--s-ink-soft));
+}
+
+.crystal-tags__nojs {
+  margin: 6px 0 4px;
+  font-size: 12.5px;
+  color: var(--s-ink-soft);
+}
+
+.crystal-tags__nojs-box {
+  width: 100%;
+  font-family: inherit;
+}
+
+/* Phones: bigger touch targets, and the chip text may use the full width. */
+@media (max-width: 575.98px) {
+  .crystal-tags__box {
+    gap: 8px;
+    padding: 8px;
+  }
+  .crystal-tags__chip {
+    font-size: 12.5px;
+    padding: 5px 6px 5px 11px;
+  }
+  .crystal-tags__chip-text {
+    max-width: 60vw;
+  }
+  .crystal-tags__remove {
+    width: 22px;
+    height: 22px;
+    font-size: 16px;
+  }
+  .crystal-tags__input {
+    flex-basis: 100%;
+    font-size: 16px !important;   /* stops iOS Safari zooming on focus */
+  }
+}
+/* === /tag chips === */
