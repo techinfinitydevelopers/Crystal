@@ -826,6 +826,9 @@ h1, h2 { overflow-wrap: break-word; }
     return "CC-" + yy + mm + dd + "-" + hex.toUpperCase();
   }
 
+  // The dashboard service that stores enquiries and sends the emails.
+  const ENQUIRY_API = "https://crystal-production-eb2e.up.railway.app/api/enquiry/";
+
   form.addEventListener("submit", e => {
     e.preventDefault();
     let valid = true;
@@ -857,21 +860,59 @@ h1, h2 { overflow-wrap: break-word; }
       businessType: document.getElementById("f-biztype").value,
       message: document.getElementById("f-message").value.trim()
     };
-    const ref = refNumber();
-    const payload = { ref, submittedAt: new Date().toISOString(), customer, items };
+    // Send it to the dashboard, which stores the enquiry and emails both the
+    // customer and the Crystal team. Until this existed the payload was only
+    // logged to the console: the customer saw "submitted successfully" and
+    // nobody ever received the enquiry.
+    const payload = {
+      name: customer.name,
+      email: customer.email,
+      phone: customer.phone,
+      company: customer.company || "",
+      city: customer.city,
+      state: customer.state,
+      country: customer.country || "India",
+      businessType: customer.businessType,
+      message: customer.message || "",
+      items: items.map(it => ({
+        id: it.id || "", name: it.name, brand: it.brand || "",
+        category: it.cat || it.category || "", sku: it.sku || "",
+        img: it.img || "", qty: it.qty || 1,
+      })),
+    };
 
-    // TODO: POST payload to Web3Forms/serverless endpoint when backend is chosen (see ENQUIRY-FLOW.md)
-    console.log(payload);
+    function showSuccess(ref) {
+      document.getElementById("refNo").textContent = ref;
+      document.getElementById("successName").textContent = customer.name.split(/\s+/)[0];
+      document.getElementById("enqGrid").style.display = "none";
+      document.getElementById("enqSuccess").classList.add("show");
+      CE.clear();
+      CE.renderBadge();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
 
-    // show success state
-    document.getElementById("refNo").textContent = ref;
-    document.getElementById("successName").textContent = customer.name.split(/\s+/)[0];
-    document.getElementById("enqGrid").style.display = "none";
-    document.getElementById("enqSuccess").classList.add("show");
+    function showFailure() {
+      // Never claim success for something that did not arrive - the customer
+      // would walk away believing Crystal had their enquiry.
+      frmErr.textContent =
+        "Sorry, we could not send your enquiry just now. Please try again, or " +
+        "call 022-49702803 and we will take the details over the phone.";
+      frmErr.classList.add("show");
+      if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = originalBtnText; }
+      frmErr.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
 
-    CE.clear();
-    CE.renderBadge();
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    const originalBtnText = submitBtn ? submitBtn.textContent : "";
+    if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = "Sending…"; }
+
+    fetch(ENQUIRY_API, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    })
+      .then(r => r.ok ? r.json() : Promise.reject(new Error("HTTP " + r.status)))
+      .then(data => showSuccess(data.ref || refNumber()))
+      .catch(err => { console.error("Enquiry submit failed:", err); showFailure(); });
   });
 
   // initial render

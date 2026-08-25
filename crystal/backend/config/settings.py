@@ -206,9 +206,15 @@ REST_FRAMEWORK = {
 }
 
 # CORS — allow frontend HTML served locally or on Vercel
+# The website is a separate service on its own domain, so every request it
+# makes here is cross-origin. Without its origin listed the browser blocks the
+# enquiry POST before it is ever sent.
 CORS_ALLOWED_ORIGINS = env.list('CORS_ALLOWED_ORIGINS', default=[
+    PUBLIC_SITE_URL,
     'http://localhost:3456',
     'http://127.0.0.1:3456',
+    'http://localhost:4567',
+    'http://127.0.0.1:4567',
 ])
 CORS_ALLOW_ALL_ORIGINS = DEBUG
 
