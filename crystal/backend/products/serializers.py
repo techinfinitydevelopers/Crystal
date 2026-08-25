@@ -154,15 +154,28 @@ def _spec_value(value):
     return value
 
 
-def site_filters(product):
+def site_filters(product, variant=None):
+    """The facet map. A variant's own spec rows REPLACE the general ones rather
+    than merging - the same all-or-nothing rule site_image_set uses for photos,
+    so there is one mental model for both.
+
+    Partitioned in Python off the already-prefetched rows; calling
+    variant.specifications.all() would issue a query per variant and undo the
+    prefetch the exporter sets up."""
+    specs = list(product.specifications.all())
+    if variant is not None:
+        own = [sp for sp in specs if sp.variant_id == variant.id]
+        specs = own or [sp for sp in specs if sp.variant_id is None]
+    else:
+        specs = [sp for sp in specs if sp.variant_id is None]
     return {
         spec.key.strip().lower().replace(" ", "_"): _spec_value(spec.value)
-        for spec in product.specifications.all()
+        for spec in specs
         if spec.value
     }
 
 
-def site_amazon_link(product):
+def site_amazon_link(product, variant=None):
     """The site's Buy Now target.
 
     Product.amazon_link is the authority. The marketplace-link fallback exists
@@ -170,7 +183,12 @@ def site_amazon_link(product):
     ProductMarketplaceLink row - but it must NOT apply to rows imported from the
     site catalogue: a handful of those carry a stale Amazon link the live site
     deliberately does not show, and surfacing it here would put a Buy Now button
-    on a product that has none today."""
+    on a product that has none today.
+
+    A variant's own link wins outright: 19 of the 29 size-groups in the
+    catalogue list each size separately on Amazon."""
+    if variant is not None and variant.amazon_link:
+        return variant.amazon_link
     if product.amazon_link:
         return product.amazon_link
     if product.is_dashboard_managed:
@@ -180,7 +198,14 @@ def site_amazon_link(product):
     return None
 
 
-def site_video(product):
+def site_video(product, variant=None):
+    """7 of the 29 size-groups have a video on some sizes but not others, so a
+    variant's own video has to win before the product's."""
+    if variant is not None:
+        if variant.video_url:
+            return variant.video_url
+        if variant.video:
+            return variant.video.url
     if product.video_url:
         return product.video_url
     if product.video:
@@ -274,19 +299,41 @@ def site_product_entries(product):
         "category": cat.parent.slug if (cat and cat.parent) else (cat.slug if cat else ""),
         "subcategory": site_subcategory(cat),
         "collection": product.collection_name or "",
-        "highlight": (product.highlight or product.short_description or "")[:300],
-        "description": product.overview or product.short_description or "",
-        "tags": product.tags or [],
         "gst_pct": float(product.gst_pct) if product.gst_pct is not None else None,
-        "mrp": float(product.price) if product.price is not None else None,
-        "amazon_link": site_amazon_link(product),
-        "filters": site_filters(product),
-        # Provenance only - nothing on the website reads it. Imported rows keep
-        # the tier the catalogue recorded; anything created here is tagged as
-        # such.
-        "match_tier": product.match_tier or (
-            "dashboard_admin" if product.is_dashboard_managed else "imported"),
     }
+    # Everything below varies per size, so it is resolved per entry rather than
+    # shared. Putting any of it in `common` would let dict(common, ...) quietly
+    # stamp the parent's value onto all eight sizes of a kadai - which is
+    # exactly how the distinct Amazon links of 19 groups would have been lost.
+    def _resolve(variant=None):
+        return {
+            "highlight": (
+                (variant.highlight if variant is not None and variant.highlight else None)
+                or product.highlight or product.short_description or ""
+            )[:300],
+            "description": (
+                (variant.description if variant is not None and variant.description else None)
+                or product.overview or product.short_description or ""
+            ),
+            "tags": (
+                variant.tags if variant is not None and variant.tags is not None
+                else (product.tags or [])
+            ),
+            "mrp": (
+                float(variant.price) if variant is not None and variant.price is not None
+                else (float(product.price) if product.price is not None else None)
+            ),
+            "amazon_link": site_amazon_link(product, variant),
+            "filters": site_filters(product, variant),
+            # Provenance only - nothing on the website reads it. Imported rows
+            # keep the tier the catalogue recorded; anything created here is
+            # tagged as such.
+            "match_tier": (
+                (variant.match_tier if variant is not None and variant.match_tier else None)
+                or product.match_tier
+                or ("dashboard_admin" if product.is_dashboard_managed else "imported")
+            ),
+        }
     if product.specs:
         common["specs"] = product.specs
     video = site_video(product)
@@ -294,13 +341,13 @@ def site_product_entries(product):
 
     all_images = list(product.images.all())
     general_images = [im for im in all_images if im.variant_id is None]
-    variants = list(product.variants.all())
+    variants = [v for v in product.variants.all() if v.is_active]
 
     entries = []
     if not variants:
         hero, gallery = site_image_set(general_images, product.image_url)
-        entry = dict(common, sku=base_sku, name=product.name, hero=hero,
-                     gallery=gallery, id=slugify(base_sku))
+        entry = dict(common, **_resolve(), sku=base_sku, name=product.name,
+                     hero=hero, gallery=gallery, id=slugify(base_sku))
         if product.variant_group:
             entry["variant_group"] = product.variant_group
         if video:
@@ -317,11 +364,17 @@ def site_product_entries(product):
     for variant in variants:
         own = [im for im in all_images if im.variant_id == variant.id]
         hero, gallery = site_image_set(own or general_images, product.image_url)
-        sku = f"{base_sku}{variant.sku_suffix}"
+        # A stored full SKU wins; base+suffix is the dashboard-born fallback.
+        # The imported SKUs are unrelated strings (LI007/LI008/LI009), so
+        # concatenation cannot reproduce them.
+        sku = variant.sku or f"{base_sku}{variant.sku_suffix}"
         entry = dict(
             common,
+            **_resolve(variant),
             sku=sku,
-            name=_variant_name(product.name, variant.name),
+            # The real names are irregular ('... (LONG SERIES)15"'), so a stored
+            # one is emitted verbatim rather than rebuilt from parts.
+            name=variant.display_name or _variant_name(product.name, variant.name),
             hero=hero,
             gallery=gallery,
             id=slugify(sku),
@@ -329,9 +382,11 @@ def site_product_entries(product):
             variant_label=variant.name,
             variant_order=variant.order,
         )
-        if video:
-            entry["video"] = video
-        if features:
-            entry["features"] = features
+        v_video = site_video(product, variant)
+        if v_video:
+            entry["video"] = v_video
+        v_features = variant.features if variant.features is not None else features
+        if v_features:
+            entry["features"] = v_features
         entries.append(entry)
     return entries
