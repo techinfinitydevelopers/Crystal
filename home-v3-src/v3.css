@@ -334,9 +334,14 @@ header:not(.scrolled) .nav {
   .v3 .split3 { padding: var(--s80) 0; }
   .v3 .split3 .left-txt, .v3 .brand3-container { padding-left: 0; }
   .v3 .split3 .left-txt, .v3 .about3-left, .v3 .about3-right, .v3 .brand3-left, .v3 .brand3-acc { max-width: none; }
-  .v3 .map3-right, .v3 .pre3-right {
+  .v3 .map3-right {
     width: 100%; height: auto; border-radius: 10px; margin-top: var(--m40);
   }
+  /* stacked, the heart still finishes the section - no bottom margin, or the
+     tip floats above the footer instead of resting on it */
+  .v3 .pre3-right { width: 100%; height: auto; margin: var(--m40) auto 0; max-width: 460px; }
+  .v3 .pre3-left { padding-bottom: 0; }
+  .v3 .pre3 { padding-top: var(--s80); }
   /* an explicit height, not aspect-ratio: a vertical Swiper sizes its slides
      from the container, so an auto-height container makes the two chase each
      other and the page grows without bound */

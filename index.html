@@ -906,9 +906,14 @@ header:not(.scrolled) .nav {
   .v3 .split3 { padding: var(--s80) 0; }
   .v3 .split3 .left-txt, .v3 .brand3-container { padding-left: 0; }
   .v3 .split3 .left-txt, .v3 .about3-left, .v3 .about3-right, .v3 .brand3-left, .v3 .brand3-acc { max-width: none; }
-  .v3 .map3-right, .v3 .pre3-right {
+  .v3 .map3-right {
     width: 100%; height: auto; border-radius: 10px; margin-top: var(--m40);
   }
+  /* stacked, the heart still finishes the section - no bottom margin, or the
+     tip floats above the footer instead of resting on it */
+  .v3 .pre3-right { width: 100%; height: auto; margin: var(--m40) auto 0; max-width: 460px; }
+  .v3 .pre3-left { padding-bottom: 0; }
+  .v3 .pre3 { padding-top: var(--s80); }
   /* an explicit height, not aspect-ratio: a vertical Swiper sizes its slides
      from the container, so an auto-height container makes the two chase each
      other and the page grows without bound */
@@ -2002,11 +2007,18 @@ h1, h2 { overflow-wrap: break-word; }
       .from(".map3-float", { scale: 1.4, x: 180, y: -80 }, 0)
       .from(".map3-right", { opacity: 0, x: 320 }, 0.15);
 
-    // the heart rises into place rather than being pushed down past the
-    // section's clip - it comes to rest exactly as the page bottoms out
-    var preTl = gsap.timeline({
-      scrollTrigger: { trigger: ".pre3", start: "top 85%", end: "bottom bottom", scrub: 1 },
-    }).from(".pre3-right", { y: 120 });
+    // A scrubbed parallax leaves the heart wherever the tween happens to be
+    // when scrolling stops, which is how it ended up sunk into the footer.
+    // One-shot instead: it rises once on entry and its resting position is
+    // plain CSS, so the tip always lands on the footer edge.
+    // immediateRender:false so the offset is never applied unless the tween
+    // actually runs, and clearProps after, so the resting position is always
+    // the CSS one - the heart cannot end up parked inside the footer.
+    var preTl = gsap.from(".pre3-right", {
+      y: 80, opacity: 0, duration: 0.9, ease: "power2.out",
+      immediateRender: false, clearProps: "transform,opacity",
+      scrollTrigger: { trigger: ".pre3", start: "top 80%", once: true },
+    });
 
     return function () {
       [inTl, mapTl, preTl].forEach(function (t) {

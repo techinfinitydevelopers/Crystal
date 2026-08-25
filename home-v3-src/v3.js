@@ -187,11 +187,18 @@
       .from(".map3-float", { scale: 1.4, x: 180, y: -80 }, 0)
       .from(".map3-right", { opacity: 0, x: 320 }, 0.15);
 
-    // the heart rises into place rather than being pushed down past the
-    // section's clip - it comes to rest exactly as the page bottoms out
-    var preTl = gsap.timeline({
-      scrollTrigger: { trigger: ".pre3", start: "top 85%", end: "bottom bottom", scrub: 1 },
-    }).from(".pre3-right", { y: 120 });
+    // A scrubbed parallax leaves the heart wherever the tween happens to be
+    // when scrolling stops, which is how it ended up sunk into the footer.
+    // One-shot instead: it rises once on entry and its resting position is
+    // plain CSS, so the tip always lands on the footer edge.
+    // immediateRender:false so the offset is never applied unless the tween
+    // actually runs, and clearProps after, so the resting position is always
+    // the CSS one - the heart cannot end up parked inside the footer.
+    var preTl = gsap.from(".pre3-right", {
+      y: 80, opacity: 0, duration: 0.9, ease: "power2.out",
+      immediateRender: false, clearProps: "transform,opacity",
+      scrollTrigger: { trigger: ".pre3", start: "top 80%", once: true },
+    });
 
     return function () {
       [inTl, mapTl, preTl].forEach(function (t) {

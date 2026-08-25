@@ -472,3 +472,22 @@ embedded base64 raster - no external references to leo9), plus
 `Smart_Bazaar_logo.png` and `unnamed.webp`. Measured `complete: true` and
 `naturalWidth: 254` for every one. An earlier reading of 0 was the pane
 mid-load, not a broken asset. The set matches the reference page exactly.
+
+## 2026-08-25 (10) — Heart no longer sinks into the footer
+
+The scrubbed parallax left the heart wherever the tween happened to be when
+scrolling stopped, which parked its lower tip ~120px inside the footer. Two
+changes make the resting position unconditional:
+
+- The entry is a one-shot (`once: true`) rather than a scrub, and carries
+  `immediateRender: false` + `clearProps` - so the offset is never applied
+  unless the tween actually runs, and is removed once it has. If the tween
+  never fires (reduced motion, a fast jump to the bottom, a JS failure) the
+  heart still sits where CSS puts it, instead of stranded mid-tween.
+- Mobile: stacked, `.pre3-right` keeps `margin-bottom: 0` and caps at 460px,
+  and `.pre3-left` drops the bottom padding it needs in the two-column layout.
+
+**Verified** 1280x800 at page bottom: image bottom 174, footer top 174 -
+gap exactly 0, transform `none`. 390x844: gap exactly 0, image 360x274,
+`scrollWidth` 390, and the heart reads as resting on the footer edge in a
+screenshot.
