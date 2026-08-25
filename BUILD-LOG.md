@@ -590,3 +590,32 @@ the unhide net present, the 10% heart overlap intact, and the v3 script
 parses clean (15583 chars). All four brand pages carry both tile changes.
 The browser pane hung throughout this round - the five-video hero is the
 likely cause, and is exactly what got removed - so no live screenshot yet.
+
+## 2026-08-25 (14) — git-lfs: probed, and ruled out for now
+
+Asked to set LFS up. Found it was already half-configured and doing nothing:
+`.gitattributes` tracked `*.zip`, `*.7z`, `*.psd`, and the repo contains no
+file of any of those types. Actual LFS objects: **0**.
+
+The repo carries **1,733 MB** of tracked media in the working tree - 2,624
+jpg (1,054 MB), 61 mp4 (629 MB), 118 png (35 MB), plus webp/jpeg/gif/svg.
+Pack size 2.02 GiB.
+
+Before moving any of that, one unknown had to be settled: the deploy's build
+config lives outside the repo, so whether it runs `git lfs pull` was
+unknowable by inspection. Probed with a single 51 KB file
+(`home-v3-assets/video/hero-poster.jpg`).
+
+**Result: it does not.** After the deploy carrying the LFS commit landed, the
+host served **130 bytes** - the pointer file - with no `content-type` match
+and no `last-modified`. Every LFS-tracked image would render broken.
+
+Reverted immediately; confirmed the real 51189-byte JPEG is served again.
+LFS objects back to 0, `.gitattributes` restored.
+
+Two things would have to be true before this is worth revisiting:
+1. The deploy fetches LFS objects (a build command running `git lfs pull`,
+   or a Dockerfile that installs git-lfs).
+2. LFS storage is paid for - GitHub's free tier is 1 GB storage and 1 GB
+   bandwidth per month, and this repo would need ~1.7 GB plus fresh
+   bandwidth on every deploy.
