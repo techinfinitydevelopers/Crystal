@@ -51,7 +51,11 @@ from products.models import (
     ProductSpecification,
     ProductVariant,
 )
-from products.serializers import site_amazon_link, site_product_entries
+from products.serializers import (
+    site_amazon_link,
+    site_image_set,
+    site_product_entries,
+)
 
 
 class GroupRefused(Exception):
@@ -104,9 +108,9 @@ class Command(BaseCommand):
         )
         parser.add_argument(
             "--force-hero-fallback", action="store_true",
-            help="Collapse a group even when a member owns no ProductImage rows "
-                 "and its image_url differs from the parent's - i.e. even though "
-                 "that size's hero photo WILL change in the export. Off by default.",
+            help="Collapse a group even when a member's hero photo would change - "
+                 "i.e. it owns no ProductImage rows and no image_url of its own, "
+                 "so it would inherit the parent's picture. Off by default.",
         )
 
     # -------------------------------------------------------------- handle
@@ -236,6 +240,18 @@ class Command(BaseCommand):
         # They must be cleared, or a size that legitimately has no Amazon link
         # or no video would inherit the parent's. (vg-24 has one size without a
         # link; seven groups have a video on the parent but not on every size.)
+        #
+        # Product.image_url is deliberately NOT cleared alongside them:
+        #   * it is no longer reachable from the export - every variant now
+        #     carries its own image_url, and a variant with photos resolves from
+        #     those first, so clearing would change nothing here;
+        #   * it is read outside the exporter - products/admin.py falls back to
+        #     it for the changelist thumbnail, so clearing would blank the
+        #     parent's picture in the dashboard;
+        #   * inheriting the product's photo is the field's documented, benign
+        #     default for a size that has no picture of its own, unlike a wrong
+        #     Buy Now link or a wrong size's video. _preflight refuses the one
+        #     case where that inheritance would actually change an entry.
         blanked = []
         if parent.amazon_link:
             parent.amazon_link = ""
@@ -304,23 +320,37 @@ class Command(BaseCommand):
 
         if force_hero_fallback:
             return
-        # A member with no photos of its own currently exports hero=its OWN
-        # image_url. Collapsed, the fallback becomes the PARENT's image_url,
-        # because ProductVariant has nowhere to keep a per-size image_url. When
-        # the two differ that silently swaps the photo, so refuse.
-        bad = [
-            m.sku for m in members
-            if not m.images.all()
-            and (m.image_url or "") != (parent.image_url or "")
-        ]
+        # Photos are the one thing a collapse can silently swap, so simulate the
+        # exact before/after the exporter would produce rather than eyeballing a
+        # heuristic.
+        #
+        # Before : site_image_set(member's own rows, member.image_url)
+        # After  : the same rows, now hanging off the member's variant, with the
+        #          variant's image_url (copied from the member below) ahead of
+        #          the parent's. general_images cannot enter into it - the parent
+        #          claims all of its own rows for its own variant, so a collapsed
+        #          parent has none.
+        #
+        # This still fires for a size that owns no photos AND no image_url while
+        # the parent has one: that size shows nothing today and would inherit the
+        # parent's picture. It no longer fires for CTP-EDK-003/004 or
+        # CNS-955/956, whose remote URLs now ride on ProductVariant.image_url.
+        bad = []
+        for member in members:
+            own = list(member.images.all())
+            before = site_image_set(own, member.image_url)
+            after = site_image_set(own, member.image_url or parent.image_url)
+            if before != after:
+                bad.append(f"{member.sku} ({before[0]!r} -> {after[0]!r})")
         if bad:
             raise GroupRefused(
-                f"{', '.join(bad)} own no ProductImage rows and their image_url "
-                f"differs from the parent's ({parent.sku}). Collapsing would make "
-                "them fall back to the parent's hero photo - a different product "
-                "picture. Fix: give those sizes real ProductImage rows, or add a "
-                "per-variant image_url. Pass --force-hero-fallback to accept the "
-                "change anyway."
+                "collapsing would change the photo these sizes show: "
+                + "; ".join(bad)
+                + f". They own no ProductImage rows and no image_url of their "
+                f"own, so they would inherit the parent's ({parent.sku}). Fix: "
+                "give those sizes real ProductImage rows or their own "
+                "ProductVariant.image_url. Pass --force-hero-fallback to accept "
+                "the change anyway."
             )
 
     def _desired_variant_fields(self, member, label):
@@ -338,6 +368,11 @@ class Command(BaseCommand):
             "tags": list(member.tags or []),
             "features": list(member.features or []),
             "amazon_link": site_amazon_link(member, None) or "",
+            # The picture this size shows when it owns no ProductImage rows.
+            # Four sizes across vg-10/vg-14 exist only as a remote Amazon CDN
+            # URL, and those URLs differ per size, so the value has to travel
+            # with the variant or the wrong pan gets shown.
+            "image_url": member.image_url or "",
             "price": member.price,
             "video_url": member.video_url or "",
             "match_tier": _resolved_match_tier(member)[:64],
