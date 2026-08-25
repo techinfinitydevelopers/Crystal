@@ -1,10 +1,12 @@
 /* ==========================================================================
    Crystal Admin — Shopify-style
    --------------------------------------------------------------------------
-   Jazzmin here is AdminLTE 4 on Bootstrap 5, rendered with
-   <html data-bs-theme="dark">. Colour comes from Bootstrap's CSS variables
-   rather than from classes, so those are what this file overrides — that is
-   also why AdminLTE 3 selectors (.content-wrapper, .main-sidebar) do nothing.
+   Jazzmin here is AdminLTE 4 on Bootstrap 5. JAZZMIN_SETTINGS pins
+   default_theme_mode="light", so the page renders as plain <html lang="en-us">
+   with no data-bs-theme attribute and Bootstrap's light defaults apply.
+   Colour still comes from Bootstrap's CSS variables rather than from classes,
+   so those are what this file overrides — that is also why AdminLTE 3
+   selectors (.content-wrapper, .main-sidebar) do nothing here.
    Layout classes are .app-wrapper / .app-header / .app-sidebar / .app-content.
 
    The look follows Shopify admin: a soft grey canvas, white cards held by a
@@ -13,6 +15,12 @@
    supplies the accent where Shopify would use its green.
    ========================================================================== */
 
+/* The server-rendered markup carries no data-bs-theme, but AdminLTE's JS
+   stamps data-bs-theme="light" on <html> once it boots (measured on the login
+   page), and it stamps "dark" if anyone flips
+   JAZZMIN_SETTINGS["default_theme_mode"]. Both attribute selectors therefore
+   still match real rendered states and are not dead weight — bare :root alone
+   would lose to Bootstrap's own [data-bs-theme] rules on specificity. */
 :root,
 :root[data-bs-theme="dark"],
 :root[data-bs-theme="light"] {
@@ -208,15 +216,17 @@ body {
   box-shadow: none !important;
   transition: background .15s, border-color .15s, color .15s;
 }
+/* .object-tools a is more specific than .btn-outline-secondary, so it has to
+   opt out explicitly or jazzmin's History/secondary tools come out solid red */
 .btn-primary, .btn-danger, .btn-success,
-.object-tools a,
+.object-tools a:not(.btn-outline-secondary):not(.btn-secondary):not(.btn-danger):not(.btn-outline-danger),
 .submit-row input[type="submit"] {
   background: var(--c-red) !important;
   border-color: var(--c-red) !important;
   color: #fff !important;
 }
 .btn-primary:hover, .btn-danger:hover, .btn-success:hover,
-.object-tools a:hover,
+.object-tools a:not(.btn-outline-secondary):not(.btn-secondary):not(.btn-danger):not(.btn-outline-danger):hover,
 .submit-row input[type="submit"]:hover {
   background: var(--c-red-deep) !important;
   border-color: var(--c-red-deep) !important;
@@ -232,10 +242,116 @@ body {
   border-color: #b5b5b5 !important;
   color: var(--s-ink) !important;
 }
+/* Destructive actions must not look like Save. jazzmin renders Save with
+   .btn-success and Delete with .btn-danger, and both were landing on the solid
+   red rule above; Django's own template uses a.deletelink. Delete becomes a
+   quiet outlined danger button so the solid red only ever means "Save". */
+#jazzy-actions a.btn-danger,
+.submit-row a.btn-danger,
+.object-tools a.btn-danger,
+a.deletelink,
 .submit-row a.deletelink {
   background: var(--s-surface) !important;
-  border: 1px solid var(--s-border-strong) !important;
+  border: 1px solid #f5cdcf !important;
   color: #b3261e !important;
+}
+#jazzy-actions a.btn-danger:hover,
+.submit-row a.btn-danger:hover,
+.object-tools a.btn-danger:hover,
+a.deletelink:hover,
+.submit-row a.deletelink:hover {
+  background: #fdeff0 !important;
+  border-color: #e9a9ac !important;
+  color: #8f1d17 !important;
+}
+#jazzy-actions a.btn-danger:focus-visible,
+a.deletelink:focus-visible {
+  outline: 2px solid #b3261e;
+  outline-offset: 2px;
+}
+
+/* ---------- related-field icons (add / change / delete / view) ----------
+   Django ships these as <img src=".../admin/img/icon-*.svg">, so colour cannot
+   reach them through `color` or `fill`. The image is hidden and the same SVG
+   is re-used as a CSS mask on a pseudo-element, which leaves the <a> itself
+   free to carry the hover plate and the focus ring. Paths are relative to this
+   stylesheet (/static/admin/), so they follow STATIC_URL automatically. */
+.related-widget-wrapper-link > img,
+.related-widget-wrapper-link > svg {
+  display: none !important;
+}
+.related-widget-wrapper-link {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  margin-left: 2px;
+  border-radius: var(--s-radius-sm);
+  vertical-align: middle;
+  text-decoration: none !important;
+  opacity: 1 !important;
+  cursor: pointer;
+}
+.related-widget-wrapper-link::before {
+  content: "";
+  display: block;
+  width: 16px;
+  height: 16px;
+  background-color: var(--s-ink-soft);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: 16px 16px;
+  mask-size: 16px 16px;
+  transition: background-color .15s;
+}
+.related-widget-wrapper-link.add-related::before {
+  -webkit-mask-image: url("img/icon-addlink.svg");
+  mask-image: url("img/icon-addlink.svg");
+}
+.related-widget-wrapper-link.change-related::before {
+  -webkit-mask-image: url("img/icon-changelink.svg");
+  mask-image: url("img/icon-changelink.svg");
+}
+.related-widget-wrapper-link.delete-related::before {
+  -webkit-mask-image: url("img/icon-deletelink.svg");
+  mask-image: url("img/icon-deletelink.svg");
+}
+.related-widget-wrapper-link.view-related::before {
+  -webkit-mask-image: url("img/icon-viewlink.svg");
+  mask-image: url("img/icon-viewlink.svg");
+}
+.related-widget-wrapper-link:hover {
+  background-color: var(--s-hover);
+}
+.related-widget-wrapper-link:hover::before {
+  background-color: var(--c-red);
+}
+.related-widget-wrapper-link.delete-related:hover::before {
+  background-color: #b3261e;
+}
+.related-widget-wrapper-link:focus,
+.related-widget-wrapper-link:focus-visible {
+  outline: 2px solid var(--c-red);
+  outline-offset: 1px;
+  background-color: var(--c-red-soft);
+}
+/* the wrapper itself keeps the select and its icons on one line, and lets the
+   select shrink instead of pushing the row wide */
+.related-widget-wrapper {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2px;
+  max-width: 100%;
+}
+.related-widget-wrapper > select,
+.related-widget-wrapper > .select2 {
+  flex: 1 1 160px;
+  min-width: 0;
+  max-width: 100%;
 }
 
 /* ---------- tables ---------- */
@@ -337,6 +453,32 @@ label, .form-label, fieldset .form-row > div > label {
   padding: 10px 14px !important;
 }
 .add-row a { font-weight: 600; color: var(--c-red) !important; font-size: 13px; }
+/* jazzmin's inline add/remove handlers are Font Awesome glyphs coloured with
+   Bootstrap's .text-success / .text-danger — bright green and bright red,
+   both off-palette. Retint them inside inlines only, so the semantic green in
+   messages and status badges elsewhere is left alone. */
+.inline-group .text-success,
+.inline-related .text-success,
+.inline-group i.fa-plus,
+.inline-related i.fa-plus { color: var(--s-ink-soft) !important; }
+.inline-group a:hover .text-success,
+.inline-related a:hover .text-success,
+.inline-group a:hover i.fa-plus,
+.inline-related a:hover i.fa-plus { color: var(--c-red) !important; }
+.inline-group .text-danger,
+.inline-related .text-danger,
+.inline-group i.fa-trash,
+.inline-related i.fa-trash { color: var(--s-ink-faint) !important; }
+.inline-group a:hover .text-danger,
+.inline-related a:hover .text-danger,
+.inline-group a:hover i.fa-trash,
+.inline-related a:hover i.fa-trash { color: #b3261e !important; }
+/* the tiny "?" help tooltips ship as a blue-ish SVG; mask it to the ink tone */
+img.help.help-tooltip,
+.help-tooltip img {
+  opacity: .55;
+  filter: grayscale(1);
+}
 
 .alert, .messagelist li {
   border-radius: var(--s-radius-sm) !important;
@@ -355,15 +497,44 @@ label, .form-label, fieldset .form-row > div > label {
 }
 
 /* ---------- select2 ---------- */
-.select2-container--default .select2-selection--single,
-.select2-container--default .select2-selection--multiple {
+/* jazzmin's autocomplete widgets carry .select2-container--admin-autocomplete,
+   not --default, so these match on the inner parts instead of the theme class
+   — otherwise every Brand/Category autocomplete stays unthemed. */
+.select2-container .select2-selection--single,
+.select2-container .select2-selection--multiple {
   background: var(--s-surface) !important;
   border: 1px solid var(--s-border-strong) !important;
   border-radius: var(--s-radius-sm) !important;
 }
-.select2-container--default .select2-selection__rendered { color: var(--s-ink) !important; }
-.select2-dropdown { background: var(--s-surface); border-color: var(--s-border-strong); border-radius: var(--s-radius-sm); }
-.select2-results__option--highlighted { background: var(--c-red) !important; }
+.select2-container .select2-selection__rendered { color: var(--s-ink) !important; }
+.select2-container--open .select2-selection--single,
+.select2-container--focus .select2-selection--single,
+.select2-container--open .select2-selection--multiple,
+.select2-container--focus .select2-selection--multiple {
+  border-color: var(--c-red) !important;
+  box-shadow: 0 0 0 3px var(--c-red-soft) !important;
+}
+.select2-dropdown {
+  background: var(--s-surface) !important;
+  border-color: var(--s-border-strong) !important;
+  border-radius: var(--s-radius-sm) !important;
+  box-shadow: var(--s-shadow-pop);
+}
+.select2-container .select2-search__field {
+  border: 1px solid var(--s-border-strong) !important;
+  border-radius: var(--s-radius-sm) !important;
+}
+.select2-results__option--highlighted,
+.select2-container .select2-results__option--highlighted[aria-selected] {
+  background: var(--c-red) !important;
+  color: #fff !important;
+}
+.select2-container .select2-selection__choice {
+  background: var(--c-red-soft) !important;
+  border: 1px solid var(--bs-primary-border-subtle) !important;
+  border-radius: var(--s-radius-sm) !important;
+  color: var(--s-ink) !important;
+}
 
 /* ---------- login ---------- */
 .login-page, .login-box, body.login { background: var(--s-canvas) !important; }
@@ -374,20 +545,249 @@ label, .form-label, fieldset .form-row > div > label {
   box-shadow: var(--s-shadow-pop) !important;
 }
 
-/* ---------- phones and tablets ---------- */
+/* ==========================================================================
+   Responsive
+   --------------------------------------------------------------------------
+   Nothing may make the page itself scroll sideways: wide things (the ~12
+   column product changelist, code blocks, inline tables) scroll inside their
+   own box instead. jazzmin's real hooks are #change-list-filters for the
+   filter bar and #jazzy-actions for the save/delete row — Django's
+   #changelist-filter and .submit-row are never rendered here.
+   ========================================================================== */
+
+/* the page is never wider than the viewport, at any width */
+html, body { max-width: 100%; }
+.app-wrapper, .app-main, .app-content, .app-content-header {
+  max-width: 100%;
+  min-width: 0;
+}
+.app-content > .container-fluid,
+.app-content-header > .container-fluid { min-width: 0; }
+.app-content .row > [class*="col-"] { min-width: 0; }
+
+/* every wide block gets its own scroller */
+.table-responsive,
+.card-body.table-responsive,
+#changelist form > .results,
+.results,
+#changelist .module.filtered,
+.inline-group .tabular,
+.change-list-results {
+  overflow-x: auto !important;
+  -webkit-overflow-scrolling: touch;
+  max-width: 100%;
+  /* position:relative makes each scroller the containing block for the
+     absolutely positioned helpers inside it (select2's hidden mirror select,
+     Django's calendar/clock widgets). Without it those escape the scroller
+     and push the whole page sideways. */
+  position: relative;
+}
+.table-responsive > .table,
+.table-responsive > table { margin-bottom: 0; }
+pre, code, .readonly { max-width: 100%; overflow-x: auto; word-break: break-word; }
+img, svg, video, iframe { max-width: 100%; height: auto; }
+
+/* the changelist filter bar: ~10 selects that must wrap, not stretch */
+#change-list-filters .form-group { min-width: 0; max-width: 100%; }
+#change-list-filters select.search-filter:not(.select2-hidden-accessible),
+#change-list-filters .form-control:not(.select2-hidden-accessible) {
+  max-width: 100%;
+  text-overflow: ellipsis;
+}
+/* select2 keeps a clipped mirror of the native <select> for screen readers.
+   It is position:absolute, so any width we hand it lands on the page as real
+   horizontal overflow — never let a sizing rule reach it. */
+select.select2-hidden-accessible,
+.select2-hidden-accessible {
+  width: 1px !important;
+  height: 1px !important;
+  max-width: 1px !important;
+  min-width: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  position: absolute !important;
+  overflow: hidden !important;
+  clip: rect(0 0 0 0) !important;
+  clip-path: inset(50%) !important;
+  white-space: nowrap !important;
+}
+
+@media (max-width: 1200px) {
+  /* the second navbar search is the first thing to go */
+  .app-header form.d-flex ~ form.d-flex { display: none !important; }
+}
+
 @media (max-width: 992px) {
   .card, .module { border-radius: var(--s-radius-sm) !important; }
+  /* the actions column stops being a sticky rail once it is full width */
+  #jazzy-actions.sticky-top,
+  #jazzy-actions {
+    position: static !important;
+    top: auto !important;
+    margin-bottom: 16px;
+  }
+  /* AdminLTE 4 slides the sidebar over the page here; the body must not
+     keep its own scroll behind the overlay */
+  body.sidebar-open,
+  .app-wrapper.sidebar-open { overflow: hidden; }
+  .app-sidebar { z-index: 1040; }
+  .sidebar-overlay, .app-sidebar ~ .overlay {
+    z-index: 1035;
+    overscroll-behavior: contain;
+  }
+  .app-sidebar .sidebar-wrapper,
+  .app-sidebar nav { overscroll-behavior: contain; }
 }
+
 @media (max-width: 768px) {
+  .app-content-header { padding: 12px 0 6px !important; }
   .app-content-header h1, .app-content-header h3 { font-size: 18px; }
-  .btn { padding: 9px 14px !important; }          /* keep taps >= 40px */
-  #changelist-filter { position: static !important; width: 100% !important; margin: 0 0 14px !important; }
-  .submit-row { display: flex; flex-wrap: wrap; gap: 8px; }
-  .submit-row input, .submit-row a { flex: 1 1 auto; text-align: center; }
+  .app-content > .container-fluid,
+  .app-content-header > .container-fluid {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+  .card-body { padding: 12px !important; }
+
+  /* both navbar searches collapse; the sidebar toggle and user menu stay */
+  .app-header form.d-flex { display: none !important; }
+  .app-header .navbar-nav .nav-link { padding: 8px 10px !important; }
+  .app-header [data-lte-toggle="sidebar"] {
+    min-width: 40px;
+    min-height: 40px;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* tap targets: 40px minimum */
+  .btn {
+    padding: 10px 14px !important;
+    min-height: 40px;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+  }
+  #jazzy-actions .d-flex,
+  .submit-row {
+    display: flex !important;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  #jazzy-actions .btn,
+  #jazzy-actions input[type="submit"],
+  .submit-row input,
+  .submit-row a {
+    flex: 1 1 160px;
+    min-height: 42px;
+    text-align: center;
+  }
+  #jazzy-actions .object-tools .btn { flex: 1 1 100%; }
+
+  /* the filter bar wraps into a two-up grid instead of one long row */
+  #change-list-filters > .d-flex { width: 100%; }
+  #changelist-search { width: 100%; }
+  /* two filters per row on a phone rather than eleven stacked ones */
+  #change-list-filters .form-group { flex: 1 1 150px; min-width: 150px; }
+
+  /* the bulk-action bar: select + Go must wrap, and the "select all" text
+     must not run off the edge */
+  .actions {
+    display: flex !important;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+  }
+  .actions select { flex: 1 1 180px; }
+  .actions .button, .actions button { flex: 0 0 auto; }
+  .actions span, .actions label { flex: 1 1 100%; font-size: 12.5px; }
+
+  /* "Add product" is floated on desktop; on a phone it becomes its own row */
+  .btn.float-end { float: none !important; width: 100%; margin-top: 8px; }
+  #change-list-filters select.search-filter:not(.select2-hidden-accessible),
+  #change-list-filters .select2-container,
+  #change-list-filters input[type="text"],
+  #change-list-filters input[type="search"] { width: 100% !important; }
+
+  /* change form: label above field, one field per line. jazzmin puts several
+     col-auto fieldBoxes in one .row, which otherwise overflows sideways. */
+  .form-group > .row > label,
+  .form-group > .row > .fieldBox,
+  fieldset .form-group > .row > label,
+  fieldset .form-group > .row > .fieldBox {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    text-align: left !important;
+  }
+  .form-group > .row > label { margin-bottom: 2px; overflow-wrap: break-word; }
+  .form-group > .row > .fieldBox { margin-bottom: 12px; }
+  /* jazzmin uses two field templates: .fieldBox for rows that pack several
+     fields together, and a plain .col-sm-9 for single-field rows. Both have to
+     be covered, or half the inputs keep Django's fixed .vTextField width
+     (20em) and sit at ~204px in a 323px column. Scoped to .form-group rows so
+     it never reaches inputs inside a tabular inline's horizontal scroller. */
+  .form-group > .row > [class*="col-"] input:not([type="checkbox"]):not([type="radio"]):not([type="file"]):not([type="submit"]),
+  .form-group > .row > [class*="col-"] > select,
+  .form-group > .row > [class*="col-"] textarea,
+  .form-group > .row > [class*="col-"] .select2-container,
+  .fieldBox input:not([type="checkbox"]):not([type="radio"]):not([type="file"]),
+  .fieldBox select,
+  .fieldBox textarea,
+  .fieldBox .select2-container { width: 100% !important; max-width: 100% !important; }
+  /* …except inside the related-field wrapper, where the icons need their room */
+  .form-group > .row > [class*="col-"] .related-widget-wrapper > select,
+  .form-group > .row > [class*="col-"] .related-widget-wrapper .select2-container {
+    width: auto !important;
+    flex: 1 1 120px;
+  }
+
   /* 16px is the threshold below which iOS zooms the page on focus */
-  .form-control, input, select, textarea { font-size: 16px !important; }
+  .form-control,
+  .form-select,
+  input[type="text"], input[type="number"], input[type="email"],
+  input[type="url"], input[type="password"], input[type="search"],
+  input[type="tel"], input[type="date"], input[type="datetime-local"],
+  input[type="time"],
+  select, textarea,
+  /* jazzmin renders select2 with its own theme class
+     (.select2-container--admin-autocomplete), so match on the inner parts
+     rather than on --default, which would miss every autocomplete field. */
+  .select2-container,
+  .select2-selection,
+  .select2-selection__rendered,
+  .select2-selection__choice,
+  .select2-search__field,
+  .select2-results__option {
+    font-size: 16px !important;
+  }
+  .select2-container .select2-selection--single {
+    height: auto !important;
+    min-height: 40px;
+  }
+  .select2-container .select2-selection--single .select2-selection__rendered {
+    line-height: 26px !important;
+    padding: 6px 24px 6px 10px !important;
+  }
+  .select2-container .select2-selection--single .select2-selection__arrow { height: 100% !important; }
+
+  /* the header search inside the navbar keeps its compact size if shown */
+  .app-header .form-control { font-size: 16px !important; }
+
+  .inline-related h3 { font-size: 12.5px !important; padding: 9px 10px !important; }
+  .paginator { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
 }
+
+@media (max-width: 360px) {
+  #change-list-filters .form-group { flex: 1 1 100%; min-width: 0; }
+}
+
 @media (max-width: 480px) {
-  .table thead th, #result_list thead th { font-size: 11px !important; }
+  .table thead th, #result_list thead th { font-size: 11px !important; padding: 8px 10px !important; }
   .table td, #result_list td { font-size: 12.5px; padding: 8px 10px !important; }
+  .app-content-header h1, .app-content-header h3 { font-size: 17px; }
+  #jazzy-actions .btn,
+  #jazzy-actions input[type="submit"] { flex: 1 1 100%; }
+  .breadcrumb { font-size: 11.5px; }
 }

@@ -189,6 +189,12 @@ class ProductVariant(models.Model):
     video = models.FileField(
         upload_to='products/videos/', blank=True, null=True,
         help_text='A video for this size only. Leave blank to use the same video as the product above.')
+    image_url = models.URLField(
+        max_length=500, blank=True,
+        help_text='Only if this size has no photos of its own and its picture '
+                  'lives somewhere else on the web. Leave blank to use the '
+                  'photos below, or the picture on the product itself.',
+    )
     video_url = models.URLField(
         max_length=500, blank=True,
         help_text='Use instead of uploading, when the video for this size is already hosted somewhere. Leave blank to use the same one as the product above.')

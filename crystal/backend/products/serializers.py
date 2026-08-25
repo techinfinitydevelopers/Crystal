@@ -363,7 +363,13 @@ def site_product_entries(product):
     group = product.variant_group or f"vg-dash-{product.id}"
     for variant in variants:
         own = [im for im in all_images if im.variant_id == variant.id]
-        hero, gallery = site_image_set(own or general_images, product.image_url)
+        # A size with no photos of its own falls back to its own image_url
+        # before the product's - four sizes across two groups have no
+        # ProductImage rows at all and their picture is a remote URL that
+        # differs per size, so resolving straight to the parent would show the
+        # wrong size's photo.
+        hero, gallery = site_image_set(
+            own or general_images, variant.image_url or product.image_url)
         # A stored full SKU wins; base+suffix is the dashboard-born fallback.
         # The imported SKUs are unrelated strings (LI007/LI008/LI009), so
         # concatenation cannot reproduce them.
