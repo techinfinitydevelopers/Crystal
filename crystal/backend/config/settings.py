@@ -7,7 +7,39 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 env = environ.Env(DEBUG=(bool, True))
 environ.Env.read_env(BASE_DIR / '.env')
 
-SECRET_KEY = env('SECRET_KEY', default='django-insecure-change-me-in-production')
+def _secret_key():
+    """The signing key, in order of preference.
+
+    An explicit SECRET_KEY environment variable always wins. Failing that, the
+    app generates one itself and keeps it on the persistent volume, so it
+    survives redeploys and nobody has to hand-carry a secret into the dashboard.
+    Only if neither is possible does it fall back to the development placeholder,
+    which the production block below refuses to boot on.
+    """
+    from_env = env('SECRET_KEY', default='')
+    if from_env:
+        return from_env
+
+    key_file = BASE_DIR / 'media' / '.secret_key'
+    try:
+        if key_file.exists():
+            existing = key_file.read_text().strip()
+            if existing:
+                return existing
+        import secrets
+        generated = secrets.token_urlsafe(64)
+        key_file.parent.mkdir(parents=True, exist_ok=True)
+        key_file.write_text(generated)
+        try:
+            os.chmod(key_file, 0o600)
+        except OSError:
+            pass  # Windows and some mounts do not support this
+        return generated
+    except OSError:
+        return 'django-insecure-change-me-in-production'
+
+
+SECRET_KEY = _secret_key()
 DEBUG = env('DEBUG')
 ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=['*'])
 

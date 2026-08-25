@@ -41,19 +41,15 @@ In the new service's **Variables** tab:
 
 | Variable | Value |
 |---|---|
-| `SECRET_KEY` | a long random string — see below |
 | `DEBUG` | `False` |
 | `DATABASE_URL` | reference the Postgres service (Railway offers it in the picker) |
 
-Generate a secret key locally:
+**`SECRET_KEY` is not needed.** On first boot the app generates one and writes it
+to `media/.secret_key` on the volume, where it survives redeploys. Setting a
+`SECRET_KEY` variable still overrides that if you ever want to manage it yourself.
 
-```
-python -c "import secrets; print(secrets.token_urlsafe(64))"
-```
-
-`settings.py` refuses to start with the development placeholder, so a missing or
-default `SECRET_KEY` fails the deploy loudly rather than shipping a site whose
-session cookies anyone can forge.
+Should both fail — no variable, and no writable volume — `settings.py` refuses to
+start rather than shipping a site whose session cookies anyone can forge.
 
 ## 4. Add a volume for uploads
 

@@ -16,3 +16,6 @@ home-v3-assets/video/AV-FILM.mp4
 
 # collectstatic output - rebuilt on every deploy
 crystal/backend/staticfiles/
+
+# generated at runtime, kept on the persistent volume
+crystal/backend/media/.secret_key
