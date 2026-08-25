@@ -131,6 +131,10 @@ class ProductImage(models.Model):
 
 class ProductSpecification(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='specifications')
+    variant = models.ForeignKey(
+        'ProductVariant', null=True, blank=True, on_delete=models.CASCADE, related_name='specifications',
+        help_text="Leave blank for a spec that applies to the whole product. Set this to attach the spec to one specific size/variant only — e.g. so the '16 cm' variant lists its own diameter instead of the 14 cm one.",
+    )
     key = models.CharField(max_length=100)
     value = models.CharField(max_length=255)
     order = models.PositiveIntegerField(default=0)
@@ -139,21 +143,81 @@ class ProductSpecification(models.Model):
         ordering = ['order']
 
     def __str__(self):
-        return f"{self.product.name}: {self.key}"
+        scope = f" ({self.variant.name})" if self.variant_id else ""
+        return f"{self.product.name}{scope}: {self.key}"
 
 
 class ProductVariant(models.Model):
+    """One size / option of a product.
+
+    Every field below except `name` is optional. The rule is uniform: if you
+    leave a field blank, the website falls back to whatever the product above
+    it says. Fill a field in only when this particular size differs.
+    """
+
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='variants')
-    name = models.CharField(max_length=100)  # e.g. "22 cm", "24 cm", "1.5 L"
-    sku_suffix = models.CharField(max_length=20, blank=True)
-    is_default = models.BooleanField(default=False)
-    order = models.PositiveIntegerField(default=0)
+    name = models.CharField(
+        max_length=100,
+        help_text='The size or option label shown on the size selector, e.g. "22 cm", "1.5 L", \'15"\'. Must be unique within this product.')
+    sku_suffix = models.CharField(
+        max_length=20, blank=True,
+        help_text='Old-style: added to the end of the product SKU to build this size\'s code. Only used when the full SKU below is blank. Leave blank and use "SKU" instead.')
+    sku = models.CharField(
+        max_length=50, unique=True, null=True, blank=True, db_index=True,
+        help_text='The complete item code for this size, exactly as it appears on the packaging (e.g. LI008). Leave blank to use the product\'s own SKU.')
+    display_name = models.CharField(
+        max_length=200, blank=True,
+        help_text='The full product title for this size, exactly as it should appear on the website. Leave blank to use the same name as the product above.')
+    highlight = models.CharField(
+        max_length=300, blank=True,
+        help_text='The one-line selling point shown under the title. Leave blank to use the same one as the product above.')
+    description = models.TextField(
+        blank=True,
+        help_text='The full description for this size. Leave blank to use the same description as the product above.')
+    tags = models.JSONField(
+        null=True, blank=True, default=None,
+        help_text='Search/filter tags for this size, as a list. Leave blank to use the same tags as the product above.')
+    features = models.JSONField(
+        null=True, blank=True, default=None,
+        help_text='Feature cards for this size: [[icon, title, detail], ...]. Leave blank to use the same features as the product above.')
+    amazon_link = models.URLField(
+        max_length=500, blank=True,
+        help_text='The Amazon listing for this exact size. Most sizes have their own. Leave blank to use the same link as the product above.')
+    price = models.DecimalField(
+        max_digits=10, decimal_places=2, null=True, blank=True,
+        help_text='MRP for this size, in rupees. Leave blank to use the same price as the product above.')
+    video = models.FileField(
+        upload_to='products/videos/', blank=True, null=True,
+        help_text='A video for this size only. Leave blank to use the same video as the product above.')
+    video_url = models.URLField(
+        max_length=500, blank=True,
+        help_text='Use instead of uploading, when the video for this size is already hosted somewhere. Leave blank to use the same one as the product above.')
+    match_tier = models.CharField(
+        max_length=64, blank=True,
+        help_text='Internal provenance note carried over from the original site catalogue. Nothing on the website reads it.')
+    is_active = models.BooleanField(
+        default=True,
+        help_text='Untick to hide this size from the website without deleting it.')
+    is_default = models.BooleanField(
+        default=False,
+        help_text='Tick for the size that should be selected first when a customer opens this product.')
+    order = models.PositiveIntegerField(
+        default=0,
+        help_text='Position in the size selector. Lower numbers appear first.')
 
     class Meta:
         ordering = ['order', 'id']
+        constraints = [
+            models.UniqueConstraint(fields=['product', 'name'], name='uniq_variant_name_per_product'),
+        ]
 
     def __str__(self):
         return f"{self.product.name} — {self.name}"
+
+    @property
+    def full_sku(self):
+        """This size's item code: its own SKU if set, else product SKU + suffix."""
+        return self.sku or f"{self.product.sku or ''}{self.sku_suffix}"
 
 
 class Marketplace(models.Model):
