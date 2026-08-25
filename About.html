@@ -191,11 +191,17 @@
   /* awards */
   .recog { margin-top: clamp(44px, 6vw, 72px); }
   .rtitle { font-family: var(--head); font-weight: 700; font-size: clamp(16px, 2vw, 22px); text-transform: uppercase; margin-bottom: 22px; color: var(--muted); }
-  .ritems { display: flex; align-items: center; gap: clamp(14px, 2.5vw, 32px); flex-wrap: wrap; }
-  .trophy { height: clamp(90px, 12vw, 150px); width: auto; object-fit: contain; border-radius: 12px; }
-  .award-card { display: inline-flex; align-items: center; gap: 18px; margin: 0; padding: 16px 24px 16px 16px; background: #fff; border: 1.5px solid var(--line); border-radius: 18px; box-shadow: 0 24px 46px -30px rgba(15,15,15,0.35); }
-  .award-card figcaption { font-family: var(--head); font-weight: 700; font-size: clamp(15px, 1.6vw, 19px); line-height: 1.3; }
+  .ritems { display: grid; grid-template-columns: 1.35fr repeat(3, 1fr); gap: clamp(14px, 1.8vw, 24px); align-items: stretch; }
+  .award-card { display: flex; align-items: center; gap: 16px; margin: 0; padding: 16px; background: #fff; border: 1.5px solid var(--line); border-radius: 18px; box-shadow: 0 24px 46px -30px rgba(15,15,15,0.35); transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s; }
+  .award-card:hover { transform: translateY(-5px); box-shadow: 0 34px 58px -32px rgba(237,51,56,0.32); }
+  .trophy { height: 120px; width: auto; object-fit: contain; border-radius: 12px; flex: 0 0 auto; }
+  .award-card figcaption { font-family: var(--head); font-weight: 700; font-size: clamp(15px, 1.4vw, 18px); line-height: 1.3; }
   .award-card figcaption span { display: block; font-family: var(--body); font-weight: 600; font-size: 13px; color: var(--muted); margin-top: 4px; }
+  /* the certificates are landscape scans - let each fill its own card */
+  .cert-card { padding: 12px; }
+  .cert { width: 100%; height: 120px; object-fit: contain; border-radius: 8px; }
+  @media (max-width: 980px) { .ritems { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px) { .ritems { grid-template-columns: 1fr; } }
 
   /* ===== MARQUEE (ported) ===== */
   .marquee { overflow: hidden; padding-block: 20px; background: var(--grad-red); color: #fff; }
@@ -654,6 +660,15 @@ h1, h2 { overflow-wrap: break-word; }
       <figure class="award-card">
         <img class="trophy" src="about-assets/award-trophy.jpg" alt="HomeShop18 STAR Award — Home &amp; Kitchen" />
         <figcaption>HomeShop18 STAR Award<span>Home &amp; Kitchen</span></figcaption>
+      </figure>
+      <figure class="award-card cert-card">
+        <img class="cert" src="about-assets/cert-1.png" alt="Certificate of achievement" loading="lazy" />
+      </figure>
+      <figure class="award-card cert-card">
+        <img class="cert" src="about-assets/cert-2.png" alt="Certificate of achievement" loading="lazy" />
+      </figure>
+      <figure class="award-card cert-card">
+        <img class="cert" src="about-assets/cert-3.png" alt="Certificate of achievement" loading="lazy" />
       </figure>
     </div>
   </div>

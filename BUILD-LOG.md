@@ -385,3 +385,21 @@ body, so one card filled the screen. Now two fit per viewport:
 
 Live `index.html` is now 371754 bytes (`last-modified` 06:55 UTC) - the v3
 page. The earlier check that showed 104875 bytes was the pre-push build.
+
+## 2026-08-25 (6) — Awards & Recognition restored and gridded
+
+The three certificates are back at the user's request (I had pulled them
+as stock-looking placeholders; that call was theirs to make). The section
+also stopped leaving two-thirds of its width empty:
+
+- `.ritems` is a `1.35fr repeat(3, 1fr)` grid instead of a flex row, so
+  the award card and the three certificates fill the row - 2-up under
+  980px, single column under 560px.
+- Certificates get their own card treatment (`.cert-card`) matching the
+  award card, each image `width:100%; height:120px; object-fit:contain`
+  so the landscape scans fill their card without distortion.
+- Trophy fixed at 120px so all four cards share a height; hover lift added
+  to match the story cards.
+
+**Verified** 1280x800: four cards at 324/240/240/240px, all 154px tall,
+row 1114px wide, `scrollWidth` 1265. 430px: single column, no overflow.
