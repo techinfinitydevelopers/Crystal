@@ -541,3 +541,52 @@ bottom at 220, footer top at 174 - **46px overlap = 10.0%**. Mobile uses the
 same percentage rule; the identical mechanism measured exactly 10.0% at
 390x844 in the previous build (only the sign differs). The browser pane hung
 before I could re-measure 390px on this build.
+
+## 2026-08-25 (13) — Reveals made fail-safe, split pinned, nav inverted, brand tiles
+
+### Trusted Partners was blank
+
+A `gsap.from({opacity: 0})` hides its target the instant the page parses. If
+the trigger then never fires - images loading late shift the layout past the
+start point, a reload lands mid-page - the content stays invisible. That is
+what emptied the section. Every one-shot reveal now carries
+`immediateRender: false` + `clearProps`, so the hidden state is only applied
+while the tween actually runs, and starts were relaxed (85% -> 92%). A
+`unhideStragglers()` net runs at load and 2.5s after: anything still under
+0.05 opacity gets its transform and opacity cleared.
+
+### Since 1971 pinned again
+
+At the user's request the section now holds the viewport while the photo and
+the sentence advance together (`+= 2.2 * innerHeight`), then releases. Pin is
+applied only above 1024px - a held viewport fights touch scrolling.
+
+### Nav
+
+Reverted to transparent over the hero, light pill on scroll (`.scrolled`
+lands past 30px). The red wordmark and dark links would disappear into the
+footage, so while transparent the logo is `brightness(0) invert(1)` and the
+links, icons, outline button and burger bars go white, all with a .35s
+transition back.
+
+### Hero weight
+
+Five `<video>` elements all pointed at the same 12 MB file and all autoplayed
+- five decoders for one visible frame, since the back four are only ever seen
+as a sliver behind the top card. Now one player (the card the stack opens on)
+plus four stills from a poster frame extracted with ffmpeg. That is 48 MB of
+redundant video decode removed from every page load.
+
+### Brand pages
+
+Portfolio tiles: 4 per row -> 3, square instead of 4/5, and `object-fit`
+`cover` -> `contain` with padding, because cover was cropping the product out
+of frame (pans losing their handles). The full-tile dark scrim shrank to a
+band behind the label, which is all it was ever for.
+
+**Verified** by serving and parsing the built file: 1 `<video>`, 5 poster
+refs, pin present, transparent-nav rule present, 4 `immediateRender: false`,
+the unhide net present, the 10% heart overlap intact, and the v3 script
+parses clean (15583 chars). All four brand pages carry both tile changes.
+The browser pane hung throughout this round - the five-video hero is the
+likely cause, and is exactly what got removed - so no live screenshot yet.

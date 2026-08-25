@@ -609,15 +609,40 @@
   --m16: clamp(8px, .83vw, 16px);
 }
 
-/* This page's hero is dark video sitting directly under the nav, which the
-   transparent pill was never designed for - the red wordmark disappears into
-   the footage. Float the light pill from the start instead of only on scroll.
-   Only this page loads this block, so a bare selector is safe. */
+/* Over the hero the nav is transparent; the light pill appears once the page
+   scrolls (the shared script adds .scrolled past 30px). The red wordmark and
+   dark links would vanish into the footage, so while transparent everything
+   inverts to white. Only this page loads this block, so bare selectors are safe. */
 header:not(.scrolled) .nav {
-  background: rgba(255, 255, 255, 0.82);
-  border-color: rgba(255, 255, 255, 0.55);
-  -webkit-backdrop-filter: blur(14px);
-  backdrop-filter: blur(14px);
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.34);
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+header:not(.scrolled) .logo img {
+  filter: brightness(0) invert(1);
+}
+header:not(.scrolled) .nav-links > li > a,
+header:not(.scrolled) .nav-links > li > button,
+header:not(.scrolled) .nav .cart-txt,
+header:not(.scrolled) .nav .enq-count {
+  color: #fff;
+}
+header:not(.scrolled) .nav .icon-btn,
+header:not(.scrolled) .nav .btn-outline {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.6);
+}
+header:not(.scrolled) .nav .icon-btn svg,
+header:not(.scrolled) .nav .btn-outline svg {
+  color: #fff;
+}
+/* the burger's bars are drawn as spans, not text */
+header:not(.scrolled) .burger span { background: #fff; }
+/* everything above snaps back the moment .scrolled lands */
+header .logo img, header .nav-links > li > a, header .nav .icon-btn,
+header .nav .btn-outline, header .burger span {
+  transition: color .35s, border-color .35s, filter .35s, background .35s;
 }
 
 /* The red line's SVG is deliberately oversized and the entry animations start
@@ -687,7 +712,7 @@ header:not(.scrolled) .nav {
 .v3 .hero3-swiper { height: 100%; }
 .v3 .hero3-swiper .swiper-slide { border-radius: 10px; overflow: visible; width: 100%; height: 100%; }
 .v3 .hero3-vid { width: 100%; height: 100%; border-radius: 10px; overflow: hidden; position: relative; opacity: 0; }
-.v3 .hero3-vid video { height: 100%; width: 100%; object-fit: cover; }
+.v3 .hero3-vid video, .v3 .hero3-vid img { height: 100%; width: 100%; object-fit: cover; }
 .v3 .hero3-vid::after {
   content: ""; position: absolute; inset: 0;
   background: linear-gradient(180deg, rgba(0,0,0,0) 55%, rgba(0,0,0,.54) 89%);
@@ -1176,11 +1201,11 @@ h1, h2 { overflow-wrap: break-word; }
   <div class="hero3-swiper-wrap">
     <div class="swiper hero3-swiper">
       <div class="swiper-wrapper">
-        <div class="swiper-slide"><div class="hero3-vid"><video src="home-v3-assets/video/AV-FILM-web.mp4" loop autoplay muted playsinline preload="auto" controlslist="nodownload noremoteplayback"></video></div></div>
-        <div class="swiper-slide"><div class="hero3-vid"><video src="home-v3-assets/video/AV-FILM-web.mp4" loop autoplay muted playsinline preload="auto" controlslist="nodownload noremoteplayback"></video></div></div>
-        <div class="swiper-slide"><div class="hero3-vid"><video src="home-v3-assets/video/AV-FILM-web.mp4" loop autoplay muted playsinline preload="auto" controlslist="nodownload noremoteplayback"></video></div></div>
-        <div class="swiper-slide"><div class="hero3-vid"><video src="home-v3-assets/video/AV-FILM-web.mp4" loop autoplay muted playsinline preload="auto" controlslist="nodownload noremoteplayback"></video></div></div>
-        <div class="swiper-slide"><div class="hero3-vid"><video src="home-v3-assets/video/AV-FILM-web.mp4" loop autoplay muted playsinline preload="auto" controlslist="nodownload noremoteplayback"></video></div></div>
+        <div class="swiper-slide"><div class="hero3-vid"><img src="home-v3-assets/video/hero-poster.jpg" alt="" loading="lazy" decoding="async"></div></div>
+        <div class="swiper-slide"><div class="hero3-vid"><img src="home-v3-assets/video/hero-poster.jpg" alt="" loading="lazy" decoding="async"></div></div>
+        <div class="swiper-slide"><div class="hero3-vid"><video src="home-v3-assets/video/AV-FILM-web.mp4" poster="home-v3-assets/video/hero-poster.jpg" loop autoplay muted playsinline preload="auto" controlslist="nodownload noremoteplayback"></video></div></div>
+        <div class="swiper-slide"><div class="hero3-vid"><img src="home-v3-assets/video/hero-poster.jpg" alt="" loading="lazy" decoding="async"></div></div>
+        <div class="swiper-slide"><div class="hero3-vid"><img src="home-v3-assets/video/hero-poster.jpg" alt="" loading="lazy" decoding="async"></div></div>
       </div>
     </div>
   </div>
@@ -1973,10 +1998,17 @@ h1, h2 { overflow-wrap: break-word; }
     var words = textEl ? splitWords(textEl) : [];
     if (words.length) gsap.set(words, { backgroundPositionX: "100%", opacity: 0.3 });
 
+    // Pinned on desktop at the user's request: the section holds the viewport
+    // while the photo and the sentence advance together, then releases. The
+    // pin is added only above 1024px - a held viewport fights touch scrolling.
     ScrollTrigger.create({
       trigger: ".split3",
-      start: "top 75%",
-      end: "bottom 40%",
+      start: matchMedia("(min-width: 1025px)").matches ? "top top" : "top 75%",
+      end: matchMedia("(min-width: 1025px)").matches
+        ? function () { return "+=" + Math.round(window.innerHeight * 2.2); }
+        : "bottom 40%",
+      pin: matchMedia("(min-width: 1025px)").matches,
+      anticipatePin: 1,
       scrub: 1,
       onUpdate: function (self) {
         var p = self.progress;
@@ -2065,8 +2097,9 @@ h1, h2 { overflow-wrap: break-word; }
 
   /* ---------- 03 ABOUT — one entry animation, then done ---------- */
   gsap.timeline({
-    scrollTrigger: { trigger: ".about3", start: "top 75%", once: true },
-    defaults: { duration: 0.8, ease: "power2.out" },
+    scrollTrigger: { trigger: ".about3", start: "top 85%", once: true },
+    defaults: { duration: 0.8, ease: "power2.out", immediateRender: false,
+                clearProps: "transform,opacity" },
   })
     .from(".about3-left", { x: window.innerWidth > 990 ? -160 : 0, y: window.innerWidth > 990 ? 0 : 120, opacity: 0 })
     .from(".about3-right", { x: window.innerWidth > 990 ? 160 : 0, y: window.innerWidth > 990 ? 0 : 120, opacity: 0 }, "-=0.55")
@@ -2153,8 +2186,9 @@ h1, h2 { overflow-wrap: break-word; }
   if (accItems.length) showBrand(accItems.find(function (i) { return i.classList.contains("active"); }) || accItems[0]);
 
   gsap.timeline({
-    scrollTrigger: { trigger: ".brand3", start: "top 70%", once: true },
-    defaults: { duration: 0.7, ease: "power2.out" },
+    scrollTrigger: { trigger: ".brand3", start: "top 85%", once: true },
+    defaults: { duration: 0.7, ease: "power2.out", immediateRender: false,
+                clearProps: "transform,opacity" },
   })
     .from(".brand3-left .v-head-wrap", { x: window.innerWidth > 1024 ? -160 : 0, y: window.innerWidth > 1024 ? 0 : 120, opacity: 0 })
     .from(".brand3-right", { x: window.innerWidth > 1024 ? 160 : 0, y: window.innerWidth > 1024 ? 0 : 120, opacity: 0 }, "-=0.5")
@@ -2163,14 +2197,29 @@ h1, h2 { overflow-wrap: break-word; }
   /* ---------- 05 + 07 simple reveals ---------- */
   gsap.from(".trust3-logo", {
     y: 30, opacity: 0, duration: 0.5, stagger: 0.04, ease: "power2.out",
-    scrollTrigger: { trigger: ".trust3-grid", start: "top 85%", once: true },
+    immediateRender: false, clearProps: "transform,opacity",
+    scrollTrigger: { trigger: ".trust3-grid", start: "top 92%", once: true },
   });
   gsap.from(".res3 .blog3", {
     y: 50, opacity: 0, duration: 0.6, stagger: 0.12, ease: "power2.out",
-    scrollTrigger: { trigger: ".res3-grid", start: "top 84%", once: true },
+    immediateRender: false, clearProps: "transform,opacity",
+    scrollTrigger: { trigger: ".res3-grid", start: "top 92%", once: true },
   });
 
-  addEventListener("load", function () { ScrollTrigger.refresh(); });
+  // Net: if any reveal never ran, nothing stays invisible.
+  function unhideStragglers() {
+    document.querySelectorAll(
+      ".trust3-logo, .res3 .blog3, .about3-left, .about3-right, .counter3-wrap," +
+      " .brand3-left .v-head-wrap, .brand3-right, .acc3-item, .map3-right"
+    ).forEach(function (el) {
+      if (parseFloat(getComputedStyle(el).opacity) < 0.05) {
+        gsap.set(el, { clearProps: "transform,opacity" });
+      }
+    });
+  }
+  setTimeout(unhideStragglers, 2500);
+
+  addEventListener("load", function () { ScrollTrigger.refresh(); unhideStragglers(); });
   if (document.fonts && document.fonts.ready) {
     document.fonts.ready.then(function () { ScrollTrigger.refresh(); });
   }

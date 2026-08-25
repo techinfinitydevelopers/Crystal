@@ -143,10 +143,17 @@
     var words = textEl ? splitWords(textEl) : [];
     if (words.length) gsap.set(words, { backgroundPositionX: "100%", opacity: 0.3 });
 
+    // Pinned on desktop at the user's request: the section holds the viewport
+    // while the photo and the sentence advance together, then releases. The
+    // pin is added only above 1024px - a held viewport fights touch scrolling.
     ScrollTrigger.create({
       trigger: ".split3",
-      start: "top 75%",
-      end: "bottom 40%",
+      start: matchMedia("(min-width: 1025px)").matches ? "top top" : "top 75%",
+      end: matchMedia("(min-width: 1025px)").matches
+        ? function () { return "+=" + Math.round(window.innerHeight * 2.2); }
+        : "bottom 40%",
+      pin: matchMedia("(min-width: 1025px)").matches,
+      anticipatePin: 1,
       scrub: 1,
       onUpdate: function (self) {
         var p = self.progress;
@@ -235,8 +242,9 @@
 
   /* ---------- 03 ABOUT — one entry animation, then done ---------- */
   gsap.timeline({
-    scrollTrigger: { trigger: ".about3", start: "top 75%", once: true },
-    defaults: { duration: 0.8, ease: "power2.out" },
+    scrollTrigger: { trigger: ".about3", start: "top 85%", once: true },
+    defaults: { duration: 0.8, ease: "power2.out", immediateRender: false,
+                clearProps: "transform,opacity" },
   })
     .from(".about3-left", { x: window.innerWidth > 990 ? -160 : 0, y: window.innerWidth > 990 ? 0 : 120, opacity: 0 })
     .from(".about3-right", { x: window.innerWidth > 990 ? 160 : 0, y: window.innerWidth > 990 ? 0 : 120, opacity: 0 }, "-=0.55")
@@ -323,8 +331,9 @@
   if (accItems.length) showBrand(accItems.find(function (i) { return i.classList.contains("active"); }) || accItems[0]);
 
   gsap.timeline({
-    scrollTrigger: { trigger: ".brand3", start: "top 70%", once: true },
-    defaults: { duration: 0.7, ease: "power2.out" },
+    scrollTrigger: { trigger: ".brand3", start: "top 85%", once: true },
+    defaults: { duration: 0.7, ease: "power2.out", immediateRender: false,
+                clearProps: "transform,opacity" },
   })
     .from(".brand3-left .v-head-wrap", { x: window.innerWidth > 1024 ? -160 : 0, y: window.innerWidth > 1024 ? 0 : 120, opacity: 0 })
     .from(".brand3-right", { x: window.innerWidth > 1024 ? 160 : 0, y: window.innerWidth > 1024 ? 0 : 120, opacity: 0 }, "-=0.5")
@@ -333,14 +342,29 @@
   /* ---------- 05 + 07 simple reveals ---------- */
   gsap.from(".trust3-logo", {
     y: 30, opacity: 0, duration: 0.5, stagger: 0.04, ease: "power2.out",
-    scrollTrigger: { trigger: ".trust3-grid", start: "top 85%", once: true },
+    immediateRender: false, clearProps: "transform,opacity",
+    scrollTrigger: { trigger: ".trust3-grid", start: "top 92%", once: true },
   });
   gsap.from(".res3 .blog3", {
     y: 50, opacity: 0, duration: 0.6, stagger: 0.12, ease: "power2.out",
-    scrollTrigger: { trigger: ".res3-grid", start: "top 84%", once: true },
+    immediateRender: false, clearProps: "transform,opacity",
+    scrollTrigger: { trigger: ".res3-grid", start: "top 92%", once: true },
   });
 
-  addEventListener("load", function () { ScrollTrigger.refresh(); });
+  // Net: if any reveal never ran, nothing stays invisible.
+  function unhideStragglers() {
+    document.querySelectorAll(
+      ".trust3-logo, .res3 .blog3, .about3-left, .about3-right, .counter3-wrap," +
+      " .brand3-left .v-head-wrap, .brand3-right, .acc3-item, .map3-right"
+    ).forEach(function (el) {
+      if (parseFloat(getComputedStyle(el).opacity) < 0.05) {
+        gsap.set(el, { clearProps: "transform,opacity" });
+      }
+    });
+  }
+  setTimeout(unhideStragglers, 2500);
+
+  addEventListener("load", function () { ScrollTrigger.refresh(); unhideStragglers(); });
   if (document.fonts && document.fonts.ready) {
     document.fonts.ready.then(function () { ScrollTrigger.refresh(); });
   }
