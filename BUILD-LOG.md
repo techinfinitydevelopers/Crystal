@@ -265,3 +265,44 @@ Both containers needed their inner rules adjusted rather than just their `src`:
 `readyState 4`; legacy holds `hero-couple.webp` (810x656 natural) contained in a
 1098x617 frame. No stray `<video>` left in `.legacy-video`, no stray `<img>` in
 `.hero-couple`.
+
+## 2026-08-25 (2) — Home v3 scroll fixes, About hero cleanup, git-lfs
+
+### Home v3 — scroll and section sizing
+
+The user reported scroll not working properly and sections looking off.
+Three causes, all fixed in the build sources and regenerated:
+
+- **Lenis removed.** Its 1.1s eased scroll fought the wheel on the pinned
+  sections; nothing else on the site uses it. The page now scrolls natively.
+- **Pinned sections were not viewport-sized.** `split3` (704px) and `map3`
+  (941px in an 800px viewport) pinned with the next section showing beneath /
+  the heading cut off. Both are now exactly `100vh` on desktop; `map3-right`,
+  `map3-left` and `brand3-right` are capped with `min(..vh, ..px)` instead of
+  `calc(100vh - var(--v-hdr))`, which had assumed a reserved header.
+- **Pin distances shortened** - 4 viewports for 4 slides read as a dead
+  stretch; now 0.6x (split) and 1600px (map).
+
+Mobile keeps `height:auto` via the ≤1024px block (the pins never run there).
+Verified 1280x800: both pins land (770→2690, 5713→7313), doc 12141→9884,
+split and map each fill one clean screen. 390x844: no horizontal overflow,
+sections stack, sliders autoplay.
+
+### About page
+
+- Hero's three floating product bubbles removed (markup + intro tween).
+- `CRAFTING EVERYDAY ESSENTIALS WITH CARE` fixed at 54px on desktop
+  (mobile clamps below 760px unchanged).
+- Awards & Recognition: the three stock certificates ("Kristen Kennedy",
+  an e-commerce course template) removed - fake-looking credentials on a
+  live page. The real HomeShop18 STAR Award now sits in a captioned card.
+  Real certificates can be dropped in when the user supplies them.
+
+### git-lfs
+
+`git lfs install` run; `*.zip`, `*.7z`, `*.psd` tracked in `.gitattributes`.
+The site-served media (`.mp4`, product photos) is deliberately NOT tracked:
+the static site deploys straight from this repo and a host that does not
+fetch LFS objects would serve pointer files - every video on production
+would break. The 2.4 GB history predates LFS and only shrinks with a
+history rewrite + force push, which needs its own decision.

@@ -13,7 +13,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-<script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
 <style>
   :root {
@@ -698,8 +697,8 @@ header:not(.scrolled) .nav {
 .v3 .hero3-title b { color: var(--v-red); font-weight: 700; }
 
 /* ---------- 02 SPLIT (pinned: word-fill left, vertical parallax right) ---------- */
-.v3 .split3 { padding: 0; overflow: hidden; }
-.v3 .split3-container { display: flex; align-items: center; justify-content: space-between; }
+.v3 .split3 { padding: 0; overflow: hidden; height: 100vh; }
+.v3 .split3-container { display: flex; align-items: center; justify-content: space-between; height: 100%; }
 .v3 .split3 .left-txt { width: 100%; max-width: 660px; padding-left: var(--p120); }
 .v3 .split3 .v-head { font-size: var(--f56); }
 .v3 .anim-text {
@@ -711,7 +710,7 @@ header:not(.scrolled) .nav {
   color: transparent; -webkit-background-clip: text; background-clip: text;
   opacity: .3; display: inline-block; white-space: pre;
 }
-.v3 .split3-swiper-wrap { position: relative; width: 50%; height: calc(100vh - var(--v-hdr)); }
+.v3 .split3-swiper-wrap { position: relative; width: 50%; height: 100%; }
 .v3 .split3-swiper-wrap .swiper, .v3 .map3-swiper .swiper { height: 100%; width: 100%; }
 .v3 .slide-inner { height: 100%; width: 100%; will-change: transform; }
 .v3 .slide-inner img { height: 100%; width: 100%; object-fit: cover; }
@@ -771,7 +770,7 @@ header:not(.scrolled) .nav {
 .v3 .acc3-item.active .acc3-logo { transform: translateY(0); opacity: 1; }
 .v3 .acc3-logo img { height: 100%; width: 100%; object-fit: contain; }
 .v3 .brand3-right {
-  width: 50%; height: calc(100vh - var(--v-hdr));
+  width: 50%; height: min(84vh, 760px);
   border-radius: 10px 0 0 10px; position: relative; overflow: hidden;
 }
 .v3 .brand3-right::after {
@@ -810,12 +809,15 @@ header:not(.scrolled) .nav {
 .v3 .trust3-logo img { height: 100%; width: 100%; object-fit: contain; }
 
 /* ---------- 06 MADE IN INDIA (pinned map) ---------- */
-.v3 .map3 { display: block; position: relative; padding-top: calc(var(--v-hdr) + 32px); overflow: hidden; }
-.v3 .map3-row { display: flex; align-items: center; justify-content: space-between; }
+.v3 .map3 {
+  position: relative; overflow: hidden; height: 100vh; padding: 0;
+  display: flex; align-items: center;
+}
+.v3 .map3-row { display: flex; align-items: center; justify-content: space-between; width: 100%; }
 .v3 .map3-container { position: relative; margin-left: var(--m60); width: 100%; max-width: 842px; }
 .v3 .map3-float { position: absolute; bottom: 0; left: 0; z-index: 3; }
 .v3 .map3-float .v-head span { color: #000; font-size: var(--f64); font-weight: 700; line-height: 1.25; }
-.v3 .map3-left { width: 100%; height: 760px; overflow: hidden; position: relative; }
+.v3 .map3-left { width: 100%; height: min(760px, 74vh); overflow: hidden; position: relative; }
 .v3 .map3-left::before {
   content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
   background: radial-gradient(50% 50% at 50% 50%, rgba(255,255,255,0) 0, rgba(255,255,255,0) 48.56%, #fff 100%);
@@ -826,7 +828,7 @@ header:not(.scrolled) .nav {
 .v3 .map3-bg img { height: 100%; width: 100%; object-fit: cover; }
 .v3 .map3-right {
   border-radius: 10px 0 0 10px; background: #1e0405; width: 50%;
-  padding: var(--p30) var(--p60); height: calc(100vh - var(--v-hdr) - 31px); overflow: hidden;
+  padding: var(--p30) var(--p60); height: min(86vh, 780px); overflow: hidden;
 }
 .v3 .map3-right .v-head { font-size: var(--f48); margin-bottom: var(--m20); }
 .v3 .map3-swiper {
@@ -887,6 +889,9 @@ header:not(.scrolled) .nav {
 
   .v3 .split3-container, .v3 .about3-container, .v3 .brand3-container,
   .v3 .map3-row, .v3 .pre3-wrap { flex-direction: column; align-items: stretch; }
+  .v3 .split3, .v3 .map3 { height: auto; }
+  .v3 .split3-container { height: auto; }
+  .v3 .map3 { display: block; }
   .v3 .split3 { padding: var(--s80) 0; }
   .v3 .split3 .left-txt, .v3 .brand3-container { padding-left: 0; }
   .v3 .split3 .left-txt, .v3 .about3-left, .v3 .about3-right, .v3 .brand3-left, .v3 .brand3-acc { max-width: none; }
@@ -1792,15 +1797,6 @@ header:not(.scrolled) .nav {
   var DESK = "(min-width: 1025px)";
   var MOB = "(max-width: 1024px)";
 
-  /* ---------- smooth scroll, wired into ScrollTrigger ---------- */
-  var lenis = null;
-  if (window.Lenis && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
-    lenis = new Lenis({ duration: 1.1, smoothWheel: true });
-    lenis.on("scroll", ScrollTrigger.update);
-    gsap.ticker.add(function (t) { lenis.raf(t * 1000); });
-    gsap.ticker.lagSmoothing(0);
-  }
-
   /* ---------- 01 HERO ---------- */
   var heroSwiper = null;
 
@@ -1835,7 +1831,6 @@ header:not(.scrolled) .nav {
       delay: 0.4,
       defaults: { duration: 1.8, ease: "power3.inOut" },
       onComplete: function () {
-        if (lenis) lenis.start();
         heroSwiper.destroy(true, true);
         mainHeroSwiper();
         ScrollTrigger.refresh();
@@ -1852,13 +1847,11 @@ header:not(.scrolled) .nav {
   }
 
   mm.add(DESK, function () {
-    if (lenis) { lenis.stop(); window.scrollTo(0, 0); }
     heroIntro();
     return function () { if (heroSwiper) { heroSwiper.destroy(true, true); heroSwiper = null; } };
   });
 
   mm.add(MOB, function () {
-    if (lenis) lenis.start();
     mainHeroSwiper();
     return function () { if (heroSwiper) { heroSwiper.destroy(true, true); heroSwiper = null; } };
   });
@@ -1936,7 +1929,7 @@ header:not(.scrolled) .nav {
       var pin = ScrollTrigger.create({
         trigger: section,
         start: "top top+=30",
-        end: function () { return "+=" + total * window.innerHeight; },
+        end: function () { return "+=" + Math.round(total * window.innerHeight * 0.6); },
         scrub: true,
         pin: true,
         onUpdate: function (self) {
@@ -1965,7 +1958,7 @@ header:not(.scrolled) .nav {
           scrollTrigger: {
             trigger: ".map3",
             start: window.innerWidth > 1200 ? "0 0" : "0 5%",
-            end: "+=2500",
+            end: "+=1600",
             scrub: 1,
             pin: true,
           },

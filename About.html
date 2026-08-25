@@ -135,7 +135,7 @@
   .hero::before { content: ""; position: absolute; width: 60vw; height: 60vw; max-width: 760px; max-height: 760px; left: 50%; top: 30%; transform: translate(-50%,-50%); background: radial-gradient(circle, rgba(237,51,56,0.16), transparent 62%); filter: blur(8px); z-index: 0; pointer-events: none; }
   .hero .wrap { position: relative; z-index: 4; }
   .hero .pre { font-family: var(--head); font-weight: 600; text-transform: uppercase; font-size: clamp(11px, 1.15vw, 14px); letter-spacing: 0.2em; color: var(--red); margin-bottom: clamp(16px, 2.4vw, 26px); }
-  .hero h1 { font-size: clamp(38px, 6.4vw, 82px); text-transform: uppercase; margin: 4px auto; line-height: 1.02; max-width: 16ch; }
+  .hero h1 { font-size: 54px; text-transform: uppercase; margin: 4px auto; line-height: 1.08; max-width: 24ch; }
   .hero h1 .grad { background: var(--grad-red); -webkit-background-clip: text; background-clip: text; color: transparent; }
   .hero-sub { max-width: 580px; margin: 30px auto 32px; font-size: clamp(15px, 1.6vw, 18px); color: var(--muted); line-height: 1.6; }
   .hero-cta { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
@@ -193,7 +193,9 @@
   .rtitle { font-family: var(--head); font-weight: 700; font-size: clamp(16px, 2vw, 22px); text-transform: uppercase; margin-bottom: 22px; color: var(--muted); }
   .ritems { display: flex; align-items: center; gap: clamp(14px, 2.5vw, 32px); flex-wrap: wrap; }
   .trophy { height: clamp(90px, 12vw, 150px); width: auto; object-fit: contain; border-radius: 12px; }
-  .cert { height: clamp(70px, 10vw, 120px); width: auto; object-fit: contain; border-radius: 8px; border: 1px solid var(--line); }
+  .award-card { display: inline-flex; align-items: center; gap: 18px; margin: 0; padding: 16px 24px 16px 16px; background: #fff; border: 1.5px solid var(--line); border-radius: 18px; box-shadow: 0 24px 46px -30px rgba(15,15,15,0.35); }
+  .award-card figcaption { font-family: var(--head); font-weight: 700; font-size: clamp(15px, 1.6vw, 19px); line-height: 1.3; }
+  .award-card figcaption span { display: block; font-family: var(--body); font-weight: 600; font-size: 13px; color: var(--muted); margin-top: 4px; }
 
   /* ===== MARQUEE (ported) ===== */
   .marquee { overflow: hidden; padding-block: 20px; background: var(--grad-red); color: #fff; }
@@ -585,15 +587,6 @@
 
 <!-- ===== 01 HERO ===== -->
 <section class="hero" id="hero">
-  <span class="float f1 anim-float float-prod" style="width:112px;height:132px;border-radius:26px">
-    <img src="about-assets/prod-2.jpg" alt="Crystal product" />
-  </span>
-  <span class="float f2 anim-float d float-prod round" style="width:104px;height:104px">
-    <img src="about-assets/prod-5.jpg" alt="Crystal product" />
-  </span>
-  <span class="float f3 anim-float float-prod round" style="width:86px;height:86px">
-    <img src="about-assets/prod-8.jpg" alt="Crystal product" />
-  </span>
   <div class="wrap">
     <div class="pre" data-fade>About Crystal · Since 1971</div>
     <h1 data-split>CRAFTING <span class="grad">EVERYDAY</span></h1>
@@ -631,10 +624,10 @@
   <div class="recog" data-fade>
     <div class="rtitle">Awards &amp; Recognition</div>
     <div class="ritems">
-      <img class="trophy" src="about-assets/award-trophy.jpg" alt="HomeShop18 STAR Award — Home &amp; Kitchen" />
-      <img class="cert" src="about-assets/cert-1.png" alt="Certificate" />
-      <img class="cert" src="about-assets/cert-2.png" alt="Certificate" />
-      <img class="cert" src="about-assets/cert-3.png" alt="Certificate" />
+      <figure class="award-card">
+        <img class="trophy" src="about-assets/award-trophy.jpg" alt="HomeShop18 STAR Award — Home &amp; Kitchen" />
+        <figcaption>HomeShop18 STAR Award<span>Home &amp; Kitchen</span></figcaption>
+      </figure>
     </div>
   </div>
 </section>
@@ -889,7 +882,7 @@
       .from(".hero-sub", { y: 24, opacity: 0, duration: 0.6 }, "-=0.35")
       .from(".hero-cta", { y: 20, opacity: 0, duration: 0.55 }, "-=0.3")
       .from(".hero-couple", { y: 50, opacity: 0, duration: 0.8 }, "-=0.5")
-      .from(".float", { scale: 0, opacity: 0, duration: 0.6, stagger: 0.12, ease: "back.out(1.7)" }, "-=0.6");
+      ;
 
     /* generic split-heading reveal on scroll (non-hero) */
     gsap.utils.toArray("[data-split]").forEach(h => {
