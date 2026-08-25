@@ -652,17 +652,6 @@
   </div>
 </section>
 
-<!-- ===== CATEGORY NAV ===== -->
-<section class="sec wrap" id="categories">
-  <div class="sec-head">
-    <div>
-      <span class="eyebrow" data-fade><span class="pip"></span>Shop by type</span>
-      <h2 data-split style="margin-top:14px">Find your<br>cleaning essential</h2>
-    </div>
-    <p class="lead" id="catLead">SparkMate multipurpose drain plungers — part of the Crystal Cleaning Aid range.</p>
-  </div>
-  <div class="cat-grid" id="catGrid"></div>
-</section>
 
 <!-- ===== FEATURED COLLECTIONS ===== -->
 <section class="sec wrap" id="collections">
@@ -833,7 +822,7 @@
     document.getElementById("heroTitle").innerHTML = brand.title;
     document.getElementById("heroSub").textContent = brand.blurb;
     document.title = brand.name + " — CRYSTAL";
-    document.getElementById("catLead").textContent = "Explore the " + brand.name + " range, organised by what you're looking for.";
+    const _catLead = document.getElementById("catLead"); if (_catLead) _catLead.textContent = "Explore the " + brand.name + " range, organised by what you're looking for.";
     document.getElementById("colTitle").innerHTML = brand.name + "<br>collections";
     document.getElementById("colLead").textContent = "The signature " + brand.name + " ranges, designed to delight.";
     document.getElementById("browseTitle").innerHTML = "All " + brand.name + "<br>products";
@@ -848,7 +837,7 @@
 
 
   /* ---------- RENDER: sub-category nav (this page is scoped to one category) ---------- */
-  document.getElementById("catGrid").innerHTML = SUBCATS.map(sub => {
+  const _catGrid = document.getElementById("catGrid"); if (_catGrid) _catGrid.innerHTML = SUBCATS.map(sub => {
     const cnt = viewProducts.filter(p => p.sub === sub.id).length;
     return `<button class="cat-card" data-sub="${sub.id}" data-fade>
       <span class="cat-ic">${CAT_ICONS[PAGE_CAT] || ""}</span>
@@ -1066,7 +1055,7 @@
     if (openGroupKey) { openGroupKey = null; attrChipsEl.querySelectorAll(".fgroup.open").forEach(g => g.classList.remove("open")); }
     closeAttrDrawer();
   });
-  document.getElementById("catGrid").addEventListener("click", e => {
+  document.getElementById("catGrid")?.addEventListener("click", e => {
     const card = e.target.closest(".cat-card");
     if (!card) return;
     setSub(card.dataset.sub);

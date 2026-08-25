@@ -699,7 +699,7 @@
     { name: "Serveware & Dinner", count: "38 products" },
     { name: "Storage & Tiffin", count: "26 products" },
   ];
-  document.getElementById("catGrid").innerHTML = cats.map((c, i) => `
+  const _catGrid = document.getElementById("catGrid"); if (_catGrid) _catGrid.innerHTML = cats.map((c, i) => `
     <a class="cat-card reveal ${'d'+((i%4)+1)}">
       <image-slot id="cat-${i}" placeholder="Drop category image" fit="cover"></image-slot>
       <span class="go"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg></span>

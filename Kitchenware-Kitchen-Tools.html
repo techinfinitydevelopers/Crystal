@@ -647,17 +647,6 @@
   </div>
 </section>
 
-<!-- ===== CATEGORY NAV ===== -->
-<section class="sec wrap" id="categories">
-  <div class="sec-head">
-    <div>
-      <span class="eyebrow" data-fade><span class="pip"></span>Shop by category</span>
-      <h2 data-split style="margin-top:14px">Find your<br>next kitchen tool</h2>
-    </div>
-    <p class="lead" id="catLead">The small tools that make a big difference in daily cooking and prep.</p>
-  </div>
-  <div class="cat-grid" id="catGrid"></div>
-</section>
 
 <!-- ===== FEATURED COLLECTIONS ===== -->
 <section class="sec wrap" id="collections">
@@ -825,7 +814,7 @@
     document.getElementById("heroTitle").innerHTML = brand.title;
     document.getElementById("heroSub").textContent = brand.blurb;
     document.title = brand.name + " — CRYSTAL";
-    document.getElementById("catLead").textContent = "Explore the " + brand.name + " range, organised by what you're looking for.";
+    const _catLead = document.getElementById("catLead"); if (_catLead) _catLead.textContent = "Explore the " + brand.name + " range, organised by what you're looking for.";
     document.getElementById("colTitle").innerHTML = brand.name + "<br>collections";
     document.getElementById("colLead").textContent = "The signature " + brand.name + " ranges, designed to delight.";
     document.getElementById("browseTitle").innerHTML = "All " + brand.name + "<br>products";
@@ -840,7 +829,7 @@
 
 
   /* ---------- RENDER: category nav (single sub-category page: one card, this sub-category) ---------- */
-  document.getElementById("catGrid").innerHTML = `<button class="cat-card" data-cat="${FIXED_SUB}" data-fade>
+  const _catGrid = document.getElementById("catGrid"); if (_catGrid) _catGrid.innerHTML = `<button class="cat-card" data-cat="${FIXED_SUB}" data-fade>
       <span class="cat-ic">${CAT_ICONS.kitchenware || ""}</span>
       <h4>${SUB_LABEL}</h4>
       <span class="cnt">${viewProducts.length} product${viewProducts.length !== 1 ? "s" : ""}</span>
@@ -1027,7 +1016,7 @@
     if (openGroupKey) { openGroupKey = null; attrChipsEl.querySelectorAll(".fgroup.open").forEach(g => g.classList.remove("open")); }
     closeAttrDrawer();
   });
-  document.getElementById("catGrid").addEventListener("click", e => {
+  document.getElementById("catGrid")?.addEventListener("click", e => {
     const card = e.target.closest(".cat-card");
     if (!card) return;
     document.getElementById("browse").scrollIntoView({ behavior: "smooth", block: "start" });
