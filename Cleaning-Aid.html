@@ -787,6 +787,9 @@
     { slug: "sparkmate",  name: "SparkMate",  tagline: "Cleaning Simplified", blurb: "Effortless cleaning essentials — spin mops, brooms, wipers and more — for a sparkling, low-effort home.", title: "Cleaning <span class='grad'>Simplified</span>" },
     { slug: "valmate",    name: "ValMate",    tagline: "Value for Money", blurb: "Smart everyday value — storage, flasks and bottles that keep food fresh and drinks at the right temperature, built for modern Indian homes.", title: "Value for <span class='grad'>Money</span>" },
   ];
+  // A brand with its own page links there; the rest fall back to the filtered list.
+  const BRAND_PAGES = { crystal: "Brand-Crystal.html" };
+  const brandHref = b => BRAND_PAGES[b.slug] || ("All-Products.html?brand=" + b.slug);
   const BRAND_BY = Object.fromEntries(BRANDS.map(b => [b.slug, b]));
 
   // Real catalog loaded from product-data/products.json (see bootstrap at
@@ -804,10 +807,10 @@
   const viewProducts = brand ? P.filter(p => p.b === brand.slug) : P.slice();
 
   /* ---------- RENDER: brand dropdown + footer brands + mobile ---------- */
-  const ddHTML = BRANDS.map(b => `<a href="All-Products.html?brand=${b.slug}"${brand && brand.slug === b.slug ? ' class="active"' : ''}><b>${b.name}</b><span>${b.tagline}</span></a>`).join("");
+  const ddHTML = BRANDS.map(b => `<a href="${brandHref(b)}"${brand && brand.slug === b.slug ? ' class="active"' : ''}><b>${b.name}</b><span>${b.tagline}</span></a>`).join("");
   document.getElementById("ddMenu").innerHTML = ddHTML;
   document.getElementById("footBrands").innerHTML = BRANDS.map(b => `<li><a href="All-Products.html?brand=${b.slug}">${b.name}</a></li>`).join("");
-  document.getElementById("mmBrands").innerHTML = BRANDS.map(b => `<a href="All-Products.html?brand=${b.slug}" class="mm-link">${b.name}</a>`).join("");
+  document.getElementById("mmBrands").innerHTML = BRANDS.map(b => `<a href="${brandHref(b)}" class="mm-link">${b.name}</a>`).join("");
 
   /* ---------- RENDER: hero ---------- */
   if (brand) {
