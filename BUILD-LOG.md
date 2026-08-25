@@ -326,3 +326,40 @@ Testing note for the future: the site CSS has `scroll-behavior: smooth`,
 so a plain `scrollTo()` in a background tab never advances (rAF throttled)
 and reads back the old scrollY - it looks exactly like broken scrolling.
 Use `behavior:"instant"` when driving scroll from the tools.
+
+## 2026-08-25 (4) — v3 goes live as index.html; all h1/h2 at 54px
+
+### v3 is the home page
+
+`CRYSTAL-Home-v3.html` is gone; its content is `index.html`. Since the
+builder used to take its shell from the old `index.html` - which no longer
+exists - the pre-v3 page is kept as `home-v3-src/shell-donor.html` purely
+as the shell source.
+
+The whole build now lives in the repo at `home-v3-src/` instead of a
+scratch folder: `v3_main.html`, `v3.css`, `v3.js`, `india-map-inline.svg`,
+`shell-donor.html`, `heading-size.css` and `build_v3.py`. Paths are
+relative, so `python home-v3-src/build_v3.py` regenerates `index.html`
+from anywhere. **Do not hand-edit index.html** - it is generated.
+
+### Heading size
+
+Every `h1`/`h2` across all 68 pages renders at **54px**, from a block
+appended to each page's stylesheet (so it beats the per-section `clamp()`
+scales without hunting them down). Below 900px it steps to
+`clamp(32px, 8vw, 46px)` - 54px in a 360px viewport overflows any
+multi-word heading. `home-v3-src/apply_heading_size.py` re-applies it to
+every page; the v3 builder folds the same file in so a rebuild keeps it.
+
+Two overflow fixes came out of this:
+- `overflow-wrap: break-word` on headings and `min-width: 0` on the v3
+  flex columns - a flex child defaults to `min-width:auto` and widens its
+  track rather than wrapping, which pushed the map panel past the viewport.
+- `.v3 { overflow-x: clip; }` - the red-line SVG is deliberately oversized
+  (viewBox runs to x=2006) and the entry animations start elements off to
+  the right, which grew a 130px horizontal scrollbar. `clip`, not `hidden`,
+  so no scroll container is created.
+
+**Verified** at 1280x800 on index/About/Cookware: every h1/h2 computes to
+54px, `scrollWidth` 1265 vs 1280 viewport (no horizontal scroll). At
+390x844: 32px headings, `scrollWidth` exactly 390.

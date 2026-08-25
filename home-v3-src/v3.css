@@ -1,0 +1,363 @@
+
+/* ==========================================================================
+   HOME v3 — sections ported from the reference build
+   --------------------------------------------------------------------------
+   Everything is scoped under .v3 so it cannot leak into the shared header,
+   footer and search styles this page inherits from the rest of the site.
+   The fluid type/space scale is the reference's own, kept so the section
+   proportions land the same at every width.
+   ========================================================================== */
+.v3 {
+  --v-red: #ED3237;
+  --v-black: #000;
+  --v-white: #fff;
+  --v-hdr: 96px;
+
+  --f64: clamp(26px, 3.33vw, 64px);
+  --f56: clamp(26px, 3.33vw, 56px);
+  --f48: clamp(24px, 2.5vw, 48px);
+  --f40: clamp(22px, 2.08vw, 40px);
+  --f24: clamp(18px, 1.25vw, 24px);
+  --f20: clamp(17px, 1.04vw, 20px);
+  --f18: clamp(15px, .94vw, 18px);
+  --f16: clamp(14px, .84vw, 16px);
+
+  --p120: clamp(24px, 5vw, 120px);
+  --p60: clamp(24px, 3.13vw, 60px);
+  --p30: clamp(20px, 2vw, 30px);
+
+  --s80: clamp(40px, 4.17vw, 80px);
+  --m90: clamp(30px, 4.17vw, 90px);
+  --m80: clamp(40px, 4.17vw, 80px);
+  --m60: clamp(24px, 2vw, 60px);
+  --m40: clamp(20px, 2.08vw, 40px);
+  --m30: clamp(16px, 1.8vw, 30px);
+  --m24: clamp(12px, 1.25vw, 24px);
+  --m20: clamp(12px, 1vw, 20px);
+  --m16: clamp(8px, .83vw, 16px);
+}
+
+/* This page's hero is dark video sitting directly under the nav, which the
+   transparent pill was never designed for - the red wordmark disappears into
+   the footage. Float the light pill from the start instead of only on scroll.
+   Only this page loads this block, so a bare selector is safe. */
+header:not(.scrolled) .nav {
+  background: rgba(255, 255, 255, 0.82);
+  border-color: rgba(255, 255, 255, 0.55);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+}
+
+/* The red line's SVG is deliberately oversized and the entry animations start
+   their elements off-screen to the right; without this the page grows a
+   horizontal scrollbar. `clip` rather than `hidden` so no scroll container is
+   created. */
+.v3 { overflow-x: clip; }
+
+.v3 .v-sec { padding: var(--s80) 0; position: relative; }
+.v3 .v-wrap { max-width: 1600px; width: 100%; padding: 0 15px; margin: 0 auto; }
+.v3 h1, .v3 h2, .v3 h3, .v3 h4, .v3 h5, .v3 p { margin: 0; }
+.v3 ul { list-style: none; padding: 0; margin: 0; }
+.v3 img, .v3 video { display: block; }
+
+.v3 .v-head {
+  color: var(--v-black);
+  font-size: var(--f64);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.0833vw;
+}
+.v3 .v-head.red { color: var(--v-red); }
+.v3 .v-head.white { color: var(--v-white); }
+.v3 .v-head-wrap .v-head { margin-bottom: var(--m16); }
+.v3 .v-head-wrap.cen { text-align: center; }
+.v3 .v-head-wrap > h3 {
+  color: var(--v-red); font-size: 14px; font-weight: 500;
+  text-transform: uppercase; letter-spacing: .06em; margin-bottom: var(--m16);
+}
+.v3 .v-txt p { color: #2f2f2f; font-size: var(--f18); font-weight: 400; line-height: 1.5; }
+.v3 .v-txt.white p { color: rgba(255,255,255,.88); }
+
+/* the reference's pill button, with its circle-wipe hover */
+.v3 .v-btn {
+  border: 1px solid transparent; border-radius: 60px;
+  background: var(--v-red); color: #fff;
+  display: inline-flex; align-items: center; justify-content: center;
+  height: 50px; padding: 0 30px; cursor: pointer;
+  position: relative; overflow: hidden; text-decoration: none;
+  transition: all .5s ease-in-out;
+}
+.v3 .v-btn .bg {
+  position: absolute; top: 0; left: 0; min-width: 225%; min-height: 225%;
+  aspect-ratio: 1; border-radius: 50%; background: #fff;
+  transform: translate(-50%, -50%) scale(0); transition: all .5s ease-in-out;
+}
+.v3 .v-btn .label {
+  color: #fff; font-size: 14px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: .04em; position: relative; z-index: 2; transition: color .3s ease-in-out;
+}
+.v3 .v-btn:hover { background: transparent; border-color: var(--v-red); }
+.v3 .v-btn:hover .bg { transform: translate(-50%, -50%) scale(1); }
+.v3 .v-btn:hover .label { color: var(--v-red); }
+.v3 .v-btn.cen { display: flex; margin: 0 auto; width: max-content; }
+.v3 .v-btn.black { background: var(--v-black); border-color: #fff; }
+.v3 .v-btn.black:hover { background: transparent; border-color: var(--v-black); }
+.v3 .v-btn.black:hover .label { color: var(--v-black); }
+
+/* ---------- 01 HERO ---------- */
+.v3 .hero3 {
+  position: relative;
+  padding-top: calc(var(--v-hdr) + 70px);
+  height: 100vh;
+  overflow: hidden;
+}
+.v3 .hero3-swiper-wrap { margin: 0 auto var(--m80); width: 478px; height: 351px; }
+.v3 .hero3-swiper { height: 100%; }
+.v3 .hero3-swiper .swiper-slide { border-radius: 10px; overflow: visible; width: 100%; height: 100%; }
+.v3 .hero3-vid { width: 100%; height: 100%; border-radius: 10px; overflow: hidden; position: relative; opacity: 0; }
+.v3 .hero3-vid video { height: 100%; width: 100%; object-fit: cover; }
+.v3 .hero3-vid::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 55%, rgba(0,0,0,.54) 89%);
+}
+.v3 .hero3-txt {
+  position: absolute; left: 50%; bottom: 100px; transform: translateX(-50%);
+  width: 100%; z-index: 10; opacity: 0; text-align: center; padding: 0 16px;
+}
+.v3 .hero3-title {
+  color: #000; font-size: var(--f64); font-weight: 500; line-height: 1.27;
+  letter-spacing: -0.0834vw; margin-bottom: var(--m24);
+}
+.v3 .hero3-title b { color: var(--v-red); font-weight: 700; }
+
+/* ---------- 02 SPLIT (pinned: word-fill left, vertical parallax right) ---------- */
+.v3 .split3 { padding: 0; overflow: hidden; height: 100vh; }
+.v3 .split3-container { display: flex; align-items: center; justify-content: space-between; height: 100%; }
+.v3 .split3 .left-txt { width: 100%; max-width: 660px; padding-left: var(--p120); }
+.v3 .split3 .v-head { font-size: var(--f56); }
+.v3 .anim-text {
+  font-size: var(--f40); font-weight: 500; line-height: 1.4; margin-top: var(--m30);
+}
+.v3 .anim-text .word {
+  background: linear-gradient(to right, #000 50%, #c9c9c9 50%);
+  background-size: 200% 100%; background-position-x: 100%;
+  color: transparent; -webkit-background-clip: text; background-clip: text;
+  opacity: .3; display: inline-block; white-space: pre;
+}
+.v3 .split3-swiper-wrap { position: relative; width: 50%; height: 100%; }
+.v3 .split3-swiper-wrap .swiper, .v3 .map3-swiper .swiper { height: 100%; width: 100%; }
+.v3 .slide-inner { height: 100%; width: 100%; will-change: transform; }
+.v3 .slide-inner img { height: 100%; width: 100%; object-fit: cover; }
+.v3 .split3-swiper-wrap .swiper-slide { overflow: hidden; }
+
+/* ---------- 03 ABOUT ---------- */
+.v3 .about3 { margin-bottom: clamp(40px, 10.42vw, 200px); }
+.v3 .about3-container { display: flex; align-items: center; justify-content: space-between; gap: 40px; }
+.v3 .about3-left { width: 100%; max-width: 580px; }
+.v3 .about3-right { width: 100%; max-width: 940px; }
+.v3 .about3-img {
+  width: 100%; aspect-ratio: 960/534; margin-bottom: var(--m30);
+  border-radius: 10px; overflow: hidden;
+}
+.v3 .about3-img img { height: 100%; width: 100%; object-fit: cover; }
+.v3 .counter3 { display: flex; gap: clamp(20px, 3vw, 60px); justify-content: center; flex-wrap: wrap; }
+.v3 .counter3-box { display: flex; align-items: center; margin: 0 auto; width: max-content; }
+.v3 .counter3-box span {
+  color: #000; font-size: var(--f48); font-weight: 600; line-height: 1.33; letter-spacing: -0.0834vw;
+}
+.v3 .counter3-wrap h5 { color: #2f2f2f; text-align: center; font-size: var(--f18); font-weight: 400; line-height: 1.33; }
+.v3 .red-line-wrap {
+  width: 100%; height: 550px; position: absolute; bottom: -240px; left: 0;
+  user-select: none; pointer-events: none; z-index: 1;
+}
+.v3 .red-line-wrap svg { overflow: visible; width: 100%; height: 100%; }
+
+/* ---------- 04 OUR BRANDS ---------- */
+.v3 .brand3 { overflow: hidden; background: var(--v-red); transition: background-color .5s ease-in-out; }
+.v3 .brand3-container { display: flex; align-items: center; justify-content: space-between; gap: 40px; padding-left: var(--p120); }
+.v3 .brand3-left { width: 100%; max-width: 530px; }
+.v3 .brand3-left .v-head-wrap { margin-bottom: var(--m90); }
+.v3 .brand3-acc { max-width: 530px; }
+.v3 .acc3-item {
+  border-bottom: 1px solid rgba(255,255,255,.5);
+  margin-bottom: var(--m24); position: relative;
+}
+.v3 .acc3-btn {
+  position: relative; padding: 0 40px 16px 0; width: 100%; text-align: left;
+  background: transparent; border: 0; cursor: pointer;
+  color: #fff; font-size: var(--f24); font-weight: 700; line-height: 1.5; font-family: inherit;
+}
+.v3 .acc3-btn::after {
+  content: ""; position: absolute; right: 4px; top: 40%;
+  width: 10px; height: 10px; border-right: 2px solid #fff; border-bottom: 2px solid #fff;
+  transform: translateY(-50%) rotate(45deg); transition: transform .3s ease-in-out;
+}
+.v3 .acc3-item.active .acc3-btn { padding-bottom: 8px; }
+.v3 .acc3-item.active .acc3-btn::after { transform: translateY(-50%) rotate(-135deg); }
+.v3 .acc3-panel { display: none; padding: 0 0 16px; }
+.v3 .acc3-panel p { color: rgba(255,255,255,.8); font-size: var(--f18); line-height: 2; }
+.v3 .acc3-logo {
+  border-radius: 10px 10px 0 0; width: 170px; aspect-ratio: 170/81; overflow: hidden;
+  position: absolute; bottom: -2px; right: 60px;
+  transform: translateY(100px); opacity: 0; transition: all .5s ease-in-out;
+}
+.v3 .acc3-item.active .acc3-logo { transform: translateY(0); opacity: 1; }
+.v3 .acc3-logo img { height: 100%; width: 100%; object-fit: contain; }
+.v3 .brand3-right {
+  width: 50%; height: min(84vh, 760px);
+  border-radius: 10px 0 0 10px; position: relative; overflow: hidden;
+}
+.v3 .brand3-right::after {
+  content: ""; height: 330px; width: 100%; z-index: 2;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 0, #000 100%);
+  position: absolute; bottom: 0; left: 0; pointer-events: none;
+}
+.v3 .brand3-swiper, .v3 .brand3-swiper .swiper-slide { height: 100%; width: 100%; }
+.v3 .brand3-swiper .swiper-slide { border-radius: 10px 0 0 10px; overflow: hidden; }
+.v3 .brand3-swiper img { height: 100%; width: 100%; object-fit: cover; }
+.v3 .brand3-cta {
+  position: absolute; left: var(--p60); bottom: var(--p60); z-index: 3;
+  background: var(--v-red); transition: background-color .5s ease-in-out;
+  border: 1px solid rgba(255,255,255,.6);
+}
+.v3 .brand3-nav {
+  position: absolute; right: var(--p60); bottom: var(--p60); z-index: 3; display: flex; gap: 10px;
+}
+.v3 .brand3-nav button {
+  width: 46px; height: 46px; border-radius: 50%; cursor: pointer;
+  border: 1px solid rgba(255,255,255,.6); background: rgba(0,0,0,.25); color: #fff;
+  font-size: 18px; line-height: 1; transition: all .3s ease-in-out;
+}
+.v3 .brand3-nav button:hover { background: #fff; color: #000; }
+
+/* ---------- 05 TRUSTED PARTNERS ---------- */
+.v3 .trust3-grid { display: grid; grid-template-columns: repeat(4, 1fr); width: 100%; margin-top: var(--m60); }
+.v3 .trust3-logo {
+  width: 100%; aspect-ratio: 310/190; padding: 20px;
+  border: 1px solid rgba(0,0,0,.2); border-top: none; border-left: none;
+  filter: grayscale(1); opacity: .75; transition: all .3s ease-in-out;
+}
+.v3 .trust3-logo:hover { filter: grayscale(0); opacity: 1; }
+.v3 .trust3-logo:nth-child(4n) { border-right: none; }
+.v3 .trust3-logo:nth-child(n + 9) { border-bottom: none; }
+.v3 .trust3-logo img { height: 100%; width: 100%; object-fit: contain; }
+
+/* ---------- 06 MADE IN INDIA (pinned map) ---------- */
+.v3 .map3 {
+  position: relative; overflow: hidden; height: 100vh; padding: 0;
+  display: flex; align-items: center;
+}
+.v3 .map3-row { display: flex; align-items: center; justify-content: space-between; width: 100%; }
+.v3 .map3-container { position: relative; margin-left: var(--m60); width: 100%; max-width: 842px; }
+.v3 .map3-float { position: absolute; bottom: 0; left: 0; z-index: 3; }
+.v3 .map3-float .v-head span { color: #000; font-size: var(--f64); font-weight: 700; line-height: 1.25; }
+.v3 .map3-left { width: 100%; height: min(760px, 74vh); overflow: hidden; position: relative; }
+.v3 .map3-left::before {
+  content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background: radial-gradient(50% 50% at 50% 50%, rgba(255,255,255,0) 0, rgba(255,255,255,0) 48.56%, #fff 100%);
+}
+.v3 .map3-wrap { height: 100%; width: 100%; position: relative; z-index: 2; }
+.v3 .map3-wrap svg { height: 100%; width: 100%; }
+.v3 .map3-bg { height: 100%; width: 100%; position: absolute; inset: 0; z-index: 0; }
+.v3 .map3-bg img { height: 100%; width: 100%; object-fit: cover; }
+.v3 .map3-right {
+  border-radius: 10px 0 0 10px; background: #1e0405; width: 50%;
+  padding: var(--p30) var(--p60); height: min(86vh, 780px); overflow: hidden;
+}
+.v3 .map3-right .v-head { font-size: var(--f48); margin-bottom: var(--m20); }
+.v3 .map3-swiper {
+  width: 100%; aspect-ratio: 840/316; border-radius: 10px; overflow: hidden; margin-bottom: var(--m20);
+}
+.v3 .map3-swiper .swiper-slide { overflow: hidden; }
+.v3 .map3-tabs li {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 20px 0; border-bottom: 1px solid rgba(255,255,255,.5);
+  cursor: pointer; transition: all .3s ease-in-out;
+}
+.v3 .map3-tabs li h5 { color: #fff; font-size: var(--f24); font-weight: 700; }
+.v3 .map3-tabs li p { color: #fff; font-size: var(--f20); font-weight: 400; }
+.v3 .map3-tabs li.active { border-radius: 10px; background: #ed282e; border-bottom-color: transparent; padding: 20px; }
+.v3 .map3-state { transition: fill .3s ease-in-out; }
+
+/* ---------- 07 RESOURCES ---------- */
+.v3 .res3 { background: #f2f2f2; }
+.v3 .res3-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px 20px; }
+.v3 .res3-head { grid-column: 1 / span 2; }
+.v3 .res3-head .v-head { margin-bottom: var(--m20); }
+.v3 .res3-tab a { color: var(--v-red); font-weight: 600; text-decoration: none; font-size: var(--f18); }
+.v3 .blog3 { display: block; border-radius: 20px; background: #fff; overflow: hidden; text-decoration: none; }
+.v3 .res3-grid .blog3:not(.featured) { grid-column: span 1; align-self: end; }
+.v3 .blog3.featured { grid-column: 3 / -1; grid-row: 1 / span 2; }
+.v3 .blog3-img { width: 100%; aspect-ratio: 370/290; overflow: hidden; }
+.v3 .blog3.featured .blog3-img { aspect-ratio: 762/365; }
+.v3 .blog3-img img { height: 100%; width: 100%; object-fit: cover; transition: transform .6s ease; }
+.v3 .blog3:hover .blog3-img img { transform: scale(1.05); }
+.v3 .blog3-txt { padding: var(--p30); }
+.v3 .blog3-txt h4 { color: #000; font-size: var(--f20); font-weight: 600; margin-bottom: var(--m20); }
+.v3 .blog3-txt p { color: #2f2f2f; font-size: var(--f18); line-height: 1.33; margin-bottom: var(--m20); }
+.v3 .blog3 .date-wrap { display: flex; align-items: center; justify-content: space-between; }
+.v3 .blog3 .date-wrap h5 { color: #6b6b6b; font-size: var(--f16); font-weight: 400; }
+.v3 .blog3 .date-wrap p { color: var(--v-red); font-weight: 600; margin: 0; }
+
+/* ---------- 08 PRE-FOOTER ---------- */
+.v3 .pre3 { background: var(--v-red); overflow: hidden; }
+.v3 .pre3-wrap { display: flex; align-items: center; justify-content: space-between; gap: 30px; }
+.v3 .pre3-right { width: 50%; aspect-ratio: 1200/900; }
+.v3 .pre3-right img { height: 100%; width: 100%; object-fit: contain; }
+
+/* ---------- tablets and phones ----------
+   Below 1025px the reference drops every pin: the hero opens full-bleed with
+   no intro, the split and map stack, and the swipers autoplay instead of being
+   scroll-driven. Matching that is what keeps iOS Safari from fighting the pins. */
+@media (max-width: 1200px) {
+  .v3 .map3-container { max-width: 640px; }
+  .v3 .map3-left { height: 560px; }
+}
+@media (max-width: 1024px) {
+  .v3 .hero3 { padding-top: 0; }
+  .v3 .hero3-swiper-wrap { width: 100%; height: 100%; margin-bottom: 0; }
+  .v3 .hero3-swiper .swiper-slide, .v3 .hero3-vid { border-radius: 0; opacity: 1; }
+  .v3 .hero3-txt { opacity: 1; bottom: 60px; }
+  .v3 .hero3-title { color: #fff; }
+  .v3 .hero3-txt .v-btn { border-color: #fff; }
+
+  .v3 .split3-container, .v3 .about3-container, .v3 .brand3-container,
+  .v3 .map3-row, .v3 .pre3-wrap { flex-direction: column; align-items: stretch; }
+  .v3 .split3, .v3 .map3 { height: auto; }
+  .v3 .split3-container { height: auto; }
+  .v3 .map3 { display: block; }
+  .v3 .split3 { padding: var(--s80) 0; }
+  .v3 .split3 .left-txt, .v3 .brand3-container { padding-left: 0; }
+  .v3 .split3 .left-txt, .v3 .about3-left, .v3 .about3-right, .v3 .brand3-left, .v3 .brand3-acc { max-width: none; }
+  .v3 .map3-right, .v3 .pre3-right {
+    width: 100%; height: auto; border-radius: 10px; margin-top: var(--m40);
+  }
+  /* an explicit height, not aspect-ratio: a vertical Swiper sizes its slides
+     from the container, so an auto-height container makes the two chase each
+     other and the page grows without bound */
+  .v3 .split3-swiper-wrap, .v3 .brand3-right {
+    width: 100%; border-radius: 10px; margin-top: var(--m40);
+    height: min(125vw, 640px);
+  }
+  .v3 .brand3-swiper .swiper-slide { border-radius: 10px; }
+  .v3 .map3-container { margin: 0 auto; }
+  .v3 .map3 { padding-top: var(--s80); }
+  .v3 .res3-grid { grid-template-columns: repeat(2, 1fr); }
+  .v3 .res3-head { grid-column: 1 / -1; }
+  .v3 .blog3.featured { grid-column: 1 / -1; grid-row: auto; }
+  .v3 .red-line-wrap { display: none; }
+}
+@media (max-width: 640px) {
+  .v3 .trust3-grid { grid-template-columns: repeat(2, 1fr); }
+  .v3 .trust3-logo:nth-child(4n) { border-right: 1px solid rgba(0,0,0,.2); }
+  .v3 .trust3-logo:nth-child(2n) { border-right: none; }
+  .v3 .trust3-logo:nth-child(n + 9) { border-bottom: 1px solid rgba(0,0,0,.2); }
+  .v3 .trust3-logo:nth-child(n + 11) { border-bottom: none; }
+  .v3 .res3-grid { grid-template-columns: 1fr; }
+  .v3 .map3-left { height: 420px; }
+  .v3 .counter3 { gap: 24px; }
+  .v3 .counter3-wrap { width: calc(50% - 12px); }
+  .v3 .brand3-cta, .v3 .brand3-nav { bottom: 20px; }
+  .v3 .brand3-cta { left: 20px; }
+  .v3 .brand3-nav { right: 20px; }
+}
