@@ -441,3 +441,34 @@ the remaining 9 lighters. `Product.html?p=li010` no longer resolves to it -
 it falls back to the first product rather than erroring.
 
 Recoverable from git history if the client wants it back.
+
+## 2026-08-25 (9) — Split slider re-synced to scroll; heart meets the footer
+
+### Since 1971: the photo now moves with the sentence
+
+Dropping the pin left the slider on its own autoplay timer while the words
+still filled on scroll, so the two ran out of step. Both are now read off a
+single `ScrollTrigger` progress value in one `onUpdate` - the slider's
+`setTranslate` and the word fill - with no pin, so the section still
+scrolls past normally.
+
+**Verified** at 1280x800, scrollY 740 (mid-pass): 14/27 words lit and the
+slider at slide 2, wrapper translated -1200px. Stepping progress 0 -> 1
+walks the wrapper 0 -> -2400px in even increments.
+
+### Pre-footer heart
+
+It was being clipped by the footer: a `y: 110` parallax pushed it past the
+section's `overflow: hidden`. Now the section drops its bottom padding (the
+text column carries its own), the columns align to the bottom, and the
+parallax runs `from y:120` to 0 ending at `bottom bottom` - so the heart
+rises into place and its lower tip lands exactly on the footer edge as the
+page bottoms out.
+
+### Trusted partners - checked, no action needed
+
+All 12 logos load: 10 SVGs (each a self-contained wrapper around an
+embedded base64 raster - no external references to leo9), plus
+`Smart_Bazaar_logo.png` and `unnamed.webp`. Measured `complete: true` and
+`naturalWidth: 254` for every one. An earlier reading of 0 was the pane
+mid-load, not a broken asset. The set matches the reference page exactly.

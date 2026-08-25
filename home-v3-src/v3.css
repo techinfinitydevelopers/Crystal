@@ -299,11 +299,16 @@ header:not(.scrolled) .nav {
 .v3 .blog3 .date-wrap h5 { color: #6b6b6b; font-size: var(--f16); font-weight: 400; }
 .v3 .blog3 .date-wrap p { color: var(--v-red); font-weight: 600; margin: 0; }
 
-/* ---------- 08 PRE-FOOTER ---------- */
-.v3 .pre3 { background: var(--v-red); overflow: hidden; }
-.v3 .pre3-wrap { display: flex; align-items: center; justify-content: space-between; gap: 30px; }
+/* ---------- 08 PRE-FOOTER ----------
+   The heart sits flush on the footer edge: the section drops its bottom
+   padding (the text column carries its own instead) and the columns align to
+   the bottom, so the heart's lower tip lands exactly where the footer starts
+   once the page is scrolled to the end. */
+.v3 .pre3 { background: var(--v-red); overflow: hidden; padding-bottom: 0; }
+.v3 .pre3-wrap { display: flex; align-items: flex-end; justify-content: space-between; gap: 30px; }
+.v3 .pre3-left { padding-bottom: var(--s80); }
 .v3 .pre3-right { width: 50%; aspect-ratio: 1200/900; }
-.v3 .pre3-right img { height: 100%; width: 100%; object-fit: contain; }
+.v3 .pre3-right img { height: 100%; width: 100%; object-fit: contain; object-position: bottom; }
 
 /* ---------- tablets and phones ----------
    Below 1025px the reference drops every pin: the hero opens full-bleed with

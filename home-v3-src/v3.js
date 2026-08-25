@@ -132,19 +132,42 @@
     }, extra || {}));
   }
 
-  /* ---------- 02 SPLIT — slider autoplays, words fill as it scrolls past ---------- */
-  parallaxSwiper(".split3-swiper");
-
+  /* ---------- 02 SPLIT — one scroll pass drives the words AND the slides ----
+     Both sides are read off the same progress value, so the photo changes in
+     step with the sentence filling instead of running on its own timer. No
+     pin: the section scrolls past normally while this plays out. */
+  var splitSwiper = parallaxSwiper(".split3-swiper", { loop: false, autoplay: false });
   var textEl = document.querySelector(".anim-text");
-  if (textEl) {
-    var words = splitWords(textEl);
-    gsap.set(words, { backgroundPositionX: "100%", opacity: 0.3 });
-    gsap.to(words, {
-      backgroundPositionX: "0%",
-      opacity: 1,
-      ease: "none",
-      stagger: 0.35,
-      scrollTrigger: { trigger: ".split3", start: "top 75%", end: "bottom 45%", scrub: 1 },
+
+  if (splitSwiper || textEl) {
+    var words = textEl ? splitWords(textEl) : [];
+    if (words.length) gsap.set(words, { backgroundPositionX: "100%", opacity: 0.3 });
+
+    ScrollTrigger.create({
+      trigger: ".split3",
+      start: "top 75%",
+      end: "bottom 40%",
+      scrub: 1,
+      onUpdate: function (self) {
+        var p = self.progress;
+
+        if (splitSwiper && splitSwiper.slides.length) {
+          var last = splitSwiper.slides.length - 1;
+          splitSwiper.setTranslate(-p * last * splitSwiper.height);
+          splitSwiper.updateActiveIndex();
+          splitSwiper.updateSlidesClasses();
+        }
+
+        var filled = Math.floor(p * words.length);
+        words.forEach(function (w, i) {
+          gsap.to(w, {
+            backgroundPositionX: i <= filled ? "0%" : "100%",
+            opacity: i <= filled ? 1 : 0.3,
+            duration: 0.15,
+            overwrite: "auto",
+          });
+        });
+      },
     });
   }
 
@@ -164,9 +187,11 @@
       .from(".map3-float", { scale: 1.4, x: 180, y: -80 }, 0)
       .from(".map3-right", { opacity: 0, x: 320 }, 0.15);
 
+    // the heart rises into place rather than being pushed down past the
+    // section's clip - it comes to rest exactly as the page bottoms out
     var preTl = gsap.timeline({
-      scrollTrigger: { trigger: ".pre3", start: "top 80%", end: "bottom 60%", scrub: 1 },
-    }).to(".pre3-right", { y: 110 });
+      scrollTrigger: { trigger: ".pre3", start: "top 85%", end: "bottom bottom", scrub: 1 },
+    }).from(".pre3-right", { y: 120 });
 
     return function () {
       [inTl, mapTl, preTl].forEach(function (t) {
