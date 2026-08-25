@@ -218,34 +218,28 @@ class HasVariantsFilter(_YesNoFilter):
 
 # ── Inlines ────────────────────────────────────────────────────────────────
 
-class ProductVariantInline(admin.TabularInline):
-    model = ProductVariant
-    extra = 1
-    fields = ['name', 'sku_suffix', 'is_default', 'order', 'image_count']
-    readonly_fields = ['image_count']
-    ordering = ['order', 'id']
-    verbose_name = 'Size / Variant'
-    verbose_name_plural = 'Step 1 — Sizes & Variants'
-    classes = ['product-variants']
+class ProductVariantInline(admin.StackedInline):
+    """The sizes of a product, as cards rather than table rows.
 
-    @admin.display(description='Own photos')
-    def image_count(self, obj):
-        if obj.pk is None:
-            return mark_safe(
-                '<span style="color:#94a3b8;font-style:italic;font-size:11px;">'
-                'Save first, then attach photos to it in “Gallery Images” below.</span>'
-            )
-        count = obj.images.count()
-        if not count:
-            return mark_safe(
-                '<span style="color:#b45309;font-size:11px;">No dedicated photos — '
-                'pick this size in the “Applies to size” column below.</span>'
-            )
-        return format_html(
-            '<span style="background:#dcfce7;color:#166534;padding:2px 9px;'
-            'border-radius:100px;font-weight:700;font-size:12px;">{} photo{}</span>',
-            count, '' if count == 1 else 's',
-        )
+    Must stay Stacked: Django's inlines.js binds "Add another" by
+    data-inline-type, and the card template declares "stacked".
+    """
+    model = ProductVariant
+    template = 'admin/products/product/edit_inline/size_cards.html'
+    extra = 1
+    fields = [
+        'name', 'sku', 'display_name', 'highlight', 'description',
+        'amazon_link', 'price', 'video', 'video_url', 'image_url',
+        'is_active', 'is_default', 'order',
+    ]
+    ordering = ['order', 'id']
+    verbose_name = 'Size'
+    verbose_name_plural = 'Sizes — each with its own photos, video and Amazon link'
+
+    def get_queryset(self, request):
+        # The card shows each size's photo strip; without this the strip costs
+        # one query per size (eight on a kadai) on top of the count.
+        return super().get_queryset(request).prefetch_related('images')
 
 
 class ProductImageInline(admin.TabularInline):
@@ -309,8 +303,9 @@ class ProductAdmin(admin.ModelAdmin):
         # Product-form-only assets. jazzmin allows a single `custom_css`, which
         # crystal_theme.css already occupies, so anything scoped to this screen
         # loads here instead.
-        css = {'all': ('admin/crystal_product_form.css',)}
-        js = ('admin/crystal_tags.js',)
+        css = {'all': ('admin/crystal_product_form.css',
+                       'admin/crystal_variants.css')}
+        js = ('admin/crystal_tags.js', 'admin/crystal_variants.js')
 
     list_display = [
         'image_preview', 'name_cell', 'brand_badge', 'category_badge',

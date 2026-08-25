@@ -1,0 +1,596 @@
+/* ==========================================================================
+   Crystal — size cards (ProductVariant inline)
+   --------------------------------------------------------------------------
+   Paired with templates/admin/products/product/edit_inline/size_cards.html.
+   Every colour, radius and shadow comes from the tokens declared at the top of
+   crystal_theme.css; nothing new is invented here. All classes are prefixed
+   `cz-` so they cannot collide with Bootstrap 5, AdminLTE 4 or jazzmin.
+   ========================================================================== */
+
+.cz-sizes {
+  margin: 0 0 22px;
+}
+
+.cz-sizes-fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  min-width: 0;           /* fieldsets default to min-content — this is what
+                             stops a long SKU forcing the page to scroll sideways */
+}
+
+/* ── Section header ─────────────────────────────────────────────────────── */
+
+.cz-sizes-head {
+  margin: 0 0 12px;
+}
+
+/* fieldset.module carries Django admin's own `.module h2` bar in stock admin;
+   neutralise it so the heading reads as a plain Shopify-style section label
+   wherever this template is dropped in. */
+.cz-sizes .cz-sizes-title {
+  background: none;
+  padding: 0;
+  text-transform: none;
+  font-size: 15px;
+  font-weight: 650;
+  color: var(--s-ink);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.cz-sizes-sub {
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--s-ink-soft);
+  margin: 4px 0 0;
+  max-width: 70ch;
+}
+
+/* ── Grid ───────────────────────────────────────────────────────────────── */
+
+.cz-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 14px;
+  align-items: start;
+}
+
+/* ── Card ───────────────────────────────────────────────────────────────── */
+
+.cz-card {
+  background: var(--s-surface);
+  border: 1px solid var(--s-border);
+  border-radius: var(--s-radius);
+  box-shadow: var(--s-shadow);
+  padding: 12px 12px 10px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.cz-card:hover {
+  box-shadow: var(--s-shadow-pop);
+  border-color: var(--s-border-strong);
+}
+
+.cz-card--error {
+  border-color: var(--c-red);
+  box-shadow: 0 0 0 3px var(--c-red-soft);
+}
+
+/* The blank card inlines.js clones for "Add another". Django's own
+   admin/css/forms.css hides .empty-form; keep that, do not fight it.
+   Key the dashed border off .empty-form rather than off .cz-card--template:
+   inlines.js strips .empty-form from the clone but knows nothing about our
+   class, so a newly added card would otherwise stay dashed forever.
+   (crystal_variants.js also removes the marker class — belt and braces.) */
+.cz-card.empty-form {
+  border-style: dashed;
+  /* Stock admin/css/forms.css hides .empty-form; jazzmin does not ship that
+     rule, so hide it here too — otherwise the blank template card shows up as
+     a real (unsaveable) size. inlines.js strips the class from the clone. */
+  display: none;
+}
+
+/* A freshly added card (inlines.js strips .empty-form off the clone) reads as
+   new because it has no .has_original. */
+.cz-card:not(.has_original):not(.cz-card--template) {
+  border-color: var(--s-border-strong);
+  background: linear-gradient(0deg, var(--s-surface), var(--s-surface));
+}
+
+/* ── Card head ──────────────────────────────────────────────────────────── */
+
+.cz-card-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  min-width: 0;
+}
+
+.cz-card-headmain {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.cz-thumb {
+  flex: 0 0 auto;
+  width: 56px;
+  height: 56px;
+  border-radius: var(--s-radius-sm);
+  overflow: hidden;
+  background: var(--s-hover);
+  border: 1px solid var(--s-border);
+  display: block;
+}
+
+.cz-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.cz-thumb--hero {
+  border-color: var(--c-red);
+  box-shadow: 0 0 0 2px var(--c-red-soft);
+}
+
+.cz-thumb--empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--s-ink-faint);
+  font-size: 20px;
+  border-style: dashed;
+}
+
+/* The size label — the one prominent input on the card. */
+.cz-namewrap input[type="text"],
+.cz-namewrap input:not([type]) {
+  width: 100%;
+  max-width: 100%;
+  font-size: 16px;
+  font-weight: 650;
+  color: var(--s-ink);
+  letter-spacing: -0.01em;
+  padding: 6px 9px;
+  border: 1px solid transparent;
+  border-radius: var(--s-radius-sm);
+  background: transparent;
+  transition: border-color 0.12s ease, background 0.12s ease;
+}
+
+.cz-namewrap input:hover {
+  border-color: var(--s-border);
+  background: var(--s-surface);
+}
+
+.cz-namewrap input:focus {
+  outline: none;
+  border-color: var(--c-red);
+  background: var(--s-surface);
+  box-shadow: 0 0 0 3px var(--c-red-soft);
+}
+
+.cz-namewrap--error input {
+  border-color: var(--c-red);
+}
+
+.cz-viewlink {
+  flex: 0 0 auto;
+  color: var(--s-ink-faint);
+  text-decoration: none;
+  font-size: 15px;
+  line-height: 1;
+  padding: 4px;
+}
+
+.cz-viewlink:hover { color: var(--c-red); }
+
+/* ── Chips ──────────────────────────────────────────────────────────────── */
+
+.cz-chips {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 5px;
+  margin: 5px 0 0;
+  padding-left: 9px;   /* line the chips up with the name input's text */
+}
+
+.cz-sku {
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--s-ink-soft);
+  letter-spacing: 0.02em;
+  overflow-wrap: anywhere;
+}
+
+.cz-chip {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.5;
+  padding: 1px 8px;
+  border-radius: 100px;
+  border: 1px solid var(--s-border);
+  background: var(--s-hover);
+  color: var(--s-ink-soft);
+  white-space: nowrap;
+}
+
+.cz-chip--ok {
+  border-color: var(--s-border-strong);
+  background: var(--s-surface);
+  color: var(--s-ink);
+}
+
+.cz-chip--warn {
+  border-color: var(--s-border-strong);
+  background: var(--s-surface);
+  color: var(--s-ink-soft);
+  border-style: dashed;
+}
+
+.cz-chip--muted {
+  color: var(--s-ink-faint);
+  background: transparent;
+}
+
+.cz-chip--red {
+  background: var(--c-red-soft);
+  border-color: var(--c-red);
+  color: var(--c-red-deep, var(--c-red));
+}
+
+.cz-chip--new {
+  border-style: dashed;
+  border-color: var(--s-border-strong);
+  background: transparent;
+  color: var(--s-ink-soft);
+}
+
+.cz-hint {
+  font-size: 11px;
+  color: var(--s-ink-faint);
+}
+
+.cz-nonfield .errorlist,
+.cz-nonfield ul {
+  margin: 0;
+  padding-left: 16px;
+  font-size: 12px;
+  color: var(--c-red);
+}
+
+/* ── Collapsible body ───────────────────────────────────────────────────── */
+
+.cz-body {
+  border-top: 1px solid var(--s-border);
+  padding-top: 8px;
+  min-width: 0;
+}
+
+.cz-summary {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  list-style: none;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--s-ink-soft);
+  padding: 2px 0;
+  user-select: none;
+}
+
+.cz-summary::-webkit-details-marker { display: none; }
+
+.cz-summary::before {
+  content: "\25B8";           /* right-pointing triangle */
+  font-size: 10px;
+  color: var(--s-ink-faint);
+  transition: transform 0.12s ease;
+  display: inline-block;
+}
+
+.cz-body[open] > .cz-summary::before { transform: rotate(90deg); }
+
+.cz-summary:hover { color: var(--s-ink); }
+
+.cz-summary:focus-visible {
+  outline: 2px solid var(--c-red);
+  outline-offset: 2px;
+  border-radius: var(--s-radius-sm);
+}
+
+.cz-fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px 12px;
+  padding: 10px 0 4px;
+  min-width: 0;
+}
+
+.cz-field { min-width: 0; }
+
+.cz-field--wide { grid-column: 1 / -1; }
+
+.cz-field > label {
+  display: block;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--s-ink-soft);
+  margin: 0 0 3px;
+}
+
+.cz-input { min-width: 0; }
+
+/* Django/jazzmin widgets arrive with their own classes; normalise the box. */
+.cz-input input[type="text"],
+.cz-input input[type="url"],
+.cz-input input[type="number"],
+.cz-input input[type="email"],
+.cz-input input[type="file"],
+.cz-input select,
+.cz-input textarea {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  font-size: 13px;
+  color: var(--s-ink);
+  background: var(--s-surface);
+  border: 1px solid var(--s-border-strong);
+  border-radius: var(--s-radius-sm);
+  padding: 6px 9px;
+}
+
+.cz-input textarea {
+  min-height: 68px;
+  resize: vertical;
+  line-height: 1.5;
+}
+
+.cz-input input:focus,
+.cz-input select:focus,
+.cz-input textarea:focus {
+  outline: none;
+  border-color: var(--c-red);
+  box-shadow: 0 0 0 3px var(--c-red-soft);
+}
+
+.cz-field--check {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  align-self: end;
+  padding-bottom: 2px;
+}
+
+.cz-field--check > label {
+  order: 2;
+  margin: 0;
+  font-size: 12.5px;
+  color: var(--s-ink);
+}
+
+.cz-field--check .cz-input {
+  order: 1;
+  flex: 0 0 auto;
+}
+
+.cz-field--check input[type="checkbox"] {
+  width: 15px;
+  height: 15px;
+  accent-color: var(--c-red);
+  margin: 0;
+}
+
+.cz-field--check .cz-help { order: 3; flex: 1 1 100%; }
+
+.cz-field--error .cz-input input,
+.cz-field--error .cz-input select,
+.cz-field--error .cz-input textarea {
+  border-color: var(--c-red);
+}
+
+.cz-field .errorlist,
+.cz-namewrap .errorlist {
+  list-style: none;
+  margin: 4px 0 0;
+  padding: 0;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--c-red);
+}
+
+.cz-help {
+  font-size: 11px;
+  line-height: 1.45;
+  color: var(--s-ink-faint);
+  margin: 3px 0 0;
+  overflow-wrap: anywhere;
+}
+
+.cz-video {
+  width: 100%;
+  max-width: 240px;
+  border-radius: var(--s-radius-sm);
+  border: 1px solid var(--s-border);
+  background: #000;
+  display: block;
+}
+
+.cz-delete {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 6px;
+  padding-top: 8px;
+  border-top: 1px dashed var(--s-border);
+  font-size: 12px;
+  color: var(--s-ink-soft);
+}
+
+.cz-delete label { margin: 0; font-weight: 600; }
+.cz-delete input[type="checkbox"] { accent-color: var(--c-red); margin: 0; }
+
+/* ── Photo strip ────────────────────────────────────────────────────────── */
+
+.cz-strip {
+  border-top: 1px solid var(--s-border);
+  padding-top: 9px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.cz-strip-thumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.cz-sthumb {
+  width: 38px;
+  height: 38px;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid var(--s-border);
+  background: var(--s-hover);
+  flex: 0 0 auto;
+  display: block;
+}
+
+.cz-sthumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.cz-sthumb--hero {
+  border-color: var(--c-red);
+  box-shadow: 0 0 0 2px var(--c-red-soft);
+}
+
+.cz-sthumb--more {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--s-ink-soft);
+  background: var(--s-surface);
+  border-style: dashed;
+  border-color: var(--s-border-strong);
+}
+
+.cz-strip-empty {
+  flex: 1 1 160px;
+  margin: 0;
+  font-size: 11.5px;
+  line-height: 1.45;
+  color: var(--s-ink-faint);
+  min-width: 0;
+}
+
+.cz-addphotos {
+  flex: 0 0 auto;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--s-ink);
+  background: var(--s-surface);
+  border: 1px solid var(--s-border-strong);
+  border-radius: var(--s-radius-sm);
+  padding: 5px 10px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.cz-addphotos:hover {
+  border-color: var(--c-red);
+  color: var(--c-red);
+  background: var(--c-red-soft);
+}
+
+.cz-addphotos:focus-visible {
+  outline: 2px solid var(--c-red);
+  outline-offset: 2px;
+}
+
+/* The row inlines.js highlights after "Add photos to this size" jumps to it. */
+.cz-flash {
+  animation: cz-flash 1.6s ease-out 1;
+}
+
+@keyframes cz-flash {
+  0%, 40% { background: var(--c-red-soft); }
+  100%    { background: transparent; }
+}
+
+/* ── The "Add another size" row inlines.js appends ──────────────────────── */
+
+.cz-sizes .add-row {
+  margin-top: 12px;
+  list-style: none;
+  padding: 0;
+}
+
+.cz-sizes .add-row a {
+  display: inline-block;
+  font-size: 12.5px;
+  font-weight: 650;
+  color: var(--s-surface);
+  background: var(--c-red);
+  border: 1px solid var(--c-red);
+  border-radius: var(--s-radius-sm);
+  padding: 7px 14px;
+  text-decoration: none;
+}
+
+.cz-sizes .add-row a:hover {
+  background: var(--c-red-deep, var(--c-red));
+  color: var(--s-surface);
+}
+
+/* ── Phone ──────────────────────────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .cz-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px;
+  }
+
+  .cz-fields {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .cz-field--wide { grid-column: auto; }
+
+  .cz-card { padding: 10px; }
+
+  .cz-thumb { width: 48px; height: 48px; }
+
+  .cz-namewrap input[type="text"],
+  .cz-namewrap input:not([type]) {
+    font-size: 16px;   /* keep >= 16px or iOS Safari zooms the page on focus */
+  }
+
+  .cz-addphotos { width: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cz-card,
+  .cz-summary::before,
+  .cz-flash { transition: none; animation: none; }
+}

@@ -4,8 +4,22 @@
     {
       "name": "crystal",
       "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "http.server", "4567"],
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "4567"
+      ],
       "port": 4567
+    },
+    {
+      "name": "crystal-dashboard",
+      "runtimeExecutable": "python",
+      "runtimeArgs": [
+        "backend/manage.py",
+        "runserver",
+        "8765"
+      ],
+      "port": 8765
     }
   ]
 }

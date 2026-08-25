@@ -283,7 +283,7 @@ JAZZMIN_SETTINGS = {
     # UI tweaks
     "related_modal_active": True,
     "custom_css": "admin/crystal_theme.css",
-    "custom_js": None,
+    "custom_js": "admin/crystal_admin_extra.js",
     "use_google_fonts_cdn": False,
     "show_ui_builder": False,
     "changeform_format": "horizontal_tabs",

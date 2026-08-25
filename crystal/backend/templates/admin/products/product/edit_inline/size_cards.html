@@ -1,0 +1,187 @@
+{% load i18n admin_urls static %}{% comment %}
+    Crystal "size cards" inline — a Shopify-style variant grid for ProductVariant.
+
+    The scaffold (wrapper classes/ids, management form, per-card ids, the trailing
+    empty-form card, pk/fk hidden fields) is copied from
+    jazzmin/templates/admin/edit_inline/stacked.html because
+    django/contrib/admin/static/admin/js/inlines.js binds to it literally: it reads
+    data-inline-type="stacked", selects "#<prefix>-group .inline-related", clones
+    "#<prefix>-empty" and rewrites ids matching "<prefix>-(\d+|__prefix__)".
+    Change any of that and "Add another size" dies with no error. Only the body
+    that renders the fields is Crystal's own.
+
+    Fields are rendered by iterating form.visible_fields rather than by hard-coded
+    name, so a card never drops a field the ModelAdmin adds later and never
+    renders one the form does not have. `name` is lifted into the card head,
+    DELETE is rendered explicitly at the foot of the body, and the hidden pk/fk
+    close the card.
+{% endcomment %}
+<div class="js-inline-admin-formset inline-group cz-sizes"
+     id="{{ inline_admin_formset.formset.prefix }}-group"
+     data-inline-type="stacked"
+     data-inline-formset="{{ inline_admin_formset.inline_formset_data }}">
+  <fieldset class="module {{ inline_admin_formset.classes }} cz-sizes-fieldset">
+
+    <div class="cz-sizes-head">
+      <h2 class="cz-sizes-title">{{ inline_admin_formset.opts.verbose_name_plural|capfirst }}</h2>
+      <p class="cz-sizes-sub">{% trans "One card per size. Open a card to edit what differs from the product above — leave a field blank and this size inherits the product's value." %}</p>
+    </div>
+
+    {{ inline_admin_formset.formset.management_form }}
+    {{ inline_admin_formset.formset.non_form_errors }}
+
+    <div class="cz-grid">
+      {% for inline_admin_form in inline_admin_formset %}
+        {% with orig=inline_admin_form.original errs=inline_admin_form.form.errors %}
+        {% with imgs=orig.images.all %}
+        <div class="inline-related cz-card{% if orig or inline_admin_form.show_url %} has_original{% endif %}{% if errs %} cz-card--error{% endif %}{% if forloop.last and inline_admin_formset.has_add_permission %} empty-form last-related cz-card--template{% endif %}"
+             id="{{ inline_admin_formset.formset.prefix }}-{% if forloop.last and inline_admin_formset.has_add_permission %}empty{% else %}{{ forloop.counter0 }}{% endif %}"
+             {% if orig.pk %}data-variant-pk="{{ orig.pk }}"{% endif %}>
+
+          {# ── Head: thumb, size name, sku, status chips ─────────────────── #}
+          <div class="cz-card-head">
+            {% with hero=imgs|dictsortreversed:"is_hero"|first %}
+              {% if hero %}
+                <span class="cz-thumb{% if hero.is_hero %} cz-thumb--hero{% endif %}">
+                  <img src="{{ hero.image.url }}" alt="" loading="lazy">
+                </span>
+              {% elif orig.image_url %}
+                <span class="cz-thumb"><img src="{{ orig.image_url }}" alt="" loading="lazy"></span>
+              {% else %}
+                <span class="cz-thumb cz-thumb--empty" aria-hidden="true">
+                  {% if orig %}&#9723;{% else %}&#43;{% endif %}
+                </span>
+              {% endif %}
+            {% endwith %}
+
+            <div class="cz-card-headmain">
+              {% for field in inline_admin_form.form.visible_fields %}
+                {% if field.name == "name" %}
+                  <div class="cz-namewrap{% if field.errors %} cz-namewrap--error{% endif %}">
+                    {{ field }}
+                    {{ field.errors }}
+                  </div>
+                {% endif %}
+              {% endfor %}
+
+              <div class="cz-chips">
+                {% if orig %}
+                  <span class="cz-sku" title="{% trans 'Item code' %}">{{ orig.full_sku|default:"—" }}</span>
+                  <span class="cz-chip{% if imgs %} cz-chip--ok{% endif %}">
+                    {% blocktrans count counter=imgs|length %}{{ counter }} photo{% plural %}{{ counter }} photos{% endblocktrans %}
+                  </span>
+                  {% if orig.amazon_link %}
+                    <span class="cz-chip cz-chip--ok">{% trans "Amazon" %} &#10003;</span>
+                  {% else %}
+                    <span class="cz-chip cz-chip--warn">{% trans "no link" %}</span>
+                  {% endif %}
+                  {% if orig.video or orig.video_url %}
+                    <span class="cz-chip cz-chip--ok">{% trans "Video" %} &#10003;</span>
+                  {% else %}
+                    <span class="cz-chip cz-chip--muted">{% trans "no video" %}</span>
+                  {% endif %}
+                  {% if orig.is_default %}<span class="cz-chip cz-chip--red">{% trans "Default" %}</span>{% endif %}
+                  {% if not orig.is_active %}<span class="cz-chip cz-chip--muted">{% trans "Hidden" %}</span>{% endif %}
+                {% else %}
+                  <span class="cz-chip cz-chip--new">{% trans "New size" %}</span>
+                  <span class="cz-hint">{% trans "Save to attach photos." %}</span>
+                {% endif %}
+              </div>
+            </div>
+
+            {% if inline_admin_form.show_url %}
+              <a class="cz-viewlink" href="{{ inline_admin_form.absolute_url }}"
+                 title="{% trans 'View on site' %}" target="_blank" rel="noopener">&#8599;</a>
+            {% endif %}
+          </div>
+
+          {% if inline_admin_form.form.non_field_errors %}
+            <div class="cz-nonfield">{{ inline_admin_form.form.non_field_errors }}</div>
+          {% endif %}
+
+          {# ── Body: everything else, collapsed unless it has errors ──────── #}
+          <details class="cz-body"{% if errs %} open{% endif %}>
+            <summary class="cz-summary">
+              <span class="cz-summary-label">{% trans "Details for this size" %}</span>
+              {% if errs %}<span class="cz-chip cz-chip--red">{% trans "needs fixing" %}</span>{% endif %}
+            </summary>
+
+            <div class="cz-fields">
+              {% for field in inline_admin_form.form.visible_fields %}
+                {% if field.name != "name" and field.name != "DELETE" %}
+                  {% with wide=",highlight,description,display_name,tags,features,amazon_link,video,video_url,image_url," %}
+                  <div class="cz-field{% if ","|add:field.name|add:"," in wide %} cz-field--wide{% endif %}{% if field.field.widget.input_type == 'checkbox' %} cz-field--check{% endif %}{% if field.errors %} cz-field--error{% endif %}">
+                    <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                    <div class="cz-input">{{ field }}</div>
+                    {{ field.errors }}
+                    {% if field.help_text %}<p class="cz-help">{{ field.help_text|safe }}</p>{% endif %}
+                  </div>
+                  {% endwith %}
+                {% endif %}
+              {% endfor %}
+
+              {% if orig.video or orig.video_url %}
+                <div class="cz-field cz-field--wide cz-videobox">
+                  <label>{% trans "This size's video" %}</label>
+                  <video class="cz-video" preload="metadata" controls playsinline
+                         src="{% if orig.video %}{{ orig.video.url }}{% else %}{{ orig.video_url }}{% endif %}"></video>
+                </div>
+              {% endif %}
+            </div>
+
+            {% if inline_admin_formset.formset.can_delete and inline_admin_formset.has_delete_permission and orig %}
+              <div class="cz-delete">
+                {{ inline_admin_form.deletion_field.field }}
+                {{ inline_admin_form.deletion_field.label_tag }}
+              </div>
+            {% endif %}
+          </details>
+
+          {# ── Photo strip ────────────────────────────────────────────────── #}
+          <div class="cz-strip">
+            {% if imgs %}
+              <div class="cz-strip-thumbs">
+                {% for img in imgs|slice:":8" %}
+                  <span class="cz-sthumb{% if img.is_hero %} cz-sthumb--hero{% endif %}"
+                        title="{% if img.is_hero %}{% trans 'Main photo' %}{% else %}#{{ img.order }}{% endif %}">
+                    <img src="{{ img.image.url }}" alt="" loading="lazy">
+                  </span>
+                {% endfor %}
+                {% if imgs|length > 8 %}
+                  <span class="cz-sthumb cz-sthumb--more">+{{ imgs|length|add:"-8" }}</span>
+                {% endif %}
+              </div>
+            {% else %}
+              <p class="cz-strip-empty">
+                {% if orig %}{% trans "No photos of its own — this size falls back to the product's pictures." %}
+                {% else %}{% trans "Save this size first, then add its photos." %}{% endif %}
+              </p>
+            {% endif %}
+
+            {% if orig.pk %}
+              <button type="button" class="cz-addphotos" data-variant-id="{{ orig.pk }}"
+                      data-variant-name="{{ orig.name }}">
+                {% trans "Add photos to this size" %}
+              </button>
+            {% endif %}
+          </div>
+
+          {# ── Hidden plumbing — inlines.js rewrites these ids ─────────────── #}
+          {% comment %}Rendered unconditionally (not behind needs_explicit_pk_field, as
+          upstream does) because this template never routes fields through
+          admin/includes/fieldset.html, so nothing else would emit the pk.
+          The loop below then adds any *other* hidden field without duplicating these two.{% endcomment %}
+          {{ inline_admin_form.pk_field.field }}
+          {% if inline_admin_form.fk_field %}{{ inline_admin_form.fk_field.field }}{% endif %}
+          {% with pkn=inline_admin_form.pk_field.field.name fkn=inline_admin_form.fk_field.field.name %}
+            {% for hf in inline_admin_form.form.hidden_fields %}
+              {% if hf.name != pkn and hf.name != fkn %}{{ hf }}{% endif %}
+            {% endfor %}
+          {% endwith %}
+        </div>
+        {% endwith %}
+        {% endwith %}
+      {% endfor %}
+    </div>
+  </fieldset>
+</div>

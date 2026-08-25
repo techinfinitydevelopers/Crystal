@@ -1,0 +1,493 @@
+/* ==========================================================================
+   Crystal media grid — Shopify-style photo card for the ProductImage inline.
+   Pairs with templates/admin/products/product/edit_inline/gallery_grid.html
+   and static/admin/crystal_media.js.
+
+   Colour comes only from the tokens declared at the top of crystal_theme.css.
+   Every var() carries the Bootstrap token (and then a literal) as a fallback so
+   the card still looks right if this file is ever loaded on a page where
+   crystal_theme.css is not.
+   ========================================================================== */
+
+.cz-media {
+  --cz-tile: 168px;          /* min tile width; the grid reflows around it */
+  --cz-gap: 12px;
+}
+
+/* --------------------------------------------------------------------------
+   Card shell
+   -------------------------------------------------------------------------- */
+
+.cz-media.inline-group { margin: 0 0 20px; padding: 0; border: 0; background: none; }
+
+.cz-media-fieldset {
+  background: var(--s-surface, #fff);
+  border: 1px solid var(--s-border, #e1e1e1);
+  border-radius: var(--s-radius, 10px);
+  box-shadow: var(--s-shadow, 0 1px 0 rgba(0, 0, 0, .05));
+  padding: 16px;
+  margin: 0;
+  min-width: 0;
+}
+
+.cz-media-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.cz-media-headtext { flex: 1 1 260px; min-width: 0; }
+
+.cz-media-title {
+  margin: 0 0 2px;
+  font-size: 15px;
+  font-weight: 650;
+  line-height: 1.3;
+  color: var(--s-ink, #303030);
+  background: none;
+  padding: 0;
+  border: 0;
+}
+.cz-media-sub {
+  margin: 0;
+  font-size: 12.5px;
+  line-height: 1.45;
+  color: var(--s-ink-soft, #616161);
+}
+
+/* Add-photos button (a <label> wrapping a hidden file input — the touch path,
+   the screen-reader path, and the fallback when a drag misfires). */
+.cz-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 13px;
+  border-radius: var(--s-radius-sm, 8px);
+  border: 1px solid var(--s-border-strong, #cdcdcd);
+  background: var(--s-surface, #fff);
+  color: var(--s-ink, #303030);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.2;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.cz-btn:hover { background: var(--s-tertiary-bg, var(--bs-tertiary-bg, #f6f6f7)); }
+.cz-btn--primary {
+  background: var(--c-red, #ED3338);
+  border-color: var(--c-red, #ED3338);
+  color: #fff;
+}
+.cz-btn--primary:hover { background: var(--c-red-deep, #c0282c); border-color: var(--c-red-deep, #c0282c); }
+.cz-media-picker input[type="file"] {
+  position: absolute;
+  width: 1px; height: 1px;
+  opacity: 0;
+  overflow: hidden;
+}
+.cz-media-picker:focus-within {
+  outline: 2px solid var(--c-red, #ED3338);
+  outline-offset: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   Drop surface
+   -------------------------------------------------------------------------- */
+
+.cz-media-body { position: relative; border-radius: var(--s-radius-sm, 8px); }
+
+.cz-media-dropveil {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed var(--c-red, #ED3338);
+  border-radius: var(--s-radius-sm, 8px);
+  background: var(--c-red-soft, rgba(237, 51, 56, .09));
+  pointer-events: none;
+}
+.cz-media-dropveil span {
+  font-size: 14px;
+  font-weight: 650;
+  color: var(--c-red-deep, #c0282c);
+  background: var(--s-surface, #fff);
+  padding: 8px 16px;
+  border-radius: 100px;
+  box-shadow: var(--s-shadow-pop, 0 1px 3px rgba(0, 0, 0, .1));
+}
+.cz-media--filedrag .cz-media-dropveil { display: flex; }
+
+/* --------------------------------------------------------------------------
+   Group heading
+   IMPORTANT: <section class="cz-media-group"> and <h3> must never carry
+   .inline-related — Django's inlines.js selects "#<prefix>-group
+   .inline-related" as the set of real forms, and a heading inside that set
+   would break re-indexing and delete.
+   -------------------------------------------------------------------------- */
+
+.cz-media-group { margin: 0 0 18px; }
+.cz-media-group:last-of-type { margin-bottom: 0; }
+
+.cz-media-groupname {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 10px;
+  padding: 0 0 7px;
+  border-bottom: 1px solid var(--s-border, #e1e1e1);
+  font-size: 13px;
+  font-weight: 650;
+  color: var(--s-ink, #303030);
+  background: none;
+}
+.cz-media-groupdot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--c-red, #ED3338);
+  flex: none;
+}
+.cz-media-groupdot--all { background: var(--s-border-strong, #cdcdcd); }
+.cz-media-groupmeta {
+  font-size: 11.5px;
+  font-weight: 500;
+  color: var(--s-ink-soft, #616161);
+}
+
+/* --------------------------------------------------------------------------
+   Tile grid
+   -------------------------------------------------------------------------- */
+
+.cz-media-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(var(--cz-tile), 1fr));
+  gap: var(--cz-gap);
+  align-items: start;
+}
+
+/* inlines.js appends <div class="add-row"> after the last .inline-related,
+   which lands inside this grid. Let it take a whole row of its own. */
+.cz-media-grid .add-row {
+  grid-column: 1 / -1;
+  margin: 2px 0 0;
+  padding: 0;
+  background: none;
+  border: 0;
+}
+.cz-media-grid .add-row a {
+  display: inline-block;
+  padding: 7px 12px;
+  border: 1px dashed var(--s-border-strong, #cdcdcd);
+  border-radius: var(--s-radius-sm, 8px);
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--s-ink-soft, #616161);
+  text-decoration: none;
+  background: none;
+}
+.cz-media-grid .add-row a:hover {
+  color: var(--c-red, #ED3338);
+  border-color: var(--c-red, #ED3338);
+  background: var(--c-red-soft, rgba(237, 51, 56, .09));
+}
+
+/* --------------------------------------------------------------------------
+   Tile
+   -------------------------------------------------------------------------- */
+
+.cz-tile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  background: var(--s-surface, #fff);
+  border: 1px solid var(--s-border, #e1e1e1);
+  border-radius: var(--s-radius, 10px);
+  overflow: hidden;
+  transition: border-color .12s, box-shadow .12s, opacity .12s;
+}
+.cz-tile:hover { border-color: var(--s-border-strong, #cdcdcd); box-shadow: var(--s-shadow-pop, 0 1px 3px rgba(0, 0, 0, .1)); }
+.cz-tile--new { border-style: dashed; }
+.cz-tile--error { border-color: var(--c-red, #ED3338); box-shadow: 0 0 0 3px var(--c-red-soft, rgba(237, 51, 56, .09)); }
+.cz-tile--hero { border-color: var(--c-red, #ED3338); }
+.cz-tile--dragging { opacity: .4; }
+.cz-tile--over { box-shadow: inset 0 0 0 2px var(--c-red, #ED3338); }
+.cz-tile--deleted { opacity: .45; }
+.cz-tile--deleted .cz-tile-thumb img { filter: grayscale(1); }
+
+/* The clone source must never be visible. inlines.js needs it in the DOM. */
+.cz-tile.empty-form { display: none !important; }
+
+@keyframes cz-moved { from { box-shadow: 0 0 0 3px var(--c-red-soft, rgba(237, 51, 56, .09)); } to { box-shadow: none; } }
+.cz-tile--moved { animation: cz-moved .5s ease-out; }
+
+/* Corner — inlines.js appends its "remove" link into children(":first"),
+   which is exactly this element, so an unsaved tile's remove link lands here
+   next to the delete checkbox of a saved one. */
+.cz-tile-corner {
+  position: absolute;
+  top: 6px; right: 6px;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.cz-tile-x,
+.cz-tile-corner .inline-deletelink,
+.cz-tile-corner span > a.inline-deletelink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px; height: 24px;
+  border-radius: 50%;
+  border: 1px solid var(--s-border, #e1e1e1);
+  background: var(--s-surface, #fff);
+  color: var(--s-ink-soft, #616161);
+  font-size: 15px;
+  line-height: 1;
+  cursor: pointer;
+  overflow: hidden;
+  text-indent: 0;
+  text-decoration: none;
+  box-shadow: var(--s-shadow-pop, 0 1px 3px rgba(0, 0, 0, .1));
+}
+/* Django's injected link has the word "remove" as its text; keep the circle. */
+.cz-tile-corner .inline-deletelink { font-size: 0; }
+.cz-tile-corner .inline-deletelink::before { content: "\00d7"; font-size: 15px; }
+.cz-tile-x:hover,
+.cz-tile-corner .inline-deletelink:hover {
+  color: var(--c-red, #ED3338);
+  border-color: var(--c-red, #ED3338);
+  background: var(--c-red-soft, rgba(237, 51, 56, .09));
+}
+/* The real DELETE checkbox stays in the DOM and stays reachable, it just sits
+   under the × glyph so the whole circle is one big hit target. */
+.cz-tile-x input[type="checkbox"] {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+.cz-tile-x:focus-within { outline: 2px solid var(--c-red, #ED3338); outline-offset: 1px; }
+.cz-tile--deleted .cz-tile-x { background: var(--c-red, #ED3338); border-color: var(--c-red, #ED3338); color: #fff; }
+
+/* Thumbnail — the whole square is the "make this the main photo" button. */
+.cz-tile-thumb {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  padding: 0;
+  border: 0;
+  border-bottom: 1px solid var(--s-border, #e1e1e1);
+  background: var(--s-tertiary-bg, var(--bs-tertiary-bg, #f6f6f7));
+  cursor: pointer;
+  overflow: hidden;
+}
+.cz-tile-thumb img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.cz-tile-thumb img[hidden] { display: none; }
+.cz-tile-noimg {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  color: var(--s-ink-faint, #8a8a8a);
+}
+.cz-tile-noimg[hidden] { display: none; }
+.cz-tile-thumb:focus-visible { outline: 2px solid var(--c-red, #ED3338); outline-offset: -2px; }
+
+.cz-tile-herobadge {
+  position: absolute;
+  left: 6px; bottom: 6px;
+  display: none;
+  padding: 3px 8px;
+  border-radius: 100px;
+  background: var(--c-red, #ED3338);
+  color: #fff;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: .03em;
+  line-height: 1.3;
+}
+.cz-tile--hero .cz-tile-herobadge { display: block; }
+
+/* Tile body */
+.cz-tile-body {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  padding: 9px;
+  min-width: 0;
+}
+
+.cz-tile-body label { font-size: 11px; font-weight: 600; color: var(--s-ink-soft, #616161); }
+
+.cz-tile-body select,
+.cz-tile-body input[type="text"],
+.cz-tile-body input[type="number"],
+.cz-tile-body input[type="file"] {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  font-size: 12px;
+  padding: 5px 7px;
+  border: 1px solid var(--s-border-strong, #cdcdcd);
+  border-radius: var(--s-radius-sm, 8px);
+  background: var(--s-surface, #fff);
+  color: var(--s-ink, #303030);
+}
+.cz-tile-body select:focus,
+.cz-tile-body input:focus {
+  outline: none;
+  border-color: var(--c-red, #ED3338);
+  box-shadow: 0 0 0 2px var(--c-red-soft, rgba(237, 51, 56, .09));
+}
+
+/* ClearableFileInput renders "Currently: <a> [x] Clear  Change: <input>".
+   Keep the whole thing (the Clear checkbox is the only way to detach a photo
+   without deleting the row) but make it small and stop the long path from
+   forcing the tile wider than the grid track. */
+.cz-tile-file {
+  font-size: 10.5px;
+  line-height: 1.5;
+  color: var(--s-ink-faint, #8a8a8a);
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.cz-tile-file > summary {
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--s-ink-soft, #616161);
+  padding: 2px 0;
+}
+.cz-tile-file > summary::-webkit-details-marker { display: none; }
+.cz-tile-file > summary::before {
+  content: "\203A";
+  display: inline-block;
+  font-size: 13px;
+  line-height: 1;
+  transition: transform .12s;
+}
+.cz-tile-file[open] > summary::before { transform: rotate(90deg); }
+.cz-tile-file > summary:hover { color: var(--c-red, #ED3338); }
+.cz-tile-file > summary:focus-visible { outline: 2px solid var(--c-red, #ED3338); outline-offset: 2px; }
+.cz-tile-filebody { padding-top: 4px; }
+.cz-tile-file a {
+  display: inline-block;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  vertical-align: bottom;
+  color: var(--s-ink-soft, #616161);
+}
+.cz-tile-file input[type="file"] { padding: 4px; font-size: 11px; }
+.cz-tile-file input[type="file"]::file-selector-button {
+  border: 1px solid var(--s-border-strong, #cdcdcd);
+  background: var(--s-tertiary-bg, var(--bs-tertiary-bg, #f6f6f7));
+  border-radius: 6px;
+  padding: 3px 8px;
+  margin-right: 7px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--s-ink, #303030);
+  cursor: pointer;
+}
+
+.cz-tile-hero label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  font-size: 11.5px;
+  color: var(--s-ink, #303030);
+}
+.cz-tile-hero input[type="checkbox"] { margin: 0; accent-color: var(--c-red, #ED3338); }
+
+.cz-tile-order {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.cz-tile-order input {
+  flex: 1 1 auto;
+  min-width: 0;
+  text-align: center;
+}
+.cz-nudge {
+  flex: none;
+  width: 26px; height: 26px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--s-border-strong, #cdcdcd);
+  border-radius: var(--s-radius-sm, 8px);
+  background: var(--s-surface, #fff);
+  color: var(--s-ink, #303030);
+  font-size: 13px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
+}
+.cz-nudge:hover { background: var(--c-red-soft, rgba(237, 51, 56, .09)); border-color: var(--c-red, #ED3338); color: var(--c-red-deep, #c0282c); }
+.cz-nudge:focus-visible { outline: 2px solid var(--c-red, #ED3338); outline-offset: 1px; }
+
+.cz-field--error select,
+.cz-field--error input { border-color: var(--c-red, #ED3338); }
+.cz-tile .errorlist,
+.cz-nonfield .errorlist {
+  list-style: none;
+  margin: 3px 0 0;
+  padding: 0;
+  font-size: 10.5px;
+  color: var(--c-red-deep, #c0282c);
+}
+
+/* Screen-reader-only. */
+.cz-media .cz-sr {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive — one column on a phone, and nothing may push the page sideways.
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 700px) {
+  .cz-media { --cz-tile: 140px; --cz-gap: 10px; }
+  .cz-media-fieldset { padding: 12px; }
+}
+
+@media (max-width: 460px) {
+  .cz-media { --cz-tile: 100%; }
+  .cz-media-grid { grid-template-columns: 1fr; }
+  .cz-media-picker { width: 100%; justify-content: center; }
+  .cz-tile-thumb { aspect-ratio: 16 / 10; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cz-tile, .cz-tile--moved { transition: none; animation: none; }
+}

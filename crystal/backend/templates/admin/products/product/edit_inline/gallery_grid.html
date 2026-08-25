@@ -1,0 +1,284 @@
+{% load i18n admin_urls static %}{% comment %}
+    Crystal "media grid" inline — a Shopify-style photo card for ProductImage.
+
+    ── The scaffold is not decoration ─────────────────────────────────────────
+    django/contrib/admin/static/admin/js/inlines.js binds this literally:
+
+      * it finds the group by  ".js-inline-admin-formset"  and reads
+        data-inline-type / data-inline-formset off it;
+      * for type "stacked" it selects  "#<prefix>-group .inline-related"  as the
+        set of forms — so ONLY real tiles may carry .inline-related, and the
+        headings below deliberately do not;
+      * "Add another" clones  "#<prefix>-empty"  and rewrites every id/name/for
+        matching  "<prefix>-(\d+|__prefix__)"  — so each tile's id must be
+        "<prefix>-<n>" with <n> equal to that form's OWN index, which is exactly
+        what {{ inline_admin_form.form.prefix }} already is. Using
+        forloop.counter0 would be wrong here because the tiles are re-ordered
+        into variant groups and no longer come out in formset order;
+      * the add link is injected after the LAST .inline-related, and new tiles
+        are inserted before #<prefix>-empty — so the empty tile has to be the
+        last .inline-related in the document, which is why the "all sizes"
+        group is rendered last.
+
+    Get one of those wrong and "Add another" fails silently.
+
+    ── Grouping without a template tag ────────────────────────────────────────
+    The forms cannot be pre-sorted (the ModelAdmin orders by ['order', 'id']),
+    and {% templatetag openblock %} dictsort {% templatetag closeblock %} blows up on the None/int mix that a nullable
+    variant FK produces — it swallows the TypeError and returns "", i.e. an
+    empty inline. So the grouping is done by filtering the formset once per
+    variant. N <= 18 images and V <= 8 sizes, so the nested loop is free.
+
+    ── Thumbnails ─────────────────────────────────────────────────────────────
+    Imported photos are stored as SITE-ROOT-RELATIVE paths ("product-photos/
+    CL-414/hero.jpg") whose files live on the website service, so ImageField.url
+    gives /media/... which 404s in production. If ProductImage (or the inline)
+    grows a `public_image_url` that runs products.admin._public_url(), this
+    template picks it up automatically; until then it falls back to .url, which
+    is correct locally because MEDIA_ROOT is the site tree.
+{% endcomment %}
+<div class="js-inline-admin-formset inline-group cz-media"
+     id="{{ inline_admin_formset.formset.prefix }}-group"
+     data-inline-type="stacked"
+     data-inline-formset="{{ inline_admin_formset.inline_formset_data }}">
+  <fieldset class="module {{ inline_admin_formset.classes }} cz-media-fieldset">
+
+    <div class="cz-media-head">
+      <div class="cz-media-headtext">
+        <h2 class="cz-media-title">{{ inline_admin_formset.opts.verbose_name_plural|capfirst }}</h2>
+        <p class="cz-media-sub">{% trans "Photos are grouped by the size they belong to. Click a photo to make it that size's main image, drag to re-order, or drop image files anywhere on this card to add more." %}</p>
+      </div>
+      {% if inline_admin_formset.has_add_permission %}
+        <label class="cz-btn cz-btn--primary cz-media-picker">
+          <input type="file" multiple accept="image/*" data-cz-picker>
+          <span aria-hidden="true">&#43;</span> {% trans "Add photos" %}
+        </label>
+      {% endif %}
+    </div>
+
+    {{ inline_admin_formset.formset.management_form }}
+    {{ inline_admin_formset.formset.non_form_errors }}
+
+    <div class="cz-media-body" data-cz-dropzone>
+      <div class="cz-media-dropveil" aria-hidden="true">
+        <span>{% trans "Drop images to add them" %}</span>
+      </div>
+
+      {% comment %}
+        ── Pass 1: one group per size ────────────────────────────────────────
+        formset.instance is the Product. On the *add* form it has no pk and the
+        reverse manager raises ValueError, which template resolution does NOT
+        silence — hence the pk guard.
+      {% endcomment %}
+      {% if inline_admin_formset.formset.instance.pk %}
+        {% for variant in inline_admin_formset.formset.instance.variants.all %}
+          <section class="cz-media-group" data-cz-group="{{ variant.pk }}">
+            <h3 class="cz-media-groupname">
+              <span class="cz-media-groupdot" aria-hidden="true"></span>
+              {{ variant.name }}
+              <span class="cz-media-groupmeta">{% trans "only this size" %}</span>
+            </h3>
+            <div class="cz-media-grid">
+              {% for inline_admin_form in inline_admin_formset %}
+                {% if inline_admin_form.original and inline_admin_form.original.variant_id == variant.pk %}
+                  {% with iaf=inline_admin_form %}
+                  {# ── TILE (saved, in a size group) ───────────────────────── #}
+                  <div class="inline-related cz-tile has_original{% if iaf.form.errors %} cz-tile--error{% endif %}"
+                       id="{{ iaf.form.prefix }}"
+                       data-cz-tile
+                       draggable="true">
+
+                    {# inlines.js appends its "remove" link into children(":first") — keep that first child the corner. #}
+                    <div class="cz-tile-corner">
+                      {% if inline_admin_formset.formset.can_delete and inline_admin_formset.has_delete_permission %}
+                        <label class="cz-tile-x" title="{% trans 'Mark for deletion — removed when you save' %}">
+                          {{ iaf.deletion_field.field }}
+                          <span aria-hidden="true">&#215;</span>
+                          <span class="cz-sr">{% trans "Delete this photo" %}</span>
+                        </label>
+                      {% endif %}
+                    </div>
+
+                    <button type="button" class="cz-tile-thumb" data-cz-hero
+                            title="{% trans 'Use as the main photo for this size' %}">
+                      {% comment %}
+                        A bare {{ x.y }} is silenced to string_if_invalid, but a filter
+                        ARGUMENT is not — {% templatetag openblock %} with src=a|default:b {% templatetag closeblock %} raises
+                        VariableDoesNotExist the moment `original` is None. Hence the
+                        nested ifs. `public_image_url` does not exist yet; when the
+                        inline exposes the _public_url()-resolved value under that name
+                        this picks it up with no further edit.
+                      {% endcomment %}
+                      {% if iaf.original.image %}
+                        {% if iaf.original.public_image_url %}
+                          <img src="{{ iaf.original.public_image_url }}" alt="{{ iaf.original.image.name }}" loading="lazy" data-cz-img>
+                        {% else %}
+                          <img src="{{ iaf.original.image.url }}" alt="{{ iaf.original.image.name }}" loading="lazy" data-cz-img>
+                        {% endif %}
+                      {% else %}
+                        <span class="cz-tile-noimg" aria-hidden="true">&#9723;</span>
+                        <img alt="" hidden data-cz-img>
+                      {% endif %}
+                      <span class="cz-tile-herobadge" aria-hidden="true">&#9733; {% trans "Main" %}</span>
+                    </button>
+
+                    <div class="cz-tile-body">
+                      {% for field in iaf.form.visible_fields %}
+                        {% if field.name == "image" %}
+                          {% comment %}
+                            ClearableFileInput is three lines of "Currently: <path> Clear / Change:"
+                            and was 97px of a 461px tile. Collapsed for a photo that already
+                            exists (the thumbnail above already says which one it is), open for a
+                            blank row, where the file input IS the control. A closed <details>
+                            still posts its file input, and JS can still set .files on it.
+                          {% endcomment %}
+                          <details class="cz-tile-file{% if field.errors %} cz-field--error{% endif %}"
+                                   data-cz-file{% if not iaf.original or field.errors %} open{% endif %}>
+                            <summary>{% if iaf.original %}{% trans "Replace or clear" %}{% else %}{% trans "Choose a photo" %}{% endif %}</summary>
+                            <div class="cz-tile-filebody">{{ field }}{% if field.help_text %}<div class="cz-sr" id="{{ field.auto_id }}_helptext">{{ field.help_text|safe }}</div>{% endif %}{{ field.errors }}</div>
+                          </details>
+                        {% elif field.name == "variant" %}
+                          <div class="cz-tile-variant{% if field.errors %} cz-field--error{% endif %}">
+                            <label class="cz-sr" for="{{ field.id_for_label }}">{{ field.label }}</label>
+                            {{ field }}{% if field.help_text %}<div class="cz-sr" id="{{ field.auto_id }}_helptext">{{ field.help_text|safe }}</div>{% endif %}{{ field.errors }}
+                          </div>
+                        {% elif field.name == "is_hero" %}
+                          <div class="cz-tile-hero">
+                            <label for="{{ field.id_for_label }}">{{ field }} <span>{% trans "Main photo" %}</span></label>
+                            {% if field.help_text %}<div class="cz-sr" id="{{ field.auto_id }}_helptext">{{ field.help_text|safe }}</div>{% endif %}{{ field.errors }}
+                          </div>
+                        {% elif field.name == "order" %}
+                          <div class="cz-tile-order">
+                            <button type="button" class="cz-nudge" data-cz-nudge="-1"
+                                    title="{% trans 'Move earlier' %}"><span aria-hidden="true">&#8592;</span><span class="cz-sr">{% trans "Move earlier" %}</span></button>
+                            <label class="cz-sr" for="{{ field.id_for_label }}">{{ field.label }}</label>
+                            {{ field }}{% if field.help_text %}<div class="cz-sr" id="{{ field.auto_id }}_helptext">{{ field.help_text|safe }}</div>{% endif %}
+                            <button type="button" class="cz-nudge" data-cz-nudge="1"
+                                    title="{% trans 'Move later' %}"><span aria-hidden="true">&#8594;</span><span class="cz-sr">{% trans "Move later" %}</span></button>
+                          </div>
+                        {% elif field.name != "DELETE" %}
+                          <div class="cz-tile-extra{% if field.errors %} cz-field--error{% endif %}">
+                            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                            {{ field }}{% if field.help_text %}<div class="cz-sr" id="{{ field.auto_id }}_helptext">{{ field.help_text|safe }}</div>{% endif %}{{ field.errors }}
+                          </div>
+                        {% endif %}
+                      {% endfor %}
+                      {% if iaf.form.non_field_errors %}<div class="cz-nonfield">{{ iaf.form.non_field_errors }}</div>{% endif %}
+                    </div>
+
+                    {% if iaf.needs_explicit_pk_field %}{{ iaf.pk_field.field }}{% endif %}
+                    {% if iaf.fk_field %}{{ iaf.fk_field.field }}{% endif %}
+                  </div>
+                  {# ── /TILE ───────────────────────────────────────────────── #}
+                  {% endwith %}
+                {% endif %}
+              {% endfor %}
+            </div>
+          </section>
+        {% endfor %}
+      {% endif %}
+
+      {% comment %}
+        ── Pass 2: general photos, then the blank rows, then the clone source ──
+        InlineAdminFormSet.__iter__ yields initial forms, then extras, then
+        formset.empty_form last (only when add is allowed), so filtering in
+        formset order already gives that sequence. forloop.last is therefore
+        true exactly for the empty form.
+      {% endcomment %}
+      <section class="cz-media-group cz-media-group--general" data-cz-group="">
+        <h3 class="cz-media-groupname">
+          <span class="cz-media-groupdot cz-media-groupdot--all" aria-hidden="true"></span>
+          {% trans "All sizes" %}
+          <span class="cz-media-groupmeta">{% trans "shown for every size" %}</span>
+        </h3>
+        <div class="cz-media-grid">
+          {% for inline_admin_form in inline_admin_formset %}
+            {% if not inline_admin_form.original or not inline_admin_form.original.variant_id %}
+              {% with iaf=inline_admin_form %}
+              {# ── TILE (general / blank / clone source) ───────────────────── #}
+              <div class="inline-related cz-tile{% if iaf.original %} has_original{% endif %}{% if iaf.form.errors %} cz-tile--error{% endif %}{% if forloop.last and inline_admin_formset.has_add_permission %} empty-form last-related cz-tile--template{% elif not iaf.original %} cz-tile--new{% endif %}"
+                   id="{% if forloop.last and inline_admin_formset.has_add_permission %}{{ inline_admin_formset.formset.prefix }}-empty{% else %}{{ iaf.form.prefix }}{% endif %}"
+                   data-cz-tile
+                   draggable="true">
+
+                <div class="cz-tile-corner">
+                  {% if inline_admin_formset.formset.can_delete and inline_admin_formset.has_delete_permission and iaf.original %}
+                    <label class="cz-tile-x" title="{% trans 'Mark for deletion — removed when you save' %}">
+                      {{ iaf.deletion_field.field }}
+                      <span aria-hidden="true">&#215;</span>
+                      <span class="cz-sr">{% trans "Delete this photo" %}</span>
+                    </label>
+                  {% endif %}
+                </div>
+
+                <button type="button" class="cz-tile-thumb" data-cz-hero
+                        title="{% trans 'Use as the main photo for these' %}">
+                  {% if iaf.original.image %}
+                    {% if iaf.original.public_image_url %}
+                      <img src="{{ iaf.original.public_image_url }}" alt="{{ iaf.original.image.name }}" loading="lazy" data-cz-img>
+                    {% else %}
+                      <img src="{{ iaf.original.image.url }}" alt="{{ iaf.original.image.name }}" loading="lazy" data-cz-img>
+                    {% endif %}
+                  {% else %}
+                    <span class="cz-tile-noimg" aria-hidden="true">{% if iaf.original %}&#9723;{% else %}&#43;{% endif %}</span>
+                    <img alt="" hidden data-cz-img>
+                  {% endif %}
+                  <span class="cz-tile-herobadge" aria-hidden="true">&#9733; {% trans "Main" %}</span>
+                </button>
+
+                <div class="cz-tile-body">
+                  {% for field in iaf.form.visible_fields %}
+                    {% if field.name == "image" %}
+                      {% comment %}
+                        ClearableFileInput is three lines of "Currently: <path> Clear / Change:"
+                        and was 97px of a 461px tile. Collapsed for a photo that already
+                        exists (the thumbnail above already says which one it is), open for a
+                        blank row, where the file input IS the control. A closed <details>
+                        still posts its file input, and JS can still set .files on it.
+                      {% endcomment %}
+                      <details class="cz-tile-file{% if field.errors %} cz-field--error{% endif %}"
+                               data-cz-file{% if not iaf.original or field.errors %} open{% endif %}>
+                        <summary>{% if iaf.original %}{% trans "Replace or clear" %}{% else %}{% trans "Choose a photo" %}{% endif %}</summary>
+                        <div class="cz-tile-filebody">{{ field }}{% if field.help_text %}<div class="cz-sr" id="{{ field.auto_id }}_helptext">{{ field.help_text|safe }}</div>{% endif %}{{ field.errors }}</div>
+                      </details>
+                    {% elif field.name == "variant" %}
+                      <div class="cz-tile-variant{% if field.errors %} cz-field--error{% endif %}">
+                        <label class="cz-sr" for="{{ field.id_for_label }}">{{ field.label }}</label>
+                        {{ field }}{% if field.help_text %}<div class="cz-sr" id="{{ field.auto_id }}_helptext">{{ field.help_text|safe }}</div>{% endif %}{{ field.errors }}
+                      </div>
+                    {% elif field.name == "is_hero" %}
+                      <div class="cz-tile-hero">
+                        <label for="{{ field.id_for_label }}">{{ field }} <span>{% trans "Main photo" %}</span></label>
+                        {% if field.help_text %}<div class="cz-sr" id="{{ field.auto_id }}_helptext">{{ field.help_text|safe }}</div>{% endif %}{{ field.errors }}
+                      </div>
+                    {% elif field.name == "order" %}
+                      <div class="cz-tile-order">
+                        <button type="button" class="cz-nudge" data-cz-nudge="-1"
+                                title="{% trans 'Move earlier' %}"><span aria-hidden="true">&#8592;</span><span class="cz-sr">{% trans "Move earlier" %}</span></button>
+                        <label class="cz-sr" for="{{ field.id_for_label }}">{{ field.label }}</label>
+                        {{ field }}{% if field.help_text %}<div class="cz-sr" id="{{ field.auto_id }}_helptext">{{ field.help_text|safe }}</div>{% endif %}
+                        <button type="button" class="cz-nudge" data-cz-nudge="1"
+                                title="{% trans 'Move later' %}"><span aria-hidden="true">&#8594;</span><span class="cz-sr">{% trans "Move later" %}</span></button>
+                      </div>
+                    {% elif field.name != "DELETE" %}
+                      <div class="cz-tile-extra{% if field.errors %} cz-field--error{% endif %}">
+                        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                        {{ field }}{% if field.help_text %}<div class="cz-sr" id="{{ field.auto_id }}_helptext">{{ field.help_text|safe }}</div>{% endif %}{{ field.errors }}
+                      </div>
+                    {% endif %}
+                  {% endfor %}
+                  {% if iaf.form.non_field_errors %}<div class="cz-nonfield">{{ iaf.form.non_field_errors }}</div>{% endif %}
+                </div>
+
+                {% if iaf.needs_explicit_pk_field %}{{ iaf.pk_field.field }}{% endif %}
+                {% if iaf.fk_field %}{{ iaf.fk_field.field }}{% endif %}
+              </div>
+              {# ── /TILE ───────────────────────────────────────────────────── #}
+              {% endwith %}
+            {% endif %}
+          {% endfor %}
+        </div>
+      </section>
+    </div>
+  </fieldset>
+</div>
