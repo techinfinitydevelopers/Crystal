@@ -19,3 +19,6 @@ crystal/backend/staticfiles/
 
 # generated at runtime, kept on the persistent volume
 crystal/backend/media/.secret_key
+
+# scratch renders from theme work
+crystal/backend/static/admin/_preview/
