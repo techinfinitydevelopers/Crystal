@@ -14,5 +14,12 @@
       "runtimeArgs": ["serve", "-l", "3456", "crystal"],
       "port": 3456
     }
+  ,
+    {
+      "name": "crystal-dashboard",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["crystal/backend/manage.py", "runserver", "8765"],
+      "port": 8765
+    }
   ]
 }
