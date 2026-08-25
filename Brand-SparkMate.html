@@ -259,7 +259,7 @@
 
   .bp-about { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: clamp(26px,4vw,64px); align-items: center; }
   .bp-about img { width: 100%; border-radius: var(--r); border: 1.5px solid var(--line); display: block; }
-  .bp-about h2 { font-family: var(--head); font-weight: 700; text-transform: uppercase; font-size: clamp(30px,4vw,58px); line-height: 1.02; letter-spacing: -0.02em; margin-top: 14px; }
+  .bp-about h2 { font-family: var(--head); font-weight: 700; text-transform: uppercase; line-height: 1.02; letter-spacing: -0.02em; margin-top: 14px; }
   .bp-about p { color: var(--muted); font-size: clamp(15px,1.4vw,17px); line-height: 1.62; margin-top: 16px; }
 
   .bp-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(12px,1.5vw,20px); margin-top: 40px; }
@@ -290,6 +290,13 @@
   /* The rounded cream sections are meant to read as separate cards. Without a
      margin they butt straight up against their neighbours - and the last one
      sits flush on the dark footer, which hides its bottom corners entirely. */
+  /* One heading size across the brand pages. The shell sets section heads to
+     ~76px and the about heading was ~51px; both are pinned to 54px here, with a
+     smaller step on phones so a long heading does not eat the screen.
+     .sec-head h2 carries a class, so it outranks a bare "main h2". */
+  main h2, main .sec-head h2, main .bp-about h2 { font-size: 54px; }
+  @media (max-width: 600px) { main h2, main .sec-head h2, main .bp-about h2 { font-size: clamp(30px, 7vw, 40px); } }
+
   main > section.sec-cream { margin-block: clamp(18px, 2.6vw, 38px); }
 
   @media (max-width: 1024px) { .bp-grid, .bp-usps { grid-template-columns: repeat(3, 1fr); } .bp-res { grid-template-columns: repeat(2, 1fr); } }
