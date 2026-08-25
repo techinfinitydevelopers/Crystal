@@ -795,7 +795,7 @@
     { slug: "valmate",    name: "ValMate",    tagline: "Value for Money", blurb: "Smart everyday value — storage, flasks and bottles that keep food fresh and drinks at the right temperature, built for modern Indian homes.", title: "Value for <span class='grad'>Money</span>" },
   ];
   // A brand with its own page links there; the rest fall back to the filtered list.
-  const BRAND_PAGES = { crystal: "Brand-Crystal.html" };
+  const BRAND_PAGES = { crystal: "Brand-Crystal.html", crystalina: "Brand-Crystalina.html", sparkmate: "Brand-SparkMate.html", valmate: "Brand-ValMate.html" };
   const brandHref = b => BRAND_PAGES[b.slug] || ("All-Products.html?brand=" + b.slug);
   const BRAND_BY = Object.fromEntries(BRANDS.map(b => [b.slug, b]));
 

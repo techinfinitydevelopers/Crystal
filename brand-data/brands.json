@@ -4,7 +4,10 @@
       "slug": "crystal",
       "name": "Crystal",
       "tagline": "Simplifying kitchen chores",
-      "hero": { "video": "brand-assets/crystal/hero.mp4", "poster": "brand-assets/crystal/hero-poster.jpg" },
+      "hero": {
+        "video": "brand-assets/crystal/hero.mp4",
+        "poster": "brand-assets/crystal/hero-poster.jpg"
+      },
       "about": {
         "eyebrow": "About Crystal",
         "title": "Crystal",
@@ -15,21 +18,81 @@
         "eyebrow": "Brand Portfolio",
         "title": "Explore the Crystal range",
         "items": [
-          { "label": "Tri-Pro", "image": "brand-assets/crystal/portfolio/tri-pro.jpg", "href": "Cookware-Tripro.html" },
-          { "label": "Cast Iron", "image": "brand-assets/crystal/portfolio/cast-iron.jpg", "href": "Cookware-Cast-Iron.html" },
-          { "label": "Non-Stick", "image": "brand-assets/crystal/portfolio/non-stick.jpg", "href": "Cookware-Non-Stick.html" },
-          { "label": "Non-Stick Mini", "image": "brand-assets/crystal/portfolio/non-stick-mini.jpg", "href": "Cookware-Non-Stick-Mini.html" },
-          { "label": "Sandwich Bottom Steel", "image": "brand-assets/crystal/portfolio/sandwich-bottom-steel.jpg", "href": "Cookware-Sandwich-Bottom-Steel.html" },
-          { "label": "Cooktop", "image": "brand-assets/crystal/portfolio/cooktop.jpg", "href": "Cooktop.html" },
-          { "label": "Oil Pourers", "image": "brand-assets/crystal/portfolio/oil-pourers.jpg", "href": "Oil-Pourer-Sprayer.html" },
-          { "label": "Lighters", "image": "brand-assets/crystal/portfolio/lighters.jpg", "href": "Kitchenware-Lighters.html" },
-          { "label": "Knives", "image": "brand-assets/crystal/portfolio/knives.jpg", "href": "Kitchenware-Knives.html" },
-          { "label": "Peelers", "image": "brand-assets/crystal/portfolio/peelers.jpg", "href": "Kitchenware-Peelers.html" },
-          { "label": "Chopping Boards", "image": "brand-assets/crystal/portfolio/chopping-boards.jpg", "href": "Kitchenware-Chopping-Boards.html" },
-          { "label": "Manual Kitchen Appliances", "image": "brand-assets/crystal/portfolio/manual-kitchen-appliances.jpg", "href": "Kitchenware-Manual-Appliances.html" },
-          { "label": "Cutlery", "image": "brand-assets/crystal/portfolio/cutlery.jpg", "href": "Kitchenware-Cutlery.html" },
-          { "label": "Servers", "image": "brand-assets/crystal/portfolio/servers.jpg", "href": "Kitchenware-Servers.html" },
-          { "label": "Wood Range", "image": "brand-assets/crystal/portfolio/wood-range.jpg", "href": "Wood-Range.html" }
+          {
+            "label": "Tri-Pro",
+            "image": "brand-assets/crystal/portfolio/tri-pro.jpg",
+            "href": "Cookware-Tripro.html"
+          },
+          {
+            "label": "Cast Iron",
+            "image": "brand-assets/crystal/portfolio/cast-iron.jpg",
+            "href": "Cookware-Cast-Iron.html"
+          },
+          {
+            "label": "Non-Stick",
+            "image": "brand-assets/crystal/portfolio/non-stick.jpg",
+            "href": "Cookware-Non-Stick.html"
+          },
+          {
+            "label": "Non-Stick Mini",
+            "image": "brand-assets/crystal/portfolio/non-stick-mini.jpg",
+            "href": "Cookware-Non-Stick-Mini.html"
+          },
+          {
+            "label": "Sandwich Bottom Steel",
+            "image": "brand-assets/crystal/portfolio/sandwich-bottom-steel.jpg",
+            "href": "Cookware-Sandwich-Bottom-Steel.html"
+          },
+          {
+            "label": "Cooktop",
+            "image": "brand-assets/crystal/portfolio/cooktop.jpg",
+            "href": "Cooktop.html"
+          },
+          {
+            "label": "Oil Pourers",
+            "image": "brand-assets/crystal/portfolio/oil-pourers.jpg",
+            "href": "Oil-Pourer-Sprayer.html"
+          },
+          {
+            "label": "Lighters",
+            "image": "brand-assets/crystal/portfolio/lighters.jpg",
+            "href": "Kitchenware-Lighters.html"
+          },
+          {
+            "label": "Knives",
+            "image": "brand-assets/crystal/portfolio/knives.jpg",
+            "href": "Kitchenware-Knives.html"
+          },
+          {
+            "label": "Peelers",
+            "image": "brand-assets/crystal/portfolio/peelers.jpg",
+            "href": "Kitchenware-Peelers.html"
+          },
+          {
+            "label": "Chopping Boards",
+            "image": "brand-assets/crystal/portfolio/chopping-boards.jpg",
+            "href": "Kitchenware-Chopping-Boards.html"
+          },
+          {
+            "label": "Manual Kitchen Appliances",
+            "image": "brand-assets/crystal/portfolio/manual-kitchen-appliances.jpg",
+            "href": "Kitchenware-Manual-Appliances.html"
+          },
+          {
+            "label": "Cutlery",
+            "image": "brand-assets/crystal/portfolio/cutlery.jpg",
+            "href": "Kitchenware-Cutlery.html"
+          },
+          {
+            "label": "Servers",
+            "image": "brand-assets/crystal/portfolio/servers.jpg",
+            "href": "Kitchenware-Servers.html"
+          },
+          {
+            "label": "Wood Range",
+            "image": "brand-assets/crystal/portfolio/wood-range.jpg",
+            "href": "Wood-Range.html"
+          }
         ]
       },
       "usps": {
@@ -37,23 +100,416 @@
         "title": "What Makes Crystal The Right Choice?",
         "lead": "Crystal is the right choice for those who value durability, reliability, and long term performance. Built with high quality materials and strict quality standards, Crystal products are designed to withstand daily use while maintaining their strength, finish, and functionality.",
         "items": [
-          { "title": "Designed for Indian Cooking Styles", "media": "brand-assets/crystal/usp/designed-for-indian-cooking-styles.jpg", "type": "image" },
-          { "title": "Reliable Everyday Performance", "media": "brand-assets/crystal/usp/reliable-everyday-performance.mp4", "type": "video" },
-          { "title": "Durability You Can Trust", "media": "brand-assets/crystal/usp/durability-you-can-trust.jpg", "type": "image" },
-          { "title": "Comfortable & Easy Handling", "media": "brand-assets/crystal/usp/comfortable-easy-handling.jpg", "type": "image" },
-          { "title": "Safe & Thoughtful Materials", "media": "brand-assets/crystal/usp/safe-thoughtful-materials.mp4", "type": "video" },
-          { "title": "Wide Product Range", "media": "brand-assets/crystal/usp/wide-product-range.jpg", "type": "image" },
-          { "title": "Trusted Indian Brand Heritage", "media": "brand-assets/crystal/usp/trusted-indian-brand-heritage.jpg", "type": "image" },
-          { "title": "Great Value for Everyday Homes", "media": "brand-assets/crystal/usp/great-value-for-everyday-homes.jpg", "type": "image" }
+          {
+            "title": "Designed for Indian Cooking Styles",
+            "media": "brand-assets/crystal/usp/designed-for-indian-cooking-styles.jpg",
+            "type": "image"
+          },
+          {
+            "title": "Reliable Everyday Performance",
+            "media": "brand-assets/crystal/usp/reliable-everyday-performance.mp4",
+            "type": "video"
+          },
+          {
+            "title": "Durability You Can Trust",
+            "media": "brand-assets/crystal/usp/durability-you-can-trust.jpg",
+            "type": "image"
+          },
+          {
+            "title": "Comfortable & Easy Handling",
+            "media": "brand-assets/crystal/usp/comfortable-easy-handling.jpg",
+            "type": "image"
+          },
+          {
+            "title": "Safe & Thoughtful Materials",
+            "media": "brand-assets/crystal/usp/safe-thoughtful-materials.mp4",
+            "type": "video"
+          },
+          {
+            "title": "Wide Product Range",
+            "media": "brand-assets/crystal/usp/wide-product-range.jpg",
+            "type": "image"
+          },
+          {
+            "title": "Trusted Indian Brand Heritage",
+            "media": "brand-assets/crystal/usp/trusted-indian-brand-heritage.jpg",
+            "type": "image"
+          },
+          {
+            "title": "Great Value for Everyday Homes",
+            "media": "brand-assets/crystal/usp/great-value-for-everyday-homes.jpg",
+            "type": "image"
+          }
         ]
       },
       "resources": {
         "eyebrow": "Resources",
         "title": "Blogs",
         "items": [
-          { "title": "Built for the Way India Cooks", "date": "8th February, 2026", "image": "brand-assets/crystal/resources/built-for-the-way-india-cooks.jpg", "href": "Blog.html" },
-          { "title": "Why Triply Cookware is a Smart Choice", "date": "8th January, 2026", "image": "brand-assets/crystal/resources/why-triply-cookware-is-a-smart-choice.jpg", "href": "Blog.html" },
-          { "title": "Everyday Cooking Made Effortless", "date": "8th December, 2025", "image": "brand-assets/crystal/resources/everyday-cooking-made-effortless.jpg", "href": "Blog.html" }
+          {
+            "title": "Built for the Way India Cooks",
+            "date": "8th February, 2026",
+            "image": "brand-assets/crystal/resources/built-for-the-way-india-cooks.jpg",
+            "href": "Blog.html"
+          },
+          {
+            "title": "Why Triply Cookware is a Smart Choice",
+            "date": "8th January, 2026",
+            "image": "brand-assets/crystal/resources/why-triply-cookware-is-a-smart-choice.jpg",
+            "href": "Blog.html"
+          },
+          {
+            "title": "Everyday Cooking Made Effortless",
+            "date": "8th December, 2025",
+            "image": "brand-assets/crystal/resources/everyday-cooking-made-effortless.jpg",
+            "href": "Blog.html"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "crystalina",
+      "name": "Crystalina",
+      "tagline": "Splendid finish, superior experience",
+      "hero": {
+        "video": "brand-assets/crystalina/hero.mp4",
+        "poster": "brand-assets/crystalina/hero-poster.jpg"
+      },
+      "about": {
+        "eyebrow": "About Crystalina",
+        "title": "Crystalina",
+        "body": "Positioned at the intersection of luxury and utility, Crystalina is designed for the discerning home owner who views houseware as an extension of their personal style. With a focus on premium finishes and exquisite silhouettes, the brand transforms everyday chores into elevated experiences. Crystalina doesn't just fill a space; it enhances it - a brand that brings beauty, reliability, and long-lasting performance into modern homes.",
+        "image": "brand-assets/crystalina/about.jpg"
+      },
+      "portfolio": {
+        "eyebrow": "Brand Portfolio",
+        "title": "Explore the Crystalina range",
+        "items": [
+          {
+            "label": "Modern Kitchen Aids",
+            "image": "brand-assets/crystalina/portfolio/modern-kitchen-aids.jpg",
+            "href": "Kitchenware-Manual-Appliances.html"
+          },
+          {
+            "label": "Knives",
+            "image": "brand-assets/crystalina/portfolio/knives.jpg",
+            "href": "Kitchenware-Knives.html"
+          },
+          {
+            "label": "Nylon Cook N Serve",
+            "image": "brand-assets/crystalina/portfolio/nylon-cook-n-serve.jpg",
+            "href": "Kitchenware-Servers.html"
+          },
+          {
+            "label": "Life Style Products",
+            "image": "brand-assets/crystalina/portfolio/life-style-products.jpg",
+            "href": "All-Products.html?brand=crystalina"
+          }
+        ]
+      },
+      "usps": {
+        "eyebrow": "Our USPs",
+        "title": "What Makes Crystalina The Right Choice?",
+        "lead": "We combine innovation, durability, and affordability to offer kitchenware solutions that perform and last.",
+        "items": [
+          {
+            "title": "Premium Kitchen Tools",
+            "media": "brand-assets/crystalina/usp/premium-kitchen-tools.jpg",
+            "type": "image"
+          },
+          {
+            "title": "Elegant Modern Aesthetics",
+            "media": "brand-assets/crystalina/usp/elegant-modern-aesthetics.mp4",
+            "type": "video"
+          },
+          {
+            "title": "High-Quality Materials",
+            "media": "brand-assets/crystalina/usp/high-quality-materials.jpg",
+            "type": "image"
+          },
+          {
+            "title": "Precision & Ease of Use",
+            "media": "brand-assets/crystalina/usp/precision-ease-of-use.jpg",
+            "type": "image"
+          },
+          {
+            "title": "Perfect Blend of Style & Function",
+            "media": "brand-assets/crystalina/usp/perfect-blend-of-style-function.mp4",
+            "type": "video"
+          },
+          {
+            "title": "Designed for Everyday Convenience",
+            "media": "brand-assets/crystalina/usp/designed-for-everyday-convenience.jpg",
+            "type": "image"
+          },
+          {
+            "title": "Trusted Premium Quality from Crystal",
+            "media": "brand-assets/crystalina/usp/trusted-premium-quality-from-crystal.jpg",
+            "type": "image"
+          },
+          {
+            "title": "Smart Utility Solutions",
+            "media": "brand-assets/crystalina/usp/smart-utility-solutions.jpg",
+            "type": "image"
+          }
+        ]
+      },
+      "resources": {
+        "eyebrow": "Resources",
+        "title": "Blogs",
+        "items": [
+          {
+            "title": "Why Good Kitchen Tools Matter More Than You Think",
+            "date": "8th September, 2025",
+            "image": "brand-assets/crystalina/resources/why-good-kitchen-tools-matter-more-than-you-think.jpg",
+            "href": "Blog.html"
+          },
+          {
+            "title": "Elevate Your Kitchen, One Tool at a Time",
+            "date": "8th October, 2025",
+            "image": "brand-assets/crystalina/resources/elevate-your-kitchen-one-tool-at-a-time.jpg",
+            "href": "Blog.html"
+          },
+          {
+            "title": "Splendid Finish, Superior Experience",
+            "date": "8th November, 2025",
+            "image": "brand-assets/crystalina/resources/splendid-finish-superior-experience.jpg",
+            "href": "Blog.html"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "sparkmate",
+      "name": "SparkMate",
+      "tagline": "One-stop smart cleaning solutions",
+      "hero": {
+        "video": "brand-assets/sparkmate/hero.mp4",
+        "poster": "brand-assets/sparkmate/hero-poster.jpg"
+      },
+      "about": {
+        "eyebrow": "About SparkMate",
+        "title": "SparkMate",
+        "body": "SparkMate is built for the rhythm of modern life. Designed for high performance and maximum efficiency, SparkMate is the go-to brand for those who value smart and fast-paced cleaning solutions. It's practical, vibrant, and incredibly reliable, offering durable tools that keep up with the demands of a busy household. High utility, accessible pricing, and zero compromise on safety - that is the SparkMate promise.",
+        "image": "brand-assets/sparkmate/about.jpg"
+      },
+      "portfolio": {
+        "eyebrow": "Brand Portfolio",
+        "title": "Explore the SparkMate range",
+        "items": [
+          {
+            "label": "Spin Mops",
+            "image": "brand-assets/sparkmate/portfolio/spin-mops.jpg",
+            "href": "Cleaning-Aid-Spin-Mops.html"
+          },
+          {
+            "label": "Hand Held Mops",
+            "image": "brand-assets/sparkmate/portfolio/hand-held-mops.jpg",
+            "href": "Cleaning-Aid-Hand-Held-Mops.html"
+          },
+          {
+            "label": "Broom & Dust Pans",
+            "image": "brand-assets/sparkmate/portfolio/broom-dust-pans.jpg",
+            "href": "Cleaning-Aid-Brooms.html"
+          },
+          {
+            "label": "Wipers",
+            "image": "brand-assets/sparkmate/portfolio/wipers.jpg",
+            "href": "Cleaning-Aid-Wipers.html"
+          },
+          {
+            "label": "Brushes",
+            "image": "brand-assets/sparkmate/portfolio/brushes.jpg",
+            "href": "Cleaning-Aid-Brush.html"
+          },
+          {
+            "label": "Scrubbers & Scourers",
+            "image": "brand-assets/sparkmate/portfolio/scrubbers-scourers.jpg",
+            "href": "Cleaning-Aid-Scrubber.html"
+          },
+          {
+            "label": "Sink Organiser",
+            "image": "brand-assets/sparkmate/portfolio/sink-organiser.jpg",
+            "href": "Cleaning-Aid-Sink-Organiser.html"
+          },
+          {
+            "label": "Bins",
+            "image": "brand-assets/sparkmate/portfolio/bins.jpg",
+            "href": "Cleaning-Aid-Bins.html"
+          },
+          {
+            "label": "Wipes",
+            "image": "brand-assets/sparkmate/portfolio/wipes.jpg",
+            "href": "Cleaning-Aid-Wipe.html"
+          }
+        ]
+      },
+      "usps": {
+        "eyebrow": "Our USPs",
+        "title": "What Makes SparkMate The Right Choice?",
+        "lead": "We combine innovation, durability, and affordability to offer cleaning solutions that perform and last.",
+        "items": [
+          {
+            "title": "Practical Everyday Cleaning Tools",
+            "media": "brand-assets/sparkmate/usp/practical-everyday-cleaning-tools.jpg",
+            "type": "image"
+          },
+          {
+            "title": "Multi-Purpose Functionality",
+            "media": "brand-assets/sparkmate/usp/multi-purpose-functionality.mp4",
+            "type": "video"
+          },
+          {
+            "title": "Durable & Reliable Construction",
+            "media": "brand-assets/sparkmate/usp/durable-reliable-construction.jpg",
+            "type": "image"
+          },
+          {
+            "title": "Ergonomic and Easy to Use",
+            "media": "brand-assets/sparkmate/usp/ergonomic-and-easy-to-use.jpg",
+            "type": "image"
+          },
+          {
+            "title": "Wide Range of Cleaning Solutions",
+            "media": "brand-assets/sparkmate/usp/wide-range-of-cleaning-solutions.mp4",
+            "type": "video"
+          },
+          {
+            "title": "Affordable and Accessible",
+            "media": "brand-assets/sparkmate/usp/affordable-and-accessible.jpg",
+            "type": "image"
+          },
+          {
+            "title": "Complements Kitchen & Home Maintenance",
+            "media": "brand-assets/sparkmate/usp/complements-kitchen-home-maintenance.jpg",
+            "type": "image"
+          },
+          {
+            "title": "Part of the Crystal Homeware Family",
+            "media": "brand-assets/sparkmate/usp/part-of-the-crystal-homeware-family.jpg",
+            "type": "image"
+          }
+        ]
+      },
+      "resources": {
+        "eyebrow": "Resources",
+        "title": "Blogs",
+        "items": [
+          {
+            "title": "Smart Cleaning for Modern Homes",
+            "date": "8th September, 2025",
+            "image": "brand-assets/sparkmate/resources/smart-cleaning-for-modern-homes.jpg",
+            "href": "Blog.html"
+          },
+          {
+            "title": "Everyday Hygiene Starts at Home",
+            "date": "8th August, 2025",
+            "image": "brand-assets/sparkmate/resources/everyday-hygiene-starts-at-home.jpg",
+            "href": "Blog.html"
+          },
+          {
+            "title": "Cleaning Made Simple, Every Day",
+            "date": "8th July, 2025",
+            "image": "brand-assets/sparkmate/resources/cleaning-made-simple-every-day.jpg",
+            "href": "Blog.html"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "valmate",
+      "name": "ValMate",
+      "tagline": "Quality that lasts, value that makes sense",
+      "hero": {
+        "video": "brand-assets/valmate/hero.mp4",
+        "poster": "brand-assets/valmate/hero-poster.jpg"
+      },
+      "about": {
+        "eyebrow": "About ValMate",
+        "title": "ValMate",
+        "body": "ValMate is built on the belief that every family deserves quality that lasts. It's a brand that balances rugged durability with thoughtful affordability. When you choose ValMate, you're choosing a legacy of performance that stands the test of time and the rigors of daily family life - practical and reliable, delivering essential solutions without compromising on quality.",
+        "image": "brand-assets/valmate/about.jpg"
+      },
+      "portfolio": {
+        "eyebrow": "Brand Portfolio",
+        "title": "Explore the ValMate range",
+        "items": [
+          {
+            "label": "Kitchenware",
+            "image": "brand-assets/valmate/portfolio/kitchenware.jpg",
+            "href": "Kitchenware.html"
+          }
+        ]
+      },
+      "usps": {
+        "eyebrow": "Our USPs",
+        "title": "What Makes ValMate The Right Choice?",
+        "lead": "We bring together innovation, durability, and value to create kitchenware that delivers reliable performance and products that last long.",
+        "items": [
+          {
+            "title": "Affordable Without Compromise",
+            "media": "brand-assets/valmate/usp/affordable-without-compromise.jpg",
+            "type": "image"
+          },
+          {
+            "title": "Wide Range of Essentials",
+            "media": "brand-assets/valmate/usp/wide-range-of-essentials.mp4",
+            "type": "video"
+          },
+          {
+            "title": "Strong & Practical Build",
+            "media": "brand-assets/valmate/usp/strong-practical-build.jpg",
+            "type": "image"
+          },
+          {
+            "title": "No-Frills, Functional Design",
+            "media": "brand-assets/valmate/usp/no-frills-functional-design.jpg",
+            "type": "image"
+          },
+          {
+            "title": "Easy to Use & Maintain",
+            "media": "brand-assets/valmate/usp/easy-to-use-maintain.mp4",
+            "type": "video"
+          },
+          {
+            "title": "Ideal for Large Families",
+            "media": "brand-assets/valmate/usp/ideal-for-large-families.jpg",
+            "type": "image"
+          },
+          {
+            "title": "Backed by Trusted Manufacturing",
+            "media": "brand-assets/valmate/usp/backed-by-trusted-manufacturing.jpg",
+            "type": "image"
+          },
+          {
+            "title": "Smart Choice for Value-Driven Homes",
+            "media": "brand-assets/valmate/usp/smart-choice-for-value-driven-homes.jpg",
+            "type": "image"
+          }
+        ]
+      },
+      "resources": {
+        "eyebrow": "Resources",
+        "title": "Blogs",
+        "items": [
+          {
+            "title": "Everyday Cooking for Real Homes",
+            "date": "8th June, 2025",
+            "image": "brand-assets/valmate/resources/everyday-cooking-for-real-homes.jpg",
+            "href": "Blog.html"
+          },
+          {
+            "title": "Value That Makes Sense",
+            "date": "8th May, 2025",
+            "image": "brand-assets/valmate/resources/value-that-makes-sense.jpg",
+            "href": "Blog.html"
+          },
+          {
+            "title": "Smart Cooking Starts with Smart Choices",
+            "date": "8th April, 2025",
+            "image": "brand-assets/valmate/resources/smart-cooking-starts-with-smart-choices.jpg",
+            "href": "Blog.html"
+          }
         ]
       }
     }
