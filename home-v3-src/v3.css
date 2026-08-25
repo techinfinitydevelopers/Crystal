@@ -338,6 +338,9 @@ header .nav .btn-outline, header .burger span {
 .v3 .pre3-wrap { display: flex; align-items: flex-end; justify-content: space-between; gap: 30px; }
 .v3 .pre3-left { padding-bottom: var(--s80); }
 .v3 .pre3-right { width: 50%; aspect-ratio: 1200/900; position: relative; z-index: 3; }
+.v3 .pre3-right img { position: absolute; inset: 0; }
+.v3 .pre3-backdrop { z-index: 1; }
+.v3 .pre3-art { z-index: 2; }
 .v3 .pre3-right img { height: 100%; width: 100%; object-fit: contain; object-position: bottom; }
 /* Rest position: the bottom 10% of the heart sits over the footer. A
    percentage translate resolves against the element's own height, so the

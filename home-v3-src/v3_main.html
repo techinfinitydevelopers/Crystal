@@ -261,7 +261,14 @@
           <a href="Contact.html" class="v-btn black"><span class="label">Get in Touch</span><span class="bg"></span></a>
         </div>
       </div>
-      <div class="pre3-right"><img src="home-v3-assets/img/crystal-prefooter.png" alt="Crystal product range" loading="lazy"></div>
+      <div class="pre3-right">
+        <!-- The heart overlaps the footer, so its white outline would otherwise
+             sit on black and read as a shape cut adrift. This is the artwork's
+             own silhouette in the section red, grown a few pixels, so the red
+             carries on behind the outline and tapers exactly as the heart does. -->
+        <img class="pre3-backdrop" src="home-v3-assets/img/crystal-prefooter-backdrop.png" alt="" aria-hidden="true" loading="lazy">
+        <img class="pre3-art" src="home-v3-assets/img/crystal-prefooter.png" alt="Crystal product range" loading="lazy">
+      </div>
     </div>
   </div>
 </section>

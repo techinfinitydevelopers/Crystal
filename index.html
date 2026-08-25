@@ -910,6 +910,9 @@ header .nav .btn-outline, header .burger span {
 .v3 .pre3-wrap { display: flex; align-items: flex-end; justify-content: space-between; gap: 30px; }
 .v3 .pre3-left { padding-bottom: var(--s80); }
 .v3 .pre3-right { width: 50%; aspect-ratio: 1200/900; position: relative; z-index: 3; }
+.v3 .pre3-right img { position: absolute; inset: 0; }
+.v3 .pre3-backdrop { z-index: 1; }
+.v3 .pre3-art { z-index: 2; }
 .v3 .pre3-right img { height: 100%; width: 100%; object-fit: contain; object-position: bottom; }
 /* Rest position: the bottom 10% of the heart sits over the footer. A
    percentage translate resolves against the element's own height, so the
@@ -1642,7 +1645,14 @@ h1, h2 { overflow-wrap: break-word; }
           <a href="Contact.html" class="v-btn black"><span class="label">Get in Touch</span><span class="bg"></span></a>
         </div>
       </div>
-      <div class="pre3-right"><img src="home-v3-assets/img/crystal-prefooter.png" alt="Crystal product range" loading="lazy"></div>
+      <div class="pre3-right">
+        <!-- The heart overlaps the footer, so its white outline would otherwise
+             sit on black and read as a shape cut adrift. This is the artwork's
+             own silhouette in the section red, grown a few pixels, so the red
+             carries on behind the outline and tapers exactly as the heart does. -->
+        <img class="pre3-backdrop" src="home-v3-assets/img/crystal-prefooter-backdrop.png" alt="" aria-hidden="true" loading="lazy">
+        <img class="pre3-art" src="home-v3-assets/img/crystal-prefooter.png" alt="Crystal product range" loading="lazy">
+      </div>
     </div>
   </div>
 </section>
