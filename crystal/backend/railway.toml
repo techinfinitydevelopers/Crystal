@@ -1,8 +1,11 @@
 [build]
 builder = "nixpacks"
+# Static files are baked into the image - this needs the code, not the database.
+buildCommand = "python manage.py collectstatic --no-input"
 
 [deploy]
-preDeployCommand = "python manage.py migrate --no-input && python manage.py collectstatic --no-input"
+# Migrations run once per deploy, when DATABASE_URL is actually reachable.
+preDeployCommand = "python manage.py migrate --no-input"
 startCommand = "gunicorn config.wsgi --workers 2 --bind 0.0.0.0:$PORT"
 healthcheckPath = "/api/products/"
 restartPolicyType = "on_failure"
