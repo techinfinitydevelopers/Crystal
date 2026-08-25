@@ -319,63 +319,6 @@
       "variant_order": 2
     },
     {
-      "sku": "LI010",
-      "name": "CRYSTAL MULTI SPARK LIGHTER",
-      "brand": "crystal",
-      "category": "kitchenware",
-      "subcategory": "lighters",
-      "collection": "LIGHTERS",
-      "highlight": "CRYSTAL MULTI SPARK LIGHTER",
-      "description": "Multi-Spark Stainless Steel Lighter With Powerful Ignition. Long-Lasting Performance.",
-      "tags": [
-        "Multi Spark Lighter",
-        "Gas Stove Lighter",
-        "Heavy Duty Lighter"
-      ],
-      "gst_pct": 0.18,
-      "mrp": null,
-      "amazon_link": "https://www.amazon.in/dp/B07DJCL6TD",
-      "filters": {
-        "use": "Domestic",
-        "mechanism": "Mechanical"
-      },
-      "hero": "product-photos/LI010/hero.png",
-      "gallery": [
-        "product-photos/LI010/g1.jpg",
-        "product-photos/LI010/g2.jpg",
-        "product-photos/LI010/g3.jpg",
-        "product-photos/LI010/g4.jpg",
-        "product-photos/LI010/g5.jpg",
-        "product-photos/LI010/g6.jpg",
-        "product-photos/LI010/g7.jpg",
-        "product-photos/LI010/g8.jpg"
-      ],
-      "match_tier": "dump_sku_match",
-      "id": "li010",
-      "features": [
-        [
-          "power",
-          "Comes with Double Piezo- Multiple Sparks in One ",
-          ""
-        ],
-        [
-          "blade",
-          "Suitable for Pipeline and Cylinder",
-          ""
-        ],
-        [
-          "blade",
-          "Designed in Italy",
-          ""
-        ],
-        [
-          "blade",
-          "Comes with Table Top Stand",
-          ""
-        ]
-      ]
-    },
-    {
       "sku": "LI011",
       "name": "CRYSTAL EXTREME CONTINUOUS SPARK LIGHTER",
       "brand": "crystal",

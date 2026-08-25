@@ -417,3 +417,27 @@ sizes to the artwork instead of the column:
 
 **Verified** 1280x800: box 560x420 (was 1114x627). 430px: 358x269, no
 horizontal overflow.
+
+## 2026-08-25 (8) — LI010 removed from the site
+
+The user first asked for "L0101", which matched nothing anywhere - no SKU,
+no id, no reference in any file. Rather than guess, the eight `L*` SKUs were
+listed back; the intended product was **LI010 - CRYSTAL MULTI SPARK LIGHTER**.
+(It was already on the open-questions list: absent from the client's latest
+lighter data.)
+
+Removed:
+- `product-data/products.json`: 531 -> 530 entries.
+- Database: 1 Product, 9 ProductImage, 2 ProductSpecification,
+  1 ProductMarketplaceLink (531 -> 530 products).
+- `product-photos/LI010/` - 9 files.
+
+Safe to remove outright: `variant_group` was null, so no sibling size
+depended on it, and no `.html`/`.js` file referenced the SKU (the category
+pages are driven entirely from products.json).
+
+**Verified**: Kitchenware-Lighters.html no longer mentions LI010 and lists
+the remaining 9 lighters. `Product.html?p=li010` no longer resolves to it -
+it falls back to the first product rather than erroring.
+
+Recoverable from git history if the client wants it back.
