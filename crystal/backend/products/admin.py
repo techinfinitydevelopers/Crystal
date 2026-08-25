@@ -306,11 +306,11 @@ class ProductAdmin(admin.ModelAdmin):
     form = ProductAdminForm
 
     list_display = [
-        'image_preview', 'name', 'sku', 'brand_badge', 'category_badge',
+        'image_preview', 'name_cell', 'brand_badge', 'category_badge',
         'hero_status', 'image_count', 'variant_count',
         'video_status', 'amazon_status', 'is_active',
     ]
-    list_display_links = ['image_preview', 'name']
+    list_display_links = ['image_preview', 'name_cell']
     search_fields = [
         'name', 'slug', 'sku', 'collection_name', 'short_description',
         'highlight', 'overview', 'amazon_link',
@@ -494,6 +494,36 @@ class ProductAdmin(admin.ModelAdmin):
         self.message_user(request, out.getvalue().strip() or "Export finished.", level=messages.SUCCESS)
 
     # ── List display helpers ────────────────────────────────────────────
+
+    @admin.display(description='Product', ordering='name')
+    def name_cell(self, obj):
+        """Name with the product code beneath it.
+
+        The site prints the code as "Code: MKA940" on the product page, so the
+        dashboard shows the same string rather than a column headed "Sku" that
+        the client has to translate.
+        """
+        code = (obj.sku or '').upper()
+        return format_html(
+            '<div style="font-weight:600;line-height:1.25;">{}</div>'
+            '<div style="font-size:11.5px;color:var(--s-ink-soft,#616161);'
+            'margin-top:2px;letter-spacing:.02em;">{}</div>',
+            obj.name,
+            'Code: %s' % code if code else 'No code',
+        )
+
+    def get_form(self, request, obj=None, **kwargs):
+        form = super().get_form(request, obj, **kwargs)
+        # Django titles this "Sku"; the site calls it the product code, and the
+        # two need to read as the same thing.
+        if 'sku' in form.base_fields:
+            f = form.base_fields['sku']
+            f.label = 'Product code'
+            f.help_text = (
+                'Shown on the product page as "Code: %s". Also the name of the '
+                'folder its photos live in.' % ((obj.sku or 'MKA940').upper() if obj else 'MKA940')
+            )
+        return form
 
     @admin.display(description='Image')
     def image_preview(self, obj):
