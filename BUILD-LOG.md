@@ -990,3 +990,60 @@ foot of the page is a different control and stays.
 Verified on a live product page: buy row down to two buttons, both id lookups
 return null, and title, code, intro and eyebrow still populate — the check that
 matters, since the deleted lines sat mid-render-function.
+
+### Banners for the rest, built from the catalogue
+
+The client is shooting one lifestyle banner per category and they arrive a few
+at a time, so 35 pages still had none. These build a stand-in from a product
+photograph already in the catalogue: the product lifted off its white studio
+background and set on a soft ground, right of centre, left clear for the copy —
+the same shape as the client's own banners, deliberately plain, and replaced by
+one command whenever the real photograph exists.
+
+`pick_category_photo.py` chooses the photograph. Matching a page to its
+products is not one rule — the pages filter three different ways
+(`FIXED_CAT`/`FIXED_SUB`, `LOCK_CAT`, and a couple that filter nothing in the
+page at all) — so instead of reproducing each, the page name resolves against
+the catalogue's own category and subcategory ids, which the filenames already
+mirror.
+
+`compose_product_banner.py` builds the 1980×390 band. The lift is a **flood
+fill from the frame edges, not a brightness threshold**: a threshold also
+erases every white part of the product — a white handle, a pale lid — because
+it cannot tell them from the backdrop, while a flood fill only takes background
+actually connected to the edge.
+
+Three corrections, all found by looking at output rather than reasoning:
+
+1. **Scoring background cleanliness alone reliably picks the carton.** Retail
+   packaging is the cleanest white-background shot a category owns, so the
+   spin-mop page chose a printed box over the mop. Scanning deeper and
+   preferring the product's own hero fixed most; two were still packaging and
+   are overridden by hand — the scrubber page had a display card of twelve, the
+   cleaning-aid page had a Grace Mop carton.
+2. **Speed.** Flood-filling an 8000px master to produce a 310px product took
+   minutes; both scripts now decode and work at reduced scale.
+3. **A watermark lifted along with the pans.** The cookware photo carried
+   "CRYSTAL World Of Kitchenware", which floated in the band as a ghost.
+   Swapped for a clean frame of the same set.
+
+One misread worth recording: a dark band around the window brush looked like a
+lift halo. A threshold sweep showed it unchanged at every setting — it is the
+product's own grey sponge backing, correctly lifted. No fix was needed.
+
+**32 pages now carry a banner**, 753 KB of WebP. Contrast passes AA on all 21
+new ones; worst anywhere is 4.09:1 on the red eyebrow against a 3.0 minimum.
+
+`CRYSTAL Light.html` is deliberately untouched — its title is "CRYSTAL — Social
+Media Agency (Light)", a leftover template rather than a category page.
+
+**13 pages still need a real photograph**, because the catalogue cannot supply
+one: Electric-Appliances and its nine sub-pages (9 of 10 products have no hero
+image at all), Cooktop (every local photo is under 500px), Lunch-Box (no
+matching products exist — no "lunch" or "tiffin" anywhere in the catalogue),
+and Wood-Range (31 products, all shot on dark teak, so nothing lifts).
+
+**Root cause of the blank screenshots**, finally: the browser pane returns
+`the Browser pane is not displayed, so the page is not compositing frames`.
+A pane that is not on screen produces blank captures of pages that render
+perfectly. Verify with DOM measurement and offline compositing.

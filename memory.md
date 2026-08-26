@@ -237,3 +237,25 @@ Not just Browser-pane tabs (see above) — the per-session scratchpad temp direc
   Sandwich-Bottom-Steel 84, Hard-Anodised 93, Lighters 78, Knives 72*,
   Peelers 100, Chopping-Boards 64, Trolleys 62*  (* = set by hand)
 - Client supplies one image per category, named after it, into ~/Downloads.
+
+## Stand-in banners from product photos (2026-08-26)
+- `pick_category_photo.py` + `compose_product_banner.py` build a banner from a
+  catalogue product shot when the client's photo has not arrived.
+- Page->products resolves via the page NAME against catalogue category and
+  subcategory ids. The pages themselves filter three different ways, so do not
+  try to reproduce their JS.
+- Lift the background with a **flood fill from the frame edges**, never a
+  brightness threshold — a threshold eats white parts of the product.
+- **Scoring "clean white background" alone picks the carton.** Retail packaging
+  is the cleanest shot a category owns. Prefer the product's own hero, scan
+  deep, and expect to override a couple by hand.
+- 13 pages cannot be done from the catalogue: Electric-Appliances + 9 subpages
+  (no hero images), Cooktop (all photos <500px), Lunch-Box (no products at
+  all), Wood-Range (all shot on dark teak).
+- `CRYSTAL Light.html` is NOT a category page — it is a leftover template
+  titled "CRYSTAL - Social Media Agency (Light)".
+
+## Why browser-pane screenshots come back blank (2026-08-26)
+- The real error is `the Browser pane is not displayed, so the page is not
+  compositing frames`. An off-screen pane returns blank captures of pages that
+  render perfectly. Not a page bug. Verify via DOM + offline PIL compositing.
