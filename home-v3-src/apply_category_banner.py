@@ -57,6 +57,19 @@ MARK = 'BANNER HERO'
 # measuring the photograph
 # --------------------------------------------------------------------------
 
+# The two scrims, as the CSS declares them. The crop scorer needs the
+# horizontal one too, to know which parts of a crop are actually visible.
+HORZ = [(0, 1.0), (.32, .972), (.45, .885), (.63, .34), (.78, 0), (1, 0)]
+VERT = [(0, 1.0), (.14, .90), (.23, .46), (.37, 0), (.78, 0), (1, 1.0)]
+
+
+def _ramp(stops, t):
+    for (a, av), (b, bv) in zip(stops, stops[1:]):
+        if a <= t <= b:
+            return av + (bv - av) * ((t - a) / (b - a) if b > a else 0)
+    return stops[-1][1]
+
+
 def profile(im, bands=200):
     """Per-column brightness and edge energy, as two lists of `bands` values."""
     g = im.convert('L')
@@ -115,14 +128,27 @@ def pick_focus(bright, detail, nw, nh, box_w, box_h, with_copy):
         if with_copy:
             ca, cb = a + (COPY_L / sc) / nw, a + (COPY_R / sc) / nw
             quiet = 1.0 - _slice(detail, ca, min(cb, 1.0)) / (hi or 1)
-            light = (_slice(bright, ca, min(cb, 1.0)) - lo) / span
-            # Coverage dominates on purpose. An early weighting favoured a quiet
-            # copy area and picked a crop holding 25% of the subject -- a
-            # beautifully readable photograph of an empty worktop. The scrim
-            # already guarantees the text, so quietness is a tie-breaker, not a
-            # goal; showing the product whole is the goal.
-            score = 2.40 * coverage - 1.50 * cut + 0.45 * quiet + 0.20 * light
+
+            # What the viewer actually SEES, which is not the same as what is
+            # inside the frame. The left of the band is washed to near-white so
+            # the copy can sit on it, so subject that lands there is subject
+            # thrown away. Weight every column of the crop by how transparent
+            # the scrim is where it lands.
+            #
+            # Scoring plain coverage instead put the pan of two cookware
+            # banners dead in the wash: technically 79% of the subject was in
+            # frame, and you could barely see the pan.
+            seen = 0.0
+            for j in range(i0, i1):
+                col_x = (j + 0.5) / n * nw              # source px
+                frame = (col_x - x0) / (x1 - x0)        # 0..1 across the band
+                seen += detail[j] * (1.0 - _ramp(HORZ, frame))
+            seen = seen / total if total else 0.0
+
+            score = 2.60 * seen - 1.30 * cut + 0.35 * quiet
         else:
+            # No copy on the narrow band, so nothing is washed and plain
+            # coverage is the right measure there.
             score = 1.60 * coverage - 1.30 * cut
 
         rows.append((f, score, coverage, cut))
@@ -136,17 +162,6 @@ def pick_focus(bright, detail, nw, nh, box_w, box_h, with_copy):
 # --------------------------------------------------------------------------
 # contrast, measured through the real gradients
 # --------------------------------------------------------------------------
-
-HORZ = [(0, 1.0), (.32, .972), (.45, .885), (.63, .34), (.78, 0), (1, 0)]
-VERT = [(0, 1.0), (.14, .90), (.23, .46), (.37, 0), (.78, 0), (1, 1.0)]
-
-
-def _ramp(stops, t):
-    for (a, av), (b, bv) in zip(stops, stops[1:]):
-        if a <= t <= b:
-            return av + (bv - av) * ((t - a) / (b - a) if b > a else 0)
-    return stops[-1][1]
-
 
 def _lum(c):
     def f(v):
@@ -373,8 +388,8 @@ def main():
     if a.focus is None:
         best, _ = pick_focus(bright, detail, nw, nh, BOX_W, BOX_H, with_copy=True)
         focus = best[0]
-        print(f'  desktop crop {focus:.0%}  (keeps {best[2]:.0%} of the subject, '
-              f'edge business {best[3]:.2f})')
+        print(f'  desktop crop {focus:.0%}  (holds {best[2]:.0%} of the subject in '
+              f'frame, edge business {best[3]:.2f})')
         if best[2] < 0.50:
             print('  ! no crop holds even half the subject. This photograph is '
                   'probably too wide, or its subject too spread out, for this hero.')
