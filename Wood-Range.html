@@ -143,6 +143,17 @@
   .hero h1 { font-size: clamp(40px, 5.5vw, 70px); text-transform: uppercase; margin: 4px auto; line-height: 1.0; max-width: 15ch; }
   .hero h1 .grad { background: var(--grad-red); -webkit-background-clip: text; background-clip: text; color: transparent; }
   .hero-sub { max-width: 600px; margin: 28px auto 32px; font-size: clamp(15px, 1.6vw, 18px); color: var(--muted); line-height: 1.6; }
+  /* This page has no banner hero yet, so its copy list is centred to match the
+     rest of the hero rather than left-aligned as it is on the banner pages.
+     Scoped to .hero so it keeps working if a banner is added later. */
+  .hero .hero-lead { margin: 26px 0 10px; font-family: var(--head); font-weight: 700;
+    font-size: clamp(14px, 1.35vw, 16px); letter-spacing: .04em; text-transform: uppercase;
+    color: var(--ink); }
+  .hero .hero-points { list-style: none; display: inline-grid; gap: 7px; margin: 0 auto 32px;
+    text-align: left; color: var(--muted); font-size: clamp(14px, 1.45vw, 16px); line-height: 1.45; }
+  .hero .hero-points li { position: relative; padding-left: 20px; }
+  .hero .hero-points li::before { content: ""; position: absolute; left: 2px; top: .55em;
+    width: 7px; height: 7px; border-radius: 50%; background: var(--red); }
   .hero-cta { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
   .hero-tiles { display: flex; justify-content: center; gap: clamp(12px, 1.6vw, 20px); margin-top: clamp(26px, 4vw, 52px); flex-wrap: nowrap; width: 100%; max-width: 1040px; }
   .hero-tile { flex: 1 1 0; aspect-ratio: 3/4; border-radius: clamp(16px, 1.6vw, 26px); overflow: hidden; border: 3px solid #fff; box-shadow: 0 26px 50px -24px rgba(15,15,15,0.42); will-change: transform; }
@@ -640,7 +651,18 @@ h1, h2 { overflow-wrap: break-word; }
   <div class="wrap">
     <div class="pre" id="heroPre"><span class="pip"></span><span id="heroPreTxt">Wood Range · Teakwood Collection</span></div>
     <h1 id="heroTitle" data-split>Crystal Wood <span class="grad">Range</span></h1>
-    <p class="hero-sub" id="heroSub" data-fade>Warmth, in every grain — handcrafted teakwood trays, coasters, organisers and tissue holders that bring a natural, elegant finish to everyday serving. Part of the Crystal family of kitchen essentials, trusted since 1971.</p>
+      <!-- The client's own copy for this category, from their product
+           sheet. Kept as a list rather than a paragraph because that is
+           how they wrote it: separate claims, not a sentence. -->
+      <p class="hero-lead" id="heroSub" data-fade>Why our wooden range</p>
+      <ul class="hero-points" data-fade>
+        <li>Crafted from 100% seasoned natural wood</li>
+        <li>Smooth finish for a refined look</li>
+        <li>Durable &amp; hygienic construction</li>
+        <li>Beautifully designed side handle for easy movement</li>
+        <li>Natural hygienic surface for food preparation — avoids bacteria growth, gentle on knives</li>
+        <li>Adds warmth, elegance &amp; long-lasting utility</li>
+      </ul>
     <div class="hero-cta" data-fade>
       <a href="#browse" class="btn btn-red">Browse Wood Range <span class="arr">↗</span></a>
       <a href="#collections" class="btn btn-dark">Featured Collections</a>
