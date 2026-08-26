@@ -201,8 +201,8 @@
      paragraph, so it is set as one. The lead-in carries the "Why our ..."
      line above it. */
   .hero-banner .hero-lead { margin: clamp(14px, 1.8vw, 20px) 0 10px; font-family: var(--head);
-    font-weight: 700; font-size: clamp(14px, 1.35vw, 16px); letter-spacing: .04em;
-    text-transform: uppercase; color: var(--ink); }
+    font-weight: 700; font-size: clamp(14px, 1.35vw, 16px); letter-spacing: .02em;
+    color: var(--ink); }
   .hero-banner .hero-points { list-style: none; display: grid; gap: 7px; margin: 0 0 clamp(20px, 2.6vw, 28px);
     max-width: 46ch; color: var(--muted); font-size: clamp(14px, 1.45vw, 16px); line-height: 1.45; }
   .hero-banner .hero-points li { position: relative; padding-left: 20px; }
@@ -732,13 +732,13 @@ h1, h2 { overflow-wrap: break-word; }
     <div class="hero-copy">
       <div class="pre" id="heroPre"><span class="pip"></span><span id="heroPreTxt">Water Bottles</span></div>
       <h1 id="heroTitle" data-split>Steel Bottles Built <span class="grad">for Everyday Carry</span></h1>
-      <!-- The client's own copy for this category, from their product
-           sheet. Kept as a list rather than a paragraph because that is
-           how they wrote it: separate claims, not a sentence. -->
-      <p class="hero-lead" id="heroSub" data-fade>Why our water bottles</p>
+      <!-- The client's own copy for this category, word for word from
+           their product sheet: their capitalisation, their full stops.
+           Do not tidy it -- they asked for it exactly as written. -->
+      <p class="hero-lead" id="heroSub" data-fade>Why our Water Bottle</p>
       <ul class="hero-points" data-fade>
         <li>Durable and leak-proof design</li>
-        <li>Fridge &amp; car safe</li>
+        <li>Fridge &amp; Car Safe.</li>
         <li>Thick walled high grade stainless steel</li>
         <li>Safe and hygienic for daily use</li>
         <li>Easy to carry and convenient to use</li>
