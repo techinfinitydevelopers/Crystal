@@ -31,9 +31,22 @@ W, H = 1980, 390
 # client's own banners: subject right of centre, the left half clear for the
 # headline. The hero only ever shows about half the width, and the scrim
 # whitens what is left of ~60%, so a subject centred here survives the crop.
-CENTRE_X = 0.755
-PRODUCT_H = 0.80          # of canvas height
-FLOOR_Y = 0.86            # where the contact shadow sits
+CENTRE_X = 0.760
+PRODUCT_H = 0.94          # of canvas height
+FLOOR_Y = 0.90            # where the contact shadow sits
+
+# One small object on a wide pale field reads as a picture that failed to load,
+# which is exactly how the first pass looked beside the client's own banners:
+# theirs fill the frame edge to edge, mine had a lone spoon rack adrift in
+# cream. A category is shown by a group of its products instead -- a principal
+# piece with one or two behind it, set back and lightened so they read as depth
+# rather than clutter, and the principal allowed to bleed off the right edge
+# the way the shot banners do.
+SUPPORT = (
+    # (scale vs principal, x offset in principal-widths, how far back)
+    (0.74, -0.78, 0.42),
+    (0.62,  0.72, 0.55),
+)
 
 
 def lift(im, thresh=26, feather=1.6, pull=0.9):
@@ -117,35 +130,60 @@ TINTS = {
 }
 
 
-def compose(src, tint='warm'):
-    prod = trim(lift(Image.open(src)))
+def compose(src, tint='warm', support=()):
+    """src is the principal product; support is up to two more from the category."""
     canvas = ground(TINTS[tint])
+    principal = trim(lift(Image.open(src)))
 
     target_h = int(H * PRODUCT_H)
-    scale = target_h / prod.height
-    if prod.width * scale > W * 0.46:            # very wide products
-        scale = (W * 0.46) / prod.width
-    pw, ph = max(1, int(prod.width * scale)), max(1, int(prod.height * scale))
-    prod = prod.resize((pw, ph), Image.LANCZOS)
+    scale = target_h / principal.height
+    if principal.width * scale > W * 0.60:
+        scale = (W * 0.60) / principal.width
+    pw, ph = max(1, int(principal.width * scale)), max(1, int(principal.height * scale))
+    principal = principal.resize((pw, ph), Image.LANCZOS)
 
-    cx = int(W * CENTRE_X)
-    top = int(H * FLOOR_Y) - ph
-    left = cx - pw // 2
-    # Keep it off the right edge; a subject touching the frame reads as a crop
-    # accident rather than a composition.
-    left = min(left, W - pw - int(W * 0.035))
-    left = max(left, int(W * 0.42))
+    floor = int(H * FLOOR_Y)
+    left = int(W * CENTRE_X) - pw // 2
+    # Let it run off the right edge rather than sit primly inside it -- the
+    # client's banners all bleed, and a gap on the right is what made these
+    # read as empty.
+    left = min(left, W - int(pw * 0.88))
+    left = max(left, int(W * 0.40))
 
-    # Contact shadow, so it is not floating.
-    sh = Image.new('L', (W, H), 0)
-    ImageDraw.Draw(sh).ellipse(
-        [left + pw * 0.06, int(H * FLOOR_Y) - ph * 0.035,
-         left + pw * 0.94, int(H * FLOOR_Y) + ph * 0.075],
-        fill=104)
-    sh = sh.filter(ImageFilter.GaussianBlur(pw * 0.045))
-    canvas = Image.composite(Image.new('RGB', (W, H), (120, 112, 104)), canvas, sh)
+    def shadow(x, w, h, strength):
+        m = Image.new('L', (W, H), 0)
+        ImageDraw.Draw(m).ellipse([x + w * 0.06, floor - h * 0.03,
+                                   x + w * 0.94, floor + h * 0.07], fill=strength)
+        return m.filter(ImageFilter.GaussianBlur(max(4, w * 0.05)))
 
-    canvas.paste(prod, (left, top), prod)
+    # Behind first, so the principal overlaps them.
+    for (sc, dx, back), path in zip(SUPPORT, support):
+        try:
+            piece = trim(lift(Image.open(path)))
+        except Exception:
+            continue
+        sh_h = int(ph * sc)
+        sh_w = max(1, int(piece.width * sh_h / piece.height))
+        if sh_w > W * 0.34:
+            sh_w = int(W * 0.34)
+            sh_h = max(1, int(piece.height * sh_w / piece.width))
+        piece = piece.resize((sh_w, sh_h), Image.LANCZOS)
+        # Set back: lift toward the ground colour and soften, so it recedes
+        # instead of competing with the principal.
+        veil = Image.new('RGB', piece.size, TINTS[tint]['low'])
+        body = Image.blend(piece.convert('RGB'), veil, back * 0.55)
+        piece = Image.merge('RGBA', body.split() + (piece.getchannel('A').point(
+            lambda v, b=back: int(v * (1 - b * 0.30))),))
+        piece = piece.filter(ImageFilter.GaussianBlur(0.4 + back))
+        px_ = int(left + pw * dx)
+        px_ = max(int(W * 0.30), min(px_, W - int(sh_w * 0.55)))
+        canvas = Image.composite(Image.new('RGB', (W, H), (120, 112, 104)), canvas,
+                                 shadow(px_, sh_w, sh_h, int(70 * (1 - back))))
+        canvas.paste(piece, (px_, floor - sh_h), piece)
+
+    canvas = Image.composite(Image.new('RGB', (W, H), (118, 110, 102)), canvas,
+                             shadow(left, pw, ph, 112))
+    canvas.paste(principal, (left, floor - ph), principal)
     return canvas
 
 
@@ -154,10 +192,12 @@ def main():
     ap.add_argument('photo')
     ap.add_argument('out')
     ap.add_argument('--tint', default='warm', choices=sorted(TINTS))
+    ap.add_argument('--support', nargs='*', default=[],
+                    help='up to two more products from the category, set behind')
     a = ap.parse_args()
     if not os.path.exists(a.photo):
         raise SystemExit(f'no such photo: {a.photo}')
-    compose(a.photo, a.tint).save(a.out)
+    compose(a.photo, a.tint, a.support).save(a.out)
     print(f'{a.out}  {W}x{H}  from {os.path.basename(a.photo)}')
 
 

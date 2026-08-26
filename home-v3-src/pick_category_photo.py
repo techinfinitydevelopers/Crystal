@@ -172,6 +172,51 @@ def best_for(page, prods, tried=60):
     return best, how, len(hits)
 
 
+
+def best_group(page, prods, n=3, tried=70):
+    """The best n photographs for a category, each a different product.
+
+    A banner built from one product looked like a picture that had failed to
+    load -- a lone spoon rack adrift in cream next to the client's edge-to-edge
+    kitchen shots. A group fills the band and says "category" rather than
+    "item", so this returns a principal plus up to two to set behind it.
+
+    Different SKUs, not just different files: three frames of the same pan is
+    a photography contact sheet, not a category.
+    """
+    hits, how = resolve(page, prods)
+    cands = []
+    for p in hits:
+        sku = p.get('sku') or p.get('id')
+        for ref in [p.get('hero')] + list(p.get('gallery') or []):
+            if ref and not ref.startswith('http'):
+                fp = os.path.join(ROOT, ref)
+                if os.path.exists(fp):
+                    cands.append((os.path.getsize(fp), fp,
+                                  1 if ref == p.get('hero') else 0, sku))
+    cands.sort(reverse=True)
+    scored, seen = [], set()
+    for _, fp, is_hero, sku in cands:
+        if fp in seen:
+            continue
+        seen.add(fp)
+        if len(seen) > tried:
+            break
+        s = score_photo(fp)
+        if s:
+            scored.append((s[0] + 0.25 * is_hero, fp, sku, s[1]))
+    scored.sort(reverse=True)
+    out, used = [], set()
+    for sc, fp, sku, rep in scored:
+        if sku in used:
+            continue
+        used.add(sku)
+        out.append((sc, fp, rep))
+        if len(out) == n:
+            break
+    return out, how, len(hits)
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('pages', nargs='+')

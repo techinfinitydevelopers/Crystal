@@ -176,7 +176,7 @@
      the photograph so the product stays whole while the quiet side lands
      under the copy. apply_category_banner.py measures it; override it here if
      you disagree with what it chose. */
-  .hero.hero-banner { --banner-focus: 54%; min-height: clamp(430px, 60svh, 600px); justify-content: center; align-items: stretch; text-align: left; padding-top: clamp(120px, 15vh, 156px); padding-bottom: clamp(34px, 5vh, 58px); }
+  .hero.hero-banner { --banner-focus: 54%; --banner-focus-m: 78%; min-height: clamp(430px, 60svh, 600px); justify-content: center; align-items: stretch; text-align: left; padding-top: clamp(120px, 15vh, 156px); padding-bottom: clamp(34px, 5vh, 58px); }
   /* The red glow belongs to the photo-less hero; over a photograph it muddies
      the image without adding anything. */
   .hero.hero-banner::before { display: none; }
@@ -211,7 +211,7 @@
     /* 2:1, not the photo's own 5:1 -- a full-width 5:1 strip is only ~77px tall
        on a phone, too thin to read as a photograph. */
     .hero-media { position: relative; inset: auto; width: 100%; aspect-ratio: 2/1; max-height: 42svh; }
-    .hero-media img { object-position: 78% center; }
+    .hero-media img { object-position: var(--banner-focus-m, 78%) center; }
     /* Only a hairline fade at the foot. The generous bottom wash the desktop
        band uses would swallow the subject here, because this band is a third
        of the height and the subject sits in its lower half. */
@@ -1345,7 +1345,12 @@ h1, h2 { overflow-wrap: break-word; }
   countScan();
 
   function failsafeReveal() {
-    if (window.gsap) gsap.set("[data-split] .word, [data-fade], .hero-tile", { clearProps: "opacity,transform,x,y,xPercent,yPercent,scale" });
+    if (window.gsap) // #heroPre is animated by the hero timeline but carries neither
+      // data-fade nor data-split, so every rescue path missed it: open the
+      // page in a background tab and requestAnimationFrame is throttled, the
+      // timeline never finishes, and the breadcrumb stays at opacity 0 for
+      // good while everything around it is revealed.
+      gsap.set("[data-split] .word, [data-fade], .hero-tile, #heroPre", { clearProps: "opacity,transform,x,y,xPercent,yPercent,scale" });
     countEls.forEach(el => { if (!counted.has(el)) { counted.add(el); el.textContent = parseFloat(el.dataset.count); } });
   }
   if (document.hidden || !window.gsap || RM) failsafeReveal();
@@ -1486,5 +1491,56 @@ h1, h2 { overflow-wrap: break-word; }
 })();
 </script>
 <script src="enquiry.js"></script>
+<!-- ===== BANNER FROM THE DASHBOARD =====
+     The page ships with a banner of its own, and that is what renders. This
+     only asks the dashboard whether a newer one has been set for this page and
+     swaps it in if so.
+
+     It is written this way round on purpose. The website is static files in
+     git and the dashboard is a separate service with its own storage, so the
+     dashboard cannot write into the site. Shipping the file and treating the
+     dashboard as an optional upgrade means an edit goes live with no rebuild,
+     and the page still renders correctly if the dashboard is down, slow, or
+     has nothing for this page. Nothing here is awaited before paint. -->
+<script>
+(function () {
+  "use strict";
+  var hero = document.getElementById("hero");
+  if (!hero || !hero.classList.contains("hero-banner")) return;
+
+  var file = (location.pathname.split("/").pop() || "").replace(/\.html?$/i, "");
+  if (!file) return;
+  var slug = decodeURIComponent(file).trim().toLowerCase().replace(/\s+/g, "-");
+
+  var API = "https://crystal-production-eb2e.up.railway.app/api/banners.json";
+
+  fetch(API, { mode: "cors", credentials: "omit" })
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (data) {
+      var b = data && data.banners && data.banners[slug];
+      if (!b || !b.url) return;
+
+      // Decode before swapping. Replacing the src directly would blank the
+      // band for as long as the new file takes to arrive, which on a slow
+      // connection is worse than the banner the page already has.
+      var probe = new Image();
+      probe.onload = function () {
+        var img = hero.querySelector(".hero-media img");
+        var src = hero.querySelector(".hero-media source");
+        if (src) src.remove();          // the shipped webp must not win over this
+        if (img) img.src = b.url;
+        if (typeof b.focus === "number") {
+          hero.style.setProperty("--banner-focus", b.focus + "%");
+        }
+        if (typeof b.mobile_focus === "number") {
+          hero.style.setProperty("--banner-focus-m", b.mobile_focus + "%");
+        }
+      };
+      probe.src = b.url;
+    })
+    .catch(function () { /* the shipped banner stands */ });
+})();
+</script>
+
 </body>
 </html>

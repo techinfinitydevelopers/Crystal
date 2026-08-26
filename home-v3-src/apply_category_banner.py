@@ -233,7 +233,7 @@ def css_block(focus, mobile_focus):
      the photograph so the product stays whole while the quiet side lands
      under the copy. apply_category_banner.py measures it; override it here if
      you disagree with what it chose. */
-  .hero.hero-banner { --banner-focus: %(focus)d%%; min-height: clamp(430px, 60svh, 600px); justify-content: center; align-items: stretch; text-align: left; padding-top: clamp(120px, 15vh, 156px); padding-bottom: clamp(34px, 5vh, 58px); }
+  .hero.hero-banner { --banner-focus: %(focus)d%%; --banner-focus-m: %(mfocus)d%%; min-height: clamp(430px, 60svh, 600px); justify-content: center; align-items: stretch; text-align: left; padding-top: clamp(120px, 15vh, 156px); padding-bottom: clamp(34px, 5vh, 58px); }
   /* The red glow belongs to the photo-less hero; over a photograph it muddies
      the image without adding anything. */
   .hero.hero-banner::before { display: none; }
@@ -268,7 +268,7 @@ def css_block(focus, mobile_focus):
     /* 2:1, not the photo's own 5:1 -- a full-width 5:1 strip is only ~77px tall
        on a phone, too thin to read as a photograph. */
     .hero-media { position: relative; inset: auto; width: 100%%; aspect-ratio: 2/1; max-height: 42svh; }
-    .hero-media img { object-position: %(mfocus)d%% center; }
+    .hero-media img { object-position: var(--banner-focus-m, %(mfocus)d%%) center; }
     /* Only a hairline fade at the foot. The generous bottom wash the desktop
        band uses would swallow the subject here, because this band is a third
        of the height and the subject sits in its lower half. */
@@ -339,8 +339,8 @@ def install_css(src, block):
         src = re.sub(r'(\.hero\.hero-banner \{ --banner-focus: )\d+(%)',
                      lambda mm: mm.group(1) + re.search(r'--banner-focus: (\d+)%', block).group(1) + mm.group(2),
                      src, count=1)
-        src = re.sub(r'(\.hero-media img \{ object-position: )\d+(% center)',
-                     lambda mm: mm.group(1) + re.search(r'object-position: (\d+)% center', block).group(1) + mm.group(2),
+        src = re.sub(r'(--banner-focus-m: )\d+(%)',
+                     lambda mm: mm.group(1) + re.search(r'--banner-focus-m: (\d+)%', block).group(1) + mm.group(2),
                      src, count=1)
         return src, 'refreshed'
     anchor = '  /* ===== CATEGORY NAV ===== */'

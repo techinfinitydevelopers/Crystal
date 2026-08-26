@@ -1047,3 +1047,79 @@ and Wood-Range (31 products, all shot on dark teak, so nothing lifts).
 `the Browser pane is not displayed, so the page is not compositing frames`.
 A pane that is not on screen produces blank captures of pages that render
 perfectly. Verify with DOM measurement and offline compositing.
+
+## 2026-08-26 (20) — A hidden bug, fuller banners, and banners from the dashboard
+
+The client said several categories still had no banner and that something
+looked wrong. Both were true, and looking properly turned up a third thing
+neither of us had noticed.
+
+### The breadcrumb could be invisible on 46 pages
+
+Measured on the live site, in the client's own browser: `#heroPre` sitting at
+`opacity: 0.2665`, frozen part-way through its reveal.
+
+`failsafeReveal()` — the net that reveals everything when the animation cannot
+run — clears props on `[data-split] .word`, `[data-fade]` and `.hero-tile`.
+`#heroPre` is animated by the hero timeline but carries **none** of those
+attributes, so every rescue path missed it. Whenever the failsafe fires — the
+page opened in a **background tab**, where requestAnimationFrame is throttled
+and the timeline never finishes; GSAP blocked or slow; reduced motion — the
+category breadcrumb stayed at `opacity: 0` for good while everything around it
+appeared normally.
+
+Opening a link in a new background tab is ordinary behaviour, so this was
+firing for real visitors. It predates this week's work and affects **46 pages**.
+
+Verified the fix the same way it was found: load the page in a hidden tab, and
+the eyebrow now reports `opacity: 1`, `transform: none`, where production
+reported `0`.
+
+### The generated banners looked like a failed image load
+
+Side by side with the client's photographs the difference was obvious: theirs
+fill the frame edge to edge; mine had one small object adrift on pale cream,
+about 70% of the band empty.
+
+The composer now builds a **group** — a principal product allowed to bleed off
+the right edge the way the shot banners do, with one or two more from the same
+category set behind it, lightened and softened so they read as depth rather
+than clutter. Different SKUs, not three frames of the same pan. All 21 rebuilt;
+the client's own eleven were not touched.
+
+### Uploaded files were never served in production
+
+Found while wiring the dashboard: `django.conf.urls.static.static()` returns an
+**empty list** when `DEBUG` is off, so nothing under `/media/` was routed at
+all. Confirmed against the live dashboard — `/static/` answered 200, `/media/`
+answered 404. Whitenoise covers static files only; it fingerprints at build
+time, which uploaded files cannot be.
+
+So **nothing an admin uploaded had ever been visible** — not just banners, every
+product photo too. `/media/` now has its own route.
+
+### Banners are editable from the dashboard
+
+The website is static files in git and the dashboard is a separate service with
+its own volume, so the dashboard cannot write into the site. It works the other
+way round instead: each page ships with its banner and, on load, asks the
+dashboard whether a newer one has been set for it. If so it swaps it in.
+
+- An edit is live immediately, with no rebuild and no publish step.
+- If the dashboard is down, slow, or has nothing for that page, the shipped
+  banner stands. Nothing is awaited before paint.
+- The new image is decoded before it is swapped in, so a slow connection never
+  blanks the band.
+- Both crops are CSS variables now (`--banner-focus`, `--banner-focus-m`), so
+  the dashboard can move the phone crop as well as the desktop one.
+
+`CategoryBanner` holds the page, the image and the two crops.
+`GET /api/banners.json` is one small cached document rather than a request per
+page. The admin renders **the real hero band** — same proportions, the same two
+scrims copied from the live CSS — and moves it live as the sliders move, plus
+shows a newly chosen file before it is uploaded and warns when it is too small
+or too square. A percentage in a number box tells nobody where the pan lands.
+
+Verified end to end against a local dashboard: `/media/` served 200, the page
+derived its own slug, dropped the shipped `<source>`, swapped the image, and
+the computed `object-position` followed the dashboard's value (76% → 55%).

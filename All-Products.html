@@ -1277,7 +1277,12 @@ h1, h2 { overflow-wrap: break-word; }
   countScan();
 
   function failsafeReveal() {
-    if (window.gsap) gsap.set("[data-split] .word, [data-fade], .hero-tile", { clearProps: "opacity,transform,x,y,xPercent,yPercent,scale" });
+    if (window.gsap) // #heroPre is animated by the hero timeline but carries neither
+      // data-fade nor data-split, so every rescue path missed it: open the
+      // page in a background tab and requestAnimationFrame is throttled, the
+      // timeline never finishes, and the breadcrumb stays at opacity 0 for
+      // good while everything around it is revealed.
+      gsap.set("[data-split] .word, [data-fade], .hero-tile, #heroPre", { clearProps: "opacity,transform,x,y,xPercent,yPercent,scale" });
     countEls.forEach(el => { if (!counted.has(el)) { counted.add(el); el.textContent = parseFloat(el.dataset.count); } });
   }
   if (document.hidden || !window.gsap || RM) failsafeReveal();

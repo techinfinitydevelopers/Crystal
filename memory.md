@@ -259,3 +259,36 @@ Not just Browser-pane tabs (see above) — the per-session scratchpad temp direc
 - The real error is `the Browser pane is not displayed, so the page is not
   compositing frames`. An off-screen pane returns blank captures of pages that
   render perfectly. Not a page bug. Verify via DOM + offline PIL compositing.
+
+## The invisible breadcrumb (2026-08-26)
+- `#heroPre` is animated by the hero GSAP timeline but carries neither
+  `data-fade` nor `data-split`, so `failsafeReveal()` missed it. Any time the
+  failsafe fires — **page opened in a background tab** (rAF throttled, timeline
+  never finishes), GSAP blocked, or reduced motion — the breadcrumb stayed at
+  `opacity: 0` permanently while everything else appeared.
+- Fixed across 46 pages by adding `#heroPre` to the failsafe selector.
+- **How to reproduce/verify:** load the page in a hidden tab and read
+  `getComputedStyle(pre).opacity`. Broken = 0 or a frozen fraction. Fixed = 1.
+
+## Uploaded media was never served in production (2026-08-26)
+- `django.conf.urls.static.static()` returns an EMPTY list when DEBUG is off,
+  so `/media/` was not routed at all. Whitenoise covers STATIC only.
+- Confirmed live: `/static/` 200, `/media/` 404. **Every dashboard upload —
+  product photos included — was invisible.** `/media/` now has its own
+  `re_path(... django.views.static.serve ...)`.
+
+## Dashboard-editable banners (2026-08-26)
+- The site is static files in git; the dashboard is a separate service. The
+  dashboard CANNOT write into the site, so the direction is inverted: each page
+  ships its banner and asks `/api/banners.json` on load whether a newer one
+  exists, swapping only if so. No rebuild, and the page is fine if the
+  dashboard is down.
+- Both crops are CSS variables: `--banner-focus`, `--banner-focus-m`.
+- The admin preview reproduces the hero band using scrim gradients COPIED from
+  the site CSS — change one and you must change the other or the preview lies.
+
+## Composed banners need a GROUP, not one product (2026-08-26)
+- One object on a wide pale field reads as a failed image load next to the
+  client's edge-to-edge photographs. `compose_product_banner.py` now places a
+  principal (bleeding off the right edge) plus 1-2 more from the category set
+  back and lightened. Different SKUs, not frames of the same product.
