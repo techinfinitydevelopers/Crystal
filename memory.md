@@ -188,3 +188,15 @@ Not just Browser-pane tabs (see above) — the per-session scratchpad temp direc
 - The healthcheck path is exempt from `SECURE_SSL_REDIRECT`; the probe arrives
   over plain HTTP and a 301 is recorded as a failure.
 - Watch Paths are still unset, so a push rebuilds **both** services.
+
+## Site-wide heading size (2026-08-26)
+- One block controls every h1/h2 on the site; it lives in all 68 HTML pages.
+  Currently **37px**, phones `clamp(26px, 6.4vw, 34px)`.
+- **Change it in four places, not one**: the 68 pages *and*
+  `home-v3-src/heading-size.css`, `apply_heading_size.py`, `build_v3.py`.
+  `index.html` is generated, so missing the builder means the next home-page
+  rebuild silently reverts it.
+- `home-v3-src/apply_heading_size.py` re-applies the block across all pages;
+  it matches on the marker comment `HEADING SIZE — every h1 and h2`.
+- Deliberate exception: `.v3 .map3-right .v-head` stays
+  `clamp(22px, 2vw, 30px)` — the client asked for that heading to be smaller.

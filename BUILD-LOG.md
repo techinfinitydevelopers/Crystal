@@ -848,3 +848,31 @@ safe no-op, and the enquiry is still stored.
   commit and push by hand. The design is in the plan; the code is not written.
 - git-lfs remains ruled out: the deploy does not run `git lfs pull`, so an
   LFS-tracked image is served as a 130-byte pointer.
+
+## 2026-08-26 (18) — Headings come down to 37px
+
+The client asked for `font-size: 37px !important` on every h1 and h2 across the
+site. A site-wide heading block already existed — it had pinned them at 54px —
+so this was a change to that one rule rather than 68 separate hunts.
+
+Changed in all 68 pages **and** in the three files the home page is generated
+from: `home-v3-src/heading-size.css`, `apply_heading_size.py` and `build_v3.py`.
+Without that second half the next `build_v3.py` run would have silently put
+`index.html` back to 54px, and it would have looked like the change had been
+reverted by hand.
+
+The phone step came down with it, `clamp(32px, 8vw, 46px)` →
+`clamp(26px, 6.4vw, 34px)`: 37px still overflows a multi-word heading in a
+360px viewport, so the mobile branch stays proportional rather than being
+dropped.
+
+One heading keeps its own smaller cap — the map panel's
+`clamp(22px, 2vw, 30px)` — because that is the exact text the client asked to
+shrink earlier ("Available In Multiple Countries"). Raising it to 37px now
+would have undone a request rather than fulfilled one.
+
+**Verified** at 1280px on seven page types (home, About, Product,
+All-Products, Contact, Enquiry, Blog): every heading measures 37px, 43 of 43
+across those pages, with the single intentional exception above. 0 files still
+contain `font-size: 54px`. Re-running the home builder still emits 37px. The
+staged diff is exactly six lines per file and nothing else.
