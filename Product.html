@@ -653,7 +653,6 @@ h1, h2 { overflow-wrap: break-word; }
       <div class="info-cta">
         <button type="button" class="btn btn-dark enq-add" id="enqAddBtn" data-qty-from="#qtyInput"><span class="enq-lbl">Enquire Now</span> <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></button>
         <button type="button" class="btn btn-red enq-buy" id="buyNowBtn">Buy Now <span class="arr">↗</span></button>
-        <a class="btn btn-ghost" id="brandAllBtn" href="#">View All <span id="brandAllName"></span></a>
       </div>
       <div class="mk-inline" id="mkInline"></div>
       <ul class="hi-list" id="hiList"></ul>
@@ -992,8 +991,6 @@ h1, h2 { overflow-wrap: break-word; }
   document.getElementById("pTitle").textContent = prod.n;
   document.getElementById("pSku").textContent = prod.sku ? "Code: " + prod.sku.toUpperCase() : "";
   document.getElementById("pIntro").textContent = prod.intro;
-  document.getElementById("brandAllName").textContent = brand.name;
-  document.getElementById("brandAllBtn").href = "All-Products.html?brand=" + prod.b;
   // ---- Enquire / Buy / quantity wiring ----
   var _pid = prod.id || (new URLSearchParams(location.search)).get("p") || "";
   function wireEnq(btn, p, gal) { if (!btn) return; p = p || prod; gal = gal || gallery; btn.dataset.id = p.id; btn.dataset.name = p.n; btn.dataset.brand = brand.name; btn.dataset.cat = CAT_LABEL[p.c] || p.c; btn.dataset.img = gal[0] || ""; }
