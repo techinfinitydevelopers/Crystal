@@ -152,6 +152,79 @@
     .hero-tile:nth-child(even) { transform: none; }
   }
 
+
+  /* ===== BANNER HERO =====
+     The category banner is a very wide, short photograph (roughly 5:1). Two
+     things follow from that shape.
+
+     It cannot be a full-height hero background: cover-cropping 5:1 into a
+     92svh box magnifies it about three and a half times, so you get a blurry
+     slab of one pan. So the hero comes down to a band the photo can fill.
+
+     And it cannot be a plain strip under the nav either -- at 5:1 a 1280px
+     screen gets ~250px, most of it hidden behind the transparent header, and
+     it reads as an advert someone left at the top. So the photo IS the hero,
+     with the copy sitting inside it.
+
+     These banners are shot with the product to one side and empty counter to
+     the other, which is where the text goes. The scrim does not depend on
+     that holding true -- it fades to solid white behind the copy, so the text
+     stays readable whatever the photo does at that crop.
+
+     --banner-focus is the one knob per page: it slides the crop window along
+     the photograph so the product stays whole while the quiet side lands
+     under the copy. apply_category_banner.py measures it; override it here if
+     you disagree with what it chose. */
+  .hero.hero-banner { --banner-focus: 70%; min-height: clamp(430px, 60svh, 600px); justify-content: center; align-items: stretch; text-align: left; padding-top: clamp(120px, 15vh, 156px); padding-bottom: clamp(34px, 5vh, 58px); }
+  /* The red glow belongs to the photo-less hero; over a photograph it muddies
+     the image without adding anything. */
+  .hero.hero-banner::before { display: none; }
+
+  .hero-media { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
+  .hero-media picture { display: contents; }
+  .hero-media img { width: 100%; height: 100%; object-fit: cover; object-position: var(--banner-focus, 74%) center; display: block; }
+  /* Two washes. Left-to-right for the copy; and top-to-bottom because the
+     header is fixed, transparent and dark-texted (#1A1A1A), so it now hangs
+     over the photograph -- without the top band its links sit on whatever the
+     picture happens to put there. The foot fades so the band resolves into
+     the page instead of ending on a hard line. */
+  .hero-media::after { content: ""; position: absolute; inset: 0; background:
+      linear-gradient(94deg, #fff 0%, rgba(255,255,255,0.972) 32%, rgba(255,255,255,0.885) 45%, rgba(255,255,255,0.34) 63%, rgba(255,255,255,0) 78%),
+      linear-gradient(to bottom, #fff 0%, rgba(255,255,255,0.90) 14%, rgba(255,255,255,0.46) 23%, rgba(255,255,255,0) 37%, rgba(255,255,255,0) 78%, #fff 100%); }
+
+  .hero-banner .wrap { position: relative; z-index: 4; display: flex; align-items: center; }
+  .hero-banner .hero-copy { max-width: 46ch; }
+  .hero-banner .pre { margin-bottom: clamp(12px, 1.8vw, 20px); }
+  .hero-banner h1 { margin: 0; max-width: 14ch; }
+  .hero-banner .hero-sub { margin: clamp(16px, 2vw, 22px) 0 clamp(20px, 2.6vw, 28px); max-width: 46ch; }
+  .hero-banner .hero-cta { justify-content: flex-start; }
+  .hero-banner .scroll-hint { left: auto; right: clamp(20px, 4vw, 54px); transform: none; }
+
+  /* Under about 860px the photo has no empty side left to write on -- the crop
+     is too tight for the copy to sit over it without covering the product. So
+     it stops being a backdrop and becomes a picture above the words. */
+  @media (max-width: 860px) {
+    /* The header occupies 32-96px. Stacked, the photo would start under it
+       with no wash to keep the links legible, so it starts below it. */
+    .hero.hero-banner { display: flex; flex-direction: column; justify-content: flex-start; min-height: 0; padding-top: 104px; padding-bottom: clamp(30px, 6vw, 44px); text-align: center; }
+    /* 2:1, not the photo's own 5:1 -- a full-width 5:1 strip is only ~77px tall
+       on a phone, too thin to read as a photograph. */
+    .hero-media { position: relative; inset: auto; width: 100%; aspect-ratio: 2/1; max-height: 42svh; }
+    .hero-media img { object-position: 77% center; }
+    /* Only a hairline fade at the foot. The generous bottom wash the desktop
+       band uses would swallow the subject here, because this band is a third
+       of the height and the subject sits in its lower half. */
+    .hero-media::after { background: linear-gradient(to bottom, rgba(255,255,255,0) 88%, #fff 100%); }
+    /* No tucking the copy up under the photo: the foot fade is a hairline
+       here, so an overlapping eyebrow lands on bare picture. */
+    .hero-banner .wrap { justify-content: center; margin-top: clamp(22px, 5vw, 34px); }
+    .hero-banner .hero-copy { max-width: none; }
+    .hero-banner h1 { max-width: none; margin-inline: auto; }
+    .hero-banner .hero-sub { margin-inline: auto; }
+    .hero-banner .hero-cta { justify-content: center; }
+    .hero-banner .scroll-hint { display: none; }
+  }
+
   /* ===== CATEGORY NAV ===== */
   .cat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
   .cat-card { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; padding: 24px 22px; border: 1.5px solid var(--line); border-radius: var(--r); background: var(--white); color: var(--ink); cursor: pointer; text-align: left; transition: transform .3s cubic-bezier(.2,.8,.2,1), box-shadow .3s, border-color .3s, background .3s; }
@@ -637,16 +710,27 @@ h1, h2 { overflow-wrap: break-word; }
 <span id="top"></span>
 
 <!-- ===== HERO ===== -->
-<section class="hero" id="hero">
+<section class="hero hero-banner" id="hero">
+  <!-- Decorative: the copy beside it already says what this page is, so the
+       photo carries no alt text a screen reader would have to sit through. -->
+  <div class="hero-media" aria-hidden="true">
+    <picture>
+      <source srcset="category-banners/cleaning-aid-spin-mops.webp" type="image/webp">
+      <img src="category-banners/cleaning-aid-spin-mops.jpg" alt="" fetchpriority="high" decoding="async">
+    </picture>
+  </div>
   <div class="wrap">
-    <div class="pre" id="heroPre"><span class="pip"></span><span id="heroPreTxt">SparkMate · Spin Mops</span></div>
-    <h1 id="heroTitle" data-split>Spin Clean, <span class="grad">Sparkling Floors</span></h1>
-    <p class="hero-sub" id="heroSub" data-fade>9 SparkMate spin mop essentials — sets, buckets, rods and refills — engineered for fast, effortless floor cleaning in homes across India since 1971.</p>
-    <div class="hero-cta" data-fade>
-      <a href="#browse" class="btn btn-red">Browse Spin Mops <span class="arr">↗</span></a>
-      <a href="Cleaning-Aid.html" class="btn btn-dark">← All Cleaning Aid</a>
+    <div class="hero-copy">
+      <div class="pre" id="heroPre"><span class="pip"></span><span id="heroPreTxt">SparkMate · Spin Mops</span></div>
+      <h1 id="heroTitle" data-split>Spin Clean, <span class="grad">Sparkling Floors</span></h1>
+      <p class="hero-sub" id="heroSub" data-fade>9 SparkMate spin mop essentials — sets, buckets, rods and refills — engineered for fast, effortless floor cleaning in homes across India since 1971.</p>
+      <div class="hero-cta" data-fade>
+        <a href="#browse" class="btn btn-red">Browse Spin Mops <span class="arr">↗</span></a>
+        <a href="Cleaning-Aid.html" class="btn btn-dark">← All Cleaning Aid</a>
+      </div>
     </div>
   </div>
+
     <div class="scroll-hint"><span>Scroll</span><span class="ln"></span></div>
 </section>
 
