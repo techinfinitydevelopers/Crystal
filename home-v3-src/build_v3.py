@@ -85,7 +85,7 @@ if anchor not in html:
     raise SystemExit("enquiry.js anchor missing")
 html = html.replace(anchor, "<script>\n" + v3js + "</script>\n" + anchor, 1)
 
-# every h1/h2 on the site is pinned to 54px by a block appended to each
+# every h1/h2 on the site is pinned to 37px by a block appended to each
 # page's stylesheet; a rebuild must not drop it from the home page
 HEAD_BLOCK = io.open(os.path.join(HERE, "heading-size.css"), encoding="utf-8").read()
 i = html.rfind("</style>")
