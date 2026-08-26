@@ -173,6 +173,12 @@
   /* Marketplace wordmarks sit in place of the plain text label; the alt text
      keeps the link readable if the file is missing. */
   .mk-inline a.mk-brand { text-decoration: none; display: inline-flex; align-items: center; }
+  /* Deliberately loud: this is the client's cue that a product still
+     needs its Amazon link, so it has to be impossible to miss. */
+  .mk-missing { display: inline-flex; align-items: center; gap: 7px; padding: 6px 13px;
+    border-radius: 999px; background: rgba(237,51,56,0.10); border: 1.5px solid var(--red);
+    color: var(--red); font-weight: 700; font-size: 12.5px; letter-spacing: .01em; }
+  .mk-missing::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--red); }
   .mk-inline a.mk-brand img { height: 19px; width: auto; display: block; }
   .mk-inline a.mk-brand:hover img { opacity: .75; }
   .pdp-sticky { position: fixed; left: 0; right: 0; bottom: 0; z-index: 90; display: none; gap: 10px; padding: 12px 16px calc(12px + env(safe-area-inset-bottom)); background: rgba(255,255,255,0.96); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border-top: 1.5px solid var(--line); }
@@ -997,14 +1003,26 @@ h1, h2 { overflow-wrap: break-word; }
   wireEnq(document.getElementById("enqAddBtn"));
   wireEnq(document.getElementById("sEnq"));
   var AMAZON_LOGO = "brand-logos/amazon.svg";
+  // Where a product is genuinely listed on Amazon we show the logo. Where it is
+  // NOT, the page used to show the same logo pointing at an Amazon SEARCH for
+  // the product name -- which reads as "this is on Amazon" when it is not, and
+  // hid from the client which products still need a link. A missing link now
+  // says so, in red, so it is obvious on the page itself.
+  function marketplaceRow(p) {
+    var link = (p.alink && p.alink !== "No") ? p.alink : "";
+    if (!link) {
+      return '<span class="mk-missing">Amazon link not added</span>';
+    }
+    return "Available on: "
+      + '<a class="mk-brand" href="' + link + '" target="_blank" rel="noopener nofollow sponsored">'
+      + '<img src="' + AMAZON_LOGO + '" alt="Amazon" onerror="this.parentNode.textContent=&quot;Amazon&quot;">'
+      + '</a>';
+  }
+
   function wireBuy(btn, p) { if (!btn) return; btn.dataset.name = p.n; if (p.alink && p.alink !== "No") { btn.dataset.mk = JSON.stringify([{ name: "Amazon", url: p.alink, logo: AMAZON_LOGO }]); } else { delete btn.dataset.mk; } }
   wireBuy(document.getElementById("buyNowBtn"), prod);
   wireBuy(document.getElementById("sBuy"), prod);
-  var _q = encodeURIComponent(prod.n);
-  var _amzHref = (prod.alink && prod.alink !== "No") ? prod.alink : ("https://www.amazon.in/s?k=" + _q);
-  document.getElementById("mkInline").innerHTML = "Available on: " +
-    '<a class="mk-brand" href="' + _amzHref + '" target="_blank" rel="noopener nofollow sponsored">'
-      + '<img src="' + AMAZON_LOGO + '" alt="Amazon" onerror="this.parentNode.textContent=&quot;Amazon&quot;">' + '</a>';
+  document.getElementById("mkInline").innerHTML = marketplaceRow(prod);
   (function () { var qi = document.getElementById("qtyInput"); var mn = document.getElementById("qtyMinus"), pl = document.getElementById("qtyPlus"); if (qi && mn && pl) { mn.onclick = function () { qi.value = Math.max(1, (parseInt(qi.value, 10) || 1) - 1); }; pl.onclick = function () { qi.value = (parseInt(qi.value, 10) || 1) + 1; }; } })();
 
   // Size selectable both via gallery thumbnails (one photo per size) and these text pills.
@@ -1049,11 +1067,7 @@ h1, h2 { overflow-wrap: break-word; }
     wireEnq(document.getElementById("sEnq"), newP, newGallery);
     wireBuy(document.getElementById("buyNowBtn"), newP);
     wireBuy(document.getElementById("sBuy"), newP);
-    const _q2 = encodeURIComponent(newP.n);
-    const _amzHref2 = (newP.alink && newP.alink !== "No") ? newP.alink : ("https://www.amazon.in/s?k=" + _q2);
-    document.getElementById("mkInline").innerHTML = "Available on: " +
-      '<a class="mk-brand" href="' + _amzHref2 + '" target="_blank" rel="noopener nofollow sponsored">'
-      + '<img src="' + AMAZON_LOGO + '" alt="Amazon" onerror="this.parentNode.textContent=&quot;Amazon&quot;">' + '</a>';
+    document.getElementById("mkInline").innerHTML = marketplaceRow(newP);
     document.getElementById("ovLead").textContent = newP.intro;
     document.getElementById("ovDesc").innerHTML = `<p>${newP.desc}</p>`;
     document.getElementById("ovImg").src = newGallery[1] || newGallery[0];
@@ -1159,7 +1173,7 @@ h1, h2 { overflow-wrap: break-word; }
   /* ---------- CATALOG BOOTSTRAP: load real product data, then render ---------- */
   (async function loadCatalog() {
     try {
-      const res = await fetch("product-data/products.json");
+      const res = await fetch("product-data/products.json", { cache: "no-cache" });
       const data = await res.json();
       P = data.products.map(p => ({
         id: p.id, sku: p.sku || p.id || "", n: p.name, b: p.brand, c: p.category, sub: p.subcategory, col: p.collection || p.subcategory || "",
@@ -1207,7 +1221,7 @@ h1, h2 { overflow-wrap: break-word; }
       setTimeout(() => input.focus(), 50);
       if (!loaded) {
         loaded = true;
-        fetch("product-data/products.json").then(r => r.json()).then(data => {
+        fetch("product-data/products.json", { cache: "no-cache" }).then(r => r.json()).then(data => {
           items = (data.products || []).map(p => ({
             name: p.name, cat: p.subcategory || p.category || "", brand: p.brand || "",
             img: p.hero || "about-assets/placeholder.svg", id: p.id || p.sku || "",

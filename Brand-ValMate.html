@@ -659,7 +659,7 @@ h1, h2 { overflow-wrap: break-word; }
       setTimeout(() => input.focus(), 50);
       if (!loaded) {
         loaded = true;
-        fetch("product-data/products.json").then(r => r.json()).then(data => {
+        fetch("product-data/products.json", { cache: "no-cache" }).then(r => r.json()).then(data => {
           items = (data.products || []).map(p => ({
             name: p.name, cat: p.subcategory || p.category || "", brand: p.brand || "",
             img: p.hero || "about-assets/placeholder.svg", id: p.id || p.sku || "",

@@ -1100,7 +1100,7 @@ h1, h2 { overflow-wrap: break-word; }
   /* ---------- CATALOG BOOTSTRAP: load real product data, then render ---------- */
   (async function loadCatalog() {
     try {
-      const res = await fetch("product-data/products.json");
+      const res = await fetch("product-data/products.json", { cache: "no-cache" });
       const data = await res.json();
       // Merge same-product size variants (e.g. 14/16/18 CM) into a single listing card;
       // the full size range is selectable on the product detail page instead.
@@ -1182,7 +1182,7 @@ h1, h2 { overflow-wrap: break-word; }
       setTimeout(() => input.focus(), 50);
       if (!loaded) {
         loaded = true;
-        fetch("product-data/products.json").then(r => r.json()).then(data => {
+        fetch("product-data/products.json", { cache: "no-cache" }).then(r => r.json()).then(data => {
           items = (data.products || []).map(p => ({
             name: p.name, cat: p.subcategory || p.category || "", brand: p.brand || "",
             img: p.hero || "about-assets/placeholder.svg", id: p.id || p.sku || "",

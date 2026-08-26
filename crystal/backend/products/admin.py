@@ -633,16 +633,33 @@ class ProductAdmin(admin.ModelAdmin):
             return self._pill('✓ Link', True)
         return self._pill('No video', False)
 
-    @admin.display(description='Amazon?', ordering='amazon_link')
+    @admin.display(description='Amazon', ordering='amazon_link')
     def amazon_status(self, obj):
+        """The Amazon mark when the product is listed, a red flag when it is not.
+
+        A green tick said "link present" without saying where to, and said
+        nothing useful at a glance across a hundred rows. The logo reads
+        instantly, and the red flag matches what the website now shows on a
+        product with no link, so the two views agree.
+        """
         if obj.amazon_link:
             return format_html(
-                '<a href="{}" target="_blank" rel="noopener" style="background:#dcfce7;'
-                'color:#166534;padding:2px 9px;border-radius:100px;font-weight:700;'
-                'font-size:12px;text-decoration:none;">✓ Link</a>',
-                obj.amazon_link,
+                '<a href="{}" target="_blank" rel="noopener" title="{}" '
+                'style="display:inline-flex;align-items:center;gap:6px;'
+                'padding:3px 10px;border-radius:100px;background:#fff;'
+                'border:1px solid #e1e1e1;text-decoration:none;">'
+                '<img src="{}" alt="Amazon" style="height:15px;display:block;">'
+                '</a>',
+                obj.amazon_link, obj.amazon_link,
+                static('marketplace-logos/amazon.svg'),
             )
-        return self._pill('No link', False)
+        return format_html(
+            '<span style="display:inline-flex;align-items:center;gap:6px;'
+            'padding:3px 10px;border-radius:100px;background:rgba(237,51,56,.10);'
+            'border:1.5px solid #ED3338;color:#ED3338;font-weight:700;font-size:12px;">'
+            '<span style="width:7px;height:7px;border-radius:50%;background:#ED3338;"></span>'
+            'No link</span>'
+        )
 
     # ── Form field helpers ──────────────────────────────────────────────
 
