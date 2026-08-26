@@ -109,3 +109,82 @@ Not just Browser-pane tabs (see above) — the per-session scratchpad temp direc
 - Flags: `--check` (diff only, writes nothing), `--out PATH`. Writes temp file + `os.replace` (atomic), preserves file's SKU order + top-level metadata, refreshes `generated_at`, appends new SKUs after.
 - Round-trip verified 2026-08-25: 531/531 entries, 0 real diffs; only the 8 known amazon_link placeholder products (`"No"`/`""` in file -> `null` in export: LI007, LI008, LI009, VML-002, CL-804, CLCL-003, CLMK-015, CWB042). Note: the file uses `null` (not `""`) for the other 213 link-less products, so export emits `null` for empty links to match.
 - Older `export_products_json` command only handled dashboard_admin entries; `export_to_json` is the full-catalogue exporter to use going forward.
+
+## Variants are now parent + sizes, not sibling products (2026-08-26)
+- 29 `variant_group`s collapsed: one parent `Product` holds N `ProductVariant`
+  rows, each owning its photos via `ProductImage.variant`. Active products
+  530 -> 464 (435 standalone + 29 parents holding 95 sizes). 66 siblings are
+  **deactivated, not deleted** — that is also the rollback.
+- `ProductVariant` carries the fields that differ per size: `sku` (a FULL sku —
+  base+suffix cannot rebuild the real ones, `LI008` does not start with
+  `LI007`), `display_name`, `highlight`, `description`, `tags`, `features`,
+  `amazon_link`, `price`, `video`, `video_url`, `image_url`, `match_tier`,
+  `is_active`. **Blank/NULL means "inherit from the parent"**, so the JSON
+  fields default to `None`, never `[]`.
+- Measured, and the reason the model had to grow: within a group the Amazon
+  link differs in **19 of 29** groups and the video in 7. Copying the parent's
+  values onto every size would have destroyed both.
+- `collapse_variant_groups.py`: `--dry-run`, `--group vg-09`, `--snapshot`,
+  refuses without `--i-have-a-backup`, idempotent (re-running is a no-op).
+  It **refuses** a group where a size owns no photos and no `image_url` while
+  the parent has one — collapsing there would show a different product's photo.
+- **Proof of safety, and how to re-prove it after any change:**
+  `python manage.py export_to_json --check` must print `Products with real
+  diffs: 0` and 530 entries on both sides. Stronger: export to a scratch file
+  before and after and diff all 530 entries key-by-key including `hero`, the
+  ordered `gallery`, `filters`, `variant_label`, `variant_order` and `id`.
+- **Production has NOT been collapsed** as of 2026-08-26 — only the local DB.
+
+## Dashboard gotchas worth not rediscovering (2026-08-26)
+- jazzmin 3 is **AdminLTE 4 on Bootstrap 5**. AdminLTE-3 selectors
+  (`.content-wrapper`, `.main-sidebar`) match nothing. The real layout is
+  `.app-wrapper` / `.app-header` / `.app-sidebar` / `.app-content`, and colour
+  comes from Bootstrap CSS **variables**, not classes.
+- It renders `<html data-bs-theme="dark">` unless `JAZZMIN_SETTINGS`
+  `default_theme_mode` says otherwise. Fix the mode; do not fight it in CSS.
+- There is **no `.submit-row`** — jazzmin renders `#jazzy-actions`. Any rule
+  targeting `.submit-row` silently does nothing.
+- select2 here is `.select2-container--admin-autocomplete`, not `--default`.
+- select2's absolutely-positioned mirror `<select>` is the usual cause of
+  horizontal page overflow in this admin.
+- `image_url` / `video_url` hold **site-relative paths**, so they must not be
+  `URLField`s — that made 491 products unsaveable with "Enter a valid URL".
+- Emitting such a path raw into an `<img src>` makes the browser request
+  `/admin/products/product/<path>`, which Django's legacy catch-all reads as an
+  object id; the failed lookup queues a "product doesn't exist" banner that
+  appears on the *next* page. Resolve site content against `PUBLIC_SITE_URL`.
+- A custom inline template must keep Django's formset contract:
+  `data-inline-type`, `<prefix>-group`, `<prefix>-empty`, the management form,
+  pk/fk hidden fields. Break one and "Add another" dies with no error. Copy the
+  scaffold from jazzmin's own `admin/edit_inline/stacked.html`.
+- jazzmin allows exactly one `custom_css`; a second sheet goes in via `@import`
+  at the top of the first.
+
+## Enquiries reach a human now (2026-08-26)
+- Before this the form only did `console.log(payload)` behind a TODO — the
+  success screen and reference number were shown but **nothing was sent
+  anywhere**, so every enquiry made through the site was lost.
+- `Enquiry.html` posts to `POST /api/enquiry/` on the dashboard service.
+  `enquiry/emails.py` sends a thank-you to the customer and a notification to
+  `ADMIN_NOTIFICATION_EMAIL` with reply-to set to the customer.
+- Email failure never fails the submission; the page never shows success for a
+  request that failed.
+- **Still needs SMTP env vars** (`EMAIL_BACKEND`, `EMAIL_HOST`,
+  `EMAIL_HOST_USER`, `EMAIL_HOST_PASSWORD`, `DEFAULT_FROM_EMAIL`). Until then
+  the console backend applies — enquiries still save, mail just is not sent.
+- CORS must list the website origin or the browser blocks the POST outright.
+
+## Deployment shape (2026-08-26)
+- Two Railway services from one repo, separated only by Root Directory:
+  website at repo root, dashboard at `crystal/backend`
+  (`https://crystal-production-eb2e.up.railway.app`), plus Postgres and a
+  volume at `/app/media`.
+- `SECRET_KEY` self-provisions to `media/.secret_key` on the volume — nobody
+  has to hand-carry one.
+- In the dashboard container Python is at `/opt/venv/bin/python`; plain
+  `python` has no Django.
+- Migrations run as `preDeployCommand`, `collectstatic` as the build command —
+  running `migrate` at build time fails, since no database is reachable then.
+- The healthcheck path is exempt from `SECURE_SSL_REDIRECT`; the probe arrives
+  over plain HTTP and a 301 is recorded as a failure.
+- Watch Paths are still unset, so a push rebuilds **both** services.

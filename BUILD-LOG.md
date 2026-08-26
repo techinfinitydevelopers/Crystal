@@ -695,3 +695,156 @@ files.
 Two things called out in DEPLOY.md that cost data if skipped: Postgres must be
 added (SQLite lives in the container and is wiped every deploy), and a volume
 mounted at `/app/media` (or dashboard-uploaded photos vanish the same way).
+
+## 2026-08-25/26 (17) — The dashboard becomes usable, and variants become real
+
+The client's ask, in their words: the dashboard should show what the site
+shows — one product with its sizes, each size's own photos and video — and it
+should look like Shopify rather than a Django form. Along the way five things
+turned out to be broken in ways that would have bitten on first real use.
+
+### Variants: 29 groups collapsed, website untouched
+
+`products.json` was already flattened — every size its own entry, joined only
+by a shared `variant_group`. The dashboard had imported that shape, so an
+eight-size kadai was eight separate products, each with one decorative
+one-row variant, and **none of the 2,474 photos was linked to a size**.
+
+Measured what actually differs inside a group before designing anything:
+brand, category, subcategory, collection and gst_pct never differ; name, sku
+and highlight differ in all 29; description in 27; tags in 22; **the Amazon
+link in 19** — most sizes are listed separately on Amazon; mrp and features in
+12; match_tier in 9; video in 7. `ProductVariant` could express none of it, so
+collapsing without enriching it would have flattened every size onto the
+parent's values and destroyed real data.
+
+- `ProductVariant` gained sku (a full SKU, not a suffix — `LI008` does not
+  start with its parent `LI007`, and all 29 groups fail that reconstruction),
+  display_name (the names are irregular enough that rebuilding them from parts
+  guarantees diffs), highlight, description, tags, features, amazon_link,
+  price, video, video_url, image_url, match_tier, is_active. The JSON fields
+  default to None, not to an empty list, so "not set" stays distinguishable
+  from "genuinely empty" — the whole inherit-from-parent rule rests on that.
+- `ProductSpecification` gained the same nullable variant FK `ProductImage`
+  already had; 3 groups need per-size filters.
+- The serializer stopped building one shared dict and stamping it onto every
+  variant; each field now resolves variant-first, product-second.
+- `collapse_variant_groups.py` folded all 29 groups. Siblings are deactivated,
+  not deleted: `EnquiryItem.product` is SET_NULL, so deletion is the one
+  operation a buggy re-point could not be undone from, and the exporter
+  already filters on is_active.
+
+**Result: 530 to 464 active products, 29 parents holding 95 sizes, 304 photos
+now carrying their size (from zero).** The website is byte-identical — same SKU
+set, same key set per entry, same values including every hero, every ordered
+gallery, filters, variant_label, variant_order and id. Verified twice: by the
+command's own before/after diff, and independently against the shipped file.
+
+The command **refused two groups on its first pass** rather than corrupt them:
+four sizes owned no photo rows and drew their picture from a remote URL that
+differs per size, so collapsing would have resolved them to the parent's
+photo — a different product. That refusal is why `ProductVariant.image_url`
+exists.
+
+### Five bugs found, each of which bites on first real use
+
+1. **491 products could not be saved at all.** image_url and video_url were
+   URLFields but hold site-relative paths like `product-photos/CL-414/hero.jpg`
+   — the form rejected the value the site itself had put there, with "Enter a
+   valid URL". They are CharFields now with a validator that takes a URL or a
+   site path. Measured across every active product: 491 unsaveable before,
+   **0** after.
+2. **The phantom "product doesn't exist" banner.** `image_preview` emitted the
+   relative path raw into an img src; the browser resolved it against
+   `/admin/products/product/` and Django's legacy catch-all read the result as
+   an object id. The failed lookup queued a message that surfaced on the *next*
+   page, which is why it looked unrelated to whatever the admin was doing. It
+   fired once per thumbnail, so a full changelist ran up to a hundred wasted
+   change_view calls.
+3. **Sizes and photos sat on mutually exclusive tabs** — `changeform_format`
+   was `horizontal_tabs` — so an admin could never see a size and its photos at
+   the same time. That was also the strip of nine red tabs the client objected
+   to.
+4. **Three CSS rules were theming nothing.** There is no `.submit-row` in this
+   admin (jazzmin renders `#jazzy-actions`), so the guard keeping Delete
+   distinct from Save had never once fired and both were solid red;
+   `.object-tools a` outranked `.btn-outline-secondary`, so History was red
+   too; and every select2 rule targeted `--default` while jazzmin uses
+   `--admin-autocomplete`.
+5. **Paired form fields collapsed.** Django renders `('brand', 'category')` as
+   one row of label/field/label/field, all `.col-auto`. The four related-widget
+   icons made the first box wide enough to push Category's input onto the next
+   line, leaving its label beside nothing and Collection name with no visible
+   input at all. Now a grid: 7 multi-field rows, 0 broken.
+
+### The dashboard itself
+
+- Tags was a bare JSONField with no widget — the client was typing
+  `["Lemon Squeezer And Opener", ...]` by hand, brackets and quotes included.
+  Now a chip input, rendered server-side so it survives with JS off, and
+  `clean()` accepts JSON or plain comma text.
+- Sizes render as cards, each with its own SKU, photo strip, video, Amazon
+  link and price; photos render as a grid grouped under the size they belong
+  to, with click-to-set-hero and drag or arrow-key reordering.
+- A deprecation warning gave up the root cause of a fight the theme had been
+  losing: jazzmin renders `data-bs-theme="dark"` unless told otherwise, and on
+  Bootstrap 5 that one attribute decides every colour. Setting
+  `default_theme_mode` to light fixed it at the source, instead of overriding
+  some forty Bootstrap variables to undo it.
+- Responsive at 320/390/768/1024/1440. The change form measured 462 against
+  390 before, and the changelist 1340 against 768; both traced to select2's
+  absolutely-positioned mirror select.
+- Product search is live as you type, debounced to one request for a
+  six-character query, with filters, ordering and the paginator preserved.
+- The product code reads `Code: MKA940` in the dashboard, exactly as the site
+  prints it.
+
+### Enquiries: nobody was receiving them
+
+Asked for a thank-you email to the customer. Found that **the form had never
+sent anything anywhere** — it showed "Enquiry submitted successfully" with a
+reference number while the payload went to console.log, behind a TODO about
+choosing a backend. Every enquiry made through the site was lost, which is why
+the dashboard read zero. The receiving endpoint already existed and was simply
+never called.
+
+The form posts to it now, and two emails go out: a thank-you to the customer
+quoting their reference and what they asked about, and a notification to the
+team with reply-to set to the customer. Email failure never fails the
+submission — an enquiry that reached the database is a won lead. Equally, the
+page no longer claims success when the request fails; it says so and offers the
+phone number. Verified against a deliberately unreachable API: one POST
+attempted, success screen withheld, honest error shown.
+
+CORS now lists the website's origin; without it the browser blocks the POST
+before it is ever sent. **Delivery still needs SMTP credentials in the
+environment** — until they are set Django's console backend applies, which is a
+safe no-op, and the enquiry is still stored.
+
+### Site-side fixes in the same stretch
+
+- The pre-footer heart overlaps the footer by 10% of its own height, and its
+  white outline was landing on black and reading as a shape cut adrift. The
+  backdrop is the artwork's own silhouette in the section red, grown a few
+  pixels, so it tapers exactly as the heart does rather than showing square
+  corners. Composited against black, the outermost pixel at the tip is now
+  (237,50,55).
+- Brand portfolio tiles are filled by their photo — the 1.5px border and up to
+  20px of padding are gone.
+- The Overview copy on every product page was centred against a media column
+  fixed at 4/5 and roughly twice its height, so it floated about 250px below
+  its own heading. Aligned to the start: the gap is 36px now and the copy
+  begins level with the photo. An empty `#ovIntro` paragraph — never written
+  to — went with it.
+
+### Still outstanding
+
+- **The production database has not been collapsed.** Everything above ran
+  against the local DB; production still holds the flat 530-product shape, so
+  the client still sees seven separate Tope rows. The command is proven and
+  reversible but writes to a live catalogue, so it waits on their say-so.
+- **SMTP credentials** for the enquiry emails.
+- **The publish button** — dashboard edits still need `export_to_json` plus a
+  commit and push by hand. The design is in the plan; the code is not written.
+- git-lfs remains ruled out: the deploy does not run `git lfs pull`, so an
+  LFS-tracked image is served as a 130-byte pointer.
