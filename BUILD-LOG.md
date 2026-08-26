@@ -876,3 +876,117 @@ All-Products, Contact, Enquiry, Blog): every heading measures 37px, 43 of 43
 across those pages, with the single intentional exception above. 0 files still
 contain `font-size: 54px`. Re-running the home builder still emits 37px. The
 staged diff is exactly six lines per file and nothing else.
+
+## 2026-08-26 (19) — Category pages get a banner hero
+
+The client supplied a banner photograph for the Tripro category page and will
+supply one per category. The photograph is ~5:1 — very wide, very short — and
+that shape, not taste, ruled out both obvious placements. As a background for
+the existing 92svh hero it magnifies about three and a half times and shows a
+blurry slab of one pan. As a strip under the nav it is ~250px on a 1280 screen
+with half of that behind the transparent header, and the page opens with
+decoration before it says what it is.
+
+So the photograph became the hero: the section came down to a band the picture
+can fill, and the copy moved from centred to left, into the counter and steam
+the photographer already left empty. The copy does not depend on that emptiness
+holding — the scrim runs to solid white behind it.
+
+### The crop is measured
+
+Only ~987 of the 1980 source pixels are ever on screen, so the choice of which
+half to keep is the whole composition. Per-column brightness and edge energy
+put the empty counter at 5–45% and the entire subject at 60–100%. Three
+candidates were rendered and compared: 62% cuts the right pan in half, 86%
+brings a jar in against the frame, 79% keeps both pans and the hob.
+
+### Two bugs that only appear once a photograph is behind the text
+
+1. **The nav landed on the picture.** The header is `fixed`, transparent and
+   dark-texted (`#1A1A1A`); with a white hero this never mattered. A top wash
+   now covers the nav strip and fades out below it.
+2. **On phones the foot fade swallowed the subject.** Stacked, the band is a
+   third of the height and the pans sit in its lower half, so the desktop
+   bottom fade erased them. The narrow layout got its own treatment: a 2:1 crop,
+   a hairline foot fade, and the copy clearing the picture rather than tucking
+   under it — an overlapping eyebrow was landing on bare photograph.
+
+Contrast is measured by compositing both gradients over the real photograph and
+finding the worst pixel under each piece of text: nav links 12.1:1, headline
+14.3:1, body copy 5.1:1, eyebrow 4.0:1, against AA minimums of 3.0 and 4.5.
+
+The asset ships as WebP with a JPEG fallback — **1278 KB to 60 KB**, which
+matters because it is the first thing the page loads.
+
+### The other forty-four pages
+
+45 pages share one hero shape, so `home-v3-src/apply_category_banner.py` does
+the whole job for one page from a photograph: encodes the asset, scores the
+crop, writes the CSS and markup, and reports contrast.
+
+Its weighting needed a correction worth recording. Scoring a quiet copy area
+first, it chose a crop holding **25% of the subject** — a beautifully readable
+photograph of an empty worktop. The scrim already guarantees the text, so
+quietness is a tie-breaker and coverage is the goal. Reweighted, it
+independently picks **84%** for the Tripro banner against the 79% chosen by
+hand — same coverage, less than half the edge business, nothing touching the
+frame — so Tripro moved to it.
+
+Re-running is safe: a converted page keeps its markup and takes only the new
+picture and crop. Verified against Tripro (only the two focus values changed)
+and the markup path was exercised on an unconverted page and reverted.
+
+**Note for anyone verifying this visually:** the browser-pane screenshot tool
+degraded during this work and returned blank captures for pages that had
+rendered correctly minutes earlier, including ones it had already photographed.
+DOM measurement and offline compositing were used instead. Do not read a blank
+capture as a broken page without checking `getBoundingClientRect` and
+`img.complete` first.
+
+### Ten more pages, and a real flaw in the crop scorer
+
+Ten further category pages took their own banner: cast iron, non-stick,
+non-stick mini, sandwich-bottom steel, hard anodised, lighters, knives,
+peelers, chopping boards and trolleys.
+
+The scorer was wrong in a way the first page had not exposed. It maximised how
+much of the subject sat **inside the frame**, which is not how much of it you
+can **see** — the left of the band is washed nearly white so the copy can sit
+on it, so subject landing there is subject thrown away. On the non-stick
+banner it framed 79% of the pan, put most of it in the wash, and left a pale
+grey disc where the product should be.
+
+It now weights every column of a candidate crop by how transparent the scrim
+is where that column lands, and maximises what survives. That alone corrected
+most of them: cast iron 87% → 81%, sandwich bottom 96% → 84%, and hard
+anodised and lighters came off the 100% rail they had been pinned to.
+
+Three were still wrong when rendered, and were set by hand after comparing
+candidates side by side:
+
+| page | computed | set to | why |
+|---|---|---|---|
+| Non-Stick | 68% | **54%** | the pan was still washed out |
+| Trolleys | 36% | **62%** | the gas-cylinder trolley — the product itself — was outside the frame entirely |
+| Knives | 100% | **72%** | the blade was disappearing into the wash |
+
+That is what `--focus` exists for. The automatic value was documented as a
+starting point, and on a third of these it needed overruling.
+
+Every banner was judged by compositing both scrims over the real photograph and
+rendering the finished band — not by reading the score. Contrast passes AA on
+all eleven: worst anywhere is 4.00:1 on the red eyebrow against a 3.0 minimum,
+and body copy never drops below 5.1:1. 11 MB of source PNG became 523 KB of
+WebP. All eleven assets verified served from production.
+
+### The brand "View All" button is gone from product pages
+
+It sat in the buy row beside Enquire and Buy Now, reading "View All Crystalina"
+or whichever brand applied, and sent the customer away from the product they
+were reading to a filtered listing. Removed with the two lines that filled it
+in, so nothing points at a missing node. The related-products "View All" at the
+foot of the page is a different control and stays.
+
+Verified on a live product page: buy row down to two buttons, both id lookups
+return null, and title, code, intro and eyebrow still populate — the check that
+matters, since the deleted lines sat mid-render-function.

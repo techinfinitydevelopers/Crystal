@@ -200,3 +200,40 @@ Not just Browser-pane tabs (see above) — the per-session scratchpad temp direc
   it matches on the marker comment `HEADING SIZE — every h1 and h2`.
 - Deliberate exception: `.v3 .map3-right .v-head` stays
   `clamp(22px, 2vw, 30px)` — the client asked for that heading to be smaller.
+
+## Category banner heroes (2026-08-26)
+- 45 category pages share one hero shape. `home-v3-src/apply_category_banner.py
+  <Page.html> <image>` does the whole job: webp+jpg encode, crop scoring,
+  CSS + markup, and a contrast report. Re-running is safe.
+- The banners are ~5:1. Only about half the width is ever visible, so the crop
+  (`--banner-focus`) is scored from per-column brightness and edge energy, not
+  centred. **Coverage of the subject must dominate the score** — weighting a
+  quiet copy area first once picked a crop holding 25% of the subject.
+- `--focus N` overrides it; the automatic value is a starting point.
+- Two things break the moment a photograph sits behind the text: the fixed,
+  transparent, dark-texted header lands on the picture (top white wash fixes
+  it), and on phones the desktop foot fade swallows the subject (the narrow
+  layout gets its own 2:1 band and a hairline fade).
+- Contrast is measured per page by compositing both scrims over the real
+  photograph — never assumed.
+- Ideal source is ~1980x800+; the supplied 1980x390 upscales ~1.28x in the hero.
+
+## Browser-pane screenshots are not trustworthy (2026-08-26)
+- The pane returns `UnknownVizError`, and worse, returns **blank white captures
+  of pages that render correctly** — including pages it photographed fine
+  minutes earlier. It also mis-scales iframes.
+- Verify with `getBoundingClientRect`, `img.complete`/`naturalWidth`,
+  `elementFromPoint`, and by compositing offline with PIL. Do not diagnose a
+  page from a blank capture.
+
+## Banner crop scoring — the mistake to not repeat (2026-08-26)
+- Score **visible** subject, not **framed** subject. The band's left is washed
+  to near-white for the copy, so subject landing there is invisible. Weight
+  each column by scrim transparency at its frame position.
+- Even so, roughly a third of banners need `--focus` by hand. Always render the
+  composited band and look at it; the score alone shipped a banner whose
+  product was outside the frame.
+- 11 pages done: Tripro 84, Cast-Iron 81, Non-Stick 54*, Non-Stick-Mini 55,
+  Sandwich-Bottom-Steel 84, Hard-Anodised 93, Lighters 78, Knives 72*,
+  Peelers 100, Chopping-Boards 64, Trolleys 62*  (* = set by hand)
+- Client supplies one image per category, named after it, into ~/Downloads.
