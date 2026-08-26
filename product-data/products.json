@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-26T08:58:42.320735+00:00",
+  "generated_at": "2026-08-26T09:18:52.316432+00:00",
   "source_xlsx": "Crystal Product List for Techinfinity Final.xlsx",
   "sheets_included": [
     "Lighter",
@@ -1552,9 +1552,13 @@
         "blade_edge_type": "Serrated",
         "coating_type": "None"
       },
-      "hero": "product-photos/CL-216/amz-1.jpg",
+      "hero": "product-photos/CL-216/hero.jpeg",
       "gallery": [
-        "product-photos/CL-216/amz-2.jpg"
+        "product-photos/CL-216/amz-1.jpg",
+        "product-photos/CL-216/amz-2.jpg",
+        "product-photos/CL-216/g4.jpg",
+        "product-photos/CL-216/g5.jpg",
+        "product-photos/CL-216/g6.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cl-216",
