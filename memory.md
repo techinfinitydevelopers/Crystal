@@ -292,3 +292,36 @@ Not just Browser-pane tabs (see above) — the per-session scratchpad temp direc
   client's edge-to-edge photographs. `compose_product_banner.py` now places a
   principal (bleeding off the right edge) plus 1-2 more from the category set
   back and lightened. Different SKUs, not frames of the same product.
+
+## Gallery faults the client reported, and what they really were (2026-08-26)
+- **"Double product" = the same photo at two resolutions**, different files, so
+  md5 finds nothing. Use a difference hash (<=12 of 256 bits). Verified live:
+  flagged pairs differ 2-6 per channel, genuinely different frames 37.
+- **"White product first" must score the PRODUCT, not the white.** Infographics
+  are on white too. Subtract interior edge energy: plain frames 8-13,
+  infographics 22-30, both on a 255 border.
+- `tidy_product_gallery` (dedupe + hero) and `adopt_amazon_listing` (frames and
+  copy from the scraped listing) are the two commands. Both --dry-run first.
+- Amazon adoption must be followed by the white-first pass: Amazon's img-1 is
+  sometimes a lifestyle shot.
+
+## products.json was cached forever (2026-08-26)
+- 112 bare `fetch("product-data/products.json")` across 65 pages, none
+  revalidating, so returning visitors kept the OLD catalogue after every deploy.
+  **Some reported faults may have been fixed already and never reached them.**
+- All now pass `cache: "no-cache"`. The builder source too.
+- Symptom to recognise: a page rendering old data while the file on disk is new.
+
+## Amazon data is already local (2026-08-26)
+- `amazon-products/<ASIN>/` holds img-N.jpg + info.json (title, bullets,
+  description, variants) for all 309 linked products. **Do not re-scrape.**
+- Never take Amazon's `title` — written for search, and variant listings show
+  the parent's title on every child.
+- Do NOT bulk-recompress Amazon JPEGs; they are already optimised and
+  re-encoding makes them bigger (116 MB -> 130 MB when I tried).
+
+## Link audit result (2026-08-26)
+- Client sheet vs site: 308 agree, 4 links missing on the site (CL-804,
+  CLCL-003, CLMK-015, CWB042), 1 product missing (LI010), 1 differs (CC-996).
+- To check a link points at the right product, look for the **product code in
+  the Amazon title** first; word overlap alone fails on abbreviations.

@@ -1123,3 +1123,99 @@ or too square. A percentage in a number box tells nobody where the pan lands.
 Verified end to end against a local dashboard: `/media/` served 200, the page
 derived its own slug, dropped the shipped `<source>`, swapped the image, and
 the computed `object-position` followed the dashboard's value (76% → 55%).
+
+## 2026-08-26 (21) — The client's change list, and what was actually wrong
+
+The client supplied two sheets: a Developer tab listing 42 product pages with a
+reason against each, and their full product list with SKUs and Amazon links.
+Both faults they named turned out to be real but not what they looked like.
+
+### "Double product" was the same photo at two sizes
+
+An md5 over every frame of all 42 pages finds nothing — the files genuinely
+differ. The galleries repeat because the same photograph was ingested more than
+once at different resolutions. A difference hash finds them, and a pixel
+comparison run **against the live site** confirms it: flagged pairs differ by
+2–6 of 255 per channel, two genuinely different frames of one product differ by
+37. MKA914 carried five repeats in thirteen frames; CC-848 had one shot at
+1080px and again at 500px.
+
+Falling out of that, the frame **on show** was sometimes the smallest copy of a
+picture the gallery also held at full size — MKA914 opened at 569px while the
+identical photograph sat further along at 1500px. That is why some product
+pages looked soft.
+
+### "White product first" means the product, not the white
+
+Scoring frames on how bright and even their border is picks the wrong one, and
+fails in the direction that makes things worse: a printed spec panel is also
+shot on white, so border alone promoted MKA914's infographic over the juicer.
+The middle of the frame separates them — a panel is full of text, a product
+shot is mostly empty sweep. Plain frames score 8–13 of interior edge energy
+here, infographics 22–30, both on a 255 border.
+
+Checked by rendering before and after, not by reading the score: MKA023 opened
+on a marketing banner of almonds and now opens on the grater; MKA-413 on a dark
+purple poster, now the fork; WF001 on a branded blue-water panel, now the
+filter.
+
+### The bug underneath both: the catalogue was cached forever
+
+Every page fetched `product-data/products.json` with a bare `fetch()` — 112 call
+sites across 65 pages, none revalidating. A returning visitor kept the old
+catalogue after a deploy with no way to get the new one.
+
+**This means some of what the client has been reporting may already have been
+fixed and simply never reached them.** It also cost time inside this session: a
+product page kept rendering its old gallery from cache while the file on disk
+had already changed, which for several minutes looked like the change had gone
+in wrong. All 112 now pass `cache: "no-cache"`, and the builder source too.
+
+### The site now shows what the listing shows
+
+Every one of the 309 linked products already had its listing scraped in an
+earlier pass, so nothing was fetched. 240 adopted their listing's frames and
+238 its copy — 1733 image files, written into `product-photos/<SKU>/amz-N.jpg`
+rather than linked to Amazon's CDN.
+
+Titles are deliberately not taken: Amazon writes them for its search box, and
+on variant listings it renders the parent's title on every child, so three
+different teak coasters all read "Cuppo".
+
+The white-first rule is re-applied over the top, because the two requirements
+collide — CLMK-018's first Amazon frame is a dark lifestyle shot and that
+product was specifically listed as needing the plain one. The frames are the
+listing's; the frame on show is the product.
+
+A wrong turn worth recording: shrinking the 116 MB of new imagery at quality 84
+made it **larger**, 116 → 130 MB, because Amazon already serves optimised
+JPEGs. Originals restored from source; re-encoding is now kept only where it
+helps, which is 5 files out of 1733.
+
+### The link audit the client asked for
+
+Their sheet against the site, by SKU:
+
+| | |
+|---|---|
+| links agree | **308** |
+| sheet has a link, site has none | **4** — CL-804, CLCL-003, CLMK-015, CWB042 |
+| product in the sheet, not on the site | **1** — LI010 Multi Spark Lighter |
+| both have a link but they differ | **1** — CC-996 |
+
+And whether each link points at the right product, by comparing the catalogue
+name with the scraped listing title. Token overlap alone is too crude — "BTL"
+against "Bottle", "NYLO" against "Nylon" — so the product code in the title is
+the primary signal: 52 listings name the code outright, 242 more match on
+wording, and 15 need a human. Most of those 15 are naming differences rather
+than wrong links, but two are real: MKA-241 and MKA-301 are 24-piece on the
+site and 25 Pcs on Amazon.
+
+### A missing Amazon link now says so
+
+Where a product had no link the page still showed the Amazon logo, pointing at
+an Amazon **search** for the name — which reads as "this is listed on Amazon"
+when it is not, and hid from the client which products still need one. 221 of
+530 have no link. Those show a red badge now, and it follows the size selector.
+The dashboard shows the same: the Amazon mark where there is a link, the same
+red flag where there is not.
