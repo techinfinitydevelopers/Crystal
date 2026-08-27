@@ -265,9 +265,11 @@ def css_block(focus, mobile_focus):
     /* The header occupies 32-96px. Stacked, the photo would start under it
        with no wash to keep the links legible, so it starts below it. */
     .hero.hero-banner { display: flex; flex-direction: column; justify-content: flex-start; min-height: 0; padding-top: 104px; padding-bottom: clamp(30px, 6vw, 44px); text-align: center; }
-    /* 2:1, not the photo's own 5:1 -- a full-width 5:1 strip is only ~77px tall
-       on a phone, too thin to read as a photograph. */
-    .hero-media { position: relative; inset: auto; width: 100%%; aspect-ratio: 2/1; max-height: 42svh; }
+    /* 2.6:1. A 5:1 strip is only ~77px tall on a phone, too thin to read;
+       but 2:1 crops so hard that only 39%% of the width survives, which is
+       what sliced the product on phones. 2.6:1 keeps 51%%, level with the
+       desktop crop. -- percent signs are doubled: this block is %%-formatted. */
+    .hero-media { position: relative; inset: auto; width: 100%%; aspect-ratio: 2.6/1; max-height: 42svh; }
     .hero-media img { object-position: var(--banner-focus-m, %(mfocus)d%%) center; }
     /* Only a hairline fade at the foot. The generous bottom wash the desktop
        band uses would swallow the subject here, because this band is a third

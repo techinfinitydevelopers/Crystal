@@ -499,6 +499,15 @@
   /* FOOTER v2 */
   .foot-col a, .foot-brand, .foot-cta { position: relative; }
   footer { border-top-left-radius: 32px; border-top-right-radius: 32px; }
+  /* The rounded top leaves two notches at the corners, and what showed through
+     them was the page's white background — a white sliver between the red
+     section above and the black footer. The red now continues behind the
+     footer instead, so the curve reads as the footer sitting on the red rather
+     than as a gap. Painted behind the footer's own background, so the black is
+     untouched. */
+  footer { position: relative; }
+  footer::before { content: ""; position: absolute; left: 0; right: 0; top: 0;
+    height: 34px; background: var(--red); z-index: -1; pointer-events: none; }
 
   /* ================================================================
      ===== V2 HERO/HEADER — edge-to-edge, reference-matched layout ==

@@ -31,9 +31,23 @@ W, H = 1980, 390
 # client's own banners: subject right of centre, the left half clear for the
 # headline. The hero only ever shows about half the width, and the scrim
 # whitens what is left of ~60%, so a subject centred here survives the crop.
-CENTRE_X = 0.760
+# The client asked that no product be sliced by the frame, and that governs
+# the whole layout. The hero shows a cover-crop of this canvas: 987 of 1980px
+# on a computer, and only 780px -- 39% -- on a phone. Anything wider than the
+# SMALLER window gets cut on a phone no matter where the crop sits.
+#
+# So the group is held inside a band of about a third of the canvas, placed
+# where both crops can contain it with room to spare. The earlier version let
+# the principal bleed off the right edge on purpose, which read as a deliberate
+# composition to me and as a cut-off product to them. They are right: it is
+# their product, and it should be whole.
+GROUP_L, GROUP_R = 0.555, 0.890      # the band the whole group must live in
+CENTRE_X = (GROUP_L + GROUP_R) / 2
 PRODUCT_H = 0.94          # of canvas height
 FLOOR_Y = 0.90            # where the contact shadow sits
+# The crops that contain that band, with margin at both ends. Passed to
+# apply_category_banner rather than letting it score a crop of its own.
+FOCUS_DESKTOP, FOCUS_PHONE = 88, 87
 
 # One small object on a wide pale field reads as a picture that failed to load,
 # which is exactly how the first pass looked beside the client's own banners:
@@ -135,20 +149,22 @@ def compose(src, tint='warm', support=()):
     canvas = ground(TINTS[tint])
     principal = trim(lift(Image.open(src)))
 
+    band_l, band_r = int(W * GROUP_L), int(W * GROUP_R)
+    band_w = band_r - band_l
+
     target_h = int(H * PRODUCT_H)
     scale = target_h / principal.height
-    if principal.width * scale > W * 0.60:
-        scale = (W * 0.60) / principal.width
+    # The principal keeps most of the band; the supports tuck in beside it.
+    if principal.width * scale > band_w * 0.72:
+        scale = (band_w * 0.72) / principal.width
     pw, ph = max(1, int(principal.width * scale)), max(1, int(principal.height * scale))
     principal = principal.resize((pw, ph), Image.LANCZOS)
 
     floor = int(H * FLOOR_Y)
     left = int(W * CENTRE_X) - pw // 2
-    # Let it run off the right edge rather than sit primly inside it -- the
-    # client's banners all bleed, and a gap on the right is what made these
-    # read as empty.
-    left = min(left, W - int(pw * 0.88))
-    left = max(left, int(W * 0.40))
+    # Wholly inside the band, both ends. Nothing bleeds.
+    left = min(left, band_r - pw)
+    left = max(left, band_l)
 
     def shadow(x, w, h, strength):
         m = Image.new('L', (W, H), 0)
@@ -176,7 +192,8 @@ def compose(src, tint='warm', support=()):
             lambda v, b=back: int(v * (1 - b * 0.30))),))
         piece = piece.filter(ImageFilter.GaussianBlur(0.4 + back))
         px_ = int(left + pw * dx)
-        px_ = max(int(W * 0.30), min(px_, W - int(sh_w * 0.55)))
+        # supports stay inside the band too, or a phone crop clips them
+        px_ = max(band_l, min(px_, band_r - sh_w))
         canvas = Image.composite(Image.new('RGB', (W, H), (120, 112, 104)), canvas,
                                  shadow(px_, sh_w, sh_h, int(70 * (1 - back))))
         canvas.paste(piece, (px_, floor - sh_h), piece)
