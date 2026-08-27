@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-26T09:18:52.316432+00:00",
+  "generated_at": "2026-08-27T07:22:28.272245+00:00",
   "source_xlsx": "Crystal Product List for Techinfinity Final.xlsx",
   "sheets_included": [
     "Lighter",
@@ -25,7 +25,7 @@
   "products": [
     {
       "sku": "LI001A",
-      "name": "CRYSTAL PLASTIC ABS LIGHTER, MULTICOLOUR",
+      "name": "CRYSTAL ABS LIGHTER (PLASTIC BODY)",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "lighters",
@@ -71,7 +71,7 @@
     },
     {
       "sku": "LI002A",
-      "name": "CRYSTAL ARISTO STAINLESS STEEL LIGHTER, MULTICOLOUR",
+      "name": "CRYSTAL SS LIGHTER (ARISTO)",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "lighters",
@@ -145,7 +145,7 @@
     },
     {
       "sku": "LI003A",
-      "name": "CRYSTAL SLIM LINE STAINLESS STEEL LIGHTER, MULTICOLOUR",
+      "name": "CRYSTAL SL LIGHTER (SLIM LINE)",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "lighters",
@@ -381,7 +381,7 @@
     },
     {
       "sku": "VML-001",
-      "name": "CRYSTAL VALMATE GAS LIGHTER/IGNITER | JAPANSE PIEZO | WATER PROOF | 1 YEAR WARRANTY",
+      "name": "VALMATE GAS LIGHTER",
       "brand": "valmate",
       "category": "kitchenware",
       "subcategory": "lighters",
@@ -447,7 +447,7 @@
     },
     {
       "sku": "VML-002",
-      "name": "CRYSTAL VALMATE VALUE STEEL LIGHTER",
+      "name": "VALMATE VALUE STEEL LIGHTER",
       "brand": "valmate",
       "category": "kitchenware",
       "subcategory": "lighters",
@@ -473,7 +473,7 @@
     },
     {
       "sku": "CL-007",
-      "name": "CRYSTAL 8-INCH ALL PURPOSE LASER EDGE, CL007",
+      "name": "CRYSTAL 18 CM SLEEK SERRATED EDGE",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "knives",
@@ -528,7 +528,7 @@
     },
     {
       "sku": "CL-008",
-      "name": "CRYSTAL 8-INCH ALL PURPOSE PLAIN EDGE, CL008",
+      "name": "CRYSTAL 18 CM SLEEK PLAIN EDGE",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "knives",
@@ -586,7 +586,7 @@
     },
     {
       "sku": "CL-010",
-      "name": "CRYSTAL - CL010 SLEEK SERRATED EDGE STAINLESS STEEL KNIFE, MULTICOLOUR",
+      "name": "CRYSTAL 18 CM SLEEK SERRATED EDGE",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "knives",
@@ -652,7 +652,7 @@
     },
     {
       "sku": "CL-011",
-      "name": "CRYSTAL SLEEK PLAIN EDGE STAINLESS STEEL KNIFE, 20.32CM, MULTICOLOUR",
+      "name": "CRYSTAL 18 CM SLEEK PLAIN EDGE",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "knives",
@@ -711,7 +711,7 @@
     },
     {
       "sku": "CL-459N",
-      "name": "CRYSTAL RUBBER MODERN KNIFE CUM PEELER, MULTICOLOUR",
+      "name": "CRYSTAL NEXT KNIFE CUM PEELER",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "knives",
@@ -767,7 +767,7 @@
     },
     {
       "sku": "CL-804",
-      "name": "CRYSTAL STAINLESS STEEL FOLDING KNIFE, 20.32CM, MULTICOLOUR",
+      "name": "CRYSTAL FOLDING KNIFE",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "knives",
@@ -801,7 +801,7 @@
     },
     {
       "sku": "CL-122",
-      "name": "CRYSTAL POINTED END PLAIN EDGE STAINLESS STEEL KNIFE, 20.32CM, MULTICOLOUR",
+      "name": "CRYSTAL 20 CM POINTED  KNIFE",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "knives",
@@ -849,7 +849,7 @@
     },
     {
       "sku": "CL-123",
-      "name": "CRYSTAL POINTED END PLAIN EDGE STAINLESS STEEL KNIFE, 22.86CM, MULTICOLOUR",
+      "name": "CRYSTAL 23 CM POINTED  KNIFE",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "knives",
@@ -902,7 +902,7 @@
     },
     {
       "sku": "CL-124",
-      "name": "CRYSTAL POINTED END PLAIN EDGE STAINLESS STEEL KNIFE, 25.4CM, MULTICOLOUR",
+      "name": "CRYSTAL 25 CM POINTED  KNIFE",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "knives",
@@ -961,7 +961,7 @@
     },
     {
       "sku": "CL-125",
-      "name": "CRYSTAL - CL-125 PLASTIC KNIFE AND PEELER SET, 2-PIECE, MULTICOLOUR",
+      "name": "CRYSTAL KNIFE AND PEELER SET",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "knives",
@@ -997,7 +997,7 @@
     },
     {
       "sku": "CL-126",
-      "name": "CRYSTAL PLASTIC KNIFE AND PEELER SET, 3-PIECE, MULTICOLOUR",
+      "name": "CRYSTAL 2KNIVES & 1PEELER SET",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "knives",
@@ -1049,7 +1049,7 @@
     },
     {
       "sku": "CL-127",
-      "name": "CRYSTAL 5 PCS KNIFE SET",
+      "name": "Crystal 5 Pcs Knife Set",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "knives",
@@ -1105,7 +1105,7 @@
     },
     {
       "sku": "CL-128",
-      "name": "CRYSTAL LASER EDGE STAINLESS STEEL KNIFE SET, SET OF 3, MULTICOLOUR",
+      "name": "Crystal Stainless Steel 3Pc  Utility Knife Tomato Knife Set ,Parring Knife, Laser Edge, Plastic Handle, Multicolour",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "knives",
@@ -1167,7 +1167,7 @@
     },
     {
       "sku": "CL-129",
-      "name": "CRYSTAL STAINLESS STEEL KNIFE SET, SET OF 2, ROSEWOOD HANDLE",
+      "name": "Crystal Stainless Steel Knife Set, Set of 2, Rosewood Handle",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "knives",
@@ -1223,7 +1223,7 @@
     },
     {
       "sku": "CL-130",
-      "name": "CRYSTAL STAINLESS STEEL KNIFE SET, SET OF 3, ROSEWOOD HANDLE",
+      "name": "Crystal Stainless Steel Knife Set, Set of 3, Rosewood Handle",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "knives",
@@ -1279,7 +1279,7 @@
     },
     {
       "sku": "CL-019",
-      "name": "CRYSTAL STAINLESS STEEL ALL PURPOSE KNIFE, 20.32CM, BLACK",
+      "name": "CRYSTAL 20 CM ALL PURPOSE KNIFE",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "knives",
@@ -1309,7 +1309,7 @@
     },
     {
       "sku": "CL-211",
-      "name": "CRYSTAL CHEESE KNIFE, CL211",
+      "name": "CRYSTAL CHEESE KNIFE",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "knives",
@@ -1349,7 +1349,7 @@
     },
     {
       "sku": "CL-212",
-      "name": "CRYSTAL 8\" UTILITY KNIFE",
+      "name": "CRYSTAL 20 CM UTILITY KNIFE",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "knives",
@@ -1382,7 +1382,7 @@
     },
     {
       "sku": "CL-213",
-      "name": "CRYSTAL 8\" VEGETABLE KNIFE",
+      "name": "CRYSTAL 20 CM VEGETABLE KNIFE",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "knives",
@@ -1415,7 +1415,7 @@
     },
     {
       "sku": "CL-214",
-      "name": "CRYSTAL 9-INCH UTILITY KNIFE, CL214",
+      "name": "CRYSTAL 23 CM UTILITY KNIFE",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "knives",
@@ -1470,7 +1470,7 @@
     },
     {
       "sku": "CL-215",
-      "name": "CRYSTAL 9-INCH ALL PURPOSE KNIFE, CL215",
+      "name": "CRYSTAL 23 CM ALL PURPOSE KNIFE",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "knives",
@@ -1527,7 +1527,7 @@
     },
     {
       "sku": "CL-216",
-      "name": "CRYSTAL LASER EDGE STAINLESS STEEL TOMATO KNIFE, 22.86CM, MULTICOLOUR",
+      "name": "CRYSTAL 23 CM TOMATO KNIFE",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "knives",
@@ -1587,7 +1587,7 @@
     },
     {
       "sku": "CL-217",
-      "name": "CRYSTAL 11-INCH BREAD KNIFE, CL217",
+      "name": "CRYSTAL 28 CM BREAD KNIFE",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "knives",
@@ -1639,7 +1639,7 @@
     },
     {
       "sku": "CL-218",
-      "name": "CRYSTAL 7\" PARRING KNIFE",
+      "name": "CRYSTAL 17 CM PARRING KNIFE",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "knives",
@@ -1674,7 +1674,7 @@
     },
     {
       "sku": "CL-023",
-      "name": "CRYSTAL 8-INCH CURVED END, CL023",
+      "name": "CRYSTAL 20 CM CURVED KNIFE",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "knives",
@@ -1726,7 +1726,7 @@
     },
     {
       "sku": "CL-024",
-      "name": "CRYSTAL 9-INCH CURVED END, CL024",
+      "name": "CRYSTAL 23 CM CURVED KNIFE",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "knives",
@@ -1778,7 +1778,7 @@
     },
     {
       "sku": "CL-073",
-      "name": "CRYSTAL POINTED END STAINLESS STEEL KNIFE, 20.32CM, MULTICOLOUR (CL073)",
+      "name": "CRYSTAL 20 CM POINTED KNIFE",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "knives",
@@ -1832,7 +1832,7 @@
     },
     {
       "sku": "CL-074",
-      "name": "CRYSTAL POINTED END STAINLESS STEEL KNIFE, 22.86CM, MULTICOLOUR (CL074)",
+      "name": "CRYSTAL 23 CM POINTED KNIFE",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "knives",
@@ -1884,7 +1884,7 @@
     },
     {
       "sku": "CL-203",
-      "name": "CRYSTAL 8-INCH VEGETABLE KNIFE, CL203",
+      "name": "CRYSTAL 20 CM VEGETABLE KNIFE",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "knives",
@@ -1940,7 +1940,7 @@
     },
     {
       "sku": "CL-204",
-      "name": "CRYSTAL 9-INCH UTILITY KNIFE, CL204",
+      "name": "CRYSTAL 23 CM UTILITY KNIFE",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "knives",
@@ -1992,7 +1992,7 @@
     },
     {
       "sku": "CL-206",
-      "name": "CRYSTAL 9\" ALL PURPOSE KNIFE",
+      "name": "CRYSTAL 23 CM ALL PURPOSE KNIFE",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "knives",
@@ -2025,7 +2025,7 @@
     },
     {
       "sku": "CL-207",
-      "name": "CRYSTAL 11-INCH BREAD KNIFE, CL207 (ALLOY STEEL, SILVER)",
+      "name": "CRYSTAL 28 CM BREAD KNIFE",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "knives",
@@ -2083,7 +2083,7 @@
     },
     {
       "sku": "CL-401",
-      "name": "CRYSTAL STAINLESS STEEL COOK'S KNIFE, 27.94CM, ROSE WOOD BROWN",
+      "name": "CRYSTAL 28 CM CHEF COOK'S KNIFE",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "knives",
@@ -2142,7 +2142,7 @@
     },
     {
       "sku": "CL-402",
-      "name": "CRYSTAL 13\" MEAT KNIFE",
+      "name": "CRYSTAL 33 CM MEAT KNIFE",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "knives",
@@ -2176,7 +2176,7 @@
     },
     {
       "sku": "CL-403",
-      "name": "CRYSTAL 15\" BUTCHER KNIFE",
+      "name": "CRYSTAL 38 CM BUTCHER KNIFE",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "knives",
@@ -2209,7 +2209,7 @@
     },
     {
       "sku": "CL-701",
-      "name": "CRYSTAL STAINLESS STEEL CLEAVER KNIFE, 27.94CM, ROSEWOOD BROWN",
+      "name": "CRYSTAL 28 CM CLEAVER KNIFE",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "knives",
@@ -2462,7 +2462,7 @@
     },
     {
       "sku": "CL-457",
-      "name": "CRYSTAL POINTED END STAINLESS STEEL KNIFE, 20.32CM, MULTICOLOUR",
+      "name": "CRYSTAL 20 CM POINTED KNIFE",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "knives",
@@ -2520,7 +2520,7 @@
     },
     {
       "sku": "CL-458",
-      "name": "CRYSTAL POINTED END STAINLESS STEEL KNIFE, 22.86CM, MULTICOLOUR (CL458)",
+      "name": "CRYSTAL 23 CM POINTED KNIFE",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "knives",
@@ -2581,7 +2581,7 @@
     },
     {
       "sku": "CL-412",
-      "name": "CRYSTAL STAINLESS STEEL MULTI PURPOSE KNIFE, 20.32CM, MULTICOLOUR",
+      "name": "CRYSTAL 20 CM MULTI PURPOSE KNIFE",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "knives",
@@ -2631,7 +2631,7 @@
     },
     {
       "sku": "CL-413",
-      "name": "CRYSTAL STAINLESS STEEL VEGETABLE KNIFE, 20.32CM, MULTICOLOUR",
+      "name": "CRYSTAL 20 CM VEGETABLE KNIFE",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "knives",
@@ -2686,7 +2686,7 @@
     },
     {
       "sku": "CL-414",
-      "name": "CRYSTAL - CL414 STAINLESS STEEL UTILITY KNIFE, 22.86CM, MULTICOLOUR",
+      "name": "CRYSTAL 23 CM UTILITY KNIFE",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "knives",
@@ -2753,7 +2753,7 @@
     },
     {
       "sku": "CL-415",
-      "name": "CRYSTAL 9\" ALL PURPOSE KNIFE",
+      "name": "CRYSTAL 23 CM ALL PURPOSE KNIFE",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "knives",
@@ -2786,7 +2786,7 @@
     },
     {
       "sku": "CL-416",
-      "name": "CRYSTAL STAINLESS STEEL TOMATO KNIFE, 22.86CM, MULTICOLOUR",
+      "name": "CRYSTAL TOMATO KNIFE",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "knives",
@@ -2874,7 +2874,7 @@
     },
     {
       "sku": "CL-143",
-      "name": "CRYSTAL STAINLESS STEEL KNIFE SET, SET OF 3, MULTICOLOUR",
+      "name": "CRYSTAL 3 PC. KNIFE SET",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "knives",
@@ -2909,7 +2909,7 @@
     },
     {
       "sku": "CL-921",
-      "name": "CRYSTAL STAINLESS STEEL PARING KNIFE, BROWN",
+      "name": "PROFESSIONAL PARING KNIFE KNIFE -P/ WOOD HANDLE",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "knives",
@@ -2956,7 +2956,7 @@
     },
     {
       "sku": "CL-922",
-      "name": "CRYSTAL STAINLESS STEEL KNIFE, BROWN (CL-922)",
+      "name": "PROFESSIONAL ALL PURPOSE KNIFE -P/ WOOD HANDLE",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "knives",
@@ -2995,7 +2995,7 @@
     },
     {
       "sku": "CL-923",
-      "name": "CRYSTAL STAINLESS STEEL KNIFE, BROWN (CL-923)",
+      "name": "PROFESSIONAL MULTI-UTLITY KNIFE -P/ WOOD HANDLE",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "knives",
@@ -3038,7 +3038,7 @@
     },
     {
       "sku": "CL-924",
-      "name": "CRYSTAL STAINLESS STEEL SLICING AND CARVING KNIFE, BROWN",
+      "name": "PROFESSIONAL SLICING & CARVING KNIFE -P/ WOOD HANDLE",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "knives",
@@ -3086,7 +3086,7 @@
     },
     {
       "sku": "CL-925",
-      "name": "CRYSTAL STAINLESS STEEL BREAD KNIFE, BROWN",
+      "name": "PROFESSIONAL BREAD KNIFE -P/ WOOD HANDLE",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "knives",
@@ -3126,7 +3126,7 @@
     },
     {
       "sku": "CL-926",
-      "name": "CRYSTAL STAINLESS STEEL CHEF'S KNIFE, BROWN",
+      "name": "PROFESSIONAL CHEF'S KNIFE -P/ WOOD HANDLE",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "knives",
@@ -3167,7 +3167,7 @@
     },
     {
       "sku": "CL-927",
-      "name": "CRYSTAL STAINLESS STEEL CLEAVER KNIFE, BROWN",
+      "name": "PROFESSIONAL CLEAVER KNIFE -P/ WOOD HANDLE",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "knives",
@@ -3240,7 +3240,7 @@
     },
     {
       "sku": "CL-901",
-      "name": "CRYSTAL STAINLESS STEEL PARING KNIFE, BLACK",
+      "name": "PROFESSIONAL PARING KNIFE -ABS HANDLE",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "knives",
@@ -3286,7 +3286,7 @@
     },
     {
       "sku": "CL-902",
-      "name": "CRYSTAL STAINLESS STEEL KNIFE, BLACK (CL-902)",
+      "name": "PROFESSIONAL ALL PURPOSE KNIFE -ABS HANDLE",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "knives",
@@ -3350,7 +3350,7 @@
     },
     {
       "sku": "CL-903",
-      "name": "CRYSTAL STAINLESS STEEL KNIFE, BLACK (CL-903)",
+      "name": "PROFESSIONAL MULTI-UTLITY KNIFE -ABS HANDLE",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "knives",
@@ -3394,7 +3394,7 @@
     },
     {
       "sku": "CL-904",
-      "name": "CRYSTAL STAINLESS STEEL SLICING AND CARVING KNIFE, BLACK",
+      "name": "PROFESSIONAL SLICING & CARVING KNIFE -ABS HANDLE",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "knives",
@@ -3434,7 +3434,7 @@
     },
     {
       "sku": "CL-905",
-      "name": "CRYSTAL STAINLESS STEEL BREAD KNIFE, BLACK",
+      "name": "PROFESSIONAL BREAD KNIFE -ABS HANDLE",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "knives",
@@ -3479,7 +3479,7 @@
     },
     {
       "sku": "CL-906",
-      "name": "CRYSTAL STAINLESS STEEL CHEF'S KNIFE, BLACK",
+      "name": "PROFESSIONAL CHEF'S KNIFE -ABS HANDLE",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "knives",
@@ -3518,7 +3518,7 @@
     },
     {
       "sku": "CL-907",
-      "name": "CRYSTAL STAINLESS STEEL CLEAVER KNIFE, BLACK",
+      "name": "PROFESSIONAL CLEAVER KNIFE -ABS HANDLE",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "knives",
@@ -3585,7 +3585,7 @@
     },
     {
       "sku": "CLCL-001",
-      "name": "CRYSTAL CRYSTALINA STAINLESS STEEL PARING KNIFE",
+      "name": "CRYSTALINA - PARING KNIFE",
       "brand": "crystalina",
       "category": "kitchenware",
       "subcategory": "knives",
@@ -3630,7 +3630,7 @@
     },
     {
       "sku": "CLCL-002",
-      "name": "CRYSTAL CRYSTALINA STAINLESS STEEL SANDWICH KNIFE, PURPLE",
+      "name": "CRYSTALINA -SANDWICH KNIFE",
       "brand": "crystalina",
       "category": "kitchenware",
       "subcategory": "knives",
@@ -3670,7 +3670,7 @@
     },
     {
       "sku": "CLCL-003",
-      "name": "CRYSTAL CRYSTALINA STAINLESS STEEL SLICING AND CARVING KNIFE, MULTICOLOUR",
+      "name": "CRYSTALINA -SLICING & CARVING KNIFE",
       "brand": "crystalina",
       "category": "kitchenware",
       "subcategory": "knives",
@@ -3709,7 +3709,7 @@
     },
     {
       "sku": "CLCL-004",
-      "name": "CRYSTAL CRYSTALINA STAINLESS STEEL MULTI-PURPOSE KNIFE, PURPLE",
+      "name": "CRYSTALINA -UTILITY / MULTI- PURPOSE  KNIFE",
       "brand": "crystalina",
       "category": "kitchenware",
       "subcategory": "knives",
@@ -3771,7 +3771,7 @@
     },
     {
       "sku": "CLCL-005",
-      "name": "CRYSTAL CRYSTALINA STAINLESS STEEL CHEF'S KNIFE, BROWN/PURPLE",
+      "name": "CRYSTALINA – CHEF’S KNIFE",
       "brand": "crystalina",
       "category": "kitchenware",
       "subcategory": "knives",
@@ -3811,7 +3811,7 @@
     },
     {
       "sku": "VMC-007",
-      "name": "VALMATE 17CM HANDY SERRATED KNIFE",
+      "name": "Valmate 17cm Handy Serrated Knife",
       "brand": "valmate",
       "category": "kitchenware",
       "subcategory": "knives",
@@ -3847,7 +3847,7 @@
     },
     {
       "sku": "CL-459",
-      "name": "CRYSTAL RUBBER MODERN KNIFE CUM PEELER, MULTICOLOUR",
+      "name": "CRYSTAL NEXT KNIFE CUM PEELER",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "knives",
@@ -3903,7 +3903,7 @@
     },
     {
       "sku": "MKA-007",
-      "name": "CRYSTAL PREMIUM STAINLESS STEEL FRUIT PEELER, MULTICOLOUR",
+      "name": "CRYSTAL PREMIUM FRUIT PEELER",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "peelers",
@@ -3951,7 +3951,7 @@
     },
     {
       "sku": "MKA-008",
-      "name": "CRYSTAL SLEEK PEELER AND SCRAPER, MKA009",
+      "name": "CRYSTAL SUPER VEG SWIVEL PEELER",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "peelers",
@@ -4005,7 +4005,7 @@
     },
     {
       "sku": "MKA-009",
-      "name": "CRYSTAL STAINLESS STEEL PEELER CUM SCRAPER, MULTICOLOUR",
+      "name": "CRYSTAL SLEEK PEELER CUM SCRAPER",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "peelers",
@@ -4059,7 +4059,7 @@
     },
     {
       "sku": "MKA-010",
-      "name": "CRYSTAL SUPER VEG SWIVEL STAINLESS STEEL PEELER, COLOUR MAY VARY",
+      "name": "CRYSTAL PEELER CUM SCRAPER",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "peelers",
@@ -4116,7 +4116,7 @@
     },
     {
       "sku": "MKA-947",
-      "name": "CRYSTAL HANDY PEELER | HARDENED SURGICAL STEEL BLADES | PERFECT FOR FRUIT AND VEGETABLES",
+      "name": "HANDY PEELING KNIFE",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "peelers",
@@ -4174,7 +4174,7 @@
     },
     {
       "sku": "MKA-948",
-      "name": "CRYSTAL RAPID SWIVEL PEELER | HARDENED SURGICAL STEEL BLADES | PERFECT FOR FRUIT AND VEGETABLES",
+      "name": "Rapid Swivel Peeling Knife",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "peelers",
@@ -4233,7 +4233,7 @@
     },
     {
       "sku": "MKA-258",
-      "name": "CRYSTAL PEELER AND APPLE CORER, MKA258",
+      "name": "CRYSTAL PEELER CUM APPLE CORER",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "peelers",
@@ -4316,7 +4316,7 @@
     },
     {
       "sku": "MKA-078",
-      "name": "CRYSTAL S S OVAL LARGE CHOPPING BOARD",
+      "name": "S.S OVAL LARGE CHOPPING BOARD",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "chopping-boards",
@@ -4375,7 +4375,7 @@
     },
     {
       "sku": "MKA-079",
-      "name": "CRYSTAL S S COUNTER TOP LARGE CHOPPING BOARD",
+      "name": "S.S COUNTER TOP LARGE CHOPPING BOARD",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "chopping-boards",
@@ -4432,7 +4432,7 @@
     },
     {
       "sku": "MKA-080",
-      "name": "CRYSTAL S S COUNTER TOP X LARGE CHOPPING BOARD",
+      "name": "S.S COUNTER TOP X-LARGE CHOPPING BOARD",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "chopping-boards",
@@ -4489,7 +4489,7 @@
     },
     {
       "sku": "MKA083",
-      "name": "CRYSTAL SMALL PLASTIC CHOPPING BOARD, MULTICOLOUR",
+      "name": "CRYSTAL CHOPPING BOARD -1 (SMALL)",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "chopping-boards",
@@ -4544,7 +4544,7 @@
     },
     {
       "sku": "MKA084",
-      "name": "CRYSTAL MEDIUM PLASTIC CHOPPING BOARD, MULTICOLOUR",
+      "name": "CRYSTAL CHOPPING BOARD -2 (MEDIUM)",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "chopping-boards",
@@ -4599,7 +4599,7 @@
     },
     {
       "sku": "MKA085",
-      "name": "CRYSTAL BIG PLASTIC CHOPPING BOARD, MULTICOLOUR",
+      "name": "CRYSTAL CHOPPING BOARD -3 (BIG)",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "chopping-boards",
@@ -4634,7 +4634,7 @@
     },
     {
       "sku": "MKA086",
-      "name": "CRYSTAL PLASTIC CHOPPING BOARD WITH KNIFE, MULTICOLOUR",
+      "name": "CRYSTAL CHOPPING BOARD WITH KNIFE",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "chopping-boards",
@@ -4808,7 +4808,7 @@
     },
     {
       "sku": "MKA092A",
-      "name": "CRYSTAL TEAK WOOD  WOODEN CHOPPING BOARD",
+      "name": "CRYSTAL WOODEN CHOPPING BOARD",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "chopping-boards",
@@ -4868,7 +4868,7 @@
     },
     {
       "sku": "MKA-099",
-      "name": "CRYSTAL STAINLESS STEEL CHOPPING BOARD | HEAVY AND STRONG | 31*20 CM|1 YEAR WARRANTY",
+      "name": "Crystal Stainless Steel Chopping Board",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "chopping-boards",
@@ -4921,7 +4921,7 @@
     },
     {
       "sku": "MKA-120",
-      "name": "CRYSTAL TEAK WOOD INOX  WOODEN CHOPPING BOARD 2 IN 1",
+      "name": "WOOD-INOX CHOPPING BOX 2IN1",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "chopping-boards",
@@ -4978,7 +4978,7 @@
     },
     {
       "sku": "MKA937",
-      "name": "CRYSTAL PLASTIC CHOPPING BOARD, PINK",
+      "name": "CRYSTAL SLEEK-CHOPPING BOARD- SMALL",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "chopping-boards",
@@ -5015,7 +5015,7 @@
     },
     {
       "sku": "MKA938",
-      "name": "CRYSTAL PLASTIC CHOPPING BOARD, YELLOW",
+      "name": "CRYSTAL SLEEK- CHOPPING BOARD- MEDIUM",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "chopping-boards",
@@ -5051,7 +5051,7 @@
     },
     {
       "sku": "MKA939",
-      "name": "CRYSTAL PLASTIC CHOPPING BOARD, MULTICOLOUR",
+      "name": "CRYSTAL GRIPPO- CHOPPING BOARD",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "chopping-boards",
@@ -5084,7 +5084,7 @@
     },
     {
       "sku": "MKA909",
-      "name": "CRYSTAL PLASTIC CUT 3-IN-1 CHOP N WASH, MULTICOLOUR",
+      "name": "CRYSTAL CUT CHOP N WASH (3 IN 1)",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "chopping-boards",
@@ -5136,7 +5136,7 @@
     },
     {
       "sku": "MKA919",
-      "name": "CRYSTAL PLASTIC TROLLEY, MULTICOLOUR",
+      "name": "CRYSTAL PLASTIC TROLLEY",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "trolleys",
@@ -5186,7 +5186,7 @@
     },
     {
       "sku": "MKA921",
-      "name": "CRYSTAL MULTIPURPOSE SQUARE TROLLEY",
+      "name": "CRYSTAL SQUARE TROLLEY",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "trolleys",
@@ -5240,7 +5240,7 @@
     },
     {
       "sku": "MKA924",
-      "name": "CRYSTAL MULTIPURPOSE FLAT TROLLEY",
+      "name": "CRYSTAL FLAT CYLINDER TROLLY",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "trolleys",
@@ -5292,7 +5292,7 @@
     },
     {
       "sku": "MKA-005",
-      "name": "CRYSTAL STAINLESS STEEL FRUIT FORK, MULTICOLOUR",
+      "name": "CRYSTAL FRUIT FORK (10 PC. SET) REGULAR",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "kitchen-tools",
@@ -5365,7 +5365,7 @@
     },
     {
       "sku": "MKA011",
-      "name": "CRYSTAL STAINLESS STEEL BOTTLE CUM CAN OPENER, MULTICOLOUR",
+      "name": "CRYSTAL BOTTLE CUM CAN OPENER",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "kitchen-tools",
@@ -5424,7 +5424,7 @@
     },
     {
       "sku": "MKA-012",
-      "name": "CRYSTAL STAINLESS STEEL SERVING TONG, MULTICOLOUR",
+      "name": "CRYSTAL SERVING TONG",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "kitchen-tools",
@@ -5456,7 +5456,7 @@
     },
     {
       "sku": "MKA013",
-      "name": "CRYSTAL STAINLESS STEEL KNIFE CUM SCISSOR SHARPENER, MULTICOLOUR",
+      "name": "CRYSTAL KNIFE CUM SCISSOR SHARPNER",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "kitchen-tools",
@@ -5492,7 +5492,7 @@
     },
     {
       "sku": "MKA023",
-      "name": "CRYSTAL STAINLESS STEEL FINE GRATER, MULTICOLOUR",
+      "name": "CRYSTAL FINE GRATER",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "kitchen-tools",
@@ -5526,7 +5526,7 @@
     },
     {
       "sku": "MKA-069",
-      "name": "CRYSTAL STAINLESS STEEL PIZZA CUTTER, MULTICOLOUR",
+      "name": "CRYSTAL PIZZA CUTTER",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "kitchen-tools",
@@ -5582,7 +5582,7 @@
     },
     {
       "sku": "MKA072",
-      "name": "CRYSTAL STAINLESS STEEL LEMON SQUEEZER, MULTICOLOUR",
+      "name": "CRYSTAL LEMON SQUEEZER",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "kitchen-tools",
@@ -5610,7 +5610,7 @@
     },
     {
       "sku": "MKA075",
-      "name": "CRYSTAL GLASS STAND, PLASTIC, MULTICOLOUR",
+      "name": "CRYSTAL GLASS STAND",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "kitchen-tools",
@@ -5637,7 +5637,7 @@
     },
     {
       "sku": "MKA102",
-      "name": "CRYSTAL - MKA102 STAINLESS STEEL ICE-CREAM SCOOP, MULTICOLOUR",
+      "name": "CRYSTAL ICE-CREAM SCOOP (PR)",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "kitchen-tools",
@@ -5692,7 +5692,7 @@
     },
     {
       "sku": "MKA104",
-      "name": "CRYSTAL STAINLESS STEEL POTATO MASHER, MULTICOLOUR",
+      "name": "CRYSTAL POTATO MASHER (PR)",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "kitchen-tools",
@@ -5755,7 +5755,7 @@
     },
     {
       "sku": "MKA112",
-      "name": "CRYSTAL STAINLESS STEEL SMALL STRAINER, COLOR MAY VARY",
+      "name": "CRYSTAL STRAINER S.S. - 1 (SMALL) (PR)",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "kitchen-tools",
@@ -5803,7 +5803,7 @@
     },
     {
       "sku": "MKA113",
-      "name": "CRYSTAL MEDIUM STAINLESS STEEL STRAINER, MULTICOLOUR",
+      "name": "CRYSTAL STRAINER S.S. - 2 (MEDIUM) (PR)",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "kitchen-tools",
@@ -5857,7 +5857,7 @@
     },
     {
       "sku": "MKA114",
-      "name": "CRYSTAL BIG STAINLESS STEEL STRAINER, MULTICOLOUR",
+      "name": "CRYSTAL STRAINER S.S. - 3 (BIG) (PR)",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "kitchen-tools",
@@ -5910,7 +5910,7 @@
     },
     {
       "sku": "MKA908",
-      "name": "CRYSTAL PLASTIC QUICK SPROUT MAKER WITH 3 COMPARTMENTS, MULTICOLOUR",
+      "name": "CRYSTAL QUICK SPROUTER",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "kitchen-tools",
@@ -5983,7 +5983,7 @@
     },
     {
       "sku": "MKA940",
-      "name": "CRYSTAL PLASTIC LEMON SQUEEZER CUM OPENER, MULTICOLOUR",
+      "name": "CRYSTAL 2-IN-1 LEMON SQUEEZER CUM OPENER",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "kitchen-tools",
@@ -6017,7 +6017,7 @@
     },
     {
       "sku": "MKA941",
-      "name": "CRYSTAL 360 DEGREE REVOLVING SPICE/MASALA RACK SET , MULTICOLOUR",
+      "name": "CRYSTAL 360 SPICE ORAGANISER",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "kitchen-tools",
@@ -6056,7 +6056,7 @@
     },
     {
       "sku": "MKA-949",
-      "name": "CRYSTAL ANTI-SLIP ANGULAR GRATER",
+      "name": "Angular Grater",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "kitchen-tools",
@@ -6157,7 +6157,7 @@
     },
     {
       "sku": "CLMK-009",
-      "name": "CRYSTALINA ICECREAM SCOOP",
+      "name": "CRYSTALINA ICE-CREAM SCOOP",
       "brand": "crystalina",
       "category": "kitchenware",
       "subcategory": "kitchen-tools",
@@ -6313,7 +6313,7 @@
     },
     {
       "sku": "MKA042",
-      "name": "CRYSTAL SALT SHAKER & PEPPER MILL , MULTICOLOUR",
+      "name": "CRYSTAL SALT SHAKER & PEPPER MILL",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "manual-appliances",
@@ -6348,7 +6348,7 @@
     },
     {
       "sku": "MKA-043",
-      "name": "CRYSTAL RAPID PUSH & CHOP 800 ML",
+      "name": "CRYSTAL RAPID PUSH & CHOP 800ML",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "manual-appliances",
@@ -6400,7 +6400,7 @@
     },
     {
       "sku": "MKA-094N",
-      "name": "CRYSTAL PLASTIC XPRESS PULL N CHOP MINI, 450 ML, MULTICOLOUR",
+      "name": "CRYSTAL XPRESS PULL N CHOP MINI",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "manual-appliances",
@@ -6433,7 +6433,7 @@
     },
     {
       "sku": "MKA-095",
-      "name": "CRYSTAL PLASTIC APPLE CUTTER",
+      "name": "CRYSTAL APPLE CUTTER",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "manual-appliances",
@@ -6462,7 +6462,7 @@
     },
     {
       "sku": "MKA096",
-      "name": "CRYSTAL TALL XPRESS PULL CHOP N CHURN 900ML, 5 BLADES",
+      "name": "CRYSTAL TALL XPRESS CHOP N CHURN",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "manual-appliances",
@@ -6539,7 +6539,7 @@
     },
     {
       "sku": "MKA901",
-      "name": "CRYSTAL PLASTIC FRUIT JUICER, MULTICOLOUR",
+      "name": "CRYSTAL FRUIT  JUICER",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "manual-appliances",
@@ -6626,7 +6626,7 @@
     },
     {
       "sku": "MKA904A",
-      "name": "CRYSTAL PLASTIC IMPEL HAND BEATER / BLENDER, MULTICOLOUR",
+      "name": "CRYSTAL IMPEL BEATER",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "manual-appliances",
@@ -6685,7 +6685,7 @@
     },
     {
       "sku": "MKA912",
-      "name": "CRYSTAL STAINLESS STEEL COCONUT SCRAPER, MULTICOLOUR",
+      "name": "CRYSTAL  COCONUT SCRAPER",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "manual-appliances",
@@ -6730,7 +6730,7 @@
     },
     {
       "sku": "MKA913",
-      "name": "CRYSTAL PLASTIC ONION AND VEGETABLE CUTTER, MULTICOLOUR",
+      "name": "CRYSTAL ONION & VEGETABLE CUTTER",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "manual-appliances",
@@ -6777,7 +6777,7 @@
     },
     {
       "sku": "MKA914",
-      "name": "CRYSTAL KITCHEN MASTER PLASTIC JUICER COMBO SET, MULTICOLOUR",
+      "name": "CRYSTAL KITCHEN MASTER",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "manual-appliances",
@@ -6839,7 +6839,7 @@
     },
     {
       "sku": "MKA916A",
-      "name": "CRYSTAL PLASTIC SUPER DICER, MULTICOLOUR",
+      "name": "CRYSTAL SUPER DICER",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "manual-appliances",
@@ -6892,7 +6892,7 @@
     },
     {
       "sku": "MKA923",
-      "name": "CRYSTAL  MENDUVADA MAKERS",
+      "name": "CRYSTAL - MENDUVADA MAKERS",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "manual-appliances",
@@ -6948,7 +6948,7 @@
     },
     {
       "sku": "MKA930",
-      "name": "CRYSTAL PLASTIC DICER PLUS, MULTICOLOUR",
+      "name": "CRYSTAL DICER PLUS",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "manual-appliances",
@@ -7004,7 +7004,7 @@
     },
     {
       "sku": "MKA933",
-      "name": "CRYSTAL PLASTIC ATTA MAKER, MULTICOLOUR",
+      "name": "CRYSTAL ATTA MAKER",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "manual-appliances",
@@ -7059,7 +7059,7 @@
     },
     {
       "sku": "MKA942",
-      "name": "CRYSTAL TORNADO HAND BEATER/ BLENDER , MULTICOLOUR",
+      "name": "CRYSTAL TORNADO BEATER",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "manual-appliances",
@@ -7105,7 +7105,7 @@
     },
     {
       "sku": "MKA943",
-      "name": "CRYSTAL PLASTIC XPRESS HANDY JUICER 2 IN 1, MULTICOLOUR",
+      "name": "CRYSTAL XPRESS HANDY JUICER 2 IN 1",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "manual-appliances",
@@ -7164,7 +7164,7 @@
     },
     {
       "sku": "MKA944",
-      "name": "CRYSTAL PLASTIC COMPACT MULTIPURPOSE DICER/GRATER (12 IN 1, MULTICOLOR)",
+      "name": "CRYSTAL EXPRESS MINI DICER",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "manual-appliances",
@@ -7546,7 +7546,7 @@
     },
     {
       "sku": "VMA-001",
-      "name": "VALMATE HANDY PULL CHOPPER 450ML",
+      "name": "Valmate Handy Pull Chopper 450ml",
       "brand": "valmate",
       "category": "kitchenware",
       "subcategory": "manual-appliances",
@@ -7599,7 +7599,7 @@
     },
     {
       "sku": "MKA-231",
-      "name": "CRYSTAL STAINLESS STEEL CUTLERY SET, 24-PIECES, SILVER",
+      "name": "CRYSTAL 24 PCS. TABLEWARE CUTLERY SET(STEELAGE)",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "cutlery",
@@ -7659,7 +7659,7 @@
     },
     {
       "sku": "MKA-241",
-      "name": "CRYSTAL TRENDY STAINLESS STEEL CUTLERY SET, 24-PIECES, MULTICOLOUR",
+      "name": "CRYSTAL 24 PCS. SET (TRENDY)",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "cutlery",
@@ -7711,7 +7711,7 @@
     },
     {
       "sku": "MKA-301",
-      "name": "CRYSTAL NEW STAINLESS STEEL CUTLERY SET, 24-PIECES, MULTICOLOUR",
+      "name": "CRYSTAL NEW 24 PC CUTLERY SET",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "cutlery",
@@ -7784,7 +7784,7 @@
     },
     {
       "sku": "MKA-411",
-      "name": "CRYSTAL SLEEK CUTLERY SET WITH STAND, 25-PIECES, SILVER",
+      "name": "CRYSTAL 25 PCS SET WITHOUT KNIVES (SLEEK)",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "cutlery",
@@ -7820,7 +7820,7 @@
     },
     {
       "sku": "MKA-412",
-      "name": "CRYSTAL MODISH CUTLERY SET WITH STAND, 25-PIECES, SILVER",
+      "name": "CRYSTAL 25 PCS SET WITHOUT KNIVES (MODISH)",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "cutlery",
@@ -7877,7 +7877,7 @@
     },
     {
       "sku": "MKA-413",
-      "name": "CRYSTAL LA MILANO CUTLERY SET WITH STAND, 25-PIECES, SILVER",
+      "name": "CRYSTAL 25 PCS SET WITHOUT KNIVES(LAMILANO)",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "cutlery",
@@ -7936,7 +7936,7 @@
     },
     {
       "sku": "MKA-414",
-      "name": "CRYSTAL LA MILANO CUTLERY SET WITH STAND, 27-PIECES, SILVER",
+      "name": "CRYSTAL 27 PCS SET WITHOUT KNIVES(LAMILANO)",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "cutlery",
@@ -7996,7 +7996,7 @@
     },
     {
       "sku": "MKA-415",
-      "name": "CRYSTAL MODISH CUTLERY SET WITH STAND, 37-PIECES, SILVER",
+      "name": "CRYSTAL 37 PCS SET WITHOUT KNIVES (MODISH)",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "cutlery",
@@ -8033,7 +8033,7 @@
     },
     {
       "sku": "MKA-416",
-      "name": "CRYSTAL TITANIUM CUTLERY SET WITH KNIVES, 25-PIECES, ROSEGOLD",
+      "name": "CRYSTAL 25PCS TITANIUM FLATWARE WITH KNIVES",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "cutlery",
@@ -8107,7 +8107,7 @@
     },
     {
       "sku": "CC-841",
-      "name": "CRYSTAL TITANIUM SERIES STAINLESS STEEL TEA SPOON SET| SET OF 6 | ROSE GOLD",
+      "name": "CRYSTAL TITANIUM R/G TEA SPOON (SET OF 6)",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "cutlery",
@@ -8172,7 +8172,7 @@
     },
     {
       "sku": "CC-842",
-      "name": "CRYSTAL TITANIUM SERIES STAINLESS STEEL DESERT SPOON|SET OF 6|ROSE GOLD",
+      "name": "CRYSTAL TITANIUM R/G DESERT  SPOON (SET OF 6)",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "cutlery",
@@ -8237,7 +8237,7 @@
     },
     {
       "sku": "CC-843",
-      "name": "CRYSTAL TITANIUM SERIES STAINLESS STEEL DESERT FORK|SET OF 6|ROSE GOLD",
+      "name": "CRYSTAL TITANIUM R/G DESERT  FORK (SET OF 6)",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "cutlery",
@@ -8302,7 +8302,7 @@
     },
     {
       "sku": "CC-844",
-      "name": "CRYSTAL TITANIUM SERIES STAINLESS STEEL DESERT KNIFE|SET OF 2|ROSE GOLD",
+      "name": "CRYSTAL TITANIUM R/G DESERT  KNIFE (SET OF 2)",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "cutlery",
@@ -8368,7 +8368,7 @@
     },
     {
       "sku": "CC-845",
-      "name": "CRYSTAL TITANIUM SERIES STAINLESS STEEL ICE CREAM SPOON|SET OF 6|ROSE GOLD",
+      "name": "CRYSTAL TITANIUM R/G ICE CREAM   SPOON (SET OF 6)",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "cutlery",
@@ -8434,7 +8434,7 @@
     },
     {
       "sku": "CC-846",
-      "name": "CRYSTAL TITANIUM SERIES STAINLESS STEEL BABY SPOON|SET OF 6|ROSE GOLD",
+      "name": "CRYSTAL TITANIUM R/G  BABY SPOON  (SET OF 6)",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "cutlery",
@@ -8500,7 +8500,7 @@
     },
     {
       "sku": "CC-847",
-      "name": "CRYSTAL TITANIUM SERIES STAINLESS STEEL BABY FORK SPOON|SET OF 6|ROSE GOLD",
+      "name": "CRYSTAL TITANIUM R/G BABY FORK (SET OF 6)",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "cutlery",
@@ -8565,7 +8565,7 @@
     },
     {
       "sku": "CC-848",
-      "name": "CRYSTAL TITANIUM SERIES STAINLESS STEEL BABY SOUP SPOON|SET OF 6|ROSE GOLD",
+      "name": "CRYSTAL TITANIUM R/G BABY SOUP  SPOON  (SET OF 6)",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "cutlery",
@@ -8630,7 +8630,7 @@
     },
     {
       "sku": "CC-849",
-      "name": "CRYSTAL TITANIUM SERIES STAINLESS STEEL DESERT SOUP SPOON|SET OF 6|ROSE GOLD",
+      "name": "CRYSTAL TITANIUM R/G DESERT SOUP SPOON  (SET OF 6)",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "cutlery",
@@ -8743,7 +8743,7 @@
     },
     {
       "sku": "CC-951",
-      "name": "CRYSTAL - CC951A STAINLESS STEEL TEA SPOON SET, SET OF 6, SILVER - 6.5 CM",
+      "name": "CRYSTAL SLEEK TEA SPOON (SET OF 6)",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "cutlery",
@@ -8811,7 +8811,7 @@
     },
     {
       "sku": "CC-952",
-      "name": "CRYSTAL STAINLESS STEEL DESSERT SPOON SET, SET OF 6, SILVER",
+      "name": "CRYSTAL SLEEK DESSERT SPOON (SET OF 6)",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "cutlery",
@@ -8873,7 +8873,7 @@
     },
     {
       "sku": "CC-953",
-      "name": "CRYSTAL STAINLESS STEEL DESSERT FORK SET, SET OF 6, SILVER",
+      "name": "CRYSTAL SLEEK DESSERT FORK (SET OF 6)",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "cutlery",
@@ -8936,7 +8936,7 @@
     },
     {
       "sku": "CC-954",
-      "name": "CRYSTAL DESSERT KNIFE (2PC)",
+      "name": "CRYSTAL SLEEK DESSERT KNIFE (SET OF 2)",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "cutlery",
@@ -8967,7 +8967,7 @@
     },
     {
       "sku": "CC-955",
-      "name": "CRYSTAL STAINLESS STEEL ICE CREAM SPOON SET, SET OF 6, SILVER",
+      "name": "CRYSTAL SLEEK ICE CREAM SPOON (SET OF 6)",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "cutlery",
@@ -9025,7 +9025,7 @@
     },
     {
       "sku": "CC-956",
-      "name": "CRYSTAL STAINLESS STEEL BABY SPOON SET, SET OF 6, SILVER",
+      "name": "CRYSTAL SLEEK BABY SPOON (SET OF 6)",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "cutlery",
@@ -9086,7 +9086,7 @@
     },
     {
       "sku": "CC-957",
-      "name": "CRYSTAL STAINLESS STEEL BABY FORK SET, SET OF 6, SILVER",
+      "name": "CRYSTAL SLEEK BABY FORK (SET OF 6)",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "cutlery",
@@ -9147,7 +9147,7 @@
     },
     {
       "sku": "CC-958",
-      "name": "CRYSTAL STAINLESS STEEL BABY SOUP SPOON SET, SET OF 6, SILVER",
+      "name": "CRYSTAL SLEEK BABY SOUP SPOON (SET OF 6)",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "cutlery",
@@ -9198,7 +9198,7 @@
     },
     {
       "sku": "CC-959",
-      "name": "CRYSTAL STAINLESS STEEL DESSERT SOUP SPOON SET, SET OF 6, SILVER",
+      "name": "CRYSTAL SLEEK DESSERT SOUP SPOON (SET OF 6)",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "cutlery",
@@ -9256,7 +9256,7 @@
     },
     {
       "sku": "CC-960",
-      "name": "CRYSTAL STAINLESS STEEL COFFEE SPOON SET, SET OF 6, SILVER",
+      "name": "CRYSTAL SLEEK COFFEE SPOON (SET OF 6)",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "cutlery",
@@ -9315,7 +9315,7 @@
     },
     {
       "sku": "CC-961",
-      "name": "CRYSTAL STAINLESS STEEL FRUIT FORK SET, SET OF 6, SILVER",
+      "name": "CRYSTAL SLEEK FRUIT FORK (SET OF 6)",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "cutlery",
@@ -9376,7 +9376,7 @@
     },
     {
       "sku": "CC-962",
-      "name": "CRYSTAL STAINLESS STEEL BUTTER KNIFE, SILVER",
+      "name": "CRYSTAL SLEEK BUTTER KNIFE (1 PC)",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "cutlery",
@@ -9443,7 +9443,7 @@
     },
     {
       "sku": "CC-965",
-      "name": "CRYSTAL STAINLESS STEEL TABLE SPOON SET, SET OF 2 SILVER",
+      "name": "CRYSTAL SLEEK TABLE SPOON (SET OF 2)",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "cutlery",
@@ -9503,7 +9503,7 @@
     },
     {
       "sku": "CC-966",
-      "name": "CRYSTAL STAINLESS STEEL TABLE FORK SET, SET OF 2 SILVER",
+      "name": "CRYSTAL SLEEK TABLE FORK (SET OF 2)",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "cutlery",
@@ -9563,7 +9563,7 @@
     },
     {
       "sku": "CC-971",
-      "name": "CRYSTAL TEA SPOON",
+      "name": "CRYSTAL SPRINKLE TEA SPOON (SET OF 6)",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "cutlery",
@@ -9594,7 +9594,7 @@
     },
     {
       "sku": "CC-972",
-      "name": "CRYSTAL DESSERT SPOON",
+      "name": "CRYSTAL SPRINKLE DESSERT SPOON (SET OF 6)",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "cutlery",
@@ -9625,7 +9625,7 @@
     },
     {
       "sku": "CC-973",
-      "name": "CRYSTAL DESSERT FORK",
+      "name": "CRYSTAL SPRINKLE DESSERT FORK (SET OF 6)",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "cutlery",
@@ -9656,7 +9656,7 @@
     },
     {
       "sku": "CC-974",
-      "name": "DESSERT KNIFE  (2PC SET)",
+      "name": "CRYSTAL SPRINKLE DESSERT KNIFE (SET OF 2)",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "cutlery",
@@ -9687,7 +9687,7 @@
     },
     {
       "sku": "CC-975",
-      "name": "CRYSTAL ICE CREAM SPOON",
+      "name": "CRYSTAL SPRINKLE ICE CREAM SPOON (SET OF 6)",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "cutlery",
@@ -9718,7 +9718,7 @@
     },
     {
       "sku": "CC-976",
-      "name": "CRYSTAL BABY SPOON",
+      "name": "CRYSTAL SPRINKLE BABY SPOON (SET OF 6)",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "cutlery",
@@ -9749,7 +9749,7 @@
     },
     {
       "sku": "CC-977",
-      "name": "CRYSTAL BABY FORK",
+      "name": "CRYSTAL SPRINKLE BABY FORK (SET OF 6)",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "cutlery",
@@ -9780,7 +9780,7 @@
     },
     {
       "sku": "CC-978",
-      "name": "CRYSTAL BABY SOUP SPOON",
+      "name": "CRYSTAL SPRINKLE BABY SOUP SPOON (SET OF 6)",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "cutlery",
@@ -9811,7 +9811,7 @@
     },
     {
       "sku": "CC-979",
-      "name": "CRYSTAL DESSERT SOUP SPOON",
+      "name": "CRYSTAL SPRINKLE DESSERT SOUP SPOON (SET OF 6)",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "cutlery",
@@ -9842,7 +9842,7 @@
     },
     {
       "sku": "CC-980",
-      "name": "CRYSTAL MODISH TEA SPOON (6 PC SET)",
+      "name": "CRYSTAL SPRINKLE COFFEE SPOON (SET OF 6)",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "cutlery",
@@ -9873,7 +9873,7 @@
     },
     {
       "sku": "CC-981",
-      "name": "CRYSTAL MODISH DESSERT SPOON (6 PC SET)",
+      "name": "CRYSTAL MODISH TEA SPOON (SET OF 6)",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "cutlery",
@@ -9904,7 +9904,7 @@
     },
     {
       "sku": "CC-982",
-      "name": "CRYSTAL MODISH DESSERT FORK (6 PC SET)",
+      "name": "CRYSTAL MODISH DESSERT SPOON (SET OF 6)",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "cutlery",
@@ -9937,7 +9937,7 @@
     },
     {
       "sku": "CC-983",
-      "name": "CRYSTAL MODISH DESSERT KNIFE (2 PC SET)",
+      "name": "CRYSTAL MODISH DESSERT FORK (SET OF 6)",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "cutlery",
@@ -9968,7 +9968,7 @@
     },
     {
       "sku": "CC-984",
-      "name": "CRYSTAL MODISH BABY SPOON (6 PC SET)",
+      "name": "CRYSTAL MODISH DESSERT KNIFE (SET OF 2)",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "cutlery",
@@ -9999,7 +9999,7 @@
     },
     {
       "sku": "CC-985",
-      "name": "CRYSTAL MODISH BABY SPOON (6 PC SET)",
+      "name": "CRYSTAL MODISH BABY SPOON (SET OF 6)",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "cutlery",
@@ -10030,7 +10030,7 @@
     },
     {
       "sku": "CC-986",
-      "name": "CRYSTAL MODISH BABY FORK(6 PC SET)",
+      "name": "CRYSTAL MODISH BABY FORK (SET OF 6)",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "cutlery",
@@ -10061,7 +10061,7 @@
     },
     {
       "sku": "CC-987",
-      "name": "CRYSTAL MODISH FRUIT FORK",
+      "name": "CRYSTAL MODISH FRUIT FORK (SET OF 6)",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "cutlery",
@@ -10123,7 +10123,7 @@
     },
     {
       "sku": "CC-991",
-      "name": "CRYSTAL LA MILANO STAINLESS STEEL TEA SPOON SET, 6-PIECES, SILVER",
+      "name": "CRYSTAL La Milano TEA SPOON  (SET OF 6)",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "cutlery",
@@ -10158,7 +10158,7 @@
     },
     {
       "sku": "CC-992",
-      "name": "CRYSTAL LA MILANO STAINLESS STEEL DESSERT SPOON SET, 6-PIECES, SILVER",
+      "name": "CRYSTAL La Milano DESERT SPOON (SET OF 6)",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "cutlery",
@@ -10199,7 +10199,7 @@
     },
     {
       "sku": "CC-993",
-      "name": "CRYSTAL LA MILANO STAINLESS STEEL DESSERT FORK SET, 6-PIECES, SILVER",
+      "name": "CRYSTAL La Milano DESERT FORK (SET OF 6)",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "cutlery",
@@ -10233,7 +10233,7 @@
     },
     {
       "sku": "CC-994",
-      "name": "CRYSTAL LA MILANO STAINLESS STEEL DESSERT KNIFE SET, 2-PIECES, SILVER",
+      "name": "CRYSTAL La Milano DESERT KNIFE (SET OF 2)",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "cutlery",
@@ -10275,7 +10275,7 @@
     },
     {
       "sku": "CC-995",
-      "name": "CRYSTAL LA MILANO STAINLESS STEEL BABY SPOON SET, 6-PIECES, SILVER",
+      "name": "CRYSTAL La Milano BABY SPOON (SET OF 6)",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "cutlery",
@@ -10313,7 +10313,7 @@
     },
     {
       "sku": "CC-996",
-      "name": "CRYSTAL LA MILANO STAINLESS STEEL BABY FORK SET, 6-PIECES, SILVER",
+      "name": "CRYSTAL La Milano BABY FORK  (SET OF 6)",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "cutlery",
@@ -10374,7 +10374,7 @@
     },
     {
       "sku": "CC-997",
-      "name": "CRYSTAL LA MILANO STAINLESS STEEL DESSERT SOUP SPOON SET, 6-PIECES, SILVER",
+      "name": "CRYSTAL La Milano DESSERT SOUP SPOON  (SET OF 6)",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "cutlery",
@@ -10410,7 +10410,7 @@
     },
     {
       "sku": "MKA-247",
-      "name": "CRYSTAL NYLON SERVING SET, 7-PIECES, MULTICOLOUR",
+      "name": "CRYSTAL 7 PCS (NYLO STYLE) SERVING SET",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "servers",
@@ -10460,7 +10460,7 @@
     },
     {
       "sku": "MKA-291",
-      "name": "CRYSTAL NYLON LADLE",
+      "name": "CRYSTAL SMALL LADLE",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "servers",
@@ -10522,7 +10522,7 @@
     },
     {
       "sku": "MKA-292",
-      "name": "CRYSTAL NYLON LADLE, LARGE",
+      "name": "CRYSTAL BIG LADLE",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "servers",
@@ -10581,7 +10581,7 @@
     },
     {
       "sku": "MKA-293",
-      "name": "CRYSTAL SLOTTED BASTING NYLON SPOON, MULTICOLOUR",
+      "name": "CRYSTAL SLOTTED BASTING SPOON",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "servers",
@@ -10641,7 +10641,7 @@
     },
     {
       "sku": "MKA-294",
-      "name": "CRYSTAL OVAL NYLON SERVING SPOON, MULTICOLOUR",
+      "name": "CRYSTAL OVAL SERVING SPOON",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "servers",
@@ -10700,7 +10700,7 @@
     },
     {
       "sku": "MKA-295",
-      "name": "CRYSTAL NYLON SKIMMER, MULTICOLOUR",
+      "name": "CRYSTAL SKIMMER",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "servers",
@@ -10760,7 +10760,7 @@
     },
     {
       "sku": "MKA-296",
-      "name": "CRYSTAL NYLON SLOTTED SPATULA, MULTICOLOUR",
+      "name": "CRYSTAL SLOTTED SPATULA",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "servers",
@@ -11109,7 +11109,7 @@
     },
     {
       "sku": "MKA-203",
-      "name": "CRYSTAL STAINLESS STEEL HANDY COOK-SERVE SET, MULTICOLOUR",
+      "name": "CRYSTAL 7 PCS HANDY COOK-SERVE SET",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "servers",
@@ -11188,7 +11188,7 @@
     },
     {
       "sku": "CC-934",
-      "name": "CRYSTAL BASTING STAINLESS STEEL SERVING SPOON, SILVER",
+      "name": "CRYSTAL 1 NO. SMALL BASTING SERVING SPOON",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "servers",
@@ -11410,7 +11410,7 @@
     },
     {
       "sku": "CC-940",
-      "name": "CRYSTAL SPATULA SET, SET OF 3",
+      "name": "CRYSTAL 3PCS SPATULA SET /P",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "servers",
@@ -11504,7 +11504,7 @@
     },
     {
       "sku": "CC-943",
-      "name": "CRYSTAL - CC943 OVAL MEDIUM STAINLESS STEEL SERVING SPOON, SILVER,22.5 CENTIMETER",
+      "name": "CRYSTAL 2NO. MEDIUM OVAL SERVING SPOON",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "servers",
@@ -11762,7 +11762,7 @@
     },
     {
       "sku": "CC-921",
-      "name": "CRYSTAL BASTING STAINLESS STEEL SERVING SPOON, SILVER (CC921)",
+      "name": "CRYSTAL 3 NO.BASTING SERVING SPOON",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "servers",
@@ -11832,7 +11832,7 @@
     },
     {
       "sku": "CC-922",
-      "name": "CRYSTAL SLOTTED BASTING STAINLESS STEEL SERVING SPOON, SILVER",
+      "name": "CRYSTAL 3 NO.SLOTTED BASTING SERVING SPOON",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "servers",
@@ -11902,7 +11902,7 @@
     },
     {
       "sku": "CC-923",
-      "name": "CRYSTAL OVAL STAINLESS STEEL SERVING SPOON, SILVER (CC923) - 1 CM",
+      "name": "CRYSTAL 3 NO.OVAL SERVING SPOON",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "servers",
@@ -11973,7 +11973,7 @@
     },
     {
       "sku": "CC-924",
-      "name": "CRYSTAL SQUARE STAINLESS STEEL SERVING SPOON, SILVER",
+      "name": "CRYSTAL 3 NO.SQUARE/PULAV SERVING SPOON",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "servers",
@@ -12042,7 +12042,7 @@
     },
     {
       "sku": "CC-925",
-      "name": "CRYSTAL STAINLESS STEEL SPATULA, SILVER, STANDARD",
+      "name": "CRYSTAL 3 NO. SPATULA/TURNER",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "servers",
@@ -12111,7 +12111,7 @@
     },
     {
       "sku": "CC-926",
-      "name": "CRYSTAL STAINLESS STEEL SLOTTED SPATULA, SILVER, STANDARD",
+      "name": "CRYSTAL 3 NO. SLOTTED SPATULA/TURNER",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "servers",
@@ -12181,7 +12181,7 @@
     },
     {
       "sku": "CC-927",
-      "name": "CRYSTAL STAINLESS STEEL SKIMMER, SILVER",
+      "name": "CRYSTAL 3 NO.SKIMMER",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "servers",
@@ -12251,7 +12251,7 @@
     },
     {
       "sku": "CC-928",
-      "name": "CRYSTAL STAINLESS STEEL LADLE, SILVER",
+      "name": "CRYSTAL 3 NO. LADLE",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "servers",
@@ -12320,7 +12320,7 @@
     },
     {
       "sku": "CC-929",
-      "name": "CRYSTAL STAINLESS STEEL DEEP LADLE, SILVER, STANDARD - 24.5 CM",
+      "name": "CRYSTAL 3 NO. DEEP LADLE/ DAV",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "servers",
@@ -12390,7 +12390,7 @@
     },
     {
       "sku": "CC-931",
-      "name": "CRYSTAL STAINLESS STEEL RICE SERVER, SILVER, STANDARD",
+      "name": "CRYSTAL 3 NO. RICE SERVER",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "servers",
@@ -12460,7 +12460,7 @@
     },
     {
       "sku": "CC-930",
-      "name": "CRYSTAL LARGE STAINLESS STEEL SKIMMER, SILVER",
+      "name": "CRYSTAL 6 NO. SKIMMER BIG",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "servers",
@@ -12530,7 +12530,7 @@
     },
     {
       "sku": "CC-932",
-      "name": "CRYSTAL - CC932 LARGE STAINLESS_STEEL SPATULA, SILVER",
+      "name": "CRYSTAL 6 NO. LARGE SPATULA/ DOSA TURNER",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "servers",
@@ -12592,7 +12592,7 @@
     },
     {
       "sku": "CC-933",
-      "name": "CRYSTAL LARGE STAINLESS STEEL LADLE, SILVER",
+      "name": "CRYSTAL 6 NO. LARGE LADLE",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "servers",
@@ -12656,7 +12656,7 @@
     },
     {
       "sku": "CC-891",
-      "name": "CRYSTAL SS LAMILANO BASTING SPOON",
+      "name": "CRYSTAL La Milano BASTING",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "servers",
@@ -12709,7 +12709,7 @@
     },
     {
       "sku": "CC-892",
-      "name": "CRYSTAL SS LAMILANO OVAL SPOON",
+      "name": "CRYSTAL La Milano OVAL",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "servers",
@@ -12762,7 +12762,7 @@
     },
     {
       "sku": "CC-893",
-      "name": "CRYSTAL SS LAMILANO SQUARE SERVER",
+      "name": "CRYSTAL La Milano SQUARE SERVING",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "servers",
@@ -12818,7 +12818,7 @@
     },
     {
       "sku": "CC-894",
-      "name": "CRYSTAL SS LAMILANO LADLE",
+      "name": "CRYSTAL La Milano LADLE",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "servers",
@@ -12871,7 +12871,7 @@
     },
     {
       "sku": "CC-895",
-      "name": "CRYSTAL SS LAMILANO CAKE SERVER",
+      "name": "CRYSTAL La Milano CAKE SERVING",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "servers",
@@ -13089,7 +13089,7 @@
     },
     {
       "sku": "CC-856",
-      "name": "CRYSTAL TITANIUM SERIES STAINLESS STEEL BASTING SPOON|SET OF 1|ROSE GOLD",
+      "name": "Crystal Titanium Series Stainless Steel Basting Spoon|Set of 1|Rose Gold",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "servers",
@@ -13149,7 +13149,7 @@
     },
     {
       "sku": "CC-857",
-      "name": "CRYSTAL TITANIUM SERIES STAINLESS STEEL OVAL SPOON|SET OF 1|ROSE GOLD",
+      "name": "Crystal Titanium Series Stainless Steel Oval Spoon|Set of 1|Rose Gold",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "servers",
@@ -13209,7 +13209,7 @@
     },
     {
       "sku": "CC-858",
-      "name": "CRYSTAL TITANIUM SERIES STAINLESS STEEL SQUARE SERVER|SET OF 1|ROSE GOLD",
+      "name": "Crystal Titanium Series Stainless Steel Square Server|Set of 1|Rose Gold",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "servers",
@@ -13270,7 +13270,7 @@
     },
     {
       "sku": "CC-859",
-      "name": "CRYSTAL TITANIUM SERIES STAINLESS STEEL LADLE|SET OF 1|ROSE GOLD",
+      "name": "Crystal Titanium Series Stainless Steel Ladle|Set of 1|Rose Gold",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "servers",
@@ -13330,7 +13330,7 @@
     },
     {
       "sku": "CC-860",
-      "name": "CRYSTAL TITANIUM SERIES STAINLESS STEEL CAKE SERVER|SET OF 1|ROSE GOLD",
+      "name": "Crystal Titanium Series Stainless Steel Cake Server|Set of 1|Rose Gold",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "servers",
@@ -13390,7 +13390,7 @@
     },
     {
       "sku": "CC-861",
-      "name": "CRYSTAL TITANIUM SERIES STAINLESS STEEL MULTIPURPOSE TONG|SET OF 1|ROSE GOLD",
+      "name": "Crystal Titanium Series Stainless Steel Multipurpose Tong|Set of 1|Rose Gold",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "servers",
@@ -13477,7 +13477,7 @@
     },
     {
       "sku": "WF001",
-      "name": "CRYSTAL SS 18-LITERS WATER FILTER",
+      "name": "CRYSTAL 18 LTRS ( 2 CANDLE )",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "water-filter",
@@ -13509,7 +13509,7 @@
     },
     {
       "sku": "WF002",
-      "name": "CRYSTAL SS 24-LITERS WATER FILTER",
+      "name": "CRYSTAL 24 LTRS ( 3 CANDLES )",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "water-filter",
@@ -13541,7 +13541,7 @@
     },
     {
       "sku": "WF003",
-      "name": "CRYSTAL SS 30-LITERS WATER FILTER",
+      "name": "CRYSTAL 30 LTRS (3 CANDLES )",
       "brand": "crystal",
       "category": "kitchenware",
       "subcategory": "water-filter",
@@ -13632,7 +13632,7 @@
     },
     {
       "sku": "CWB-032",
-      "name": "CRYSTAL PYRAMID SS BOTTLE 1000 ML",
+      "name": "CRYSTAL PYRAMID S.S. BOTTLE 1000ML",
       "brand": "crystal",
       "category": "water-bottle",
       "subcategory": null,
@@ -13754,7 +13754,7 @@
     },
     {
       "sku": "CWB-043",
-      "name": "CRYSTAL CAPSULE STAINLESS STEEL WATER BOTTLE -1000ML (PACK OF 2)",
+      "name": "CRYSTAL CAPSULE WATER BOTTLE 1000ML",
       "brand": "crystal",
       "category": "water-bottle",
       "subcategory": null,
@@ -13805,7 +13805,7 @@
     },
     {
       "sku": "CWB-044",
-      "name": "CRYSTAL SILK STAINLESS STEEL WATER BOTTLE - 1000 ML (PACK OF 1)",
+      "name": "CRYSTAL SILK WATER BOTTLE 1000 ML",
       "brand": "crystal",
       "category": "water-bottle",
       "subcategory": null,
@@ -13850,7 +13850,7 @@
     },
     {
       "sku": "CWB-045",
-      "name": "CRYSTAL COLA STAINLESS STEEL WATER BOTTLE -1000ML (PACK OF 2)",
+      "name": "CRYSTAL COLA WATER BOTTLE 1000ML",
       "brand": "crystal",
       "category": "water-bottle",
       "subcategory": null,
@@ -13903,7 +13903,7 @@
     },
     {
       "sku": "CWB040",
-      "name": "CRYSTAL STAINLESS STEEL WATER BOTTLE, 800 ML, MULTICOLOUR",
+      "name": "CRYSTAL HANDY COLOUR BOTTLE 800ML",
       "brand": "crystal",
       "category": "water-bottle",
       "subcategory": null,
@@ -13957,7 +13957,7 @@
     },
     {
       "sku": "CWB041",
-      "name": "CRYSTAL STEEL BTL FLIPTOP 750 ML - 2PACK",
+      "name": "CRYSTAL FLIP TOP SS BOTTLE 750 ML",
       "brand": "crystal",
       "category": "water-bottle",
       "subcategory": null,
@@ -14017,7 +14017,7 @@
     },
     {
       "sku": "CWB042",
-      "name": "CRYSTAL BASIC HOT N COLD PS COLOUR 500 ML",
+      "name": "CRYSTAL BASIC HOT N COLD INSULATED PS COLOUR 500 ML",
       "brand": "crystal",
       "category": "water-bottle",
       "subcategory": null,
@@ -14048,7 +14048,7 @@
     },
     {
       "sku": "COP-001",
-      "name": "CRYSTAL SS OIL POURER 350 ML",
+      "name": "CRYSTAL SS OIL POURER - 350 ML",
       "brand": "crystal",
       "category": "oil-pourer",
       "subcategory": null,
@@ -14103,7 +14103,7 @@
     },
     {
       "sku": "COP-002",
-      "name": "CRYSTAL SS OIL POURER 500 ML",
+      "name": "CRYSTAL SS OIL POURER - 500 ML",
       "brand": "crystal",
       "category": "oil-pourer",
       "subcategory": null,
@@ -14160,7 +14160,7 @@
     },
     {
       "sku": "COP-003",
-      "name": "CRYSTAL SS OIL POURER 750 ML",
+      "name": "CRYSTAL SS OIL POURER - 750 ML",
       "brand": "crystal",
       "category": "oil-pourer",
       "subcategory": null,
@@ -14214,7 +14214,7 @@
     },
     {
       "sku": "COP-004",
-      "name": "CRYSTAL SS OIL POURER 1000 ML",
+      "name": "CRYSTAL SS OIL POURER - 1000 ML",
       "brand": "crystal",
       "category": "oil-pourer",
       "subcategory": null,
@@ -14273,7 +14273,7 @@
     },
     {
       "sku": "COP-005",
-      "name": "CRYSTAL SS CURVY OIL POURER 1000 ML",
+      "name": "CRYSTAL CURVY OIL POURER - 1000 ML",
       "brand": "crystal",
       "category": "oil-pourer",
       "subcategory": null,
@@ -14350,7 +14350,7 @@
     },
     {
       "sku": "CPW-001",
-      "name": "CRYSTAL TEAKWOOD HANDY SMALL SERVING TRAY",
+      "name": "Crystal T/W Handy Small Serving Tray",
       "brand": "crystal",
       "category": "wood-range",
       "subcategory": null,
@@ -14410,7 +14410,7 @@
     },
     {
       "sku": "CPW-002",
-      "name": "CRYSTAL TEAKWOOD HANDY MEDIUM SERVING TRAY",
+      "name": "Crystal T/W Handy Medium Serving Tray",
       "brand": "crystal",
       "category": "wood-range",
       "subcategory": null,
@@ -14470,7 +14470,7 @@
     },
     {
       "sku": "CPW-003",
-      "name": "CRYSTAL TEAKWOOD HANDY LARGE SERVING TRAY",
+      "name": "Crystal T/W Handy Large Serving Tray",
       "brand": "crystal",
       "category": "wood-range",
       "subcategory": null,
@@ -14528,7 +14528,7 @@
     },
     {
       "sku": "CPW-004",
-      "name": "CRYSTAL TEAKWOOD CURVEY SMALL SERVING TRAY",
+      "name": "Crystal T/W Curvey Small Serving Tray",
       "brand": "crystal",
       "category": "wood-range",
       "subcategory": null,
@@ -14587,7 +14587,7 @@
     },
     {
       "sku": "CPW-005",
-      "name": "CRYSTAL TEAKWOOD CURVEY MEDIUM SERVING TRAY",
+      "name": "Crystal T/W Curvey Medium Serving Tray",
       "brand": "crystal",
       "category": "wood-range",
       "subcategory": null,
@@ -14645,7 +14645,7 @@
     },
     {
       "sku": "CPW-006",
-      "name": "CRYSTAL TEAKWOOD CURVEY LARGE SERVING TRAY",
+      "name": "Crystal T/W Curvey Large Serving Tray",
       "brand": "crystal",
       "category": "wood-range",
       "subcategory": null,
@@ -14703,7 +14703,7 @@
     },
     {
       "sku": "CPW-007",
-      "name": "CRYSTAL TEAKWOOD WOOD-INOX SMALL SERVING TRAY",
+      "name": "Crystal T/W Wood-Inox Small Serving Tray",
       "brand": "crystal",
       "category": "wood-range",
       "subcategory": null,
@@ -14764,7 +14764,7 @@
     },
     {
       "sku": "CPW-008",
-      "name": "CRYSTAL TEAKWOOD - INOX MEDIUM SERVING TRAY",
+      "name": "Crystal T/W Wood-Inox Medium Serving Tray",
       "brand": "crystal",
       "category": "wood-range",
       "subcategory": null,
@@ -14822,7 +14822,7 @@
     },
     {
       "sku": "CPW-009",
-      "name": "CRYSTAL TEAKWOOD WOOD-INOX LARGE SERVING TRAY",
+      "name": "Crystal T/W Wood-Inox Large Serving Tray",
       "brand": "crystal",
       "category": "wood-range",
       "subcategory": null,
@@ -14880,7 +14880,7 @@
     },
     {
       "sku": "CPW-010",
-      "name": "CRYSTAL TEAKWOOD RECTANGLE SPICE BOX 9 BOWLS",
+      "name": "Crystal T/W Rectangle Spice Box 9 Bowls",
       "brand": "crystal",
       "category": "wood-range",
       "subcategory": null,
@@ -14937,7 +14937,7 @@
     },
     {
       "sku": "CPW-011",
-      "name": "CRYSTAL TEAKWOOD REVOLVING TABLE CADDY 4 IN 1",
+      "name": "Crystal T/W Revolving Table Caddy 4 in 1",
       "brand": "crystal",
       "category": "wood-range",
       "subcategory": null,
@@ -14974,7 +14974,7 @@
     },
     {
       "sku": "CPW-012",
-      "name": "CRYSTAL TEAKWOOD TABLE CADDY WITH HANDLE 2 IN 1",
+      "name": "Crystal T/W Table Caddy with Handle 2 in 1",
       "brand": "crystal",
       "category": "wood-range",
       "subcategory": null,
@@ -15011,7 +15011,7 @@
     },
     {
       "sku": "CPW-013",
-      "name": "CRYSTAL TEAKWOOD TABLE CADDY WITH HANDLE 4 IN 1",
+      "name": "Crystal T/W Table Caddy with Handle 4 in 1",
       "brand": "crystal",
       "category": "wood-range",
       "subcategory": null,
@@ -15055,7 +15055,7 @@
     },
     {
       "sku": "CPW-014",
-      "name": "CRYSTAL TEAKWOOD TEA COASTER SQUARE",
+      "name": "Crystal T/W Tea Coaster Square",
       "brand": "crystal",
       "category": "wood-range",
       "subcategory": null,
@@ -15113,7 +15113,7 @@
     },
     {
       "sku": "CPW-015",
-      "name": "CRYSTAL TEAKWOOD TEA COASTER ROUND",
+      "name": "Crystal T/W Tea Coaster Round",
       "brand": "crystal",
       "category": "wood-range",
       "subcategory": null,
@@ -15171,7 +15171,7 @@
     },
     {
       "sku": "CPW-016",
-      "name": "CRYSTAL TEAKWOOD TEA COASTER CUPPO",
+      "name": "Crystal T/W Tea Coaster Cuppo",
       "brand": "crystal",
       "category": "wood-range",
       "subcategory": null,
@@ -15230,7 +15230,7 @@
     },
     {
       "sku": "CPW-017",
-      "name": "CRYSTAL TEAKWOOD NAPKIN HOLDER WITH WEIGHT",
+      "name": "Crystal T/W Napkin Holder with Weight",
       "brand": "crystal",
       "category": "wood-range",
       "subcategory": null,
@@ -15287,7 +15287,7 @@
     },
     {
       "sku": "CPW-018",
-      "name": "CRYSTAL TEAKWOOD HOT MATE SQUARE (PACK OF 3)",
+      "name": "Crystal T/W Hot Mate Square (Pack of 3)",
       "brand": "crystal",
       "category": "wood-range",
       "subcategory": null,
@@ -15347,7 +15347,7 @@
     },
     {
       "sku": "CPW-019",
-      "name": "CRYSTAL TEAKWOOD MILANO 2 BOWLS WITH TRAY",
+      "name": "Crystal T/W Milano 2 Bowls with Tray",
       "brand": "crystal",
       "category": "wood-range",
       "subcategory": null,
@@ -15406,7 +15406,7 @@
     },
     {
       "sku": "CPW-020",
-      "name": "CRYSTAL TEAKWOOD STORE N SERVE 3 PCS WITH TRAY",
+      "name": "Crystal T/W Store N Serve 3 pcs Tray",
       "brand": "crystal",
       "category": "wood-range",
       "subcategory": null,
@@ -15465,7 +15465,7 @@
     },
     {
       "sku": "CPW-021",
-      "name": "CRYSTAL TEAKWOOD ROUND SOLID HOTMAT PACK OF 2",
+      "name": "Crystal T/W Solid hot mat round 2 pcs",
       "brand": "crystal",
       "category": "wood-range",
       "subcategory": null,
@@ -15524,7 +15524,7 @@
     },
     {
       "sku": "CPW-022",
-      "name": "CRYSTAL TEAKWOOD SQUARE SOLID HOTMAT PACK OF 2",
+      "name": "Crystal T/W Solid hot mat square 2 pcs",
       "brand": "crystal",
       "category": "wood-range",
       "subcategory": null,
@@ -15583,7 +15583,7 @@
     },
     {
       "sku": "CPW-023",
-      "name": "CRYSTAL TEAKWOOD WOOD-INOX DEEP AND X LARGE SERVING TRAY",
+      "name": "Crystal T/W Wood-Inox Deep & X Large serving Tray",
       "brand": "crystal",
       "category": "wood-range",
       "subcategory": null,
@@ -15640,7 +15640,7 @@
     },
     {
       "sku": "CPW-024",
-      "name": "CRYSTAL TEAKWOOD CURVEY DEEP AND X LARGE SERVING TRAY",
+      "name": "Crystal T/W Curvey Deep & X Large serving Tray",
       "brand": "crystal",
       "category": "wood-range",
       "subcategory": null,
@@ -15696,7 +15696,7 @@
     },
     {
       "sku": "CPW-025",
-      "name": "CRYSTAL TEAKWOOD REVOLVING 3 COMPARTMENT ORGANISER",
+      "name": "Crystal T/W Revolving 3 compartmrnt organiser",
       "brand": "crystal",
       "category": "wood-range",
       "subcategory": null,
@@ -15754,7 +15754,7 @@
     },
     {
       "sku": "CPW-026",
-      "name": "CRYSTAL T/W TEA COOKIE COASTER",
+      "name": "Crystal T/W Tea Cookie Coaster",
       "brand": "crystal",
       "category": "wood-range",
       "subcategory": null,
@@ -15778,7 +15778,7 @@
     },
     {
       "sku": "CPW-027",
-      "name": "CRYSTAL TEAKWOOD 12 ROUND REVOLVING LAZY SUS TABLE ORGANISER",
+      "name": "Crystal T/W 12 round revolving lazy sus table organiser",
       "brand": "crystal",
       "category": "wood-range",
       "subcategory": null,
@@ -15835,7 +15835,7 @@
     },
     {
       "sku": "CPW-028",
-      "name": "CRYSTAL TEAKWOOD LARGE TISSUE BOX",
+      "name": "Crystal T/W Large Tissue Box",
       "brand": "crystal",
       "category": "wood-range",
       "subcategory": null,
@@ -15892,7 +15892,7 @@
     },
     {
       "sku": "CPW-029",
-      "name": "CRYSTAL TEAKWOOD DESIGNO PLATTER TRAY",
+      "name": "Crystal T/W designo Platter Tray",
       "brand": "crystal",
       "category": "wood-range",
       "subcategory": null,
@@ -15949,7 +15949,7 @@
     },
     {
       "sku": "CPW-030",
-      "name": "CRYSTAL TEAKWOOD LARGE RECTO PLATTER TRAY",
+      "name": "Crystal T/W Large Recto Platter Tray",
       "brand": "crystal",
       "category": "wood-range",
       "subcategory": null,
@@ -16006,7 +16006,7 @@
     },
     {
       "sku": "CPW-031",
-      "name": "CRYSTAL T/W MILANO AIR TIGHT SEE THROUGH CONTAINER",
+      "name": "Crystal T/W Milano Air Tight see through Container",
       "brand": "crystal",
       "category": "wood-range",
       "subcategory": null,
@@ -16030,7 +16030,7 @@
     },
     {
       "sku": "CTP-TP-001",
-      "name": "CRYSTAL TRIPRO -TRIPLY STAINLESS STEEL TOPE WITH LID - 14 CM (INDUCTION BOTTOM)",
+      "name": "CRYSTAL TRIPRO TOPE WITH LID 14CM",
       "brand": "crystal",
       "category": "cookware",
       "subcategory": "tripro",
@@ -16067,7 +16067,7 @@
     },
     {
       "sku": "CTP-TP-002",
-      "name": "CRYSTAL TRIPRO -TRIPLY STAINLESS STEEL TOPE WITH LID - 16 CM (INDUCTION BOTTOM)",
+      "name": "CRYSTAL TRIPRO TOPE WITH LID 16CM",
       "brand": "crystal",
       "category": "cookware",
       "subcategory": "tripro",
@@ -16106,7 +16106,7 @@
     },
     {
       "sku": "CTP-TP-003",
-      "name": "CRYSTAL TRIPRO -TRIPLY STAINLESS STEEL TOPE WITH LID - 18 CM (INDUCTION BOTTOM)",
+      "name": "CRYSTAL TRIPRO TOPE WITH LID 18CM",
       "brand": "crystal",
       "category": "cookware",
       "subcategory": "tripro",
@@ -16143,7 +16143,7 @@
     },
     {
       "sku": "CTP-TP-004",
-      "name": "CRYSTAL TRIPRO -TRIPLY STAINLESS STEEL TOPE WITH LID - 20 CM (INDUCTION BOTTOM)",
+      "name": "CRYSTAL TRIPRO TOPE WITH LID 20CM",
       "brand": "crystal",
       "category": "cookware",
       "subcategory": "tripro",
@@ -16180,7 +16180,7 @@
     },
     {
       "sku": "CTP-TP-005",
-      "name": "CRYSTAL TRIPRO -TRIPLY STAINLESS STEEL TOPE WITH LID - 22 CM (INDUCTION BOTTOM)",
+      "name": "CRYSTAL TRIPRO TOPE WITH LID 22CM",
       "brand": "crystal",
       "category": "cookware",
       "subcategory": "tripro",
@@ -16240,7 +16240,7 @@
     },
     {
       "sku": "CTP-TP-006",
-      "name": "CRYSTAL TRIPRO -TRIPLY STAINLESS STEEL TOPE WITH LID - 24 CM (INDUCTION BOTTOM)",
+      "name": "CRYSTAL TRIPRO TOPE WITH LID 24CM",
       "brand": "crystal",
       "category": "cookware",
       "subcategory": "tripro",
@@ -16277,7 +16277,7 @@
     },
     {
       "sku": "CTP-TP-007",
-      "name": "CRYSTAL TRIPRO -TRIPLY STAINLESS STEEL TOPE WITH LID - 26 CM (INDUCTION BOTTOM)",
+      "name": "CRYSTAL TRIPRO TOPE WITH LID 26CM",
       "brand": "crystal",
       "category": "cookware",
       "subcategory": "tripro",
@@ -16314,7 +16314,7 @@
     },
     {
       "sku": "CTP-KD-001",
-      "name": "CRYSTAL TRIPRO -TRIPLY STAINLESS STEEL KADAI WITH LID - 18 CM (INDUCTION BOTTOM)",
+      "name": "CRYSTAL TRIPRO KADAI WITH LID 18CM",
       "brand": "crystal",
       "category": "cookware",
       "subcategory": "tripro",
@@ -16368,7 +16368,7 @@
     },
     {
       "sku": "CTP-KD-002",
-      "name": "CRYSTAL TRIPRO -TRIPLY STAINLESS STEEL KADAI WITH LID - 20 CM (INDUCTION BOTTOM)",
+      "name": "CRYSTAL TRIPRO KADAI WITH LID 20CM",
       "brand": "crystal",
       "category": "cookware",
       "subcategory": "tripro",
@@ -16428,7 +16428,7 @@
     },
     {
       "sku": "CTP-KD-003",
-      "name": "CRYSTAL TRIPRO -TRIPLY STAINLESS STEEL KADAI WITH LID - 22 CM (INDUCTION BOTTOM)",
+      "name": "CRYSTAL TRIPRO KADAI WITH LID 22CM",
       "brand": "crystal",
       "category": "cookware",
       "subcategory": "tripro",
@@ -16477,7 +16477,7 @@
     },
     {
       "sku": "CTP-KD-004",
-      "name": "CRYSTAL TRIPRO -TRIPLY STAINLESS STEEL KADAI WITH LID - 24 CM (INDUCTION BOTTOM)",
+      "name": "CRYSTAL TRIPRO KADAI WITH LID 24CM",
       "brand": "crystal",
       "category": "cookware",
       "subcategory": "tripro",
@@ -16526,7 +16526,7 @@
     },
     {
       "sku": "CTP-KD-005",
-      "name": "CRYSTAL TRIPRO -TRIPLY STAINLESS STEEL KADAI WITH LID - 26 CM (INDUCTION BOTTOM)",
+      "name": "CRYSTAL TRIPRO KADAI WITH LID 26CM",
       "brand": "crystal",
       "category": "cookware",
       "subcategory": "tripro",
@@ -16585,7 +16585,7 @@
     },
     {
       "sku": "CTP-KD-006",
-      "name": "CRYSTAL TRIPRO -TRIPLY STAINLESS STEEL KADAI WITH LID - 28 CM (INDUCTION BOTTOM)",
+      "name": "CRYSTAL TRIPRO KADAI WITH LID 28CM",
       "brand": "crystal",
       "category": "cookware",
       "subcategory": "tripro",
@@ -16644,7 +16644,7 @@
     },
     {
       "sku": "CTP-KD-007",
-      "name": "CRYSTAL TRIPRO -TRIPLY STAINLESS STEEL KADAI WITH LID - 30 CM (INDUCTION BOTTOM)",
+      "name": "CRYSTAL TRIPRO KADAI WITH LID 30CM",
       "brand": "crystal",
       "category": "cookware",
       "subcategory": "tripro",
@@ -16693,7 +16693,7 @@
     },
     {
       "sku": "CTP-KD-008",
-      "name": "CRYSTAL TRIPRO -TRIPLY STAINLESS STEEL KADAI WITH LID - 32 CM (INDUCTION BOTTOM)",
+      "name": "CRYSTAL TRIPRO KADAI WITH LID 32CM",
       "brand": "crystal",
       "category": "cookware",
       "subcategory": "tripro",
@@ -16742,7 +16742,7 @@
     },
     {
       "sku": "CTP-EDK-001",
-      "name": "CRYSTAL TRIPRO -TRIPLY STAINLESS STEEL EXTRA DEEP KADAI WITH LID - 22 CM (INDUCTION BOTTOM)",
+      "name": "CRYSTAL TRIPRO EXTRA DEEP KADAI WITH LID 22CM",
       "brand": "crystal",
       "category": "cookware",
       "subcategory": "tripro",
@@ -16784,7 +16784,7 @@
     },
     {
       "sku": "CTP-EDK-002",
-      "name": "CRYSTAL TRIPRO -TRIPLY STAINLESS STEEL EXTRA DEEP KADAI WITH LID - 24 CM (INDUCTION BOTTOM), WITH ROSE GOLD HANDLE (CTP-EDK-002A)",
+      "name": "CRYSTAL TRIPRO EXTRA DEEP KADAI WITH LID 24CM",
       "brand": "crystal",
       "category": "cookware",
       "subcategory": "tripro",
@@ -16819,7 +16819,7 @@
     },
     {
       "sku": "CTP-EDK-003",
-      "name": "CRYSTAL TRIPRO -TRIPLY STAINLESS STEEL EXTRA DEEP KADAI WITH LID - 26 CM (INDUCTION BOTTOM), WITH ROSE GOLD HANDLE (CTP-EDK-003A)",
+      "name": "CRYSTAL TRIPRO EXTRA DEEP KADAI WITH LID 26CM",
       "brand": "crystal",
       "category": "cookware",
       "subcategory": "tripro",
@@ -16854,7 +16854,7 @@
     },
     {
       "sku": "CTP-EDK-004",
-      "name": "CRYSTAL TRIPRO -TRIPLY STAINLESS STEEL EXTRA DEEP KADAI WITH LID - 28 CM (INDUCTION BOTTOM), WITH ROSE GOLD HANDLE (CTP-EDK-004A)",
+      "name": "CRYSTAL TRIPRO EXTRA DEEP KADAI WITH LID 28CM",
       "brand": "crystal",
       "category": "cookware",
       "subcategory": "tripro",
@@ -16889,7 +16889,7 @@
     },
     {
       "sku": "CTP-TAS-001",
-      "name": "CRYSTAL TRIPRO -TRIPLY STAINLESS STEEL TASLA - 18 CM (INDUCTION BOTTOM)",
+      "name": "CRYSTAL TRIPRO TASLA 18CM",
       "brand": "crystal",
       "category": "cookware",
       "subcategory": "tripro",
@@ -16950,7 +16950,7 @@
     },
     {
       "sku": "CTP-TAS-002",
-      "name": "CRYSTAL TRIPRO -TRIPLY STAINLESS STEEL TASLA - 20 CM (INDUCTION BOTTOM)",
+      "name": "CRYSTAL TRIPRO TASLA 20CM",
       "brand": "crystal",
       "category": "cookware",
       "subcategory": "tripro",
@@ -16988,7 +16988,7 @@
     },
     {
       "sku": "CTP-TAS-003",
-      "name": "CRYSTAL TRIPRO -TRIPLY STAINLESS STEEL TASLA - 22 CM (INDUCTION BOTTOM)",
+      "name": "CRYSTAL TRIPRO TASLA 22CM",
       "brand": "crystal",
       "category": "cookware",
       "subcategory": "tripro",
@@ -17047,7 +17047,7 @@
     },
     {
       "sku": "CTP-TAS-004",
-      "name": "CRYSTAL TRIPRO -TRIPLY STAINLESS STEEL TASLA - 24 CM (INDUCTION BOTTOM)",
+      "name": "CRYSTAL TRIPRO TASLA 24CM",
       "brand": "crystal",
       "category": "cookware",
       "subcategory": "tripro",
@@ -17107,7 +17107,7 @@
     },
     {
       "sku": "CTP-TAS-005",
-      "name": "CRYSTAL TRIPRO -TRIPLY STAINLESS STEEL TASLA - 26 CM (INDUCTION BOTTOM)",
+      "name": "CRYSTAL TRIPRO TASLA 26CM",
       "brand": "crystal",
       "category": "cookware",
       "subcategory": "tripro",
@@ -17146,7 +17146,7 @@
     },
     {
       "sku": "CTP-TAS-006",
-      "name": "CRYSTAL TRIPRO -TRIPLY STAINLESS STEEL TASLA - 28 CM (INDUCTION BOTTOM)",
+      "name": "CRYSTAL TRIPRO TASLA 28CM",
       "brand": "crystal",
       "category": "cookware",
       "subcategory": "tripro",
@@ -17185,7 +17185,7 @@
     },
     {
       "sku": "CTP-TAS-007",
-      "name": "CRYSTAL TRIPRO -TRIPLY STAINLESS STEEL TASLA - 30 CM (INDUCTION BOTTOM)",
+      "name": "CRYSTAL TRIPRO TASLA 30CM",
       "brand": "crystal",
       "category": "cookware",
       "subcategory": "tripro",
@@ -17223,7 +17223,7 @@
     },
     {
       "sku": "CTP-TAS-008",
-      "name": "CRYSTAL TRIPRO -TRIPLY STAINLESS STEEL TASLA - 32 CM (INDUCTION BOTTOM)",
+      "name": "CRYSTAL TRIPRO TASLA 32CM",
       "brand": "crystal",
       "category": "cookware",
       "subcategory": "tripro",
@@ -17262,7 +17262,7 @@
     },
     {
       "sku": "CTP-SP-001",
-      "name": "CRYSTAL TRIPRO -TRIPLY STAINLESS STEEL SAUCEPAN WITH LID - 14 CM (INDUCTION BOTTOM)",
+      "name": "CRYSTAL TRIPRO SAUCEPAN WITH LID 14CM",
       "brand": "crystal",
       "category": "cookware",
       "subcategory": "tripro",
@@ -17311,7 +17311,7 @@
     },
     {
       "sku": "CTP-SP-002",
-      "name": "CRYSTAL TRIPRO -TRIPLY STAINLESS STEEL SAUCEPAN WITH LID - 16 CM (INDUCTION BOTTOM)",
+      "name": "CRYSTAL TRIPRO SAUCEPAN WITH LID 16CM",
       "brand": "crystal",
       "category": "cookware",
       "subcategory": "tripro",
@@ -17350,7 +17350,7 @@
     },
     {
       "sku": "CTP-SP-003",
-      "name": "CRYSTAL TRIPRO -TRIPLY STAINLESS STEEL SAUCEPAN WITH LID - 18 CM (INDUCTION BOTTOM), WITH ROSE GOLD HANDLE (CTP-SP-003A)",
+      "name": "CRYSTAL TRIPRO SAUCEPAN WITH LID 18CM",
       "brand": "crystal",
       "category": "cookware",
       "subcategory": "tripro",
@@ -17382,7 +17382,7 @@
     },
     {
       "sku": "CTP-SP-004",
-      "name": "CRYSTAL TRIPRO -TRIPLY STAINLESS STEEL SAUCEPAN WITH LID - 20 CM (INDUCTION BOTTOM)",
+      "name": "CRYSTAL TRIPRO SAUCEPAN WITH LID 20CM",
       "brand": "crystal",
       "category": "cookware",
       "subcategory": "tripro",
@@ -17431,7 +17431,7 @@
     },
     {
       "sku": "CTP-FRP-001",
-      "name": "CRYSTAL TRIPRO -TRIPLY STAINLESS STEEL FRY PAN - 20 CM (INDUCTION BOTTOM)",
+      "name": "CRYSTAL TRIPRO FRY PAN  20CM",
       "brand": "crystal",
       "category": "cookware",
       "subcategory": "tripro",
@@ -17467,7 +17467,7 @@
     },
     {
       "sku": "CTP-FRP-002",
-      "name": "CRYSTAL TRIPRO -TRIPLY STAINLESS STEEL FRY PAN - 22 CM (INDUCTION BOTTOM)",
+      "name": "CRYSTAL TRIPRO FRY PAN  22CM",
       "brand": "crystal",
       "category": "cookware",
       "subcategory": "tripro",
@@ -17503,7 +17503,7 @@
     },
     {
       "sku": "CTP-FRP-003",
-      "name": "CRYSTAL TRIPRO -TRIPLY STAINLESS STEEL FRY PAN - 24 CM (INDUCTION BOTTOM)",
+      "name": "CRYSTAL TRIPRO FRY PAN  24CM",
       "brand": "crystal",
       "category": "cookware",
       "subcategory": "tripro",
@@ -17551,7 +17551,7 @@
     },
     {
       "sku": "CTP-FRP-004",
-      "name": "CRYSTAL TRIPRO -TRIPLY STAINLESS STEEL FRY PAN - 26 CM (INDUCTION BOTTOM)",
+      "name": "CRYSTAL TRIPRO FRY PAN  26CM",
       "brand": "crystal",
       "category": "cookware",
       "subcategory": "tripro",
@@ -17853,7 +17853,7 @@
     },
     {
       "sku": "CNS894",
-      "name": "CRYSTAL COPPO SERIES NON STICK COOKWARE SET | TAVA-250MM, KADAI WITH GLASS LID- 240 MM | THICKNESS-2.6MM",
+      "name": "CRYSTAL COPPO TAWA WITH KADAI (FLAT TAWA 250MM+KADAI 240MM+GLASS LID 240MM)",
       "brand": "crystal",
       "category": "cookware",
       "subcategory": "non-stick",
@@ -17961,7 +17961,7 @@
     },
     {
       "sku": "CNS794",
-      "name": "CRYSTAL MARBO PLUS 3 PC SET FLAT TAWA 250MM | FRY PAN 240MM | KADAI 240MM | GLASS LID 240MM",
+      "name": "CRYSTAL MARBO PLUS 3 PC SET (FLAT TAWA 250MM+FRY PAN 240MM+KADAI 240MM+GLASS LID 240MM)",
       "brand": "crystal",
       "category": "cookware",
       "subcategory": "non-stick",
@@ -18084,7 +18084,7 @@
     },
     {
       "sku": "CNS-893",
-      "name": "CRYSTAL BYK H/T 3 PC NS COOKWARE SET",
+      "name": "3 PCS ROCK SERIES H/T SET (280MM TAWA+240MM FRY PAN+ 240MM KADAI WITH SS DOME LID) BLACK",
       "brand": "crystal",
       "category": "cookware",
       "subcategory": "non-stick",
@@ -18121,7 +18121,7 @@
     },
     {
       "sku": "CNS-893G",
-      "name": "CRYSTAL BYK H/T 3 PC NS COOKWARE SET",
+      "name": "3 PCS ROCK SERIES H/T SET (280MM TAWA+240MM FRY PAN+ 240MM KADAI WITH GLAAS LID) BLACK",
       "brand": "crystal",
       "category": "cookware",
       "subcategory": "non-stick",
@@ -18211,7 +18211,7 @@
     },
     {
       "sku": "CNS-90C2",
-      "name": "CRYSTAL COOK AND SERVE CASSEROLE SET 4 PCS NONSTICK COOKWARE SET WITH GLASS LID ALUMINIUM CASSEROLE SET 16CM, 18CM BLUE",
+      "name": "Crystal Nonstick 4 Pcs Cook N Serve Set (16cm Casserole with G/L and 18cm Casserole with G/L",
       "brand": "crystal",
       "category": "cookware",
       "subcategory": "non-stick",
@@ -18249,7 +18249,7 @@
     },
     {
       "sku": "CTV-099",
-      "name": "CRYSTAL TRIVAL 4 PCS SET KADAI 240 + 220 F/R 160 S/P WITH  SS LID",
+      "name": "TRIVAL 4 PCS SET KADAI 240 + 220 F/R 160 S/P WITH  SS LID",
       "brand": "crystal",
       "category": "cookware",
       "subcategory": "tripro",
@@ -18315,7 +18315,7 @@
     },
     {
       "sku": "CTV-098",
-      "name": "CRYSTAL TRIVAL 3 PCS SET KADAI 240 + 160 S/P  WITH S.S LID",
+      "name": "TRIVAL 3 PCS SET KADAI 240 + 160 S/P  WITH S.S LID",
       "brand": "crystal",
       "category": "cookware",
       "subcategory": "tripro",
@@ -18379,7 +18379,7 @@
     },
     {
       "sku": "CTV-097",
-      "name": "CRYSTAL TRIVAL 3 PCS SET KADAI 240 +  220 FRYPAN WITH S.S LID",
+      "name": "TRIVAL 3 PCS SET KADAI 240 +  220 FRYPAN WITH S.S LID",
       "brand": "crystal",
       "category": "cookware",
       "subcategory": "tripro",
@@ -18420,7 +18420,7 @@
     },
     {
       "sku": "CTV-096",
-      "name": "CRYSTAL TRIVAL 2 PCS SET 220 FRYPAN + 160 S/P",
+      "name": "TRIVAL 2 PCS SET 220 FRYPAN + 160 S/P",
       "brand": "crystal",
       "category": "cookware",
       "subcategory": "tripro",
@@ -18483,7 +18483,7 @@
     },
     {
       "sku": "CTV-095",
-      "name": "CRYSTAL TRIVAL 4 PCS COOKER SET – 3L O/L COOKER, 22CM KADAI WITH GLASS LID, 18CM FRY PAN",
+      "name": "TRIVAL 4 PCS COOKER SET – 3L O/L COOKER, 22CM KADAI WITH GLASS LID, 18CM FRY PAN",
       "brand": "crystal",
       "category": "cookware",
       "subcategory": "tripro",
@@ -18516,7 +18516,7 @@
     },
     {
       "sku": "CTV-094",
-      "name": "CRYSTAL TRIVAL 4 PCS -HANDI MEDIUM WITH GLASS LID-WOK 18CM-SAUCEPAN 14CM SET",
+      "name": "TRIVAL 4 PCS -HANDI MEDIUM WITH GLASS LID-WOK 18CM-SAUCEPAN 14CM SET",
       "brand": "crystal",
       "category": "cookware",
       "subcategory": "tripro",
@@ -18549,7 +18549,7 @@
     },
     {
       "sku": "CTV-093",
-      "name": "CRYSTAL TRIVAL 4 PCS HANDI SET – HANDI MEDIUM WITH GLASS LID, HANDI LARGE WITH GLASS LID",
+      "name": "TRIVAL 4 PCS HANDI SET – HANDI MEDIUM WITH GLASS LID, HANDI LARGE WITH GLASS LID",
       "brand": "crystal",
       "category": "cookware",
       "subcategory": "tripro",
@@ -18582,7 +18582,7 @@
     },
     {
       "sku": "CTV-092",
-      "name": "CRYSTAL TRIVAL 2 PCS KADAI W/O LID 20 CM WITH TOPE W/O LID 16CM SET",
+      "name": "TRIVAL 2 PCS KADAI W/O LID 20 CM WITH TOPE W/O LID 16CM SET",
       "brand": "crystal",
       "category": "cookware",
       "subcategory": "tripro",
@@ -18615,7 +18615,7 @@
     },
     {
       "sku": "CSI-096",
-      "name": "CRYSTAL TRIBOTTOM 160MM CASSEROLE WITH GLASS LID + 225MM FRY PAN WITH GLASS LID",
+      "name": "CSI KADAI 250 + 200 C/R WITH 2 GLASS LID",
       "brand": "crystal",
       "category": "cookware",
       "subcategory": "sandwich-bottom-steel",
@@ -18647,7 +18647,7 @@
     },
     {
       "sku": "CSI-097",
-      "name": "CRYSTAL CSI KADAI 250 + 180 S/P WITH 2 GLASS LID",
+      "name": "CSI KADAI 250 + 180 S/P WITH 2 GLASS LID",
       "brand": "crystal",
       "category": "cookware",
       "subcategory": "sandwich-bottom-steel",
@@ -18708,7 +18708,7 @@
     },
     {
       "sku": "CSI-098",
-      "name": "CRYSTAL CSI C/R 200 + 180 C/R WITH 2 GLASS LID",
+      "name": "CSI C/R 200 + 180 C/R WITH 2 GLASS LID",
       "brand": "crystal",
       "category": "cookware",
       "subcategory": "sandwich-bottom-steel",
@@ -18770,7 +18770,7 @@
     },
     {
       "sku": "CSI-099",
-      "name": "CRYSTAL CSI KADAI 225 + 160 S/P WITH 2 GLASS LID",
+      "name": "CSI KADAI 225 + 160 S/P WITH 2 GLASS LID",
       "brand": "crystal",
       "category": "cookware",
       "subcategory": "sandwich-bottom-steel",
@@ -18803,7 +18803,7 @@
     },
     {
       "sku": "CSI-096FCS",
-      "name": "CRYSTAL TRIBOTTOM 160MM CASSEROLE WITH GLASS LID + 225MM FRY PAN WITH GLASS LID",
+      "name": "TRIBOTTOM DEEP FRY PAN 225MM + CASSEROLE 16CM WITH 2 GLASS LIDS",
       "brand": "crystal",
       "category": "cookware",
       "subcategory": "sandwich-bottom-steel",
@@ -18841,7 +18841,7 @@
     },
     {
       "sku": "CSI-096FCL",
-      "name": "CRYSTAL TRIBOTTOM 180MM CASSEROLE WITH GLASS LID + 250MM FRY PAN WITH GLASS LID",
+      "name": "TRIBOTTOM DEEP FRY PAN 250MM + CASSEROLE 18CM WITH 2 GLASS LIDS",
       "brand": "crystal",
       "category": "cookware",
       "subcategory": "sandwich-bottom-steel",
@@ -18906,7 +18906,7 @@
     },
     {
       "sku": "CNS-951",
-      "name": "CRYSTAL TUFF PLUS SERIES CONCAVE TAWA 260MM",
+      "name": "CRYSTAL TUFF PLUS SERIES CONCAVE TAWA 260MM - 5mm",
       "brand": "crystal",
       "category": "cookware",
       "subcategory": "non-stick",
@@ -18939,7 +18939,7 @@
     },
     {
       "sku": "CNS-954",
-      "name": "CRYSTAL TUFF PLUS SERIES FLAT TAWA 250MM",
+      "name": "CRYSTAL TUFF PLUS SERIES FLAT TAWA 250MM - 5mm",
       "brand": "crystal",
       "category": "cookware",
       "subcategory": "non-stick",
@@ -18974,7 +18974,7 @@
     },
     {
       "sku": "CNS-955",
-      "name": "CRYSTAL TUFF PLUS SERIES FLAT TAWA 280MM",
+      "name": "CRYSTAL TUFF PLUS SERIES FLAT TAWA 280MM - 5mm",
       "brand": "crystal",
       "category": "cookware",
       "subcategory": "non-stick",
@@ -19007,7 +19007,7 @@
     },
     {
       "sku": "CNS-956",
-      "name": "CRYSTAL TUFF PLUS SERIES  FLAT TAWA 300MM",
+      "name": "CRYSTAL TUFF PLUS SERIES  FLAT TAWA 300MM- 5mm",
       "brand": "crystal",
       "category": "cookware",
       "subcategory": "non-stick",
@@ -19040,7 +19040,7 @@
     },
     {
       "sku": "CNS-752",
-      "name": "CRYSTAL KADAI MINI 165MM",
+      "name": "KADAI MINI 165MM",
       "brand": "crystal",
       "category": "cookware",
       "subcategory": "non-stick-mini",
@@ -19100,7 +19100,7 @@
     },
     {
       "sku": "CNS-753",
-      "name": "CRYSTAL TAWA MINI 200MM",
+      "name": "TAWA MINI 200MM",
       "brand": "crystal",
       "category": "cookware",
       "subcategory": "non-stick-mini",
@@ -19160,7 +19160,7 @@
     },
     {
       "sku": "CNS-754",
-      "name": "CRYSTAL ROUND FRY PAN MINI 140MM",
+      "name": "ROUND FRYPAN MINI 140MM",
       "brand": "crystal",
       "category": "cookware",
       "subcategory": "non-stick-mini",
@@ -19220,7 +19220,7 @@
     },
     {
       "sku": "CNS-755",
-      "name": "CRYSTAL SAUCE PAN MINI 130MM",
+      "name": "SAUCE PAN MINI 130MM",
       "brand": "crystal",
       "category": "cookware",
       "subcategory": "non-stick-mini",
@@ -19279,7 +19279,7 @@
     },
     {
       "sku": "CNS-756",
-      "name": "CRYSTAL GRILL PAN MINI 150MM",
+      "name": "GRILL PAN MINI",
       "brand": "crystal",
       "category": "cookware",
       "subcategory": "non-stick-mini",
@@ -19339,7 +19339,7 @@
     },
     {
       "sku": "CNS-904A",
-      "name": "CRYSTAL INDUCTION BASE NON-STICK ALUMINIUM FLAT TAWA, 250 MM, MULTICOLOUR",
+      "name": "FLAT TAWA 250 mm",
       "brand": "crystal",
       "category": "cookware",
       "subcategory": "non-stick",
@@ -19394,7 +19394,7 @@
     },
     {
       "sku": "CNS-905A",
-      "name": "CRYSTAL INDUCTION BASE NON-STICK ALUMINIUM FLAT TAWA, 280 MM, MULTICOLOUR",
+      "name": "FLAT TAWA 280 mm",
       "brand": "crystal",
       "category": "cookware",
       "subcategory": "non-stick",
@@ -19449,7 +19449,7 @@
     },
     {
       "sku": "CNS-906A",
-      "name": "CRYSTAL INDUCTION BASE NON-STICK ALUMINIUM FLAT TAWA, 300 MM, MULTICOLOUR",
+      "name": "FLAT TAWA 300 mm",
       "brand": "crystal",
       "category": "cookware",
       "subcategory": "non-stick",
@@ -19484,7 +19484,7 @@
     },
     {
       "sku": "CNS-907A",
-      "name": "CRYSTAL INDUCTION BASE ROUND NON-STICK ALUMINIUM FRY PAN, 225 MM, MULTICOLOUR",
+      "name": "ROUND FRY PAN WITH GLASS LID 225 mm",
       "brand": "crystal",
       "category": "cookware",
       "subcategory": "non-stick",
@@ -19539,7 +19539,7 @@
     },
     {
       "sku": "CNS-908A",
-      "name": "CRYSTAL INDUCTION BASE ROUND NON-STICK ALUMINIUM FRY PAN, 250 MM, MULTICOLOUR",
+      "name": "ROUND FRY PAN WITH GLASS LID 250 mm",
       "brand": "crystal",
       "category": "cookware",
       "subcategory": "non-stick",
@@ -19594,7 +19594,7 @@
     },
     {
       "sku": "CNS-910A",
-      "name": "CRYSTAL INDUCTION BASE NON-STICK ALUMINIUM TAPER FRY PAN, 225 MM, MULTICOLOUR",
+      "name": "TAPER FRY PAN 225 mm",
       "brand": "crystal",
       "category": "cookware",
       "subcategory": "non-stick",
@@ -19649,7 +19649,7 @@
     },
     {
       "sku": "CNS-911A",
-      "name": "CRYSTAL INDUCTION BASE NON-STICK ALUMINIUM TAPER FRY PAN, 250 MM, MULTICOLOUR",
+      "name": "TAPER FRY PAN 250 mm",
       "brand": "crystal",
       "category": "cookware",
       "subcategory": "non-stick",
@@ -19705,7 +19705,7 @@
     },
     {
       "sku": "CNS-912A",
-      "name": "CRYSTAL INDUCTION BASE NON-STICK ALUMINIUM TAPER FRY PAN, 280 MM, MULTICOLOUR",
+      "name": "TAPER FRY PAN 280 mm",
       "brand": "crystal",
       "category": "cookware",
       "subcategory": "non-stick",
@@ -19760,7 +19760,7 @@
     },
     {
       "sku": "CNS-913A",
-      "name": "CRYSTAL INDUCTION BASE NON-STICK ALUMINIUM KADHAI, 225 MM, MULTICOLOUR",
+      "name": "KADAI WITH GLASS LID 225 mm",
       "brand": "crystal",
       "category": "cookware",
       "subcategory": "non-stick",
@@ -19815,7 +19815,7 @@
     },
     {
       "sku": "CNS-914A",
-      "name": "CRYSTAL INDUCTION BASE NON-STICK ALUMINIUM KADHAI, 250 MM, MULTICOLOUR",
+      "name": "KADAI WITH GLASS LID 250 mm",
       "brand": "crystal",
       "category": "cookware",
       "subcategory": "non-stick",
@@ -19870,7 +19870,7 @@
     },
     {
       "sku": "CNS-915A",
-      "name": "CRYSTAL INDUCTION BASE NON-STICK ALUMINIUM KADHAI, 280 MM, MULTICOLOUR",
+      "name": "KADAI WITH GLASS LID 280 mm",
       "brand": "crystal",
       "category": "cookware",
       "subcategory": "non-stick",
@@ -19925,7 +19925,7 @@
     },
     {
       "sku": "CNS-916",
-      "name": "CRYSTAL INDO SERIES NON STICK INDUCTION BASE DEEP KADAI 225MM WITH GLASS LID",
+      "name": "CRYSTAL INDO SERIES DEEP KADAI  225MM",
       "brand": "crystal",
       "category": "cookware",
       "subcategory": "non-stick",
@@ -19986,7 +19986,7 @@
     },
     {
       "sku": "CNS-917",
-      "name": "CRYSTAL INDO SERIES NON STICK INDUCTION BASE DEEP KADAI 250MM WITH GLASS LID",
+      "name": "CRYSTAL INDO SERIES DEEP KADAI  250MM",
       "brand": "crystal",
       "category": "cookware",
       "subcategory": "non-stick",
@@ -20047,7 +20047,7 @@
     },
     {
       "sku": "CNS-918",
-      "name": "CRYSTAL INDO SERIES NON STICK INDUCTION BASE DEEP KADAI 280MM WITH GLASS LID",
+      "name": "CRYSTAL INDO SERIES DEEP KADAI  280MM",
       "brand": "crystal",
       "category": "cookware",
       "subcategory": "non-stick",
@@ -20108,7 +20108,7 @@
     },
     {
       "sku": "CNS-098",
-      "name": "CRYSTAL ALUMINIUM HARD ANODISED TADKA PAN, MULTICOLOUR",
+      "name": "TADKA PAN",
       "brand": "crystal",
       "category": "cookware",
       "subcategory": "hard-anodised",
@@ -20166,7 +20166,7 @@
     },
     {
       "sku": "CNS-151",
-      "name": "CRYSTAL HEAVY GAUGE NON-STICK ALUMINIUM CONCAVE TAWA, 250 MM, MULTICOLOUR",
+      "name": "CONCAVE TAWA 4mm",
       "brand": "crystal",
       "category": "cookware",
       "subcategory": "non-stick",
@@ -20411,7 +20411,7 @@
     },
     {
       "sku": "COT-002",
-      "name": "CRYSTAL OTG-ROT",
+      "name": "CRYSTAL OTG-rot",
       "brand": "crystal",
       "category": "electric-appliances",
       "subcategory": "otg",
@@ -20518,7 +20518,7 @@
     },
     {
       "sku": "CGBS-011",
-      "name": "IGNITE GLASS TOP 2 BURNER",
+      "name": "IGNITE Glass Top 2 Burner",
       "brand": "crystal",
       "category": "cooktop",
       "subcategory": null,
@@ -20541,7 +20541,7 @@
     },
     {
       "sku": "CGBS-012",
-      "name": "IGNITE GLASS TOP 3 BURNER",
+      "name": "IGNITE Glass Top 3 Burner",
       "brand": "crystal",
       "category": "cooktop",
       "subcategory": null,
@@ -20564,7 +20564,7 @@
     },
     {
       "sku": "CGBS-013",
-      "name": "IGNITE GLASS TOP 4 BURNER",
+      "name": "IGNITE Glass Top 4 Burner",
       "brand": "crystal",
       "category": "cooktop",
       "subcategory": null,
@@ -20587,7 +20587,7 @@
     },
     {
       "sku": "CGBS-016",
-      "name": "MAGNITE GLASS TOP 2 BURNER",
+      "name": "MAGNITE Glass Top 2 Burner",
       "brand": "crystal",
       "category": "cooktop",
       "subcategory": null,
@@ -20610,7 +20610,7 @@
     },
     {
       "sku": "CGBS-017",
-      "name": "MAGNITE GLASS TOP 3 BURNER",
+      "name": "MAGNITE Glass Top 3 Burner",
       "brand": "crystal",
       "category": "cooktop",
       "subcategory": null,
@@ -20633,7 +20633,7 @@
     },
     {
       "sku": "CGBS-018",
-      "name": "MAGNITE GLASS TOP 4 BURNER",
+      "name": "MAGNITE Glass Top 4 Burner",
       "brand": "crystal",
       "category": "cooktop",
       "subcategory": null,
@@ -20656,7 +20656,7 @@
     },
     {
       "sku": "CGBS-021",
-      "name": "LEXA GLASS TOP 3 BURNER",
+      "name": "LEXA Glass Top 3 Burner",
       "brand": "crystal",
       "category": "cooktop",
       "subcategory": null,
@@ -20679,7 +20679,7 @@
     },
     {
       "sku": "CGBS-022",
-      "name": "LEXA GLASS TOP 4 BURNER",
+      "name": "LEXA Glass Top 4 Burner",
       "brand": "crystal",
       "category": "cooktop",
       "subcategory": null,
@@ -20702,7 +20702,7 @@
     },
     {
       "sku": "CGBS-031",
-      "name": "IMPERIA GLASS TOP 3 BURNER",
+      "name": "IMPERIA Glass Top 3 Burner",
       "brand": "crystal",
       "category": "cooktop",
       "subcategory": null,
@@ -20725,7 +20725,7 @@
     },
     {
       "sku": "CGBS-032",
-      "name": "IMPERIA GLASS TOP 4 BURNER",
+      "name": "IMPERIA Glass Top 4 Burner",
       "brand": "crystal",
       "category": "cooktop",
       "subcategory": null,
@@ -20909,7 +20909,7 @@
     },
     {
       "sku": "SMM001",
-      "name": "KING PLUS",
+      "name": "King Plus",
       "brand": "sparkmate",
       "category": "cleaning-aid",
       "subcategory": "spin-mops",
@@ -20933,7 +20933,7 @@
     },
     {
       "sku": "SMM002",
-      "name": "STROLLY PLASTIC",
+      "name": "Strolly Plastic",
       "brand": "sparkmate",
       "category": "cleaning-aid",
       "subcategory": "spin-mops",
@@ -20957,7 +20957,7 @@
     },
     {
       "sku": "SMM003",
-      "name": "STROLLY STEEL",
+      "name": "Strolly Steel",
       "brand": "sparkmate",
       "category": "cleaning-aid",
       "subcategory": "spin-mops",
@@ -20981,7 +20981,7 @@
     },
     {
       "sku": "SMM011",
-      "name": "RAPID SPIN MOP",
+      "name": "Rapid Spin Mop",
       "brand": "sparkmate",
       "category": "cleaning-aid",
       "subcategory": "spin-mops",
@@ -21029,7 +21029,7 @@
     },
     {
       "sku": "SMM013",
-      "name": "GRACE SPIN MOP",
+      "name": "Grace Spin Mop",
       "brand": "sparkmate",
       "category": "cleaning-aid",
       "subcategory": "spin-mops",
@@ -21053,7 +21053,7 @@
     },
     {
       "sku": "PSM089",
-      "name": "SPIN MOP SPARE SET\n(ROD +DISC+REFILL)",
+      "name": "Spin Mop Spare Set\n(Rod +Disc+Refill)",
       "brand": "sparkmate",
       "category": "cleaning-aid",
       "subcategory": "spin-mops",
@@ -21077,7 +21077,7 @@
     },
     {
       "sku": "SMG009",
-      "name": "SPIN MOP ROD",
+      "name": "Spin Mop Rod",
       "brand": "sparkmate",
       "category": "cleaning-aid",
       "subcategory": "spin-mops",
@@ -21098,7 +21098,7 @@
     },
     {
       "sku": "SMM005",
-      "name": "C-DECK",
+      "name": "C-Deck",
       "brand": "sparkmate",
       "category": "cleaning-aid",
       "subcategory": "hand-held-mops",
@@ -21122,7 +21122,7 @@
     },
     {
       "sku": "SMM006",
-      "name": "POWER \nCLIP-N-FIT MOP",
+      "name": "Power \nClip-N-Fit Mop",
       "brand": "sparkmate",
       "category": "cleaning-aid",
       "subcategory": "hand-held-mops",
@@ -21146,7 +21146,7 @@
     },
     {
       "sku": "SMM007",
-      "name": "CLIP-T MOP",
+      "name": "Clip-T Mop",
       "brand": "sparkmate",
       "category": "cleaning-aid",
       "subcategory": "hand-held-mops",
@@ -21170,7 +21170,7 @@
     },
     {
       "sku": "SMJ001",
-      "name": "POWER DUST GO BROOM REGULAR",
+      "name": "Power Dust Go Broom Regular",
       "brand": "sparkmate",
       "category": "cleaning-aid",
       "subcategory": "brooms",
@@ -21197,7 +21197,7 @@
     },
     {
       "sku": "SMJ002",
-      "name": "POWER DUST GO BROOM XL",
+      "name": "Power Dust Go Broom XL",
       "brand": "sparkmate",
       "category": "cleaning-aid",
       "subcategory": "brooms",
@@ -21224,7 +21224,7 @@
     },
     {
       "sku": "SMJ003",
-      "name": "SMCOMMANDO",
+      "name": "SMCommando",
       "brand": "sparkmate",
       "category": "cleaning-aid",
       "subcategory": "brooms",
@@ -21248,7 +21248,7 @@
     },
     {
       "sku": "SMJ004",
-      "name": "SM KHARATA",
+      "name": "SM Kharata",
       "brand": "sparkmate",
       "category": "cleaning-aid",
       "subcategory": "brooms",
@@ -21272,7 +21272,7 @@
     },
     {
       "sku": "SMJ005",
-      "name": "SM KHARATA XL",
+      "name": "SM Kharata XL",
       "brand": "sparkmate",
       "category": "cleaning-aid",
       "subcategory": "brooms",
@@ -21296,7 +21296,7 @@
     },
     {
       "sku": "SMG001",
-      "name": "SM ROOF DUSTER",
+      "name": "SM Roof Duster",
       "brand": "sparkmate",
       "category": "cleaning-aid",
       "subcategory": "brooms",
@@ -21320,7 +21320,7 @@
     },
     {
       "sku": "SMG002",
-      "name": "SM WEB BLASTER",
+      "name": "SM Web Blaster",
       "brand": "sparkmate",
       "category": "cleaning-aid",
       "subcategory": "brooms",
@@ -21344,7 +21344,7 @@
     },
     {
       "sku": "SMG005",
-      "name": "SM DUSTPAN",
+      "name": "SM Dustpan",
       "brand": "sparkmate",
       "category": "cleaning-aid",
       "subcategory": "brooms",
@@ -21368,7 +21368,7 @@
     },
     {
       "sku": "SMG011",
-      "name": "FLEXI DUSTPAN",
+      "name": "Flexi Dustpan",
       "brand": "sparkmate",
       "category": "cleaning-aid",
       "subcategory": "brooms",
@@ -21392,7 +21392,7 @@
     },
     {
       "sku": "SMG007",
-      "name": "SM KITCHEN SQUEEZY",
+      "name": "SM Kitchen Squeezy",
       "brand": "sparkmate",
       "category": "cleaning-aid",
       "subcategory": "wipers",
@@ -21416,7 +21416,7 @@
     },
     {
       "sku": "SMG008",
-      "name": "SM CRISS CROSS MOPPY",
+      "name": "SM Criss Cross Moppy",
       "brand": "sparkmate",
       "category": "cleaning-aid",
       "subcategory": "wipers",
@@ -21439,7 +21439,7 @@
     },
     {
       "sku": "SMG012",
-      "name": "MULTIPURPOSE HANDY WIPER",
+      "name": "Multipurpose Handy Wiper",
       "brand": "sparkmate",
       "category": "cleaning-aid",
       "subcategory": "wipers",
@@ -21462,7 +21462,7 @@
     },
     {
       "sku": "SMG013",
-      "name": "MULTIPURPOSE PLUNGER REGULAR",
+      "name": "Multipurpose Plunger Regular",
       "brand": "sparkmate",
       "category": "cleaning-aid",
       "subcategory": "plunger",
@@ -21489,7 +21489,7 @@
     },
     {
       "sku": "SMG014",
-      "name": "MULTIPURPOSE PLUNGER REGULAR XL",
+      "name": "Multipurpose Plunger Regular XL",
       "brand": "sparkmate",
       "category": "cleaning-aid",
       "subcategory": "plunger",
@@ -21558,7 +21558,7 @@
     },
     {
       "sku": "SMW003",
-      "name": "SM MASTER WIPER",
+      "name": "SM Master Wiper",
       "brand": "sparkmate",
       "category": "cleaning-aid",
       "subcategory": "wipers",
@@ -21582,7 +21582,7 @@
     },
     {
       "sku": "SMW004",
-      "name": "PILOT WIPER",
+      "name": "Pilot Wiper",
       "brand": "sparkmate",
       "category": "cleaning-aid",
       "subcategory": "wipers",
@@ -21606,7 +21606,7 @@
     },
     {
       "sku": "SMW005",
-      "name": "DINKY",
+      "name": "Dinky",
       "brand": "sparkmate",
       "category": "cleaning-aid",
       "subcategory": "wipers",
@@ -21630,7 +21630,7 @@
     },
     {
       "sku": "PSM011",
-      "name": "PREMIUM FLOOR WIPER",
+      "name": "Premium Floor Wiper",
       "brand": "sparkmate",
       "category": "cleaning-aid",
       "subcategory": "wipers",
@@ -21654,7 +21654,7 @@
     },
     {
       "sku": "PSM010",
-      "name": "PREMIUM BATHROOM WIPER",
+      "name": "Premium Bathroom Wiper",
       "brand": "sparkmate",
       "category": "cleaning-aid",
       "subcategory": "wipers",
@@ -21678,7 +21678,7 @@
     },
     {
       "sku": "SMB001B",
-      "name": "POWER TWIN SIDE TOILET BRUSH",
+      "name": "Power Twin Side Toilet Brush",
       "brand": "sparkmate",
       "category": "cleaning-aid",
       "subcategory": "brush",
@@ -21750,7 +21750,7 @@
     },
     {
       "sku": "SMB002",
-      "name": "SM ROUND TOILET BRUSH",
+      "name": "SM Round Toilet Brush",
       "brand": "sparkmate",
       "category": "cleaning-aid",
       "subcategory": "brush",
@@ -21774,7 +21774,7 @@
     },
     {
       "sku": "SMB009",
-      "name": "SM TOILET BRUSH WITH CONTAINER",
+      "name": "SM Toilet Brush with Container",
       "brand": "sparkmate",
       "category": "cleaning-aid",
       "subcategory": "brush",
@@ -21793,7 +21793,7 @@
     },
     {
       "sku": "SMB004",
-      "name": "SINK & BASIN BRUSH",
+      "name": "Sink & Basin Brush",
       "brand": "sparkmate",
       "category": "cleaning-aid",
       "subcategory": "brush",
@@ -21817,7 +21817,7 @@
     },
     {
       "sku": "SMB005",
-      "name": "FLOOR & TILE BRUSH",
+      "name": "Floor & Tile Brush",
       "brand": "sparkmate",
       "category": "cleaning-aid",
       "subcategory": "brush",
@@ -21841,7 +21841,7 @@
     },
     {
       "sku": "SMB006",
-      "name": "OVAL CLOTH BRUSH",
+      "name": "Oval Cloth Brush",
       "brand": "sparkmate",
       "category": "cleaning-aid",
       "subcategory": "brush",
@@ -21865,7 +21865,7 @@
     },
     {
       "sku": "SMB007",
-      "name": "EASY CLOTH BRUSH",
+      "name": "Easy Cloth Brush",
       "brand": "sparkmate",
       "category": "cleaning-aid",
       "subcategory": "brush",
@@ -21889,7 +21889,7 @@
     },
     {
       "sku": "SMB008",
-      "name": "IRON CLOTH BRUSH",
+      "name": "Iron Cloth Brush",
       "brand": "sparkmate",
       "category": "cleaning-aid",
       "subcategory": "brush",
@@ -21913,7 +21913,7 @@
     },
     {
       "sku": "SMS001",
-      "name": "SM STEEL SCOURER",
+      "name": "SM Steel Scourer",
       "brand": "sparkmate",
       "category": "cleaning-aid",
       "subcategory": "scrubber",
@@ -21936,7 +21936,7 @@
     },
     {
       "sku": "SMS003",
-      "name": "NYLON GREEN PAD",
+      "name": "Nylon Green Pad",
       "brand": "sparkmate",
       "category": "cleaning-aid",
       "subcategory": "scrubber",
@@ -21960,7 +21960,7 @@
     },
     {
       "sku": "SMS004",
-      "name": "NYLON SCRUB & SPONGE PAD",
+      "name": "Nylon Scrub & Sponge Pad",
       "brand": "sparkmate",
       "category": "cleaning-aid",
       "subcategory": "scrubber",
@@ -21984,7 +21984,7 @@
     },
     {
       "sku": "SHH004",
-      "name": "MULTIUTILITY BIN",
+      "name": "Multiutility Bin",
       "brand": "sparkmate",
       "category": "cleaning-aid",
       "subcategory": "bins",
@@ -22008,7 +22008,7 @@
     },
     {
       "sku": "SHH005",
-      "name": "STYLO PEDAL BIN 12 LITRE",
+      "name": "Stylo Pedal bin 12 Litre",
       "brand": "sparkmate",
       "category": "cleaning-aid",
       "subcategory": "bins",
@@ -22032,7 +22032,7 @@
     },
     {
       "sku": "SMG010",
-      "name": "FLEXI 360 MOPPY",
+      "name": "Flexi 360 Moppy",
       "brand": "sparkmate",
       "category": "cleaning-aid",
       "subcategory": "wipers",
@@ -22072,7 +22072,7 @@
     },
     {
       "sku": "SHH007",
-      "name": "PREMIUM SOAP DISPENSER 2 IN 1",
+      "name": "Premium Soap Dispenser 2 in 1",
       "brand": "sparkmate",
       "category": "cleaning-aid",
       "subcategory": "sink-organiser",
@@ -22091,7 +22091,7 @@
     },
     {
       "sku": "SMA001",
-      "name": "SM SPIN MOP REFILL",
+      "name": "SM Spin Mop Refill",
       "brand": "sparkmate",
       "category": "cleaning-aid",
       "subcategory": "spin-mops",
@@ -22110,7 +22110,7 @@
     },
     {
       "sku": "SMG018",
-      "name": "SM BOTTLE BRUSH",
+      "name": "SM Bottle Brush",
       "brand": "sparkmate",
       "category": "cleaning-aid",
       "subcategory": "brush",
@@ -22129,7 +22129,7 @@
     },
     {
       "sku": "SMG021",
-      "name": "STURDY HARD BRUSH",
+      "name": "Sturdy Hard Brush",
       "brand": "sparkmate",
       "category": "cleaning-aid",
       "subcategory": "brush",
@@ -22148,7 +22148,7 @@
     },
     {
       "sku": "SHH008",
-      "name": "TABLETOP TRASH BIN",
+      "name": "Tabletop Trash Bin",
       "brand": "sparkmate",
       "category": "cleaning-aid",
       "subcategory": "bins",
@@ -22167,7 +22167,7 @@
     },
     {
       "sku": "SHH009",
-      "name": "PUSH AND PEDAL TRASH BIN 7.5 LTR.",
+      "name": "Push and Pedal Trash Bin 7.5 ltr.",
       "brand": "sparkmate",
       "category": "cleaning-aid",
       "subcategory": "bins",
@@ -22189,7 +22189,7 @@
     },
     {
       "sku": "SHH010",
-      "name": "PUSH AND PEDAL TRASH BIN 12 LTR.",
+      "name": "Push and Pedal Trash Bin 12 ltr.",
       "brand": "sparkmate",
       "category": "cleaning-aid",
       "subcategory": "bins",
@@ -22211,7 +22211,7 @@
     },
     {
       "sku": "SMS005",
-      "name": "HARDY SUPER SCRUB",
+      "name": "Hardy Super Scrub",
       "brand": "sparkmate",
       "category": "cleaning-aid",
       "subcategory": "scrubber",
@@ -22230,7 +22230,7 @@
     },
     {
       "sku": "SMG019",
-      "name": "SPONGE WIPES SET OF 3",
+      "name": "Sponge Wipes Set of 3",
       "brand": "sparkmate",
       "category": "cleaning-aid",
       "subcategory": "wipe",
@@ -22249,7 +22249,7 @@
     },
     {
       "sku": "SMG020",
-      "name": "SM MICROFIBER FLOOR CLOTH",
+      "name": "SM Microfiber Floor Cloth",
       "brand": "sparkmate",
       "category": "cleaning-aid",
       "subcategory": "wipe",
@@ -22268,7 +22268,7 @@
     },
     {
       "sku": "SMM014",
-      "name": "COMFORT MICROFIBER MOP",
+      "name": "Comfort Microfiber Mop",
       "brand": "sparkmate",
       "category": "cleaning-aid",
       "subcategory": "hand-held-mops",
@@ -22287,7 +22287,7 @@
     },
     {
       "sku": "SMG016",
-      "name": "ULTRA CLOTH BRUSH BIG",
+      "name": "Ultra Cloth Brush Big",
       "brand": "sparkmate",
       "category": "cleaning-aid",
       "subcategory": "brush",
@@ -22306,7 +22306,7 @@
     },
     {
       "sku": "SMM010",
-      "name": "PREMIUM DECK MOP",
+      "name": "Premium Deck Mop",
       "brand": "sparkmate",
       "category": "cleaning-aid",
       "subcategory": "hand-held-mops",
@@ -22325,7 +22325,7 @@
     },
     {
       "sku": "SMM009",
-      "name": "LOOP ROLL N FIT",
+      "name": "LOOP ROLL N FIt",
       "brand": "sparkmate",
       "category": "cleaning-aid",
       "subcategory": "hand-held-mops",
@@ -22382,7 +22382,7 @@
     },
     {
       "sku": "SMM015",
-      "name": "TANGO TWIST & SQUEEZE MOP COTTON",
+      "name": "Tango Twist & Squeeze Mop Cotton",
       "brand": "sparkmate",
       "category": "cleaning-aid",
       "subcategory": "hand-held-mops",
