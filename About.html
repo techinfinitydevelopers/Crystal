@@ -295,9 +295,16 @@
     .burger { display: flex; }
     .stats { grid-template-columns: 1fr 1fr; }
     .vmv-wrapper { grid-template-columns: 1fr; }
-    .vmv-image { position: relative; top: 0; aspect-ratio: 16/9; }
+    /* The leadership photograph is 796x836 -- essentially square. Forcing it
+       into 16/9 here cover-cropped 47% of it away, which took the tops off all
+       three heads. 1/1 matches the picture, so almost nothing is lost. */
+    .vmv-image { position: relative; top: 0; aspect-ratio: 1/1; }
     .jgrid { grid-template-columns: 1fr; }
     .sustain-card { grid-template-columns: 1fr; }
+    /* 462x566, a portrait. Its fixed height turned the box nearly square on a
+       phone and cropped a fifth of it; an aspect ratio close to the photo's own
+       keeps it whole. */
+    .sustain-img { height: auto; aspect-ratio: 4/5; }
     .help-grid { grid-template-columns: 1fr; }
     .foot-top { grid-template-columns: 1fr 1fr; }
   }
