@@ -33,7 +33,13 @@
     --r: 20px;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; scrollbar-gutter: stable; }
+  html { scroll-behavior: smooth; scrollbar-gutter: stable;
+    /* Scrolling past the end of the page shows the canvas, and with html
+       transparent that canvas takes body's white -- a white slab under the
+       black footer on desktop, where a trackpad overscrolls easily. Painting
+       html red puts red there instead, and it suits the top end too: every
+       page opens on the red support bar. */
+    background: var(--red); }
   body { font-family: var(--body); background: var(--white); color: var(--ink); -webkit-font-smoothing: antialiased; overflow-x: clip; }
   img, video { display: block; max-width: 100%; }
   a { color: inherit; text-decoration: none; }
