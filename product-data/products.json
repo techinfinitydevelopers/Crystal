@@ -6511,33 +6511,6 @@
       ]
     },
     {
-      "sku": "MKA116A",
-      "name": "CRYSTAL TWIN CHOPPER",
-      "brand": "crystal",
-      "category": "kitchenware",
-      "subcategory": "manual-appliances",
-      "collection": "Manual Kitchen Appliances",
-      "highlight": "CRYSTAL TWIN CHOPPER",
-      "description": "A Powerful Twin-Blade Manual Chopper Designed For Chopping Vegetables, Nuts, Herbs, And More In Seconds. Features A Strong Pull Mechanism For Efficient Cutting.",
-      "tags": [
-        "Twin Chopper",
-        "Vegetable Chopper",
-        "Manual Pull Chopper",
-        "Kitchen Chopper",
-        "Double Blade Chopper"
-      ],
-      "gst_pct": null,
-      "mrp": null,
-      "amazon_link": null,
-      "filters": {
-        "use": "Chopper"
-      },
-      "hero": null,
-      "gallery": [],
-      "match_tier": "unmatched",
-      "id": "mka116a"
-    },
-    {
       "sku": "MKA901",
       "name": "CRYSTAL FRUIT JUICER",
       "brand": "crystal",
