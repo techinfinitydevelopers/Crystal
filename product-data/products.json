@@ -446,32 +446,6 @@
       }
     },
     {
-      "sku": "VML-002",
-      "name": "VALMATE VALUE STEEL LIGHTER",
-      "brand": "valmate",
-      "category": "kitchenware",
-      "subcategory": "lighters",
-      "collection": "LIGHTERS",
-      "highlight": "VALMATE VALUE STEEL LIGHTER",
-      "description": "High-Quality Waterproof Gas Lighter With A Japanese Piezo Ignition System And A 1-Year Warranty.",
-      "tags": [
-        "Gas Igniter",
-        "Waterproof Kitchen Lighter",
-        "Premium Gas Lighter."
-      ],
-      "gst_pct": 0.18,
-      "mrp": null,
-      "amazon_link": null,
-      "filters": {
-        "use": "Domestic",
-        "mechanism": "Mechanical"
-      },
-      "hero": "https://m.media-amazon.com/images/I/51PIc19mkCL._SX425_.jpg",
-      "gallery": [],
-      "match_tier": "image_sourced_searched",
-      "id": "vml-002"
-    },
-    {
       "sku": "CL-007",
       "name": "CRYSTAL 18 CM SLEEK SERRATED EDGE",
       "brand": "crystal",
