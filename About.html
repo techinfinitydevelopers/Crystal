@@ -258,6 +258,12 @@
   .ms h4 { font-family: var(--head); font-weight: 700; text-transform: uppercase; font-size: 16px; margin-bottom: 6px; letter-spacing: -0.01em; }
   .ms p { color: var(--muted); font-size: 13.5px; line-height: 1.5; max-width: none; }
   @media (max-width: 860px) { .ms { flex-basis: 78vw; } }
+  .ms-nav { display: flex; justify-content: flex-end; gap: 12px; margin-top: 18px; }
+  .ms-nav-btn { width: 46px; height: 46px; border-radius: 50%; border: 1.5px solid var(--line); background: var(--white); display: grid; place-items: center; cursor: pointer; transition: background .25s, border-color .25s, transform .2s; }
+  .ms-nav-btn:hover:not(:disabled) { background: var(--red); border-color: var(--red); transform: translateY(-2px); }
+  .ms-nav-btn:hover:not(:disabled) svg { stroke: #fff; }
+  .ms-nav-btn:disabled { opacity: 0.35; cursor: default; }
+  .ms-nav-btn svg { stroke: #1A1816; transition: stroke .25s; }
 
   /* ===== SUSTAINABILITY ===== */
   .sustain-card { background: var(--ink-deep); color: #fff; border-radius: clamp(24px, 3vw, 40px); padding: clamp(36px, 5vw, 64px); display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 4vw, 60px); align-items: center; overflow: hidden; }
@@ -899,21 +905,21 @@ h1, h2 { overflow-wrap: break-word; }
     '<svg viewBox="0 0 48 48" width="30" height="30" fill="none" stroke="#ED3338" stroke-width="3" stroke-linejoin="round"><rect x="7" y="7" width="14" height="14" rx="2.5"/><rect x="27" y="7" width="14" height="14" rx="2.5"/><rect x="7" y="27" width="14" height="14" rx="2.5"/><rect x="27" y="27" width="14" height="14" rx="2.5"/></svg>',
   ];
   const story = [
-    { m: "1971", t: "The Beginning In 1971", d: "Crystal's origin traces back to a man who challenged the status quo—one that accepted household chores as tedious, time-consuming, and complex. Tools developed through scientific innovation abroad were available in India through the grey market, but remained out of reach for the majority and were not always dependable. This led to the birth of Crystal's core idea: creating tools for everyday household chores that are durable, easy to use, and above all, affordable.", img: "about-assets/story-1-the-beginning.jpg" },
-    { m: "Est. 1971", t: "The Piezoelectric Gas Lighter", d: "In those days, kitchenware products were positioned in the premium segment and were largely imported. The Chairman's vision was to offer Indian customers international-quality products manufactured in India at Indian prices. The journey began with flintstone lighters, evolved to piezo lighter, and gradually expanded to a wide range of kitchen products and home solutions—all with the aim of simplifying the daily chores of Indian homemakers.", img: "about-assets/story-2-piezo-lighter.jpg" },
-    { m: "108+ Knives", t: "The Surgical Steel Kitchen Knife", d: "Kitchen knives were once sold in India as a commodity, lacking both durability and precision. Foreign-made alternatives available through the grey market were also beyond the reach of the common man. Crystal recognized this opportunity and, through its R&amp;D, developed blades made from surgical steel that retained their sharpness for a longer time.", img: "about-assets/story-3-surgical-knife.jpg" },
-    { m: "Made in Rajkot", t: "Kitchen Aids &amp; Cutlery", d: "Rapid urbanisation was on the rise, and as a result of increased exposure to foreign brands, people began seeking more evolved kitchen aids and cutlery. Crystal established a kitchenware factory in Rajkot to manufacture an exquisite range of modern kitchen aids and cutlery items of international standards. These product lines were so refined that the brand became a success even in international markets.", img: "about-assets/story-4-kitchen-aids.jpg" },
-    { m: "Beyond the Kitchen", t: "Samurai Mosquito Repellent", d: "By now, Crystal had not only established itself as a pioneer in technological breakthroughs but had also built a pan-Indian distribution network. This led to a collaboration with Sumitomo, Japan—the then world leader in mosquito repellent technology—to introduce mosquito repellent mats and liquids in India.", img: "about-assets/story-5-samurai.jpg" },
-    { m: "Global Partnership", t: "Crystal Corning Alliance", d: "Crystal's ethical marketing practices, in-depth reporting, and strong marketing infrastructure led Corning, a Fortune 500 American company, to forge an alliance with Crystal for pan-Indian distribution of its products, including Corelle, Pyrex, Visions, and Duratrap, in India.", img: "about-assets/story-6-corning.jpg" },
-    { m: "Full Ecosystem", t: "Crystal Appliances", d: "As a natural progression, Crystal forayed into kitchen appliances across both mechanical and electrical segments. With deep knowledge and insights into Indian cooking practices, the brand developed appliances that are effective, efficient, aesthetically pleasing, and a pride to own—at an affordable Indian price.", img: "about-assets/story-7-appliances.jpg" },
-    { m: "DuPont USA", t: "Crystal Non-Stick Cookware", d: "Crystal launched high-quality non-stick cookware using the technical know-how of DuPont, USA. The quest for &ldquo;international standards at affordable Indian prices&rdquo; continued.", img: "about-assets/story-8-non-stick.jpg" },
-    { m: "Cleaning Simplified", t: "Sparkmate Household Cleaning", d: "Crystal's desire to reduce the drudgery of household chores led the brand to focus on household cleaning systems. This revealed a significant gap in both pricing and quality, similar to what existed earlier in gas lighters and kitchen knives. Thus, the brand SparkMate was born. Using Crystal's indigenous R&amp;D, a series of tools were developed for Indian conditions—easy to use, beautifully designed, and comparable to international products, yet offered at an affordable price.", img: "about-assets/story-9-sparkmate.jpg" },
-    { m: "Live The Good Life", t: "Crystalina – Live The Good Life", d: "Crystalina was created for premium consumers who seek not only luxury but also efficiency. Designed for this segment, it was immediately accepted, backed by the trust and legacy of Crystal.", img: "about-assets/story-10-crystalina.jpg" },
-    { m: "Steel Range", t: "Steel Cookware &amp; Sets", d: "As Crystal expanded its marketing infrastructure, steel cookware manufacturing facilities were set up. From pressure cookers to saucepans, kadhais, and frypans, a wide range of steel utensils was manufactured under one roof. Durable, ergonomic, and backed by the latest R&amp;D, each product carried the assurance of Crystal.", img: "about-assets/story-11-steel-cookware.jpg" },
-    { m: "Storage Solutions", t: "Storage &amp; Lunch Boxes", d: "Building on its expertise in steel utensils, Crystal also forayed into lunch boxes. From steel and plastic to insulated and non-insulated variants, the brand mastered a wide range of designs and styles, with durability as a benchmark.", img: "about-assets/story-12-storage.jpg" },
-    { m: "Tri-Pro", t: "Crystal Tri-Pro Cookware", d: "The journey of Crystal Cookware is a story shaped by curiosity, craftsmanship, and a belief that everyday cooking deserves extraordinary tools. Crystal invested in advanced manufacturing techniques and ergonomic, designer handles that enhance grip and improve heat resistance.", img: "about-assets/story-13-tripro.jpg" },
-    { m: "ValMate", t: "ValMate", d: "A new, economical range of kitchenware designed for price-conscious, digital, and enterprising India. This brand stands for great value, backed by Crystal's long-standing assurance.", img: "about-assets/story-14-valmate.jpg" },
-    { m: "Teakwood", t: "Teakwood", d: "Today's style conscious, well-off consumers love treating themselves to small everyday luxuries products that feel premium and make their home life feel special. Teak wood, known for its rich and high-end appeal, became a popular choice for home décor and furniture. Crystal also found its way into kitchens and dining rooms through items like serving trays and spice boxes.", img: "about-assets/story-15-teakwood.jpg" },
+    { m: "1971", t: "The Beginning In 1971", d: "Crystal's origin traces back to a man who challenged the status quo—one that accepted household chores as tedious, time-consuming, and complex. Tools developed through scientific innovation abroad were available in India through the grey market, but remained out of reach for the majority and were not always dependable. This led to the birth of Crystal's core idea: creating tools for everyday household chores that are durable, easy to use, and above all, affordable.", img: "about-assets/timeline/The-beginning.jpg" },
+    { m: "Est. 1971", t: "The Piezoelectric Gas Lighter", d: "In those days, kitchenware products were positioned in the premium segment and were largely imported. The Chairman's vision was to offer Indian customers international-quality products manufactured in India at Indian prices. The journey began with flintstone lighters, evolved to piezo lighter, and gradually expanded to a wide range of kitchen products and home solutions—all with the aim of simplifying the daily chores of Indian homemakers.", img: "about-assets/timeline/The-Piezo-Electric-Gas-Lighter.jpg" },
+    { m: "108+ Knives", t: "The Surgical Steel Kitchen Knife", d: "Kitchen knives were once sold in India as a commodity, lacking both durability and precision. Foreign-made alternatives available through the grey market were also beyond the reach of the common man. Crystal recognized this opportunity and, through its R&amp;D, developed blades made from surgical steel that retained their sharpness for a longer time.", img: "about-assets/timeline/The-Surgical-Steel-Kitchen-Knife.jpg" },
+    { m: "Made in Rajkot", t: "Kitchen Aids &amp; Cutlery", d: "Rapid urbanisation was on the rise, and as a result of increased exposure to foreign brands, people began seeking more evolved kitchen aids and cutlery. Crystal established a kitchenware factory in Rajkot to manufacture an exquisite range of modern kitchen aids and cutlery items of international standards. These product lines were so refined that the brand became a success even in international markets.", img: "about-assets/timeline/Kitchen-Aid-cutlery.jpg" },
+    { m: "Beyond the Kitchen", t: "Samurai Mosquito Repellent", d: "By now, Crystal had not only established itself as a pioneer in technological breakthroughs but had also built a pan-Indian distribution network. This led to a collaboration with Sumitomo, Japan—the then world leader in mosquito repellent technology—to introduce mosquito repellent mats and liquids in India.", img: "about-assets/timeline/Samurai.jpg" },
+    { m: "Global Partnership", t: "Crystal Corning Alliance", d: "Crystal's ethical marketing practices, in-depth reporting, and strong marketing infrastructure led Corning, a Fortune 500 American company, to forge an alliance with Crystal for pan-Indian distribution of its products, including Corelle, Pyrex, Visions, and Duratrap, in India.", img: "about-assets/timeline/Crystal-Coring-Alliance.jpg" },
+    { m: "Full Ecosystem", t: "Crystal Appliances", d: "As a natural progression, Crystal forayed into kitchen appliances across both mechanical and electrical segments. With deep knowledge and insights into Indian cooking practices, the brand developed appliances that are effective, efficient, aesthetically pleasing, and a pride to own—at an affordable Indian price.", img: "about-assets/timeline/Crystal-Appliances.jpg" },
+    { m: "DuPont USA", t: "Crystal Non-Stick Cookware", d: "Crystal launched high-quality non-stick cookware using the technical know-how of DuPont, USA. The quest for &ldquo;international standards at affordable Indian prices&rdquo; continued.", img: "about-assets/timeline/Non-Stick-Cookware.jpg" },
+    { m: "Cleaning Simplified", t: "Sparkmate Household Cleaning", d: "Crystal's desire to reduce the drudgery of household chores led the brand to focus on household cleaning systems. This revealed a significant gap in both pricing and quality, similar to what existed earlier in gas lighters and kitchen knives. Thus, the brand SparkMate was born. Using Crystal's indigenous R&amp;D, a series of tools were developed for Indian conditions—easy to use, beautifully designed, and comparable to international products, yet offered at an affordable price.", img: "about-assets/timeline/Sparkmate-Household.jpg" },
+    { m: "Live The Good Life", t: "Crystalina – Live The Good Life", d: "Crystalina was created for premium consumers who seek not only luxury but also efficiency. Designed for this segment, it was immediately accepted, backed by the trust and legacy of Crystal.", img: "about-assets/timeline/Crystalina.jpg" },
+    { m: "Steel Range", t: "Steel Cookware &amp; Sets", d: "As Crystal expanded its marketing infrastructure, steel cookware manufacturing facilities were set up. From pressure cookers to saucepans, kadhais, and frypans, a wide range of steel utensils was manufactured under one roof. Durable, ergonomic, and backed by the latest R&amp;D, each product carried the assurance of Crystal.", img: "about-assets/timeline/Tri-Ply.jpg" },
+    { m: "Storage Solutions", t: "Storage &amp; Lunch Boxes", d: "Building on its expertise in steel utensils, Crystal also forayed into lunch boxes. From steel and plastic to insulated and non-insulated variants, the brand mastered a wide range of designs and styles, with durability as a benchmark.", img: "about-assets/timeline/Storage-and-lunch-box.jpg" },
+    { m: "Tri-Pro", t: "Crystal Tri-Pro Cookware", d: "The journey of Crystal Cookware is a story shaped by curiosity, craftsmanship, and a belief that everyday cooking deserves extraordinary tools. Crystal invested in advanced manufacturing techniques and ergonomic, designer handles that enhance grip and improve heat resistance.", img: "about-assets/timeline/Cookware-Sets.jpg" },
+    { m: "ValMate", t: "ValMate", d: "A new, economical range of kitchenware designed for price-conscious, digital, and enterprising India. This brand stands for great value, backed by Crystal's long-standing assurance.", img: "about-assets/timeline/Valmate.jpg" },
+    { m: "Teakwood", t: "Teakwood", d: "Today's style conscious, well-off consumers love treating themselves to small everyday luxuries products that feel premium and make their home life feel special. Teak wood, known for its rich and high-end appeal, became a popular choice for home décor and furniture. Crystal also found its way into kitchens and dining rooms through items like serving trays and spice boxes.", img: "about-assets/timeline/Teakwood.jpg" },
   ];
   document.getElementById("storyGrid").innerHTML =
     '<div class="rail"><span class="rail-fill"></span></div><div class="ms-row">' +
@@ -934,7 +940,39 @@ h1, h2 { overflow-wrap: break-word; }
             </div>
           </div>
         </div>
-      </article>`).join("") + '</div>';
+      </article>`).join("") + '</div>' +
+    '<div class="ms-nav">' +
+    '<button type="button" class="ms-nav-btn" data-ms-prev aria-label="Previous milestone"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>' +
+    '<button type="button" class="ms-nav-btn" data-ms-next aria-label="Next milestone"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button>' +
+    '</div>';
+
+  /* ---------- Story rail: wheel-to-horizontal + prev/next buttons ---------- */
+  (function initStoryScroll() {
+    const row = document.querySelector("#storyGrid .ms-row");
+    const prevBtn = document.querySelector("#storyGrid [data-ms-prev]");
+    const nextBtn = document.querySelector("#storyGrid [data-ms-next]");
+    if (!row) return;
+    const step = () => (row.querySelector(".ms")?.getBoundingClientRect().width || 320) + 28;
+    const updateNavState = () => {
+      const max = row.scrollWidth - row.clientWidth - 1;
+      prevBtn.disabled = row.scrollLeft <= 0;
+      nextBtn.disabled = row.scrollLeft >= max;
+    };
+    prevBtn.addEventListener("click", () => row.scrollBy({ left: -step(), behavior: "auto" }));
+    nextBtn.addEventListener("click", () => row.scrollBy({ left: step(), behavior: "auto" }));
+    row.addEventListener("wheel", (e) => {
+      if (Math.abs(e.deltaY) <= Math.abs(e.deltaX)) return;
+      const max = row.scrollWidth - row.clientWidth - 1;
+      const atStart = row.scrollLeft <= 0 && e.deltaY < 0;
+      const atEnd = row.scrollLeft >= max && e.deltaY > 0;
+      if (atStart || atEnd) return;
+      e.preventDefault();
+      row.scrollLeft += e.deltaY;
+    }, { passive: false });
+    row.addEventListener("scroll", updateNavState, { passive: true });
+    window.addEventListener("resize", updateNavState);
+    updateNavState();
+  })();
 
   /* ---------- GSAP ANIMATIONS (ported patterns) ---------- */
   function initGSAP() {
