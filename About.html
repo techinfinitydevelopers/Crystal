@@ -186,6 +186,7 @@
   /* infrastructure stats — reuse legacy stat tiles, 5-up, no legacy top divider/offset */
   .infra-stats { grid-template-columns: repeat(5, 1fr); margin-top: 0; padding-top: 0; border-top: 0; }
   .infra-stats .stat .num { font-size: clamp(32px, 4.2vw, 58px); }
+  .stat .num .unit { font-size: 0.4em; letter-spacing: 0; }
   .infra-stats .stat .num .unit { font-size: .4em; font-weight: 700; letter-spacing: 0; }
   @media (max-width: 900px) { .infra-stats { grid-template-columns: repeat(3, 1fr); } }
   @media (max-width: 560px) { .infra-stats { grid-template-columns: 1fr 1fr; } }
@@ -762,14 +763,14 @@ h1, h2 { overflow-wrap: break-word; }
       <span class="eyebrow" data-fade><span class="pip"></span>Our Reach</span>
       <h2 data-split style="margin-top:14px">Built on<br>solid ground</h2>
     </div>
-    <p class="lead">Three offices, three factories, five warehouses and a 30000 manufacturing backbone — engineered in India, trusted across the country.</p>
+    <p class="lead">Three offices, three factories, five warehouses and a 30,000 sq. ft. manufacturing backbone — engineered in India, trusted across the country.</p>
   </div>
   <div class="stats infra-stats">
     <div class="stat" data-fade><div class="num"><span data-count="3">0</span></div><div class="lbl">Corporate Offices</div></div>
     <div class="stat" data-fade><div class="num"><span data-count="3">0</span></div><div class="lbl">Manufacturing Units</div></div>
     <div class="stat" data-fade><div class="num"><span data-count="5">0</span></div><div class="lbl">Warehouses</div></div>
     <div class="stat" data-fade><div class="num">1000</div><div class="lbl">Retail Outlets</div></div>
-    <div class="stat" data-fade><div class="num">30000</div><div class="lbl">Factory Space</div></div>
+    <div class="stat" data-fade><div class="num">30,000 <span class="unit">Sq.Ft.</span></div><div class="lbl">Factory Space</div></div>
   </div>
 </section>
 
