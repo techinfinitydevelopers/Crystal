@@ -1002,7 +1002,7 @@ h1, h2 { overflow-wrap: break-word; }
   /* ---------- GRID state + render ---------- */
   const gridEl = document.getElementById("grid");
   const countEl = document.getElementById("count");
-  let state = { cat: FIXED_CAT, col: "", sort: "featured", cats: null, subLabel: "", subText: "", attrFilters: {} };
+  let state = { cat: FIXED_CAT, col: "", sort: "featured", cats: null, subLabel: "", subs: [], attrFilters: {} };
 
   function brandName(slug) { return (BRAND_BY[slug] || {}).name || slug; }
 
@@ -1077,9 +1077,13 @@ h1, h2 { overflow-wrap: break-word; }
     if (state.cats) scoped = scoped.filter(p => state.cats.includes(p.c));
     else if (state.cat !== "all") scoped = scoped.filter(p => p.c === state.cat);
     if (state.col) scoped = scoped.filter(p => p.col === state.col);
-    if (state.subText) {
-      if (scoped.some(p => p.sub === state.subText)) scoped = scoped.filter(p => p.sub === state.subText);
-      else { const terms = state.subText.split("-").filter(Boolean); scoped = scoped.filter(p => { const hay = (p.n + " " + p.col + " " + p.tags.join(" ")).toLowerCase(); return terms.every(t => hay.includes(t)); }); }
+    if (state.subs.length) {
+      scoped = scoped.filter(p => state.subs.some(sub => {
+        if (scoped.some(pp => pp.sub === sub)) return p.sub === sub;
+        const terms = sub.split("-").filter(Boolean);
+        const hay = (p.n + " " + p.col + " " + p.tags.join(" ")).toLowerCase();
+        return terms.every(t => hay.includes(t));
+      }));
     }
 
     let list = scoped.slice();
@@ -1126,11 +1130,21 @@ h1, h2 { overflow-wrap: break-word; }
     }
   }
 
+  function subLabelOf(sub) { return (SUBCATS.find(s => s.id === sub) || {}).label || sub; }
+
   function setSub(sub) {
-    state.subText = sub;
-    state.subLabel = sub ? ((SUBCATS.find(s => s.id === sub) || {}).label || "") : "";
+    if (!sub) {
+      state.subs = [];
+    } else {
+      const i = state.subs.indexOf(sub);
+      if (i === -1) state.subs.push(sub); else state.subs.splice(i, 1);
+    }
+    state.subLabel = state.subs.length ? state.subs.map(subLabelOf).join(", ") : "";
     state.col = ""; state.attrFilters = {}; openGroupKey = null;
-    document.querySelectorAll("#chips .chip").forEach(c => c.classList.toggle("active", (c.dataset.sub || "") === sub));
+    document.querySelectorAll("#chips .chip").forEach(c => {
+      const s = c.dataset.sub || "";
+      c.classList.toggle("active", s ? state.subs.includes(s) : state.subs.length === 0);
+    });
     applyAndRender(true);
   }
 
@@ -1184,7 +1198,7 @@ h1, h2 { overflow-wrap: break-word; }
     e.preventDefault();
     let f = {}; try { f = JSON.parse(card.dataset.col); } catch (_) {}
     state.col = f.col || "";
-    state.subText = ""; state.subLabel = ""; state.attrFilters = {}; openGroupKey = null;
+    state.subs = []; state.subLabel = ""; state.attrFilters = {}; openGroupKey = null;
     document.querySelectorAll("#chips .chip").forEach(c => c.classList.toggle("active", (c.dataset.sub || "") === ""));
     applyAndRender(true);
     document.getElementById("browse").scrollIntoView({ behavior: "smooth", block: "start" });
