@@ -3697,13 +3697,8 @@
         "blade_edge_type": "Plain",
         "coating_type": "Ceramic Coated"
       },
-      "hero": "product-photos/CLCL-003/hero.jpg",
-      "gallery": [
-        "product-photos/CLCL-003/g1.jpg",
-        "product-photos/CLCL-003/g2.jpg",
-        "product-photos/CLCL-003/g3.jpg",
-        "product-photos/CLCL-003/g4.jpg"
-      ],
+      "hero": null,
+      "gallery": [],
       "match_tier": "image_sourced_amazon_link",
       "id": "clcl-003"
     },
