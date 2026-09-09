@@ -5790,13 +5790,13 @@
       "filters": {
         "use": "Strainer"
       },
-      "hero": "product-photos/MKA113/hero.jpg",
+      "hero": "product-photos/MKA113/g5.jpg",
       "gallery": [
+        "product-photos/MKA113/hero.jpg",
         "product-photos/MKA113/g1.jpg",
         "product-photos/MKA113/g2.jpg",
         "product-photos/MKA113/g3.jpg",
         "product-photos/MKA113/g4.jpeg",
-        "product-photos/MKA113/g5.jpg",
         "product-photos/MKA113/g6.jpg",
         "product-photos/MKA113/g7.jpg",
         "product-photos/MKA113/g8.jpg",
