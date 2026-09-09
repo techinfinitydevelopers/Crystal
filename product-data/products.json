@@ -18088,12 +18088,12 @@
         "induction_non_induction": "Non-Induction",
         "individual_set": "Set"
       },
-      "hero": "product-photos/CNS-893/hero.jpeg",
+      "hero": "product-photos/CNS-893/g4.jpeg",
       "gallery": [
+        "product-photos/CNS-893/hero.jpeg",
         "product-photos/CNS-893/g1.jpg",
         "product-photos/CNS-893/g2.jpeg",
-        "product-photos/CNS-893/g3.jpeg",
-        "product-photos/CNS-893/g4.jpeg"
+        "product-photos/CNS-893/g3.jpeg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cns-893"
