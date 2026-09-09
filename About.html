@@ -186,8 +186,7 @@
   /* infrastructure stats — reuse legacy stat tiles, 5-up, no legacy top divider/offset */
   .infra-stats { grid-template-columns: repeat(5, 1fr); margin-top: 0; padding-top: 0; border-top: 0; }
   .infra-stats .stat .num { font-size: clamp(32px, 4.2vw, 58px); }
-  .stat .num .unit { font-size: 0.4em; letter-spacing: 0; }
-  .infra-stats .stat .num .unit { font-size: .4em; font-weight: 700; letter-spacing: 0; }
+  .stat .num .unit { display: block; font-size: 0.32em; font-weight: 600; text-transform: uppercase; letter-spacing: 0.02em; background: none; -webkit-background-clip: initial; background-clip: initial; -webkit-text-fill-color: initial; color: var(--muted); margin-top: 4px; }
   @media (max-width: 900px) { .infra-stats { grid-template-columns: repeat(3, 1fr); } }
   @media (max-width: 560px) { .infra-stats { grid-template-columns: 1fr 1fr; } }
 
