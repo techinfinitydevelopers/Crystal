@@ -1309,3 +1309,39 @@ same landmine sitting in branches that hadn't fired yet in production: `Marketpl
 .logo_preview_readonly()`'s default-logo note, and `DownloadAdmin.brand_badge()`'s "All Brands"
 badge. All three switched to `mark_safe()`, matching what this file already uses everywhere else
 for static HTML strings. Confirmed clean by re-running the sweep. Fixed in `caeaa8b`.
+
+### One name, everywhere: unifying product-title casing
+
+Client's screenshot of the Knives category showed the actual bug plainly: most cards read
+"CRYSTAL 18 CM SLEEK SERRATED EDGE" in full caps, one read "Crystal 5 Pcs Knife Set" in Title
+Case, and nothing in between — client wanted one consistent style, on every product, in every
+category. This wasn't a rendering quirk: `.pcard .pname` carries no `text-transform`, so the
+raw `name` field in `product-data/products.json` genuinely holds whatever casing someone typed
+when the catalogue was built — 497 of 585 products in full caps, the rest already in decent
+Title Case.
+
+A blind `.title()` pass would have done more damage than good: it capitalizes after every
+non-letter boundary, so "17cm" becomes "17Cm" and "t/w" becomes "T/W" — fine for the second,
+wrong for the first, and the dataset has both patterns hundreds of times over (unit
+abbreviations glued to numbers, and the "T/W" tableware-line abbreviation used as a real word).
+Wrote a narrower transform instead: capitalize each letter-run's first letter and lowercase the
+rest, *except* leave a run untouched if it's glued to a digit on either side (protects "17cm",
+"450ml", also protects embedded SKU codes like "SMJ004" and, with one hyphen of tolerance,
+"PSM-002" and "CKTL-051" that would otherwise have become "Smj004" and "Psm-002" mid-sentence),
+and lowercase a letter that follows an apostrophe instead of capitalizing it ("CHEF'S" →
+"Chef's", not "Chef'S").
+
+The hyphen-tolerant SKU protection has an obvious failure mode: it also protects any ordinary
+word that happens to sit right before a hyphenated number. Caught two real instances by
+diffing every change by hand before applying anything — "FRY PAN-240MM" would have kept "PAN"
+in caps, and "2-IN-1" would have kept "IN" in caps. Both fixed with a short stoplist of common
+words the SKU-detector should never apply to. Confirmed the final transform is idempotent
+(running it twice changes nothing further) and that every one of the 100+ "T/W" names survives
+intact before writing anything to disk.
+
+Two names carry a literal `�` — genuine encoding corruption in the source data unrelated to
+casing (CLCL-005, CTV-095). Left alone rather than guessed at, since a wrong guess would ship a
+factually incorrect product name. `product-data/products.json` is what every page fetches
+directly, and the DB→JSON export only ever touches `dashboard_admin`-tagged products (currently
+zero), so this edit is the live, permanent fix — not at risk of being reverted by a later sync.
+Fixed in `8d1a07c`.
