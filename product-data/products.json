@@ -5447,7 +5447,10 @@
       },
       "hero": "product-photos/MKA104/amz-1.jpg",
       "gallery": [
-        "product-photos/MKA104/amz-2.jpg"
+        "product-photos/MKA104/amz-2.jpg",
+        "product-photos/MKA104/az-1.jpg",
+        "product-photos/MKA104/az-2.jpg",
+        "product-photos/MKA104/az-3.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "mka104",
@@ -17551,7 +17554,12 @@
       "hero": "product-photos/CNS794/hero.png",
       "gallery": [
         "product-photos/CNS794/g1.jpg",
-        "product-photos/CNS794/g2.jpg"
+        "product-photos/CNS794/g2.jpg",
+        "product-photos/CNS794/az-1.jpg",
+        "product-photos/CNS794/az-2.jpg",
+        "product-photos/CNS794/az-3.jpg",
+        "product-photos/CNS794/az-4.jpg",
+        "product-photos/CNS794/az-5.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cns794"
