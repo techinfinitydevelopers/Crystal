@@ -20514,9 +20514,9 @@
       "mrp": null,
       "amazon_link": "https://www.amazon.in/dp/B0BC8MS6LF",
       "filters": {},
-      "hero": "product-photos/SMG009/hero.jpg",
+      "hero": "sparkmate/SMG009/img-1.jpg",
       "gallery": [
-        "product-photos/SMG009/g1.jpg"
+        "sparkmate/SMG009/img-2.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "smg009"
@@ -20853,11 +20853,14 @@
       "mrp": null,
       "amazon_link": "https://www.amazon.in/dp/B0BC82LTW6",
       "filters": {},
-      "hero": "product-photos/SMG008/hero.jpg",
+      "hero": "sparkmate/SMG008/img-1.jpg",
       "gallery": [
-        "product-photos/SMG008/g2.jpg",
-        "product-photos/SMG008/g3.jpg",
-        "product-photos/SMG008/g4.jpg"
+        "sparkmate/SMG008/img-2.jpg",
+        "sparkmate/SMG008/img-3.jpg",
+        "sparkmate/SMG008/img-4.jpg",
+        "sparkmate/SMG008/img-5.jpg",
+        "sparkmate/SMG008/img-6.jpg",
+        "sparkmate/SMG008/img-7.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "smg008"
@@ -20876,11 +20879,11 @@
       "mrp": null,
       "amazon_link": "https://www.amazon.in/dp/B0BWYHT42W",
       "filters": {},
-      "hero": "product-photos/SMG012/hero.jpg",
+      "hero": "sparkmate/SMG012/img-1.jpg",
       "gallery": [
-        "product-photos/SMG012/g2.jpg",
-        "product-photos/SMG012/g3.jpg",
-        "product-photos/SMG012/g4.jpg"
+        "sparkmate/SMG012/img-2.jpg",
+        "sparkmate/SMG012/img-3.jpg",
+        "sparkmate/SMG012/img-4.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "smg012"
@@ -20926,11 +20929,13 @@
       "mrp": null,
       "amazon_link": "https://www.amazon.in/dp/B0C599V8JZ",
       "filters": {},
-      "hero": "product-photos/SMG014/g1.jpg",
+      "hero": "sparkmate/SMG014/img-1.jpg",
       "gallery": [
-        "product-photos/SMG014/g2.jpg",
-        "product-photos/SMG014/g3.jpg",
-        "product-photos/SMG014/g4.jpg"
+        "sparkmate/SMG014/img-2.jpg",
+        "sparkmate/SMG014/img-3.jpg",
+        "sparkmate/SMG014/img-4.jpg",
+        "sparkmate/SMG014/img-5.jpg",
+        "sparkmate/SMG014/img-6.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "smg014",
@@ -20976,8 +20981,15 @@
       "mrp": null,
       "amazon_link": "https://www.amazon.in/dp/B0DC6SBXCM",
       "filters": {},
-      "hero": "product-photos/SMG022/hero.jpg",
-      "gallery": [],
+      "hero": "sparkmate/SMG022/img-1.jpg",
+      "gallery": [
+        "sparkmate/SMG022/img-2.jpg",
+        "sparkmate/SMG022/img-3.jpg",
+        "sparkmate/SMG022/img-4.jpg",
+        "sparkmate/SMG022/img-5.jpg",
+        "sparkmate/SMG022/img-6.jpg",
+        "sparkmate/SMG022/img-7.jpg"
+      ],
       "match_tier": "dump_sku_match",
       "id": "smg022"
     },
@@ -21217,8 +21229,10 @@
       "mrp": null,
       "amazon_link": "https://www.amazon.in/dp/B0BRJCFHYQ",
       "filters": {},
-      "hero": "product-photos/SMB009/hero.jpg",
-      "gallery": [],
+      "hero": "sparkmate/SMB009/img-1.jpg",
+      "gallery": [
+        "sparkmate/SMB009/img-2.jpg"
+      ],
       "match_tier": "dump_sku_match",
       "id": "smb009"
     },
@@ -21371,11 +21385,12 @@
       "mrp": null,
       "amazon_link": "https://www.amazon.in/dp/B0BC8MH6YY",
       "filters": {},
-      "hero": "product-photos/SMS001/hero.jpg",
+      "hero": "sparkmate/SMS001/img-1.jpg",
       "gallery": [
-        "product-photos/SMS001/g1.jpg",
-        "product-photos/SMS001/g2.jpg",
-        "product-photos/SMS001/g3.jpg"
+        "sparkmate/SMS001/img-2.jpg",
+        "sparkmate/SMS001/img-3.jpg",
+        "sparkmate/SMS001/img-4.jpg",
+        "sparkmate/SMS001/img-5.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "sms001",
@@ -21499,9 +21514,12 @@
       "mrp": null,
       "amazon_link": "https://www.amazon.in/dp/B0BWYGB6ZG",
       "filters": {},
-      "hero": "product-photos/SMG010/hero.jpg",
+      "hero": "sparkmate/SMG010/img-1.jpg",
       "gallery": [
-        "product-photos/SMG010/g1.jpg"
+        "sparkmate/SMG010/img-2.jpg",
+        "sparkmate/SMG010/img-3.jpg",
+        "sparkmate/SMG010/img-4.jpg",
+        "sparkmate/SMG010/img-5.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "smg010"
@@ -21520,8 +21538,13 @@
       "mrp": null,
       "amazon_link": "https://www.amazon.in/dp/B0C597KQFN",
       "filters": {},
-      "hero": "https://m.media-amazon.com/images/I/518wetGGEYL._SX425_.jpg",
-      "gallery": [],
+      "hero": "sparkmate/SHH006/img-1.jpg",
+      "gallery": [
+        "sparkmate/SHH006/img-2.jpg",
+        "sparkmate/SHH006/img-3.jpg",
+        "sparkmate/SHH006/img-4.jpg",
+        "sparkmate/SHH006/img-5.jpg"
+      ],
       "match_tier": "image_sourced_searched",
       "id": "shh006"
     },
@@ -21539,8 +21562,14 @@
       "mrp": null,
       "amazon_link": "https://www.amazon.in/dp/B0C599YQ1L",
       "filters": {},
-      "hero": "product-photos/SHH007/hero.jpg",
-      "gallery": [],
+      "hero": "sparkmate/SHH007/img-1.jpg",
+      "gallery": [
+        "sparkmate/SHH007/img-2.jpg",
+        "sparkmate/SHH007/img-3.jpg",
+        "sparkmate/SHH007/img-4.jpg",
+        "sparkmate/SHH007/img-5.jpg",
+        "sparkmate/SHH007/img-6.jpg"
+      ],
       "match_tier": "dump_sku_match",
       "id": "shh007"
     },
@@ -21577,8 +21606,13 @@
       "mrp": null,
       "amazon_link": "https://www.amazon.in/dp/B0CZDBF5KP",
       "filters": {},
-      "hero": "product-photos/SMG018/hero.jpg",
-      "gallery": [],
+      "hero": "sparkmate/SMG018/img-1.jpg",
+      "gallery": [
+        "sparkmate/SMG018/img-2.jpg",
+        "sparkmate/SMG018/img-3.jpg",
+        "sparkmate/SMG018/img-4.jpg",
+        "sparkmate/SMG018/img-5.jpg"
+      ],
       "match_tier": "dump_sku_match",
       "id": "smg018"
     },
@@ -21596,8 +21630,14 @@
       "mrp": null,
       "amazon_link": "https://www.amazon.in/dp/B0CZF49KXS",
       "filters": {},
-      "hero": "product-photos/SMG021/hero.jpg",
-      "gallery": [],
+      "hero": "sparkmate/SMG021/img-1.jpg",
+      "gallery": [
+        "sparkmate/SMG021/img-2.jpg",
+        "sparkmate/SMG021/img-3.jpg",
+        "sparkmate/SMG021/img-4.jpg",
+        "sparkmate/SMG021/img-5.jpg",
+        "sparkmate/SMG021/img-6.jpg"
+      ],
       "match_tier": "dump_sku_match",
       "id": "smg021"
     },
@@ -21615,7 +21655,7 @@
       "mrp": null,
       "amazon_link": "https://www.amazon.in/dp/B0CQ8RNRDB",
       "filters": {},
-      "hero": "product-photos/SHH008/hero.jpg",
+      "hero": "sparkmate/SHH008/img-1.jpg",
       "gallery": [],
       "match_tier": "dump_sku_match",
       "id": "shh008"
@@ -21634,8 +21674,15 @@
       "mrp": null,
       "amazon_link": "https://www.amazon.in/dp/B0CQ8F5C8B",
       "filters": {},
-      "hero": "product-photos/SHH009/hero.jpg",
-      "gallery": [],
+      "hero": "sparkmate/SHH009/img-1.jpg",
+      "gallery": [
+        "sparkmate/SHH009/img-2.jpg",
+        "sparkmate/SHH009/img-3.jpg",
+        "sparkmate/SHH009/img-4.jpg",
+        "sparkmate/SHH009/img-5.jpg",
+        "sparkmate/SHH009/img-6.jpg",
+        "sparkmate/SHH009/img-7.jpg"
+      ],
       "match_tier": "dump_sku_match",
       "id": "shh009",
       "variant_group": "vg-21",
@@ -21656,8 +21703,15 @@
       "mrp": null,
       "amazon_link": "https://www.amazon.in/dp/B0CQ8H93G1",
       "filters": {},
-      "hero": "product-photos/SHH010/hero.jpg",
-      "gallery": [],
+      "hero": "sparkmate/SHH010/img-1.jpg",
+      "gallery": [
+        "sparkmate/SHH010/img-2.jpg",
+        "sparkmate/SHH010/img-3.jpg",
+        "sparkmate/SHH010/img-4.jpg",
+        "sparkmate/SHH010/img-5.jpg",
+        "sparkmate/SHH010/img-6.jpg",
+        "sparkmate/SHH010/img-7.jpg"
+      ],
       "match_tier": "dump_sku_match",
       "id": "shh010",
       "variant_group": "vg-21",
@@ -21678,8 +21732,14 @@
       "mrp": null,
       "amazon_link": "https://www.amazon.in/dp/B0DBLTSYTX",
       "filters": {},
-      "hero": "product-photos/SMS005/hero.jpg",
-      "gallery": [],
+      "hero": "sparkmate/SMS005/img-1.jpg",
+      "gallery": [
+        "sparkmate/SMS005/img-2.jpg",
+        "sparkmate/SMS005/img-3.jpg",
+        "sparkmate/SMS005/img-4.jpg",
+        "sparkmate/SMS005/img-5.jpg",
+        "sparkmate/SMS005/img-6.jpg"
+      ],
       "match_tier": "dump_sku_match",
       "id": "sms005"
     },
@@ -21697,8 +21757,13 @@
       "mrp": null,
       "amazon_link": "https://www.amazon.in/dp/B0DBLSQ1RL",
       "filters": {},
-      "hero": "product-photos/SMG019/hero.jpg",
-      "gallery": [],
+      "hero": "sparkmate/SMG019/img-1.jpg",
+      "gallery": [
+        "sparkmate/SMG019/img-2.jpg",
+        "sparkmate/SMG019/img-3.jpg",
+        "sparkmate/SMG019/img-4.jpg",
+        "sparkmate/SMG019/img-5.jpg"
+      ],
       "match_tier": "dump_sku_match",
       "id": "smg019"
     },
@@ -21716,8 +21781,13 @@
       "mrp": null,
       "amazon_link": "https://www.amazon.in/dp/B0DBLRP5MZ",
       "filters": {},
-      "hero": "product-photos/SMG020/hero.jpg",
-      "gallery": [],
+      "hero": "sparkmate/SMG020/img-1.jpg",
+      "gallery": [
+        "sparkmate/SMG020/img-2.jpg",
+        "sparkmate/SMG020/img-3.jpg",
+        "sparkmate/SMG020/img-4.jpg",
+        "sparkmate/SMG020/img-5.jpg"
+      ],
       "match_tier": "dump_sku_match",
       "id": "smg020"
     },
@@ -21735,8 +21805,13 @@
       "mrp": null,
       "amazon_link": "https://www.amazon.in/dp/B0DBLRNMYX",
       "filters": {},
-      "hero": "product-photos/SMM014/hero.jpg",
-      "gallery": [],
+      "hero": "sparkmate/SMM014/img-1.jpg",
+      "gallery": [
+        "sparkmate/SMM014/img-2.jpg",
+        "sparkmate/SMM014/img-3.jpg",
+        "sparkmate/SMM014/img-4.jpg",
+        "sparkmate/SMM014/img-5.jpg"
+      ],
       "match_tier": "dump_sku_match",
       "id": "smm014"
     },
@@ -21754,8 +21829,13 @@
       "mrp": null,
       "amazon_link": "https://www.amazon.in/dp/B0CZDQHTB7",
       "filters": {},
-      "hero": "product-photos/SMG016/hero.jpg",
-      "gallery": [],
+      "hero": "sparkmate/SMG016/img-1.jpg",
+      "gallery": [
+        "sparkmate/SMG016/img-2.jpg",
+        "sparkmate/SMG016/img-3.jpg",
+        "sparkmate/SMG016/img-4.jpg",
+        "sparkmate/SMG016/img-5.jpg"
+      ],
       "match_tier": "dump_sku_match",
       "id": "smg016"
     },
@@ -21773,8 +21853,11 @@
       "mrp": null,
       "amazon_link": "https://www.amazon.in/dp/B0D1NB8923",
       "filters": {},
-      "hero": "product-photos/SMM010/hero.jpg",
-      "gallery": [],
+      "hero": "sparkmate/SMM010/img-1.jpg",
+      "gallery": [
+        "sparkmate/SMM010/img-2.jpg",
+        "sparkmate/SMM010/img-3.jpg"
+      ],
       "match_tier": "dump_sku_match",
       "id": "smm010"
     },
@@ -21792,7 +21875,7 @@
       "mrp": null,
       "amazon_link": "https://www.amazon.in/dp/B0D1MVDFDJ",
       "filters": {},
-      "hero": "product-photos/SMM009/hero.jpg",
+      "hero": "sparkmate/SMM009/img-1.jpg",
       "gallery": [],
       "match_tier": "dump_sku_match",
       "id": "smm009"
