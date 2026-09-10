@@ -20,7 +20,11 @@
   var TARGETS = {
     "hero-pretext": document.getElementById("heroPreTxt"),
     "hero-title": document.getElementById("heroTitle"),
+    "hero-title-2": document.getElementById("heroTitle2"),
     "hero-sub": document.getElementById("heroSub"),
+    "about-title": document.getElementById("aboutTitle"),
+    "about-text": document.getElementById("aboutText"),
+    "about-image": document.getElementById("aboutImg"),
   };
 
   fetch(API, { mode: "cors", credentials: "omit" })

@@ -529,9 +529,9 @@ h1, h2 { overflow-wrap: break-word; }
   <section class="bp-hero">
     <video src="brand-assets/crystalina/hero.mp4" poster="brand-assets/crystalina/hero-poster.jpg" autoplay muted loop playsinline></video>
     <div class="bp-hero-in">
-      <span class="eyebrow" style="color:#fff"><span class="pip"></span>Brand</span>
-      <h1>Crystalina</h1>
-      <p>Splendid finish, superior experience</p>
+      <span class="eyebrow" style="color:#fff"><span class="pip"></span><span id="heroPreTxt">Brand</span></span>
+      <h1 id="heroTitle">Crystalina</h1>
+      <p id="heroSub">Splendid finish, superior experience</p>
     </div>
   </section>
 
@@ -540,10 +540,10 @@ h1, h2 { overflow-wrap: break-word; }
     <div class="bp-about">
       <div>
         <span class="eyebrow" data-fade><span class="pip"></span>About Crystalina</span>
-        <h2 data-split>Crystalina</h2>
-        <p>Positioned at the intersection of luxury and utility, Crystalina is designed for the discerning home owner who views houseware as an extension of their personal style. With a focus on premium finishes and exquisite silhouettes, the brand transforms everyday chores into elevated experiences. Crystalina doesn't just fill a space; it enhances it - a brand that brings beauty, reliability, and long-lasting performance into modern homes.</p>
+        <h2 data-split id="aboutTitle">Crystalina</h2>
+        <p id="aboutText">Positioned at the intersection of luxury and utility, Crystalina is designed for the discerning home owner who views houseware as an extension of their personal style. With a focus on premium finishes and exquisite silhouettes, the brand transforms everyday chores into elevated experiences. Crystalina doesn't just fill a space; it enhances it - a brand that brings beauty, reliability, and long-lasting performance into modern homes.</p>
       </div>
-      <img src="brand-assets/crystalina/about.jpg" alt="Crystalina" loading="lazy">
+      <img src="brand-assets/crystalina/about.jpg" alt="Crystalina" id="aboutImg" loading="lazy">
     </div>
   </section>
 
@@ -704,5 +704,6 @@ h1, h2 { overflow-wrap: break-word; }
 
 </script>
 <script src="enquiry.js"></script>
+<script src="content-sync.js"></script>
 </body>
 </html>

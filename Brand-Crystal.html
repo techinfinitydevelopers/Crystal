@@ -527,9 +527,9 @@ h1, h2 { overflow-wrap: break-word; }
   <section class="bp-hero">
     <video src="brand-assets/crystal/hero.mp4" poster="brand-assets/crystal/hero-poster.jpg" autoplay muted loop playsinline></video>
     <div class="bp-hero-in">
-      <span class="eyebrow" style="color:#fff"><span class="pip"></span>Brand</span>
-      <h1>Crystal</h1>
-      <p>Simplifying kitchen chores</p>
+      <span class="eyebrow" style="color:#fff"><span class="pip"></span><span id="heroPreTxt">Brand</span></span>
+      <h1 id="heroTitle">Crystal</h1>
+      <p id="heroSub">Simplifying kitchen chores</p>
     </div>
   </section>
 
@@ -538,10 +538,10 @@ h1, h2 { overflow-wrap: break-word; }
     <div class="bp-about">
       <div>
         <span class="eyebrow" data-fade><span class="pip"></span>About Crystal</span>
-        <h2 data-split>Crystal</h2>
-        <p>Crystal is the quintessential choice for the modern home. Rooted in the philosophy of "Simplifying kitchen chores" it offers a seamless blend of innovation and timeless design. Every Crystal product is an exercise in precision crafted from superior materials that prioritize quality without sacrificing aesthetics. With a focus on durability, safety, and modern appeal, Crystal is perceived as a brand that enhances daily living with simplicity, grace, and long lasting reliability.</p>
+        <h2 data-split id="aboutTitle">Crystal</h2>
+        <p id="aboutText">Crystal is the quintessential choice for the modern home. Rooted in the philosophy of "Simplifying kitchen chores" it offers a seamless blend of innovation and timeless design. Every Crystal product is an exercise in precision crafted from superior materials that prioritize quality without sacrificing aesthetics. With a focus on durability, safety, and modern appeal, Crystal is perceived as a brand that enhances daily living with simplicity, grace, and long lasting reliability.</p>
       </div>
-      <img src="brand-assets/crystal/about.jpg" alt="Crystal" loading="lazy">
+      <img src="brand-assets/crystal/about.jpg" alt="Crystal" id="aboutImg" loading="lazy">
     </div>
   </section>
 
@@ -713,5 +713,6 @@ h1, h2 { overflow-wrap: break-word; }
 
 </script>
 <script src="enquiry.js"></script>
+<script src="content-sync.js"></script>
 </body>
 </html>

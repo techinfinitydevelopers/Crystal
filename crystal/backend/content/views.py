@@ -15,7 +15,7 @@ def _abs(request, url):
 class PageSectionFeedView(View):
     def get(self, request):
         pages = {}
-        qs = PageSection.objects.filter(is_active=True)
+        qs = PageSection.objects.filter(is_active=True, is_deleted=False)
         for s in qs:
             entry = {'kind': s.kind, 'updated': s.updated_at.isoformat()}
             if s.kind == PageSection.IMAGE:

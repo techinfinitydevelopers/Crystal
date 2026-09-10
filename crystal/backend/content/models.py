@@ -40,6 +40,12 @@ class PageSection(models.Model):
                   'ships, without deleting this.')
     updated_at = models.DateTimeField(auto_now=True)
 
+    # Deleting from the main list moves a row here instead of removing it --
+    # it disappears from the working list and the live feed the same as a
+    # real delete would, but only Trash can remove it for good.
+    is_deleted = models.BooleanField(default=False)
+    deleted_at = models.DateTimeField(null=True, blank=True)
+
     class Meta:
         ordering = ['page', 'section_key']
         unique_together = [('page', 'section_key')]
@@ -54,3 +60,17 @@ class PageSection(models.Model):
         """The key the website looks itself up by: the page name, lowercased."""
         name = self.page[:-5] if self.page.lower().endswith('.html') else self.page
         return name.strip().lower().replace(' ', '-')
+
+
+class PageSectionTrash(PageSection):
+    """The same table, viewed and administered as the trash can.
+
+    A proxy model rather than a second table: `PageSectionAdmin` soft-deletes
+    into this same row set by flipping `is_deleted`, so the two admin classes
+    just need to look at opposite halves of one table, not keep two in sync.
+    """
+
+    class Meta:
+        proxy = True
+        verbose_name = 'Page section (trash)'
+        verbose_name_plural = 'Page sections — Trash'

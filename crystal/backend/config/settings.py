@@ -287,6 +287,7 @@ JAZZMIN_SETTINGS = {
         "banners.categorybanner": "fas fa-image",
         "content": "fas fa-file-alt",
         "content.pagesection": "fas fa-edit",
+        "content.pagesectiontrash": "fas fa-trash",
     },
 
     "default_icon_parents": "fas fa-chevron-circle-right",

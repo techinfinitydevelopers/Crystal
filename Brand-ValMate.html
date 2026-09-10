@@ -529,9 +529,9 @@ h1, h2 { overflow-wrap: break-word; }
   <section class="bp-hero">
     <video src="brand-assets/valmate/hero.mp4" poster="brand-assets/valmate/hero-poster.jpg" autoplay muted loop playsinline></video>
     <div class="bp-hero-in">
-      <span class="eyebrow" style="color:#fff"><span class="pip"></span>Brand</span>
-      <h1>ValMate</h1>
-      <p>Quality that lasts, value that makes sense</p>
+      <span class="eyebrow" style="color:#fff"><span class="pip"></span><span id="heroPreTxt">Brand</span></span>
+      <h1 id="heroTitle">ValMate</h1>
+      <p id="heroSub">Quality that lasts, value that makes sense</p>
     </div>
   </section>
 
@@ -540,10 +540,10 @@ h1, h2 { overflow-wrap: break-word; }
     <div class="bp-about">
       <div>
         <span class="eyebrow" data-fade><span class="pip"></span>About ValMate</span>
-        <h2 data-split>ValMate</h2>
-        <p>ValMate is built on the belief that every family deserves quality that lasts. It's a brand that balances rugged durability with thoughtful affordability. When you choose ValMate, you're choosing a legacy of performance that stands the test of time and the rigors of daily family life - practical and reliable, delivering essential solutions without compromising on quality.</p>
+        <h2 data-split id="aboutTitle">ValMate</h2>
+        <p id="aboutText">ValMate is built on the belief that every family deserves quality that lasts. It's a brand that balances rugged durability with thoughtful affordability. When you choose ValMate, you're choosing a legacy of performance that stands the test of time and the rigors of daily family life - practical and reliable, delivering essential solutions without compromising on quality.</p>
       </div>
-      <img src="brand-assets/valmate/about.jpg" alt="ValMate" loading="lazy">
+      <img src="brand-assets/valmate/about.jpg" alt="ValMate" id="aboutImg" loading="lazy">
     </div>
   </section>
 
@@ -701,5 +701,6 @@ h1, h2 { overflow-wrap: break-word; }
 
 </script>
 <script src="enquiry.js"></script>
+<script src="content-sync.js"></script>
 </body>
 </html>

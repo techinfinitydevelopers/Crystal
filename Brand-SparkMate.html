@@ -527,9 +527,9 @@ h1, h2 { overflow-wrap: break-word; }
   <section class="bp-hero">
     <video src="brand-assets/sparkmate/hero.mp4" poster="brand-assets/sparkmate/hero-poster.jpg" autoplay muted loop playsinline></video>
     <div class="bp-hero-in">
-      <span class="eyebrow" style="color:#fff"><span class="pip"></span>Brand</span>
-      <h1>SparkMate</h1>
-      <p>One-stop smart cleaning solutions</p>
+      <span class="eyebrow" style="color:#fff"><span class="pip"></span><span id="heroPreTxt">Brand</span></span>
+      <h1 id="heroTitle">SparkMate</h1>
+      <p id="heroSub">One-stop smart cleaning solutions</p>
     </div>
   </section>
 
@@ -538,10 +538,10 @@ h1, h2 { overflow-wrap: break-word; }
     <div class="bp-about">
       <div>
         <span class="eyebrow" data-fade><span class="pip"></span>About SparkMate</span>
-        <h2 data-split>SparkMate</h2>
-        <p>SparkMate is built for the rhythm of modern life. Designed for high performance and maximum efficiency, SparkMate is the go-to brand for those who value smart and fast-paced cleaning solutions. It's practical, vibrant, and incredibly reliable, offering durable tools that keep up with the demands of a busy household. High utility, accessible pricing, and zero compromise on safety - that is the SparkMate promise.</p>
+        <h2 data-split id="aboutTitle">SparkMate</h2>
+        <p id="aboutText">SparkMate is built for the rhythm of modern life. Designed for high performance and maximum efficiency, SparkMate is the go-to brand for those who value smart and fast-paced cleaning solutions. It's practical, vibrant, and incredibly reliable, offering durable tools that keep up with the demands of a busy household. High utility, accessible pricing, and zero compromise on safety - that is the SparkMate promise.</p>
       </div>
-      <img src="brand-assets/sparkmate/about.jpg" alt="SparkMate" loading="lazy">
+      <img src="brand-assets/sparkmate/about.jpg" alt="SparkMate" id="aboutImg" loading="lazy">
     </div>
   </section>
 
@@ -707,5 +707,6 @@ h1, h2 { overflow-wrap: break-word; }
 
 </script>
 <script src="enquiry.js"></script>
+<script src="content-sync.js"></script>
 </body>
 </html>
