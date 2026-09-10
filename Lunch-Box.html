@@ -838,14 +838,22 @@ h1, h2 { overflow-wrap: break-word; }
 
   /* ---------- RENDER: hero ---------- */
   if (brand) {
-    document.getElementById("heroPreTxt").textContent = brand.name + " · " + brand.tagline;
-    document.getElementById("heroTitle").innerHTML = brand.title;
-    document.getElementById("heroSub").textContent = brand.blurb;
-    document.title = brand.name + " — CRYSTAL";
-    const _catLead = document.getElementById("catLead"); if (_catLead) _catLead.textContent = "Explore the " + brand.name + " range, organised by what you're looking for.";
+    // Brand-scoped view of THIS category (linked from the brand pages' tiles).
+    // The page keeps its own hero and headline — it is still the Non-Stick /
+    // Knives / Spin Mops page — and only gains the brand, so it does not turn
+    // into a duplicate of the brand's own landing page.
+    const _crumbEl = document.getElementById("heroPreTxt");
+    const _crumb = (_crumbEl.textContent || "").replace(/\s+/g, " ").trim();
+    const _leaf = (_crumb.split("·").pop() || _crumb).trim();
+    // Some pages already name a brand in the crumb (e.g. "SparkMate · Spin Mops").
+    if (!new RegExp("^" + brand.name + "\\b", "i").test(_crumb)) {
+      _crumbEl.textContent = brand.name + " · " + _crumb;
+    }
+    document.title = brand.name + " " + _leaf + " — CRYSTAL";
+    const _catLead = document.getElementById("catLead"); if (_catLead) _catLead.textContent = "Explore the " + brand.name + " " + _leaf + " range.";
     document.getElementById("colTitle").innerHTML = brand.name + "<br>collections";
     document.getElementById("colLead").textContent = "The signature " + brand.name + " ranges, designed to delight.";
-    document.getElementById("browseTitle").innerHTML = "All " + brand.name + "<br>products";
+    document.getElementById("browseTitle").innerHTML = "All " + brand.name + "<br>" + _leaf;
     document.getElementById("ctaTitle").innerHTML = "Discover<br>" + brand.name;
   }
   // hero tiles: pick 5 representative images from the view
