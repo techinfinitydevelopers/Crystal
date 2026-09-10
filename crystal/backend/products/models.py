@@ -119,6 +119,16 @@ class Product(models.Model):
         max_digits=5, decimal_places=4, null=True, blank=True,
         help_text='As a fraction, e.g. 0.18 for 18%.')
 
+    # Set the moment someone picks a main image in the dashboard. Two jobs:
+    # the deploy-time catalogue sync must stop overwriting image_url with the
+    # photo products.json still names, and the live site's override feed lists
+    # exactly these products (see products/views.py ImageOverridesView).
+    hero_overridden = models.BooleanField(
+        default=False,
+        help_text="Internal — set automatically when the main image is chosen here, "
+                  "so the nightly catalogue sync cannot put the old photo back.",
+    )
+
     is_dashboard_managed = models.BooleanField(
         default=True,
         help_text="Internal — leave this on. Only products created here (rather than bulk-imported from the "

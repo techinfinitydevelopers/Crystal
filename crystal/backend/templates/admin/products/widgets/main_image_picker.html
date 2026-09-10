@@ -1,0 +1,30 @@
+{% load i18n %}{% comment %}
+  The main-image picker: the product's "all sizes" gallery photos as tiles,
+  exactly one of them chosen.
+
+  Deliberately plain radio inputs. They carry the field name, so the choice
+  posts with the form whether or not JavaScript ran, and the selected state is
+  styled from :checked alone — there is no script behind this widget to break.
+{% endcomment %}
+<div class="cz-mainpick{% if not widget.tiles %} cz-mainpick--empty{% endif %}">
+  {% for tile in widget.tiles %}
+    <label class="cz-mainpick-tile{% if tile.checked %} is-current{% endif %}"
+           title="{% if tile.checked %}{% trans 'This is the main image' %}{% else %}{% trans 'Make this the main image' %}{% endif %}">
+      <input type="radio" name="{{ widget.name }}" value="{{ tile.value }}"
+             {% if tile.checked %}checked{% endif %}>
+      <span class="cz-mainpick-frame">
+        {% if tile.url %}
+          <img src="{{ tile.url }}" alt="{{ tile.label }}" loading="lazy">
+        {% else %}
+          <span class="cz-mainpick-noimg" aria-hidden="true">&#9723;</span>
+        {% endif %}
+        <span class="cz-mainpick-badge">&#9733; {% trans "Main image" %}</span>
+      </span>
+      <span class="cz-mainpick-name">{{ tile.label }}{% if tile.note %} <em>({{ tile.note }})</em>{% endif %}</span>
+    </label>
+  {% empty %}
+    <p class="cz-mainpick-none">
+      {% trans "This product has no photos yet. Add them in “Gallery Images” at the bottom of this page, save, and they will appear here to choose from." %}
+    </p>
+  {% endfor %}
+</div>

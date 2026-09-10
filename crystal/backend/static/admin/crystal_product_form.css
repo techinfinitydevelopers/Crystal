@@ -251,3 +251,121 @@ fieldset .description {
   }
   .form-group > .row:has(.fieldBox ~ .fieldBox) > label { padding-top: 10px; }
 }
+
+/* ── Main image picker ─────────────────────────────────────────────────────
+   The product's "all sizes" gallery photos as tiles; clicking one makes it the
+   main image. No JavaScript behind it — the radio input is real and every bit
+   of the selected state hangs off :checked, so the control cannot half-work. */
+.cz-mainpick {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(112px, 1fr));
+  gap: 14px;
+  max-width: 720px;
+  margin: 2px 0 4px;
+}
+
+.cz-mainpick-tile {
+  display: block;
+  margin: 0;
+  cursor: pointer;
+  font-weight: 400;
+}
+
+/* Off-screen rather than display:none — a hidden radio is unreachable by
+   keyboard, and this is the only control for the field. */
+.cz-mainpick-tile input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.cz-mainpick-frame {
+  position: relative;
+  display: block;
+  aspect-ratio: 1 / 1;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+  border: 2px solid #e5e7eb;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .06);
+  transition: border-color .15s, box-shadow .15s, transform .15s;
+}
+
+.cz-mainpick-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.cz-mainpick-noimg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  font-size: 26px;
+  color: #cbd5e1;
+}
+
+.cz-mainpick-tile:hover .cz-mainpick-frame {
+  border-color: #f9a8a8;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, .12);
+}
+
+.cz-mainpick-tile input:focus-visible + .cz-mainpick-frame {
+  outline: 3px solid #93c5fd;
+  outline-offset: 2px;
+}
+
+.cz-mainpick-tile input:checked + .cz-mainpick-frame {
+  border-color: #ED3338;
+  box-shadow: 0 0 0 3px rgba(237, 51, 56, .16);
+}
+
+/* The "Main image" flag rides on the tile and is only shown for the chosen
+   one, so the picker says which photo is live without a legend. */
+.cz-mainpick-badge {
+  position: absolute;
+  left: 6px;
+  right: 6px;
+  bottom: 6px;
+  display: none;
+  padding: 3px 6px;
+  border-radius: 100px;
+  background: #ED3338;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .02em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.cz-mainpick-tile input:checked + .cz-mainpick-frame .cz-mainpick-badge {
+  display: block;
+}
+
+.cz-mainpick-name {
+  display: block;
+  margin-top: 6px;
+  font-size: 11px;
+  line-height: 1.35;
+  color: #64748b;
+  word-break: break-all;
+}
+
+.cz-mainpick-name em { color: #b45309; font-style: normal; }
+
+.cz-mainpick-none {
+  margin: 0;
+  padding: 14px 16px;
+  border: 1px dashed #cbd5e1;
+  border-radius: 12px;
+  background: #f8fafc;
+  color: #64748b;
+  font-size: 13px;
+  line-height: 1.5;
+}

@@ -15,6 +15,7 @@ from django import forms
 from django.forms.renderers import TemplatesSetting
 from django.utils.safestring import mark_safe
 
+from .media_urls import _public_url
 from .models import Product
 
 
@@ -221,10 +222,115 @@ class TagListField(forms.CharField):
         return _split_tags(value)
 
 
+# The picker's value for "the photo the site already uses, which has no
+# ProductImage row" — picking it means "leave image_url exactly as it is".
+KEEP_CURRENT_IMAGE = 'keep-current'
+
+
+MAIN_IMAGE_HELP = mark_safe(
+    'Click a photo to make it the main one — it is what the product page shows '
+    'big at the top and what the listing cards use. These are the same photos as '
+    'in <strong>Gallery Images</strong> at the bottom of this page, so if the one '
+    'you want is not here, add it down there first and save.'
+)
+
+
+class MainImagePicker(forms.RadioSelect):
+    """The gallery photos as clickable tiles, one of them the main image.
+
+    The radio inputs are real and carry the field name, so the picker still
+    works — and is still readable — with JavaScript off; the tile styling is
+    driven entirely by :checked in crystal_product_form.css.
+    """
+
+    template_name = 'admin/products/widgets/main_image_picker.html'
+
+    def __init__(self, attrs=None, choices=()):
+        super().__init__(attrs, choices)
+        self.tiles = []
+
+    # Widget templates live in the project template dir, which the renderer
+    # Django hands us does not look at. Same reason as TagChipsWidget.
+    def render(self, name, value, attrs=None, renderer=None):
+        return super().render(name, value, attrs, renderer=TemplatesSetting())
+
+    def get_context(self, name, value, attrs):
+        context = super().get_context(name, value, attrs)
+        selected = '' if value in (None, '') else str(value)
+        context['widget']['tiles'] = [
+            dict(tile, checked=(str(tile['value']) == selected))
+            for tile in self.tiles
+        ]
+        return context
+
+
 class ProductAdminForm(forms.ModelForm):
     features = FeatureLinesField()
     tags = TagListField()
+    main_image = forms.ChoiceField(
+        required=False, label='Main image',
+        widget=MainImagePicker, help_text=MAIN_IMAGE_HELP,
+    )
 
     class Meta:
         model = Product
         fields = '__all__'
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['main_image'].choices = self._main_image_tiles()
+        if 'image_url' in self.fields:
+            self.fields['image_url'].label = 'Main image path'
+            self.fields['image_url'].help_text = (
+                'Filled in for you when you pick a photo above. Type a path or web '
+                'address here only for a product that has no gallery photos at all.'
+            )
+
+    def _main_image_tiles(self):
+        """Build the picker's tiles and return them as ChoiceField choices.
+
+        Only photos that apply to every size are offered. A photo attached to
+        one size is that size's main image and is chosen in the gallery grid
+        below, not here.
+        """
+        widget = self.fields['main_image'].widget
+        tiles, choices = [], []
+        instance = self.instance
+
+        if instance is None or not instance.pk:
+            widget.tiles = tiles
+            return choices
+
+        images = [im for im in instance.images.all() if im.variant_id is None]
+        images.sort(key=lambda im: (im.order, im.pk))
+        for image in images:
+            tiles.append({
+                'value': str(image.pk),
+                'url': _public_url(getattr(image.image, 'name', '') or ''),
+                'label': (getattr(image.image, 'name', '') or '').rsplit('/', 1)[-1],
+                'note': '',
+            })
+            choices.append((str(image.pk), str(image.pk)))
+
+        if images:
+            hero = next((im for im in images if im.is_hero), images[0])
+            selected = str(hero.pk)
+        elif instance.image_url:
+            # 156 imported products have a hero that exists only as a path — no
+            # ProductImage row was ever created for it. Show it so the picker is
+            # never an empty box on a product that plainly has a photo, and keep
+            # it selectable so saving cannot silently drop it.
+            tiles.append({
+                'value': KEEP_CURRENT_IMAGE,
+                'url': _public_url(instance.image_url),
+                'label': instance.image_url.rsplit('/', 1)[-1],
+                'note': 'not in the gallery yet',
+            })
+            choices.append((KEEP_CURRENT_IMAGE, KEEP_CURRENT_IMAGE))
+            selected = KEEP_CURRENT_IMAGE
+        else:
+            selected = ''
+
+        widget.tiles = tiles
+        self.initial['main_image'] = selected
+        return choices

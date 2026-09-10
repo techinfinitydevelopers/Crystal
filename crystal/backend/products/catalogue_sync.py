@@ -101,6 +101,12 @@ def sync_catalogue(items):
             # must stay excluded from export_products_json (see that command's docstring)
             "is_dashboard_managed": False,
         }
+        # A main image chosen in the dashboard outranks the one products.json
+        # still names — otherwise the next deploy silently undoes the edit,
+        # which is exactly the kind of thing nobody thinks to check.
+        if Product.objects.filter(sku=sku, hero_overridden=True).exists():
+            defaults.pop("image_url")
+
         prod, was_created = Product.objects.update_or_create(sku=sku, defaults=defaults)
         if was_created:
             created += 1

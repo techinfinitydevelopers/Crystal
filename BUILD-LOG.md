@@ -1392,3 +1392,45 @@ to the database cleaned by hand; re-running it on a clean database is a no-op. C
 afterwards that DB and JSON agree on all 361 shared SKUs — no alias keys left, no value
 mismatches. Deliberately did *not* add an exporter-side guard: it would silently swallow a spec
 someone adds in the dashboard on purpose later. Fixed in `b05d439` and `1bae70d`.
+
+
+## Main image: picked from the gallery, and live on the site (2026-09-10)
+
+The product form's "Featured image" upload was dead weight. Zero of 587 products had one, nothing
+in `export_products_json` or the site catalogue serializer read it in preference to the gallery,
+and `thumbnail` was the same story. What the website actually shows is the `ProductImage` row
+flagged `is_hero` (falling back to `Product.image_url`), and that lived only in the gallery grid
+at the very bottom of the page — so the one control labelled "Main image" was the one control
+that could not set it.
+
+Replaced the three fields with a picker: the product's "all sizes" photos as tiles, click one to
+make it the main image. Plain radio inputs, all of the selected state driven off `:checked` in
+CSS — there is no JavaScript behind the widget, so it cannot half-work. Products whose hero
+exists only as a path with no `ProductImage` row (156 of them) get that path shown as a
+`keep-current` tile rather than an empty box.
+
+The pick is applied in `ModelAdmin.save_related`, not `save_model`: a photo added or deleted in
+the gallery grid in the same save does not exist yet while the main form is saving. A "Main" star
+clicked in that grid counts as the same edit — otherwise starring a photo there would change the
+dashboard and never reach the site.
+
+Making it *visible* needed the same inversion as the category banners. The site reads
+`product-data/products.json` out of git; this dashboard is a separate Railway service and cannot
+write into that repo, so `products.json` keeps naming the old photo until someone commits. New
+endpoint `/api/products/image-overrides.json/` publishes only the products whose main image was
+actually chosen here (`Product.hero_overridden`), keyed by product code, with absolute URLs —
+an uploaded photo is on the dashboard's `/media/`, an imported one on the website, and the page
+cannot tell which. `product-image-sync.js` folds them into the catalogue by wrapping `fetch`
+rather than by touching any page's code: all 65 pages read the same file and map `hero`/`gallery`
+off each entry, so patching the parsed JSON at that one point covers the product page, the search
+overlay and all 46 listing pages with their rendering untouched. Short deadline on the request;
+a timeout, an error or a dashboard that is down returns the shipped catalogue unchanged.
+
+`catalogue_sync` now skips `image_url` for an overridden product. Without that the next deploy
+would quietly put the old photo back — the sort of thing nobody thinks to check.
+
+Verified end to end against the local dashboard: picking a photo moves `is_hero`, rewrites
+`image_url`, flags the product and publishes it; the product page and the Lighters listing both
+show the new photo while the product next to it is untouched; an ordinary save that does not
+touch the picker flags nothing; and with the endpoint pointed at a dead port every page renders
+its shipped photos as before.
