@@ -12,6 +12,7 @@ urlpatterns = [
     path('api/categories/', CategoryListView.as_view(), name='api-categories'),
     path('api/marketplaces/', MarketplaceListView.as_view(), name='api-marketplaces'),
     path('api/banners.json', include('banners.urls')),
+    path('api/sections.json', include('content.urls')),
     path('api/blog/', include('blog.urls')),
     path('api/downloads/', include('downloads.urls')),
     path('api/enquiry/', include('enquiry.urls')),

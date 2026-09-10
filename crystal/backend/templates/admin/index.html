@@ -49,6 +49,47 @@
       </div>
     </div>
   </div>
+  <div class="col-lg-3 col-6">
+    <div class="crx-stat">
+      <span class="crx-stat__icon"><i class="fas fa-file-alt"></i></span>
+      <div class="crx-stat__body">
+        <span class="crx-stat__label">Site Pages</span>
+        <span class="crx-stat__value">{{ stat_pages }}</span>
+        <a class="crx-stat__link" href="#crx-pages">Edit sections &rarr;</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── Pages: every page on the site, grouped, jumping straight into its
+     editable sections. This IS the sidebar-equivalent page picker: Jazzmin's
+     sidebar can only list models, not 65 individual pages, so the picker
+     lives here on the dashboard home instead. ── -->
+<div class="row mb-4" id="crx-pages">
+  <div class="col-12">
+    <div class="card crx-card">
+      <div class="crx-card__head">
+        <h3 class="crx-card__title"><i class="fas fa-file-alt"></i> Pages — edit any section</h3>
+        <a href="{% url 'admin:content_pagesection_add' %}" class="crx-card__action">+ New section &rarr;</a>
+      </div>
+      <div class="card-body">
+        {% for group, pages in pages_overview %}
+        <div class="crx-page-group">
+          <h4 class="crx-page-group__title">{{ group }}</h4>
+          <div class="crx-page-grid">
+            {% for p in pages %}
+            <a class="crx-page-chip{% if p.count %} crx-page-chip--has{% endif %}"
+               href="{% url 'admin:content_pagesection_changelist' %}?page={{ p.file|urlencode }}">
+              {{ p.label }}
+              {% if p.count %}<span class="crx-page-chip__badge">{{ p.count }}</span>{% endif %}
+            </a>
+            {% endfor %}
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- ── Recent Enquiries ── -->

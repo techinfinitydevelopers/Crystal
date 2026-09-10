@@ -90,6 +90,7 @@ INSTALLED_APPS = [
     'core',
     'products',
     'banners',
+    'content',
     'enquiry',
     'blog',
     'downloads',
@@ -262,7 +263,7 @@ JAZZMIN_SETTINGS = {
     "hide_apps": [],
     "hide_models": ["auth.group"],
     "order_with_respect_to": [
-        "products", "banners", "enquiry", "blog", "downloads", "core", "auth",
+        "products", "banners", "content", "enquiry", "blog", "downloads", "core", "auth",
     ],
 
     "icons": {
@@ -284,6 +285,8 @@ JAZZMIN_SETTINGS = {
         "core.contactsubmission": "fas fa-phone-alt",
         "banners": "fas fa-panorama",
         "banners.categorybanner": "fas fa-image",
+        "content": "fas fa-file-alt",
+        "content.pagesection": "fas fa-edit",
     },
 
     "default_icon_parents": "fas fa-chevron-circle-right",

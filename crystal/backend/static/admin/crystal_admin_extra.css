@@ -583,3 +583,72 @@
   .crx-stat { padding: 16px 16px; border-radius: 12px; }
   .crx-stat__value { font-size: 26px; }
 }
+
+/* --------------------------------------------------------------------------
+   5. Pages picker — every site page, grouped, jumping into its sections
+   -------------------------------------------------------------------------- */
+
+.crx-page-group {
+  padding: 14px 4px;
+  border-bottom: 1px solid var(--s-border, #e1e1e1);
+}
+.crx-page-group:last-child {
+  border-bottom: none;
+}
+
+.crx-page-group__title {
+  margin: 0 0 10px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--s-ink-faint, #8a8a8a);
+}
+
+.crx-page-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.crx-page-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 12px;
+  border: 1px solid var(--s-border-strong, #cdcdcd);
+  border-radius: 100px;
+  background-color: var(--s-surface, #fff);
+  color: var(--s-ink, #303030);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.12s ease, border-color 0.12s ease;
+}
+
+.crx-page-chip:hover,
+.crx-page-chip:focus-visible {
+  background-color: var(--s-hover, rgba(0, 0, 0, 0.05));
+  color: var(--s-ink, #303030);
+}
+
+/* A page with at least one override set gets the accent, so it reads as
+   "already customised" at a glance rather than blending into the rest. */
+.crx-page-chip--has {
+  border-color: var(--c-red, #ed3338);
+  color: var(--c-red-deep, #c0282c);
+}
+
+.crx-page-chip__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: 100px;
+  background: var(--c-red, #ed3338);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+}
