@@ -25,6 +25,28 @@
     "about-title": document.getElementById("aboutTitle"),
     "about-text": document.getElementById("aboutText"),
     "about-image": document.getElementById("aboutImg"),
+    "cta-title": document.getElementById("ctaTitle"),
+    "cta-sub": document.getElementById("ctaSub"),
+
+    // About.html's two stat rows.
+    "stat-years-num": document.getElementById("statYearsNum"),
+    "stat-years-lbl": document.getElementById("statYearsLbl"),
+    "stat-people-num": document.getElementById("statPeopleNum"),
+    "stat-people-lbl": document.getElementById("statPeopleLbl"),
+    "stat-skus-num": document.getElementById("statSkusNum"),
+    "stat-skus-lbl": document.getElementById("statSkusLbl"),
+    "stat-customers-num": document.getElementById("statCustomersNum"),
+    "stat-customers-lbl": document.getElementById("statCustomersLbl"),
+    "stat-offices-num": document.getElementById("statOfficesNum"),
+    "stat-offices-lbl": document.getElementById("statOfficesLbl"),
+    "stat-units-num": document.getElementById("statUnitsNum"),
+    "stat-units-lbl": document.getElementById("statUnitsLbl"),
+    "stat-warehouses-num": document.getElementById("statWarehousesNum"),
+    "stat-warehouses-lbl": document.getElementById("statWarehousesLbl"),
+    "stat-outlets-num": document.getElementById("statOutletsNum"),
+    "stat-outlets-lbl": document.getElementById("statOutletsLbl"),
+    "stat-factory-num": document.getElementById("statFactoryNum"),
+    "stat-factory-lbl": document.getElementById("statFactoryLbl"),
   };
 
   fetch(API, { mode: "cors", credentials: "omit" })
@@ -42,6 +64,10 @@
           else el.style.backgroundImage = "url(" + s.url + ")";
         } else if (s.kind === "text" && s.text) {
           el.textContent = s.text;
+          // A stat's counted number: update the attribute the count-up
+          // animation reads too, so a value set before the animation fires
+          // still lands on the right number, not the shipped default.
+          if (el.hasAttribute("data-count")) el.setAttribute("data-count", s.text);
         }
       });
     })
