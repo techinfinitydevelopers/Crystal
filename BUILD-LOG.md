@@ -1219,3 +1219,63 @@ when it is not, and hid from the client which products still need one. 221 of
 530 have no link. Those show a red badge now, and it follows the size selector.
 The dashboard shows the same: the Amazon mark where there is a link, the same
 red flag where there is not.
+
+## 2026-09-10 (22) — Client one-screenshot-at-a-time fixes; journey carousel replaced with a grid
+
+Client is now sending single WhatsApp-forwarded screenshots, one bug at a time; each is
+fixed, verified, committed, and pushed individually before the next arrives.
+
+### Plain-photo fixes, three more rounds
+
+CNS-893 (non-stick pan) had a CRYSTAL-logo-branded main image; its own gallery already held
+a clean shot (`g4.jpeg`), so hero and gallery were swapped. CLCL-003 turned out to be using a
+Crystal-brand (not Crystalina) product photo — wrong brand entirely, removed. MKA113 got the
+same branded-to-plain hero swap as CNS-893. Two more, CLMK-011 (Garlic Press) and CLMK-012
+(Nut Cracker), hit the same complaint ("Same for this in kitchen tools") but neither has a
+second image on disk to promote — both were single-photo, marketing-style Canva exports from
+the original scrape. Reported back rather than guessed: these two need a real plain photo
+sourced, not a swap. CLMK-008 (Peeler) and VML-002 (Value Steel Lighter) had no usable unique
+photo at all and were removed from the site rather than shipped with a wrong one.
+
+### "30000" needed a unit, in four places at once
+
+The Factory Space stat read bare "30000" with no unit — client flagged it three times across
+About.html, index-v2.html, and index-old-v1.html (the last found only via a second text search
+after the first two looked fixed). Text and stat markup both updated to "30,000 Sq.Ft.". The
+matching fix was also applied to `home-v3-src/shell-donor.html` for consistency, though the
+generated `index.html` turned out to already use a different, correct stat component — that
+source edit was harmless but not itself live anywhere. One follow-up round: the new unit first
+rendered oversized and bold-red on its own line because a stray, higher-specificity
+`.infra-stats .stat .num .unit` rule in About.html (not part of this fix) was silently
+overriding the intended small muted style — found by grepping every `.unit` rule, removed.
+
+### Catalogue PDF button, and a cropped photo strip
+
+"Download PDF" on Catalogue.html pointed at `href="#"` — dead link, nothing happened on click.
+Client's PDF was added at `downloads/Crystal-Product-Catalogue-2024.pdf` and wired in. Separately,
+About.html's scrolling product-photo strip (`.pc img`) was cropping images edge-to-edge with
+`object-fit: cover`; switched to `contain`, matching the site-wide convention for product photos.
+
+### The journey timeline: still "not scrolling" after the previous fix
+
+Client had already flagged this once (see 2026-09-09, previous session) and it came back a
+second time: "sab 15 card scroll par chaiye" — all 15 milestone cards should show up on scroll,
+and they weren't. The previous fix (session before last) kept the row as a horizontal,
+overflow-x carousel and added a wheel-to-horizontal JS hijack so a normal mouse wheel would
+push the row sideways instead of the page down. Verified live: it technically worked, but only
+inside a narrow band while the cursor sat over the row — a plain vertical page scroll revealed
+just the first 2–3 cards and then behaved unpredictably, exactly matching what the client kept
+reporting as "stuck." The GSAP reveal animation was also scrubbed to the whole `.journey`
+container's on-page height, so all 15 cards' fade-ins fired within one short scroll span while
+12 of them sat invisible off-screen to the side.
+
+Fix: `.ms-row` is now a plain CSS grid (3 columns desktop, 2 tablet, 1 mobile) instead of a
+horizontal scroller; the wheel-hijack JS and the prev/next arrow buttons were deleted outright
+rather than patched, since nothing is off-screen left to page through anymore. Every card sits
+in normal document flow, so ordinary page scrolling — no special gesture, no arrows — reveals
+all 15, and the GSAP scrub now spreads naturally across the taller section instead of racing
+through in one screenful. Verified via DOM/layout inspection (grid resolved to 3 equal columns,
+15 cards positioned across 5 rows) rather than the pane's screenshot, which is known to render
+this page as a flat, wrong-colored fill regardless of actual content (see the browser-pane
+screenshot limitation noted in earlier sessions) — confirmed no console errors from removing the
+old nav-button JS.
