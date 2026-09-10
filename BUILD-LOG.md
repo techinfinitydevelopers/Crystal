@@ -1345,3 +1345,50 @@ factually incorrect product name. `product-data/products.json` is what every pag
 directly, and the DB→JSON export only ever touches `dashboard_admin`-tagged products (currently
 zero), so this edit is the live, permanent fix — not at risk of being reverted by a later sync.
 Fixed in `8d1a07c`.
+
+### The same filter, twice: duplicate facets in the catalogue data
+
+Client's screenshot of Cookware-Non-Stick showed the filter bar offering "Induction /
+Non-Induction" and "Set" two times each. The pages were innocent — `renderAttrChips()` builds one
+chip per distinct key in a product's `filters` object, so the duplication had to be in the data,
+and it was: every affected product carried the same attribute under two keys. One is the curated
+short key from `product-data/pipeline/config.py` (`set_type`, `induction`), the other a second
+copy slugified straight from the spreadsheet column header (`individual_set`,
+`induction_non_induction`). Both keys are listed in the `ATTR_LABELS` map with the same label, so
+both rendered.
+
+Rather than fix the reported pair and stop, ran a detector over all 527 products for key pairs
+that co-occur and never disagree. It surfaced three more the client had not reached yet:
+`edge_type`/`blade_edge_type` (showing as "Edge" *and* "Blade Edge" on Knives),
+`with_blade`/`with_without_blade` (two "Blade" chips on Chopping Boards) and
+`coating`/`coating_type`. Across all five pairs, 0 value conflicts — the twins always agreed —
+so dropping the redundant copy loses nothing. `type`/`shape`/`shape_design` also share the label
+"Shape" but never co-occur on one product, so they render a single chip and were left alone.
+
+Fixed the data, not the pages: `ATTR_LABELS` is copy-pasted into 46 listing pages, so a page-side
+dedupe would have been 46 edits and would regress the moment a page is regenerated. One edit to
+`products.json` cleared all 37 category views at once. Two traps in editing that file: it is CRLF,
+and `JSON.parse` → `JSON.stringify(…,2)` is not byte-identical (~22 KB of formatting drift), so
+the keys were removed line-by-line, remembering that deleting the *last* key of an object strands
+a comma on the line above (243 such cases). Verified by deep-comparing the parsed result against
+the original minus exactly the intended keys.
+
+Worth recording that 75 of the removed values had no canonical twin at all — 67 ×
+`coating_type: "None"` and 8 × `blade_edge_type: "NA"`. Both are placeholders rather than real
+data, which is why the deleted-row count is larger than the co-occurrence count; checked their
+actual values before assuming so.
+
+The database needed the same treatment, since `sync_products.py` rebuilds these rows from
+`products.json` (`k.replace("_", " ").title()`, so `individual_set` becomes the spec key
+"Individual Set") — it had 533 duplicate `ProductSpecification` rows. Production is a *different*
+database (`env.db('DATABASE_URL', default=sqlite:///db.sqlite3)`), so cleaning the local sqlite
+by hand would have fixed nothing that ships. Wrote migration `0013_remove_duplicate_spec_keys`
+instead: Railway's `preDeployCommand` runs `migrate` on every deploy, so prod cleans itself with
+no credentials changing hands. The migration deletes a row only when the canonical twin exists
+with an identical value or the value is a placeholder, so an environment whose data differs from
+ours cannot silently lose a real value. Tested against a copy of the pre-cleanup database: 533
+rows removed, 1956 → 1423 specs, canonical counts untouched, and the result key-for-key identical
+to the database cleaned by hand; re-running it on a clean database is a no-op. Cross-checked
+afterwards that DB and JSON agree on all 361 shared SKUs — no alias keys left, no value
+mismatches. Deliberately did *not* add an exporter-side guard: it would silently swallow a spec
+someone adds in the dashboard on purpose later. Fixed in `b05d439` and `1bae70d`.
