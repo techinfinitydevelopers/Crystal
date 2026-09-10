@@ -521,9 +521,9 @@ h1, h2 { overflow-wrap: break-word; }
 <main>
   <!-- ===== PAGE HERO ===== -->
   <section class="enq-hero wrap" id="top">
-    <span class="eyebrow"><span class="pip"></span>Enquiry List</span>
-    <h1>Your Product Enquiry</h1>
-    <p class="sub">Review your selected products and send us your requirement — our team will respond with pricing and availability.</p>
+    <span class="eyebrow"><span class="pip"></span><span id="heroPreTxt">Enquiry List</span></span>
+    <h1 id="heroTitle">Your Product Enquiry</h1>
+    <p class="sub" id="heroSub">Review your selected products and send us your requirement — our team will respond with pricing and availability.</p>
   </section>
 
   <!-- ===== ENQUIRY GRID ===== -->
@@ -924,5 +924,6 @@ h1, h2 { overflow-wrap: break-word; }
   // initial render
   renderItems();
 </script>
+<script src="content-sync.js"></script>
 </body>
 </html>
