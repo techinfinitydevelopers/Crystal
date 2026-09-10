@@ -469,7 +469,6 @@
         "set_type": "Individual",
         "handle_material": "Plastic",
         "edge_type": "Serrated",
-        "individual_set": "Individual",
         "blade_edge_type": "Serrated",
         "coating_type": "None"
       },
@@ -521,7 +520,6 @@
         "set_type": "Individual",
         "handle_material": "Plastic",
         "edge_type": "Plain",
-        "individual_set": "Individual",
         "blade_edge_type": "Plain",
         "coating_type": "None"
       },
@@ -585,7 +583,6 @@
         "set_type": "Individual",
         "handle_material": "Plastic",
         "edge_type": "Serrated",
-        "individual_set": "Individual",
         "blade_edge_type": "Serrated",
         "coating_type": "None"
       },
@@ -645,7 +642,6 @@
         "set_type": "Individual",
         "handle_material": "Plastic",
         "edge_type": "Plain",
-        "individual_set": "Individual",
         "blade_edge_type": "Plain",
         "coating_type": "None"
       },
@@ -704,7 +700,6 @@
         "set_type": "Individual",
         "handle_material": "Plastic",
         "edge_type": "Plain",
-        "individual_set": "Individual",
         "blade_edge_type": "Plain",
         "coating_type": "None"
       },
@@ -762,7 +757,6 @@
         "set_type": "Individual",
         "handle_material": "Plastic",
         "edge_type": "Plain",
-        "individual_set": "Individual",
         "blade_edge_type": "Plain",
         "coating_type": "None"
       },
@@ -794,7 +788,6 @@
         "set_type": "Individual",
         "handle_material": "Plastic",
         "edge_type": "Plain",
-        "individual_set": "Individual",
         "blade_edge_type": "Plain",
         "coating_type": "None"
       },
@@ -842,7 +835,6 @@
         "set_type": "Individual",
         "handle_material": "Plastic",
         "edge_type": "Plain",
-        "individual_set": "Individual",
         "blade_edge_type": "Plain",
         "coating_type": "None"
       },
@@ -895,7 +887,6 @@
         "set_type": "Individual",
         "handle_material": "Plastic",
         "edge_type": "Plain",
-        "individual_set": "Individual",
         "blade_edge_type": "Plain",
         "coating_type": "None"
       },
@@ -955,7 +946,6 @@
       "filters": {
         "set_type": "Set",
         "handle_material": "Plastic",
-        "individual_set": "Set",
         "blade_edge_type": "NA",
         "coating_type": "None"
       },
@@ -989,7 +979,6 @@
       "filters": {
         "set_type": "Set",
         "handle_material": "Plastic",
-        "individual_set": "Set",
         "blade_edge_type": "NA",
         "coating_type": "None"
       },
@@ -1041,7 +1030,6 @@
       "filters": {
         "set_type": "Set",
         "handle_material": "Plastic",
-        "individual_set": "Set",
         "blade_edge_type": "NA",
         "coating_type": "None"
       },
@@ -1103,7 +1091,6 @@
       "filters": {
         "set_type": "Set",
         "handle_material": "Plastic",
-        "individual_set": "Set",
         "blade_edge_type": "NA",
         "coating_type": "None"
       },
@@ -1159,7 +1146,6 @@
       "filters": {
         "set_type": "Set",
         "handle_material": "Wood",
-        "individual_set": "Set",
         "blade_edge_type": "NA",
         "coating_type": "None"
       },
@@ -1215,7 +1201,6 @@
       "filters": {
         "set_type": "Set",
         "handle_material": "Wood",
-        "individual_set": "Set",
         "blade_edge_type": "NA",
         "coating_type": "None"
       },
@@ -1272,7 +1257,6 @@
         "set_type": "Individual",
         "handle_material": "Plastic",
         "edge_type": "Serrated",
-        "individual_set": "Individual",
         "blade_edge_type": "Serrated",
         "coating_type": "None"
       },
@@ -1305,7 +1289,6 @@
         "set_type": "Individual",
         "handle_material": "Plastic",
         "edge_type": "Serrated",
-        "individual_set": "Individual",
         "blade_edge_type": "Serrated",
         "coating_type": "None"
       },
@@ -1342,7 +1325,6 @@
         "set_type": "Individual",
         "handle_material": "Plastic",
         "edge_type": "Serrated",
-        "individual_set": "Individual",
         "blade_edge_type": "Serrated",
         "coating_type": "None"
       },
@@ -1375,7 +1357,6 @@
         "set_type": "Individual",
         "handle_material": "Plastic",
         "edge_type": "Serrated",
-        "individual_set": "Individual",
         "blade_edge_type": "Serrated",
         "coating_type": "None"
       },
@@ -1411,7 +1392,6 @@
         "set_type": "Individual",
         "handle_material": "Plastic",
         "edge_type": "Serrated",
-        "individual_set": "Individual",
         "blade_edge_type": "Serrated",
         "coating_type": "None"
       },
@@ -1466,7 +1446,6 @@
         "set_type": "Individual",
         "handle_material": "Plastic",
         "edge_type": "Serrated",
-        "individual_set": "Individual",
         "blade_edge_type": "Serrated",
         "coating_type": "None"
       },
@@ -1522,7 +1501,6 @@
         "set_type": "Individual",
         "handle_material": "Plastic",
         "edge_type": "Serrated",
-        "individual_set": "Individual",
         "blade_edge_type": "Serrated",
         "coating_type": "None"
       },
@@ -1580,7 +1558,6 @@
         "set_type": "Individual",
         "handle_material": "Plastic",
         "edge_type": "Serrated",
-        "individual_set": "Individual",
         "blade_edge_type": "Serrated",
         "coating_type": "None"
       },
@@ -1634,7 +1611,6 @@
         "set_type": "Individual",
         "handle_material": "Plastic",
         "edge_type": "Serrated",
-        "individual_set": "Individual",
         "blade_edge_type": "Serrated",
         "coating_type": "None"
       },
@@ -1667,7 +1643,6 @@
         "set_type": "Individual",
         "handle_material": "Wood",
         "edge_type": "Plain",
-        "individual_set": "Individual",
         "blade_edge_type": "Plain",
         "coating_type": "None"
       },
@@ -1719,7 +1694,6 @@
         "set_type": "Individual",
         "handle_material": "Wood",
         "edge_type": "Plain",
-        "individual_set": "Individual",
         "blade_edge_type": "Plain",
         "coating_type": "None"
       },
@@ -1771,7 +1745,6 @@
         "set_type": "Individual",
         "handle_material": "Wood",
         "edge_type": "Plain",
-        "individual_set": "Individual",
         "blade_edge_type": "Plain",
         "coating_type": "None"
       },
@@ -1825,7 +1798,6 @@
         "set_type": "Individual",
         "handle_material": "Wood",
         "edge_type": "Plain",
-        "individual_set": "Individual",
         "blade_edge_type": "Plain",
         "coating_type": "None"
       },
@@ -1877,7 +1849,6 @@
         "set_type": "Individual",
         "handle_material": "Wood",
         "edge_type": "Serrated",
-        "individual_set": "Individual",
         "blade_edge_type": "Serrated",
         "coating_type": "None"
       },
@@ -1933,7 +1904,6 @@
         "set_type": "Individual",
         "handle_material": "Wood",
         "edge_type": "Serrated",
-        "individual_set": "Individual",
         "blade_edge_type": "Serrated",
         "coating_type": "None"
       },
@@ -1986,7 +1956,6 @@
         "set_type": "Individual",
         "handle_material": "Wood",
         "edge_type": "Serrated",
-        "individual_set": "Individual",
         "blade_edge_type": "Serrated",
         "coating_type": "None"
       },
@@ -2020,7 +1989,6 @@
         "set_type": "Individual",
         "handle_material": "Wood",
         "edge_type": "Serrated",
-        "individual_set": "Individual",
         "blade_edge_type": "Serrated",
         "coating_type": "None"
       },
@@ -2076,7 +2044,6 @@
         "set_type": "Individual",
         "handle_material": "Wood",
         "edge_type": "Plain",
-        "individual_set": "Individual",
         "blade_edge_type": "Plain",
         "coating_type": "None"
       },
@@ -2137,7 +2104,6 @@
         "set_type": "Individual",
         "handle_material": "Wood",
         "edge_type": "Plain",
-        "individual_set": "Individual",
         "blade_edge_type": "Plain",
         "coating_type": "None"
       },
@@ -2170,7 +2136,6 @@
         "set_type": "Individual",
         "handle_material": "Wood",
         "edge_type": "Plain",
-        "individual_set": "Individual",
         "blade_edge_type": "Plain",
         "coating_type": "None"
       },
@@ -2202,7 +2167,6 @@
         "set_type": "Individual",
         "handle_material": "Wood",
         "edge_type": "Plain",
-        "individual_set": "Individual",
         "blade_edge_type": "Plain",
         "coating_type": "None"
       },
@@ -2255,7 +2219,6 @@
         "set_type": "Individual",
         "handle_material": "Plastic",
         "edge_type": "Plain",
-        "individual_set": "Individual",
         "blade_edge_type": "Plain",
         "coating_type": "None"
       },
@@ -2289,7 +2252,6 @@
         "set_type": "Individual",
         "handle_material": "Plastic",
         "edge_type": "Plain",
-        "individual_set": "Individual",
         "blade_edge_type": "Plain",
         "coating_type": "None"
       },
@@ -2323,7 +2285,6 @@
         "set_type": "Individual",
         "handle_material": "Plastic",
         "edge_type": "Plain",
-        "individual_set": "Individual",
         "blade_edge_type": "Plain",
         "coating_type": "None"
       },
@@ -2357,7 +2318,6 @@
         "set_type": "Individual",
         "handle_material": "Plastic",
         "edge_type": "Plain",
-        "individual_set": "Individual",
         "blade_edge_type": "Plain",
         "coating_type": "None"
       },
@@ -2391,7 +2351,6 @@
         "set_type": "Individual",
         "handle_material": "Plastic",
         "edge_type": "Plain",
-        "individual_set": "Individual",
         "blade_edge_type": "Plain",
         "coating_type": "None"
       },
@@ -2425,7 +2384,6 @@
         "set_type": "Individual",
         "handle_material": "Plastic",
         "edge_type": "Plain",
-        "individual_set": "Individual",
         "blade_edge_type": "Plain",
         "coating_type": "None"
       },
@@ -2455,7 +2413,6 @@
         "set_type": "Individual",
         "handle_material": "SoftGrip",
         "edge_type": "Plain",
-        "individual_set": "Individual",
         "blade_edge_type": "Plain",
         "coating_type": "None"
       },
@@ -2516,7 +2473,6 @@
         "set_type": "Individual",
         "handle_material": "SoftGrip",
         "edge_type": "Plain",
-        "individual_set": "Individual",
         "blade_edge_type": "Plain",
         "coating_type": "None"
       },
@@ -2574,7 +2530,6 @@
         "set_type": "Individual",
         "handle_material": "SoftGrip",
         "edge_type": "Serrated",
-        "individual_set": "Individual",
         "blade_edge_type": "Serrated",
         "coating_type": "None"
       },
@@ -2624,7 +2579,6 @@
         "set_type": "Individual",
         "handle_material": "SoftGrip",
         "edge_type": "Serrated",
-        "individual_set": "Individual",
         "blade_edge_type": "Serrated",
         "coating_type": "None"
       },
@@ -2684,7 +2638,6 @@
         "set_type": "Individual",
         "handle_material": "SoftGrip",
         "edge_type": "Serrated",
-        "individual_set": "Individual",
         "blade_edge_type": "Serrated",
         "coating_type": "None"
       },
@@ -2746,7 +2699,6 @@
         "set_type": "Individual",
         "handle_material": "SoftGrip",
         "edge_type": "Serrated",
-        "individual_set": "Individual",
         "blade_edge_type": "Serrated",
         "coating_type": "None"
       },
@@ -2779,7 +2731,6 @@
         "set_type": "Individual",
         "handle_material": "SoftGrip",
         "edge_type": "Serrated",
-        "individual_set": "Individual",
         "blade_edge_type": "Serrated",
         "coating_type": "None"
       },
@@ -2834,7 +2785,6 @@
       "filters": {
         "set_type": "Set",
         "handle_material": "Plastic",
-        "individual_set": "Set",
         "blade_edge_type": "NA",
         "coating_type": "None"
       },
@@ -2869,7 +2819,6 @@
       "filters": {
         "set_type": "Set",
         "handle_material": "Plastic",
-        "individual_set": "Set",
         "blade_edge_type": "NA",
         "coating_type": "None"
       },
@@ -2902,7 +2851,6 @@
         "set_type": "Individual",
         "handle_material": "PROFESSIONAL",
         "edge_type": "Plain",
-        "individual_set": "Individual",
         "blade_edge_type": "Plain",
         "coating_type": "None"
       },
@@ -2949,7 +2897,6 @@
         "set_type": "Individual",
         "handle_material": "PROFESSIONAL",
         "edge_type": "Plain",
-        "individual_set": "Individual",
         "blade_edge_type": "Plain",
         "coating_type": "None"
       },
@@ -2991,7 +2938,6 @@
         "set_type": "Individual",
         "handle_material": "PROFESSIONAL",
         "edge_type": "Plain",
-        "individual_set": "Individual",
         "blade_edge_type": "Plain",
         "coating_type": "None"
       },
@@ -3031,7 +2977,6 @@
         "set_type": "Individual",
         "handle_material": "PROFESSIONAL",
         "edge_type": "Plain",
-        "individual_set": "Individual",
         "blade_edge_type": "Plain",
         "coating_type": "None"
       },
@@ -3079,7 +3024,6 @@
         "set_type": "Individual",
         "handle_material": "PROFESSIONAL",
         "edge_type": "Plain",
-        "individual_set": "Individual",
         "blade_edge_type": "Plain",
         "coating_type": "None"
       },
@@ -3119,7 +3063,6 @@
         "set_type": "Individual",
         "handle_material": "PROFESSIONAL",
         "edge_type": "Plain",
-        "individual_set": "Individual",
         "blade_edge_type": "Plain",
         "coating_type": "None"
       },
@@ -3163,7 +3106,6 @@
         "set_type": "Individual",
         "handle_material": "PROFESSIONAL",
         "edge_type": "Plain",
-        "individual_set": "Individual",
         "blade_edge_type": "Plain",
         "coating_type": "None"
       },
@@ -3222,7 +3164,6 @@
         "set_type": "Individual",
         "handle_material": "PROFESSIONAL",
         "edge_type": "Plain",
-        "individual_set": "Individual",
         "blade_edge_type": "Plain",
         "coating_type": "None"
       },
@@ -3268,7 +3209,6 @@
         "set_type": "Individual",
         "handle_material": "PROFESSIONAL",
         "edge_type": "Plain",
-        "individual_set": "Individual",
         "blade_edge_type": "Plain",
         "coating_type": "None"
       },
@@ -3332,7 +3272,6 @@
         "set_type": "Individual",
         "handle_material": "PROFESSIONAL",
         "edge_type": "Plain",
-        "individual_set": "Individual",
         "blade_edge_type": "Plain",
         "coating_type": "None"
       },
@@ -3376,7 +3315,6 @@
         "set_type": "Individual",
         "handle_material": "PROFESSIONAL",
         "edge_type": "Plain",
-        "individual_set": "Individual",
         "blade_edge_type": "Plain",
         "coating_type": "None"
       },
@@ -3415,7 +3353,6 @@
         "set_type": "Individual",
         "handle_material": "PROFESSIONAL",
         "edge_type": "Plain",
-        "individual_set": "Individual",
         "blade_edge_type": "Plain",
         "coating_type": "None"
       },
@@ -3461,7 +3398,6 @@
         "set_type": "Individual",
         "handle_material": "PROFESSIONAL",
         "edge_type": "Plain",
-        "individual_set": "Individual",
         "blade_edge_type": "Plain",
         "coating_type": "None"
       },
@@ -3500,7 +3436,6 @@
         "set_type": "Individual",
         "handle_material": "PROFESSIONAL",
         "edge_type": "Plain",
-        "individual_set": "Individual",
         "blade_edge_type": "Plain",
         "coating_type": "None"
       },
@@ -3573,7 +3508,6 @@
         "handle_material": "Plastic",
         "edge_type": "Plain",
         "coating": "Ceramic Coated",
-        "individual_set": "Individual",
         "blade_edge_type": "Plain",
         "coating_type": "Ceramic Coated"
       },
@@ -3613,7 +3547,6 @@
         "handle_material": "Plastic",
         "edge_type": "Plain",
         "coating": "Ceramic Coated",
-        "individual_set": "Individual",
         "blade_edge_type": "Plain",
         "coating_type": "Ceramic Coated"
       },
@@ -3656,7 +3589,6 @@
         "handle_material": "Plastic",
         "edge_type": "Plain",
         "coating": "Ceramic Coated",
-        "individual_set": "Individual",
         "blade_edge_type": "Plain",
         "coating_type": "Ceramic Coated"
       },
@@ -3687,7 +3619,6 @@
         "handle_material": "Plastic",
         "edge_type": "Plain",
         "coating": "Ceramic Coated",
-        "individual_set": "Individual",
         "blade_edge_type": "Plain",
         "coating_type": "Ceramic Coated"
       },
@@ -3749,7 +3680,6 @@
         "handle_material": "Plastic",
         "edge_type": "Plain",
         "coating": "Ceramic Coated",
-        "individual_set": "Individual",
         "blade_edge_type": "Plain",
         "coating_type": "Ceramic Coated"
       },
@@ -3794,7 +3724,6 @@
         "set_type": "Individual",
         "handle_material": "Plastic",
         "edge_type": "Serrated",
-        "individual_set": "Individual",
         "blade_edge_type": "Serrated",
         "coating_type": "None"
       },
@@ -3824,7 +3753,6 @@
         "set_type": "Individual",
         "handle_material": "Plastic",
         "edge_type": "Plain",
-        "individual_set": "Individual",
         "blade_edge_type": "Plain",
         "coating_type": "None"
       },
@@ -7555,7 +7483,6 @@
         "design": "Sleek",
         "set_size": "24",
         "set_type": "CUTLERY SET",
-        "individual_set": "CUTLERY SET",
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
@@ -7615,7 +7542,6 @@
         "design": "Plascti Handle",
         "set_size": "24",
         "set_type": "CUTLERY SET",
-        "individual_set": "CUTLERY SET",
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
@@ -7670,7 +7596,6 @@
         "design": "Plascti Handle",
         "set_size": "24",
         "set_type": "CUTLERY SET",
-        "individual_set": "CUTLERY SET",
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
@@ -7710,7 +7635,6 @@
         "design": "Plascti Handle",
         "set_size": "25",
         "set_type": "CUTLERY SET",
-        "individual_set": "CUTLERY SET",
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
@@ -7740,7 +7664,6 @@
         "design": "Sleek",
         "set_size": "25",
         "set_type": "CUTLERY SET",
-        "individual_set": "CUTLERY SET",
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
@@ -7776,7 +7699,6 @@
         "design": "Modish",
         "set_size": "25",
         "set_type": "CUTLERY SET",
-        "individual_set": "CUTLERY SET",
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
@@ -7833,7 +7755,6 @@
         "design": "La Milano",
         "set_size": "25",
         "set_type": "CUTLERY SET",
-        "individual_set": "CUTLERY SET",
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
@@ -7892,7 +7813,6 @@
         "design": "La Milano",
         "set_size": "27",
         "set_type": "CUTLERY SET",
-        "individual_set": "CUTLERY SET",
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
@@ -7952,7 +7872,6 @@
         "design": "Modish",
         "set_size": "37",
         "set_type": "CUTLERY SET",
-        "individual_set": "CUTLERY SET",
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
@@ -7989,7 +7908,6 @@
         "design": "Titanium RoseGold",
         "set_size": "25",
         "set_type": "CUTLERY SET",
-        "individual_set": "CUTLERY SET",
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
@@ -8029,7 +7947,6 @@
         "design": "La Milano",
         "set_size": "27",
         "set_type": "CUTLERY SET",
-        "individual_set": "CUTLERY SET",
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
@@ -8063,7 +7980,6 @@
         "design": "Titanium RoseGold",
         "set_size": "6",
         "set_type": "Individual",
-        "individual_set": "Individual",
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
@@ -8128,7 +8044,6 @@
         "design": "Titanium RoseGold",
         "set_size": "6",
         "set_type": "Individual",
-        "individual_set": "Individual",
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
@@ -8193,7 +8108,6 @@
         "design": "Titanium RoseGold",
         "set_size": "6",
         "set_type": "Individual",
-        "individual_set": "Individual",
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
@@ -8259,7 +8173,6 @@
         "design": "Titanium RoseGold",
         "set_size": "2",
         "set_type": "Individual",
-        "individual_set": "Individual",
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
@@ -8325,7 +8238,6 @@
         "design": "Titanium RoseGold",
         "set_size": "6",
         "set_type": "Individual",
-        "individual_set": "Individual",
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
@@ -8391,7 +8303,6 @@
         "design": "Titanium RoseGold",
         "set_size": "6",
         "set_type": "Individual",
-        "individual_set": "Individual",
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
@@ -8456,7 +8367,6 @@
         "design": "Titanium RoseGold",
         "set_size": "6",
         "set_type": "Individual",
-        "individual_set": "Individual",
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
@@ -8521,7 +8431,6 @@
         "design": "Titanium RoseGold",
         "set_size": "6",
         "set_type": "Individual",
-        "individual_set": "Individual",
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
@@ -8586,7 +8495,6 @@
         "design": "Titanium RoseGold",
         "set_size": "6",
         "set_type": "Individual",
-        "individual_set": "Individual",
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
@@ -8646,8 +8554,7 @@
       "filters": {
         "design": "Titanium RoseGold",
         "set_size": "6",
-        "set_type": "Individual",
-        "individual_set": "Individual"
+        "set_type": "Individual"
       },
       "hero": "product-photos/CC-850/hero.jpg",
       "gallery": [],
@@ -8670,8 +8577,7 @@
       "filters": {
         "design": "Titanium RoseGold",
         "set_size": "6",
-        "set_type": "Individual",
-        "individual_set": "Individual"
+        "set_type": "Individual"
       },
       "hero": "product-photos/CC-851/hero.jpg",
       "gallery": [],
@@ -8701,7 +8607,6 @@
         "design": "Sleek",
         "set_size": "6",
         "set_type": "Individual",
-        "individual_set": "Individual",
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
@@ -8768,7 +8673,6 @@
         "design": "Sleek",
         "set_size": "6",
         "set_type": "Individual",
-        "individual_set": "Individual",
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
@@ -8830,7 +8734,6 @@
         "design": "Sleek",
         "set_size": "6",
         "set_type": "Individual",
-        "individual_set": "Individual",
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
@@ -8893,7 +8796,6 @@
         "design": "Sleek",
         "set_size": "2",
         "set_type": "Individual",
-        "individual_set": "Individual",
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
@@ -8924,7 +8826,6 @@
         "design": "Sleek",
         "set_size": "6",
         "set_type": "Individual",
-        "individual_set": "Individual",
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
@@ -8981,7 +8882,6 @@
         "design": "Sleek",
         "set_size": "6",
         "set_type": "Individual",
-        "individual_set": "Individual",
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
@@ -9042,7 +8942,6 @@
         "design": "Sleek",
         "set_size": "6",
         "set_type": "Individual",
-        "individual_set": "Individual",
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
@@ -9107,7 +9006,6 @@
         "design": "Sleek",
         "set_size": "6",
         "set_type": "Individual",
-        "individual_set": "Individual",
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
@@ -9155,7 +9053,6 @@
         "design": "Sleek",
         "set_size": "6",
         "set_type": "Individual",
-        "individual_set": "Individual",
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
@@ -9212,7 +9109,6 @@
         "design": "Sleek",
         "set_size": "6",
         "set_type": "Individual",
-        "individual_set": "Individual",
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
@@ -9271,7 +9167,6 @@
         "design": "Sleek",
         "set_size": "6",
         "set_type": "Individual",
-        "individual_set": "Individual",
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
@@ -9336,7 +9231,6 @@
         "design": "Sleek",
         "set_size": "1",
         "set_type": "Individual",
-        "individual_set": "Individual",
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
@@ -9399,7 +9293,6 @@
         "design": "Sleek",
         "set_size": "2",
         "set_type": "Individual",
-        "individual_set": "Individual",
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
@@ -9459,7 +9352,6 @@
         "design": "Sleek",
         "set_size": "2",
         "set_type": "Individual",
-        "individual_set": "Individual",
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
@@ -9520,7 +9412,6 @@
         "design": "Sprinkle",
         "set_size": "6",
         "set_type": "Individual",
-        "individual_set": "Individual",
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
@@ -9551,7 +9442,6 @@
         "design": "Sprinkle",
         "set_size": "6",
         "set_type": "Individual",
-        "individual_set": "Individual",
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
@@ -9582,7 +9472,6 @@
         "design": "Sprinkle",
         "set_size": "6",
         "set_type": "Individual",
-        "individual_set": "Individual",
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
@@ -9613,7 +9502,6 @@
         "design": "Sprinkle",
         "set_size": "2",
         "set_type": "Individual",
-        "individual_set": "Individual",
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
@@ -9644,7 +9532,6 @@
         "design": "Sprinkle",
         "set_size": "6",
         "set_type": "Individual",
-        "individual_set": "Individual",
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
@@ -9675,7 +9562,6 @@
         "design": "Sprinkle",
         "set_size": "6",
         "set_type": "Individual",
-        "individual_set": "Individual",
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
@@ -9706,7 +9592,6 @@
         "design": "Sprinkle",
         "set_size": "6",
         "set_type": "Individual",
-        "individual_set": "Individual",
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
@@ -9737,7 +9622,6 @@
         "design": "Sprinkle",
         "set_size": "6",
         "set_type": "Individual",
-        "individual_set": "Individual",
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
@@ -9768,7 +9652,6 @@
         "design": "Sprinkle",
         "set_size": "6",
         "set_type": "Individual",
-        "individual_set": "Individual",
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
@@ -9799,7 +9682,6 @@
         "design": "Sprinkle",
         "set_size": "6",
         "set_type": "Individual",
-        "individual_set": "Individual",
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
@@ -9830,7 +9712,6 @@
         "design": "Modish",
         "set_size": "6",
         "set_type": "Individual",
-        "individual_set": "Individual",
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
@@ -9861,7 +9742,6 @@
         "design": "Modish",
         "set_size": "6",
         "set_type": "Individual",
-        "individual_set": "Individual",
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
@@ -9894,7 +9774,6 @@
         "design": "Modish",
         "set_size": "6",
         "set_type": "Individual",
-        "individual_set": "Individual",
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
@@ -9925,7 +9804,6 @@
         "design": "Modish",
         "set_size": "2",
         "set_type": "Individual",
-        "individual_set": "Individual",
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
@@ -9956,7 +9834,6 @@
         "design": "Modish",
         "set_size": "6",
         "set_type": "Individual",
-        "individual_set": "Individual",
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
@@ -9987,7 +9864,6 @@
         "design": "Modish",
         "set_size": "6",
         "set_type": "Individual",
-        "individual_set": "Individual",
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
@@ -10018,7 +9894,6 @@
         "design": "Modish",
         "set_size": "6",
         "set_type": "Individual",
-        "individual_set": "Individual",
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
@@ -10048,8 +9923,7 @@
       "filters": {
         "design": "Modish",
         "set_size": "6",
-        "set_type": "Individual",
-        "individual_set": "Individual"
+        "set_type": "Individual"
       },
       "hero": "product-photos/CC-988/hero.jpg",
       "gallery": [
@@ -10079,7 +9953,6 @@
         "design": "La Milano",
         "set_size": "6",
         "set_type": "Individual",
-        "individual_set": "Individual",
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
@@ -10114,7 +9987,6 @@
         "design": "La Milano",
         "set_size": "6",
         "set_type": "Individual",
-        "individual_set": "Individual",
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
@@ -10155,7 +10027,6 @@
         "design": "La Milano",
         "set_size": "6",
         "set_type": "Individual",
-        "individual_set": "Individual",
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
@@ -10189,7 +10060,6 @@
         "design": "La Milano",
         "set_size": "2",
         "set_type": "Individual",
-        "individual_set": "Individual",
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
@@ -10235,7 +10105,6 @@
         "design": "La Milano",
         "set_size": "6",
         "set_type": "Individual",
-        "individual_set": "Individual",
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
@@ -10269,7 +10138,6 @@
         "design": "La Milano",
         "set_size": "6",
         "set_type": "Individual",
-        "individual_set": "Individual",
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
@@ -10334,7 +10202,6 @@
         "design": "La Milano",
         "set_size": "6",
         "set_type": "Individual",
-        "individual_set": "Individual",
         "food_non_food": "Non Food",
         "veg_non_veg": "Veg"
       },
@@ -10365,8 +10232,7 @@
       "filters": {
         "material": "NYLON",
         "design": "Nylo",
-        "set_type": "Set",
-        "individual_set": "Set"
+        "set_type": "Set"
       },
       "hero": "product-photos/MKA-247/amz-1.jpg",
       "gallery": [],
@@ -10418,8 +10284,7 @@
       "filters": {
         "material": "NYLON",
         "design": "Nylo",
-        "set_type": "Individual",
-        "individual_set": "Individual"
+        "set_type": "Individual"
       },
       "hero": "product-photos/MKA-291/amz-1.jpg",
       "gallery": [
@@ -10477,8 +10342,7 @@
       "filters": {
         "material": "NYLON",
         "design": "Nylo",
-        "set_type": "Individual",
-        "individual_set": "Individual"
+        "set_type": "Individual"
       },
       "hero": "product-photos/MKA-292/amz-1.jpg",
       "gallery": [
@@ -10536,8 +10400,7 @@
       "filters": {
         "material": "NYLON",
         "design": "Nylo",
-        "set_type": "Individual",
-        "individual_set": "Individual"
+        "set_type": "Individual"
       },
       "hero": "product-photos/MKA-293/amz-1.jpg",
       "gallery": [
@@ -10596,8 +10459,7 @@
       "filters": {
         "material": "NYLON",
         "design": "Nylo",
-        "set_type": "Individual",
-        "individual_set": "Individual"
+        "set_type": "Individual"
       },
       "hero": "product-photos/MKA-294/amz-1.jpg",
       "gallery": [
@@ -10655,8 +10517,7 @@
       "filters": {
         "material": "NYLON",
         "design": "Nylo",
-        "set_type": "Individual",
-        "individual_set": "Individual"
+        "set_type": "Individual"
       },
       "hero": "product-photos/MKA-295/amz-1.jpg",
       "gallery": [
@@ -10715,8 +10576,7 @@
       "filters": {
         "material": "NYLON",
         "design": "Nylo",
-        "set_type": "Individual",
-        "individual_set": "Individual"
+        "set_type": "Individual"
       },
       "hero": "product-photos/MKA-296/amz-1.jpg",
       "gallery": [
@@ -10771,8 +10631,7 @@
       "filters": {
         "material": "NYLON",
         "design": "Nylo Steel",
-        "set_type": "Individual",
-        "individual_set": "Individual"
+        "set_type": "Individual"
       },
       "hero": "product-photos/MKA-321/amz-1.jpg",
       "gallery": [
@@ -10830,8 +10689,7 @@
       "filters": {
         "material": "NYLON",
         "design": "Nylo Steel",
-        "set_type": "Individual",
-        "individual_set": "Individual"
+        "set_type": "Individual"
       },
       "hero": "product-photos/MKA-322/amz-1.jpg",
       "gallery": [
@@ -10887,8 +10745,7 @@
       "filters": {
         "material": "NYLON",
         "design": "Nylo Steel",
-        "set_type": "Individual",
-        "individual_set": "Individual"
+        "set_type": "Individual"
       },
       "hero": "product-photos/MKA-323/amz-1.jpg",
       "gallery": [
@@ -10944,8 +10801,7 @@
       "filters": {
         "material": "NYLON",
         "design": "Nylo Steel",
-        "set_type": "Individual",
-        "individual_set": "Individual"
+        "set_type": "Individual"
       },
       "hero": "product-photos/MKA-324/amz-1.jpg",
       "gallery": [
@@ -11004,8 +10860,7 @@
       "filters": {
         "material": "NYLON",
         "design": "Nylo Steel",
-        "set_type": "Individual",
-        "individual_set": "Individual"
+        "set_type": "Individual"
       },
       "hero": "product-photos/MKA-325/amz-1.jpg",
       "gallery": [
@@ -11064,8 +10919,7 @@
       "filters": {
         "material": "Stainless Steel",
         "design": "Plastic Handle",
-        "set_type": "Set",
-        "individual_set": "Set"
+        "set_type": "Set"
       },
       "hero": "product-photos/MKA-203/amz-1.jpg",
       "gallery": [],
@@ -11115,8 +10969,7 @@
       "filters": {
         "material": "Stainless Steel",
         "design": "Sleek",
-        "set_type": "Set",
-        "individual_set": "Set"
+        "set_type": "Set"
       },
       "hero": "product-photos/MKA-205/hero.jpg",
       "gallery": [],
@@ -11144,8 +10997,7 @@
       "filters": {
         "material": "Stainless Steel",
         "design": "Sleek",
-        "set_type": "Individual",
-        "individual_set": "Individual"
+        "set_type": "Individual"
       },
       "hero": "product-photos/CC-934/amz-1.jpg",
       "gallery": [
@@ -11208,8 +11060,7 @@
       "filters": {
         "material": "Stainless Steel",
         "design": "Sleek",
-        "set_type": "Individual",
-        "individual_set": "Individual"
+        "set_type": "Individual"
       },
       "hero": "product-photos/CC-935/hero.jpg",
       "gallery": [
@@ -11240,8 +11091,7 @@
       "filters": {
         "material": "Stainless Steel",
         "design": "Sleek",
-        "set_type": "Individual",
-        "individual_set": "Individual"
+        "set_type": "Individual"
       },
       "hero": "product-photos/CC-936/hero.jpg",
       "gallery": [
@@ -11271,8 +11121,7 @@
       "filters": {
         "material": "Stainless Steel",
         "design": "Sleek",
-        "set_type": "Individual",
-        "individual_set": "Individual"
+        "set_type": "Individual"
       },
       "hero": "product-photos/CC-937/hero.jpg",
       "gallery": [
@@ -11303,8 +11152,7 @@
       "filters": {
         "material": "Stainless Steel",
         "design": "Sleek",
-        "set_type": "Individual",
-        "individual_set": "Individual"
+        "set_type": "Individual"
       },
       "hero": "product-photos/CC-938/hero.jpg",
       "gallery": [
@@ -11335,8 +11183,7 @@
       "filters": {
         "material": "Stainless Steel",
         "design": "Sleek",
-        "set_type": "Individual",
-        "individual_set": "Individual"
+        "set_type": "Individual"
       },
       "hero": "product-photos/CC-939/hero.jpg",
       "gallery": [
@@ -11366,8 +11213,7 @@
       "filters": {
         "material": "Stainless Steel",
         "design": "Sleek",
-        "set_type": "Set",
-        "individual_set": "Set"
+        "set_type": "Set"
       },
       "hero": "product-photos/CC-940/amz-1.jpg",
       "gallery": [
@@ -11397,8 +11243,7 @@
       "filters": {
         "material": "Stainless Steel",
         "design": "Sleek",
-        "set_type": "Individual",
-        "individual_set": "Individual"
+        "set_type": "Individual"
       },
       "hero": "product-photos/CC-941/hero.jpg",
       "gallery": [
@@ -11428,8 +11273,7 @@
       "filters": {
         "material": "Stainless Steel",
         "design": "Sleek",
-        "set_type": "Individual",
-        "individual_set": "Individual"
+        "set_type": "Individual"
       },
       "hero": "product-photos/CC-942/hero.jpg",
       "gallery": [
@@ -11461,8 +11305,7 @@
       "filters": {
         "material": "Stainless Steel",
         "design": "Sleek",
-        "set_type": "Individual",
-        "individual_set": "Individual"
+        "set_type": "Individual"
       },
       "hero": "product-photos/CC-943/amz-1.jpg",
       "gallery": [
@@ -11530,8 +11373,7 @@
       "filters": {
         "material": "Stainless Steel",
         "design": "Sleek",
-        "set_type": "Individual",
-        "individual_set": "Individual"
+        "set_type": "Individual"
       },
       "hero": "product-photos/CC-944/hero.jpg",
       "gallery": [
@@ -11561,8 +11403,7 @@
       "filters": {
         "material": "Stainless Steel",
         "design": "Sleek",
-        "set_type": "Individual",
-        "individual_set": "Individual"
+        "set_type": "Individual"
       },
       "hero": "product-photos/CC-945/hero.jpg",
       "gallery": [
@@ -11593,8 +11434,7 @@
       "filters": {
         "material": "Stainless Steel",
         "design": "Sleek",
-        "set_type": "Individual",
-        "individual_set": "Individual"
+        "set_type": "Individual"
       },
       "hero": "product-photos/CC-946/hero.jpg",
       "gallery": [
@@ -11625,8 +11465,7 @@
       "filters": {
         "material": "Stainless Steel",
         "design": "Sleek",
-        "set_type": "Individual",
-        "individual_set": "Individual"
+        "set_type": "Individual"
       },
       "hero": "product-photos/CC-947/hero.jpg",
       "gallery": [
@@ -11658,8 +11497,7 @@
       "filters": {
         "material": "Stainless Steel",
         "design": "Sleek",
-        "set_type": "Individual",
-        "individual_set": "Individual"
+        "set_type": "Individual"
       },
       "hero": "product-photos/CC-948/hero.jpg",
       "gallery": [
@@ -11689,8 +11527,7 @@
       "filters": {
         "material": "Stainless Steel",
         "design": "Sleek",
-        "set_type": "Individual",
-        "individual_set": "Individual"
+        "set_type": "Individual"
       },
       "hero": "product-photos/CC-949/hero.jpg",
       "gallery": [],
@@ -11719,8 +11556,7 @@
       "filters": {
         "material": "Stainless Steel",
         "design": "Sleek",
-        "set_type": "Individual",
-        "individual_set": "Individual"
+        "set_type": "Individual"
       },
       "hero": "product-photos/CC-921/amz-1.jpg",
       "gallery": [
@@ -11789,8 +11625,7 @@
       "filters": {
         "material": "Stainless Steel",
         "design": "Sleek",
-        "set_type": "Individual",
-        "individual_set": "Individual"
+        "set_type": "Individual"
       },
       "hero": "product-photos/CC-922/amz-1.jpg",
       "gallery": [
@@ -11860,8 +11695,7 @@
       "filters": {
         "material": "Stainless Steel",
         "design": "Sleek",
-        "set_type": "Individual",
-        "individual_set": "Individual"
+        "set_type": "Individual"
       },
       "hero": "product-photos/CC-923/amz-1.jpg",
       "gallery": [
@@ -11929,8 +11763,7 @@
       "filters": {
         "material": "Stainless Steel",
         "design": "Sleek",
-        "set_type": "Individual",
-        "individual_set": "Individual"
+        "set_type": "Individual"
       },
       "hero": "product-photos/CC-924/amz-18.jpg",
       "gallery": [
@@ -11999,8 +11832,7 @@
       "filters": {
         "material": "Stainless Steel",
         "design": "Sleek",
-        "set_type": "Individual",
-        "individual_set": "Individual"
+        "set_type": "Individual"
       },
       "hero": "product-photos/CC-925/amz-1.jpg",
       "gallery": [
@@ -12068,8 +11900,7 @@
       "filters": {
         "material": "Stainless Steel",
         "design": "Sleek",
-        "set_type": "Individual",
-        "individual_set": "Individual"
+        "set_type": "Individual"
       },
       "hero": "product-photos/CC-926/amz-1.jpg",
       "gallery": [
@@ -12137,8 +11968,7 @@
       "filters": {
         "material": "Stainless Steel",
         "design": "Sleek",
-        "set_type": "Individual",
-        "individual_set": "Individual"
+        "set_type": "Individual"
       },
       "hero": "product-photos/CC-927/amz-1.jpg",
       "gallery": [
@@ -12208,8 +12038,7 @@
       "filters": {
         "material": "Stainless Steel",
         "design": "Sleek",
-        "set_type": "Individual",
-        "individual_set": "Individual"
+        "set_type": "Individual"
       },
       "hero": "product-photos/CC-928/amz-1.jpg",
       "gallery": [
@@ -12277,8 +12106,7 @@
       "filters": {
         "material": "Stainless Steel",
         "design": "Sleek",
-        "set_type": "Individual",
-        "individual_set": "Individual"
+        "set_type": "Individual"
       },
       "hero": "product-photos/CC-929/amz-1.jpg",
       "gallery": [
@@ -12347,8 +12175,7 @@
       "filters": {
         "material": "Stainless Steel",
         "design": "Sleek",
-        "set_type": "Individual",
-        "individual_set": "Individual"
+        "set_type": "Individual"
       },
       "hero": "product-photos/CC-931/amz-1.jpg",
       "gallery": [
@@ -12416,8 +12243,7 @@
       "filters": {
         "material": "Stainless Steel",
         "design": "Sleek",
-        "set_type": "Individual",
-        "individual_set": "Individual"
+        "set_type": "Individual"
       },
       "hero": "product-photos/CC-930/amz-1.jpg",
       "gallery": [
@@ -12481,8 +12307,7 @@
       "filters": {
         "material": "Stainless Steel",
         "design": "Sleek",
-        "set_type": "Individual",
-        "individual_set": "Individual"
+        "set_type": "Individual"
       },
       "hero": "product-photos/CC-932/amz-1.jpg",
       "gallery": [
@@ -12548,8 +12373,7 @@
       "filters": {
         "material": "Stainless Steel",
         "design": "Sleek",
-        "set_type": "Individual",
-        "individual_set": "Individual"
+        "set_type": "Individual"
       },
       "hero": "product-photos/CC-933/amz-1.jpg",
       "gallery": [
@@ -12611,8 +12435,7 @@
       "filters": {
         "material": "Stainless Steel",
         "design": "La Milano",
-        "set_type": "Individual",
-        "individual_set": "Individual"
+        "set_type": "Individual"
       },
       "hero": "product-photos/CC-891/amz-1.jpg",
       "gallery": [
@@ -12664,8 +12487,7 @@
       "filters": {
         "material": "Stainless Steel",
         "design": "La Milano",
-        "set_type": "Individual",
-        "individual_set": "Individual"
+        "set_type": "Individual"
       },
       "hero": "product-photos/CC-892/amz-1.jpg",
       "gallery": [
@@ -12720,8 +12542,7 @@
       "filters": {
         "material": "Stainless Steel",
         "design": "La Milano",
-        "set_type": "Individual",
-        "individual_set": "Individual"
+        "set_type": "Individual"
       },
       "hero": "product-photos/CC-893/amz-1.jpg",
       "gallery": [
@@ -12773,8 +12594,7 @@
       "filters": {
         "material": "Stainless Steel",
         "design": "La Milano",
-        "set_type": "Individual",
-        "individual_set": "Individual"
+        "set_type": "Individual"
       },
       "hero": "product-photos/CC-894/amz-1.jpg",
       "gallery": [
@@ -12826,8 +12646,7 @@
       "filters": {
         "material": "Stainless Steel",
         "design": "La Milano",
-        "set_type": "Individual",
-        "individual_set": "Individual"
+        "set_type": "Individual"
       },
       "hero": "product-photos/CC-895/amz-1.jpg",
       "gallery": [
@@ -12878,8 +12697,7 @@
       "amazon_link": null,
       "filters": {
         "material": "NYLON",
-        "set_type": "Individual",
-        "individual_set": "Individual"
+        "set_type": "Individual"
       },
       "hero": "product-photos/CLMK-001A/hero.png",
       "gallery": [],
@@ -12905,8 +12723,7 @@
       "amazon_link": null,
       "filters": {
         "material": "NYLON",
-        "set_type": "Individual",
-        "individual_set": "Individual"
+        "set_type": "Individual"
       },
       "hero": "product-photos/CLMK-002A/hero.png",
       "gallery": [],
@@ -12932,8 +12749,7 @@
       "amazon_link": null,
       "filters": {
         "material": "NYLON",
-        "set_type": "Individual",
-        "individual_set": "Individual"
+        "set_type": "Individual"
       },
       "hero": "product-photos/CLMK-003A/hero.png",
       "gallery": [],
@@ -12960,8 +12776,7 @@
       "amazon_link": null,
       "filters": {
         "material": "NYLON",
-        "set_type": "Individual",
-        "individual_set": "Individual"
+        "set_type": "Individual"
       },
       "hero": "product-photos/CLMK-004A/hero.png",
       "gallery": [],
@@ -12988,8 +12803,7 @@
       "amazon_link": null,
       "filters": {
         "material": "NYLON",
-        "set_type": "Individual",
-        "individual_set": "Individual"
+        "set_type": "Individual"
       },
       "hero": "product-photos/CLMK-005A/hero.png",
       "gallery": [],
@@ -13016,8 +12830,7 @@
       "amazon_link": null,
       "filters": {
         "material": "NYLON",
-        "set_type": "Individual",
-        "individual_set": "Individual"
+        "set_type": "Individual"
       },
       "hero": "product-photos/CLMK-006A/hero.png",
       "gallery": [],
@@ -13044,8 +12857,7 @@
       "filters": {
         "material": "Stainless Steel",
         "design": "Titanium- Rose Gold",
-        "set_type": "Individual",
-        "individual_set": "Individual"
+        "set_type": "Individual"
       },
       "hero": "product-photos/CC-856/amz-1.jpg",
       "gallery": [
@@ -13104,8 +12916,7 @@
       "filters": {
         "material": "Stainless Steel",
         "design": "Titanium- Rose Gold",
-        "set_type": "Individual",
-        "individual_set": "Individual"
+        "set_type": "Individual"
       },
       "hero": "product-photos/CC-857/amz-1.jpg",
       "gallery": [
@@ -13165,8 +12976,7 @@
       "filters": {
         "material": "Stainless Steel",
         "design": "Titanium- Rose Gold",
-        "set_type": "Individual",
-        "individual_set": "Individual"
+        "set_type": "Individual"
       },
       "hero": "product-photos/CC-858/amz-1.jpg",
       "gallery": [
@@ -13225,8 +13035,7 @@
       "filters": {
         "material": "Stainless Steel",
         "design": "Titanium- Rose Gold",
-        "set_type": "Individual",
-        "individual_set": "Individual"
+        "set_type": "Individual"
       },
       "hero": "product-photos/CC-859/amz-1.jpg",
       "gallery": [
@@ -13285,8 +13094,7 @@
       "filters": {
         "material": "Stainless Steel",
         "design": "Titanium- Rose Gold",
-        "set_type": "Individual",
-        "individual_set": "Individual"
+        "set_type": "Individual"
       },
       "hero": "product-photos/CC-860/amz-1.jpg",
       "gallery": [
@@ -13345,8 +13153,7 @@
       "filters": {
         "material": "Stainless Steel",
         "design": "Titanium- Rose Gold",
-        "set_type": "Individual",
-        "individual_set": "Individual"
+        "set_type": "Individual"
       },
       "hero": "product-photos/CC-861/amz-1.jpg",
       "gallery": [
@@ -13402,8 +13209,7 @@
       "filters": {
         "material": "Stainless Steel",
         "design": "Sleek",
-        "set_type": "Set",
-        "individual_set": "Set"
+        "set_type": "Set"
       },
       "hero": "product-photos/CCS-001/g1.jpg",
       "gallery": [
@@ -15987,9 +15793,7 @@
         "induction": "Induction",
         "set_type": "Individual",
         "type": "Tope",
-        "material": "Triply",
-        "induction_non_induction": "Induction",
-        "individual_set": "Individual"
+        "material": "Triply"
       },
       "hero": "product-photos/CTP-TP-001/hero.jpg",
       "gallery": [
@@ -16025,9 +15829,7 @@
         "induction": "Induction",
         "set_type": "Individual",
         "type": "Tope",
-        "material": "Triply",
-        "induction_non_induction": "Induction",
-        "individual_set": "Individual"
+        "material": "Triply"
       },
       "hero": "product-photos/CTP-TP-002/hero.jpg",
       "gallery": [
@@ -16063,9 +15865,7 @@
         "induction": "Induction",
         "set_type": "Individual",
         "type": "Tope",
-        "material": "Triply",
-        "induction_non_induction": "Induction",
-        "individual_set": "Individual"
+        "material": "Triply"
       },
       "hero": "product-photos/CTP-TP-003/hero.jpg",
       "gallery": [
@@ -16100,9 +15900,7 @@
         "induction": "Induction",
         "set_type": "Individual",
         "type": "Tope",
-        "material": "Triply",
-        "induction_non_induction": "Induction",
-        "individual_set": "Individual"
+        "material": "Triply"
       },
       "hero": "product-photos/CTP-TP-004/hero.jpg",
       "gallery": [
@@ -16137,9 +15935,7 @@
         "induction": "Induction",
         "set_type": "Individual",
         "type": "Tope",
-        "material": "Triply",
-        "induction_non_induction": "Induction",
-        "individual_set": "Individual"
+        "material": "Triply"
       },
       "hero": "product-photos/CTP-TP-005/hero.jpg",
       "gallery": [
@@ -16197,9 +15993,7 @@
         "induction": "Induction",
         "set_type": "Individual",
         "type": "Tope",
-        "material": "Triply",
-        "induction_non_induction": "Induction",
-        "individual_set": "Individual"
+        "material": "Triply"
       },
       "hero": "product-photos/CTP-TP-006/hero.jpg",
       "gallery": [
@@ -16234,9 +16028,7 @@
         "induction": "Induction",
         "set_type": "Individual",
         "type": "Tope",
-        "material": "Triply",
-        "induction_non_induction": "Induction",
-        "individual_set": "Individual"
+        "material": "Triply"
       },
       "hero": "product-photos/CTP-TP-007/hero.jpg",
       "gallery": [
@@ -16270,9 +16062,7 @@
         "induction": "Induction",
         "set_type": "Individual",
         "type": "Kadai",
-        "material": "Triply",
-        "induction_non_induction": "Induction",
-        "individual_set": "Individual"
+        "material": "Triply"
       },
       "hero": "product-photos/CTP-KD-001/hero.jpg",
       "gallery": [
@@ -16324,9 +16114,7 @@
         "induction": "Induction",
         "set_type": "Individual",
         "type": "Kadai",
-        "material": "Triply",
-        "induction_non_induction": "Induction",
-        "individual_set": "Individual"
+        "material": "Triply"
       },
       "hero": "product-photos/CTP-KD-002/hero.jpg",
       "gallery": [
@@ -16384,9 +16172,7 @@
         "induction": "Induction",
         "set_type": "Individual",
         "type": "Kadai",
-        "material": "Triply",
-        "induction_non_induction": "Induction",
-        "individual_set": "Individual"
+        "material": "Triply"
       },
       "hero": "product-photos/CTP-KD-003/hero.jpg",
       "gallery": [
@@ -16433,9 +16219,7 @@
         "induction": "Induction",
         "set_type": "Individual",
         "type": "Kadai",
-        "material": "Triply",
-        "induction_non_induction": "Induction",
-        "individual_set": "Individual"
+        "material": "Triply"
       },
       "hero": "product-photos/CTP-KD-004/hero.jpg",
       "gallery": [
@@ -16482,9 +16266,7 @@
         "induction": "Induction",
         "set_type": "Individual",
         "type": "Kadai",
-        "material": "Triply",
-        "induction_non_induction": "Induction",
-        "individual_set": "Individual"
+        "material": "Triply"
       },
       "hero": "product-photos/CTP-KD-005/hero.jpg",
       "gallery": [
@@ -16541,9 +16323,7 @@
         "induction": "Induction",
         "set_type": "Individual",
         "type": "Kadai",
-        "material": "Triply",
-        "induction_non_induction": "Induction",
-        "individual_set": "Individual"
+        "material": "Triply"
       },
       "hero": "product-photos/CTP-KD-006/hero.jpg",
       "gallery": [
@@ -16600,9 +16380,7 @@
         "induction": "Induction",
         "set_type": "Individual",
         "type": "Kadai",
-        "material": "Triply",
-        "induction_non_induction": "Induction",
-        "individual_set": "Individual"
+        "material": "Triply"
       },
       "hero": "product-photos/CTP-KD-007/hero.jpg",
       "gallery": [
@@ -16649,9 +16427,7 @@
         "induction": "Induction",
         "set_type": "Individual",
         "type": "Kadai",
-        "material": "Triply",
-        "induction_non_induction": "Induction",
-        "individual_set": "Individual"
+        "material": "Triply"
       },
       "hero": "product-photos/CTP-KD-008/hero.jpg",
       "gallery": [
@@ -16700,9 +16476,7 @@
         "induction": "Induction",
         "set_type": "Individual",
         "type": "Deep Kadai",
-        "material": "Triply",
-        "induction_non_induction": "Induction",
-        "individual_set": "Individual"
+        "material": "Triply"
       },
       "hero": "product-photos/CTP-EDK-001/amz-1.jpg",
       "gallery": [
@@ -16742,9 +16516,7 @@
         "induction": "Induction",
         "set_type": "Individual",
         "type": "Deep Kadai",
-        "material": "Triply",
-        "induction_non_induction": "Induction",
-        "individual_set": "Individual"
+        "material": "Triply"
       },
       "hero": "https://m.media-amazon.com/images/I/61cFRzZs9GL.jpg",
       "gallery": [],
@@ -16777,9 +16549,7 @@
         "induction": "Induction",
         "set_type": "Individual",
         "type": "Deep Kadai",
-        "material": "Triply",
-        "induction_non_induction": "Induction",
-        "individual_set": "Individual"
+        "material": "Triply"
       },
       "hero": "https://m.media-amazon.com/images/I/41qzbxWDNhL.jpg",
       "gallery": [],
@@ -16812,9 +16582,7 @@
         "induction": "Induction",
         "set_type": "Individual",
         "type": "Deep Kadai",
-        "material": "Triply",
-        "induction_non_induction": "Induction",
-        "individual_set": "Individual"
+        "material": "Triply"
       },
       "hero": "https://m.media-amazon.com/images/I/41qzbxWDNhL.jpg",
       "gallery": [],
@@ -16845,9 +16613,7 @@
         "induction": "Induction",
         "set_type": "Individual",
         "type": "Tasla",
-        "material": "Triply",
-        "induction_non_induction": "Induction",
-        "individual_set": "Individual"
+        "material": "Triply"
       },
       "hero": "product-photos/CTP-TAS-001/hero.jpg",
       "gallery": [
@@ -16906,9 +16672,7 @@
         "induction": "Induction",
         "set_type": "Individual",
         "type": "Tasla",
-        "material": "Triply",
-        "induction_non_induction": "Induction",
-        "individual_set": "Individual"
+        "material": "Triply"
       },
       "hero": "product-photos/CTP-TAS-002/hero.jpg",
       "gallery": [
@@ -16945,9 +16709,7 @@
         "induction": "Induction",
         "set_type": "Individual",
         "type": "Tasla",
-        "material": "Triply",
-        "induction_non_induction": "Induction",
-        "individual_set": "Individual"
+        "material": "Triply"
       },
       "hero": "product-photos/CTP-TAS-003/hero.jpg",
       "gallery": [
@@ -17004,9 +16766,7 @@
         "induction": "Induction",
         "set_type": "Individual",
         "type": "Tasla",
-        "material": "Triply",
-        "induction_non_induction": "Induction",
-        "individual_set": "Individual"
+        "material": "Triply"
       },
       "hero": "product-photos/CTP-TAS-004/hero.jpg",
       "gallery": [
@@ -17064,9 +16824,7 @@
         "induction": "Induction",
         "set_type": "Individual",
         "type": "Tasla",
-        "material": "Triply",
-        "induction_non_induction": "Induction",
-        "individual_set": "Individual"
+        "material": "Triply"
       },
       "hero": "product-photos/CTP-TAS-005/hero.jpg",
       "gallery": [
@@ -17103,9 +16861,7 @@
         "induction": "Induction",
         "set_type": "Individual",
         "type": "Tasla",
-        "material": "Triply",
-        "induction_non_induction": "Induction",
-        "individual_set": "Individual"
+        "material": "Triply"
       },
       "hero": "product-photos/CTP-TAS-006/hero.jpg",
       "gallery": [
@@ -17142,9 +16898,7 @@
         "induction": "Induction",
         "set_type": "Individual",
         "type": "Tasla",
-        "material": "Triply",
-        "induction_non_induction": "Induction",
-        "individual_set": "Individual"
+        "material": "Triply"
       },
       "hero": "product-photos/CTP-TAS-007/hero.jpg",
       "gallery": [
@@ -17180,9 +16934,7 @@
         "induction": "Induction",
         "set_type": "Individual",
         "type": "Tasla",
-        "material": "Triply",
-        "induction_non_induction": "Induction",
-        "individual_set": "Individual"
+        "material": "Triply"
       },
       "hero": "product-photos/CTP-TAS-008/hero.jpg",
       "gallery": [
@@ -17218,9 +16970,7 @@
         "induction": "Induction",
         "set_type": "Individual",
         "type": "Saucepan",
-        "material": "Triply",
-        "induction_non_induction": "Induction",
-        "individual_set": "Individual"
+        "material": "Triply"
       },
       "hero": "product-photos/CTP-SP-001/hero.jpg",
       "gallery": [
@@ -17269,9 +17019,7 @@
         "induction": "Induction",
         "set_type": "Individual",
         "type": "Saucepan",
-        "material": "Triply",
-        "induction_non_induction": "Induction",
-        "individual_set": "Individual"
+        "material": "Triply"
       },
       "hero": "product-photos/CTP-SP-002/hero.jpg",
       "gallery": [
@@ -17308,9 +17056,7 @@
         "induction": "Induction",
         "set_type": "Individual",
         "type": "Saucepan",
-        "material": "Triply",
-        "induction_non_induction": "Induction",
-        "individual_set": "Individual"
+        "material": "Triply"
       },
       "hero": "product-photos/CTP-SP-003/hero.webp",
       "gallery": [],
@@ -17338,9 +17084,7 @@
         "induction": "Induction",
         "set_type": "Individual",
         "type": "Saucepan",
-        "material": "Triply",
-        "induction_non_induction": "Induction",
-        "individual_set": "Individual"
+        "material": "Triply"
       },
       "hero": "product-photos/CTP-SP-004/hero.jpg",
       "gallery": [
@@ -17387,9 +17131,7 @@
         "induction": "Induction",
         "set_type": "Individual",
         "type": "Frypan",
-        "material": "Triply",
-        "induction_non_induction": "Induction",
-        "individual_set": "Individual"
+        "material": "Triply"
       },
       "hero": "product-photos/CTP-FRP-001/hero.jpg",
       "gallery": [
@@ -17423,9 +17165,7 @@
         "induction": "Induction",
         "set_type": "Individual",
         "type": "Frypan",
-        "material": "Triply",
-        "induction_non_induction": "Induction",
-        "individual_set": "Individual"
+        "material": "Triply"
       },
       "hero": "product-photos/CTP-FRP-002/hero.jpg",
       "gallery": [
@@ -17459,9 +17199,7 @@
         "induction": "Induction",
         "set_type": "Individual",
         "type": "Frypan",
-        "material": "Triply",
-        "induction_non_induction": "Induction",
-        "individual_set": "Individual"
+        "material": "Triply"
       },
       "hero": "product-photos/CTP-FRP-003/hero.jpg",
       "gallery": [
@@ -17507,9 +17245,7 @@
         "induction": "Induction",
         "set_type": "Individual",
         "type": "Frypan",
-        "material": "Triply",
-        "induction_non_induction": "Induction",
-        "individual_set": "Individual"
+        "material": "Triply"
       },
       "hero": "product-photos/CTP-FRP-004/hero.jpg",
       "gallery": [
@@ -17565,9 +17301,7 @@
         "induction": "Induction",
         "set_type": "Individual",
         "type": "Deep Kadai",
-        "material": "CAST IRON",
-        "induction_non_induction": "Induction",
-        "individual_set": "Individual"
+        "material": "CAST IRON"
       },
       "hero": "product-photos/CCI-DK-25/amz-7.jpg",
       "gallery": [
@@ -17626,9 +17360,7 @@
         "induction": "Induction",
         "set_type": "Individual",
         "type": "Tawa",
-        "material": "CAST IRON",
-        "induction_non_induction": "Induction",
-        "individual_set": "Individual"
+        "material": "CAST IRON"
       },
       "hero": "product-photos/CCI-DT-30/amz-1.jpg",
       "gallery": [
@@ -17687,9 +17419,7 @@
         "induction": "Induction",
         "set_type": "Individual",
         "type": "Tawa",
-        "material": "CAST IRON",
-        "induction_non_induction": "Induction",
-        "individual_set": "Individual"
+        "material": "CAST IRON"
       },
       "hero": "product-photos/CCI-CT-25/amz-1.jpg",
       "gallery": [
@@ -17748,9 +17478,7 @@
         "induction": "Induction",
         "set_type": "Individual",
         "type": "Frypan",
-        "material": "CAST IRON",
-        "induction_non_induction": "Induction",
-        "individual_set": "Individual"
+        "material": "CAST IRON"
       },
       "hero": "product-photos/CCI-SK-25/amz-1.jpg",
       "gallery": [
@@ -17811,9 +17539,7 @@
         "induction": "Non-Induction",
         "set_type": "Set",
         "type": "Set",
-        "material": "Nonstick",
-        "induction_non_induction": "Non-Induction",
-        "individual_set": "Set"
+        "material": "Nonstick"
       },
       "hero": "product-photos/CNS894/amz-1.jpg",
       "gallery": [
@@ -17865,9 +17591,7 @@
         "induction": "Non-Induction",
         "set_type": "Set",
         "type": "Set",
-        "material": "Nonstick",
-        "induction_non_induction": "Non-Induction",
-        "individual_set": "Set"
+        "material": "Nonstick"
       },
       "hero": "product-photos/CNS895/amz-1.jpg",
       "gallery": [
@@ -17918,9 +17642,7 @@
         "induction": "Induction",
         "set_type": "Set",
         "type": "Set",
-        "material": "Nonstick",
-        "induction_non_induction": "Induction",
-        "individual_set": "Set"
+        "material": "Nonstick"
       },
       "hero": "product-photos/CNS794/hero.png",
       "gallery": [
@@ -17952,9 +17674,7 @@
         "induction": "Induction",
         "set_type": "Set",
         "type": "Set",
-        "material": "Nonstick",
-        "induction_non_induction": "Induction",
-        "individual_set": "Set"
+        "material": "Nonstick"
       },
       "hero": "product-photos/CNS989/g4.png",
       "gallery": [
@@ -17988,9 +17708,7 @@
         "induction": "Non-Induction",
         "set_type": "Set",
         "type": "Set",
-        "material": "Nonstick",
-        "induction_non_induction": "Non-Induction",
-        "individual_set": "Set"
+        "material": "Nonstick"
       },
       "hero": "product-photos/CNS-892/amz-1.jpg",
       "gallery": [
@@ -18042,9 +17760,7 @@
         "induction": "Non-Induction",
         "set_type": "Set",
         "type": "Set",
-        "material": "Nonstick",
-        "induction_non_induction": "Non-Induction",
-        "individual_set": "Set"
+        "material": "Nonstick"
       },
       "hero": "product-photos/CNS-893/g4.jpeg",
       "gallery": [
@@ -18079,9 +17795,7 @@
         "induction": "Non-Induction",
         "set_type": "Set",
         "type": "Set",
-        "material": "Nonstick",
-        "induction_non_induction": "Non-Induction",
-        "individual_set": "Set"
+        "material": "Nonstick"
       },
       "hero": "product-photos/CNS-893G/hero.webp",
       "gallery": [
@@ -18116,9 +17830,7 @@
         "induction": "Non-Induction",
         "set_type": "Set",
         "type": "Set",
-        "material": "Nonstick",
-        "induction_non_induction": "Non-Induction",
-        "individual_set": "Set"
+        "material": "Nonstick"
       },
       "hero": "product-photos/CNS896/amz-1.jpg",
       "gallery": [
@@ -18170,9 +17882,7 @@
         "induction": "Non-Induction",
         "set_type": "Set",
         "type": "Set",
-        "material": "Nonstick",
-        "induction_non_induction": "Non-Induction",
-        "individual_set": "Set"
+        "material": "Nonstick"
       },
       "hero": "product-photos/CNS-90C2/hero.webp",
       "gallery": [
@@ -18209,9 +17919,7 @@
         "induction": "Induction",
         "set_type": "Set",
         "type": "Set",
-        "material": "Triply",
-        "induction_non_induction": "Induction",
-        "individual_set": "Set"
+        "material": "Triply"
       },
       "hero": "product-photos/CTV-099/amz-1.jpg",
       "gallery": [
@@ -18274,9 +17982,7 @@
         "induction": "Induction",
         "set_type": "Set",
         "type": "Set",
-        "material": "Triply",
-        "induction_non_induction": "Induction",
-        "individual_set": "Set"
+        "material": "Triply"
       },
       "hero": "product-photos/CTV-098/amz-1.jpg",
       "gallery": [
@@ -18339,9 +18045,7 @@
         "induction": "Induction",
         "set_type": "Set",
         "type": "Set",
-        "material": "Triply",
-        "induction_non_induction": "Induction",
-        "individual_set": "Set"
+        "material": "Triply"
       },
       "hero": "product-photos/CTV-097/hero.jpg",
       "gallery": [
@@ -18378,9 +18082,7 @@
         "induction": "Induction",
         "set_type": "Set",
         "type": "Set",
-        "material": "Triply",
-        "induction_non_induction": "Induction",
-        "individual_set": "Set"
+        "material": "Triply"
       },
       "hero": "product-photos/CTV-096/amz-1.jpg",
       "gallery": [
@@ -18442,9 +18144,7 @@
         "induction": "Induction",
         "set_type": "Set",
         "type": "Set",
-        "material": "Triply",
-        "induction_non_induction": "Induction",
-        "individual_set": "Set"
+        "material": "Triply"
       },
       "hero": null,
       "gallery": [],
@@ -18475,9 +18175,7 @@
         "induction": "Induction",
         "set_type": "Set",
         "type": "Set",
-        "material": "Triply",
-        "induction_non_induction": "Induction",
-        "individual_set": "Set"
+        "material": "Triply"
       },
       "hero": null,
       "gallery": [],
@@ -18508,9 +18206,7 @@
         "induction": "Induction",
         "set_type": "Set",
         "type": "Set",
-        "material": "Triply",
-        "induction_non_induction": "Induction",
-        "individual_set": "Set"
+        "material": "Triply"
       },
       "hero": null,
       "gallery": [],
@@ -18541,9 +18237,7 @@
         "induction": "Induction",
         "set_type": "Set",
         "type": "Set",
-        "material": "Triply",
-        "induction_non_induction": "Induction",
-        "individual_set": "Set"
+        "material": "Triply"
       },
       "hero": null,
       "gallery": [],
@@ -18573,9 +18267,7 @@
         "induction": "Induction",
         "set_type": "Set",
         "type": "Set",
-        "material": "Sandwich Bottom Steel",
-        "induction_non_induction": "Induction",
-        "individual_set": "Set"
+        "material": "Sandwich Bottom Steel"
       },
       "hero": null,
       "gallery": [],
@@ -18605,9 +18297,7 @@
         "induction": "Induction",
         "set_type": "Set",
         "type": "Set",
-        "material": "Sandwich Bottom Steel",
-        "induction_non_induction": "Induction",
-        "individual_set": "Set"
+        "material": "Sandwich Bottom Steel"
       },
       "hero": "product-photos/CSI-097/amz-1.jpg",
       "gallery": [
@@ -18666,9 +18356,7 @@
         "induction": "Induction",
         "set_type": "Set",
         "type": "Set",
-        "material": "Sandwich Bottom Steel",
-        "induction_non_induction": "Induction",
-        "individual_set": "Set"
+        "material": "Sandwich Bottom Steel"
       },
       "hero": "product-photos/CSI-098/amz-1.jpg",
       "gallery": [
@@ -18729,9 +18417,7 @@
         "induction": "Induction",
         "set_type": "Set",
         "type": "Set",
-        "material": "Sandwich Bottom Steel",
-        "induction_non_induction": "Induction",
-        "individual_set": "Set"
+        "material": "Sandwich Bottom Steel"
       },
       "hero": "https://m.media-amazon.com/images/I/51CeSdZcbHL.jpg",
       "gallery": [],
@@ -18761,9 +18447,7 @@
         "induction": "Induction",
         "set_type": "Set",
         "type": "Set",
-        "material": "Sandwich Bottom Steel",
-        "induction_non_induction": "Induction",
-        "individual_set": "Set"
+        "material": "Sandwich Bottom Steel"
       },
       "hero": "product-photos/CSI-096FCS/hero.jpg",
       "gallery": [
@@ -18799,9 +18483,7 @@
         "induction": "Induction",
         "set_type": "Set",
         "type": "Set",
-        "material": "Sandwich Bottom Steel",
-        "induction_non_induction": "Induction",
-        "individual_set": "Set"
+        "material": "Sandwich Bottom Steel"
       },
       "hero": null,
       "gallery": [],
@@ -18830,9 +18512,7 @@
         "induction": "Non-Induction",
         "set_type": "Individual",
         "type": "Grill Pan",
-        "material": "Nonstick",
-        "induction_non_induction": "Non-Induction",
-        "individual_set": "Individual"
+        "material": "Nonstick"
       },
       "hero": "product-photos/CNS-871/g1.jpg",
       "gallery": [
@@ -18863,9 +18543,7 @@
         "induction": "Induction",
         "set_type": "Individual",
         "type": "Tawa",
-        "material": "Nonstick",
-        "induction_non_induction": "Induction",
-        "individual_set": "Individual"
+        "material": "Nonstick"
       },
       "hero": "product-photos/CNS-951/g2.jpg",
       "gallery": [
@@ -18895,9 +18573,7 @@
         "induction": "Induction",
         "set_type": "Individual",
         "type": "Tawa",
-        "material": "Nonstick",
-        "induction_non_induction": "Induction",
-        "individual_set": "Individual"
+        "material": "Nonstick"
       },
       "hero": "product-photos/CNS-954/g1.jpg",
       "gallery": [
@@ -18930,9 +18606,7 @@
         "induction": "Induction",
         "set_type": "Individual",
         "type": "Tawa",
-        "material": "Nonstick",
-        "induction_non_induction": "Induction",
-        "individual_set": "Individual"
+        "material": "Nonstick"
       },
       "hero": "https://m.media-amazon.com/images/I/31f1glS7qhL.jpg",
       "gallery": [],
@@ -18963,9 +18637,7 @@
         "induction": "Induction",
         "set_type": "Individual",
         "type": "Tawa",
-        "material": "Nonstick",
-        "induction_non_induction": "Induction",
-        "individual_set": "Individual"
+        "material": "Nonstick"
       },
       "hero": "https://m.media-amazon.com/images/I/41F52pvAd1L.jpg",
       "gallery": [],
@@ -18998,9 +18670,7 @@
         "induction": "Non-Induction",
         "set_type": "Individual",
         "type": "Kadai",
-        "material": "Nonstick - Mini",
-        "induction_non_induction": "Non-Induction",
-        "individual_set": "Individual"
+        "material": "Nonstick - Mini"
       },
       "hero": "product-photos/CNS-752/amz-1.jpg",
       "gallery": [
@@ -19057,9 +18727,7 @@
         "induction": "Non-Induction",
         "set_type": "Individual",
         "type": "Tawa",
-        "material": "Nonstick - Mini",
-        "induction_non_induction": "Non-Induction",
-        "individual_set": "Individual"
+        "material": "Nonstick - Mini"
       },
       "hero": "product-photos/CNS-753/amz-1.jpg",
       "gallery": [
@@ -19118,9 +18786,7 @@
         "induction": "Non-Induction",
         "set_type": "Individual",
         "type": "Frypan",
-        "material": "Nonstick - Mini",
-        "induction_non_induction": "Non-Induction",
-        "individual_set": "Individual"
+        "material": "Nonstick - Mini"
       },
       "hero": "product-photos/CNS-754/amz-1.jpg",
       "gallery": [
@@ -19178,9 +18844,7 @@
         "induction": "Non-Induction",
         "set_type": "Individual",
         "type": "Saucepan",
-        "material": "Nonstick - Mini",
-        "induction_non_induction": "Non-Induction",
-        "individual_set": "Individual"
+        "material": "Nonstick - Mini"
       },
       "hero": "product-photos/CNS-755/amz-1.jpg",
       "gallery": [
@@ -19236,9 +18900,7 @@
         "induction": "Non-Induction",
         "set_type": "Individual",
         "type": "Grill Pan",
-        "material": "Nonstick - Mini",
-        "induction_non_induction": "Non-Induction",
-        "individual_set": "Individual"
+        "material": "Nonstick - Mini"
       },
       "hero": "product-photos/CNS-756/amz-1.jpg",
       "gallery": [
@@ -19295,9 +18957,7 @@
         "induction": "Induction",
         "set_type": "Individual",
         "type": "Tawa",
-        "material": "Nonstick",
-        "induction_non_induction": "Induction",
-        "individual_set": "Individual"
+        "material": "Nonstick"
       },
       "hero": "product-photos/CNS-904A/hero.jpg",
       "gallery": [],
@@ -19350,9 +19010,7 @@
         "induction": "Induction",
         "set_type": "Individual",
         "type": "Tawa",
-        "material": "Nonstick",
-        "induction_non_induction": "Induction",
-        "individual_set": "Individual"
+        "material": "Nonstick"
       },
       "hero": "product-photos/CNS-905A/hero.jpg",
       "gallery": [],
@@ -19405,9 +19063,7 @@
         "induction": "Induction",
         "set_type": "Individual",
         "type": "Tawa",
-        "material": "Nonstick",
-        "induction_non_induction": "Induction",
-        "individual_set": "Individual"
+        "material": "Nonstick"
       },
       "hero": "product-photos/CNS-906A/hero.jpg",
       "gallery": [
@@ -19440,9 +19096,7 @@
         "induction": "Induction",
         "set_type": "Individual",
         "type": "Frypan",
-        "material": "Nonstick",
-        "induction_non_induction": "Induction",
-        "individual_set": "Individual"
+        "material": "Nonstick"
       },
       "hero": "product-photos/CNS-907A/hero.jpg",
       "gallery": [],
@@ -19495,9 +19149,7 @@
         "induction": "Induction",
         "set_type": "Individual",
         "type": "Frypan",
-        "material": "Nonstick",
-        "induction_non_induction": "Induction",
-        "individual_set": "Individual"
+        "material": "Nonstick"
       },
       "hero": "product-photos/CNS-908A/hero.jpg",
       "gallery": [],
@@ -19550,9 +19202,7 @@
         "induction": "Induction",
         "set_type": "Individual",
         "type": "Frypan",
-        "material": "Nonstick",
-        "induction_non_induction": "Induction",
-        "individual_set": "Individual"
+        "material": "Nonstick"
       },
       "hero": "product-photos/CNS-910A/hero.jpg",
       "gallery": [],
@@ -19605,9 +19255,7 @@
         "induction": "Induction",
         "set_type": "Individual",
         "type": "Frypan",
-        "material": "Nonstick",
-        "induction_non_induction": "Induction",
-        "individual_set": "Individual"
+        "material": "Nonstick"
       },
       "hero": "product-photos/CNS-911A/hero.jpg",
       "gallery": [],
@@ -19661,9 +19309,7 @@
         "induction": "Induction",
         "set_type": "Individual",
         "type": "Frypan",
-        "material": "Nonstick",
-        "induction_non_induction": "Induction",
-        "individual_set": "Individual"
+        "material": "Nonstick"
       },
       "hero": "product-photos/CNS-912A/hero.jpg",
       "gallery": [],
@@ -19716,9 +19362,7 @@
         "induction": "Induction",
         "set_type": "Individual",
         "type": "Kadai",
-        "material": "Nonstick",
-        "induction_non_induction": "Induction",
-        "individual_set": "Individual"
+        "material": "Nonstick"
       },
       "hero": "product-photos/CNS-913A/hero.jpg",
       "gallery": [],
@@ -19771,9 +19415,7 @@
         "induction": "Induction",
         "set_type": "Individual",
         "type": "Kadai",
-        "material": "Nonstick",
-        "induction_non_induction": "Induction",
-        "individual_set": "Individual"
+        "material": "Nonstick"
       },
       "hero": "product-photos/CNS-914A/hero.jpg",
       "gallery": [],
@@ -19826,9 +19468,7 @@
         "induction": "Induction",
         "set_type": "Individual",
         "type": "Kadai",
-        "material": "Nonstick",
-        "induction_non_induction": "Induction",
-        "individual_set": "Individual"
+        "material": "Nonstick"
       },
       "hero": "product-photos/CNS-915A/hero.jpg",
       "gallery": [],
@@ -19883,9 +19523,7 @@
         "induction": "Induction",
         "set_type": "Individual",
         "type": "Deep Kadai",
-        "material": "Nonstick",
-        "induction_non_induction": "Induction",
-        "individual_set": "Individual"
+        "material": "Nonstick"
       },
       "hero": "product-photos/CNS-916/hero.jpg",
       "gallery": [
@@ -19944,9 +19582,7 @@
         "induction": "Induction",
         "set_type": "Individual",
         "type": "Deep Kadai",
-        "material": "Nonstick",
-        "induction_non_induction": "Induction",
-        "individual_set": "Individual"
+        "material": "Nonstick"
       },
       "hero": "product-photos/CNS-917/hero.jpg",
       "gallery": [
@@ -20005,9 +19641,7 @@
         "induction": "Induction",
         "set_type": "Individual",
         "type": "Deep Kadai",
-        "material": "Nonstick",
-        "induction_non_induction": "Induction",
-        "individual_set": "Individual"
+        "material": "Nonstick"
       },
       "hero": "product-photos/CNS-918/hero.jpg",
       "gallery": [
@@ -20066,9 +19700,7 @@
         "induction": "Non-Induction",
         "set_type": "Individual",
         "type": "Tadka Pan",
-        "material": "Hard Anodised",
-        "induction_non_induction": "Non-Induction",
-        "individual_set": "Individual"
+        "material": "Hard Anodised"
       },
       "hero": "product-photos/CNS-098/amz-1.jpg",
       "gallery": [
@@ -20124,9 +19756,7 @@
         "induction": "Non-Induction",
         "set_type": "Individual",
         "type": "Tawa",
-        "material": "Nonstick",
-        "induction_non_induction": "Non-Induction",
-        "individual_set": "Individual"
+        "material": "Nonstick"
       },
       "hero": "product-photos/CNS-151/amz-1.jpg",
       "gallery": [],
@@ -22452,8 +22082,10 @@
       "mrp": null,
       "amazon_link": "https://www.amazon.in/dp/B07DTCF2X6",
       "filters": {},
-      "hero": null,
-      "gallery": [],
+      "hero": "sparkmate/PSM-002/img-1.jpg",
+      "gallery": [
+        "sparkmate/PSM-002/img-2.jpg"
+      ],
       "match_tier": "image_sourced_amazon_link",
       "id": "psm-002"
     },
@@ -22661,8 +22293,10 @@
       "mrp": null,
       "amazon_link": "https://www.amazon.in/dp/B096QHX6XQ",
       "filters": {},
-      "hero": null,
-      "gallery": [],
+      "hero": "sparkmate/PSMB-002/img-1.jpg",
+      "gallery": [
+        "sparkmate/PSMB-002/img-2.jpg"
+      ],
       "match_tier": "image_sourced_amazon_link",
       "id": "psmb-002"
     },
@@ -23120,8 +22754,13 @@
       "mrp": null,
       "amazon_link": "https://www.amazon.in/dp/B0CZ73X8FK",
       "filters": {},
-      "hero": null,
-      "gallery": [],
+      "hero": "sparkmate/SMB002A/img-1.jpg",
+      "gallery": [
+        "sparkmate/SMB002A/img-2.jpg",
+        "sparkmate/SMB002A/img-3.jpg",
+        "sparkmate/SMB002A/img-4.jpg",
+        "sparkmate/SMB002A/img-5.jpg"
+      ],
       "match_tier": "image_sourced_amazon_link",
       "id": "smb002a",
       "variant_group": "vg-32",
@@ -23527,10 +23166,17 @@
       "mrp": null,
       "amazon_link": "https://www.amazon.in/dp/B0BC8C2H82",
       "filters": {},
-      "hero": null,
-      "gallery": [],
+      "hero": "sparkmate/SMS002/img-1.jpg",
+      "gallery": [
+        "sparkmate/SMS002/img-2.jpg",
+        "sparkmate/SMS002/img-3.jpg",
+        "sparkmate/SMS002/img-4.jpg",
+        "sparkmate/SMS002/img-5.jpg",
+        "sparkmate/SMS002/img-6.jpg",
+        "sparkmate/SMS002/img-7.jpg"
+      ],
       "match_tier": "image_sourced_amazon_link",
-      "id": "sms002",
+      "id": "sparkmate-sms002",
       "variant_group": "vg-42",
       "variant_label": "Single",
       "variant_order": 0
