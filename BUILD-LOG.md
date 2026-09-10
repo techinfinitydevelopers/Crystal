@@ -1279,3 +1279,33 @@ through in one screenful. Verified via DOM/layout inspection (grid resolved to 3
 this page as a flat, wrong-colored fill regardless of actual content (see the browser-pane
 screenshot limitation noted in earlier sessions) — confirmed no console errors from removing the
 old nav-button JS.
+
+### Brand portfolio tiles: four pages had the same crop bug
+
+"Explore the [brand] range" on all four Brand-*.html pages forced every portfolio tile into a 1:1
+square with `object-fit: cover`, cropping the top and bottom off every photo — all of which share
+a 469:334 landscape ratio. Fixed by matching `.bp-tile`'s `aspect-ratio` to the photos' own ratio
+instead of forcing a square, across Brand-Crystal.html, Brand-Crystalina.html (also switched to a
+4-column grid — it has 4 range tiles, was forcing 3+1), Brand-SparkMate.html, and Brand-ValMate.html
+(only 1 tile, so the column count is moot there but the crop fix still applied). Each page's
+`.bp-grid`/`.bp-usps` shared responsive breakpoints had to be split apart first, since they'd been
+tied together in the same `@media` rule and the unrelated USP grid needed to keep its own column
+counts.
+
+### A Django 6.0 upgrade landmine: format_html() with no arguments
+
+Client couldn't open the product admin at all — a plain 500, no detail, and Railway logs nothing
+per-request for this service (no `django.request` handler configured, so a crash leaves no trace
+in the deploy logs). Reproduced by rendering the changelist in-process instead of over HTTP, which
+surfaced the real traceback: `TypeError: args or kwargs must be provided.` from `format_html()`.
+
+`requirements.txt` pins `django>=6.0`, and Django 6.0 turned a long-deprecated pattern into a hard
+error — `format_html()` called with a static string and zero substitution args used to just warn,
+now it raises. `ProductAdmin.amazon_status()`'s red "No link" badge (shown for any of the 221
+products with no Amazon link) was built exactly that way, so the changelist crashed on the very
+first such row — which is most of them. An AST sweep (not grep, since the calls span multiple
+lines) for `format_html()` calls with exactly one argument and no keywords found two more of the
+same landmine sitting in branches that hadn't fired yet in production: `MarketplaceAdmin
+.logo_preview_readonly()`'s default-logo note, and `DownloadAdmin.brand_badge()`'s "All Brands"
+badge. All three switched to `mark_safe()`, matching what this file already uses everywhere else
+for static HTML strings. Confirmed clean by re-running the sweep. Fixed in `caeaa8b`.
