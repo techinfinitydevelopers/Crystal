@@ -226,3 +226,11 @@ Titles confirmed to match expected products before any save. Old images deleted 
 **Cleanup:** All QA products/variants/images deleted, uploaded media files and empty dirs removed, temp superuser deleted. Counts restored to baseline 531 products / 95 variants / 2483 images. products.json untouched; nothing committed.
 
 **Note:** Jazzmin logs a deprecation warning: JAZZMIN_UI_TWEAKS['dark_mode_theme'] is ignored; use default_theme_mode instead.
+
+## 2026-09-10 — CC-851: add 8 missing gallery images from Amazon
+
+**Task:** User provided `https://www.amazon.in/dp/B0DCSQJLSV?th=1` and asked to scrape the product image and add only what's missing for SKU CC-851 (Crystal Titanium R/G Fruit Fork, Set of 6).
+
+**Found:** `product-data/products.json` (already at HEAD, committed by a concurrent session) referenced `product-photos/CC-851/g1.jpg` through `g8.jpg` in its `gallery` array, but only `hero.jpg` existed on disk — the JSON was ahead of the filesystem.
+
+**Done:** Scraped the current-variant (Rose Gold, Set of 6) gallery from the Amazon listing's `colorImages.initial` JSON (8 images, matched against `#altImages` thumbnails to avoid pulling other-variant images per the shared-gallery gotcha). Bash/curl had no outbound network access in this environment (silent hang/timeout) — fetched image bytes via the Browser pane's `javascript_tool` (`fetch` -> arrayBuffer -> base64) instead, decoded to `g1.jpg`-`g8.jpg` (1080x1080 each). No JSON edit needed since it already matched. Committed only the 8 new image files (1941d0d), pushed.
