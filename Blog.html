@@ -566,23 +566,47 @@ h1, h2 { overflow-wrap: break-word; }
 <script>
   /* ---------- DATA + RENDER ---------- */
   const U = "https://proj.leo9studio.in/projects/crystal-wp/wp-content/uploads/";
-  const articles = [
-    { tag: "Cookware", q: "Built for the Way India Cooks", date: "8 February, 2026", slug: "built-for-the-way-india-cooks", img: "2026/04/10.jpg",
+  const FALLBACK_ARTICLES = [
+    { tag: "Cookware", q: "Built for the Way India Cooks", date: "8 February, 2026", slug: "built-for-the-way-india-cooks", img: U + "2026/04/10.jpg",
       excerpt: "Cookware engineered for high-flame, masala-rich Indian kitchens — even heat and everyday durability." },
-    { tag: "Buying Guide", q: "Why Triply Cookware is a Smart Choice", date: "8 January, 2026", slug: "why-triply-cookware-is-a-smart-choice", img: "2026/04/11.jpg",
+    { tag: "Buying Guide", q: "Why Triply Cookware is a Smart Choice", date: "8 January, 2026", slug: "why-triply-cookware-is-a-smart-choice", img: U + "2026/04/11.jpg",
       excerpt: "How triply construction bonds steel and aluminium for faster, even cooking that lasts a lifetime." },
-    { tag: "Home Care", q: "Everyday Cooking Made Effortless", date: "8 December, 2025", slug: "everyday-cooking-made-effortless", img: "2026/04/13.jpg",
+    { tag: "Home Care", q: "Everyday Cooking Made Effortless", date: "8 December, 2025", slug: "everyday-cooking-made-effortless", img: U + "2026/04/13.jpg",
       excerpt: "Smart kitchen essentials that take the effort out of daily cooking, serving and cleaning." },
   ];
-  document.getElementById("tstTrack").innerHTML = articles.map((a, i) => `
-    <article class="tst-card" data-fade>
-      <div class="ph"><image-slot id="art-${i}" src="${U}${a.img}" placeholder="Photo" fit="cover"></image-slot></div>
-      <span class="tag">${a.tag}</span>
-      <h3 class="q">${a.q}</h3>
-      <div class="date">${a.date}</div>
-      <p class="excerpt">${a.excerpt}</p>
-      <a href="Article.html?id=${a.slug}" class="at">Read More <span>→</span></a>
-    </article>`).join("");
+  function renderArticleCards(list) {
+    document.getElementById("tstTrack").innerHTML = list.map((a, i) => `
+      <article class="tst-card" data-fade>
+        <div class="ph"><image-slot id="art-${i}" src="${a.img}" placeholder="Photo" fit="cover"></image-slot></div>
+        <span class="tag">${a.tag}</span>
+        <h3 class="q">${a.q}</h3>
+        <div class="date">${a.date}</div>
+        <p class="excerpt">${a.excerpt}</p>
+        <a href="Article.html?id=${a.slug}" class="at">Read More <span>→</span></a>
+      </article>`).join("");
+  }
+  renderArticleCards(FALLBACK_ARTICLES);
+
+  /* Upgrade to the real Blog CMS if it has published posts. Same inversion as
+     content-sync.js/banner-sync: the shipped fallback stands until the
+     dashboard actually has something, so an empty Blog app never blanks
+     the page. */
+  fetch("https://crystal-production-eb2e.up.railway.app/api/blog/", { mode: "cors", credentials: "omit" })
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (data) {
+      if (!Array.isArray(data) || !data.length) return;
+      renderArticleCards(data.map(function (p) {
+        return {
+          tag: (p.category && p.category.name) || "",
+          q: p.title,
+          date: p.published_at ? new Date(p.published_at).toLocaleDateString("en-IN", { day: "numeric", month: "long", year: "numeric" }) : "",
+          slug: p.slug,
+          img: p.featured_image || "about-assets/placeholder.svg",
+          excerpt: p.excerpt || "",
+        };
+      }));
+    })
+    .catch(function () { /* the shipped articles stand */ });
 
   /* ---------- NEWSLETTER (client-side only) ---------- */
   const newsForm = document.getElementById("newsForm");

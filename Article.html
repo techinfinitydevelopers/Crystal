@@ -670,31 +670,77 @@ h1, h2 { overflow-wrap: break-word; }
   const params = new URLSearchParams(location.search);
   let id = params.get("id");
   if (!id || !ARTICLES[id]) id = ORDER[0];
-  const a = ARTICLES[id];
 
   /* ---------- RENDER ARTICLE ---------- */
-  document.title = "CRYSTAL — " + a.title;
-  document.getElementById("crumbTitle").textContent = a.title;
-  document.getElementById("artTag").textContent = a.tag;
-  document.getElementById("artTitle").textContent = a.title;
-  document.getElementById("artDate").textContent = a.date;
-  document.getElementById("artHero").setAttribute("src", a.img);
-  document.getElementById("artBody").innerHTML = a.body;
+  function renderArticle(a) {
+    document.title = "CRYSTAL — " + a.title;
+    document.getElementById("crumbTitle").textContent = a.title;
+    document.getElementById("artTag").textContent = a.tag;
+    document.getElementById("artTitle").textContent = a.title;
+    document.getElementById("artDate").textContent = a.date;
+    document.getElementById("artHero").setAttribute("src", a.img);
+    document.getElementById("artBody").innerHTML = a.body;
+  }
 
-  /* ---------- RELATED (other 2) ---------- */
-  const related = ORDER.filter(s => s !== id);
-  document.getElementById("relatedTrack").innerHTML = related.map((s, i) => {
-    const r = ARTICLES[s];
-    return `
-    <article class="tst-card">
-      <div class="ph"><image-slot id="rel-${i}" src="${r.img}" placeholder="Photo" fit="cover"></image-slot></div>
-      <span class="tag">${r.tag}</span>
-      <h3 class="q">${r.title}</h3>
-      <div class="date">${r.date}</div>
-      <p class="excerpt">${r.excerpt}</p>
-      <a href="Article.html?id=${s}" class="at">Read More <span>→</span></a>
-    </article>`;
-  }).join("");
+  /* ---------- RELATED (fallback: other 2 from ARTICLES) ---------- */
+  function renderRelatedFallback(excludeId) {
+    const related = ORDER.filter(s => s !== excludeId);
+    document.getElementById("relatedTrack").innerHTML = related.map((s, i) => {
+      const r = ARTICLES[s];
+      return `
+      <article class="tst-card">
+        <div class="ph"><image-slot id="rel-${i}" src="${r.img}" placeholder="Photo" fit="cover"></image-slot></div>
+        <span class="tag">${r.tag}</span>
+        <h3 class="q">${r.title}</h3>
+        <div class="date">${r.date}</div>
+        <p class="excerpt">${r.excerpt}</p>
+        <a href="Article.html?id=${s}" class="at">Read More <span>→</span></a>
+      </article>`;
+    }).join("");
+  }
+
+  renderArticle(ARTICLES[id]);
+  renderRelatedFallback(id);
+
+  /* Upgrade to the real Blog CMS post for this slug if one is published.
+     Same inversion as content-sync.js: the shipped article paints first and
+     stands unless the dashboard actually has this slug, so an unpublished or
+     missing post never blanks the page. */
+  const BLOG_API = "https://crystal-production-eb2e.up.railway.app/api/blog/";
+  function fmtDate(iso) {
+    return iso ? new Date(iso).toLocaleDateString("en-IN", { day: "numeric", month: "long", year: "numeric" }) : "";
+  }
+  fetch(BLOG_API + encodeURIComponent(id) + "/", { mode: "cors", credentials: "omit" })
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (p) {
+      if (!p) return;
+      renderArticle({
+        title: p.title,
+        tag: (p.category && p.category.name) || "",
+        date: fmtDate(p.published_at),
+        img: p.featured_image || "",
+        body: p.content || "",
+      });
+      return fetch(BLOG_API, { mode: "cors", credentials: "omit" })
+        .then(function (r) { return r.ok ? r.json() : null; })
+        .then(function (list) {
+          if (!Array.isArray(list)) return;
+          const others = list.filter(function (x) { return x.slug !== id; }).slice(0, 2);
+          if (!others.length) return;
+          document.getElementById("relatedTrack").innerHTML = others.map(function (r, i) {
+            return `
+            <article class="tst-card">
+              <div class="ph"><image-slot id="rel-${i}" src="${r.featured_image || ""}" placeholder="Photo" fit="cover"></image-slot></div>
+              <span class="tag">${(r.category && r.category.name) || ""}</span>
+              <h3 class="q">${r.title}</h3>
+              <div class="date">${fmtDate(r.published_at)}</div>
+              <p class="excerpt">${r.excerpt || ""}</p>
+              <a href="Article.html?id=${r.slug}" class="at">Read More <span>→</span></a>
+            </article>`;
+          }).join("");
+        });
+    })
+    .catch(function () { /* the shipped article stands */ });
 
   /* ---------- HEADER + MENU ---------- */
   const hdr = document.getElementById("hdr");
