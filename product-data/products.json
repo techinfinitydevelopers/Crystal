@@ -20925,9 +20925,9 @@
       ],
       "match_tier": "dump_sku_match",
       "id": "smg014",
-      "variant_group": "vg-41",
-      "variant_label": "Single",
-      "variant_order": 0
+      "variant_group": "vg-30",
+      "variant_label": "XL",
+      "variant_order": 1
     },
     {
       "sku": "SMG015",
@@ -23292,9 +23292,9 @@
       ],
       "match_tier": "image_sourced_amazon_link",
       "id": "smg014a",
-      "variant_group": "vg-41",
-      "variant_label": "Pack of 2",
-      "variant_order": 1
+      "variant_group": "vg-30",
+      "variant_label": "XL Pack of 2",
+      "variant_order": 2
     }
   ]
 }
