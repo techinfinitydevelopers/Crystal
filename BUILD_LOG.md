@@ -246,3 +246,15 @@ Titles confirmed to match expected products before any save. Old images deleted 
 **Verified live:** Started the local `crystal-dashboard` server, logged into local admin (reset the local-only `admin` password since the original was unknown — gitignored `db.sqlite3`, no production impact), added a real PageSection row through the UI, confirmed `/api/sections.json` served it, then ran the swap logic against a live category page in the browser and watched the hero heading update. Deleted the test row afterward.
 
 **Explicitly still open (told to the user):** About.html, the 4 Brand pages, and Home (index.html/index-v2.html) have no shared hero element ids yet — need those added before they can be wired the same way. Only hero text is wired on the 46 pages so far; other sections (stats, feature blocks, CTAs) and image sections beyond the existing CategoryBanner are a further round.
+
+## 2026-09-10 — Dashboard: wire CTA and About's stats
+
+**Task:** Continue the page-sections dashboard — wire the remaining CTA and stats sections.
+
+**Found:** The 46 category/sub-category listing pages already ship `#ctaTitle`/`#ctaSub` ids on their CTA band, so registering `cta-title`/`cta-sub` in `content-sync.js` made CTA text dashboard-editable on all 46 with zero HTML changes.
+
+**Done:** Added ids to About.html's two stat rows (9 numbers + 9 labels — Years of Trust, People Strong, Products & SKUs, Happy Customers, Corporate Offices, Manufacturing Units, Warehouses, Retail Outlets, Factory Space) and matching keys in content-sync.js. The swap now also writes the `data-count` attribute when present, so an edit lands correctly whether the page's count-up animation has already fired or not. Verified live: a counted stat's number and attribute both update, and the two static numbers (Retail Outlets, Factory Space) swap without disturbing the "Sq.Ft." unit span on Factory Space. Committed 3297b77, pushed.
+
+**Checked, no work needed:** Brand pages have a `.cta-band` CSS rule with no matching element in the markup (dead code) — their only bottom section is the shared site-wide footer, out of scope since it's identical across every page, not brand-specific.
+
+**Still open:** Home (index.html/index-v2.html) has 3 stat rows and its own CTA, not yet wired — index.html is generated from home-v3-src, so that edit goes in the source, not the file directly.
