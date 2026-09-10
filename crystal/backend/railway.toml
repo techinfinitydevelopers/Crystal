@@ -5,7 +5,12 @@ buildCommand = "python manage.py collectstatic --no-input"
 
 [deploy]
 # Migrations run once per deploy, when DATABASE_URL is actually reachable.
-preDeployCommand = "python manage.py migrate --no-input"
+# The catalogue sync follows: this container is built from crystal/backend, so
+# product-data/products.json is not on disk here and has to come over HTTP from
+# the website service. Deliberately non-fatal — the dashboard is still perfectly
+# usable with a slightly stale catalogue, and a hiccup fetching the file should
+# not be able to block a deploy. Check the deploy log for its summary.
+preDeployCommand = "python manage.py migrate --no-input && (python manage.py sync_catalogue || echo 'catalogue sync skipped - see error above')"
 startCommand = "gunicorn config.wsgi --workers 2 --bind 0.0.0.0:$PORT"
 healthcheckPath = "/api/products/"
 restartPolicyType = "on_failure"
