@@ -268,8 +268,10 @@
   .bp-about h2 { font-family: var(--head); font-weight: 700; text-transform: uppercase; line-height: 1.02; letter-spacing: -0.02em; margin-top: 14px; }
   .bp-about p { color: var(--muted); font-size: clamp(15px,1.4vw,17px); line-height: 1.62; margin-top: 16px; }
 
-  .bp-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(14px,1.7vw,24px); margin-top: 40px; }
-  .bp-tile { position: relative; display: block; aspect-ratio: 1/1; border-radius: var(--r); overflow: hidden; border: 0; background: var(--cream, #ededed); color: #fff; transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s; }
+  .bp-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(14px,1.7vw,24px); margin-top: 40px; }
+  /* Tile matches the portfolio photos' own 469:334 ratio instead of forcing a
+     1:1 square with object-fit:cover, which cropped top/bottom off every shot. */
+  .bp-tile { position: relative; display: block; aspect-ratio: 469/334; border-radius: var(--r); overflow: hidden; border: 0; background: var(--cream, #ededed); color: #fff; transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s; }
   /* Full-bleed: the photo IS the tile. object-position sits slightly above
      centre so the label gradient eats empty floor rather than the product. */
   .bp-tile img { width: 100%; height: 100%; object-fit: cover; object-position: center 42%; display: block; padding: 0; transition: transform .5s cubic-bezier(.2,.8,.2,1); }
@@ -307,8 +309,8 @@
 
   main > section.sec-cream { margin-block: clamp(18px, 2.6vw, 38px); }
 
-  @media (max-width: 1024px) { .bp-grid, .bp-usps { grid-template-columns: repeat(3, 1fr); } .bp-res { grid-template-columns: repeat(2, 1fr); } }
-  @media (max-width: 760px)  { .bp-about { grid-template-columns: 1fr; } .bp-grid, .bp-usps { grid-template-columns: repeat(2, 1fr); } .bp-res { grid-template-columns: 1fr; } .bp-usp.tall { grid-row: span 1; aspect-ratio: 1/1; } }
+  @media (max-width: 1024px) { .bp-grid { grid-template-columns: repeat(2, 1fr); } .bp-usps { grid-template-columns: repeat(3, 1fr); } .bp-res { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 760px)  { .bp-about { grid-template-columns: 1fr; } .bp-usps { grid-template-columns: repeat(2, 1fr); } .bp-res { grid-template-columns: 1fr; } .bp-usp.tall { grid-row: span 1; aspect-ratio: 1/1; } }
   @media (max-width: 420px)  { .bp-grid { grid-template-columns: 1fr 1fr; } .bp-tile span, .bp-usp h4 { font-size: 13px; } }
 
 /* ==========================================================================
