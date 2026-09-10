@@ -8396,7 +8396,16 @@
         "set_type": "Individual"
       },
       "hero": "product-photos/CC-850/hero.jpg",
-      "gallery": [],
+      "gallery": [
+        "product-photos/CC-850/g1.jpg",
+        "product-photos/CC-850/g2.jpg",
+        "product-photos/CC-850/g3.jpg",
+        "product-photos/CC-850/g4.jpg",
+        "product-photos/CC-850/g5.jpg",
+        "product-photos/CC-850/g6.jpg",
+        "product-photos/CC-850/g7.jpg",
+        "product-photos/CC-850/g8.jpg"
+      ],
       "match_tier": "dump_sku_match",
       "id": "cc-850"
     },
