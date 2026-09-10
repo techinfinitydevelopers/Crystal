@@ -234,3 +234,15 @@ Titles confirmed to match expected products before any save. Old images deleted 
 **Found:** `product-data/products.json` (already at HEAD, committed by a concurrent session) referenced `product-photos/CC-851/g1.jpg` through `g8.jpg` in its `gallery` array, but only `hero.jpg` existed on disk — the JSON was ahead of the filesystem.
 
 **Done:** Scraped the current-variant (Rose Gold, Set of 6) gallery from the Amazon listing's `colorImages.initial` JSON (8 images, matched against `#altImages` thumbnails to avoid pulling other-variant images per the shared-gallery gotcha). Bash/curl had no outbound network access in this environment (silent hang/timeout) — fetched image bytes via the Browser pane's `javascript_tool` (`fetch` -> arrayBuffer -> base64) instead, decoded to `g1.jpg`-`g8.jpg` (1080x1080 each). No JSON edit needed since it already matched. Committed only the 8 new image files (1941d0d), pushed.
+
+## 2026-09-10 — Dashboard: editable page sections + Pages picker
+
+**Task:** User wants every page's sections editable from the admin dashboard, with all pages reachable from the dashboard sidebar.
+
+**Found:** A `content` Django app (PageSection model, admin, `/api/sections.json`, dashboard "Pages" picker grouped by category) had already been built and pushed to origin as fbb66bc under this session's own identity, byte-identical to the implementation this session was independently writing — no explicit commit was issued for it in this session's visible history. Left it as-is (did not re-commit) and verified it rather than guessing at the mechanism.
+
+**Done this session:** Wrote `content-sync.js` (repo root), the same fetch/swap/fail-silent pattern as the existing banner-sync script, and wired a `<script>` tag into all 46 category/sub-category listing pages (All-Products + 10 categories + 35 sub-categories), which share identical `#heroPreTxt`/`#heroTitle`/`#heroSub` ids. Committed c8125a4, pushed.
+
+**Verified live:** Started the local `crystal-dashboard` server, logged into local admin (reset the local-only `admin` password since the original was unknown — gitignored `db.sqlite3`, no production impact), added a real PageSection row through the UI, confirmed `/api/sections.json` served it, then ran the swap logic against a live category page in the browser and watched the hero heading update. Deleted the test row afterward.
+
+**Explicitly still open (told to the user):** About.html, the 4 Brand pages, and Home (index.html/index-v2.html) have no shared hero element ids yet — need those added before they can be wired the same way. Only hero text is wired on the 46 pages so far; other sections (stats, feature blocks, CTAs) and image sections beyond the existing CategoryBanner are a further round.
