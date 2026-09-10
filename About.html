@@ -245,15 +245,15 @@
   .journey-arrow:hover { border-color: var(--red); color: var(--red); }
   .journey-arrow:active { transform: scale(0.92); }
   .journey-arrow:disabled { opacity: 0.32; cursor: default; pointer-events: none; }
-  .ms-row { position: relative; margin-top: 32px; display: flex; gap: clamp(18px, 2vw, 28px); overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; padding: 6px 6px 8px; scrollbar-width: none; }
+  .ms-row { position: relative; margin-top: 32px; display: flex; align-items: stretch; gap: clamp(18px, 2vw, 28px); overflow-x: auto; scroll-snap-type: x proximity; -webkit-overflow-scrolling: touch; padding: 6px 6px 8px; scrollbar-width: none; overscroll-behavior-x: contain; }
   .ms-row::-webkit-scrollbar { display: none; }
-  .ms { flex: 0 0 clamp(260px, 27vw, 340px); scroll-snap-align: start; }
-  .ms-card { display: block; background: var(--white); border: 1.5px solid var(--line); border-radius: 24px; padding: 0; overflow: hidden; box-shadow: 0 26px 54px -34px rgba(15,15,15,0.4); transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s; }
+  .ms { flex: 0 0 clamp(260px, 27vw, 340px); scroll-snap-align: start; display: flex; }
+  .ms-card { display: flex; flex-direction: column; width: 100%; background: var(--white); border: 1.5px solid var(--line); border-radius: 24px; padding: 0; overflow: hidden; box-shadow: 0 26px 54px -34px rgba(15,15,15,0.4); transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s; }
   .ms:hover .ms-card { transform: translateY(-6px); box-shadow: 0 36px 64px -34px rgba(237,51,56,0.34); }
   .ms-photo { position: relative; width: 100%; aspect-ratio: 16 / 9; background: var(--cream); }
   .ms-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
   .ms-idx-badge { position: absolute; top: 14px; left: 14px; z-index: 2; font-family: var(--head); font-weight: 700; font-size: 13px; color: #fff; background: rgba(15,15,15,0.55); backdrop-filter: blur(6px); padding: 5px 12px; border-radius: 100px; letter-spacing: 0.02em; }
-  .ms-body { display: grid; grid-template-columns: 1fr; gap: 10px; align-items: start; padding: clamp(16px, 1.6vw, 22px); }
+  .ms-body { flex: 1 1 auto; display: grid; grid-template-columns: 1fr; grid-auto-rows: min-content; gap: 10px; align-content: start; padding: clamp(16px, 1.6vw, 22px); }
   .ms-ic { width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; background: rgba(237,51,56,0.10); margin-bottom: 10px; }
   .ms-metric { font-family: var(--head); font-weight: 700; font-size: clamp(18px, 1.5vw, 22px); line-height: 1.02; overflow-wrap: break-word; background: var(--grad-red); -webkit-background-clip: text; background-clip: text; color: transparent; letter-spacing: -0.02em; }
   .ms h4 { font-family: var(--head); font-weight: 700; text-transform: uppercase; font-size: 16px; margin-bottom: 6px; letter-spacing: -0.01em; }
@@ -963,19 +963,43 @@ h1, h2 { overflow-wrap: break-word; }
       if (i === active) return;
       active = i;
       dots.forEach((d, di) => d.classList.toggle("active", di === i));
-      prevBtn.disabled = i === 0;
-      nextBtn.disabled = i === cards.length - 1;
+      prevBtn.disabled = i <= 0;
+      nextBtn.disabled = storyRow.scrollLeft >= storyRow.scrollWidth - storyRow.clientWidth - 2;
     }
+
+    const padLeft = () => parseFloat(getComputedStyle(storyRow).paddingLeft) || 0;
+    /* index of the card sitting at the rail's left edge. Derived from scroll
+       position, not an IntersectionObserver: three cards are visible at desktop
+       widths, so "which card is intersecting" answers with the rightmost one and
+       the arrows then step three at a time -- or, from the right-hand card,
+       backwards past where you already are. */
+    function indexAtEdge() {
+      const x = storyRow.scrollLeft + padLeft();
+      let best = 0, bestDist = Infinity;
+      cards.forEach((c, i) => {
+        const d = Math.abs(c.offsetLeft - x);
+        if (d < bestDist) { bestDist = d; best = i; }
+      });
+      return best;
+    }
+
+    /* scroll the rail itself rather than scrollIntoView, which also drags the
+       page vertically towards the card */
+    function goTo(i) {
+      const card = cards[Math.max(0, Math.min(cards.length - 1, i))];
+      storyRow.scrollTo({ left: card.offsetLeft - padLeft(), behavior: "smooth" });
+    }
+
+    dots.forEach((d, i) => d.addEventListener("click", () => goTo(i)));
+    prevBtn.addEventListener("click", () => goTo(indexAtEdge() - 1));
+    nextBtn.addEventListener("click", () => goTo(indexAtEdge() + 1));
+
+    let raf = 0;
+    storyRow.addEventListener("scroll", () => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => setActive(indexAtEdge()));
+    }, { passive: true });
     setActive(0);
-
-    dots.forEach((d, i) => d.addEventListener("click", () => cards[i].scrollIntoView({ behavior: "smooth", inline: "start", block: "nearest" })));
-    prevBtn.addEventListener("click", () => cards[Math.max(0, active - 1)].scrollIntoView({ behavior: "smooth", inline: "start", block: "nearest" }));
-    nextBtn.addEventListener("click", () => cards[Math.min(cards.length - 1, active + 1)].scrollIntoView({ behavior: "smooth", inline: "start", block: "nearest" }));
-
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) setActive(cards.indexOf(e.target)); });
-    }, { root: storyRow, threshold: 0.6 });
-    cards.forEach(c => io.observe(c));
   })();
 
   /* ---------- GSAP ANIMATIONS (ported patterns) ---------- */
