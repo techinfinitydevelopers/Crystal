@@ -1,5 +1,5 @@
 from django.contrib import admin
-from django.utils.html import format_html
+from django.utils.html import format_html, mark_safe
 from .models import Download
 
 
@@ -25,7 +25,7 @@ class DownloadAdmin(admin.ModelAdmin):
     @admin.display(description='Brand')
     def brand_badge(self, obj):
         if not obj.brand:
-            return format_html(
+            return mark_safe(
                 '<span style="background:#f1f5f9;padding:3px 10px;border-radius:100px;'
                 'font-size:11px;font-weight:600;color:#64748b;">All Brands</span>'
             )

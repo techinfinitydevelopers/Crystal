@@ -653,7 +653,7 @@ class ProductAdmin(admin.ModelAdmin):
                 obj.amazon_link, obj.amazon_link,
                 static('marketplace-logos/amazon.svg'),
             )
-        return format_html(
+        return mark_safe(
             '<span style="display:inline-flex;align-items:center;gap:6px;'
             'padding:3px 10px;border-radius:100px;background:rgba(237,51,56,.10);'
             'border:1.5px solid #ED3338;color:#ED3338;font-weight:700;font-size:12px;">'
@@ -741,7 +741,7 @@ class MarketplaceAdmin(admin.ModelAdmin):
         is_default = not obj.logo and url
         if url:
             note = (
-                format_html(
+                mark_safe(
                     '<br><span style="font-size:11px;color:#94a3b8;font-style:italic;">'
                     '✓ Default logo — upload above to replace</span>'
                 ) if is_default else ''
