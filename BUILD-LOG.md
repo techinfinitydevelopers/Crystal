@@ -1434,3 +1434,21 @@ Verified end to end against the local dashboard: picking a photo moves `is_hero`
 show the new photo while the product next to it is untouched; an ordinary save that does not
 touch the picker flags nothing; and with the endpoint pointed at a dead port every page renders
 its shipped photos as before.
+
+
+### Removing the two dead image fields
+
+`Product.featured_image` and `Product.thumbnail` came out once the picker landed: zero of 587
+products had either set and nothing read them. Three things had to go with the columns — the
+exporter's `hero is None and product.featured_image` fallback (unreachable, and it would no
+longer compile), both fields from the list and detail serializers (always `""` on the wire, so
+no consumer loses a value), and 1060 keys from `dashboard-seed.json`, since `loaddata` errors on
+a field the model no longer has. Migration `0015`. Checked afterwards that the change, add and
+changelist pages, `/api/products/`, the detail route, `site.json` and `image-overrides.json` all
+return 200, and that `export_products_json` still runs and leaves the 584 hand-curated entries
+alone. Committed `0bbb24a`.
+
+Worth knowing: **`export_products_json` rewrites `product-data/products.json` even when it has
+zero dashboard entries to write.** Running it just to prove the code path still imports produced
+a diff in a file this change had no business touching. Same family as the round-trip reformat
+already noted above — treat that command as a write, never as a read.
