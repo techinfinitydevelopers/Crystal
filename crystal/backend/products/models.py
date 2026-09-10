@@ -83,8 +83,6 @@ class Product(models.Model):
     is_new = models.BooleanField(default=False)
     show_price = models.BooleanField(default=False)
     price = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
-    featured_image = models.ImageField(upload_to='products/featured/', blank=True, null=True)
-    thumbnail = models.ImageField(upload_to='products/thumbnails/', blank=True, null=True)
     # The site shows a product video and a list of feature bullets, both of which
     # lived only in product-data/products.json - the dashboard had no field for
     # either, so editing a product here could never produce them.

@@ -98,7 +98,7 @@ class ProductListSerializer(serializers.ModelSerializer):
             'id', 'name', 'slug', 'sku', 'brand', 'category',
             'short_description', 'highlight', 'collection_name', 'tags',
             'image_url', 'is_active', 'is_featured', 'is_new',
-            'show_price', 'price', 'thumbnail', 'created_at',
+            'show_price', 'price', 'created_at',
         ]
 
 
@@ -116,7 +116,7 @@ class ProductDetailSerializer(serializers.ModelSerializer):
             'id', 'name', 'slug', 'sku', 'brand', 'category',
             'short_description', 'overview', 'highlight', 'collection_name', 'tags',
             'image_url', 'is_active', 'is_featured', 'is_new',
-            'show_price', 'price', 'featured_image', 'thumbnail',
+            'show_price', 'price',
             'images', 'specifications', 'marketplace_links', 'variants', 'created_at',
         ]
 

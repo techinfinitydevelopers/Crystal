@@ -150,8 +150,6 @@ class Command(BaseCommand):
                 sku_dir = PHOTOS_ROOT / base_sku
                 images = ProductImage.objects.filter(product=product, variant__isnull=True).order_by("order")
                 hero, gallery = _image_set(images, sku_dir)
-                if hero is None and product.featured_image:
-                    hero = _copy_image(product.featured_image, sku_dir, "hero")
                 new_entries.append(_build_entry(product, base_sku, product.name, hero=hero, gallery=gallery))
                 continue
 
@@ -163,8 +161,6 @@ class Command(BaseCommand):
                 sku_dir = PHOTOS_ROOT / sku
                 own_images = ProductImage.objects.filter(product=product, variant=variant).order_by("order")
                 hero, gallery = _image_set(own_images if own_images.exists() else general_images, sku_dir)
-                if hero is None and product.featured_image:
-                    hero = _copy_image(product.featured_image, sku_dir, "hero")
                 name = f"{product.name} {variant.name}".strip()
                 new_entries.append(_build_entry(
                     product, sku, name,
