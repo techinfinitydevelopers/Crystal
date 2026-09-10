@@ -164,10 +164,10 @@
         "use": "Domestic",
         "mechanism": "Mechanical"
       },
-      "hero": "product-photos/LI003A/amz-1.jpg",
+      "hero": "product-photos/LI003A/amz-3.jpg",
       "gallery": [
+        "product-photos/LI003A/amz-1.jpg",
         "product-photos/LI003A/amz-2.jpg",
-        "product-photos/LI003A/amz-3.jpg",
         "product-photos/LI003A/amz-4.jpg",
         "product-photos/LI003A/amz-5.jpg"
       ],
