@@ -7048,8 +7048,9 @@
       "filters": {
         "use": "Grinder"
       },
-      "hero": "product-photos/CLMK-018/amz-3.jpg",
+      "hero": "product-photos/CLMK-018/hero.png",
       "gallery": [
+        "product-photos/CLMK-018/amz-3.jpg",
         "product-photos/CLMK-018/amz-1.jpg",
         "product-photos/CLMK-018/amz-2.jpg"
       ],
