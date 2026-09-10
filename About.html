@@ -239,13 +239,15 @@
   .vmv-tab-label { font-family: var(--head); font-weight: 700; text-transform: uppercase; font-size: clamp(22px, 2.6vw, 34px); line-height: 1.05; letter-spacing: -0.01em; color: #fff; }
   .vmv-tab-desc { font-size: clamp(14px, 1.5vw, 17px); line-height: 1.6; color: rgba(255,255,255,0.85); }
 
-  /* ===== STORY TIMELINE (vertical milestones — ported from home "Made in India") ===== */
-  .journey { position: relative; margin-top: 44px; }
-  .rail { display: none; }
-  .rail-fill { display: block; width: 100%; height: 0; background: var(--grad-red); border-radius: 3px; }
-  .ms-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(20px, 2.4vw, 32px) clamp(20px, 2.4vw, 32px); position: relative; z-index: 1; }
-  .ms { display: grid; grid-template-columns: 23px 1fr; gap: clamp(14px, 1.6vw, 22px); align-items: start; }
-  .ms-dot { width: 23px; height: 23px; border-radius: 50%; background: #fff; border: 3px solid var(--red); box-shadow: 0 0 0 6px rgba(237,51,56,0.10); margin-top: 10px; z-index: 3; }
+  /* ===== STORY TIMELINE (horizontal slider — arrows + dots, native scroll-snap) ===== */
+  .journey-controls { display: flex; gap: 10px; }
+  .journey-arrow { width: 44px; height: 44px; flex: 0 0 auto; border-radius: 50%; border: 1.5px solid var(--line); background: var(--white); color: var(--ink); display: grid; place-items: center; cursor: pointer; transition: border-color .25s, color .25s, transform .2s; }
+  .journey-arrow:hover { border-color: var(--red); color: var(--red); }
+  .journey-arrow:active { transform: scale(0.92); }
+  .journey-arrow:disabled { opacity: 0.32; cursor: default; pointer-events: none; }
+  .ms-row { position: relative; margin-top: 32px; display: flex; gap: clamp(18px, 2vw, 28px); overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; padding: 6px 6px 8px; scrollbar-width: none; }
+  .ms-row::-webkit-scrollbar { display: none; }
+  .ms { flex: 0 0 clamp(260px, 27vw, 340px); scroll-snap-align: start; }
   .ms-card { display: block; background: var(--white); border: 1.5px solid var(--line); border-radius: 24px; padding: 0; overflow: hidden; box-shadow: 0 26px 54px -34px rgba(15,15,15,0.4); transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s; }
   .ms:hover .ms-card { transform: translateY(-6px); box-shadow: 0 36px 64px -34px rgba(237,51,56,0.34); }
   .ms-photo { position: relative; width: 100%; aspect-ratio: 16 / 9; background: var(--cream); }
@@ -256,8 +258,10 @@
   .ms-metric { font-family: var(--head); font-weight: 700; font-size: clamp(18px, 1.5vw, 22px); line-height: 1.02; overflow-wrap: break-word; background: var(--grad-red); -webkit-background-clip: text; background-clip: text; color: transparent; letter-spacing: -0.02em; }
   .ms h4 { font-family: var(--head); font-weight: 700; text-transform: uppercase; font-size: 16px; margin-bottom: 6px; letter-spacing: -0.01em; }
   .ms p { color: var(--muted); font-size: 13.5px; line-height: 1.5; max-width: none; }
-  @media (max-width: 960px) { .ms-row { grid-template-columns: repeat(2, 1fr); } }
-  @media (max-width: 640px) { .ms-row { grid-template-columns: 1fr; } }
+  .journey-dots { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; justify-content: center; }
+  .journey-dot { width: 9px; height: 9px; padding: 0; border: none; border-radius: 50%; background: var(--line); cursor: pointer; transition: background .25s, transform .25s; }
+  .journey-dot.active { background: var(--red); transform: scale(1.4); }
+  @media (max-width: 640px) { .ms { flex-basis: 78vw; } }
 
   /* ===== SUSTAINABILITY ===== */
   .sustain-card { background: var(--ink-deep); color: #fff; border-radius: clamp(24px, 3vw, 40px); padding: clamp(36px, 5vw, 64px); display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 4vw, 60px); align-items: center; overflow: hidden; }
@@ -736,9 +740,16 @@ h1, h2 { overflow-wrap: break-word; }
       <span class="eyebrow" data-fade><span class="pip"></span>Our Journey · Since 1971</span>
       <h2 data-split style="margin-top:14px">The Crystal<br>Story</h2>
     </div>
-    <p class="lead">From a single gas lighter to a complete home ecosystem — five decades of made-in-India innovation, told in six defining chapters.</p>
+    <div data-fade style="display:flex; flex-direction:column; align-items:flex-end; gap:16px;">
+      <p class="lead" style="margin:0">From a single gas lighter to a complete home ecosystem — five decades of made-in-India innovation, told in fifteen defining chapters.</p>
+      <div class="journey-controls">
+        <button type="button" class="journey-arrow" id="journeyPrev" aria-label="Previous chapter"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+        <button type="button" class="journey-arrow" id="journeyNext" aria-label="Next chapter"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></button>
+      </div>
+    </div>
   </div>
-  <div class="journey" id="storyGrid"></div>
+  <div class="ms-row" id="storyGrid"></div>
+  <div class="journey-dots" id="journeyDots"></div>
 </section>
 
 <!-- ===== 04b INFRASTRUCTURE ===== -->
@@ -913,15 +924,13 @@ h1, h2 { overflow-wrap: break-word; }
     { m: "ValMate", t: "ValMate", d: "A new, economical range of kitchenware designed for price-conscious, digital, and enterprising India. This brand stands for great value, backed by Crystal's long-standing assurance.", img: "about-assets/timeline/Valmate.jpg" },
     { m: "Teakwood", t: "Teakwood", d: "Today's style conscious, well-off consumers love treating themselves to small everyday luxuries products that feel premium and make their home life feel special. Teak wood, known for its rich and high-end appeal, became a popular choice for home décor and furniture. Crystal also found its way into kitchens and dining rooms through items like serving trays and spice boxes.", img: "about-assets/timeline/Teakwood.jpg" },
   ];
-  document.getElementById("storyGrid").innerHTML =
-    '<div class="rail"><span class="rail-fill"></span></div><div class="ms-row">' +
-    story.map((p, i) => `
+  const storyRow = document.getElementById("storyGrid");
+  storyRow.innerHTML = story.map((p, i) => `
       <article class="ms" data-ms>
-        <span class="ms-dot"></span>
         <div class="ms-card">
           <div class="ms-photo">
             <img src="${p.img}" alt="${p.t}" loading="lazy">
-            <span class="ms-idx-badge">0${i + 1}</span>
+            <span class="ms-idx-badge">${String(i + 1).padStart(2, "0")}</span>
           </div>
           <div class="ms-body">
             <div class="ms-metric">${p.m}</div>
@@ -932,7 +941,39 @@ h1, h2 { overflow-wrap: break-word; }
             </div>
           </div>
         </div>
-      </article>`).join("") + '</div>';
+      </article>`).join("");
+
+  /* slider controls: arrows scroll by one card, dots jump to a card, both
+     stay in sync with whichever card native scroll/swipe/drag lands on */
+  (function initJourneySlider() {
+    const cards = Array.from(storyRow.children);
+    const dotsWrap = document.getElementById("journeyDots");
+    const prevBtn = document.getElementById("journeyPrev");
+    const nextBtn = document.getElementById("journeyNext");
+    if (!cards.length) return;
+
+    dotsWrap.innerHTML = cards.map((_, i) => `<button type="button" class="journey-dot" aria-label="Go to chapter ${i + 1}"></button>`).join("");
+    const dots = Array.from(dotsWrap.children);
+
+    let active = -1;
+    function setActive(i) {
+      if (i === active) return;
+      active = i;
+      dots.forEach((d, di) => d.classList.toggle("active", di === i));
+      prevBtn.disabled = i === 0;
+      nextBtn.disabled = i === cards.length - 1;
+    }
+    setActive(0);
+
+    dots.forEach((d, i) => d.addEventListener("click", () => cards[i].scrollIntoView({ behavior: "smooth", inline: "start", block: "nearest" })));
+    prevBtn.addEventListener("click", () => cards[Math.max(0, active - 1)].scrollIntoView({ behavior: "smooth", inline: "start", block: "nearest" }));
+    nextBtn.addEventListener("click", () => cards[Math.min(cards.length - 1, active + 1)].scrollIntoView({ behavior: "smooth", inline: "start", block: "nearest" }));
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) setActive(cards.indexOf(e.target)); });
+    }, { root: storyRow, threshold: 0.6 });
+    cards.forEach(c => io.observe(c));
+  })();
 
   /* ---------- GSAP ANIMATIONS (ported patterns) ---------- */
   function initGSAP() {
@@ -971,25 +1012,6 @@ h1, h2 { overflow-wrap: break-word; }
         opacity: 1, ease: "none", stagger: { each: 0.5 },
         scrollTrigger: { trigger: "#legacy", start: "top 76%", end: "center 46%", scrub: 0.6 }
       });
-    }
-
-    /* THE CRYSTAL STORY vertical timeline: red rail fills DOWN, each dot lights up
-       and its card slides in — all scrubbed to scroll (ported from home "Made in India") */
-    const msArr = gsap.utils.toArray(".ms");
-    if (msArr.length) {
-      const N = msArr.length;
-      gsap.set(".ms-card", { opacity: 0, x: 56 });
-      gsap.set(".ms-ic", { scale: 0 });
-      gsap.set(".ms-dot", { borderColor: "rgba(26,24,22,0.20)", scale: 0.62, boxShadow: "0 0 0 0px rgba(237,51,56,0)" });
-      gsap.set(".rail-fill", { height: "0%" });
-      const jtl = gsap.timeline({ scrollTrigger: { trigger: ".journey", start: "top 74%", end: "bottom 84%", scrub: 0.6 } });
-      msArr.forEach((card, i) => {
-        jtl.to(".rail-fill", { height: (((i + 0.5) / N) * 100) + "%", ease: "none", duration: 1 });
-        jtl.to(card.querySelector(".ms-dot"), { borderColor: "#ED3338", scale: 1, boxShadow: "0 0 0 6px rgba(237,51,56,0.12)", duration: 0.35, ease: "back.out(2)" }, "<")
-          .to(card.querySelector(".ms-card"), { opacity: 1, x: 0, duration: 0.55, ease: "power2.out" }, "<0.05")
-          .to(card.querySelector(".ms-ic"), { scale: 1, duration: 0.35, ease: "back.out(1.8)" }, "<");
-      });
-      jtl.to(".rail-fill", { height: "100%", ease: "none", duration: 0.5 });
     }
 
     /* help cards stagger */
@@ -1096,7 +1118,7 @@ h1, h2 { overflow-wrap: break-word; }
 
   function failsafeReveal() {
     if (window.gsap) {
-      gsap.set("[data-split] .word, [data-lines] .word, [data-fade], .ms-card, .ms-dot, .rail-fill, .ms-ic, .help-card, .hero-couple, .float", { clearProps: "opacity,transform,x,y,xPercent,yPercent,scale,rotation,clipPath" });
+      gsap.set("[data-split] .word, [data-lines] .word, [data-fade], .help-card, .hero-couple, .float", { clearProps: "opacity,transform,x,y,xPercent,yPercent,scale,rotation,clipPath" });
     }
     countEls.forEach(el => { if (!counted.has(el)) { counted.add(el); const t = parseFloat(el.dataset.count); el.textContent = (t % 1 ? t.toFixed(1) : t); } });
   }
