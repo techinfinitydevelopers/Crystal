@@ -1356,7 +1356,10 @@
         "edge_type": "Serrated"
       },
       "hero": "product-photos/CL-214/amz-1.jpg",
-      "gallery": [],
+      "gallery": [
+        "product-photos/CL-214/g3.jpg",
+        "product-photos/CL-214/amz-2.jpg"
+      ],
       "match_tier": "dump_sku_match",
       "id": "cl-214",
       "features": [
@@ -1516,7 +1519,10 @@
         "edge_type": "Serrated"
       },
       "hero": "product-photos/CL-217/amz-1.jpg",
-      "gallery": [],
+      "gallery": [
+        "product-photos/CL-217/g3.jpg",
+        "product-photos/CL-217/amz-2.jpg"
+      ],
       "match_tier": "dump_sku_match",
       "id": "cl-217",
       "features": [
@@ -1597,7 +1603,10 @@
         "edge_type": "Plain"
       },
       "hero": "product-photos/CL-023/amz-1.jpg",
-      "gallery": [],
+      "gallery": [
+        "product-photos/CL-023/g2.jpg",
+        "product-photos/CL-023/amz-2.jpg"
+      ],
       "match_tier": "dump_sku_match",
       "id": "cl-023",
       "features": [
@@ -1848,7 +1857,10 @@
         "edge_type": "Serrated"
       },
       "hero": "product-photos/CL-204/amz-1.jpg",
-      "gallery": [],
+      "gallery": [
+        "product-photos/CL-204/g2.jpg",
+        "product-photos/CL-204/az-2.jpg"
+      ],
       "match_tier": "dump_sku_match",
       "id": "cl-204",
       "features": [
@@ -8430,7 +8442,6 @@
       },
       "hero": "product-photos/CC-851/hero.jpg",
       "gallery": [
-        "product-photos/CC-851/g1.jpg",
         "product-photos/CC-851/g2.jpg",
         "product-photos/CC-851/g3.jpg",
         "product-photos/CC-851/g4.jpg",
@@ -10065,7 +10076,9 @@
       },
       "hero": "product-photos/CC-997/amz-1.jpg",
       "gallery": [
-        "product-photos/CC-997/amz-3.jpg"
+        "product-photos/CC-997/amz-3.jpg",
+        "product-photos/CC-997/g3.jpg",
+        "product-photos/CC-997/amz-2.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cc-997"
@@ -13671,7 +13684,14 @@
       "hero": "product-photos/COP-001/hero.jpg",
       "gallery": [
         "product-photos/COP-001/g2.jpg",
-        "product-photos/COP-001/carton.jpg"
+        "product-photos/COP-001/carton.jpg",
+        "product-photos/COP-001/az-1.jpg",
+        "product-photos/COP-001/az-2.jpg",
+        "product-photos/COP-001/az-3.jpg",
+        "product-photos/COP-001/az-4.jpg",
+        "product-photos/COP-001/az-5.jpg",
+        "product-photos/COP-001/az-6.jpg",
+        "product-photos/COP-001/az-7.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cop-001",
@@ -13728,7 +13748,14 @@
       "hero": "product-photos/COP-002/hero.jpg",
       "gallery": [
         "product-photos/COP-002/g2.jpg",
-        "product-photos/COP-002/carton.jpg"
+        "product-photos/COP-002/carton.jpg",
+        "product-photos/COP-002/az-1.jpg",
+        "product-photos/COP-002/az-2.jpg",
+        "product-photos/COP-002/az-3.jpg",
+        "product-photos/COP-002/az-4.jpg",
+        "product-photos/COP-002/az-5.jpg",
+        "product-photos/COP-002/az-6.jpg",
+        "product-photos/COP-002/az-7.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cop-002",
@@ -13783,7 +13810,13 @@
       "hero": "product-photos/COP-003/hero.jpg",
       "gallery": [
         "product-photos/COP-003/g2.jpg",
-        "product-photos/COP-003/carton.jpg"
+        "product-photos/COP-003/carton.jpg",
+        "product-photos/COP-003/az-1.jpg",
+        "product-photos/COP-003/az-2.jpg",
+        "product-photos/COP-003/az-3.jpg",
+        "product-photos/COP-003/az-4.jpg",
+        "product-photos/COP-003/az-5.jpg",
+        "product-photos/COP-003/az-6.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cop-003",
@@ -16339,7 +16372,9 @@
       "hero": "product-photos/CTP-EDK-001/amz-1.jpg",
       "gallery": [
         "product-photos/CTP-EDK-001/amz-3.jpg",
-        "product-photos/CTP-EDK-001/amz-4.jpg"
+        "product-photos/CTP-EDK-001/amz-4.jpg",
+        "product-photos/CTP-EDK-001/hero.jpg",
+        "product-photos/CTP-EDK-001/amz-2.jpg"
       ],
       "match_tier": "exact_sku",
       "id": "ctp-edk-001",
@@ -16376,8 +16411,11 @@
         "type": "Deep Kadai",
         "material": "Triply"
       },
-      "hero": "https://m.media-amazon.com/images/I/61cFRzZs9GL.jpg",
-      "gallery": [],
+      "hero": "product-photos/CTP-EDK-002/az-1.jpg",
+      "gallery": [
+        "product-photos/CTP-EDK-002/az-2.jpg",
+        "product-photos/CTP-EDK-002/az-3.jpg"
+      ],
       "match_tier": "image_sourced_searched",
       "id": "ctp-edk-002",
       "variant_group": "vg-10",
@@ -16409,8 +16447,11 @@
         "type": "Deep Kadai",
         "material": "Triply"
       },
-      "hero": "https://m.media-amazon.com/images/I/41qzbxWDNhL.jpg",
-      "gallery": [],
+      "hero": "product-photos/CTP-EDK-003/az-1.jpg",
+      "gallery": [
+        "product-photos/CTP-EDK-003/az-2.jpg",
+        "product-photos/CTP-EDK-003/az-3.jpg"
+      ],
       "match_tier": "image_sourced_searched",
       "id": "ctp-edk-003",
       "variant_group": "vg-10",
@@ -16442,8 +16483,12 @@
         "type": "Deep Kadai",
         "material": "Triply"
       },
-      "hero": "https://m.media-amazon.com/images/I/41qzbxWDNhL.jpg",
-      "gallery": [],
+      "hero": "product-photos/CTP-EDK-004/az-1.jpg",
+      "gallery": [
+        "product-photos/CTP-EDK-004/az-2.jpg",
+        "product-photos/CTP-EDK-004/az-3.jpg",
+        "product-photos/CTP-EDK-004/az-4.jpg"
+      ],
       "match_tier": "image_sourced_searched",
       "id": "ctp-edk-004",
       "variant_group": "vg-10",
@@ -16917,7 +16962,12 @@
         "material": "Triply"
       },
       "hero": "product-photos/CTP-SP-003/hero.webp",
-      "gallery": [],
+      "gallery": [
+        "product-photos/CTP-SP-003/az-1.jpg",
+        "product-photos/CTP-SP-003/az-2.jpg",
+        "product-photos/CTP-SP-003/az-3.jpg",
+        "product-photos/CTP-SP-003/az-4.jpg"
+      ],
       "match_tier": "exact_sku",
       "id": "ctp-sp-003"
     },
@@ -18277,7 +18327,7 @@
         "type": "Set",
         "material": "Sandwich Bottom Steel"
       },
-      "hero": "https://m.media-amazon.com/images/I/51CeSdZcbHL.jpg",
+      "hero": "product-photos/CSI-099/az-1.jpg",
       "gallery": [],
       "match_tier": "image_sourced_searched",
       "id": "csi-099"
@@ -18466,7 +18516,7 @@
         "type": "Tawa",
         "material": "Nonstick"
       },
-      "hero": "https://m.media-amazon.com/images/I/31f1glS7qhL.jpg",
+      "hero": "product-photos/CNS-955/az-1.jpg",
       "gallery": [],
       "match_tier": "image_sourced_searched",
       "id": "cns-955",
@@ -18497,7 +18547,7 @@
         "type": "Tawa",
         "material": "Nonstick"
       },
-      "hero": "https://m.media-amazon.com/images/I/41F52pvAd1L.jpg",
+      "hero": "product-photos/CNS-956/az-1.jpg",
       "gallery": [],
       "match_tier": "image_sourced_searched",
       "id": "cns-956",
