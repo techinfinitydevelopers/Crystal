@@ -121,7 +121,23 @@ def main():
                 product=prod, marketplace=marketplace_amazon, defaults={"url": link}
             )
 
+    # A product pulled from the catalogue that is no longer in the catalogue was
+    # removed from the site on purpose (usually: no genuine product photo). Retire
+    # it here too, otherwise the dashboard keeps listing something the site does
+    # not sell any more. Deactivated rather than deleted, so re-adding it to the
+    # JSON — or attaching a real photo later — brings it straight back.
+    #
+    # Scoped to is_dashboard_managed=False on purpose: products created in the
+    # dashboard are never in products.json, and must not be swept up by this.
+    json_skus = {(p.get("sku") or "").strip() for p in items if (p.get("sku") or "").strip()}
+    stale = Product.objects.filter(is_dashboard_managed=False, is_active=True).exclude(sku__in=json_skus)
+    retired = list(stale.values_list("sku", flat=True))
+    if retired:
+        stale.update(is_active=False)
+
     print(f"Created: {created}, Updated: {updated}, Skipped (no sku): {skipped}")
+    if retired:
+        print(f"Retired (in DB, no longer in products.json): {len(retired)} - {', '.join(sorted(retired))}")
     print(f"Total products in DB: {Product.objects.count()}")
     print(f"Total brands: {Brand.objects.count()}, categories: {Category.objects.count()}")
 
