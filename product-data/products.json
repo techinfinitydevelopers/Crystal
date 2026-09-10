@@ -8440,15 +8440,14 @@
         "set_size": "6",
         "set_type": "Individual"
       },
-      "hero": "product-photos/CC-851/hero.jpg",
+      "hero": "product-photos/CC-851/g7.jpg",
       "gallery": [
+        "product-photos/CC-851/hero.jpg",
         "product-photos/CC-851/g2.jpg",
         "product-photos/CC-851/g3.jpg",
         "product-photos/CC-851/g4.jpg",
         "product-photos/CC-851/g5.jpg",
-        "product-photos/CC-851/g6.jpg",
-        "product-photos/CC-851/g7.jpg",
-        "product-photos/CC-851/g8.jpg"
+        "product-photos/CC-851/g6.jpg"
       ],
       "match_tier": "dump_sku_match",
       "id": "cc-851"
@@ -22061,30 +22060,6 @@
       "id": "cwb102"
     },
     {
-      "sku": "SMS002",
-      "name": "Jumbo Triple Twenty Pack",
-      "brand": "crystal",
-      "category": "cleaning-aid",
-      "subcategory": null,
-      "collection": "CLEANING-AID",
-      "highlight": "JUMBO TRIPLE TWENTY PACK",
-      "description": "JUMBO TRIPLE TWENTY PACK",
-      "tags": [],
-      "gst_pct": null,
-      "mrp": null,
-      "amazon_link": null,
-      "filters": {},
-      "hero": "product-photos/SMS002/hero.jpg",
-      "gallery": [
-        "product-photos/SMS002/g1.jpg",
-        "product-photos/SMS002/g2.jpg",
-        "product-photos/SMS002/g3.jpg",
-        "product-photos/SMS002/g4.jpg"
-      ],
-      "match_tier": "dump_sku_match",
-      "id": "sms002"
-    },
-    {
       "sku": "PSM-002",
       "name": "Sparkmate By Crystal PSM-002 Plastic 360 Degree Flat Mop (Blue)",
       "brand": "sparkmate",
@@ -23393,12 +23368,12 @@
       "mrp": null,
       "amazon_link": "https://www.amazon.in/dp/B0BC8C2H82",
       "filters": {},
-      "hero": "sparkmate/SMS002/img-1.jpg",
+      "hero": "product-photos/SMS002/hero.jpg",
       "gallery": [
-        "sparkmate/SMS002/img-2.jpg",
-        "sparkmate/SMS002/img-3.jpg",
-        "sparkmate/SMS002/img-4.jpg",
-        "sparkmate/SMS002/img-5.jpg",
+        "product-photos/SMS002/g1.jpg",
+        "product-photos/SMS002/g2.jpg",
+        "product-photos/SMS002/g3.jpg",
+        "product-photos/SMS002/g4.jpg",
         "sparkmate/SMS002/img-6.jpg",
         "sparkmate/SMS002/img-7.jpg"
       ],
