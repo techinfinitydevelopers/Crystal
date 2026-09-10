@@ -660,13 +660,11 @@ h1, h2 { overflow-wrap: break-word; }
 <section class="sec wrap sec-cream legacy" id="legacy">
   <span class="eyebrow" data-fade><span class="pip"></span>Our Legacy</span>
   <p class="statement" data-lines style="margin-top:22px">Since 1971, Crystal has grown synonymous with the modern Indian kitchen — trusted by quality-conscious homes for products that keep pace with changing times. From precision gas lighters to a complete range of kitchenware, cookware, cutlery, storage and cleaning aids, we remain <b>a complete home solutions provider.</b></p>
-  <!-- The company film. It runs 11 minutes and carries a soundtrack, so it is
-       something to watch rather than wallpaper: controls, sound, and nothing
-       downloaded until the visitor asks for it (preload="none" -- the poster is
-       all that loads with the page). The hero above uses a short silent cut of
-       the same film as its background loop. -->
+  <!-- The company film. It runs 11 minutes and carries a soundtrack. Browsers
+       only allow autoplay when muted, so it starts silently and the visitor
+       unmutes via the native controls if they want sound. -->
   <div class="legacy-video legacy-film" data-fade>
-    <video controls preload="none" playsinline
+    <video controls autoplay muted preload="auto" playsinline
            poster="about-assets/legacy-poster.jpg">
       <source src="about-assets/crystal-legacy.mp4" type="video/mp4">
       Your browser cannot play this video.
