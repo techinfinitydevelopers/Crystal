@@ -130,18 +130,28 @@ class ImageOverridesView(APIView):
             )
             .order_by('id')
         )
+
+        def absolute(value):
+            """_public_url leaves an uploaded photo as /media/<path>, which is
+            only root-relative. The page asking us is served from the website's
+            host, so it would resolve that against *its* origin and 404 — the
+            uploaded file lives on this service. build_absolute_uri pins it to
+            this host and leaves the already-absolute website URLs alone."""
+            url = _public_url(value)
+            return request.build_absolute_uri(url) if url else None
+
         overrides = {}
         for product in products:
             for entry in site_product_entries(product):
                 sku = entry.get('sku')
-                hero = _public_url(entry.get('hero') or '')
+                hero = absolute(entry.get('hero') or '')
                 if not sku or not hero:
                     continue
                 overrides[sku] = {
                     'hero': hero,
                     'gallery': [
                         url for url in (
-                            _public_url(g) for g in entry.get('gallery') or []
+                            absolute(g) for g in entry.get('gallery') or []
                         ) if url
                     ],
                 }

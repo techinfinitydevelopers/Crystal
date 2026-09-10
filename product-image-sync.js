@@ -44,6 +44,13 @@
       .catch(function () { finish(null); });
   });
 
+  /* The same photo reaches us written two ways — the catalogue stores
+     "product-photos/CC-850/g2.jpg", the dashboard publishes it absolute — so
+     compare on the path alone. */
+  function photoKey(url) {
+    return String(url || "").replace(/^https?:\/\/[^/]+/, "").replace(/^\/+/, "");
+  }
+
   /* Returns true if anything was actually replaced — no point rebuilding the
      response for a catalogue that came out identical. */
   function applyOverrides(data, map) {
@@ -53,9 +60,34 @@
     for (var i = 0; i < list.length; i++) {
       var entry = list[i];
       var override = entry && map[entry.sku];
-      if (!override) continue;
-      if (override.hero) { entry.hero = override.hero; touched = true; }
-      if (Array.isArray(override.gallery)) { entry.gallery = override.gallery; touched = true; }
+      if (!override || !override.hero) continue;
+
+      /* Promote the chosen photo, keep every other one.
+
+         The dashboard only holds the photos it knows about — for an imported
+         product that is often just the uploaded file and the old hero, while
+         the catalogue carries the full strip. Assigning override.gallery
+         straight over entry.gallery therefore used to drop the rest: CC-850
+         went from eight thumbnails to one. So the gallery is rebuilt as the
+         union instead, catalogue order first, and the photo being promoted is
+         the only one taken out of it. */
+      var seen = {}, gallery = [];
+      var keep = [entry.hero].concat(
+        Array.isArray(entry.gallery) ? entry.gallery : [],
+        Array.isArray(override.gallery) ? override.gallery : []
+      );
+      var heroKey = photoKey(override.hero);
+      for (var j = 0; j < keep.length; j++) {
+        var url = keep[j];
+        if (!url) continue;
+        var key = photoKey(url);
+        if (key === heroKey || seen[key]) continue;
+        seen[key] = true;
+        gallery.push(url);
+      }
+      entry.hero = override.hero;
+      entry.gallery = gallery;
+      touched = true;
     }
     return touched;
   }
