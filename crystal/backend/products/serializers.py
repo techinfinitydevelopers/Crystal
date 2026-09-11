@@ -198,6 +198,32 @@ def site_amazon_link(product, variant=None):
     return None
 
 
+def site_marketplaces(product):
+    """Every other shop this product is listed in, for the "Available on" row.
+
+    Amazon is deliberately left out: `amazon_link` already carries it under
+    rules this must not quietly change (an imported row's stale marketplace link
+    is hidden on purpose). So this is the extra shops only — Flipkart, JioMart,
+    Meesho — and it is omitted entirely when there are none, which keeps the
+    entry shape identical to products.json for every product today.
+    """
+    rows = []
+    for link in product.marketplace_links.all():
+        market = link.marketplace
+        if not market or market.slug == "amazon" or not market.is_active:
+            continue
+        if not link.url:
+            continue
+        rows.append({
+            "slug": market.slug,
+            "name": market.name,
+            "url": link.url,
+            "logo": _marketplace_logo_url(market, None),
+        })
+    rows.sort(key=lambda r: r["name"].lower())
+    return rows
+
+
 def site_video(product, variant=None):
     """7 of the 29 size-groups have a video on some sizes but not others, so a
     variant's own video has to win before the product's."""
@@ -336,6 +362,9 @@ def site_product_entries(product):
         }
     # Only emitted when set, so a product nobody has given SEO copy to keeps
     # exactly the entry shape products.json has today.
+    marketplaces = site_marketplaces(product)
+    if marketplaces:
+        common["marketplaces"] = marketplaces
     if product.meta_title:
         common["meta_title"] = product.meta_title
     if product.meta_description:

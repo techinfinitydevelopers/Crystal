@@ -716,6 +716,7 @@ h1, h2 { overflow-wrap: break-word; }
     crystal:"World of Kitchenware", crystalina:"Splendid Finish",
     sparkmate:"Cleaning Simplified", valmate:"Value for Money"
   };
+  window.crystalSync && window.crystalSync.brands(BRANDS);
   const NAMES = { crystal:"Crystal", crystalina:"Crystalina", sparkmate:"SparkMate", valmate:"ValMate" };
   const bl = Object.keys(BRANDS);
   document.getElementById("ddMenu").innerHTML = bl.map(s => `<a href="All-Products.html?brand=${s}"><b>${NAMES[s]}</b><span>${BRANDS[s]}</span></a>`).join("");

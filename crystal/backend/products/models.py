@@ -36,6 +36,12 @@ class Brand(models.Model):
     catalogue = models.FileField(upload_to='brands/catalogues/', blank=True, null=True, help_text='Upload brand catalogue PDF')
     description = models.TextField(blank=True)
     is_active = models.BooleanField(default=True)
+    # Same idea as Product.overridden_fields: the site ships its own copy of
+    # this, so only what someone actually edited here may replace it.
+    overridden_fields = models.JSONField(
+        default=list, blank=True,
+        help_text="Internal — the parts of this that were edited here and should "
+                  "replace what the website ships.")
 
     def __str__(self):
         return self.name
@@ -51,6 +57,12 @@ class Category(models.Model):
     slug = models.SlugField(unique=True)
     parent = models.ForeignKey('self', null=True, blank=True, on_delete=models.SET_NULL, related_name='children')
     order = models.PositiveIntegerField(default=0)
+    # Same idea as Product.overridden_fields: the site ships its own copy of
+    # this, so only what someone actually edited here may replace it.
+    overridden_fields = models.JSONField(
+        default=list, blank=True,
+        help_text="Internal — the parts of this that were edited here and should "
+                  "replace what the website ships.")
 
     class Meta:
         ordering = ['order', 'name']

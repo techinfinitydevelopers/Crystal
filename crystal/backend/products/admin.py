@@ -47,8 +47,30 @@ def _img(url, h=40):
 
 # ── Brand ──────────────────────────────────────────────────────────────────
 
+class _RecordsEdits:
+    """Remembers which fields were edited here, so the site can use them.
+
+    Every listing page ships its own copy of the brand and category wording and
+    the two are not word-for-word identical to this database, so publishing the
+    whole row would rewrite copy nobody asked to change. Recording just the
+    edited fields is what keeps the override honest — see products/overrides.py.
+    """
+
+    override_map = {}
+    publishable = frozenset()
+
+    def save_model(self, request, obj, form, change):
+        keys = ov.keys_for(self.override_map, form.changed_data) & self.publishable
+        if keys:
+            obj.overridden_fields = sorted(set(obj.overridden_fields or ()) | keys)
+        super().save_model(request, obj, form, change)
+
+
 @admin.register(Brand)
-class BrandAdmin(admin.ModelAdmin):
+class BrandAdmin(_RecordsEdits, admin.ModelAdmin):
+    override_map = ov.BRAND_FIELD_KEYS
+    publishable = ov.BRAND_PUBLISHABLE
+
     list_display = ['logo_preview', 'name', 'tagline', 'slug', 'is_active']
     search_fields = ['name', 'slug']
     list_filter = ['is_active']
@@ -78,7 +100,10 @@ class BrandAdmin(admin.ModelAdmin):
 # ── Category ───────────────────────────────────────────────────────────────
 
 @admin.register(Category)
-class CategoryAdmin(admin.ModelAdmin):
+class CategoryAdmin(_RecordsEdits, admin.ModelAdmin):
+    override_map = ov.CATEGORY_FIELD_KEYS
+    publishable = ov.CATEGORY_PUBLISHABLE
+
     list_display = ['name', 'parent_name', 'slug', 'order', 'product_count']
     search_fields = ['name', 'slug']
     list_filter = ['parent']

@@ -48,7 +48,7 @@ FORM_FIELD_KEYS = {
 INLINE_KEYS = {
     'ProductImage': ('hero', 'gallery'),
     'ProductSpecification': ('filters',),
-    'ProductMarketplaceLink': ('amazon_link',),
+    'ProductMarketplaceLink': ('amazon_link', 'marketplaces'),
 }
 
 SYNC_FIELDS_FOR_KEY = {
@@ -69,7 +69,7 @@ SYNC_FIELDS_FOR_KEY = {
 # excluded — it becomes the hidden list instead of an entry field.
 PUBLISHABLE = frozenset(
     key for keys in FORM_FIELD_KEYS.values() for key in keys if key != IS_ACTIVE
-) | {'filters'}
+) | {'filters', 'marketplaces'}
 
 
 def keys_for_form_fields(field_names):
@@ -90,3 +90,31 @@ def sync_fields_to_skip(overridden_keys):
     for key in overridden_keys or ():
         fields.update(SYNC_FIELDS_FOR_KEY.get(key, ()))
     return fields
+
+
+# ── Brands and categories ──────────────────────────────────────────────────
+# The site ships its own copy of both (a BRANDS array and a CATEGORIES array in
+# every listing page), and those copies are not always word-for-word what the
+# database holds — "Wood Range" here is "Wooden Range" there, for one. So the
+# same rule applies: only a field somebody actually edited may replace what the
+# page ships. Everything else stays exactly as it is.
+
+BRAND_FIELD_KEYS = {
+    'name': ('name',),
+    'tagline': ('tagline',),
+    'description': ('blurb',),
+}
+
+CATEGORY_FIELD_KEYS = {
+    'name': ('label',),
+}
+
+BRAND_PUBLISHABLE = frozenset(k for ks in BRAND_FIELD_KEYS.values() for k in ks)
+CATEGORY_PUBLISHABLE = frozenset(k for ks in CATEGORY_FIELD_KEYS.values() for k in ks)
+
+
+def keys_for(mapping, field_names):
+    keys = set()
+    for name in field_names:
+        keys.update(mapping.get(name, ()))
+    return keys

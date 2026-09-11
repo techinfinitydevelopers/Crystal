@@ -176,6 +176,12 @@ class ImageOverridesView(APIView):
                             continue
                     elif key == 'gallery':
                         value = [u for u in (absolute(g) for g in value or []) if u]
+                    elif key == 'marketplaces':
+                        # A logo can be an upload on this service or a static
+                        # file bundled with it; either way the page asking is on
+                        # another host and needs it spelled out in full.
+                        value = [dict(row, logo=absolute(row.get('logo')))
+                                 for row in value or []]
                     patch[key] = value
                 # 95 codes exist both as a standalone product and as a size of
                 # another one (all the standalone copies are inactive, so only
@@ -184,4 +190,37 @@ class ImageOverridesView(APIView):
                 if patch and sku not in overrides:
                     overrides[sku] = patch
 
-        return Response({'products': overrides, 'hidden': sorted(hidden)})
+        return Response({
+            'products': overrides,
+            'hidden': sorted(hidden),
+            'brands': self._simple(Brand.objects.all(), ov.BRAND_PUBLISHABLE,
+                                   ov.BRAND_FIELD_KEYS),
+            'categories': self._simple(Category.objects.all(), ov.CATEGORY_PUBLISHABLE,
+                                       ov.CATEGORY_FIELD_KEYS),
+        })
+
+    @staticmethod
+    def _simple(queryset, publishable, field_keys):
+        """Brands and categories, keyed by slug, carrying only edited fields.
+
+        The pages ship their own wording for both and it is not always what the
+        database holds — the site says "Wooden Range" where this says "Wood
+        Range" — so publishing everything would silently rewrite copy nobody
+        asked to change. Only what someone edited here is sent.
+        """
+        # Which model field feeds which published key, inverted once.
+        source_for = {}
+        for field, keys in field_keys.items():
+            for key in keys:
+                source_for[key] = field
+
+        out = {}
+        for obj in queryset.exclude(overridden_fields=[]):
+            patch = {}
+            for key in set(obj.overridden_fields or ()) & publishable:
+                value = getattr(obj, source_for.get(key, ''), None)
+                if value:
+                    patch[key] = value
+            if patch:
+                out[obj.slug] = patch
+        return out

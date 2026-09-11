@@ -836,6 +836,7 @@ h1, h2 { overflow-wrap: break-word; }
     { id: "cleaning-aid", label: "Cleaning Aid" },
   ];
   const CAT_LABEL = Object.fromEntries(CATEGORIES.map(c => [c.id, c.label]));
+  window.crystalSync && window.crystalSync.categories(CATEGORIES, CAT_LABEL);
 
   const BRANDS = [
     { slug: "crystal",    name: "Crystal",    tagline: "World of Kitchenware", blurb: "From the gas lighter that started it all to a full world of kitchen essentials — cookware, cutlery, lighters and appliances trusted in Indian homes since 1971.", title: "World of <span class='grad'>Kitchenware</span>" },
@@ -847,6 +848,7 @@ h1, h2 { overflow-wrap: break-word; }
   const BRAND_PAGES = { crystal: "Brand-Crystal.html", crystalina: "Brand-Crystalina.html", sparkmate: "Brand-SparkMate.html", valmate: "Brand-ValMate.html" };
   const brandHref = b => BRAND_PAGES[b.slug] || ("All-Products.html?brand=" + b.slug);
   const BRAND_BY = Object.fromEntries(BRANDS.map(b => [b.slug, b]));
+  window.crystalSync && window.crystalSync.brands(BRANDS);
 
   // Real catalog loaded from product-data/products.json (see bootstrap at
   // the bottom of this script). P/PID start empty and are populated once
