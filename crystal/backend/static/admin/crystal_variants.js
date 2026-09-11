@@ -68,6 +68,72 @@
     return false;   /* variant not in the dropdown yet — page predates this save */
   }
 
+  /* ── Photos, added on the card itself ───────────────────────────────────
+     The old button scrolled you down to the gallery grid and left you to find
+     your way back. The card now takes the files directly: the grid still does
+     the work (window.crystalMedia), but nothing moves under you and the strip
+     updates on the spot so it is obvious the photo landed on THIS size. */
+
+  function stripOf(card) {
+    return card && card.querySelector('.cz-strip-thumbs');
+  }
+
+  function showThumb(card, file) {
+    var strip = stripOf(card);
+    if (!strip) {
+      var empty = card.querySelector('.cz-strip-empty');
+      if (!empty) return;
+      strip = document.createElement('div');
+      strip.className = 'cz-strip-thumbs';
+      empty.parentNode.replaceChild(strip, empty);
+    }
+    var span = document.createElement('span');
+    span.className = 'cz-sthumb cz-sthumb--pending';
+    span.title = 'Added — uploads when you save';
+    var img = document.createElement('img');
+    var url = URL.createObjectURL(file);
+    img.addEventListener('load', function () { URL.revokeObjectURL(url); }, { once: true });
+    img.src = url;
+    img.alt = '';
+    span.appendChild(img);
+    strip.appendChild(span);
+  }
+
+  function addFilesToCard(card, files) {
+    var holder = card.querySelector('.cz-addphotos');
+    var variantId = holder && holder.getAttribute('data-variant-id');
+    if (!variantId) return;
+    if (!window.crystalMedia || !window.crystalMedia.grid()) {
+      window.alert('The Gallery Images section is not on this page, so photos cannot be added here.');
+      return;
+    }
+    var images = Array.prototype.filter.call(files, function (f) { return /^image\//.test(f.type); });
+    if (!images.length) return;
+    var added = window.crystalMedia.addFilesTo(variantId, images);
+    if (!added) return;
+    images.slice(0, added).forEach(function (f) { showThumb(card, f); });
+    flashCard(card);
+  }
+
+  function flashCard(card) {
+    card.classList.add('cz-card--flash');
+    setTimeout(function () { card.classList.remove('cz-card--flash'); }, 900);
+  }
+
+  /* "Upload a video for this size" just opens the details and focuses the
+     field that is already there — no second control to keep in step. */
+  function jumpToVideo(card) {
+    var body = card.querySelector('details.cz-body');
+    if (body) body.open = true;
+    var input = card.querySelector('input[type="file"][name$="-video"]');
+    if (!input) return;
+    var field = input.closest('.cz-field') || input;
+    field.scrollIntoView({ block: 'center', behavior: 'smooth' });
+    try { input.focus({ preventScroll: true }); } catch (e) { input.focus(); }
+    field.classList.add('cz-field--flash');
+    setTimeout(function () { field.classList.remove('cz-field--flash'); }, 900);
+  }
+
   function addPhotosTo(variantId, variantName) {
     var group = imagesGroup();
     if (!group) {
@@ -155,10 +221,66 @@
     if (!document.querySelector(SIZES_GROUP)) return;
 
     document.addEventListener('click', function (ev) {
-      var btn = ev.target.closest && ev.target.closest('.cz-addphotos');
+      var addSize = ev.target.closest && ev.target.closest('[data-cz-addsize]');
+      if (addSize) {
+        ev.preventDefault();
+        var group = document.querySelector(SIZES_GROUP);
+        var link = group && group.querySelector('.add-row a, a.add-row');
+        if (!link) {
+          window.alert('No more sizes can be added to this product.');
+          return;
+        }
+        link.click();
+        var cards = group.querySelectorAll('.cz-card:not(.cz-card--template)');
+        var made = cards[cards.length - 1];
+        if (made) made.scrollIntoView({ block: 'center', behavior: 'smooth' });
+        return;
+      }
+      var jump = ev.target.closest && ev.target.closest('[data-cz-videojump]');
+      if (jump) {
+        ev.preventDefault();
+        var card = jump.closest('.cz-card');
+        if (card) jumpToVideo(card);
+        return;
+      }
+      /* The picker is a <label> wrapping a file input now; let the browser
+         open it. Only the old button shape still needs the jump behaviour. */
+      var btn = ev.target.closest && ev.target.closest('button.cz-addphotos');
       if (!btn) return;
       ev.preventDefault();
       addPhotosTo(btn.getAttribute('data-variant-id'), btn.getAttribute('data-variant-name'));
+    });
+
+    document.addEventListener('change', function (ev) {
+      var picker = ev.target;
+      if (!picker.matches || !picker.matches('[data-cz-sizepicker]')) return;
+      var card = picker.closest('.cz-card');
+      if (card && picker.files && picker.files.length) addFilesToCard(card, picker.files);
+      picker.value = '';
+    });
+
+    /* Dropping files anywhere on a card is the same thing as using its picker. */
+    document.addEventListener('dragover', function (ev) {
+      var card = ev.target.closest && ev.target.closest('.cz-card');
+      if (!card || !card.querySelector('.cz-addphotos')) return;
+      if (!ev.dataTransfer || (ev.dataTransfer.types || []).indexOf('Files') === -1) return;
+      ev.preventDefault();
+      ev.dataTransfer.dropEffect = 'copy';
+      card.classList.add('cz-card--filedrag');
+    });
+
+    document.addEventListener('dragleave', function (ev) {
+      var card = ev.target.closest && ev.target.closest('.cz-card');
+      if (card && !card.contains(ev.relatedTarget)) card.classList.remove('cz-card--filedrag');
+    });
+
+    document.addEventListener('drop', function (ev) {
+      var card = ev.target.closest && ev.target.closest('.cz-card');
+      if (!card || !card.querySelector('.cz-addphotos')) return;
+      if (!ev.dataTransfer || !ev.dataTransfer.files || !ev.dataTransfer.files.length) return;
+      ev.preventDefault();
+      card.classList.remove('cz-card--filedrag');
+      addFilesToCard(card, ev.dataTransfer.files);
     });
 
     document.addEventListener('change', function (ev) {

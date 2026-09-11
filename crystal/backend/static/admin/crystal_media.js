@@ -442,6 +442,22 @@
     syncDeleted(root);
   }
 
+  /* Let the size cards above put photos straight onto a size, instead of
+     sending someone down to this grid to do it by hand. Everything the grid
+     already knows about creating a row, attaching the file, pointing it at a
+     size and filing it under that size's heading is reused as-is — the card
+     only supplies the files and the size. */
+  window.crystalMedia = {
+    grid: function () {
+      return document.querySelector(".cz-media.js-inline-admin-formset");
+    },
+    addFilesTo: function (variantValue, fileList) {
+      var root = this.grid();
+      if (!root) return 0;
+      return addFiles(root, fileList, variantValue || "");
+    }
+  };
+
   function init() {
     all(document, ".cz-media.js-inline-admin-formset").forEach(wire);
   }

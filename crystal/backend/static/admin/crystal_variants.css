@@ -22,8 +22,16 @@
 /* ── Section header ─────────────────────────────────────────────────────── */
 
 .cz-sizes-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
   margin: 0 0 12px;
 }
+
+.cz-sizes-headtext { flex: 1 1 320px; min-width: 0; }
+.cz-sizes-add { flex: 0 0 auto; }
 
 /* fieldset.module carries Django admin's own `.module h2` bar in stock admin;
    neutralise it so the heading reads as a plain Shopify-style section label
@@ -593,4 +601,94 @@
   .cz-card,
   .cz-summary::before,
   .cz-flash { transition: none; animation: none; }
+}
+
+/* ── Photos and video, added on the size card itself ──────────────────────
+   The picker is a <label> wrapping a real file input now, so the browser's
+   own file dialog does the work and the control still reads as a button. */
+.cz-addphotos { display: inline-flex; align-items: center; gap: 5px; }
+
+.cz-addphotos input[type="file"] {
+  /* Off-screen rather than display:none, or it drops out of the tab order. */
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.cz-addphotos:focus-within {
+  outline: 2px solid var(--c-red);
+  outline-offset: 2px;
+}
+
+.cz-strip-note {
+  flex: 1 1 100%;
+  margin: 6px 0 0;
+  font-size: 11px;
+  color: var(--s-ink-soft, #64748b);
+}
+
+/* A photo chosen but not yet uploaded — it only exists in the form until save. */
+.cz-sthumb--pending {
+  outline: 2px dashed var(--c-red);
+  outline-offset: 1px;
+}
+
+.cz-card--filedrag {
+  outline: 2px dashed var(--c-red);
+  outline-offset: 3px;
+  background: var(--c-red-soft);
+}
+
+@keyframes cz-card-flash {
+  from { box-shadow: 0 0 0 3px var(--c-red); }
+  to   { box-shadow: 0 0 0 3px transparent; }
+}
+
+.cz-card--flash { animation: cz-card-flash .9s ease-out; }
+.cz-field--flash { animation: cz-card-flash .9s ease-out; border-radius: var(--s-radius-sm); }
+
+/* ── The size's own video ─────────────────────────────────────────────────
+   Lifted out of the collapsed "Details for this size" box: whether a size has
+   its own video is something you want to see without opening anything. */
+.cz-svideo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px dashed var(--s-border, #e5e7eb);
+}
+
+.cz-svideo-player {
+  height: 68px;
+  width: auto;
+  border-radius: var(--s-radius-sm);
+  background: #000;
+}
+
+.cz-svideo-note {
+  flex: 1 1 auto;
+  font-size: 11.5px;
+  color: var(--s-ink-soft, #64748b);
+}
+
+.cz-svideo-btn {
+  flex: 0 0 auto;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--s-ink);
+  background: var(--s-surface);
+  border: 1px solid var(--s-border-strong);
+  border-radius: var(--s-radius-sm);
+  padding: 5px 10px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.cz-svideo-btn:hover {
+  border-color: var(--c-red);
+  color: var(--c-red);
+  background: var(--c-red-soft);
 }

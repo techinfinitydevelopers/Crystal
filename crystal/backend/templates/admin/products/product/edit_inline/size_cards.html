@@ -23,8 +23,18 @@
   <fieldset class="module {{ inline_admin_formset.classes }} cz-sizes-fieldset">
 
     <div class="cz-sizes-head">
-      <h2 class="cz-sizes-title">{{ inline_admin_formset.opts.verbose_name_plural|capfirst }}</h2>
-      <p class="cz-sizes-sub">{% trans "One card per size. Open a card to edit what differs from the product above — leave a field blank and this size inherits the product's value." %}</p>
+      <div class="cz-sizes-headtext">
+        <h2 class="cz-sizes-title">{{ inline_admin_formset.opts.verbose_name_plural|capfirst }}</h2>
+        <p class="cz-sizes-sub">{% trans "One card per size. Open a card to edit what differs from the product above — leave a field blank and this size inherits the product's value. Each card takes its own photos and its own video." %}</p>
+      </div>
+      {% if inline_admin_formset.has_add_permission %}
+        {% comment %}Django injects its "Add another" link after the last card, which
+        on a product with eight sizes is a long way down. This is the same link,
+        clicked for you from the top — see crystal_variants.js.{% endcomment %}
+        <button type="button" class="cz-btn cz-btn--primary cz-sizes-add" data-cz-addsize>
+          <span aria-hidden="true">&#43;</span> {% trans "Add a size" %}
+        </button>
+      {% endif %}
     </div>
 
     {{ inline_admin_formset.formset.management_form }}
@@ -128,13 +138,6 @@
                 {% endif %}
               {% endfor %}
 
-              {% if orig.video or orig.video_url %}
-                <div class="cz-field cz-field--wide cz-videobox">
-                  <label>{% trans "This size's video" %}</label>
-                  <video class="cz-video" preload="metadata" controls playsinline
-                         src="{% if orig.video %}{{ orig.video.url }}{% else %}{{ orig.video_url }}{% endif %}"></video>
-                </div>
-              {% endif %}
             </div>
 
             {% if inline_admin_formset.formset.can_delete and inline_admin_formset.has_delete_permission and orig %}
@@ -174,9 +177,34 @@
             {% endif %}
 
             {% if orig.pk %}
-              <button type="button" class="cz-addphotos" data-variant-id="{{ orig.pk }}"
-                      data-variant-name="{{ orig.name }}">
-                {% trans "Add photos to this size" %}
+              {% comment %}A real file input, not a button that sends you down to the
+              gallery: the photos are added to this size right here and the strip
+              updates on the spot. Files can also be dropped anywhere on the card.
+              The gallery grid below still does the actual work — see
+              window.crystalMedia in crystal_media.js.{% endcomment %}
+              <label class="cz-addphotos" data-variant-id="{{ orig.pk }}"
+                     data-variant-name="{{ orig.name }}">
+                <input type="file" multiple accept="image/*" data-cz-sizepicker>
+                <span aria-hidden="true">&#43;</span> {% trans "Add photos to this size" %}
+              </label>
+              <p class="cz-strip-note">{% trans "Or drop image files onto this card. They upload when you save." %}</p>
+            {% endif %}
+          </div>
+
+          {# ── Video for this size ─────────────────────────────────────────── #}
+          <div class="cz-svideo">
+            {% if orig.video or orig.public_video_url %}
+              {% comment %}Never the raw video_url — same site-root-relative path
+              problem the photos have.{% endcomment %}
+              <video class="cz-svideo-player" preload="metadata" controls playsinline
+                     src="{% if orig.video %}{{ orig.video.url }}{% else %}{{ orig.public_video_url }}{% endif %}"></video>
+              <span class="cz-svideo-note">{% trans "This size has its own video." %}</span>
+            {% elif orig.pk %}
+              <span class="cz-svideo-note">{% trans "No video of its own — this size plays the product's video." %}</span>
+            {% endif %}
+            {% if orig.pk %}
+              <button type="button" class="cz-svideo-btn" data-cz-videojump>
+                {% if orig.video or orig.public_video_url %}{% trans "Replace video" %}{% else %}{% trans "Upload a video for this size" %}{% endif %}
               </button>
             {% endif %}
           </div>
