@@ -258,3 +258,15 @@ Titles confirmed to match expected products before any save. Old images deleted 
 **Checked, no work needed:** Brand pages have a `.cta-band` CSS rule with no matching element in the markup (dead code) — their only bottom section is the shared site-wide footer, out of scope since it's identical across every page, not brand-specific.
 
 **Still open:** Home (index.html/index-v2.html) has 3 stat rows and its own CTA, not yet wired — index.html is generated from home-v3-src, so that edit goes in the source, not the file directly.
+
+## 2026-09-11 — Dashboard: wire Home page stats and CTA
+
+**Task:** Wire index.html/index-v2.html's stats and CTA into the page-sections dashboard.
+
+**Found mid-task:** index.html's real body is NOT built from home-v3-src/shell-donor.html's HERO-to-FOOTER content — build_v3.py discards that range and splices in home-v3-src/v3_main.html instead (shell-donor.html only donates the outer shell for that range). index.html's actual structure differs completely from index-v2.html: one About+Counters block (4 stats, `class="count3" data-target="N"`) instead of three separate stat rows, and a single-line CTA instead of two.
+
+**Done:** Added ids to index-v2.html and shell-donor.html's three stat rows (About/Who-We-Are, Infrastructure, Our Brands) and two-line CTA; added ids to v3_main.html's actual counters and CTA. Fixed a timing bug in v3.js: the count3 counters captured `data-target` into a closure variable immediately at page load, before their scroll-triggered animation ever fired, so a dashboard edit arriving later (async fetch) had no effect — moved the dataset read inside the ScrollTrigger's onEnter callback so it's read lazily at trigger time, matching the safe pattern the other (`data-count`) counter script already used. Verified: scrolled a counter into view after overriding its value and watched the animation land on the new number.
+
+**Found on commit:** a concurrent session (co-authored "Claude Opus 5") had independently built and pushed byte-identical work as ca224e0 while this was in progress. Working tree came back clean against it — nothing left to commit. Same pattern as the earlier fbb66bc/3f1d518 convergences in this project.
+
+**Page-sections dashboard is now wired across:** all 46 listing pages (hero, CTA), About.html (hero, about-adjacent stats, stats x2), 4 Brand pages (hero, about section), index.html and index-v2.html (hero, stats, CTA).
