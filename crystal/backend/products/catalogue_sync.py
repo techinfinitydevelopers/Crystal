@@ -12,8 +12,8 @@ from django.db import transaction
 from django.utils.text import slugify
 
 from products.models import (
-    Brand, Category, Product, ProductSpecification, Marketplace,
-    ProductMarketplaceLink, RetiredSku,
+    Brand, Category, Product, ProductImage, ProductSpecification, Marketplace,
+    ProductMarketplaceLink, ProductVariant, RetiredSku,
 )
 from products.overrides import sync_fields_to_skip
 
@@ -34,6 +34,73 @@ BRAND_LABELS = {
 
 def slugify_sub(sub):
     return sub.replace(" ", "-").lower()
+
+
+# Photo rows whose path starts with one of these came from the catalogue and
+# are this function's to manage. Anything else — a file someone uploaded in the
+# dashboard, which lands under products/gallery/ — is left strictly alone.
+from products.media_urls import SITE_CONTENT_DIRS
+
+
+def _sync_photos(product, variant, wanted, owned_keys):
+    """Make this product's (or size's) catalogue photos match the file.
+
+    Returns how many rows changed. Three rules make it safe to run on every
+    deploy:
+
+      * a product whose photos were edited in the dashboard is skipped outright
+        — that edit is the authority now (see products/overrides.py);
+      * only rows pointing into the website's own photo folders are touched, so
+        an uploaded file is never deleted or reordered by a sync;
+      * it is idempotent — a second run with the same file changes nothing.
+    """
+    if owned_keys and ({"hero", "gallery"} & set(owned_keys)):
+        return 0
+
+    existing = [
+        im for im in product.images.all()
+        if im.variant_id == (variant.id if variant is not None else None)
+    ]
+    from_site = {
+        im.image.name: im for im in existing
+        if (im.image.name or "").split("/", 1)[0] in SITE_CONTENT_DIRS
+    }
+    # Uploaded photos keep their places at the end; catalogue order comes first.
+    uploaded = [im for im in existing if im.image.name not in from_site]
+
+    changed = 0
+    for order, path in enumerate(wanted):
+        row = from_site.pop(path, None)
+        is_hero = order == 0
+        if row is None:
+            ProductImage.objects.create(
+                product=product, variant=variant, image=path,
+                order=order, is_hero=is_hero,
+            )
+            changed += 1
+            continue
+        if row.order != order or row.is_hero != is_hero:
+            row.order, row.is_hero = order, is_hero
+            row.save(update_fields=["order", "is_hero"])
+            changed += 1
+
+    # Whatever is left pointed at a website photo the catalogue no longer lists.
+    # Deleting the row drops a reference, never a file — re-adding the path to
+    # the catalogue brings it straight back on the next sync.
+    for row in from_site.values():
+        row.delete()
+        changed += 1
+
+    for offset, row in enumerate(uploaded):
+        order = len(wanted) + offset
+        if row.order != order or (wanted and row.is_hero):
+            row.order = order
+            if wanted:
+                row.is_hero = False
+            row.save(update_fields=["order", "is_hero"])
+            changed += 1
+
+    return changed
 
 
 @transaction.atomic
@@ -66,7 +133,14 @@ def sync_catalogue(items):
         .values_list("sku", "overridden_fields")
     )
 
-    created, updated, skipped, removed = 0, 0, 0, 0
+    # A catalogue sku can name a size of a collapsed group rather than a product
+    # of its own; its photos then belong to that ProductVariant.
+    variant_by_sku = {
+        v.sku: v for v in
+        ProductVariant.objects.exclude(sku="").select_related("product")
+    }
+
+    created, updated, skipped, removed, photo_changes = 0, 0, 0, 0, 0
     for p in items:
         sku = (p.get("sku") or "").strip()
         if not sku:
@@ -127,10 +201,20 @@ def sync_catalogue(items):
         else:
             updated += 1
 
-        # Note: ProductImage.image is a file field (ImageField), so external gallery
-        # URLs from the JSON can't be assigned directly without downloading each file.
-        # Skipped for this sync; Product.image_url (hero) is set above and covers the
-        # primary product photo. Gallery URLs remain in product-data/products.json.
+        # Photos. Every path in the catalogue is site-root-relative
+        # ("product-photos/CL-216/g4.jpg", "sparkmate/SHH009/img-1.jpg") and the
+        # files live on the website service, so the row only has to carry the
+        # path — nothing is downloaded or copied. This used to be skipped
+        # entirely, which is why 172 products showed photos on the site and
+        # none, or fewer, in the dashboard.
+        photos = [x for x in [p.get("hero")] + list(p.get("gallery") or []) if x]
+        target = variant_by_sku.get(sku)
+        if target is not None:
+            # A size of a collapsed group: its photos belong to that size, not
+            # to the parent in general, or every size would inherit them.
+            photo_changes += _sync_photos(target.product, target, photos, owned.get(target.product.sku))
+        else:
+            photo_changes += _sync_photos(prod, None, photos, owned.get(sku))
 
         # specifications from filters{} — rebuilt wholesale, so a product whose
         # specs were edited here has to be left out of it entirely.
@@ -168,6 +252,7 @@ def sync_catalogue(items):
         "updated": updated,
         "skipped": skipped,
         "removed_in_dashboard": removed,
+        "photo_rows_changed": photo_changes,
         "retired": retired,
         "total_products": Product.objects.count(),
         "total_brands": Brand.objects.count(),

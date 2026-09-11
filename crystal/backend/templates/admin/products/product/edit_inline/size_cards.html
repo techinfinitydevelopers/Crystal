@@ -43,10 +43,18 @@
             {% with hero=imgs|dictsortreversed:"is_hero"|first %}
               {% if hero %}
                 <span class="cz-thumb{% if hero.is_hero %} cz-thumb--hero{% endif %}">
-                  <img src="{{ hero.image.url }}" alt="" loading="lazy">
+                  {% if hero.public_image_url %}
+                    <img src="{{ hero.public_image_url }}" alt="" loading="lazy">
+                  {% else %}
+                    <img src="{{ hero.image.url }}" alt="" loading="lazy">
+                  {% endif %}
                 </span>
-              {% elif orig.image_url %}
-                <span class="cz-thumb"><img src="{{ orig.image_url }}" alt="" loading="lazy"></span>
+              {% elif orig.public_image_url %}
+                {% comment %}Never the raw image_url: a site-root-relative path in an
+                <img src> is resolved against /admin/products/product/… and the failed
+                lookup queues a "Product with ID … doesn't exist" banner onto the next
+                page the admin opens.{% endcomment %}
+                <span class="cz-thumb"><img src="{{ orig.public_image_url }}" alt="" loading="lazy"></span>
               {% else %}
                 <span class="cz-thumb cz-thumb--empty" aria-hidden="true">
                   {% if orig %}&#9723;{% else %}&#43;{% endif %}
@@ -144,7 +152,14 @@
                 {% for img in imgs|slice:":8" %}
                   <span class="cz-sthumb{% if img.is_hero %} cz-sthumb--hero{% endif %}"
                         title="{% if img.is_hero %}{% trans 'Main photo' %}{% else %}#{{ img.order }}{% endif %}">
-                    <img src="{{ img.image.url }}" alt="" loading="lazy">
+                    {% comment %}Imported photos are site-root-relative paths whose files live
+                    on the website service, so .url (/media/…) 404s here. Same resolution
+                    the gallery grid uses.{% endcomment %}
+                    {% if img.public_image_url %}
+                      <img src="{{ img.public_image_url }}" alt="" loading="lazy">
+                    {% else %}
+                      <img src="{{ img.image.url }}" alt="" loading="lazy">
+                    {% endif %}
                   </span>
                 {% endfor %}
                 {% if imgs|length > 8 %}

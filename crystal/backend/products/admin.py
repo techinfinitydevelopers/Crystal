@@ -279,6 +279,9 @@ def _image_public_url(image_field):
 
 
 ProductImage.public_image_url = property(lambda self: _image_public_url(self.image))
+# A size with no photo rows of its own falls back to a stored path string;
+# the size-card template needs the same resolution for it.
+ProductVariant.public_image_url = property(lambda self: _public_url(self.image_url))
 
 
 class ProductSpecificationInline(admin.StackedInline):

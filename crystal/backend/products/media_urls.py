@@ -11,6 +11,11 @@ from django.conf import settings
 SITE_CONTENT_DIRS = frozenset({
     'product-photos', 'about-assets', 'brand-assets', 'home-v3-assets',
     'uploads', 'brand-logos', 'product-data',
+    # The catalogue keeps 451 SparkMate photos under their own root rather than
+    # product-photos/. Left out of this set they resolved to /media/sparkmate/…
+    # on the dashboard's own volume, where no such file exists, so every one of
+    # them would have been a broken thumbnail here.
+    'sparkmate',
 })
 
 
