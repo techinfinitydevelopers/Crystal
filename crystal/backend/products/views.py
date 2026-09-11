@@ -3,7 +3,8 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from django.shortcuts import get_object_or_404
 from .media_urls import _public_url
-from .models import Brand, Category, Product, Marketplace
+from . import overrides as ov
+from .models import Brand, Category, Marketplace, Product, RetiredSku
 from .serializers import (
     BrandSerializer, CategorySerializer, ProductListSerializer,
     ProductDetailSerializer, MarketplaceSerializer, site_product_entries,
@@ -96,41 +97,33 @@ class SiteCatalogueView(APIView):
 
 
 class ImageOverridesView(APIView):
-    """The photos that were changed here and are not in the site's own file yet.
+    """What the dashboard has changed that the site's own catalogue file does not know.
 
     The site is static files in git; this dashboard is a separate service and
-    cannot write into that repo, so product-data/products.json still names the
-    old photo until someone commits a new one. Same inversion as the category
-    banners: every page asks this endpoint, on load, whether a newer photo has
-    been set, and swaps it in.
+    cannot write into that repo, so `product-data/products.json` goes on naming
+    the old value until someone commits a new one. Same inversion as the
+    category banners: every page asks this endpoint on load and folds the answer
+    into the catalogue it just fetched.
 
-    Only products whose main image was actually chosen in the dashboard are
-    listed (`hero_overridden`), so this stays a handful of rows rather than a
-    second copy of the whole catalogue, and a product nobody has touched can
-    never be affected by it.
+    Only what was actually edited here is published. `Product.overridden_fields`
+    records the catalogue keys a person touched, so an untouched product is
+    absent from this feed entirely and can never be affected by it. Products
+    removed in the dashboard come back as `hidden`, which is a list of product
+    codes the pages drop.
 
-    Keyed by product code (`sku`), which is what the JSON entries are keyed by.
-    A product with sizes contributes one entry per size, exactly as it does in
-    products.json — the sizes can have their own photos.
+    Keyed by product code (`sku`), which is how the JSON entries are keyed. A
+    product with sizes contributes one entry per size, exactly as in
+    products.json.
 
-    URLs are absolute: an uploaded photo lives on this service's /media/, an
-    imported one on the website itself, and the page has no way to tell.
+    The name is historical — it started out publishing only the main image, and
+    the URL is kept so the copies of product-image-sync.js already cached in
+    people's browsers go on working.
     """
 
     authentication_classes = []
     permission_classes = []
 
     def get(self, request):
-        products = (
-            Product.objects.filter(is_active=True, hero_overridden=True)
-            .select_related('brand', 'category__parent')
-            .prefetch_related(
-                'images', 'variants', 'specifications',
-                'marketplace_links__marketplace',
-            )
-            .order_by('id')
-        )
-
         def absolute(value):
             """_public_url leaves an uploaded photo as /media/<path>, which is
             only root-relative. The page asking us is served from the website's
@@ -140,19 +133,55 @@ class ImageOverridesView(APIView):
             url = _public_url(value)
             return request.build_absolute_uri(url) if url else None
 
+        products = (
+            Product.objects.exclude(overridden_fields=[])
+            .select_related('brand', 'category__parent')
+            .prefetch_related(
+                'images', 'variants', 'specifications',
+                'marketplace_links__marketplace',
+            )
+            .order_by('id')
+        )
+
         overrides = {}
+        hidden = set(RetiredSku.objects.values_list('sku', flat=True))
+
         for product in products:
+            owned = set(product.overridden_fields or ())
+            # Someone switched this product off here. It stays out of the feed's
+            # body — there is nothing to render — and goes in the hidden list.
+            if ov.IS_ACTIVE in owned and not product.is_active:
+                if product.sku:
+                    hidden.add(product.sku)
+                continue
+            if not product.is_active:
+                continue
+
+            publish = owned & ov.PUBLISHABLE
+            if not publish:
+                continue
+
             for entry in site_product_entries(product):
                 sku = entry.get('sku')
-                hero = absolute(entry.get('hero') or '')
-                if not sku or not hero:
+                if not sku:
                     continue
-                overrides[sku] = {
-                    'hero': hero,
-                    'gallery': [
-                        url for url in (
-                            absolute(g) for g in entry.get('gallery') or []
-                        ) if url
-                    ],
-                }
-        return Response({'products': overrides})
+                patch = {}
+                for key in publish:
+                    if key not in entry:
+                        continue
+                    value = entry[key]
+                    if key == 'hero':
+                        value = absolute(value)
+                        if not value:
+                            continue
+                    elif key == 'gallery':
+                        value = [u for u in (absolute(g) for g in value or []) if u]
+                    patch[key] = value
+                # 95 codes exist both as a standalone product and as a size of
+                # another one (all the standalone copies are inactive, so only
+                # one of each reaches the feed today). If that ever stops being
+                # true, the first claim wins rather than the loop order deciding.
+                if patch and sku not in overrides:
+                    overrides[sku] = patch
+
+        return Response({'products': overrides, 'hidden': sorted(hidden)})

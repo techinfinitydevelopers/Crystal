@@ -969,7 +969,32 @@ h1, h2 { overflow-wrap: break-word; }
     wrap.addEventListener("mouseleave", () => wrap.classList.remove("zooming"));
   })();
 
-  document.title = prod.n + " — CRYSTAL";
+  /* Tab title and the summary Google and the share cards show. Both come from
+     the dashboard when someone has written them there, and otherwise stay
+     exactly what this page has always produced. */
+  function applySeo(p) {
+    document.title = (p.mt || (p.n + " — CRYSTAL"));
+    var summary = p.md || p.intro || p.desc || "";
+    [["name", "description"], ["property", "og:description"]].forEach(function (a) {
+      if (!summary) return;
+      var el = document.head.querySelector("meta[" + a[0] + '="' + a[1] + '"]');
+      if (!el) {
+        el = document.createElement("meta");
+        el.setAttribute(a[0], a[1]);
+        document.head.appendChild(el);
+      }
+      el.setAttribute("content", summary);
+    });
+    var ogt = document.head.querySelector('meta[property="og:title"]');
+    if (!ogt) {
+      ogt = document.createElement("meta");
+      ogt.setAttribute("property", "og:title");
+      document.head.appendChild(ogt);
+    }
+    ogt.setAttribute("content", p.mt || p.n);
+  }
+
+  applySeo(prod);
 
   /* ---- shared nav renders ---- */
   const brandList = Object.keys(BRANDS);
@@ -1048,7 +1073,7 @@ h1, h2 { overflow-wrap: break-word; }
   function applySizeVariant(newP) {
     const newGallery = [newP.img, ...(newP.gallery || [])].filter(Boolean);
     gallery = newGallery;
-    document.title = newP.n + " — CRYSTAL";
+    applySeo(newP);
     document.getElementById("pTitle").textContent = newP.n;
     document.getElementById("pSku").textContent = newP.sku ? "Code: " + newP.sku.toUpperCase() : "";
     document.getElementById("pIntro").textContent = newP.intro;
@@ -1183,6 +1208,7 @@ h1, h2 { overflow-wrap: break-word; }
         variants: undefined, mrp: p.mrp, alink: p.amazon_link || "", video: p.video || "",
         vgroup: p.variant_group || null, vlabel: p.variant_label || null, vorder: p.variant_order || 0,
     feats: Array.isArray(p.features) && p.features.length ? p.features : null,
+        mt: p.meta_title || "", md: p.meta_description || "",
       }));
       BY_ID = Object.fromEntries(P.map(p => [p.id, p]));
     } catch (e) {

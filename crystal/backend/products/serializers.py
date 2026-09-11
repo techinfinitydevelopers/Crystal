@@ -334,6 +334,12 @@ def site_product_entries(product):
                 or ("dashboard_admin" if product.is_dashboard_managed else "imported")
             ),
         }
+    # Only emitted when set, so a product nobody has given SEO copy to keeps
+    # exactly the entry shape products.json has today.
+    if product.meta_title:
+        common["meta_title"] = product.meta_title
+    if product.meta_description:
+        common["meta_description"] = product.meta_description
     if product.specs:
         common["specs"] = product.specs
     video = site_video(product)

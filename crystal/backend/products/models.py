@@ -117,14 +117,26 @@ class Product(models.Model):
         max_digits=5, decimal_places=4, null=True, blank=True,
         help_text='As a fraction, e.g. 0.18 for 18%.')
 
-    # Set the moment someone picks a main image in the dashboard. Two jobs:
-    # the deploy-time catalogue sync must stop overwriting image_url with the
-    # photo products.json still names, and the live site's override feed lists
-    # exactly these products (see products/views.py ImageOverridesView).
-    hero_overridden = models.BooleanField(
-        default=False,
-        help_text="Internal — set automatically when the main image is chosen here, "
-                  "so the nightly catalogue sync cannot put the old photo back.",
+    # Search-engine copy. Both fall back to the product's own name and
+    # highlight on the site when left blank, so an untouched product keeps
+    # exactly the title and description it has today.
+    meta_title = models.CharField(
+        max_length=120, blank=True,
+        help_text='Browser tab and Google result heading. Leave blank to use the '
+                  'product name. Around 60 characters reads best.')
+    meta_description = models.CharField(
+        max_length=320, blank=True,
+        help_text='The grey summary under the Google result. Leave blank to use '
+                  'the highlight. Around 155 characters reads best.')
+
+    # Catalogue keys ("name", "hero", "mrp", …) this product's dashboard rows
+    # now own, filled in automatically as people edit. Two jobs: the deploy-time
+    # catalogue sync stops overwriting them from products.json, and the live
+    # site's override feed publishes exactly these (see products/overrides.py).
+    overridden_fields = models.JSONField(
+        default=list, blank=True,
+        help_text="Internal — the parts of this product that were edited here and "
+                  "should no longer be taken from the website's catalogue file.",
     )
 
     is_dashboard_managed = models.BooleanField(
@@ -144,6 +156,34 @@ class Product(models.Model):
         if not self.slug:
             self.slug = slugify(self.name)
         super().save(*args, **kwargs)
+
+
+class RetiredSku(models.Model):
+    """A product someone removed in the dashboard.
+
+    Deleting the Product row is not enough on its own: products.json still
+    names it, so `sync_catalogue` would create it again on the next deploy and
+    the site would go on showing it either way. This tombstone is what makes a
+    removal stick — the sync skips the sku, and the override feed publishes it
+    so the pages drop it from the catalogue they just loaded.
+
+    Deleting the tombstone undoes the removal: the next sync recreates the
+    product from the catalogue file, which is why nothing here is destructive.
+    """
+
+    sku = models.CharField(max_length=50, unique=True)
+    name = models.CharField(max_length=200, blank=True,
+                            help_text="What it was called, so the list is readable.")
+    retired_at = models.DateTimeField(auto_now_add=True)
+    retired_by = models.CharField(max_length=150, blank=True)
+
+    class Meta:
+        ordering = ['-retired_at']
+        verbose_name = 'Removed product'
+        verbose_name_plural = 'Removed products'
+
+    def __str__(self):
+        return f"{self.sku} — {self.name}" if self.name else self.sku
 
 
 class ProductImage(models.Model):

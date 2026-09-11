@@ -12,9 +12,10 @@ from django.templatetags.static import static
 from . import importer
 from .forms import KEEP_CURRENT_IMAGE, ProductAdminForm
 from .media_urls import _public_url
+from . import overrides as ov
 from .models import (
-    Brand, Category, Product, ProductImage,
-    ProductSpecification, Marketplace, ProductMarketplaceLink, ProductVariant,
+    Brand, Category, Product, ProductImage, ProductSpecification, Marketplace,
+    ProductMarketplaceLink, ProductVariant, RetiredSku,
 )
 
 
@@ -361,6 +362,19 @@ class ProductAdmin(admin.ModelAdmin):
                 'amazon_link',
             ),
         }),
+        ('Search engines — how this product shows up on Google', {
+            'description': (
+                'Leave both blank and the site uses the product name and highlight, '
+                'which is what it does today. Fill them in to control the blue '
+                'heading and the grey summary of the Google result, and the text '
+                'shown when someone shares the link.'
+            ),
+            'classes': ('collapse',),
+            'fields': (
+                'meta_title',
+                'meta_description',
+            ),
+        }),
         ('Visibility — where it appears on the site', {
             'fields': (
                 ('is_active', 'is_featured', 'is_new'),
@@ -517,6 +531,91 @@ class ProductAdmin(admin.ModelAdmin):
         """
         super().save_related(request, form, formsets, change)
         self._apply_main_image(request, form, formsets)
+        self._record_dashboard_edits(request, form, formsets)
+
+    def _record_dashboard_edits(self, request, form, formsets):
+        """Remember which parts of the product were edited here.
+
+        products.json is still the source for everything nobody has touched, and
+        the deploy-time sync rewrites the database from it. Recording the edited
+        catalogue keys is what makes an edit survive that, and what puts it in
+        the feed the live pages read — see products/overrides.py.
+
+        Only *changed* fields are recorded. Re-saving a product without touching
+        anything must not quietly hand its whole record over to the dashboard.
+        """
+        product = form.instance
+        keys = ov.keys_for_form_fields(form.changed_data)
+        for formset in formsets:
+            model_name = getattr(formset.model, '__name__', '')
+            if any(f.has_changed() for f in formset.forms) or formset.deleted_forms:
+                keys.update(ov.keys_for_inline(model_name))
+
+        keys &= (ov.PUBLISHABLE | {ov.IS_ACTIVE})
+        if not keys:
+            return
+        current = set(product.overridden_fields or ())
+        merged = current | keys
+        if merged == current:
+            return
+        product.overridden_fields = sorted(merged)
+        product.save(update_fields=['overridden_fields'])
+
+        self.message_user(
+            request,
+            'Saved. The website now takes %s for this product from here rather '
+            'than from its catalogue file — reload the product page to see it.'
+            % self._describe_keys(sorted(keys)),
+            level=messages.SUCCESS,
+        )
+
+    @staticmethod
+    def _describe_keys(keys):
+        labels = {
+            'name': 'the name', 'brand': 'the brand', 'category': 'the category',
+            'subcategory': 'the category', 'collection': 'the collection',
+            'tags': 'the tags', 'highlight': 'the highlight',
+            'description': 'the description', 'features': 'the feature cards',
+            'hero': 'the main image', 'gallery': 'the photos', 'video': 'the video',
+            'mrp': 'the price', 'gst_pct': 'the GST', 'amazon_link': 'the Amazon link',
+            'filters': 'the specifications', ov.IS_ACTIVE: 'whether it is shown',
+        }
+        seen, out = set(), []
+        for key in keys:
+            label = labels.get(key, key)
+            if label not in seen:
+                seen.add(label)
+                out.append(label)
+        if len(out) == 1:
+            return out[0]
+        return ', '.join(out[:-1]) + ' and ' + out[-1]
+
+    # ── Removing a product ──────────────────────────────────────────────
+
+    def _retire(self, request, products):
+        """Tombstone the products being deleted, then let Django delete them.
+
+        Deleting the row alone does not remove a product from anything: the
+        website reads products.json, which still lists it, and the next deploy's
+        sync would recreate the row from that same file. The tombstone is what
+        makes the removal stick, and deleting the tombstone undoes it.
+        """
+        for product in products:
+            if not product.sku:
+                continue
+            RetiredSku.objects.update_or_create(
+                sku=product.sku,
+                defaults={'name': product.name,
+                          'retired_by': getattr(request.user, 'username', '')},
+            )
+
+    def delete_model(self, request, obj):
+        self._retire(request, [obj])
+        super().delete_model(request, obj)
+
+    def delete_queryset(self, request, queryset):
+        self._retire(request, list(queryset))
+        super().delete_queryset(request, queryset)
 
     @staticmethod
     def _inline_hero_pick(formsets):
@@ -585,11 +684,13 @@ class ProductAdmin(admin.ModelAdmin):
         if hero_path and product.image_url != hero_path:
             product.image_url = hero_path
             changed_fields.append('image_url')
-        if picked and not product.hero_overridden:
+        if picked:
             # From here on the deploy-time catalogue sync must not put
             # products.json's photo back. See catalogue_sync.sync_catalogue.
-            product.hero_overridden = True
-            changed_fields.append('hero_overridden')
+            owned = set(product.overridden_fields or ()) | {'hero', 'gallery'}
+            if owned != set(product.overridden_fields or ()):
+                product.overridden_fields = sorted(owned)
+                changed_fields.append('overridden_fields')
         if changed_fields:
             product.save(update_fields=changed_fields)
 
@@ -734,6 +835,35 @@ class ProductAdmin(admin.ModelAdmin):
             'border-radius:10px;box-shadow:0 4px 16px rgba(0,0,0,.15);"></video>'
             '<br><span style="font-size:11px;color:#64748b;">{}</span>',
             url, url,
+        )
+
+
+@admin.register(RetiredSku)
+class RetiredSkuAdmin(admin.ModelAdmin):
+    """Products removed in the dashboard.
+
+    A removal has to be recorded somewhere the deploy-time sync can see it:
+    products.json still lists the product, so without this row the next deploy
+    would recreate it and the website would go on showing it regardless.
+
+    Deleting a row here undoes the removal — the next sync reads the product
+    back out of the catalogue file. Nothing on this screen destroys data.
+    """
+
+    list_display = ['sku', 'name', 'retired_at', 'retired_by', 'restore_hint']
+    search_fields = ['sku', 'name']
+    readonly_fields = ['retired_at']
+    ordering = ['-retired_at']
+
+    def has_add_permission(self, request):
+        # These are created by removing a product, never typed in by hand.
+        return False
+
+    @admin.display(description='To bring it back')
+    def restore_hint(self, obj):
+        return mark_safe(
+            '<span style="color:#64748b;font-size:12px;">Delete this row — the '
+            'product returns on the next sync.</span>'
         )
 
 

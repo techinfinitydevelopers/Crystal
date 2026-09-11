@@ -62,6 +62,20 @@ class FeatureLinesField(forms.CharField):
             lines.append(' | '.join(str(p or '').strip() for p in parts))
         return '\n'.join(lines)
 
+    def has_changed(self, initial, data):
+        """Compare the parsed feature lists, not the raw strings.
+
+        The base CharField compares `initial` (the JSON list off the model)
+        against `data` (the text in the textarea) and calls every save a change.
+        That matters now: the admin records which fields were edited, and a
+        field that always looks edited would hand this product's features to the
+        dashboard the first time anyone saved it for an unrelated reason.
+        """
+        try:
+            return self.clean(data) != (self.clean(self.prepare_value(initial)))
+        except forms.ValidationError:
+            return True
+
     # text typed by the user -> JSON stored on the model
     def clean(self, value):
         value = (value or '').strip()
@@ -178,6 +192,18 @@ class TagListField(forms.CharField):
         if isinstance(value, (list, tuple)):
             return [str(v) for v in value]
         return self._parse(str(value))
+
+    def has_changed(self, initial, data):
+        """Compare the parsed tag lists, not the chips JSON against a list.
+
+        Same reason as FeatureLinesField.has_changed: the admin now records
+        which fields were edited, so a field that reports a change on every
+        save would silently claim this product's tags for the dashboard.
+        """
+        try:
+            return self.clean(data) != _dedupe_tags(self.prepare_value(initial))
+        except forms.ValidationError:
+            return True
 
     # what the browser posted -> JSON stored on the model
     def clean(self, value):

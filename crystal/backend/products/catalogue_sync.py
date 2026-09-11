@@ -13,8 +13,9 @@ from django.utils.text import slugify
 
 from products.models import (
     Brand, Category, Product, ProductSpecification, Marketplace,
-    ProductMarketplaceLink,
+    ProductMarketplaceLink, RetiredSku,
 )
+from products.overrides import sync_fields_to_skip
 
 CAT_LABELS = {
     "cookware": "Cookware", "kitchenware": "Kitchenware", "water-bottle": "Water Bottle",
@@ -55,11 +56,24 @@ def sync_catalogue(items):
 
     marketplace_amazon, _ = Marketplace.objects.get_or_create(slug="amazon", defaults={"name": "Amazon"})
 
-    created, updated, skipped = 0, 0, 0
+    # Products someone removed in the dashboard. They are still in the file, so
+    # without this the next deploy would simply create them again.
+    retired_skus = set(RetiredSku.objects.values_list("sku", flat=True))
+
+    # Catalogue keys each product now owns, so an edit made here is not undone.
+    owned = dict(
+        Product.objects.exclude(overridden_fields=[])
+        .values_list("sku", "overridden_fields")
+    )
+
+    created, updated, skipped, removed = 0, 0, 0, 0
     for p in items:
         sku = (p.get("sku") or "").strip()
         if not sku:
             skipped += 1
+            continue
+        if sku in retired_skus:
+            removed += 1
             continue
         brand_slug = (p.get("brand") or "crystal").strip().lower()
         brand_obj = brand_objs.get(brand_slug) or brand_objs["crystal"]
@@ -101,11 +115,11 @@ def sync_catalogue(items):
             # must stay excluded from export_products_json (see that command's docstring)
             "is_dashboard_managed": False,
         }
-        # A main image chosen in the dashboard outranks the one products.json
-        # still names — otherwise the next deploy silently undoes the edit,
-        # which is exactly the kind of thing nobody thinks to check.
-        if Product.objects.filter(sku=sku, hero_overridden=True).exists():
-            defaults.pop("image_url")
+        # Anything edited in the dashboard outranks what products.json still
+        # says — otherwise the next deploy silently undoes the edit, which is
+        # exactly the kind of thing nobody thinks to check.
+        for field in sync_fields_to_skip(owned.get(sku)):
+            defaults.pop(field, None)
 
         prod, was_created = Product.objects.update_or_create(sku=sku, defaults=defaults)
         if was_created:
@@ -118,15 +132,17 @@ def sync_catalogue(items):
         # Skipped for this sync; Product.image_url (hero) is set above and covers the
         # primary product photo. Gallery URLs remain in product-data/products.json.
 
-        # specifications from filters{}
-        prod.specifications.all().delete()
-        for i, (k, v) in enumerate((p.get("filters") or {}).items()):
-            if v:
-                ProductSpecification.objects.create(product=prod, key=k.replace("_", " ").title(), value=str(v), order=i)
+        # specifications from filters{} — rebuilt wholesale, so a product whose
+        # specs were edited here has to be left out of it entirely.
+        if "filters" not in (owned.get(sku) or ()):
+            prod.specifications.all().delete()
+            for i, (k, v) in enumerate((p.get("filters") or {}).items()):
+                if v:
+                    ProductSpecification.objects.create(product=prod, key=k.replace("_", " ").title(), value=str(v), order=i)
 
         # amazon marketplace link
         link = p.get("amazon_link")
-        if link:
+        if link and "amazon_link" not in (owned.get(sku) or ()):
             ProductMarketplaceLink.objects.update_or_create(
                 product=prod, marketplace=marketplace_amazon, defaults={"url": link}
             )
@@ -140,7 +156,9 @@ def sync_catalogue(items):
     # Scoped to is_dashboard_managed=False on purpose: products created in the
     # dashboard are never in products.json, and must not be swept up by this.
     json_skus = {(p.get("sku") or "").strip() for p in items if (p.get("sku") or "").strip()}
-    stale = Product.objects.filter(is_dashboard_managed=False, is_active=True).exclude(sku__in=json_skus)
+    stale = (Product.objects.filter(is_dashboard_managed=False, is_active=True)
+             .exclude(sku__in=json_skus)
+             .exclude(sku__in=retired_skus))
     retired = sorted(stale.values_list("sku", flat=True))
     if retired:
         stale.update(is_active=False)
@@ -149,6 +167,7 @@ def sync_catalogue(items):
         "created": created,
         "updated": updated,
         "skipped": skipped,
+        "removed_in_dashboard": removed,
         "retired": retired,
         "total_products": Product.objects.count(),
         "total_brands": Brand.objects.count(),
