@@ -829,10 +829,10 @@ h1, h2 { overflow-wrap: break-word; }
         <span>trusted by homes <span class="hi">since 1971</span></span>
       </div>
       <div class="about-stats" data-fade>
-        <div><div class="as-num"><span data-count="50">0</span>+</div><div class="as-lbl">Years of Experience</div></div>
-        <div><div class="as-num"><span data-count="2000">0</span>+</div><div class="as-lbl">Employees</div></div>
-        <div><div class="as-num"><span data-count="1000">0</span>+</div><div class="as-lbl">Products</div></div>
-        <div><div class="as-num"><span data-count="1000">0</span>+</div><div class="as-lbl">Satisfied Customers</div></div>
+        <div><div class="as-num"><span data-count="50" id="aboutStatYearsNum">0</span>+</div><div class="as-lbl" id="aboutStatYearsLbl">Years of Experience</div></div>
+        <div><div class="as-num"><span data-count="2000" id="aboutStatEmployeesNum">0</span>+</div><div class="as-lbl" id="aboutStatEmployeesLbl">Employees</div></div>
+        <div><div class="as-num"><span data-count="1000" id="aboutStatProductsNum">0</span>+</div><div class="as-lbl" id="aboutStatProductsLbl">Products</div></div>
+        <div><div class="as-num"><span data-count="1000" id="aboutStatCustomersNum">0</span>+</div><div class="as-lbl" id="aboutStatCustomersLbl">Satisfied Customers</div></div>
       </div>
     </div>
     <div class="who-media" data-img-right>
@@ -896,11 +896,11 @@ h1, h2 { overflow-wrap: break-word; }
     <p class="lead" data-fade>Three offices, three factories, five warehouses and a 30,000 sq. ft. manufacturing backbone — engineered in India, trusted across the country.</p>
   </div>
   <div class="infra-grid">
-    <div class="infra-card" data-fade><div class="num"><span data-count="3">0</span></div><div class="lbl">Corporate Offices</div></div>
-    <div class="infra-card" data-fade><div class="num"><span data-count="3">0</span></div><div class="lbl">Manufacturing Units</div></div>
-    <div class="infra-card" data-fade><div class="num"><span data-count="5">0</span></div><div class="lbl">Warehouses</div></div>
-    <div class="infra-card" data-fade><div class="num">1000</div><div class="lbl">Retail Outlets</div></div>
-    <div class="infra-card" data-fade><div class="num">30,000 <span class="unit">Sq.Ft.</span></div><div class="lbl">Factory Space</div></div>
+    <div class="infra-card" data-fade><div class="num"><span data-count="3" id="infraOfficesNum">0</span></div><div class="lbl" id="infraOfficesLbl">Corporate Offices</div></div>
+    <div class="infra-card" data-fade><div class="num"><span data-count="3" id="infraUnitsNum">0</span></div><div class="lbl" id="infraUnitsLbl">Manufacturing Units</div></div>
+    <div class="infra-card" data-fade><div class="num"><span data-count="5" id="infraWarehousesNum">0</span></div><div class="lbl" id="infraWarehousesLbl">Warehouses</div></div>
+    <div class="infra-card" data-fade><div class="num"><span id="infraOutletsNum">1000</span></div><div class="lbl" id="infraOutletsLbl">Retail Outlets</div></div>
+    <div class="infra-card" data-fade><div class="num"><span id="infraFactoryNum">30,000</span> <span class="unit">Sq.Ft.</span></div><div class="lbl" id="infraFactoryLbl">Factory Space</div></div>
   </div>
 </section>
 
@@ -925,10 +925,10 @@ h1, h2 { overflow-wrap: break-word; }
     <div class="why-grid" id="whyGrid"></div>
     <div class="stats">
       <div class="brand" data-fade>★ CRYSTAL<span class="since">(SINCE 1971)</span></div>
-      <div class="stat" data-fade><div class="num"><span data-count="50">0</span>+</div><div class="lbl">Years of Trust</div></div>
-      <div class="stat" data-fade><div class="num">1000</div><div class="lbl">Retail Outlets</div></div>
-      <div class="stat" data-fade><div class="num"><span data-count="1000">0</span>+</div><div class="lbl">Products &amp; SKUs</div></div>
-      <div class="stat" data-fade><div class="num"><span data-count="2000">0</span>+</div><div class="lbl">People Strong</div></div>
+      <div class="stat" data-fade><div class="num"><span data-count="50" id="brandStatYearsNum">0</span>+</div><div class="lbl" id="brandStatYearsLbl">Years of Trust</div></div>
+      <div class="stat" data-fade><div class="num"><span id="brandStatOutletsNum">1000</span></div><div class="lbl" id="brandStatOutletsLbl">Retail Outlets</div></div>
+      <div class="stat" data-fade><div class="num"><span data-count="1000" id="brandStatSkusNum">0</span>+</div><div class="lbl" id="brandStatSkusLbl">Products &amp; SKUs</div></div>
+      <div class="stat" data-fade><div class="num"><span data-count="2000" id="brandStatPeopleNum">0</span>+</div><div class="lbl" id="brandStatPeopleLbl">People Strong</div></div>
     </div>
   </div>
 </section>
@@ -949,12 +949,12 @@ h1, h2 { overflow-wrap: break-word; }
 <section class="cta-sec" id="cta">
   <div class="cta">
     <div class="cta-inner">
-      <h2 data-split>The no.1 brand</h2>
+      <h2 data-split id="ctaTitle">The no.1 brand</h2>
       <div class="row">
         <span class="sticker anim-wobble" style="width:78px;height:78px;background:#fff">
           <svg viewBox="0 0 60 60" width="42" height="42"><path d="M30 8l6 16h17l-13 10 5 18-15-11-15 11 5-18-13-10h17z" fill="#ED3338"/></svg>
         </span>
-        <h2 data-split>for your home</h2>
+        <h2 data-split id="ctaTitle2">for your home</h2>
       </div>
       <a href="#cta" class="btn btn-light">Get in Touch <span class="arr">↗</span></a>
     </div>

@@ -47,6 +47,36 @@
     "stat-outlets-lbl": document.getElementById("statOutletsLbl"),
     "stat-factory-num": document.getElementById("statFactoryNum"),
     "stat-factory-lbl": document.getElementById("statFactoryLbl"),
+
+    // Home (index.html / index-v2.html): CTA's second line, and its three
+    // stat rows (Who We Are, Infrastructure, Our Brands).
+    "cta-title-2": document.getElementById("ctaTitle2"),
+    "about-stat-years-num": document.getElementById("aboutStatYearsNum"),
+    "about-stat-years-lbl": document.getElementById("aboutStatYearsLbl"),
+    "about-stat-employees-num": document.getElementById("aboutStatEmployeesNum"),
+    "about-stat-employees-lbl": document.getElementById("aboutStatEmployeesLbl"),
+    "about-stat-products-num": document.getElementById("aboutStatProductsNum"),
+    "about-stat-products-lbl": document.getElementById("aboutStatProductsLbl"),
+    "about-stat-customers-num": document.getElementById("aboutStatCustomersNum"),
+    "about-stat-customers-lbl": document.getElementById("aboutStatCustomersLbl"),
+    "infra-offices-num": document.getElementById("infraOfficesNum"),
+    "infra-offices-lbl": document.getElementById("infraOfficesLbl"),
+    "infra-units-num": document.getElementById("infraUnitsNum"),
+    "infra-units-lbl": document.getElementById("infraUnitsLbl"),
+    "infra-warehouses-num": document.getElementById("infraWarehousesNum"),
+    "infra-warehouses-lbl": document.getElementById("infraWarehousesLbl"),
+    "infra-outlets-num": document.getElementById("infraOutletsNum"),
+    "infra-outlets-lbl": document.getElementById("infraOutletsLbl"),
+    "infra-factory-num": document.getElementById("infraFactoryNum"),
+    "infra-factory-lbl": document.getElementById("infraFactoryLbl"),
+    "brand-stat-years-num": document.getElementById("brandStatYearsNum"),
+    "brand-stat-years-lbl": document.getElementById("brandStatYearsLbl"),
+    "brand-stat-outlets-num": document.getElementById("brandStatOutletsNum"),
+    "brand-stat-outlets-lbl": document.getElementById("brandStatOutletsLbl"),
+    "brand-stat-skus-num": document.getElementById("brandStatSkusNum"),
+    "brand-stat-skus-lbl": document.getElementById("brandStatSkusLbl"),
+    "brand-stat-people-num": document.getElementById("brandStatPeopleNum"),
+    "brand-stat-people-lbl": document.getElementById("brandStatPeopleLbl"),
   };
 
   fetch(API, { mode: "cors", credentials: "omit" })
@@ -66,8 +96,11 @@
           el.textContent = s.text;
           // A stat's counted number: update the attribute the count-up
           // animation reads too, so a value set before the animation fires
-          // still lands on the right number, not the shipped default.
+          // still lands on the right number, not the shipped default. Two
+          // different count-up scripts exist on this site, reading
+          // data-count and data-target respectively.
           if (el.hasAttribute("data-count")) el.setAttribute("data-count", s.text);
+          if (el.hasAttribute("data-target")) el.setAttribute("data-target", s.text);
         }
       });
     })

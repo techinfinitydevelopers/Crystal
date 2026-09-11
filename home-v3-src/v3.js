@@ -278,17 +278,26 @@
   }
 
   document.querySelectorAll(".count3").forEach(function (counter) {
-    var target = +counter.dataset.target;
-    var suffix = counter.dataset.suffix || "";
-    counter.textContent = "0" + suffix;
-    gsap.fromTo(counter, { innerText: 0 }, {
-      innerText: target,
-      duration: 2,
-      ease: "power3.out",
-      snap: { innerText: 1 },
-      scrollTrigger: { trigger: ".counter3", start: "top 88%", once: true },
-      onUpdate: function () {
-        counter.textContent = Math.floor(counter.innerText) + suffix;
+    counter.textContent = "0" + (counter.dataset.suffix || "");
+    // data-target/data-suffix are read inside onEnter, not here, so a
+    // dashboard edit (content-sync.js updates the attribute on load) still
+    // lands correctly even though it arrives after this loop runs.
+    ScrollTrigger.create({
+      trigger: ".counter3",
+      start: "top 88%",
+      once: true,
+      onEnter: function () {
+        var target = +counter.dataset.target;
+        var suffix = counter.dataset.suffix || "";
+        gsap.fromTo(counter, { innerText: 0 }, {
+          innerText: target,
+          duration: 2,
+          ease: "power3.out",
+          snap: { innerText: 1 },
+          onUpdate: function () {
+            counter.textContent = Math.floor(counter.innerText) + suffix;
+          },
+        });
       },
     });
   });

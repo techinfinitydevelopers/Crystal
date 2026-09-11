@@ -1026,9 +1026,6 @@ h1, h2,
 h1, h2 { overflow-wrap: break-word; }
 .v3 .map3-right, .v3 .map3-container, .v3 .brand3-left, .v3 .split3 .left-txt { min-width: 0; }
 </style>
-<!-- Photos changed in the dashboard, folded into the catalogue as it loads.
-     Must stay above the scripts that read products.json. -->
-<script src="product-image-sync.js"></script>
 </head>
 <body>
 
@@ -1233,7 +1230,7 @@ h1, h2 { overflow-wrap: break-word; }
   </div>
 
   <div class="hero3-txt">
-    <h1 class="hero3-title" id="heroTitle">Simplifying daily chores, adding pride <br> to every home <b>Since 1971</b></h1>
+    <h1 class="hero3-title">Simplifying daily chores, adding pride <br> to every home <b>Since 1971</b></h1>
     <a href="Contact.html" class="v-btn cen"><span class="label">Get in Touch</span><span class="bg"></span></a>
   </div>
 </section>
@@ -1278,20 +1275,20 @@ h1, h2 { overflow-wrap: break-word; }
 
         <div class="counter3">
           <div class="counter3-wrap">
-            <div class="counter3-box"><span class="count3" data-target="50"></span><span class="plus">+</span></div>
-            <h5>Years of Experience</h5>
+            <div class="counter3-box"><span class="count3" data-target="50" id="aboutStatYearsNum"></span><span class="plus">+</span></div>
+            <h5 id="aboutStatYearsLbl">Years of Experience</h5>
           </div>
           <div class="counter3-wrap">
-            <div class="counter3-box"><span class="count3" data-target="2000"></span><span class="plus">+</span></div>
-            <h5>Employees</h5>
+            <div class="counter3-box"><span class="count3" data-target="2000" id="aboutStatEmployeesNum"></span><span class="plus">+</span></div>
+            <h5 id="aboutStatEmployeesLbl">Employees</h5>
           </div>
           <div class="counter3-wrap">
-            <div class="counter3-box"><span class="count3" data-target="1000"></span><span class="plus">+</span></div>
-            <h5>Products</h5>
+            <div class="counter3-box"><span class="count3" data-target="1000" id="aboutStatProductsNum"></span><span class="plus">+</span></div>
+            <h5 id="aboutStatProductsLbl">Products</h5>
           </div>
           <div class="counter3-wrap">
-            <div class="counter3-box"><span class="count3" data-target="10" data-suffix="Cr"></span><span class="plus">+</span></div>
-            <h5>Satisfied Customers</h5>
+            <div class="counter3-box"><span class="count3" data-target="10" data-suffix="Cr" id="aboutStatCustomersNum"></span><span class="plus">+</span></div>
+            <h5 id="aboutStatCustomersLbl">Satisfied Customers</h5>
           </div>
         </div>
       </div>
@@ -1660,7 +1657,7 @@ h1, h2 { overflow-wrap: break-word; }
     <div class="pre3-wrap">
       <div class="pre3-left">
         <div class="v-head-wrap">
-          <h2 class="v-head white">The no. 1 Brand <br> for your home</h2>
+          <h2 class="v-head white" id="ctaTitle">The no. 1 Brand <br> for your home</h2>
           <a href="Contact.html" class="v-btn black"><span class="label">Get in Touch</span><span class="bg"></span></a>
         </div>
       </div>
@@ -2162,17 +2159,26 @@ h1, h2 { overflow-wrap: break-word; }
   }
 
   document.querySelectorAll(".count3").forEach(function (counter) {
-    var target = +counter.dataset.target;
-    var suffix = counter.dataset.suffix || "";
-    counter.textContent = "0" + suffix;
-    gsap.fromTo(counter, { innerText: 0 }, {
-      innerText: target,
-      duration: 2,
-      ease: "power3.out",
-      snap: { innerText: 1 },
-      scrollTrigger: { trigger: ".counter3", start: "top 88%", once: true },
-      onUpdate: function () {
-        counter.textContent = Math.floor(counter.innerText) + suffix;
+    counter.textContent = "0" + (counter.dataset.suffix || "");
+    // data-target/data-suffix are read inside onEnter, not here, so a
+    // dashboard edit (content-sync.js updates the attribute on load) still
+    // lands correctly even though it arrives after this loop runs.
+    ScrollTrigger.create({
+      trigger: ".counter3",
+      start: "top 88%",
+      once: true,
+      onEnter: function () {
+        var target = +counter.dataset.target;
+        var suffix = counter.dataset.suffix || "";
+        gsap.fromTo(counter, { innerText: 0 }, {
+          innerText: target,
+          duration: 2,
+          ease: "power3.out",
+          snap: { innerText: 1 },
+          onUpdate: function () {
+            counter.textContent = Math.floor(counter.innerText) + suffix;
+          },
+        });
       },
     });
   });
