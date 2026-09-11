@@ -610,6 +610,10 @@
   --f18: clamp(15px, .94vw, 18px);
   --f16: clamp(14px, .84vw, 16px);
 
+  /* The one side gutter. Every section's text sits this far from the edge,
+     including the ones whose desktop layout is full-bleed — three of them used
+     to drop to 0 when they stacked, so the copy touched the screen edge. */
+  --v-gutter: 15px;
   --p120: clamp(24px, 5vw, 120px);
   --p60: clamp(24px, 3.13vw, 60px);
   --p30: clamp(20px, 2vw, 30px);
@@ -668,7 +672,7 @@ header .nav .btn-outline, header .burger span {
 .v3 { overflow-x: clip; }
 
 .v3 .v-sec { padding: var(--s80) 0; position: relative; }
-.v3 .v-wrap { max-width: 1600px; width: 100%; padding: 0 15px; margin: 0 auto; }
+.v3 .v-wrap { max-width: 1600px; width: 100%; padding: 0 var(--v-gutter); margin: 0 auto; }
 .v3 h1, .v3 h2, .v3 h3, .v3 h4, .v3 h5, .v3 p { margin: 0; }
 .v3 ul { list-style: none; padding: 0; margin: 0; }
 .v3 img, .v3 video { display: block; }
@@ -735,7 +739,7 @@ header .nav .btn-outline, header .burger span {
 }
 .v3 .hero3-txt {
   position: absolute; left: 50%; bottom: 100px; transform: translateX(-50%);
-  width: 100%; z-index: 10; opacity: 0; text-align: center; padding: 0 16px;
+  width: 100%; z-index: 10; opacity: 0; text-align: center; padding: 0 var(--v-gutter);
 }
 .v3 .hero3-title {
   color: #000; font-size: var(--f64); font-weight: 500; line-height: 1.27;
@@ -958,7 +962,11 @@ header .nav .btn-outline, header .burger span {
   .v3 .split3-container { height: auto; }
   .v3 .map3 { display: block; }
   .v3 .split3 { padding: var(--s80) 0; }
-  .v3 .split3 .left-txt, .v3 .brand3-container { padding-left: 0; }
+  /* Stacked, these two lose their big desktop indent — but they are outside
+     .v-wrap, so zeroing it put the headings hard against the screen edge. */
+  .v3 .split3 .left-txt, .v3 .brand3-container { padding-inline: var(--v-gutter); }
+  /* Absolutely positioned over the map, so it needs the gutter spelled out. */
+  .v3 .map3-float { left: var(--v-gutter); }
   .v3 .split3 .left-txt, .v3 .about3-left, .v3 .about3-right, .v3 .brand3-left, .v3 .brand3-acc { max-width: none; }
   .v3 .map3-right {
     width: 100%; height: auto; border-radius: 10px; margin-top: var(--m40);
