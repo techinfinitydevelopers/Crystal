@@ -77,7 +77,10 @@ NOT_A_PAGE = {
     "index-old-v1.html",
 }
 
-TAG = re.compile(r"<(/?)([a-zA-Z][a-zA-Z0-9]*)\b([^>]*)>", re.S)
+# The hyphen matters: a custom element's name always contains one, so without
+# it <image-slot> parsed as a tag called "image" with "-slot" as stray attribute
+# text, and never matched IMAGE_TAGS.
+TAG = re.compile(r"<(/?)([a-zA-Z][a-zA-Z0-9-]*)\b([^>]*)>", re.S)
 ATTR = re.compile(r'([\w:-]+)\s*=\s*"([^"]*)"')
 
 SKIP_INSIDE = {"script", "style", "header", "footer", "nav", "svg", "select", "template"}
@@ -99,7 +102,19 @@ SKIP_CONTAINERS = {
     "breadcrumb", "crumbs", "wa-float",
 }
 TEXT_TAGS = {"h1", "h2", "h3", "h4", "p", "li", "blockquote"}
-IMAGE_TAGS = {"img"}
+# <image-slot> is a design-tool custom element (image-slot.js) left in place on
+# a few pages; on the live site it is read-only and simply renders its `src`.
+# It shows a real photograph to a visitor, so it is as much page content as an
+# <img> -- and it observes `src`, so setting that attribute re-renders it.
+IMAGE_TAGS = {"img", "image-slot"}
+# Tags whose value belongs in an attribute rather than in the element. Without
+# this content-sync's applyImage falls through to setting a CSS background,
+# which a custom element with a shadow DOM never shows.
+IMAGE_ATTR_TAGS = {"image-slot": "src"}
+# Keys are counted per tag, so an <img> and an <image-slot> in one section would
+# otherwise both be "-img-1"/"-image-slot-1". Counting them together keeps the
+# numbering unique and the key readable.
+KEY_TAG_NAME = {"image-slot": "img"}
 
 # A page's own <section id>; anything outside one is keyed against this.
 NO_SECTION = "page"
@@ -205,9 +220,14 @@ def process(html, page, report):
             continue
 
         a = attrs_of(raw)
-        if "data-cms" in a:
-            report["already"] += 1
-            continue
+        # An element that already carries a key is not re-tagged, but it must
+        # still walk the rest of this loop: it owns a slot in the per-section
+        # numbering, and it owns a row in the manifest. Bailing out here -- as
+        # this did -- made a second run renumber everything after it, so keys
+        # held back by EXCLUDE_KEYS came back into range and got tagged (twice
+        # over, in Contact.html's case), and rebuilt the manifest with only the
+        # handful of keys that happened to be new: 984 rows down to 7.
+        existing_key = a.get("data-cms")
 
         rich = ""
 
@@ -243,23 +263,31 @@ def process(html, page, report):
                 report["rich"] += 1
             kind = "text"
 
-        counters.setdefault(section, {}).setdefault(name, 0)
-        counters[section][name] += 1
-        n = counters[section][name]
-        key = LEGACY_KEY_BY_ID.get(a.get("id", ""), "%s-%s-%d" % (section, name, n))
+        key_name = KEY_TAG_NAME.get(name, name)
+        counters.setdefault(section, {}).setdefault(key_name, 0)
+        counters[section][key_name] += 1
+        n = counters[section][key_name]
+        key = existing_key or LEGACY_KEY_BY_ID.get(
+            a.get("id", ""), "%s-%s-%d" % (section, key_name, n))
         if (page, key) in EXCLUDE_KEYS:
             report["excluded"] += 1
             continue
 
-        # Insert before ">" — and before a self-closing "/", or the result is
-        # <img ... / data-cms="x">, which browsers tolerate but no serializer
-        # should have to.
-        cut = m.end() - 1
-        while cut > m.start() and html[cut - 1] in '/ \t\r\n':
-            cut -= 1
-        out.append(html[pos:cut])
-        out.append(' data-cms="%s"%s' % (key, rich))
-        pos = cut
+        if existing_key:
+            report["already"] += 1
+        else:
+            # Insert before ">" — and before a self-closing "/", or the result
+            # is <img ... / data-cms="x">, which browsers tolerate but no
+            # serializer should have to.
+            cut = m.end() - 1
+            while cut > m.start() and html[cut - 1] in '/ \t\r\n':
+                cut -= 1
+            attr_target = IMAGE_ATTR_TAGS.get(name)
+            cms_attr = ' data-cms-attr="%s"' % attr_target if attr_target else ""
+
+            out.append(html[pos:cut])
+            out.append(' data-cms="%s"%s%s' % (key, rich, cms_attr))
+            pos = cut
 
         rows.append({
             "page": page,

@@ -2049,6 +2049,14 @@
  },
  {
   "page": "Brands.html",
+  "key": "brands-img-1",
+  "kind": "image",
+  "section": "brands",
+  "label": "Brands — image 1",
+  "shipped": "https://proj.leo9studio.in/projects/crystal-wp/wp-content/uploads/2026/04/Tri-Pro-2-1.jpg"
+ },
+ {
+  "page": "Brands.html",
   "key": "brands-h3-1",
   "kind": "text",
   "section": "brands",
@@ -2081,6 +2089,22 @@
  },
  {
   "page": "Brands.html",
+  "key": "brands-img-2",
+  "kind": "image",
+  "section": "brands",
+  "label": "Brands — image 2",
+  "shipped": "https://proj.leo9studio.in/projects/crystal-wp/wp-content/uploads/2026/04/6.jpg"
+ },
+ {
+  "page": "Brands.html",
+  "key": "brands-img-3",
+  "kind": "image",
+  "section": "brands",
+  "label": "Brands — image 3",
+  "shipped": "https://proj.leo9studio.in/projects/crystal-wp/wp-content/uploads/2026/04/Spin-Mops-2.jpg"
+ },
+ {
+  "page": "Brands.html",
   "key": "brands-h3-3",
   "kind": "text",
   "section": "brands",
@@ -2110,6 +2134,14 @@
   "section": "brands",
   "label": "Brands — Smart everyday value for the practical home — st…",
   "shipped": "Smart everyday value for the practical home — storage solutions, flasks and bottles that deliver dependable quality without the premium price. Reliable companions for daily living."
+ },
+ {
+  "page": "Brands.html",
+  "key": "brands-img-4",
+  "kind": "image",
+  "section": "brands",
+  "label": "Brands — image 4",
+  "shipped": "https://proj.leo9studio.in/projects/crystal-wp/wp-content/uploads/2026/04/CPC_023.jpg"
  },
  {
   "page": "Brands.html",

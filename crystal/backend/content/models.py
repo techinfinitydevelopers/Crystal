@@ -151,9 +151,15 @@ class PageSection(models.Model):
         """
         if self.kind != self.IMAGE or not self.shipped_value:
             return ''
+        src = self.shipped_value.strip()
+        # Some slots point straight at an outside host rather than at a file in
+        # the site's repo -- Brands.html's four brand cards are served from the
+        # design agency's WordPress. Those are already addressable.
+        if src.startswith(('http://', 'https://', '//')):
+            return src
         from django.conf import settings
         base = getattr(settings, 'PUBLIC_SITE_URL', '').rstrip('/')
-        return '%s/%s' % (base, self.shipped_value.lstrip('/'))
+        return '%s/%s' % (base, src.lstrip('/'))
 
     def save(self, *args, **kwargs):
         # Keep page_ref in step with the page filename so a row created any
