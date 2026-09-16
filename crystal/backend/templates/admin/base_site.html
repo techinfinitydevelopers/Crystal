@@ -1,0 +1,32 @@
+{% extends "admin/base.html" %}
+{% load i18n %}
+
+{% comment %}
+  Jazzmin's own admin/base_site.html is a single {% extends %} line, so
+  shadowing it costs nothing and this is the one place that reaches every admin
+  screen.
+
+  The footer block is copied from jazzmin/templates/admin/base.html with one
+  change: the right-hand side said "Jazzmin version 3.0.5", which tells the
+  people using this dashboard nothing. It now carries the same credit the
+  website's own footer does. If Jazzmin's footer markup changes on an upgrade,
+  this override keeps the old shape until it is updated to match.
+{% endcomment %}
+
+{% block footer %}
+  {% if not is_popup %}
+    <footer class="app-footer {{ jazzmin_ui.footer_classes }}">
+      <div class="float-end d-none d-sm-inline">
+        {% trans 'Designed &amp; Developed by' %}
+        <a href="https://www.techinfinity.io/" target="_blank" rel="noopener"
+           style="font-weight:700;color:inherit;text-decoration:underline;">TechInfinity</a>
+      </div>
+      {% autoescape off %}
+        <strong>{% trans 'Copyright' %} &copy; {% now 'Y' %} {{ jazzmin_settings.copyright }}.</strong> {% trans 'All rights reserved.' %}
+      {% endautoescape %}
+    </footer>
+    {% if jazzmin_settings.show_ui_builder %}
+      {% include 'jazzmin/includes/ui_builder_panel.html' %}
+    {% endif %}
+  {% endif %}
+{% endblock %}
