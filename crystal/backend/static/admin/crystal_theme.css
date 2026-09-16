@@ -1,4 +1,8 @@
 @import url("crystal_admin_extra.css");
+/* --bs-font-sans-serif below already asks for Inter, but nothing ever fetched
+   the face, so every screen quietly fell through to the next name in the stack
+   and rendered in Segoe UI. The website loads the same six weights. */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap");
 /* ==========================================================================
    Crystal Admin — Shopify-style
    --------------------------------------------------------------------------
