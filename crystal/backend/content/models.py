@@ -34,6 +34,14 @@ class PageSection(models.Model):
     image = models.ImageField(
         upload_to='page-sections/', blank=True, null=True,
         help_text='Used when Kind is Image.')
+    section = models.CharField(
+        max_length=120, blank=True, db_index=True,
+        help_text='Which band of the page this sits in, e.g. "hero". Filled in '
+                  'automatically; it is only used to group this list.')
+    shipped_value = models.TextField(
+        blank=True,
+        help_text='What the page shows today, for reference. Leave the value '
+                  'above empty and the page keeps showing this.')
     is_active = models.BooleanField(
         default=True,
         help_text='Untick to fall back to the content the page already '

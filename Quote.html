@@ -532,8 +532,8 @@ h1, h2 { overflow-wrap: break-word; }
 <section class="ct-hero" id="hero">
   <div class="wrap">
     <span class="eyebrow" data-fade><span class="pip"></span><span id="heroPreTxt">Request a Quote</span></span>
-    <h1 id="heroTitle" data-split>Let's talk <span class="grad">business</span></h1>
-    <p class="sub" id="heroSub" data-fade>Planning a bulk order, exploring an export opportunity, or looking to distribute Crystal in your region? Share your requirement and our sales team will prepare a tailored quote for you.</p>
+    <h1 id="heroTitle" data-split data-cms="hero-title">Let's talk <span class="grad">business</span></h1>
+    <p class="sub" id="heroSub" data-fade data-cms="hero-sub">Planning a bulk order, exploring an export opportunity, or looking to distribute Crystal in your region? Share your requirement and our sales team will prepare a tailored quote for you.</p>
     <div class="trust" data-fade>
       <span><span class="dot"></span>Since 1971</span>
       <span class="sep"></span>
@@ -550,8 +550,8 @@ h1, h2 { overflow-wrap: break-word; }
     <!-- FORM -->
     <div class="form-card" id="formCard">
       <span class="eyebrow"><span class="pip"></span>Quote request</span>
-      <h2>Tell us what you need</h2>
-      <p class="fc-sub">Fill in the form and our team will get back with pricing and details. Fields marked with <span style="color:var(--red)">*</span> are required.</p>
+      <h2 data-cms="request-h2-1">Tell us what you need</h2>
+      <p class="fc-sub" data-cms="request-p-1">Fill in the form and our team will get back with pricing and details. Fields marked with <span style="color:var(--red)">*</span> are required.</p>
       <form class="frm" id="quoteForm" novalidate>
         <div class="field">
           <label for="f-name">Full Name <span class="req">*</span></label>
@@ -614,8 +614,8 @@ h1, h2 { overflow-wrap: break-word; }
       </form>
       <div class="sent-msg">
         <span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
-        <h3>Request received!</h3>
-        <p id="sentText">Thanks! Your quote request is on its way. Our sales team will get back to you within one business day.</p>
+        <h3 data-cms="request-h3-1">Request received!</h3>
+        <p id="sentText" data-cms="request-p-2">Thanks! Your quote request is on its way. Our sales team will get back to you within one business day.</p>
         <button type="button" class="btn btn-ghost" id="sendAnother">Submit another request</button>
       </div>
     </div>
@@ -624,34 +624,34 @@ h1, h2 { overflow-wrap: break-word; }
     <div class="info-col">
       <div class="ic-head" data-fade>
         <span class="eyebrow"><span class="pip"></span>Partner with Crystal</span>
-        <h3>Built for business</h3>
-        <p>From single bulk orders to global exports and long-term distribution — we work with partners of every scale.</p>
+        <h3 data-cms="request-h3-2">Built for business</h3>
+        <p data-cms="request-p-3">From single bulk orders to global exports and long-term distribution — we work with partners of every scale.</p>
       </div>
       <div class="ic-card" data-fade>
         <span class="ic-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h18l-1.5 12.5a2 2 0 0 1-2 1.5H6.5a2 2 0 0 1-2-1.5L3 7z"/><path d="M8 7V5a4 4 0 0 1 8 0v2"/></svg></span>
         <div class="ic-b">
-          <h4>Bulk Orders</h4>
-          <p>Competitive trade pricing on high-volume orders across our cookware and kitchenware range, with reliable lead times.</p>
+          <h4 data-cms="request-h4-1">Bulk Orders</h4>
+          <p data-cms="request-p-4">Competitive trade pricing on high-volume orders across our cookware and kitchenware range, with reliable lead times.</p>
         </div>
       </div>
       <div class="ic-card" data-fade>
         <span class="ic-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3.5 9h17M3.5 15h17M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></span>
         <div class="ic-b">
-          <h4>Export Enquiries</h4>
-          <p>Made-in-India quality for international markets. We handle documentation, packaging and shipping for export partners.</p>
+          <h4 data-cms="request-h4-2">Export Enquiries</h4>
+          <p data-cms="request-p-5">Made-in-India quality for international markets. We handle documentation, packaging and shipping for export partners.</p>
         </div>
       </div>
       <div class="ic-card" data-fade>
         <span class="ic-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="12" cy="18" r="2.5"/><path d="M6 8.5v3a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-3M12 13.5v2"/></svg></span>
         <div class="ic-b">
-          <h4>Distribution Partnership</h4>
-          <p>Grow with a brand homes have trusted since 1971. Join our network of 1000 retail outlets across India.</p>
+          <h4 data-cms="request-h4-3">Distribution Partnership</h4>
+          <p data-cms="request-p-6">Grow with a brand homes have trusted since 1971. Join our network of 1000 retail outlets across India.</p>
         </div>
       </div>
       <div class="ic-card ic-contact" data-fade>
         <span class="ic-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M4 7l8 6 8-6"/></svg></span>
         <div class="ic-b">
-          <h4>Talk to Sales Directly</h4>
+          <h4 data-cms="request-h4-4">Talk to Sales Directly</h4>
           <a href="mailto:sales@crystalcook.com">sales@crystalcook.com</a>
           <a href="tel:02249702803">022-49702803 / 06</a>
           <span class="sm">Mon–Sat, 10:00 AM – 6:30 PM IST</span>
@@ -666,8 +666,8 @@ h1, h2 { overflow-wrap: break-word; }
   <div class="cta">
     <div class="cta-inner">
       <span class="eyebrow" style="color:#fff;justify-content:center"><span class="pip"></span>Ready when you are</span>
-      <h2 data-split style="margin-top:14px">Let's build<br>something big</h2>
-      <p>Have a specific requirement in mind? Email our sales team and we'll move fast on your quote.</p>
+      <h2 data-split style="margin-top:14px" data-cms="cta-h2-1">Let's build<br>something big</h2>
+      <p data-cms="cta-p-1">Have a specific requirement in mind? Email our sales team and we'll move fast on your quote.</p>
       <div class="row">
         <a href="mailto:sales@crystalcook.com" class="btn btn-light">sales@crystalcook.com <span class="arr">↗</span></a>
         <a href="tel:02249702803" class="btn btn-red">022-49702803 / 06 <span class="arr">↗</span></a>

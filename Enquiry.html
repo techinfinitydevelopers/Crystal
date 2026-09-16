@@ -525,8 +525,8 @@ h1, h2 { overflow-wrap: break-word; }
   <!-- ===== PAGE HERO ===== -->
   <section class="enq-hero wrap" id="top">
     <span class="eyebrow"><span class="pip"></span><span id="heroPreTxt">Enquiry List</span></span>
-    <h1 id="heroTitle">Your Product Enquiry</h1>
-    <p class="sub" id="heroSub">Review your selected products and send us your requirement — our team will respond with pricing and availability.</p>
+    <h1 id="heroTitle" data-cms="hero-title">Your Product Enquiry</h1>
+    <p class="sub" id="heroSub" data-cms="hero-sub">Review your selected products and send us your requirement — our team will respond with pricing and availability.</p>
   </section>
 
   <!-- ===== ENQUIRY GRID ===== -->
@@ -536,11 +536,11 @@ h1, h2 { overflow-wrap: break-word; }
       <!-- LEFT — items list -->
       <div class="enq-list-card" id="enqListCard">
         <span class="eyebrow"><span class="pip"></span>Selected Products</span>
-        <h2>Your enquiry list</h2>
+        <h2 data-cms="page-h2-1">Your enquiry list</h2>
         <div class="enq-items" id="enqList"></div>
         <div class="enq-empty" id="enqEmpty" hidden>
           <span class="ee-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></span>
-          <p>Your enquiry list is empty.</p>
+          <p data-cms="page-p-1">Your enquiry list is empty.</p>
           <a href="All-Products.html" class="btn btn-dark">Browse Products <span class="arr">↗</span></a>
         </div>
       </div>
@@ -548,7 +548,7 @@ h1, h2 { overflow-wrap: break-word; }
       <!-- RIGHT — enquiry form -->
       <div class="form-card" id="formCard">
         <span class="eyebrow"><span class="pip"></span>Send your requirement</span>
-        <h2>Enquiry Details</h2>
+        <h2 data-cms="page-h2-2">Enquiry Details</h2>
         <div class="enq-banner">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
           <span>You're submitting a product enquiry — not placing an online order. Our team will contact you with pricing &amp; availability.</span>
@@ -620,9 +620,9 @@ h1, h2 { overflow-wrap: break-word; }
     <div class="enq-success" id="enqSuccess">
       <div class="success-card">
         <span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
-        <h2>Enquiry submitted successfully</h2>
+        <h2 data-cms="page-h2-3">Enquiry submitted successfully</h2>
         <div class="ref">Reference: <span id="refNo"></span></div>
-        <p>Thank you, <span id="successName"></span>. The Crystal Cook team will contact you shortly with pricing and availability.</p>
+        <p data-cms="page-p-2">Thank you, <span id="successName"></span>. The Crystal Cook team will contact you shortly with pricing and availability.</p>
         <div class="sc-actions">
           <a href="All-Products.html" class="btn btn-dark">Continue Browsing <span class="arr">↗</span></a>
           <a href="index.html" class="btn btn-ghost">Back to Home</a>

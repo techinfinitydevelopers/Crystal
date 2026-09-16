@@ -652,9 +652,9 @@ h1, h2 { overflow-wrap: break-word; }
 <section class="hero" id="hero">
   <div class="wrap">
     <div class="pre" data-fade><span id="heroPreTxt">About Crystal · Since 1971</span></div>
-    <h1 data-split id="heroTitle">CRAFTING <span class="grad">EVERYDAY</span></h1>
-    <h1 data-split id="heroTitle2">ESSENTIALS WITH CARE</h1>
-    <p class="hero-sub" id="heroSub" data-fade>Crystal is committed to responsible growth — promoting women's empowerment, fair employment, and inclusive workplace practices since 1971.</p>
+    <h1 data-split id="heroTitle" data-cms="hero-title">CRAFTING <span class="grad">EVERYDAY</span></h1>
+    <h1 data-split id="heroTitle2" data-cms="hero-title-2">ESSENTIALS WITH CARE</h1>
+    <p class="hero-sub" id="heroSub" data-fade data-cms="hero-sub">Crystal is committed to responsible growth — promoting women's empowerment, fair employment, and inclusive workplace practices since 1971.</p>
     <div class="hero-cta" data-fade>
       <a href="#legacy" class="btn btn-red">Know More <span class="arr">↗</span></a>
       <a href="#help" class="btn btn-dark">Partner With Us <span class="arr">↗</span></a>
@@ -666,7 +666,7 @@ h1, h2 { overflow-wrap: break-word; }
 <!-- ===== 02 LEGACY ===== -->
 <section class="sec wrap sec-cream legacy" id="legacy">
   <span class="eyebrow" data-fade><span class="pip"></span>Our Legacy</span>
-  <p class="statement" data-lines style="margin-top:22px">Since 1971, Crystal has grown synonymous with the modern Indian kitchen — trusted by quality-conscious homes for products that keep pace with changing times. From precision gas lighters to a complete range of kitchenware, cookware, cutlery, storage and cleaning aids, we remain <b>a complete home solutions provider.</b></p>
+  <p class="statement" data-lines style="margin-top:22px" data-cms="legacy-p-1">Since 1971, Crystal has grown synonymous with the modern Indian kitchen — trusted by quality-conscious homes for products that keep pace with changing times. From precision gas lighters to a complete range of kitchenware, cookware, cutlery, storage and cleaning aids, we remain <b>a complete home solutions provider.</b></p>
   <!-- The company film. It runs 11 minutes and carries a soundtrack. Browsers
        only allow autoplay when muted, so it starts silently and the visitor
        unmutes via the native controls if they want sound. -->
@@ -690,17 +690,17 @@ h1, h2 { overflow-wrap: break-word; }
     <div class="rtitle">Awards &amp; Recognition</div>
     <div class="ritems">
       <figure class="award-card">
-        <img class="trophy" src="about-assets/award-trophy.jpg" alt="HomeShop18 STAR Award — Home &amp; Kitchen" />
+        <img class="trophy" src="about-assets/award-trophy.jpg" alt="HomeShop18 STAR Award — Home &amp; Kitchen" / data-cms="legacy-img-1">
         <figcaption>HomeShop18 STAR Award<span>Home &amp; Kitchen</span></figcaption>
       </figure>
       <figure class="award-card cert-card">
-        <img class="cert" src="about-assets/cert-1.png" alt="Certificate of achievement" loading="lazy" />
+        <img class="cert" src="about-assets/cert-1.png" alt="Certificate of achievement" loading="lazy" / data-cms="legacy-img-2">
       </figure>
       <figure class="award-card cert-card">
-        <img class="cert" src="about-assets/cert-2.png" alt="Certificate of achievement" loading="lazy" />
+        <img class="cert" src="about-assets/cert-2.png" alt="Certificate of achievement" loading="lazy" / data-cms="legacy-img-3">
       </figure>
       <figure class="award-card cert-card">
-        <img class="cert" src="about-assets/cert-3.png" alt="Certificate of achievement" loading="lazy" />
+        <img class="cert" src="about-assets/cert-3.png" alt="Certificate of achievement" loading="lazy" / data-cms="legacy-img-4">
       </figure>
     </div>
   </div>
@@ -712,12 +712,12 @@ h1, h2 { overflow-wrap: break-word; }
     <div class="sec-head">
       <div>
         <span class="eyebrow" data-fade style="color:var(--muted-d)"><span class="pip"></span>Our Purpose</span>
-        <h2 data-split style="color:#fff;margin-top:14px">Vision · Mission · Values</h2>
+        <h2 data-split style="color:#fff;margin-top:14px" data-cms="vmv-h2-1">Vision · Mission · Values</h2>
       </div>
-      <p class="lead">The beliefs that shape every product we make and every home we serve.</p>
+      <p class="lead" data-cms="vmv-p-1">The beliefs that shape every product we make and every home we serve.</p>
     </div>
     <div class="vmv-wrapper">
-      <div class="vmv-image" data-fade><img src="about-assets/leadership.webp" alt="Crystal leadership" /></div>
+      <div class="vmv-image" data-fade><img src="about-assets/leadership.webp" alt="Crystal leadership" / data-cms="vmv-img-1"></div>
       <div class="vmv-tabs" id="vmv-tabs">
         <div class="vmv-tab active" data-tab="vision">
           <div class="vmv-tab-head"><div class="vmv-tab-badge" data-badge></div><div class="vmv-tab-label">Our Vision</div></div>
@@ -741,10 +741,10 @@ h1, h2 { overflow-wrap: break-word; }
   <div class="sec-head">
     <div>
       <span class="eyebrow" data-fade><span class="pip"></span>Our Journey · Since 1971</span>
-      <h2 data-split style="margin-top:14px">The Crystal<br>Story</h2>
+      <h2 data-split style="margin-top:14px" data-cms="journey-h2-1">The Crystal<br>Story</h2>
     </div>
     <div data-fade style="display:flex; flex-direction:column; align-items:flex-end; gap:16px;">
-      <p class="lead" style="margin:0">From a single gas lighter to a complete home ecosystem — five decades of made-in-India innovation, told in fifteen defining chapters.</p>
+      <p class="lead" style="margin:0" data-cms="journey-p-1">From a single gas lighter to a complete home ecosystem — five decades of made-in-India innovation, told in fifteen defining chapters.</p>
       <div class="journey-controls">
         <button type="button" class="journey-arrow" id="journeyPrev" aria-label="Previous chapter"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
         <button type="button" class="journey-arrow" id="journeyNext" aria-label="Next chapter"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></button>
@@ -760,9 +760,9 @@ h1, h2 { overflow-wrap: break-word; }
   <div class="sec-head">
     <div>
       <span class="eyebrow" data-fade><span class="pip"></span>Our Reach</span>
-      <h2 data-split style="margin-top:14px">Built on<br>solid ground</h2>
+      <h2 data-split style="margin-top:14px" data-cms="infrastructure-h2-1">Built on<br>solid ground</h2>
     </div>
-    <p class="lead">Three offices, three factories, five warehouses and a 30,000 sq. ft. manufacturing backbone — engineered in India, trusted across the country.</p>
+    <p class="lead" data-cms="infrastructure-p-1">Three offices, three factories, five warehouses and a 30,000 sq. ft. manufacturing backbone — engineered in India, trusted across the country.</p>
   </div>
   <div class="stats infra-stats">
     <div class="stat" data-fade><div class="num"><span data-count="3" id="statOfficesNum">0</span></div><div class="lbl" id="statOfficesLbl">Corporate Offices</div></div>
@@ -778,11 +778,11 @@ h1, h2 { overflow-wrap: break-word; }
   <div class="sustain-card">
     <div data-fade>
       <span class="eyebrow" style="color:var(--muted-d)"><span class="pip"></span>Sustainability &amp; CSR</span>
-      <h2 data-split>Nurturing Livelihoods, Supporting Sustainability</h2>
-      <p class="lead">Responsible manufacturing, fair employment and community livelihoods at the heart of everything we build.</p>
+      <h2 data-split data-cms="sustainability-h2-1">Nurturing Livelihoods, Supporting Sustainability</h2>
+      <p class="lead" data-cms="sustainability-p-1">Responsible manufacturing, fair employment and community livelihoods at the heart of everything we build.</p>
       <div style="margin-top:24px"><a href="#help" class="btn btn-red">Get in Touch <span class="arr">↗</span></a></div>
     </div>
-    <div class="sustain-img" data-parallax="0.07"><img src="about-assets/sustainability.webp" alt="Sustainability" /></div>
+    <div class="sustain-img" data-parallax="0.07"><img src="about-assets/sustainability.webp" alt="Sustainability" / data-cms="sustainability-img-1"></div>
   </div>
 </section>
 
@@ -791,30 +791,30 @@ h1, h2 { overflow-wrap: break-word; }
   <div class="sec-head">
     <div>
       <span class="eyebrow" data-fade><span class="pip"></span>Partner with Crystal</span>
-      <h2 data-split style="margin-top:14px">We're here to<br>help you with</h2>
+      <h2 data-split style="margin-top:14px" data-cms="help-h2-1">We're here to<br>help you with</h2>
     </div>
-    <p class="lead">From bulk orders to global exports and distribution — partner with a brand homes have trusted since 1971.</p>
+    <p class="lead" data-cms="help-p-1">From bulk orders to global exports and distribution — partner with a brand homes have trusted since 1971.</p>
   </div>
   <div class="help-grid">
     <a class="help-card" href="mailto:sales@crystalcook.com?subject=Bulk%20Enquiry">
       <span class="help-num">01</span>
       <span class="help-ic"><svg width="46" height="46" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"><rect x="6" y="26" width="14" height="14" rx="1.5"/><rect x="28" y="26" width="14" height="14" rx="1.5"/><rect x="17" y="9" width="14" height="14" rx="1.5"/></svg></span>
-      <h4>Bulk Enquiry</h4>
-      <p>Reliable, high-quality home solutions tailored for large-scale and institutional requirements.</p>
+      <h4 data-cms="help-h4-1">Bulk Enquiry</h4>
+      <p data-cms="help-p-2">Reliable, high-quality home solutions tailored for large-scale and institutional requirements.</p>
       <span class="help-link">Start an enquiry <span class="arr">↗</span></span>
     </a>
     <a class="help-card" href="mailto:sales@crystalcook.com?subject=Export%20Enquiry">
       <span class="help-num">02</span>
       <span class="help-ic"><svg width="46" height="46" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"><rect x="6" y="11" width="36" height="26" rx="2.5"/><path d="M6 14l18 13L42 14"/></svg></span>
-      <h4>Export Enquiry</h4>
-      <p>Bringing trusted Indian craftsmanship to global markets with consistent quality and compliance.</p>
+      <h4 data-cms="help-h4-2">Export Enquiry</h4>
+      <p data-cms="help-p-3">Bringing trusted Indian craftsmanship to global markets with consistent quality and compliance.</p>
       <span class="help-link">Start an enquiry <span class="arr">↗</span></span>
     </a>
     <a class="help-card" href="mailto:sales@crystalcook.com?subject=Distribution%20Partnership">
       <span class="help-num">03</span>
       <span class="help-ic"><svg width="46" height="46" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"><path d="M24 13l5-3 13 7-7 9-4-3-7 6-7-6-4 3-7-9 13-7 5 3z"/><path d="M17 22l5 5"/></svg></span>
-      <h4>Distribution Partnership</h4>
-      <p>Partner with us to expand Crystal's presence across markets through a strong, reliable network.</p>
+      <h4 data-cms="help-h4-3">Distribution Partnership</h4>
+      <p data-cms="help-p-4">Partner with us to expand Crystal's presence across markets through a strong, reliable network.</p>
       <span class="help-link">Become a partner <span class="arr">↗</span></span>
     </a>
   </div>

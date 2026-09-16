@@ -217,6 +217,8 @@ CORS_ALLOWED_ORIGINS = env.list('CORS_ALLOWED_ORIGINS', default=[
     'http://127.0.0.1:3456',
     'http://localhost:4567',
     'http://127.0.0.1:4567',
+    'http://localhost:4599',
+    'http://127.0.0.1:4599',
 ])
 CORS_ALLOW_ALL_ORIGINS = DEBUG
 

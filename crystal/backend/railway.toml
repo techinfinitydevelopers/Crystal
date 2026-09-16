@@ -10,7 +10,10 @@ buildCommand = "python manage.py collectstatic --no-input"
 # the website service. Deliberately non-fatal — the dashboard is still perfectly
 # usable with a slightly stale catalogue, and a hiccup fetching the file should
 # not be able to block a deploy. Check the deploy log for its summary.
-preDeployCommand = "python manage.py migrate --no-input && (python manage.py sync_catalogue || echo 'catalogue sync skipped - see error above')"
+# seed_page_sections does the same for the editable page sections: it reads
+# tools/cms-manifest.json off the website and adds a row for any data-cms key
+# that has none yet. It never overwrites a value someone typed.
+preDeployCommand = "python manage.py migrate --no-input && (python manage.py sync_catalogue || echo 'catalogue sync skipped - see error above') && (python manage.py seed_page_sections || echo 'page-section seed skipped - see error above')"
 startCommand = "gunicorn config.wsgi --workers 2 --bind 0.0.0.0:$PORT"
 healthcheckPath = "/api/products/"
 restartPolicyType = "on_failure"

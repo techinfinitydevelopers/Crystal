@@ -1,11 +1,28 @@
-/* Lets the dashboard override this page's hero text without a rebuild.
+/* Lets the dashboard edit this page's text and images without a rebuild.
+
    Same inversion as the banner-sync script already on this page: the site is
    static files in git and the dashboard is a separate service with its own
    database, so the dashboard cannot write into the site. The page ships its
    own copy and asks the dashboard, on load, whether a newer value has been
-   set for each section key; if so it swaps it in. If the dashboard is down
-   or has nothing for this page, the shipped copy stands. Nothing here is
-   awaited before paint. */
+   set for each of its section keys; if so it swaps it in. If the dashboard is
+   down or has nothing for this page, the shipped copy stands. Nothing here is
+   awaited before paint.
+
+   ── How an element becomes editable ──────────────────────────────────────
+   Put `data-cms="some-key"` on it. That is the whole contract: this script
+   finds every [data-cms] on the page and matches it against the keys the
+   dashboard holds for this page. Adding a new editable section is an HTML
+   attribute and nothing else — no list to keep in step here, which is what
+   the old hard-coded TARGETS map turned into as pages were added.
+
+   An element may also carry `data-cms-attr="alt"` to say that the value
+   belongs in that attribute rather than in the element's text.
+
+   ── The legacy ids ───────────────────────────────────────────────────────
+   Before data-cms, 54 keys were wired by element id. Those ids are still on
+   the pages and still work: LEGACY_IDS maps them, and it is consulted only
+   for keys no [data-cms] claims. It can be deleted once every page carries
+   the attributes. */
 (function () {
   "use strict";
 
@@ -15,69 +32,112 @@
 
   var API = "https://crystal-production-eb2e.up.railway.app/api/sections.json";
 
-  // section_key -> element. Only keys present here can be edited from the
-  // dashboard; a page adds more by extending this map.
-  var TARGETS = {
-    "hero-pretext": document.getElementById("heroPreTxt"),
-    "hero-title": document.getElementById("heroTitle"),
-    "hero-title-2": document.getElementById("heroTitle2"),
-    "hero-sub": document.getElementById("heroSub"),
-    "about-title": document.getElementById("aboutTitle"),
-    "about-text": document.getElementById("aboutText"),
-    "about-image": document.getElementById("aboutImg"),
-    "cta-title": document.getElementById("ctaTitle"),
-    "cta-sub": document.getElementById("ctaSub"),
+  // key -> element id, for pages that predate data-cms. Only used as a
+  // fallback; an element carrying the key as data-cms always wins.
+  var LEGACY_IDS = {
+    "hero-pretext": "heroPreTxt",
+    "hero-title": "heroTitle",
+    "hero-title-2": "heroTitle2",
+    "hero-sub": "heroSub",
+    "about-title": "aboutTitle",
+    "about-text": "aboutText",
+    "about-image": "aboutImg",
+    "cta-title": "ctaTitle",
+    "cta-title-2": "ctaTitle2",
+    "cta-sub": "ctaSub",
 
-    // About.html's two stat rows.
-    "stat-years-num": document.getElementById("statYearsNum"),
-    "stat-years-lbl": document.getElementById("statYearsLbl"),
-    "stat-people-num": document.getElementById("statPeopleNum"),
-    "stat-people-lbl": document.getElementById("statPeopleLbl"),
-    "stat-skus-num": document.getElementById("statSkusNum"),
-    "stat-skus-lbl": document.getElementById("statSkusLbl"),
-    "stat-customers-num": document.getElementById("statCustomersNum"),
-    "stat-customers-lbl": document.getElementById("statCustomersLbl"),
-    "stat-offices-num": document.getElementById("statOfficesNum"),
-    "stat-offices-lbl": document.getElementById("statOfficesLbl"),
-    "stat-units-num": document.getElementById("statUnitsNum"),
-    "stat-units-lbl": document.getElementById("statUnitsLbl"),
-    "stat-warehouses-num": document.getElementById("statWarehousesNum"),
-    "stat-warehouses-lbl": document.getElementById("statWarehousesLbl"),
-    "stat-outlets-num": document.getElementById("statOutletsNum"),
-    "stat-outlets-lbl": document.getElementById("statOutletsLbl"),
-    "stat-factory-num": document.getElementById("statFactoryNum"),
-    "stat-factory-lbl": document.getElementById("statFactoryLbl"),
+    // About.html's stat rows.
+    "stat-years-num": "statYearsNum",
+    "stat-years-lbl": "statYearsLbl",
+    "stat-people-num": "statPeopleNum",
+    "stat-people-lbl": "statPeopleLbl",
+    "stat-skus-num": "statSkusNum",
+    "stat-skus-lbl": "statSkusLbl",
+    "stat-customers-num": "statCustomersNum",
+    "stat-customers-lbl": "statCustomersLbl",
+    "stat-offices-num": "statOfficesNum",
+    "stat-offices-lbl": "statOfficesLbl",
+    "stat-units-num": "statUnitsNum",
+    "stat-units-lbl": "statUnitsLbl",
+    "stat-warehouses-num": "statWarehousesNum",
+    "stat-warehouses-lbl": "statWarehousesLbl",
+    "stat-outlets-num": "statOutletsNum",
+    "stat-outlets-lbl": "statOutletsLbl",
+    "stat-factory-num": "statFactoryNum",
+    "stat-factory-lbl": "statFactoryLbl",
 
-    // Home (index.html / index-v2.html): CTA's second line, and its three
-    // stat rows (Who We Are, Infrastructure, Our Brands).
-    "cta-title-2": document.getElementById("ctaTitle2"),
-    "about-stat-years-num": document.getElementById("aboutStatYearsNum"),
-    "about-stat-years-lbl": document.getElementById("aboutStatYearsLbl"),
-    "about-stat-employees-num": document.getElementById("aboutStatEmployeesNum"),
-    "about-stat-employees-lbl": document.getElementById("aboutStatEmployeesLbl"),
-    "about-stat-products-num": document.getElementById("aboutStatProductsNum"),
-    "about-stat-products-lbl": document.getElementById("aboutStatProductsLbl"),
-    "about-stat-customers-num": document.getElementById("aboutStatCustomersNum"),
-    "about-stat-customers-lbl": document.getElementById("aboutStatCustomersLbl"),
-    "infra-offices-num": document.getElementById("infraOfficesNum"),
-    "infra-offices-lbl": document.getElementById("infraOfficesLbl"),
-    "infra-units-num": document.getElementById("infraUnitsNum"),
-    "infra-units-lbl": document.getElementById("infraUnitsLbl"),
-    "infra-warehouses-num": document.getElementById("infraWarehousesNum"),
-    "infra-warehouses-lbl": document.getElementById("infraWarehousesLbl"),
-    "infra-outlets-num": document.getElementById("infraOutletsNum"),
-    "infra-outlets-lbl": document.getElementById("infraOutletsLbl"),
-    "infra-factory-num": document.getElementById("infraFactoryNum"),
-    "infra-factory-lbl": document.getElementById("infraFactoryLbl"),
-    "brand-stat-years-num": document.getElementById("brandStatYearsNum"),
-    "brand-stat-years-lbl": document.getElementById("brandStatYearsLbl"),
-    "brand-stat-outlets-num": document.getElementById("brandStatOutletsNum"),
-    "brand-stat-outlets-lbl": document.getElementById("brandStatOutletsLbl"),
-    "brand-stat-skus-num": document.getElementById("brandStatSkusNum"),
-    "brand-stat-skus-lbl": document.getElementById("brandStatSkusLbl"),
-    "brand-stat-people-num": document.getElementById("brandStatPeopleNum"),
-    "brand-stat-people-lbl": document.getElementById("brandStatPeopleLbl"),
+    // Home's three stat rows.
+    "about-stat-years-num": "aboutStatYearsNum",
+    "about-stat-years-lbl": "aboutStatYearsLbl",
+    "about-stat-employees-num": "aboutStatEmployeesNum",
+    "about-stat-employees-lbl": "aboutStatEmployeesLbl",
+    "about-stat-products-num": "aboutStatProductsNum",
+    "about-stat-products-lbl": "aboutStatProductsLbl",
+    "about-stat-customers-num": "aboutStatCustomersNum",
+    "about-stat-customers-lbl": "aboutStatCustomersLbl",
+    "infra-offices-num": "infraOfficesNum",
+    "infra-offices-lbl": "infraOfficesLbl",
+    "infra-units-num": "infraUnitsNum",
+    "infra-units-lbl": "infraUnitsLbl",
+    "infra-warehouses-num": "infraWarehousesNum",
+    "infra-warehouses-lbl": "infraWarehousesLbl",
+    "infra-outlets-num": "infraOutletsNum",
+    "infra-outlets-lbl": "infraOutletsLbl",
+    "infra-factory-num": "infraFactoryNum",
+    "infra-factory-lbl": "infraFactoryLbl",
+    "brand-stat-years-num": "brandStatYearsNum",
+    "brand-stat-years-lbl": "brandStatYearsLbl",
+    "brand-stat-outlets-num": "brandStatOutletsNum",
+    "brand-stat-outlets-lbl": "brandStatOutletsLbl",
+    "brand-stat-skus-num": "brandStatSkusNum",
+    "brand-stat-skus-lbl": "brandStatSkusLbl",
+    "brand-stat-people-num": "brandStatPeopleNum",
+    "brand-stat-people-lbl": "brandStatPeopleLbl"
   };
+
+  function elementsFor(key) {
+    /* Every element claiming this key. A key may legitimately appear more
+       than once — the same heading is repeated in a mobile and a desktop
+       copy on several pages — so all of them are updated, not just one. */
+    var found = [];
+    try {
+      var nodes = document.querySelectorAll('[data-cms="' + key.replace(/"/g, '\\"') + '"]');
+      for (var i = 0; i < nodes.length; i++) found.push(nodes[i]);
+    } catch (e) { /* a key with odd characters: fall through to the id */ }
+    if (found.length) return found;
+    var legacy = LEGACY_IDS[key] && document.getElementById(LEGACY_IDS[key]);
+    return legacy ? [legacy] : [];
+  }
+
+  function applyText(el, text) {
+    var attr = el.getAttribute("data-cms-attr");
+    if (attr) { el.setAttribute(attr, text); return; }
+    el.textContent = text;
+    /* A stat's counted number: update the attribute the count-up animation
+       reads too, so a value set before the animation fires still lands on the
+       right number, not the shipped default. Two different count-up scripts
+       exist on this site, reading data-count and data-target respectively. */
+    if (el.hasAttribute("data-count")) el.setAttribute("data-count", text);
+    if (el.hasAttribute("data-target")) el.setAttribute("data-target", text);
+  }
+
+  function applyImage(el, url) {
+    var attr = el.getAttribute("data-cms-attr");
+    if (attr) { el.setAttribute(attr, url); return; }
+    if (el.tagName === "IMG") {
+      /* A <picture> puts a <source> in front of the <img>; left in place it
+         wins and the swap is invisible. Same rule the banner sync follows. */
+      var picture = el.parentNode;
+      if (picture && picture.tagName === "PICTURE") {
+        var sources = picture.querySelectorAll("source");
+        for (var i = 0; i < sources.length; i++) sources[i].remove();
+      }
+      el.removeAttribute("srcset");
+      el.src = url;
+      return;
+    }
+    el.style.backgroundImage = "url(" + url + ")";
+  }
 
   fetch(API, { mode: "cors", credentials: "omit" })
     .then(function (r) { return r.ok ? r.json() : null; })
@@ -86,21 +146,13 @@
       if (!sections) return;
 
       Object.keys(sections).forEach(function (key) {
-        var el = TARGETS[key];
-        if (!el) return;
-        var s = sections[key];
-        if (s.kind === "image" && s.url) {
-          if (el.tagName === "IMG") el.src = s.url;
-          else el.style.backgroundImage = "url(" + s.url + ")";
-        } else if (s.kind === "text" && s.text) {
-          el.textContent = s.text;
-          // A stat's counted number: update the attribute the count-up
-          // animation reads too, so a value set before the animation fires
-          // still lands on the right number, not the shipped default. Two
-          // different count-up scripts exist on this site, reading
-          // data-count and data-target respectively.
-          if (el.hasAttribute("data-count")) el.setAttribute("data-count", s.text);
-          if (el.hasAttribute("data-target")) el.setAttribute("data-target", s.text);
+        var section = sections[key];
+        if (!section) return;
+        var targets = elementsFor(key);
+        if (!targets.length) return;
+        for (var i = 0; i < targets.length; i++) {
+          if (section.kind === "image" && section.url) applyImage(targets[i], section.url);
+          else if (section.kind === "text" && section.text) applyText(targets[i], section.text);
         }
       });
     })

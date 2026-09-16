@@ -4,22 +4,44 @@
     {
       "name": "crystal",
       "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "http.server", "4567"],
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "4567"
+      ],
       "port": 4567
-    }
-  ,
+    },
     {
       "name": "crystal-dev",
       "runtimeExecutable": "npx",
-      "runtimeArgs": ["serve", "-l", "3456", "crystal"],
+      "runtimeArgs": [
+        "serve",
+        "-l",
+        "3456",
+        "crystal"
+      ],
       "port": 3456
-    }
-  ,
+    },
     {
       "name": "crystal-dashboard",
       "runtimeExecutable": "python",
-      "runtimeArgs": ["crystal/backend/manage.py", "runserver", "8765"],
+      "runtimeArgs": [
+        "crystal/backend/manage.py",
+        "runserver",
+        "8765"
+      ],
       "port": 8765
+    },
+    {
+      "name": "crystal-4599",
+      "runtimeExecutable": "python",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "4599"
+      ],
+      "port": 4599,
+      "autoPort": false
     }
   ]
 }
