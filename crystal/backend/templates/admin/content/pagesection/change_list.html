@@ -1,0 +1,18 @@
+{% extends "admin/change_list.html" %}
+
+{# Adds "Load sections from the website" next to the usual Add / History tools.
+
+   The same job runs in railway.toml's preDeploy, but both services deploy from
+   one push and the dashboard's hook can run before the website has published
+   the manifest it reads — in which case the fetch 404s and the seed is skipped,
+   leaving this list empty with nothing to show for it. This button is how
+   someone fixes that without a redeploy. #}
+{% block object-tools-items %}
+  <a href="{% url 'admin:content_pagesection_load' %}"
+     class="btn btn-sm"
+     style="background:#ED3338;color:#fff;font-weight:600;margin-right:6px;"
+     title="Adds an editable row for every section on the live site. Never changes anything you have already typed.">
+    <i class="fas fa-rotate mr-1"></i> Load sections from the website
+  </a>
+  {{ block.super }}
+{% endblock %}

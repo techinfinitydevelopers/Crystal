@@ -112,6 +112,16 @@
   function applyText(el, text) {
     var attr = el.getAttribute("data-cms-attr");
     if (attr) { el.setAttribute(attr, text); return; }
+    if (el.hasAttribute("data-cms-rich")) {
+      /* The element ships with markup inside it — a <br> splitting a heading
+         over two lines, a <span class="grad"> holding the red half of a
+         headline, a <b>, a mailto link. textContent would flatten all of it on
+         the first edit, so these 277 elements take the value as HTML.
+         The value comes from a signed-in staff user through the dashboard, the
+         same trust level as the page's own source. */
+      el.innerHTML = text;
+      return;
+    }
     el.textContent = text;
     /* A stat's counted number: update the attribute the count-up animation
        reads too, so a value set before the animation fires still lands on the

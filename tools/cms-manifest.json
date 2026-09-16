@@ -5,7 +5,7 @@
   "kind": "image",
   "section": "hero3",
   "label": "Hero3 — image 1",
-  "shipped": ""
+  "shipped": "home-v3-assets/video/hero-poster.jpg"
  },
  {
   "page": "index.html",
@@ -13,7 +13,7 @@
   "kind": "image",
   "section": "hero3",
   "label": "Hero3 — image 2",
-  "shipped": ""
+  "shipped": "home-v3-assets/video/hero-poster.jpg"
  },
  {
   "page": "index.html",
@@ -21,7 +21,7 @@
   "kind": "image",
   "section": "hero3",
   "label": "Hero3 — image 3",
-  "shipped": ""
+  "shipped": "home-v3-assets/video/hero-poster.jpg"
  },
  {
   "page": "index.html",
@@ -29,7 +29,7 @@
   "kind": "image",
   "section": "hero3",
   "label": "Hero3 — image 4",
-  "shipped": ""
+  "shipped": "home-v3-assets/video/hero-poster.jpg"
  },
  {
   "page": "index.html",
@@ -61,7 +61,7 @@
   "kind": "image",
   "section": "split3",
   "label": "Split3 — image 1",
-  "shipped": "Crystal cookware in use"
+  "shipped": "home-v3-assets/img/3-1.jpg"
  },
  {
   "page": "index.html",
@@ -69,7 +69,7 @@
   "kind": "image",
   "section": "split3",
   "label": "Split3 — image 2",
-  "shipped": "Crystal serveware"
+  "shipped": "home-v3-assets/img/4-2.jpg"
  },
  {
   "page": "index.html",
@@ -77,7 +77,7 @@
   "kind": "image",
   "section": "split3",
   "label": "Split3 — image 3",
-  "shipped": "Crystal kitchen range"
+  "shipped": "home-v3-assets/img/1-1.jpg"
  },
  {
   "page": "index.html",
@@ -85,7 +85,7 @@
   "kind": "image",
   "section": "split3",
   "label": "Split3 — image 4",
-  "shipped": "Crystal cleaning range"
+  "shipped": "home-v3-assets/img/2-1-1.jpg"
  },
  {
   "page": "index.html",
@@ -117,7 +117,7 @@
   "kind": "image",
   "section": "about3",
   "label": "About3 — image 1",
-  "shipped": "Crystal Cook N Serve Products"
+  "shipped": "home-v3-assets/img/1-2.jpg"
  },
  {
   "page": "index.html",
@@ -149,7 +149,7 @@
   "kind": "image",
   "section": "brand3",
   "label": "Brand3 — image 1",
-  "shipped": "Crystal"
+  "shipped": "home-v3-assets/logos/company1.svg"
  },
  {
   "page": "index.html",
@@ -165,7 +165,7 @@
   "kind": "image",
   "section": "brand3",
   "label": "Brand3 — image 2",
-  "shipped": "Crystalina"
+  "shipped": "home-v3-assets/logos/company3.svg"
  },
  {
   "page": "index.html",
@@ -181,7 +181,7 @@
   "kind": "image",
   "section": "brand3",
   "label": "Brand3 — image 3",
-  "shipped": "SparkMate"
+  "shipped": "home-v3-assets/logos/company2.svg"
  },
  {
   "page": "index.html",
@@ -197,7 +197,7 @@
   "kind": "image",
   "section": "brand3",
   "label": "Brand3 — image 4",
-  "shipped": "ValMate"
+  "shipped": "home-v3-assets/logos/company4.svg"
  },
  {
   "page": "index.html",
@@ -213,7 +213,7 @@
   "kind": "image",
   "section": "trust3",
   "label": "Trust3 — image 1",
-  "shipped": "Trusted partner"
+  "shipped": "home-v3-assets/partners/trust7.svg"
  },
  {
   "page": "index.html",
@@ -221,7 +221,7 @@
   "kind": "image",
   "section": "trust3",
   "label": "Trust3 — image 2",
-  "shipped": "Trusted partner"
+  "shipped": "home-v3-assets/partners/trust10.svg"
  },
  {
   "page": "index.html",
@@ -229,7 +229,7 @@
   "kind": "image",
   "section": "trust3",
   "label": "Trust3 — image 3",
-  "shipped": "Trusted partner"
+  "shipped": "home-v3-assets/partners/trust11.svg"
  },
  {
   "page": "index.html",
@@ -237,7 +237,7 @@
   "kind": "image",
   "section": "trust3",
   "label": "Trust3 — image 4",
-  "shipped": "Trusted partner"
+  "shipped": "home-v3-assets/partners/Smart_Bazaar_logo.png"
  },
  {
   "page": "index.html",
@@ -245,7 +245,7 @@
   "kind": "image",
   "section": "trust3",
   "label": "Trust3 — image 5",
-  "shipped": "Trusted partner"
+  "shipped": "home-v3-assets/partners/trust8.svg"
  },
  {
   "page": "index.html",
@@ -253,7 +253,7 @@
   "kind": "image",
   "section": "trust3",
   "label": "Trust3 — image 6",
-  "shipped": "Trusted partner"
+  "shipped": "home-v3-assets/partners/trust6.svg"
  },
  {
   "page": "index.html",
@@ -261,7 +261,7 @@
   "kind": "image",
   "section": "trust3",
   "label": "Trust3 — image 7",
-  "shipped": "Trusted partner"
+  "shipped": "home-v3-assets/partners/trust5.svg"
  },
  {
   "page": "index.html",
@@ -269,7 +269,7 @@
   "kind": "image",
   "section": "trust3",
   "label": "Trust3 — image 8",
-  "shipped": "Trusted partner"
+  "shipped": "home-v3-assets/partners/trust4.svg"
  },
  {
   "page": "index.html",
@@ -277,7 +277,7 @@
   "kind": "image",
   "section": "trust3",
   "label": "Trust3 — image 9",
-  "shipped": "Trusted partner"
+  "shipped": "home-v3-assets/partners/trust3.svg"
  },
  {
   "page": "index.html",
@@ -285,7 +285,7 @@
   "kind": "image",
   "section": "trust3",
   "label": "Trust3 — image 10",
-  "shipped": "Trusted partner"
+  "shipped": "home-v3-assets/partners/trust2.svg"
  },
  {
   "page": "index.html",
@@ -293,7 +293,7 @@
   "kind": "image",
   "section": "trust3",
   "label": "Trust3 — image 11",
-  "shipped": "Trusted partner"
+  "shipped": "home-v3-assets/partners/trust9.svg"
  },
  {
   "page": "index.html",
@@ -301,23 +301,15 @@
   "kind": "image",
   "section": "trust3",
   "label": "Trust3 — image 12",
-  "shipped": "Trusted partner"
+  "shipped": "home-v3-assets/partners/unnamed.webp"
  },
  {
   "page": "index.html",
   "key": "map3-h2-1",
   "kind": "text",
   "section": "map3",
-  "label": "Map3 — MadeIn India",
-  "shipped": "MadeIn India"
- },
- {
-  "page": "index.html",
-  "key": "map3-img-1",
-  "kind": "image",
-  "section": "map3",
-  "label": "Map3 — image 1",
-  "shipped": ""
+  "label": "Map3 — Made In India",
+  "shipped": "Made In India"
  },
  {
   "page": "index.html",
@@ -333,7 +325,7 @@
   "kind": "image",
   "section": "map3",
   "label": "Map3 — image 2",
-  "shipped": "Crystal offices"
+  "shipped": "home-v3-assets/img/Office.jpg"
  },
  {
   "page": "index.html",
@@ -341,7 +333,7 @@
   "kind": "image",
   "section": "map3",
   "label": "Map3 — image 3",
-  "shipped": "Crystal factory floor"
+  "shipped": "home-v3-assets/img/3-Lac-Factory-Size.jpg"
  },
  {
   "page": "index.html",
@@ -349,7 +341,7 @@
   "kind": "image",
   "section": "map3",
   "label": "Map3 — image 4",
-  "shipped": "Crystal warehouse"
+  "shipped": "home-v3-assets/img/Warehouse.jpg"
  },
  {
   "page": "index.html",
@@ -357,7 +349,7 @@
   "kind": "image",
   "section": "map3",
   "label": "Map3 — image 5",
-  "shipped": "Crystal retail outlets"
+  "shipped": "home-v3-assets/img/Outlets.jpg"
  },
  {
   "page": "index.html",
@@ -365,15 +357,7 @@
   "kind": "image",
   "section": "map3",
   "label": "Map3 — image 6",
-  "shipped": "Crystal factories"
- },
- {
-  "page": "index.html",
-  "key": "map3-li-1",
-  "kind": "text",
-  "section": "map3",
-  "label": "Map3 — 03Offices",
-  "shipped": "03Offices"
+  "shipped": "home-v3-assets/img/Factories.jpg"
  },
  {
   "page": "index.html",
@@ -385,27 +369,11 @@
  },
  {
   "page": "index.html",
-  "key": "map3-li-2",
-  "kind": "text",
-  "section": "map3",
-  "label": "Map3 — 03Factories",
-  "shipped": "03Factories"
- },
- {
-  "page": "index.html",
   "key": "map3-p-2",
   "kind": "text",
   "section": "map3",
   "label": "Map3 — Factories",
   "shipped": "Factories"
- },
- {
-  "page": "index.html",
-  "key": "map3-li-3",
-  "kind": "text",
-  "section": "map3",
-  "label": "Map3 — 05Warehouses",
-  "shipped": "05Warehouses"
  },
  {
   "page": "index.html",
@@ -417,27 +385,11 @@
  },
  {
   "page": "index.html",
-  "key": "map3-li-4",
-  "kind": "text",
-  "section": "map3",
-  "label": "Map3 — 1,00,000+Outlets",
-  "shipped": "1,00,000+Outlets"
- },
- {
-  "page": "index.html",
   "key": "map3-p-4",
   "kind": "text",
   "section": "map3",
   "label": "Map3 — Outlets",
   "shipped": "Outlets"
- },
- {
-  "page": "index.html",
-  "key": "map3-li-5",
-  "kind": "text",
-  "section": "map3",
-  "label": "Map3 — 3,00,000 sq feetFactory Size",
-  "shipped": "3,00,000 sq feetFactory Size"
  },
  {
   "page": "index.html",
@@ -461,7 +413,7 @@
   "kind": "image",
   "section": "res3",
   "label": "Res3 — image 1",
-  "shipped": "Built for the Way India Cooks"
+  "shipped": "home-v3-assets/img/03-Trusted-Indian-Brand-Heritage-1024x419.jpg"
  },
  {
   "page": "index.html",
@@ -485,7 +437,7 @@
   "kind": "image",
   "section": "res3",
   "label": "Res3 — image 2",
-  "shipped": "Why Triply Cookware is a Smart Choice"
+  "shipped": "home-v3-assets/img/02-Crystal-Kadhai-1024x419.jpg"
  },
  {
   "page": "index.html",
@@ -509,7 +461,7 @@
   "kind": "image",
   "section": "res3",
   "label": "Res3 — image 3",
-  "shipped": "Everyday Cooking Made Effortless"
+  "shipped": "home-v3-assets/img/01-Crystal-Cooker-1024x419.jpg"
  },
  {
   "page": "index.html",
@@ -545,19 +497,11 @@
  },
  {
   "page": "index.html",
-  "key": "pre3-img-1",
-  "kind": "image",
-  "section": "pre3",
-  "label": "Pre3 — image 1",
-  "shipped": ""
- },
- {
-  "page": "index.html",
   "key": "pre3-img-2",
   "kind": "image",
   "section": "pre3",
   "label": "Pre3 — image 2",
-  "shipped": "Crystal product range"
+  "shipped": "home-v3-assets/img/crystal-prefooter.png"
  },
  {
   "page": "About.html",
@@ -597,7 +541,7 @@
   "kind": "image",
   "section": "legacy",
   "label": "Legacy — image 1",
-  "shipped": "HomeShop18 STAR Award — Home &amp; Kitchen"
+  "shipped": "about-assets/award-trophy.jpg"
  },
  {
   "page": "About.html",
@@ -605,7 +549,7 @@
   "kind": "image",
   "section": "legacy",
   "label": "Legacy — image 2",
-  "shipped": "Certificate of achievement"
+  "shipped": "about-assets/cert-1.png"
  },
  {
   "page": "About.html",
@@ -613,7 +557,7 @@
   "kind": "image",
   "section": "legacy",
   "label": "Legacy — image 3",
-  "shipped": "Certificate of achievement"
+  "shipped": "about-assets/cert-2.png"
  },
  {
   "page": "About.html",
@@ -621,7 +565,7 @@
   "kind": "image",
   "section": "legacy",
   "label": "Legacy — image 4",
-  "shipped": "Certificate of achievement"
+  "shipped": "about-assets/cert-3.png"
  },
  {
   "page": "About.html",
@@ -645,15 +589,15 @@
   "kind": "image",
   "section": "vmv",
   "label": "Vmv — image 1",
-  "shipped": "Crystal leadership"
+  "shipped": "about-assets/leadership.webp"
  },
  {
   "page": "About.html",
   "key": "journey-h2-1",
   "kind": "text",
   "section": "journey",
-  "label": "Journey — The CrystalStory",
-  "shipped": "The CrystalStory"
+  "label": "Journey — The Crystal Story",
+  "shipped": "The Crystal Story"
  },
  {
   "page": "About.html",
@@ -668,8 +612,8 @@
   "key": "infrastructure-h2-1",
   "kind": "text",
   "section": "infrastructure",
-  "label": "Infrastructure — Built onsolid ground",
-  "shipped": "Built onsolid ground"
+  "label": "Infrastructure — Built on solid ground",
+  "shipped": "Built on solid ground"
  },
  {
   "page": "About.html",
@@ -701,15 +645,15 @@
   "kind": "image",
   "section": "sustainability",
   "label": "Sustainability — image 1",
-  "shipped": "Sustainability"
+  "shipped": "about-assets/sustainability.webp"
  },
  {
   "page": "About.html",
   "key": "help-h2-1",
   "kind": "text",
   "section": "help",
-  "label": "Help — We're here tohelp you with",
-  "shipped": "We're here tohelp you with"
+  "label": "Help — We're here to help you with",
+  "shipped": "We're here to help you with"
  },
  {
   "page": "About.html",
@@ -788,8 +732,8 @@
   "key": "browse-h2-1",
   "kind": "text",
   "section": "browse",
-  "label": "Browse — Browse allproducts",
-  "shipped": "Browse allproducts"
+  "label": "Browse — Browse all products",
+  "shipped": "Browse all products"
  },
  {
   "page": "All-Products.html",
@@ -804,8 +748,8 @@
   "key": "collections-h2-1",
   "kind": "text",
   "section": "collections",
-  "label": "Collections — Signatureranges",
-  "shipped": "Signatureranges"
+  "label": "Collections — Signature ranges",
+  "shipped": "Signature ranges"
  },
  {
   "page": "All-Products.html",
@@ -820,8 +764,8 @@
   "key": "value-h2-1",
   "kind": "text",
   "section": "value",
-  "label": "Value — Built on trust,made to last",
-  "shipped": "Built on trust,made to last"
+  "label": "Value — Built on trust, made to last",
+  "shipped": "Built on trust, made to last"
  },
  {
   "page": "All-Products.html",
@@ -836,8 +780,8 @@
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
-  "label": "Cta — Bring ithome",
-  "shipped": "Bring ithome"
+  "label": "Cta — Bring it home",
+  "shipped": "Bring it home"
  },
  {
   "page": "All-Products.html",
@@ -849,27 +793,11 @@
  },
  {
   "page": "Article.html",
-  "key": "page-h1-1",
-  "kind": "text",
-  "section": "page",
-  "label": "Page — Article",
-  "shipped": "Article"
- },
- {
-  "page": "Article.html",
-  "key": "page-p-1",
-  "kind": "text",
-  "section": "page",
-  "label": "Page — By Team Crystal ·",
-  "shipped": "By Team Crystal ·"
- },
- {
-  "page": "Article.html",
   "key": "related-h2-1",
   "kind": "text",
   "section": "related",
-  "label": "Related — Relatedarticles",
-  "shipped": "Relatedarticles"
+  "label": "Related — Related articles",
+  "shipped": "Related articles"
  },
  {
   "page": "Article.html",
@@ -916,8 +844,8 @@
   "key": "articles-h2-1",
   "kind": "text",
   "section": "articles",
-  "label": "Articles — From theblog",
-  "shipped": "From theblog"
+  "label": "Articles — From the blog",
+  "shipped": "From the blog"
  },
  {
   "page": "Blog.html",
@@ -981,7 +909,7 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 1",
-  "shipped": "Crystal"
+  "shipped": "brand-assets/crystal/about.jpg"
  },
  {
   "page": "Brand-Crystal.html",
@@ -997,7 +925,7 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 2",
-  "shipped": "Tri-Pro"
+  "shipped": "brand-assets/crystal/portfolio/tri-pro.jpg"
  },
  {
   "page": "Brand-Crystal.html",
@@ -1005,7 +933,7 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 3",
-  "shipped": "Cast Iron"
+  "shipped": "brand-assets/crystal/portfolio/cast-iron.jpg"
  },
  {
   "page": "Brand-Crystal.html",
@@ -1013,7 +941,7 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 4",
-  "shipped": "Non-Stick"
+  "shipped": "brand-assets/crystal/portfolio/non-stick.jpg"
  },
  {
   "page": "Brand-Crystal.html",
@@ -1021,7 +949,7 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 5",
-  "shipped": "Non-Stick Mini"
+  "shipped": "brand-assets/crystal/portfolio/non-stick-mini.jpg"
  },
  {
   "page": "Brand-Crystal.html",
@@ -1029,7 +957,7 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 6",
-  "shipped": "Sandwich Bottom Steel"
+  "shipped": "brand-assets/crystal/portfolio/sandwich-bottom-steel.jpg"
  },
  {
   "page": "Brand-Crystal.html",
@@ -1037,7 +965,7 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 7",
-  "shipped": "Cooktop"
+  "shipped": "brand-assets/crystal/portfolio/cooktop.jpg"
  },
  {
   "page": "Brand-Crystal.html",
@@ -1045,7 +973,7 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 8",
-  "shipped": "Oil Pourers"
+  "shipped": "brand-assets/crystal/portfolio/oil-pourers.jpg"
  },
  {
   "page": "Brand-Crystal.html",
@@ -1053,7 +981,7 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 9",
-  "shipped": "Lighters"
+  "shipped": "brand-assets/crystal/portfolio/lighters.jpg"
  },
  {
   "page": "Brand-Crystal.html",
@@ -1061,7 +989,7 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 10",
-  "shipped": "Knives"
+  "shipped": "brand-assets/crystal/portfolio/knives.jpg"
  },
  {
   "page": "Brand-Crystal.html",
@@ -1069,7 +997,7 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 11",
-  "shipped": "Peelers"
+  "shipped": "brand-assets/crystal/portfolio/peelers.jpg"
  },
  {
   "page": "Brand-Crystal.html",
@@ -1077,7 +1005,7 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 12",
-  "shipped": "Chopping Boards"
+  "shipped": "brand-assets/crystal/portfolio/chopping-boards.jpg"
  },
  {
   "page": "Brand-Crystal.html",
@@ -1085,7 +1013,7 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 13",
-  "shipped": "Manual Kitchen Appliances"
+  "shipped": "brand-assets/crystal/portfolio/manual-kitchen-appliances.jpg"
  },
  {
   "page": "Brand-Crystal.html",
@@ -1093,7 +1021,7 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 14",
-  "shipped": "Cutlery"
+  "shipped": "brand-assets/crystal/portfolio/cutlery.jpg"
  },
  {
   "page": "Brand-Crystal.html",
@@ -1101,7 +1029,7 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 15",
-  "shipped": "Servers"
+  "shipped": "brand-assets/crystal/portfolio/servers.jpg"
  },
  {
   "page": "Brand-Crystal.html",
@@ -1109,7 +1037,7 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 16",
-  "shipped": "Wooden Range"
+  "shipped": "brand-assets/crystal/portfolio/wood-range.jpg"
  },
  {
   "page": "Brand-Crystal.html",
@@ -1133,7 +1061,7 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 17",
-  "shipped": "Designed for Indian Cooking Styles"
+  "shipped": "brand-assets/crystal/usp/designed-for-indian-cooking-styles.jpg"
  },
  {
   "page": "Brand-Crystal.html",
@@ -1157,7 +1085,7 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 18",
-  "shipped": "Durability You Can Trust"
+  "shipped": "brand-assets/crystal/usp/durability-you-can-trust.jpg"
  },
  {
   "page": "Brand-Crystal.html",
@@ -1173,7 +1101,7 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 19",
-  "shipped": "Comfortable &amp; Easy Handling"
+  "shipped": "brand-assets/crystal/usp/comfortable-easy-handling.jpg"
  },
  {
   "page": "Brand-Crystal.html",
@@ -1197,7 +1125,7 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 20",
-  "shipped": "Wide Product Range"
+  "shipped": "brand-assets/crystal/usp/wide-product-range.jpg"
  },
  {
   "page": "Brand-Crystal.html",
@@ -1213,7 +1141,7 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 21",
-  "shipped": "Trusted Indian Brand Heritage"
+  "shipped": "brand-assets/crystal/usp/trusted-indian-brand-heritage.jpg"
  },
  {
   "page": "Brand-Crystal.html",
@@ -1229,7 +1157,7 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 22",
-  "shipped": "Great Value for Everyday Homes"
+  "shipped": "brand-assets/crystal/usp/great-value-for-everyday-homes.jpg"
  },
  {
   "page": "Brand-Crystal.html",
@@ -1253,7 +1181,7 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 23",
-  "shipped": "Built for the Way India Cooks"
+  "shipped": "brand-assets/crystal/resources/built-for-the-way-india-cooks.jpg"
  },
  {
   "page": "Brand-Crystal.html",
@@ -1269,7 +1197,7 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 24",
-  "shipped": "Why Triply Cookware is a Smart Choice"
+  "shipped": "brand-assets/crystal/resources/why-triply-cookware-is-a-smart-choice.jpg"
  },
  {
   "page": "Brand-Crystal.html",
@@ -1285,7 +1213,7 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 25",
-  "shipped": "Everyday Cooking Made Effortless"
+  "shipped": "brand-assets/crystal/resources/everyday-cooking-made-effortless.jpg"
  },
  {
   "page": "Brand-Crystal.html",
@@ -1333,7 +1261,7 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 1",
-  "shipped": "Crystalina"
+  "shipped": "brand-assets/crystalina/about.jpg"
  },
  {
   "page": "Brand-Crystalina.html",
@@ -1349,7 +1277,7 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 2",
-  "shipped": "Modern Kitchen Aids"
+  "shipped": "brand-assets/crystalina/portfolio/modern-kitchen-aids.jpg"
  },
  {
   "page": "Brand-Crystalina.html",
@@ -1357,7 +1285,7 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 3",
-  "shipped": "Knives"
+  "shipped": "brand-assets/crystalina/portfolio/knives.jpg"
  },
  {
   "page": "Brand-Crystalina.html",
@@ -1365,7 +1293,7 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 4",
-  "shipped": "Nylon Cook N Serve"
+  "shipped": "brand-assets/crystalina/portfolio/nylon-cook-n-serve.jpg"
  },
  {
   "page": "Brand-Crystalina.html",
@@ -1373,7 +1301,7 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 5",
-  "shipped": "Life Style Products"
+  "shipped": "brand-assets/crystalina/portfolio/life-style-products.jpg"
  },
  {
   "page": "Brand-Crystalina.html",
@@ -1397,7 +1325,7 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 6",
-  "shipped": "Premium Kitchen Tools"
+  "shipped": "brand-assets/crystalina/usp/premium-kitchen-tools.jpg"
  },
  {
   "page": "Brand-Crystalina.html",
@@ -1421,7 +1349,7 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 7",
-  "shipped": "High-Quality Materials"
+  "shipped": "brand-assets/crystalina/usp/high-quality-materials.jpg"
  },
  {
   "page": "Brand-Crystalina.html",
@@ -1437,7 +1365,7 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 8",
-  "shipped": "Precision &amp; Ease of Use"
+  "shipped": "brand-assets/crystalina/usp/precision-ease-of-use.jpg"
  },
  {
   "page": "Brand-Crystalina.html",
@@ -1461,7 +1389,7 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 9",
-  "shipped": "Designed for Everyday Convenience"
+  "shipped": "brand-assets/crystalina/usp/designed-for-everyday-convenience.jpg"
  },
  {
   "page": "Brand-Crystalina.html",
@@ -1477,7 +1405,7 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 10",
-  "shipped": "Trusted Premium Quality from Crystal"
+  "shipped": "brand-assets/crystalina/usp/trusted-premium-quality-from-crystal.jpg"
  },
  {
   "page": "Brand-Crystalina.html",
@@ -1493,7 +1421,7 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 11",
-  "shipped": "Smart Utility Solutions"
+  "shipped": "brand-assets/crystalina/usp/smart-utility-solutions.jpg"
  },
  {
   "page": "Brand-Crystalina.html",
@@ -1517,7 +1445,7 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 12",
-  "shipped": "Why Good Kitchen Tools Matter More Than You Think"
+  "shipped": "brand-assets/crystalina/resources/why-good-kitchen-tools-matter-more-than-you-think.jpg"
  },
  {
   "page": "Brand-Crystalina.html",
@@ -1533,7 +1461,7 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 13",
-  "shipped": "Elevate Your Kitchen, One Tool at a Time"
+  "shipped": "brand-assets/crystalina/resources/elevate-your-kitchen-one-tool-at-a-time.jpg"
  },
  {
   "page": "Brand-Crystalina.html",
@@ -1549,7 +1477,7 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 14",
-  "shipped": "Splendid Finish, Superior Experience"
+  "shipped": "brand-assets/crystalina/resources/splendid-finish-superior-experience.jpg"
  },
  {
   "page": "Brand-Crystalina.html",
@@ -1597,7 +1525,7 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 1",
-  "shipped": "SparkMate"
+  "shipped": "brand-assets/sparkmate/about.jpg"
  },
  {
   "page": "Brand-SparkMate.html",
@@ -1613,7 +1541,7 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 2",
-  "shipped": "Spin Mops"
+  "shipped": "brand-assets/sparkmate/portfolio/spin-mops.jpg"
  },
  {
   "page": "Brand-SparkMate.html",
@@ -1621,7 +1549,7 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 3",
-  "shipped": "Hand Held Mops"
+  "shipped": "brand-assets/sparkmate/portfolio/hand-held-mops.jpg"
  },
  {
   "page": "Brand-SparkMate.html",
@@ -1629,7 +1557,7 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 4",
-  "shipped": "Broom &amp; Dust Pans"
+  "shipped": "brand-assets/sparkmate/portfolio/broom-dust-pans.jpg"
  },
  {
   "page": "Brand-SparkMate.html",
@@ -1637,7 +1565,7 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 5",
-  "shipped": "Wipers"
+  "shipped": "brand-assets/sparkmate/portfolio/wipers.jpg"
  },
  {
   "page": "Brand-SparkMate.html",
@@ -1645,7 +1573,7 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 6",
-  "shipped": "Brushes"
+  "shipped": "brand-assets/sparkmate/portfolio/brushes.jpg"
  },
  {
   "page": "Brand-SparkMate.html",
@@ -1653,7 +1581,7 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 7",
-  "shipped": "Scrubbers &amp; Scourers"
+  "shipped": "brand-assets/sparkmate/portfolio/scrubbers-scourers.jpg"
  },
  {
   "page": "Brand-SparkMate.html",
@@ -1661,7 +1589,7 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 8",
-  "shipped": "Sink Organiser"
+  "shipped": "brand-assets/sparkmate/portfolio/sink-organiser.jpg"
  },
  {
   "page": "Brand-SparkMate.html",
@@ -1669,7 +1597,7 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 9",
-  "shipped": "Bins"
+  "shipped": "brand-assets/sparkmate/portfolio/bins.jpg"
  },
  {
   "page": "Brand-SparkMate.html",
@@ -1677,7 +1605,7 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 10",
-  "shipped": "Wipes"
+  "shipped": "brand-assets/sparkmate/portfolio/wipes.jpg"
  },
  {
   "page": "Brand-SparkMate.html",
@@ -1701,7 +1629,7 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 11",
-  "shipped": "Practical Everyday Cleaning Tools"
+  "shipped": "brand-assets/sparkmate/usp/practical-everyday-cleaning-tools.jpg"
  },
  {
   "page": "Brand-SparkMate.html",
@@ -1725,7 +1653,7 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 12",
-  "shipped": "Durable &amp; Reliable Construction"
+  "shipped": "brand-assets/sparkmate/usp/durable-reliable-construction.jpg"
  },
  {
   "page": "Brand-SparkMate.html",
@@ -1741,7 +1669,7 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 13",
-  "shipped": "Ergonomic and Easy to Use"
+  "shipped": "brand-assets/sparkmate/usp/ergonomic-and-easy-to-use.jpg"
  },
  {
   "page": "Brand-SparkMate.html",
@@ -1765,7 +1693,7 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 14",
-  "shipped": "Affordable and Accessible"
+  "shipped": "brand-assets/sparkmate/usp/affordable-and-accessible.jpg"
  },
  {
   "page": "Brand-SparkMate.html",
@@ -1781,7 +1709,7 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 15",
-  "shipped": "Complements Kitchen &amp; Home Maintenance"
+  "shipped": "brand-assets/sparkmate/usp/complements-kitchen-home-maintenance.jpg"
  },
  {
   "page": "Brand-SparkMate.html",
@@ -1797,7 +1725,7 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 16",
-  "shipped": "Part of the Crystal Homeware Family"
+  "shipped": "brand-assets/sparkmate/usp/part-of-the-crystal-homeware-family.jpg"
  },
  {
   "page": "Brand-SparkMate.html",
@@ -1821,7 +1749,7 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 17",
-  "shipped": "Smart Cleaning for Modern Homes"
+  "shipped": "brand-assets/sparkmate/resources/smart-cleaning-for-modern-homes.jpg"
  },
  {
   "page": "Brand-SparkMate.html",
@@ -1837,7 +1765,7 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 18",
-  "shipped": "Everyday Hygiene Starts at Home"
+  "shipped": "brand-assets/sparkmate/resources/everyday-hygiene-starts-at-home.jpg"
  },
  {
   "page": "Brand-SparkMate.html",
@@ -1853,7 +1781,7 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 19",
-  "shipped": "Cleaning Made Simple, Every Day"
+  "shipped": "brand-assets/sparkmate/resources/cleaning-made-simple-every-day.jpg"
  },
  {
   "page": "Brand-SparkMate.html",
@@ -1901,7 +1829,7 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 1",
-  "shipped": "ValMate"
+  "shipped": "brand-assets/valmate/about.jpg"
  },
  {
   "page": "Brand-ValMate.html",
@@ -1917,7 +1845,7 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 2",
-  "shipped": "Kitchenware"
+  "shipped": "brand-assets/valmate/portfolio/kitchenware.jpg"
  },
  {
   "page": "Brand-ValMate.html",
@@ -1941,7 +1869,7 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 3",
-  "shipped": "Affordable Without Compromise"
+  "shipped": "brand-assets/valmate/usp/affordable-without-compromise.jpg"
  },
  {
   "page": "Brand-ValMate.html",
@@ -1965,7 +1893,7 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 4",
-  "shipped": "Strong &amp; Practical Build"
+  "shipped": "brand-assets/valmate/usp/strong-practical-build.jpg"
  },
  {
   "page": "Brand-ValMate.html",
@@ -1981,7 +1909,7 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 5",
-  "shipped": "No-Frills, Functional Design"
+  "shipped": "brand-assets/valmate/usp/no-frills-functional-design.jpg"
  },
  {
   "page": "Brand-ValMate.html",
@@ -2005,7 +1933,7 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 6",
-  "shipped": "Ideal for Large Families"
+  "shipped": "brand-assets/valmate/usp/ideal-for-large-families.jpg"
  },
  {
   "page": "Brand-ValMate.html",
@@ -2021,7 +1949,7 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 7",
-  "shipped": "Backed by Trusted Manufacturing"
+  "shipped": "brand-assets/valmate/usp/backed-by-trusted-manufacturing.jpg"
  },
  {
   "page": "Brand-ValMate.html",
@@ -2037,7 +1965,7 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 8",
-  "shipped": "Smart Choice for Value-Driven Homes"
+  "shipped": "brand-assets/valmate/usp/smart-choice-for-value-driven-homes.jpg"
  },
  {
   "page": "Brand-ValMate.html",
@@ -2061,7 +1989,7 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 9",
-  "shipped": "Everyday Cooking for Real Homes"
+  "shipped": "brand-assets/valmate/resources/everyday-cooking-for-real-homes.jpg"
  },
  {
   "page": "Brand-ValMate.html",
@@ -2077,7 +2005,7 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 10",
-  "shipped": "Value That Makes Sense"
+  "shipped": "brand-assets/valmate/resources/value-that-makes-sense.jpg"
  },
  {
   "page": "Brand-ValMate.html",
@@ -2093,7 +2021,7 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 11",
-  "shipped": "Smart Cooking Starts with Smart Choices"
+  "shipped": "brand-assets/valmate/resources/smart-cooking-starts-with-smart-choices.jpg"
  },
  {
   "page": "Brand-ValMate.html",
@@ -2108,8 +2036,8 @@
   "key": "hero-title",
   "kind": "text",
   "section": "page",
-  "label": "Page — One family.Four trusted brands.",
-  "shipped": "One family.Four trusted brands."
+  "label": "Page — One family. Four trusted brands.",
+  "shipped": "One family. Four trusted brands."
  },
  {
   "page": "Brands.html",
@@ -2212,8 +2140,8 @@
   "key": "page-h2-1",
   "kind": "text",
   "section": "page",
-  "label": "Page — Why workwith us",
-  "shipped": "Why workwith us"
+  "label": "Page — Why work with us",
+  "shipped": "Why work with us"
  },
  {
   "page": "Career.html",
@@ -2292,8 +2220,8 @@
   "key": "page-h2-2",
   "kind": "text",
   "section": "page",
-  "label": "Page — Openroles",
-  "shipped": "Openroles"
+  "label": "Page — Open roles",
+  "shipped": "Open roles"
  },
  {
   "page": "Career.html",
@@ -2332,8 +2260,8 @@
   "key": "page-h2-3",
   "kind": "text",
   "section": "page",
-  "label": "Page — Don't see your role?Write to us",
-  "shipped": "Don't see your role?Write to us"
+  "label": "Page — Don't see your role? Write to us",
+  "shipped": "Don't see your role? Write to us"
  },
  {
   "page": "Career.html",
@@ -2364,8 +2292,8 @@
   "key": "by-brand-h2-1",
   "kind": "text",
   "section": "by-brand",
-  "label": "By Brand — Four brands,one catalogue",
-  "shipped": "Four brands,one catalogue"
+  "label": "By Brand — Four brands, one catalogue",
+  "shipped": "Four brands, one catalogue"
  },
  {
   "page": "Catalogue.html",
@@ -2412,8 +2340,8 @@
   "key": "by-range-h2-1",
   "kind": "text",
   "section": "by-range",
-  "label": "By Range — Shop byrange",
-  "shipped": "Shop byrange"
+  "label": "By Range — Shop by range",
+  "shipped": "Shop by range"
  },
  {
   "page": "Catalogue.html",
@@ -2508,8 +2436,8 @@
   "key": "browse-h2-1",
   "kind": "text",
   "section": "browse",
-  "label": "Browse — Browse dustbins",
-  "shipped": "Browse dustbins"
+  "label": "Browse — Browse dust bins",
+  "shipped": "Browse dust bins"
  },
  {
   "page": "Cleaning-Aid-Bins.html",
@@ -2524,8 +2452,8 @@
   "key": "collections-h2-1",
   "kind": "text",
   "section": "collections",
-  "label": "Collections — Bincollections",
-  "shipped": "Bincollections"
+  "label": "Collections — Bin collections",
+  "shipped": "Bin collections"
  },
  {
   "page": "Cleaning-Aid-Bins.html",
@@ -2540,8 +2468,8 @@
   "key": "value-h2-1",
   "kind": "text",
   "section": "value",
-  "label": "Value — Built on trust,made to last",
-  "shipped": "Built on trust,made to last"
+  "label": "Value — Built on trust, made to last",
+  "shipped": "Built on trust, made to last"
  },
  {
   "page": "Cleaning-Aid-Bins.html",
@@ -2556,8 +2484,8 @@
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
-  "label": "Cta — Tidy homes,sorted simply",
-  "shipped": "Tidy homes,sorted simply"
+  "label": "Cta — Tidy homes, sorted simply",
+  "shipped": "Tidy homes, sorted simply"
  },
  {
   "page": "Cleaning-Aid-Bins.html",
@@ -2588,8 +2516,8 @@
   "key": "browse-h2-1",
   "kind": "text",
   "section": "browse",
-  "label": "Browse — Browse brooms& dust pans",
-  "shipped": "Browse brooms& dust pans"
+  "label": "Browse — Browse brooms & dust pans",
+  "shipped": "Browse brooms & dust pans"
  },
  {
   "page": "Cleaning-Aid-Brooms.html",
@@ -2604,8 +2532,8 @@
   "key": "collections-h2-1",
   "kind": "text",
   "section": "collections",
-  "label": "Collections — Broom & dustpancollections",
-  "shipped": "Broom & dustpancollections"
+  "label": "Collections — Broom & dustpan collections",
+  "shipped": "Broom & dustpan collections"
  },
  {
   "page": "Cleaning-Aid-Brooms.html",
@@ -2620,8 +2548,8 @@
   "key": "value-h2-1",
   "kind": "text",
   "section": "value",
-  "label": "Value — Built on trust,made to last",
-  "shipped": "Built on trust,made to last"
+  "label": "Value — Built on trust, made to last",
+  "shipped": "Built on trust, made to last"
  },
  {
   "page": "Cleaning-Aid-Brooms.html",
@@ -2636,8 +2564,8 @@
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
-  "label": "Cta — Sweep your wayto a cleaner home",
-  "shipped": "Sweep your wayto a cleaner home"
+  "label": "Cta — Sweep your way to a cleaner home",
+  "shipped": "Sweep your way to a cleaner home"
  },
  {
   "page": "Cleaning-Aid-Brooms.html",
@@ -2668,8 +2596,8 @@
   "key": "browse-h2-1",
   "kind": "text",
   "section": "browse",
-  "label": "Browse — Browse cleaningbrushes",
-  "shipped": "Browse cleaningbrushes"
+  "label": "Browse — Browse cleaning brushes",
+  "shipped": "Browse cleaning brushes"
  },
  {
   "page": "Cleaning-Aid-Brush.html",
@@ -2684,8 +2612,8 @@
   "key": "collections-h2-1",
   "kind": "text",
   "section": "collections",
-  "label": "Collections — Brushcollections",
-  "shipped": "Brushcollections"
+  "label": "Collections — Brush collections",
+  "shipped": "Brush collections"
  },
  {
   "page": "Cleaning-Aid-Brush.html",
@@ -2700,8 +2628,8 @@
   "key": "value-h2-1",
   "kind": "text",
   "section": "value",
-  "label": "Value — Built on trust,made to last",
-  "shipped": "Built on trust,made to last"
+  "label": "Value — Built on trust, made to last",
+  "shipped": "Built on trust, made to last"
  },
  {
   "page": "Cleaning-Aid-Brush.html",
@@ -2716,8 +2644,8 @@
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
-  "label": "Cta — Scrub your wayto a sparkling home",
-  "shipped": "Scrub your wayto a sparkling home"
+  "label": "Cta — Scrub your way to a sparkling home",
+  "shipped": "Scrub your way to a sparkling home"
  },
  {
   "page": "Cleaning-Aid-Brush.html",
@@ -2748,8 +2676,8 @@
   "key": "browse-h2-1",
   "kind": "text",
   "section": "browse",
-  "label": "Browse — Browse handheld mops",
-  "shipped": "Browse handheld mops"
+  "label": "Browse — Browse hand held mops",
+  "shipped": "Browse hand held mops"
  },
  {
   "page": "Cleaning-Aid-Hand-Held-Mops.html",
@@ -2764,8 +2692,8 @@
   "key": "collections-h2-1",
   "kind": "text",
   "section": "collections",
-  "label": "Collections — Hand mopcollections",
-  "shipped": "Hand mopcollections"
+  "label": "Collections — Hand mop collections",
+  "shipped": "Hand mop collections"
  },
  {
   "page": "Cleaning-Aid-Hand-Held-Mops.html",
@@ -2780,8 +2708,8 @@
   "key": "value-h2-1",
   "kind": "text",
   "section": "value",
-  "label": "Value — Built on trust,made to last",
-  "shipped": "Built on trust,made to last"
+  "label": "Value — Built on trust, made to last",
+  "shipped": "Built on trust, made to last"
  },
  {
   "page": "Cleaning-Aid-Hand-Held-Mops.html",
@@ -2796,8 +2724,8 @@
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
-  "label": "Cta — Everyday cleaning,made easy",
-  "shipped": "Everyday cleaning,made easy"
+  "label": "Cta — Everyday cleaning, made easy",
+  "shipped": "Everyday cleaning, made easy"
  },
  {
   "page": "Cleaning-Aid-Hand-Held-Mops.html",
@@ -2828,8 +2756,8 @@
   "key": "browse-h2-1",
   "kind": "text",
   "section": "browse",
-  "label": "Browse — Browse drainplungers",
-  "shipped": "Browse drainplungers"
+  "label": "Browse — Browse drain plungers",
+  "shipped": "Browse drain plungers"
  },
  {
   "page": "Cleaning-Aid-Plunger.html",
@@ -2844,8 +2772,8 @@
   "key": "collections-h2-1",
   "kind": "text",
   "section": "collections",
-  "label": "Collections — Plungercollections",
-  "shipped": "Plungercollections"
+  "label": "Collections — Plunger collections",
+  "shipped": "Plunger collections"
  },
  {
   "page": "Cleaning-Aid-Plunger.html",
@@ -2860,8 +2788,8 @@
   "key": "value-h2-1",
   "kind": "text",
   "section": "value",
-  "label": "Value — Built on trust,made to last",
-  "shipped": "Built on trust,made to last"
+  "label": "Value — Built on trust, made to last",
+  "shipped": "Built on trust, made to last"
  },
  {
   "page": "Cleaning-Aid-Plunger.html",
@@ -2876,8 +2804,8 @@
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
-  "label": "Cta — Clear drains,the easy way",
-  "shipped": "Clear drains,the easy way"
+  "label": "Cta — Clear drains, the easy way",
+  "shipped": "Clear drains, the easy way"
  },
  {
   "page": "Cleaning-Aid-Plunger.html",
@@ -2908,8 +2836,8 @@
   "key": "browse-h2-1",
   "kind": "text",
   "section": "browse",
-  "label": "Browse — Browse scrubbers& scourers",
-  "shipped": "Browse scrubbers& scourers"
+  "label": "Browse — Browse scrubbers & scourers",
+  "shipped": "Browse scrubbers & scourers"
  },
  {
   "page": "Cleaning-Aid-Scrubber.html",
@@ -2924,8 +2852,8 @@
   "key": "collections-h2-1",
   "kind": "text",
   "section": "collections",
-  "label": "Collections — Scrubbercollections",
-  "shipped": "Scrubbercollections"
+  "label": "Collections — Scrubber collections",
+  "shipped": "Scrubber collections"
  },
  {
   "page": "Cleaning-Aid-Scrubber.html",
@@ -2940,8 +2868,8 @@
   "key": "value-h2-1",
   "kind": "text",
   "section": "value",
-  "label": "Value — Built on trust,made to last",
-  "shipped": "Built on trust,made to last"
+  "label": "Value — Built on trust, made to last",
+  "shipped": "Built on trust, made to last"
  },
  {
   "page": "Cleaning-Aid-Scrubber.html",
@@ -2956,8 +2884,8 @@
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
-  "label": "Cta — Scrub away grime,the easy way",
-  "shipped": "Scrub away grime,the easy way"
+  "label": "Cta — Scrub away grime, the easy way",
+  "shipped": "Scrub away grime, the easy way"
  },
  {
   "page": "Cleaning-Aid-Scrubber.html",
@@ -2988,8 +2916,8 @@
   "key": "browse-h2-1",
   "kind": "text",
   "section": "browse",
-  "label": "Browse — Browse sinkorganisers",
-  "shipped": "Browse sinkorganisers"
+  "label": "Browse — Browse sink organisers",
+  "shipped": "Browse sink organisers"
  },
  {
   "page": "Cleaning-Aid-Sink-Organiser.html",
@@ -3004,8 +2932,8 @@
   "key": "collections-h2-1",
   "kind": "text",
   "section": "collections",
-  "label": "Collections — Sink organisercollections",
-  "shipped": "Sink organisercollections"
+  "label": "Collections — Sink organiser collections",
+  "shipped": "Sink organiser collections"
  },
  {
   "page": "Cleaning-Aid-Sink-Organiser.html",
@@ -3020,8 +2948,8 @@
   "key": "value-h2-1",
   "kind": "text",
   "section": "value",
-  "label": "Value — Built on trust,made to last",
-  "shipped": "Built on trust,made to last"
+  "label": "Value — Built on trust, made to last",
+  "shipped": "Built on trust, made to last"
  },
  {
   "page": "Cleaning-Aid-Sink-Organiser.html",
@@ -3036,8 +2964,8 @@
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
-  "label": "Cta — Tidy sinks,simplified",
-  "shipped": "Tidy sinks,simplified"
+  "label": "Cta — Tidy sinks, simplified",
+  "shipped": "Tidy sinks, simplified"
  },
  {
   "page": "Cleaning-Aid-Sink-Organiser.html",
@@ -3068,8 +2996,8 @@
   "key": "browse-h2-1",
   "kind": "text",
   "section": "browse",
-  "label": "Browse — Browse spinmops",
-  "shipped": "Browse spinmops"
+  "label": "Browse — Browse spin mops",
+  "shipped": "Browse spin mops"
  },
  {
   "page": "Cleaning-Aid-Spin-Mops.html",
@@ -3084,8 +3012,8 @@
   "key": "collections-h2-1",
   "kind": "text",
   "section": "collections",
-  "label": "Collections — Spin mopcollections",
-  "shipped": "Spin mopcollections"
+  "label": "Collections — Spin mop collections",
+  "shipped": "Spin mop collections"
  },
  {
   "page": "Cleaning-Aid-Spin-Mops.html",
@@ -3100,8 +3028,8 @@
   "key": "value-h2-1",
   "kind": "text",
   "section": "value",
-  "label": "Value — Built on trust,made to last",
-  "shipped": "Built on trust,made to last"
+  "label": "Value — Built on trust, made to last",
+  "shipped": "Built on trust, made to last"
  },
  {
   "page": "Cleaning-Aid-Spin-Mops.html",
@@ -3116,8 +3044,8 @@
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
-  "label": "Cta — Spin your wayto a sparkling home",
-  "shipped": "Spin your wayto a sparkling home"
+  "label": "Cta — Spin your way to a sparkling home",
+  "shipped": "Spin your way to a sparkling home"
  },
  {
   "page": "Cleaning-Aid-Spin-Mops.html",
@@ -3148,8 +3076,8 @@
   "key": "browse-h2-1",
   "kind": "text",
   "section": "browse",
-  "label": "Browse — Browse cleaningwipes",
-  "shipped": "Browse cleaningwipes"
+  "label": "Browse — Browse cleaning wipes",
+  "shipped": "Browse cleaning wipes"
  },
  {
   "page": "Cleaning-Aid-Wipe.html",
@@ -3164,8 +3092,8 @@
   "key": "collections-h2-1",
   "kind": "text",
   "section": "collections",
-  "label": "Collections — Wipecollections",
-  "shipped": "Wipecollections"
+  "label": "Collections — Wipe collections",
+  "shipped": "Wipe collections"
  },
  {
   "page": "Cleaning-Aid-Wipe.html",
@@ -3180,8 +3108,8 @@
   "key": "value-h2-1",
   "kind": "text",
   "section": "value",
-  "label": "Value — Built on trust,made to last",
-  "shipped": "Built on trust,made to last"
+  "label": "Value — Built on trust, made to last",
+  "shipped": "Built on trust, made to last"
  },
  {
   "page": "Cleaning-Aid-Wipe.html",
@@ -3196,8 +3124,8 @@
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
-  "label": "Cta — Quick wipes,everyday clean",
-  "shipped": "Quick wipes,everyday clean"
+  "label": "Cta — Quick wipes, everyday clean",
+  "shipped": "Quick wipes, everyday clean"
  },
  {
   "page": "Cleaning-Aid-Wipe.html",
@@ -3228,8 +3156,8 @@
   "key": "browse-h2-1",
   "kind": "text",
   "section": "browse",
-  "label": "Browse — Browse floor& glass wipers",
-  "shipped": "Browse floor& glass wipers"
+  "label": "Browse — Browse floor & glass wipers",
+  "shipped": "Browse floor & glass wipers"
  },
  {
   "page": "Cleaning-Aid-Wipers.html",
@@ -3244,8 +3172,8 @@
   "key": "collections-h2-1",
   "kind": "text",
   "section": "collections",
-  "label": "Collections — Wipercollections",
-  "shipped": "Wipercollections"
+  "label": "Collections — Wiper collections",
+  "shipped": "Wiper collections"
  },
  {
   "page": "Cleaning-Aid-Wipers.html",
@@ -3260,8 +3188,8 @@
   "key": "value-h2-1",
   "kind": "text",
   "section": "value",
-  "label": "Value — Built on trust,made to last",
-  "shipped": "Built on trust,made to last"
+  "label": "Value — Built on trust, made to last",
+  "shipped": "Built on trust, made to last"
  },
  {
   "page": "Cleaning-Aid-Wipers.html",
@@ -3276,8 +3204,8 @@
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
-  "label": "Cta — Wipe your wayto a sparkling home",
-  "shipped": "Wipe your wayto a sparkling home"
+  "label": "Cta — Wipe your way to a sparkling home",
+  "shipped": "Wipe your way to a sparkling home"
  },
  {
   "page": "Cleaning-Aid-Wipers.html",
@@ -3308,8 +3236,8 @@
   "key": "browse-h2-1",
   "kind": "text",
   "section": "browse",
-  "label": "Browse — Browse cleaningaid",
-  "shipped": "Browse cleaningaid"
+  "label": "Browse — Browse cleaning aid",
+  "shipped": "Browse cleaning aid"
  },
  {
   "page": "Cleaning-Aid.html",
@@ -3324,8 +3252,8 @@
   "key": "collections-h2-1",
   "kind": "text",
   "section": "collections",
-  "label": "Collections — Cleaningcollections",
-  "shipped": "Cleaningcollections"
+  "label": "Collections — Cleaning collections",
+  "shipped": "Cleaning collections"
  },
  {
   "page": "Cleaning-Aid.html",
@@ -3340,8 +3268,8 @@
   "key": "value-h2-1",
   "kind": "text",
   "section": "value",
-  "label": "Value — Built on trust,made to last",
-  "shipped": "Built on trust,made to last"
+  "label": "Value — Built on trust, made to last",
+  "shipped": "Built on trust, made to last"
  },
  {
   "page": "Cleaning-Aid.html",
@@ -3356,8 +3284,8 @@
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
-  "label": "Cta — Bring thesparkle home",
-  "shipped": "Bring thesparkle home"
+  "label": "Cta — Bring the sparkle home",
+  "shipped": "Bring the sparkle home"
  },
  {
   "page": "Cleaning-Aid.html",
@@ -3409,14 +3337,6 @@
  },
  {
   "page": "Contact.html",
-  "key": "reach-p-2",
-  "kind": "text",
-  "section": "reach",
-  "label": "Reach — Your message is on its way. Our team will get ba…",
-  "shipped": "Your message is on its way. Our team will get back to you within one business day."
- },
- {
-  "page": "Contact.html",
   "key": "reach-h4-1",
   "kind": "text",
   "section": "reach",
@@ -3428,8 +3348,8 @@
   "key": "reach-p-3",
   "kind": "text",
   "section": "reach",
-  "label": "Reach — Sahar Plaza, Andheri (East),Mumbai 400059, Mahar…",
-  "shipped": "Sahar Plaza, Andheri (East),Mumbai 400059, Maharashtra"
+  "label": "Reach — Sahar Plaza, Andheri (East), Mumbai 400059, Maha…",
+  "shipped": "Sahar Plaza, Andheri (East), Mumbai 400059, Maharashtra"
  },
  {
   "page": "Contact.html",
@@ -3444,8 +3364,8 @@
   "key": "reach-p-4",
   "kind": "text",
   "section": "reach",
-  "label": "Reach — G.I.D.C Metoda,Rajkot 360021, Gujarat",
-  "shipped": "G.I.D.C Metoda,Rajkot 360021, Gujarat"
+  "label": "Reach — G.I.D.C Metoda, Rajkot 360021, Gujarat",
+  "shipped": "G.I.D.C Metoda, Rajkot 360021, Gujarat"
  },
  {
   "page": "Contact.html",
@@ -3476,8 +3396,8 @@
   "key": "location-h2-1",
   "kind": "text",
   "section": "location",
-  "label": "Location — Where wemake it all",
-  "shipped": "Where wemake it all"
+  "label": "Location — Where we make it all",
+  "shipped": "Where we make it all"
  },
  {
   "page": "Contact.html",
@@ -3540,8 +3460,8 @@
   "key": "browse-h2-1",
   "kind": "text",
   "section": "browse",
-  "label": "Browse — Browse allcooktops",
-  "shipped": "Browse allcooktops"
+  "label": "Browse — Browse all cooktops",
+  "shipped": "Browse all cooktops"
  },
  {
   "page": "Cooktop.html",
@@ -3556,8 +3476,8 @@
   "key": "collections-h2-1",
   "kind": "text",
   "section": "collections",
-  "label": "Collections — Cooktopranges",
-  "shipped": "Cooktopranges"
+  "label": "Collections — Cooktop ranges",
+  "shipped": "Cooktop ranges"
  },
  {
   "page": "Cooktop.html",
@@ -3572,8 +3492,8 @@
   "key": "value-h2-1",
   "kind": "text",
   "section": "value",
-  "label": "Value — Built on trust,made to last",
-  "shipped": "Built on trust,made to last"
+  "label": "Value — Built on trust, made to last",
+  "shipped": "Built on trust, made to last"
  },
  {
   "page": "Cooktop.html",
@@ -3588,8 +3508,8 @@
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
-  "label": "Cta — Upgrade YourCooktop",
-  "shipped": "Upgrade YourCooktop"
+  "label": "Cta — Upgrade Your Cooktop",
+  "shipped": "Upgrade Your Cooktop"
  },
  {
   "page": "Cooktop.html",
@@ -3676,8 +3596,8 @@
   "key": "browse-h2-1",
   "kind": "text",
   "section": "browse",
-  "label": "Browse — Browse allCast Iron cookware",
-  "shipped": "Browse allCast Iron cookware"
+  "label": "Browse — Browse all Cast Iron cookware",
+  "shipped": "Browse all Cast Iron cookware"
  },
  {
   "page": "Cookware-Cast-Iron.html",
@@ -3692,8 +3612,8 @@
   "key": "collections-h2-1",
   "kind": "text",
   "section": "collections",
-  "label": "Collections — SignatureCast Iron ranges",
-  "shipped": "SignatureCast Iron ranges"
+  "label": "Collections — Signature Cast Iron ranges",
+  "shipped": "Signature Cast Iron ranges"
  },
  {
   "page": "Cookware-Cast-Iron.html",
@@ -3708,8 +3628,8 @@
   "key": "value-h2-1",
   "kind": "text",
   "section": "value",
-  "label": "Value — Built on trust,made to last",
-  "shipped": "Built on trust,made to last"
+  "label": "Value — Built on trust, made to last",
+  "shipped": "Built on trust, made to last"
  },
  {
   "page": "Cookware-Cast-Iron.html",
@@ -3724,8 +3644,8 @@
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
-  "label": "Cta — Upgrade yourCast Iron cookware",
-  "shipped": "Upgrade yourCast Iron cookware"
+  "label": "Cta — Upgrade your Cast Iron cookware",
+  "shipped": "Upgrade your Cast Iron cookware"
  },
  {
   "page": "Cookware-Cast-Iron.html",
@@ -3796,8 +3716,8 @@
   "key": "browse-h2-1",
   "kind": "text",
   "section": "browse",
-  "label": "Browse — Browse allHard Anodised cookware",
-  "shipped": "Browse allHard Anodised cookware"
+  "label": "Browse — Browse all Hard Anodised cookware",
+  "shipped": "Browse all Hard Anodised cookware"
  },
  {
   "page": "Cookware-Hard-Anodised.html",
@@ -3812,8 +3732,8 @@
   "key": "collections-h2-1",
   "kind": "text",
   "section": "collections",
-  "label": "Collections — SignatureHard Anodised ranges",
-  "shipped": "SignatureHard Anodised ranges"
+  "label": "Collections — Signature Hard Anodised ranges",
+  "shipped": "Signature Hard Anodised ranges"
  },
  {
   "page": "Cookware-Hard-Anodised.html",
@@ -3828,8 +3748,8 @@
   "key": "value-h2-1",
   "kind": "text",
   "section": "value",
-  "label": "Value — Built on trust,made to last",
-  "shipped": "Built on trust,made to last"
+  "label": "Value — Built on trust, made to last",
+  "shipped": "Built on trust, made to last"
  },
  {
   "page": "Cookware-Hard-Anodised.html",
@@ -3844,8 +3764,8 @@
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
-  "label": "Cta — Upgrade yourHard Anodised cookware",
-  "shipped": "Upgrade yourHard Anodised cookware"
+  "label": "Cta — Upgrade your Hard Anodised cookware",
+  "shipped": "Upgrade your Hard Anodised cookware"
  },
  {
   "page": "Cookware-Hard-Anodised.html",
@@ -3932,8 +3852,8 @@
   "key": "browse-h2-1",
   "kind": "text",
   "section": "browse",
-  "label": "Browse — Browse allNon-Stick Mini cookware",
-  "shipped": "Browse allNon-Stick Mini cookware"
+  "label": "Browse — Browse all Non-Stick Mini cookware",
+  "shipped": "Browse all Non-Stick Mini cookware"
  },
  {
   "page": "Cookware-Non-Stick-Mini.html",
@@ -3948,8 +3868,8 @@
   "key": "collections-h2-1",
   "kind": "text",
   "section": "collections",
-  "label": "Collections — SignatureNon-Stick Mini ranges",
-  "shipped": "SignatureNon-Stick Mini ranges"
+  "label": "Collections — Signature Non-Stick Mini ranges",
+  "shipped": "Signature Non-Stick Mini ranges"
  },
  {
   "page": "Cookware-Non-Stick-Mini.html",
@@ -3964,8 +3884,8 @@
   "key": "value-h2-1",
   "kind": "text",
   "section": "value",
-  "label": "Value — Built on trust,made to last",
-  "shipped": "Built on trust,made to last"
+  "label": "Value — Built on trust, made to last",
+  "shipped": "Built on trust, made to last"
  },
  {
   "page": "Cookware-Non-Stick-Mini.html",
@@ -3980,8 +3900,8 @@
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
-  "label": "Cta — Upgrade yourNon-Stick Mini cookware",
-  "shipped": "Upgrade yourNon-Stick Mini cookware"
+  "label": "Cta — Upgrade your Non-Stick Mini cookware",
+  "shipped": "Upgrade your Non-Stick Mini cookware"
  },
  {
   "page": "Cookware-Non-Stick-Mini.html",
@@ -4084,8 +4004,8 @@
   "key": "browse-h2-1",
   "kind": "text",
   "section": "browse",
-  "label": "Browse — Browse allNon-Stick cookware",
-  "shipped": "Browse allNon-Stick cookware"
+  "label": "Browse — Browse all Non-Stick cookware",
+  "shipped": "Browse all Non-Stick cookware"
  },
  {
   "page": "Cookware-Non-Stick.html",
@@ -4100,8 +4020,8 @@
   "key": "collections-h2-1",
   "kind": "text",
   "section": "collections",
-  "label": "Collections — SignatureNon-Stick ranges",
-  "shipped": "SignatureNon-Stick ranges"
+  "label": "Collections — Signature Non-Stick ranges",
+  "shipped": "Signature Non-Stick ranges"
  },
  {
   "page": "Cookware-Non-Stick.html",
@@ -4116,8 +4036,8 @@
   "key": "value-h2-1",
   "kind": "text",
   "section": "value",
-  "label": "Value — Built on trust,made to last",
-  "shipped": "Built on trust,made to last"
+  "label": "Value — Built on trust, made to last",
+  "shipped": "Built on trust, made to last"
  },
  {
   "page": "Cookware-Non-Stick.html",
@@ -4132,8 +4052,8 @@
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
-  "label": "Cta — Upgrade yourNon-Stick cookware",
-  "shipped": "Upgrade yourNon-Stick cookware"
+  "label": "Cta — Upgrade your Non-Stick cookware",
+  "shipped": "Upgrade your Non-Stick cookware"
  },
  {
   "page": "Cookware-Non-Stick.html",
@@ -4212,8 +4132,8 @@
   "key": "browse-h2-1",
   "kind": "text",
   "section": "browse",
-  "label": "Browse — Browse allSandwich Bottom Steel cookware",
-  "shipped": "Browse allSandwich Bottom Steel cookware"
+  "label": "Browse — Browse all Sandwich Bottom Steel cookware",
+  "shipped": "Browse all Sandwich Bottom Steel cookware"
  },
  {
   "page": "Cookware-Sandwich-Bottom-Steel.html",
@@ -4228,8 +4148,8 @@
   "key": "collections-h2-1",
   "kind": "text",
   "section": "collections",
-  "label": "Collections — SignatureSandwich Bottom Steel ranges",
-  "shipped": "SignatureSandwich Bottom Steel ranges"
+  "label": "Collections — Signature Sandwich Bottom Steel ranges",
+  "shipped": "Signature Sandwich Bottom Steel ranges"
  },
  {
   "page": "Cookware-Sandwich-Bottom-Steel.html",
@@ -4244,8 +4164,8 @@
   "key": "value-h2-1",
   "kind": "text",
   "section": "value",
-  "label": "Value — Built on trust,made to last",
-  "shipped": "Built on trust,made to last"
+  "label": "Value — Built on trust, made to last",
+  "shipped": "Built on trust, made to last"
  },
  {
   "page": "Cookware-Sandwich-Bottom-Steel.html",
@@ -4260,8 +4180,8 @@
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
-  "label": "Cta — Upgrade yourSandwich Bottom Steel cookware",
-  "shipped": "Upgrade yourSandwich Bottom Steel cookware"
+  "label": "Cta — Upgrade your Sandwich Bottom Steel cookware",
+  "shipped": "Upgrade your Sandwich Bottom Steel cookware"
  },
  {
   "page": "Cookware-Sandwich-Bottom-Steel.html",
@@ -4332,8 +4252,8 @@
   "key": "browse-h2-1",
   "kind": "text",
   "section": "browse",
-  "label": "Browse — Browse allTripro cookware",
-  "shipped": "Browse allTripro cookware"
+  "label": "Browse — Browse all Tripro cookware",
+  "shipped": "Browse all Tripro cookware"
  },
  {
   "page": "Cookware-Tripro.html",
@@ -4348,8 +4268,8 @@
   "key": "collections-h2-1",
   "kind": "text",
   "section": "collections",
-  "label": "Collections — SignatureTripro ranges",
-  "shipped": "SignatureTripro ranges"
+  "label": "Collections — Signature Tripro ranges",
+  "shipped": "Signature Tripro ranges"
  },
  {
   "page": "Cookware-Tripro.html",
@@ -4364,8 +4284,8 @@
   "key": "value-h2-1",
   "kind": "text",
   "section": "value",
-  "label": "Value — Built on trust,made to last",
-  "shipped": "Built on trust,made to last"
+  "label": "Value — Built on trust, made to last",
+  "shipped": "Built on trust, made to last"
  },
  {
   "page": "Cookware-Tripro.html",
@@ -4380,8 +4300,8 @@
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
-  "label": "Cta — Upgrade yourTripro cookware",
-  "shipped": "Upgrade yourTripro cookware"
+  "label": "Cta — Upgrade your Tripro cookware",
+  "shipped": "Upgrade your Tripro cookware"
  },
  {
   "page": "Cookware-Tripro.html",
@@ -4412,8 +4332,8 @@
   "key": "browse-h2-1",
   "kind": "text",
   "section": "browse",
-  "label": "Browse — Browse allcookware",
-  "shipped": "Browse allcookware"
+  "label": "Browse — Browse all cookware",
+  "shipped": "Browse all cookware"
  },
  {
   "page": "Cookware.html",
@@ -4428,8 +4348,8 @@
   "key": "collections-h2-1",
   "kind": "text",
   "section": "collections",
-  "label": "Collections — Signaturecookware ranges",
-  "shipped": "Signaturecookware ranges"
+  "label": "Collections — Signature cookware ranges",
+  "shipped": "Signature cookware ranges"
  },
  {
   "page": "Cookware.html",
@@ -4444,8 +4364,8 @@
   "key": "value-h2-1",
   "kind": "text",
   "section": "value",
-  "label": "Value — Built on trust,made to last",
-  "shipped": "Built on trust,made to last"
+  "label": "Value — Built on trust, made to last",
+  "shipped": "Built on trust, made to last"
  },
  {
   "page": "Cookware.html",
@@ -4460,8 +4380,8 @@
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
-  "label": "Cta — Upgrade yourcookware",
-  "shipped": "Upgrade yourcookware"
+  "label": "Cta — Upgrade your cookware",
+  "shipped": "Upgrade your cookware"
  },
  {
   "page": "Cookware.html",
@@ -4492,8 +4412,8 @@
   "key": "browse-h2-1",
   "kind": "text",
   "section": "browse",
-  "label": "Browse — Browse airfryers",
-  "shipped": "Browse airfryers"
+  "label": "Browse — Browse air fryers",
+  "shipped": "Browse air fryers"
  },
  {
   "page": "Electric-Appliances-Air-Fryer.html",
@@ -4508,8 +4428,8 @@
   "key": "collections-h2-1",
   "kind": "text",
   "section": "collections",
-  "label": "Collections — Air Fryercollections",
-  "shipped": "Air Fryercollections"
+  "label": "Collections — Air Fryer collections",
+  "shipped": "Air Fryer collections"
  },
  {
   "page": "Electric-Appliances-Air-Fryer.html",
@@ -4524,8 +4444,8 @@
   "key": "value-h2-1",
   "kind": "text",
   "section": "value",
-  "label": "Value — Built on trust,made to last",
-  "shipped": "Built on trust,made to last"
+  "label": "Value — Built on trust, made to last",
+  "shipped": "Built on trust, made to last"
  },
  {
   "page": "Electric-Appliances-Air-Fryer.html",
@@ -4540,8 +4460,8 @@
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
-  "label": "Cta — Healthier frying,coming soon",
-  "shipped": "Healthier frying,coming soon"
+  "label": "Cta — Healthier frying, coming soon",
+  "shipped": "Healthier frying, coming soon"
  },
  {
   "page": "Electric-Appliances-Air-Fryer.html",
@@ -4572,8 +4492,8 @@
   "key": "browse-h2-1",
   "kind": "text",
   "section": "browse",
-  "label": "Browse — Browse kitchenchimneys",
-  "shipped": "Browse kitchenchimneys"
+  "label": "Browse — Browse kitchen chimneys",
+  "shipped": "Browse kitchen chimneys"
  },
  {
   "page": "Electric-Appliances-Chimney.html",
@@ -4588,8 +4508,8 @@
   "key": "collections-h2-1",
   "kind": "text",
   "section": "collections",
-  "label": "Collections — Chimneycollections",
-  "shipped": "Chimneycollections"
+  "label": "Collections — Chimney collections",
+  "shipped": "Chimney collections"
  },
  {
   "page": "Electric-Appliances-Chimney.html",
@@ -4604,8 +4524,8 @@
   "key": "value-h2-1",
   "kind": "text",
   "section": "value",
-  "label": "Value — Built on trust,made to last",
-  "shipped": "Built on trust,made to last"
+  "label": "Value — Built on trust, made to last",
+  "shipped": "Built on trust, made to last"
  },
  {
   "page": "Electric-Appliances-Chimney.html",
@@ -4620,8 +4540,8 @@
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
-  "label": "Cta — Clear kitchens,coming soon",
-  "shipped": "Clear kitchens,coming soon"
+  "label": "Cta — Clear kitchens, coming soon",
+  "shipped": "Clear kitchens, coming soon"
  },
  {
   "page": "Electric-Appliances-Chimney.html",
@@ -4652,8 +4572,8 @@
   "key": "browse-h2-1",
   "kind": "text",
   "section": "browse",
-  "label": "Browse — Browse foodprocessors",
-  "shipped": "Browse foodprocessors"
+  "label": "Browse — Browse food processors",
+  "shipped": "Browse food processors"
  },
  {
   "page": "Electric-Appliances-Food-Processor.html",
@@ -4668,8 +4588,8 @@
   "key": "collections-h2-1",
   "kind": "text",
   "section": "collections",
-  "label": "Collections — Food Processorcollections",
-  "shipped": "Food Processorcollections"
+  "label": "Collections — Food Processor collections",
+  "shipped": "Food Processor collections"
  },
  {
   "page": "Electric-Appliances-Food-Processor.html",
@@ -4684,8 +4604,8 @@
   "key": "value-h2-1",
   "kind": "text",
   "section": "value",
-  "label": "Value — Built on trust,made to last",
-  "shipped": "Built on trust,made to last"
+  "label": "Value — Built on trust, made to last",
+  "shipped": "Built on trust, made to last"
  },
  {
   "page": "Electric-Appliances-Food-Processor.html",
@@ -4700,8 +4620,8 @@
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
-  "label": "Cta — Prep smarter,every day",
-  "shipped": "Prep smarter,every day"
+  "label": "Cta — Prep smarter, every day",
+  "shipped": "Prep smarter, every day"
  },
  {
   "page": "Electric-Appliances-Food-Processor.html",
@@ -4732,8 +4652,8 @@
   "key": "browse-h2-1",
   "kind": "text",
   "section": "browse",
-  "label": "Browse — Browse ice creammakers",
-  "shipped": "Browse ice creammakers"
+  "label": "Browse — Browse ice cream makers",
+  "shipped": "Browse ice cream makers"
  },
  {
   "page": "Electric-Appliances-Ice-Cream-Maker.html",
@@ -4748,8 +4668,8 @@
   "key": "collections-h2-1",
   "kind": "text",
   "section": "collections",
-  "label": "Collections — Ice Cream Makercollections",
-  "shipped": "Ice Cream Makercollections"
+  "label": "Collections — Ice Cream Maker collections",
+  "shipped": "Ice Cream Maker collections"
  },
  {
   "page": "Electric-Appliances-Ice-Cream-Maker.html",
@@ -4764,8 +4684,8 @@
   "key": "value-h2-1",
   "kind": "text",
   "section": "value",
-  "label": "Value — Built on trust,made to last",
-  "shipped": "Built on trust,made to last"
+  "label": "Value — Built on trust, made to last",
+  "shipped": "Built on trust, made to last"
  },
  {
   "page": "Electric-Appliances-Ice-Cream-Maker.html",
@@ -4780,8 +4700,8 @@
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
-  "label": "Cta — Homemade treats,coming soon",
-  "shipped": "Homemade treats,coming soon"
+  "label": "Cta — Homemade treats, coming soon",
+  "shipped": "Homemade treats, coming soon"
  },
  {
   "page": "Electric-Appliances-Ice-Cream-Maker.html",
@@ -4812,8 +4732,8 @@
   "key": "browse-h2-1",
   "kind": "text",
   "section": "browse",
-  "label": "Browse — Browse electricirons",
-  "shipped": "Browse electricirons"
+  "label": "Browse — Browse electric irons",
+  "shipped": "Browse electric irons"
  },
  {
   "page": "Electric-Appliances-Iron.html",
@@ -4828,8 +4748,8 @@
   "key": "collections-h2-1",
   "kind": "text",
   "section": "collections",
-  "label": "Collections — Ironcollections",
-  "shipped": "Ironcollections"
+  "label": "Collections — Iron collections",
+  "shipped": "Iron collections"
  },
  {
   "page": "Electric-Appliances-Iron.html",
@@ -4844,8 +4764,8 @@
   "key": "value-h2-1",
   "kind": "text",
   "section": "value",
-  "label": "Value — Built on trust,made to last",
-  "shipped": "Built on trust,made to last"
+  "label": "Value — Built on trust, made to last",
+  "shipped": "Built on trust, made to last"
  },
  {
   "page": "Electric-Appliances-Iron.html",
@@ -4860,8 +4780,8 @@
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
-  "label": "Cta — Smooth pressing,coming soon",
-  "shipped": "Smooth pressing,coming soon"
+  "label": "Cta — Smooth pressing, coming soon",
+  "shipped": "Smooth pressing, coming soon"
  },
  {
   "page": "Electric-Appliances-Iron.html",
@@ -4892,8 +4812,8 @@
   "key": "browse-h2-1",
   "kind": "text",
   "section": "browse",
-  "label": "Browse — Browse juicer mixergrinders",
-  "shipped": "Browse juicer mixergrinders"
+  "label": "Browse — Browse juicer mixer grinders",
+  "shipped": "Browse juicer mixer grinders"
  },
  {
   "page": "Electric-Appliances-JMG.html",
@@ -4908,8 +4828,8 @@
   "key": "collections-h2-1",
   "kind": "text",
   "section": "collections",
-  "label": "Collections — JMGcollections",
-  "shipped": "JMGcollections"
+  "label": "Collections — JMG collections",
+  "shipped": "JMG collections"
  },
  {
   "page": "Electric-Appliances-JMG.html",
@@ -4924,8 +4844,8 @@
   "key": "value-h2-1",
   "kind": "text",
   "section": "value",
-  "label": "Value — Built on trust,made to last",
-  "shipped": "Built on trust,made to last"
+  "label": "Value — Built on trust, made to last",
+  "shipped": "Built on trust, made to last"
  },
  {
   "page": "Electric-Appliances-JMG.html",
@@ -4940,8 +4860,8 @@
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
-  "label": "Cta — Blend more,every day",
-  "shipped": "Blend more,every day"
+  "label": "Cta — Blend more, every day",
+  "shipped": "Blend more, every day"
  },
  {
   "page": "Electric-Appliances-JMG.html",
@@ -4972,8 +4892,8 @@
   "key": "browse-h2-1",
   "kind": "text",
   "section": "browse",
-  "label": "Browse — Browse electrickettles",
-  "shipped": "Browse electrickettles"
+  "label": "Browse — Browse electric kettles",
+  "shipped": "Browse electric kettles"
  },
  {
   "page": "Electric-Appliances-Kettle.html",
@@ -4988,8 +4908,8 @@
   "key": "collections-h2-1",
   "kind": "text",
   "section": "collections",
-  "label": "Collections — Kettlecollections",
-  "shipped": "Kettlecollections"
+  "label": "Collections — Kettle collections",
+  "shipped": "Kettle collections"
  },
  {
   "page": "Electric-Appliances-Kettle.html",
@@ -5004,8 +4924,8 @@
   "key": "value-h2-1",
   "kind": "text",
   "section": "value",
-  "label": "Value — Built on trust,made to last",
-  "shipped": "Built on trust,made to last"
+  "label": "Value — Built on trust, made to last",
+  "shipped": "Built on trust, made to last"
  },
  {
   "page": "Electric-Appliances-Kettle.html",
@@ -5020,8 +4940,8 @@
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
-  "label": "Cta — Boil faster,every day",
-  "shipped": "Boil faster,every day"
+  "label": "Cta — Boil faster, every day",
+  "shipped": "Boil faster, every day"
  },
  {
   "page": "Electric-Appliances-Kettle.html",
@@ -5068,8 +4988,8 @@
   "key": "collections-h2-1",
   "kind": "text",
   "section": "collections",
-  "label": "Collections — OTGcollections",
-  "shipped": "OTGcollections"
+  "label": "Collections — OTG collections",
+  "shipped": "OTG collections"
  },
  {
   "page": "Electric-Appliances-OTG.html",
@@ -5084,8 +5004,8 @@
   "key": "value-h2-1",
   "kind": "text",
   "section": "value",
-  "label": "Value — Built on trust,made to last",
-  "shipped": "Built on trust,made to last"
+  "label": "Value — Built on trust, made to last",
+  "shipped": "Built on trust, made to last"
  },
  {
   "page": "Electric-Appliances-OTG.html",
@@ -5100,8 +5020,8 @@
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
-  "label": "Cta — Bake more,at home",
-  "shipped": "Bake more,at home"
+  "label": "Cta — Bake more, at home",
+  "shipped": "Bake more, at home"
  },
  {
   "page": "Electric-Appliances-OTG.html",
@@ -5132,8 +5052,8 @@
   "key": "browse-h2-1",
   "kind": "text",
   "section": "browse",
-  "label": "Browse — Browse electricrice cookers",
-  "shipped": "Browse electricrice cookers"
+  "label": "Browse — Browse electric rice cookers",
+  "shipped": "Browse electric rice cookers"
  },
  {
   "page": "Electric-Appliances-Rice-Cooker.html",
@@ -5148,8 +5068,8 @@
   "key": "collections-h2-1",
   "kind": "text",
   "section": "collections",
-  "label": "Collections — Rice Cookercollections",
-  "shipped": "Rice Cookercollections"
+  "label": "Collections — Rice Cooker collections",
+  "shipped": "Rice Cooker collections"
  },
  {
   "page": "Electric-Appliances-Rice-Cooker.html",
@@ -5164,8 +5084,8 @@
   "key": "value-h2-1",
   "kind": "text",
   "section": "value",
-  "label": "Value — Built on trust,made to last",
-  "shipped": "Built on trust,made to last"
+  "label": "Value — Built on trust, made to last",
+  "shipped": "Built on trust, made to last"
  },
  {
   "page": "Electric-Appliances-Rice-Cooker.html",
@@ -5180,8 +5100,8 @@
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
-  "label": "Cta — Effortless rice,every day",
-  "shipped": "Effortless rice,every day"
+  "label": "Cta — Effortless rice, every day",
+  "shipped": "Effortless rice, every day"
  },
  {
   "page": "Electric-Appliances-Rice-Cooker.html",
@@ -5212,8 +5132,8 @@
   "key": "browse-h2-1",
   "kind": "text",
   "section": "browse",
-  "label": "Browse — Browse electricappliances",
-  "shipped": "Browse electricappliances"
+  "label": "Browse — Browse electric appliances",
+  "shipped": "Browse electric appliances"
  },
  {
   "page": "Electric-Appliances.html",
@@ -5228,8 +5148,8 @@
   "key": "collections-h2-1",
   "kind": "text",
   "section": "collections",
-  "label": "Collections — Appliancecollections",
-  "shipped": "Appliancecollections"
+  "label": "Collections — Appliance collections",
+  "shipped": "Appliance collections"
  },
  {
   "page": "Electric-Appliances.html",
@@ -5244,8 +5164,8 @@
   "key": "value-h2-1",
   "kind": "text",
   "section": "value",
-  "label": "Value — Built on trust,made to last",
-  "shipped": "Built on trust,made to last"
+  "label": "Value — Built on trust, made to last",
+  "shipped": "Built on trust, made to last"
  },
  {
   "page": "Electric-Appliances.html",
@@ -5260,8 +5180,8 @@
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
-  "label": "Cta — Power upyour kitchen",
-  "shipped": "Power upyour kitchen"
+  "label": "Cta — Power up your kitchen",
+  "shipped": "Power up your kitchen"
  },
  {
   "page": "Electric-Appliances.html",
@@ -5318,14 +5238,6 @@
   "section": "page",
   "label": "Page — Enquiry submitted successfully",
   "shipped": "Enquiry submitted successfully"
- },
- {
-  "page": "Enquiry.html",
-  "key": "page-p-2",
-  "kind": "text",
-  "section": "page",
-  "label": "Page — Thank you, . The Crystal Cook team will contact …",
-  "shipped": "Thank you, . The Crystal Cook team will contact you shortly with pricing and availability."
  },
  {
   "page": "Kitchenware-Chopping-Boards.html",
@@ -5388,8 +5300,8 @@
   "key": "browse-h2-1",
   "kind": "text",
   "section": "browse",
-  "label": "Browse — Browse allchopping boards",
-  "shipped": "Browse allchopping boards"
+  "label": "Browse — Browse all chopping boards",
+  "shipped": "Browse all chopping boards"
  },
  {
   "page": "Kitchenware-Chopping-Boards.html",
@@ -5404,8 +5316,8 @@
   "key": "collections-h2-1",
   "kind": "text",
   "section": "collections",
-  "label": "Collections — Featuredchopping boards",
-  "shipped": "Featuredchopping boards"
+  "label": "Collections — Featured chopping boards",
+  "shipped": "Featured chopping boards"
  },
  {
   "page": "Kitchenware-Chopping-Boards.html",
@@ -5420,8 +5332,8 @@
   "key": "value-h2-1",
   "kind": "text",
   "section": "value",
-  "label": "Value — Built on trust,made to last",
-  "shipped": "Built on trust,made to last"
+  "label": "Value — Built on trust, made to last",
+  "shipped": "Built on trust, made to last"
  },
  {
   "page": "Kitchenware-Chopping-Boards.html",
@@ -5436,8 +5348,8 @@
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
-  "label": "Cta — Prep on asurface built to last",
-  "shipped": "Prep on asurface built to last"
+  "label": "Cta — Prep on a surface built to last",
+  "shipped": "Prep on a surface built to last"
  },
  {
   "page": "Kitchenware-Chopping-Boards.html",
@@ -5508,8 +5420,8 @@
   "key": "browse-h2-1",
   "kind": "text",
   "section": "browse",
-  "label": "Browse — Browse allcutlery",
-  "shipped": "Browse allcutlery"
+  "label": "Browse — Browse all cutlery",
+  "shipped": "Browse all cutlery"
  },
  {
   "page": "Kitchenware-Cutlery.html",
@@ -5524,8 +5436,8 @@
   "key": "collections-h2-1",
   "kind": "text",
   "section": "collections",
-  "label": "Collections — Featuredcutlery sets",
-  "shipped": "Featuredcutlery sets"
+  "label": "Collections — Featured cutlery sets",
+  "shipped": "Featured cutlery sets"
  },
  {
   "page": "Kitchenware-Cutlery.html",
@@ -5540,8 +5452,8 @@
   "key": "value-h2-1",
   "kind": "text",
   "section": "value",
-  "label": "Value — Built on trust,made to last",
-  "shipped": "Built on trust,made to last"
+  "label": "Value — Built on trust, made to last",
+  "shipped": "Built on trust, made to last"
  },
  {
   "page": "Kitchenware-Cutlery.html",
@@ -5556,8 +5468,8 @@
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
-  "label": "Cta — Set your tablewith confidence",
-  "shipped": "Set your tablewith confidence"
+  "label": "Cta — Set your table with confidence",
+  "shipped": "Set your table with confidence"
  },
  {
   "page": "Kitchenware-Cutlery.html",
@@ -5628,8 +5540,8 @@
   "key": "browse-h2-1",
   "kind": "text",
   "section": "browse",
-  "label": "Browse — Browse allkitchen tools",
-  "shipped": "Browse allkitchen tools"
+  "label": "Browse — Browse all kitchen tools",
+  "shipped": "Browse all kitchen tools"
  },
  {
   "page": "Kitchenware-Kitchen-Tools.html",
@@ -5644,8 +5556,8 @@
   "key": "collections-h2-1",
   "kind": "text",
   "section": "collections",
-  "label": "Collections — Featuredkitchen tools",
-  "shipped": "Featuredkitchen tools"
+  "label": "Collections — Featured kitchen tools",
+  "shipped": "Featured kitchen tools"
  },
  {
   "page": "Kitchenware-Kitchen-Tools.html",
@@ -5660,8 +5572,8 @@
   "key": "value-h2-1",
   "kind": "text",
   "section": "value",
-  "label": "Value — Built on trust,made to last",
-  "shipped": "Built on trust,made to last"
+  "label": "Value — Built on trust, made to last",
+  "shipped": "Built on trust, made to last"
  },
  {
   "page": "Kitchenware-Kitchen-Tools.html",
@@ -5676,8 +5588,8 @@
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
-  "label": "Cta — Small tools,big everyday wins",
-  "shipped": "Small tools,big everyday wins"
+  "label": "Cta — Small tools, big everyday wins",
+  "shipped": "Small tools, big everyday wins"
  },
  {
   "page": "Kitchenware-Kitchen-Tools.html",
@@ -5756,8 +5668,8 @@
   "key": "browse-h2-1",
   "kind": "text",
   "section": "browse",
-  "label": "Browse — Browse allkitchen knives",
-  "shipped": "Browse allkitchen knives"
+  "label": "Browse — Browse all kitchen knives",
+  "shipped": "Browse all kitchen knives"
  },
  {
   "page": "Kitchenware-Knives.html",
@@ -5772,8 +5684,8 @@
   "key": "collections-h2-1",
   "kind": "text",
   "section": "collections",
-  "label": "Collections — Featuredknife picks",
-  "shipped": "Featuredknife picks"
+  "label": "Collections — Featured knife picks",
+  "shipped": "Featured knife picks"
  },
  {
   "page": "Kitchenware-Knives.html",
@@ -5788,8 +5700,8 @@
   "key": "value-h2-1",
   "kind": "text",
   "section": "value",
-  "label": "Value — Built on trust,made to last",
-  "shipped": "Built on trust,made to last"
+  "label": "Value — Built on trust, made to last",
+  "shipped": "Built on trust, made to last"
  },
  {
   "page": "Kitchenware-Knives.html",
@@ -5804,8 +5716,8 @@
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
-  "label": "Cta — Cut withconfidence",
-  "shipped": "Cut withconfidence"
+  "label": "Cta — Cut with confidence",
+  "shipped": "Cut with confidence"
  },
  {
   "page": "Kitchenware-Knives.html",
@@ -5876,8 +5788,8 @@
   "key": "browse-h2-1",
   "kind": "text",
   "section": "browse",
-  "label": "Browse — Browse alllighters",
-  "shipped": "Browse alllighters"
+  "label": "Browse — Browse all lighters",
+  "shipped": "Browse all lighters"
  },
  {
   "page": "Kitchenware-Lighters.html",
@@ -5892,8 +5804,8 @@
   "key": "collections-h2-1",
   "kind": "text",
   "section": "collections",
-  "label": "Collections — Featuredlighter picks",
-  "shipped": "Featuredlighter picks"
+  "label": "Collections — Featured lighter picks",
+  "shipped": "Featured lighter picks"
  },
  {
   "page": "Kitchenware-Lighters.html",
@@ -5908,8 +5820,8 @@
   "key": "value-h2-1",
   "kind": "text",
   "section": "value",
-  "label": "Value — Built on trust,made to last",
-  "shipped": "Built on trust,made to last"
+  "label": "Value — Built on trust, made to last",
+  "shipped": "Built on trust, made to last"
  },
  {
   "page": "Kitchenware-Lighters.html",
@@ -5924,8 +5836,8 @@
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
-  "label": "Cta — Never runout of spark",
-  "shipped": "Never runout of spark"
+  "label": "Cta — Never run out of spark",
+  "shipped": "Never run out of spark"
  },
  {
   "page": "Kitchenware-Lighters.html",
@@ -6004,8 +5916,8 @@
   "key": "browse-h2-1",
   "kind": "text",
   "section": "browse",
-  "label": "Browse — Browse allmanual appliances",
-  "shipped": "Browse allmanual appliances"
+  "label": "Browse — Browse all manual appliances",
+  "shipped": "Browse all manual appliances"
  },
  {
   "page": "Kitchenware-Manual-Appliances.html",
@@ -6020,8 +5932,8 @@
   "key": "collections-h2-1",
   "kind": "text",
   "section": "collections",
-  "label": "Collections — Featuredmanual appliances",
-  "shipped": "Featuredmanual appliances"
+  "label": "Collections — Featured manual appliances",
+  "shipped": "Featured manual appliances"
  },
  {
   "page": "Kitchenware-Manual-Appliances.html",
@@ -6036,8 +5948,8 @@
   "key": "value-h2-1",
   "kind": "text",
   "section": "value",
-  "label": "Value — Built on trust,made to last",
-  "shipped": "Built on trust,made to last"
+  "label": "Value — Built on trust, made to last",
+  "shipped": "Built on trust, made to last"
  },
  {
   "page": "Kitchenware-Manual-Appliances.html",
@@ -6052,8 +5964,8 @@
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
-  "label": "Cta — Hands-on tools,built to last",
-  "shipped": "Hands-on tools,built to last"
+  "label": "Cta — Hands-on tools, built to last",
+  "shipped": "Hands-on tools, built to last"
  },
  {
   "page": "Kitchenware-Manual-Appliances.html",
@@ -6124,8 +6036,8 @@
   "key": "browse-h2-1",
   "kind": "text",
   "section": "browse",
-  "label": "Browse — Browse allpeelers",
-  "shipped": "Browse allpeelers"
+  "label": "Browse — Browse all peelers",
+  "shipped": "Browse all peelers"
  },
  {
   "page": "Kitchenware-Peelers.html",
@@ -6140,8 +6052,8 @@
   "key": "collections-h2-1",
   "kind": "text",
   "section": "collections",
-  "label": "Collections — Featuredpeeler picks",
-  "shipped": "Featuredpeeler picks"
+  "label": "Collections — Featured peeler picks",
+  "shipped": "Featured peeler picks"
  },
  {
   "page": "Kitchenware-Peelers.html",
@@ -6156,8 +6068,8 @@
   "key": "value-h2-1",
   "kind": "text",
   "section": "value",
-  "label": "Value — Built on trust,made to last",
-  "shipped": "Built on trust,made to last"
+  "label": "Value — Built on trust, made to last",
+  "shipped": "Built on trust, made to last"
  },
  {
   "page": "Kitchenware-Peelers.html",
@@ -6172,8 +6084,8 @@
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
-  "label": "Cta — Prep faster,every day",
-  "shipped": "Prep faster,every day"
+  "label": "Cta — Prep faster, every day",
+  "shipped": "Prep faster, every day"
  },
  {
   "page": "Kitchenware-Peelers.html",
@@ -6244,8 +6156,8 @@
   "key": "browse-h2-1",
   "kind": "text",
   "section": "browse",
-  "label": "Browse — Browse allservers",
-  "shipped": "Browse allservers"
+  "label": "Browse — Browse all servers",
+  "shipped": "Browse all servers"
  },
  {
   "page": "Kitchenware-Servers.html",
@@ -6260,8 +6172,8 @@
   "key": "collections-h2-1",
   "kind": "text",
   "section": "collections",
-  "label": "Collections — Featuredserver picks",
-  "shipped": "Featuredserver picks"
+  "label": "Collections — Featured server picks",
+  "shipped": "Featured server picks"
  },
  {
   "page": "Kitchenware-Servers.html",
@@ -6276,8 +6188,8 @@
   "key": "value-h2-1",
   "kind": "text",
   "section": "value",
-  "label": "Value — Built on trust,made to last",
-  "shipped": "Built on trust,made to last"
+  "label": "Value — Built on trust, made to last",
+  "shipped": "Built on trust, made to last"
  },
  {
   "page": "Kitchenware-Servers.html",
@@ -6292,8 +6204,8 @@
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
-  "label": "Cta — Serve it right,every time",
-  "shipped": "Serve it right,every time"
+  "label": "Cta — Serve it right, every time",
+  "shipped": "Serve it right, every time"
  },
  {
   "page": "Kitchenware-Servers.html",
@@ -6364,8 +6276,8 @@
   "key": "browse-h2-1",
   "kind": "text",
   "section": "browse",
-  "label": "Browse — Browse alltrolleys",
-  "shipped": "Browse alltrolleys"
+  "label": "Browse — Browse all trolleys",
+  "shipped": "Browse all trolleys"
  },
  {
   "page": "Kitchenware-Trolleys.html",
@@ -6380,8 +6292,8 @@
   "key": "collections-h2-1",
   "kind": "text",
   "section": "collections",
-  "label": "Collections — Featuredtrolley picks",
-  "shipped": "Featuredtrolley picks"
+  "label": "Collections — Featured trolley picks",
+  "shipped": "Featured trolley picks"
  },
  {
   "page": "Kitchenware-Trolleys.html",
@@ -6396,8 +6308,8 @@
   "key": "value-h2-1",
   "kind": "text",
   "section": "value",
-  "label": "Value — Built on trust,made to last",
-  "shipped": "Built on trust,made to last"
+  "label": "Value — Built on trust, made to last",
+  "shipped": "Built on trust, made to last"
  },
  {
   "page": "Kitchenware-Trolleys.html",
@@ -6412,8 +6324,8 @@
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
-  "label": "Cta — Roll yourkitchen into order",
-  "shipped": "Roll yourkitchen into order"
+  "label": "Cta — Roll your kitchen into order",
+  "shipped": "Roll your kitchen into order"
  },
  {
   "page": "Kitchenware-Trolleys.html",
@@ -6484,8 +6396,8 @@
   "key": "browse-h2-1",
   "kind": "text",
   "section": "browse",
-  "label": "Browse — Browse allwater filters",
-  "shipped": "Browse allwater filters"
+  "label": "Browse — Browse all water filters",
+  "shipped": "Browse all water filters"
  },
  {
   "page": "Kitchenware-Water-Filter.html",
@@ -6500,8 +6412,8 @@
   "key": "collections-h2-1",
   "kind": "text",
   "section": "collections",
-  "label": "Collections — Featuredwater filters",
-  "shipped": "Featuredwater filters"
+  "label": "Collections — Featured water filters",
+  "shipped": "Featured water filters"
  },
  {
   "page": "Kitchenware-Water-Filter.html",
@@ -6516,8 +6428,8 @@
   "key": "value-h2-1",
   "kind": "text",
   "section": "value",
-  "label": "Value — Built on trust,made to last",
-  "shipped": "Built on trust,made to last"
+  "label": "Value — Built on trust, made to last",
+  "shipped": "Built on trust, made to last"
  },
  {
   "page": "Kitchenware-Water-Filter.html",
@@ -6532,8 +6444,8 @@
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
-  "label": "Cta — Safe water,every household",
-  "shipped": "Safe water,every household"
+  "label": "Cta — Safe water, every household",
+  "shipped": "Safe water, every household"
  },
  {
   "page": "Kitchenware-Water-Filter.html",
@@ -6564,8 +6476,8 @@
   "key": "browse-h2-1",
   "kind": "text",
   "section": "browse",
-  "label": "Browse — Browse allkitchenware",
-  "shipped": "Browse allkitchenware"
+  "label": "Browse — Browse all kitchenware",
+  "shipped": "Browse all kitchenware"
  },
  {
   "page": "Kitchenware.html",
@@ -6580,8 +6492,8 @@
   "key": "collections-h2-1",
   "kind": "text",
   "section": "collections",
-  "label": "Collections — Signaturekitchenware ranges",
-  "shipped": "Signaturekitchenware ranges"
+  "label": "Collections — Signature kitchenware ranges",
+  "shipped": "Signature kitchenware ranges"
  },
  {
   "page": "Kitchenware.html",
@@ -6596,8 +6508,8 @@
   "key": "value-h2-1",
   "kind": "text",
   "section": "value",
-  "label": "Value — Built on trust,made to last",
-  "shipped": "Built on trust,made to last"
+  "label": "Value — Built on trust, made to last",
+  "shipped": "Built on trust, made to last"
  },
  {
   "page": "Kitchenware.html",
@@ -6612,8 +6524,8 @@
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
-  "label": "Cta — Stock yourkitchen",
-  "shipped": "Stock yourkitchen"
+  "label": "Cta — Stock your kitchen",
+  "shipped": "Stock your kitchen"
  },
  {
   "page": "Kitchenware.html",
@@ -6644,8 +6556,8 @@
   "key": "browse-h2-1",
   "kind": "text",
   "section": "browse",
-  "label": "Browse — Lunch boxes,launching soon",
-  "shipped": "Lunch boxes,launching soon"
+  "label": "Browse — Lunch boxes, launching soon",
+  "shipped": "Lunch boxes, launching soon"
  },
  {
   "page": "Lunch-Box.html",
@@ -6660,8 +6572,8 @@
   "key": "collections-h2-1",
   "kind": "text",
   "section": "collections",
-  "label": "Collections — Signatureranges",
-  "shipped": "Signatureranges"
+  "label": "Collections — Signature ranges",
+  "shipped": "Signature ranges"
  },
  {
   "page": "Lunch-Box.html",
@@ -6676,8 +6588,8 @@
   "key": "value-h2-1",
   "kind": "text",
   "section": "value",
-  "label": "Value — Built on trust,made to last",
-  "shipped": "Built on trust,made to last"
+  "label": "Value — Built on trust, made to last",
+  "shipped": "Built on trust, made to last"
  },
  {
   "page": "Lunch-Box.html",
@@ -6692,8 +6604,8 @@
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
-  "label": "Cta — StayTuned",
-  "shipped": "StayTuned"
+  "label": "Cta — Stay Tuned",
+  "shipped": "Stay Tuned"
  },
  {
   "page": "Lunch-Box.html",
@@ -6764,8 +6676,8 @@
   "key": "browse-h2-1",
   "kind": "text",
   "section": "browse",
-  "label": "Browse — All oil pourers& sprayers",
-  "shipped": "All oil pourers& sprayers"
+  "label": "Browse — All oil pourers & sprayers",
+  "shipped": "All oil pourers & sprayers"
  },
  {
   "page": "Oil-Pourer-Sprayer.html",
@@ -6780,8 +6692,8 @@
   "key": "collections-h2-1",
   "kind": "text",
   "section": "collections",
-  "label": "Collections — Our otherranges",
-  "shipped": "Our otherranges"
+  "label": "Collections — Our other ranges",
+  "shipped": "Our other ranges"
  },
  {
   "page": "Oil-Pourer-Sprayer.html",
@@ -6796,8 +6708,8 @@
   "key": "value-h2-1",
   "kind": "text",
   "section": "value",
-  "label": "Value — Built on trust,made to last",
-  "shipped": "Built on trust,made to last"
+  "label": "Value — Built on trust, made to last",
+  "shipped": "Built on trust, made to last"
  },
  {
   "page": "Oil-Pourer-Sprayer.html",
@@ -6812,8 +6724,8 @@
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
-  "label": "Cta — Pour withcontrol",
-  "shipped": "Pour withcontrol"
+  "label": "Cta — Pour with control",
+  "shipped": "Pour with control"
  },
  {
   "page": "Oil-Pourer-Sprayer.html",
@@ -6844,8 +6756,8 @@
   "key": "browse-h2-1",
   "kind": "text",
   "section": "browse",
-  "label": "Browse — Browse Tri-Procookers",
-  "shipped": "Browse Tri-Procookers"
+  "label": "Browse — Browse Tri-Pro cookers",
+  "shipped": "Browse Tri-Pro cookers"
  },
  {
   "page": "Pressure-Cooker.html",
@@ -6860,8 +6772,8 @@
   "key": "collections-h2-1",
   "kind": "text",
   "section": "collections",
-  "label": "Collections — Our otherranges",
-  "shipped": "Our otherranges"
+  "label": "Collections — Our other ranges",
+  "shipped": "Our other ranges"
  },
  {
   "page": "Pressure-Cooker.html",
@@ -6876,8 +6788,8 @@
   "key": "value-h2-1",
   "kind": "text",
   "section": "value",
-  "label": "Value — Built on trust,made to last",
-  "shipped": "Built on trust,made to last"
+  "label": "Value — Built on trust, made to last",
+  "shipped": "Built on trust, made to last"
  },
  {
   "page": "Pressure-Cooker.html",
@@ -6892,8 +6804,8 @@
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
-  "label": "Cta — Cook faster,every day",
-  "shipped": "Cook faster,every day"
+  "label": "Cta — Cook faster, every day",
+  "shipped": "Cook faster, every day"
  },
  {
   "page": "Pressure-Cooker.html",
@@ -7148,16 +7060,16 @@
   "key": "overview-h2-1",
   "kind": "text",
   "section": "overview",
-  "label": "Overview — Made foreveryday life",
-  "shipped": "Made foreveryday life"
+  "label": "Overview — Made for everyday life",
+  "shipped": "Made for everyday life"
  },
  {
   "page": "Product.html",
   "key": "features-h2-1",
   "kind": "text",
   "section": "features",
-  "label": "Features — Why itworks so well",
-  "shipped": "Why itworks so well"
+  "label": "Features — Why it works so well",
+  "shipped": "Why it works so well"
  },
  {
   "page": "Product.html",
@@ -7172,8 +7084,8 @@
   "key": "specs-h2-1",
   "kind": "text",
   "section": "specs",
-  "label": "Specs — The detail,spelled out",
-  "shipped": "The detail,spelled out"
+  "label": "Specs — The detail, spelled out",
+  "shipped": "The detail, spelled out"
  },
  {
   "page": "Product.html",
@@ -7185,19 +7097,11 @@
  },
  {
   "page": "Product.html",
-  "key": "specs-h4-1",
-  "kind": "text",
-  "section": "specs",
-  "label": "Specs — Available Sizes",
-  "shipped": "Available Sizes"
- },
- {
-  "page": "Product.html",
   "key": "gallery-h2-1",
   "kind": "text",
   "section": "gallery",
-  "label": "Gallery — See itin use",
-  "shipped": "See itin use"
+  "label": "Gallery — See it in use",
+  "shipped": "See it in use"
  },
  {
   "page": "Product.html",
@@ -7212,24 +7116,16 @@
   "key": "why-h2-1",
   "kind": "text",
   "section": "why",
-  "label": "Why — Quality youcan trust",
-  "shipped": "Quality youcan trust"
- },
- {
-  "page": "Product.html",
-  "key": "related-h2-1",
-  "kind": "text",
-  "section": "related",
-  "label": "Related — More fromthe range",
-  "shipped": "More fromthe range"
+  "label": "Why — Quality you can trust",
+  "shipped": "Quality you can trust"
  },
  {
   "page": "Product.html",
   "key": "cta-h2-1",
   "kind": "text",
   "section": "cta",
-  "label": "Cta — Find youreveryday essential",
-  "shipped": "Find youreveryday essential"
+  "label": "Cta — Find your everyday essential",
+  "shipped": "Find your everyday essential"
  },
  {
   "page": "Product.html",
@@ -7278,14 +7174,6 @@
   "section": "request",
   "label": "Request — Request received!",
   "shipped": "Request received!"
- },
- {
-  "page": "Quote.html",
-  "key": "request-p-2",
-  "kind": "text",
-  "section": "request",
-  "label": "Request — Thanks! Your quote request is on its way. Our sa…",
-  "shipped": "Thanks! Your quote request is on its way. Our sales team will get back to you within one business day."
  },
  {
   "page": "Quote.html",
@@ -7364,8 +7252,8 @@
   "key": "cta-h2-1",
   "kind": "text",
   "section": "cta",
-  "label": "Cta — Let's buildsomething big",
-  "shipped": "Let's buildsomething big"
+  "label": "Cta — Let's build something big",
+  "shipped": "Let's build something big"
  },
  {
   "page": "Quote.html",
@@ -7620,8 +7508,8 @@
   "key": "browse-h2-1",
   "kind": "text",
   "section": "browse",
-  "label": "Browse — All waterbottles",
-  "shipped": "All waterbottles"
+  "label": "Browse — All water bottles",
+  "shipped": "All water bottles"
  },
  {
   "page": "Water-Bottle.html",
@@ -7636,8 +7524,8 @@
   "key": "collections-h2-1",
   "kind": "text",
   "section": "collections",
-  "label": "Collections — Our otherranges",
-  "shipped": "Our otherranges"
+  "label": "Collections — Our other ranges",
+  "shipped": "Our other ranges"
  },
  {
   "page": "Water-Bottle.html",
@@ -7652,8 +7540,8 @@
   "key": "value-h2-1",
   "kind": "text",
   "section": "value",
-  "label": "Value — Built on trust,made to last",
-  "shipped": "Built on trust,made to last"
+  "label": "Value — Built on trust, made to last",
+  "shipped": "Built on trust, made to last"
  },
  {
   "page": "Water-Bottle.html",
@@ -7668,8 +7556,8 @@
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
-  "label": "Cta — Carry iteverywhere",
-  "shipped": "Carry iteverywhere"
+  "label": "Cta — Carry it everywhere",
+  "shipped": "Carry it everywhere"
  },
  {
   "page": "Water-Bottle.html",
@@ -7748,8 +7636,8 @@
   "key": "browse-h2-1",
   "kind": "text",
   "section": "browse",
-  "label": "Browse — Browse thewood range",
-  "shipped": "Browse thewood range"
+  "label": "Browse — Browse the wood range",
+  "shipped": "Browse the wood range"
  },
  {
   "page": "Wood-Range.html",
@@ -7764,8 +7652,8 @@
   "key": "woodWhy-h2-1",
   "kind": "text",
   "section": "woodWhy",
-  "label": "Woodwhy — Why ourWooden Range",
-  "shipped": "Why ourWooden Range"
+  "label": "Woodwhy — Why our Wooden Range",
+  "shipped": "Why our Wooden Range"
  },
  {
   "page": "Wood-Range.html",
@@ -7820,8 +7708,8 @@
   "key": "collections-h2-1",
   "kind": "text",
   "section": "collections",
-  "label": "Collections — Our otherranges",
-  "shipped": "Our otherranges"
+  "label": "Collections — Our other ranges",
+  "shipped": "Our other ranges"
  },
  {
   "page": "Wood-Range.html",
@@ -7836,8 +7724,8 @@
   "key": "value-h2-1",
   "kind": "text",
   "section": "value",
-  "label": "Value — Built on trust,made to last",
-  "shipped": "Built on trust,made to last"
+  "label": "Value — Built on trust, made to last",
+  "shipped": "Built on trust, made to last"
  },
  {
   "page": "Wood-Range.html",
@@ -7852,8 +7740,8 @@
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
-  "label": "Cta — Bring warmthhome",
-  "shipped": "Bring warmthhome"
+  "label": "Cta — Bring warmth home",
+  "shipped": "Bring warmth home"
  },
  {
   "page": "Wood-Range.html",
@@ -7878,22 +7766,6 @@
   "section": "about",
   "label": "About — From cooking to serving to cleaning — making eve…",
   "shipped": "From cooking to serving to cleaning — making everyday living effortless, elegant & extraordinary, with a wide & reliable range trusted by homes and retailers alike."
- },
- {
-  "page": "index-v2.html",
-  "key": "about-img-1",
-  "kind": "image",
-  "section": "about",
-  "label": "About — image 1",
-  "shipped": "Crystal product"
- },
- {
-  "page": "index-v2.html",
-  "key": "about-img-2",
-  "kind": "image",
-  "section": "about",
-  "label": "About — image 2",
-  "shipped": "Crystal product"
  },
  {
   "page": "index-v2.html",
@@ -7940,8 +7812,8 @@
   "key": "infrastructure-h2-1",
   "kind": "text",
   "section": "infrastructure",
-  "label": "Infrastructure — Built onsolid ground",
-  "shipped": "Built onsolid ground"
+  "label": "Infrastructure — Built on solid ground",
+  "shipped": "Built on solid ground"
  },
  {
   "page": "index-v2.html",
@@ -7956,8 +7828,8 @@
   "key": "why-h2-1",
   "kind": "text",
   "section": "why",
-  "label": "Why — Four brands,one promise",
-  "shipped": "Four brands,one promise"
+  "label": "Why — Four brands, one promise",
+  "shipped": "Four brands, one promise"
  },
  {
   "page": "index-v2.html",
@@ -7972,8 +7844,8 @@
   "key": "testimonials-h2-1",
   "kind": "text",
   "section": "testimonials",
-  "label": "Testimonials — From theblog",
-  "shipped": "From theblog"
+  "label": "Testimonials — From the blog",
+  "shipped": "From the blog"
  },
  {
   "page": "index-v2.html",

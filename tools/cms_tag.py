@@ -46,6 +46,32 @@ GENERATED_FROM = {
 # Design-tool leftovers that live in the site's repo root but are not live
 # pages. content/pages_registry.py leaves them out of the dashboard's picker
 # for the same reason, so tagging them would only add rows nobody can reach.
+# Keys the page's own JavaScript writes after this sync runs, or that would
+# break the page if replaced. Found by reading every tagged element in context
+# (see BUILD-LOG). A dashboard row for any of these is a row whose edit is
+# silently discarded — or, for the Enquiry success message, one that breaks
+# submitting the form, because content-sync replaces the element's children and
+# the page then looks for a span inside it that no longer exists.
+EXCLUDE_KEYS = {
+    # wrappers whose children are separately editable — replacing the wrapper
+    # destroys the child
+    ("index.html", "map3-li-1"), ("index.html", "map3-li-2"),
+    ("index.html", "map3-li-3"), ("index.html", "map3-li-4"),
+    ("index.html", "map3-li-5"),
+    # purely decorative
+    ("index.html", "map3-img-1"), ("index.html", "pre3-img-1"),
+    # a crossfade pair whose src is rewritten on every scroll
+    ("index-v2.html", "about-img-1"), ("index-v2.html", "about-img-2"),
+    # "after you submit" messages, written by JS at the only moment they show
+    ("Contact.html", "reach-p-2"),
+    ("Quote.html", "request-p-2"),
+    ("Enquiry.html", "page-p-2"),
+    # rendered from the Blog API on every load
+    ("Article.html", "page-h1-1"), ("Article.html", "page-p-1"),
+    # per-product / per-brand chrome rewritten by Product.html's renderer
+    ("Product.html", "related-h2-1"), ("Product.html", "specs-h4-1"),
+}
+
 NOT_A_PAGE = {
     "CRYSTAL Home.html", "CRYSTAL Light.html", "LOUD Agency.html",
     "index-old-v1.html",
@@ -93,6 +119,11 @@ def attrs_of(raw):
 
 
 def strip_tags(html):
+    """A <br> is a word boundary. Left as nothing it glued headings together
+    ("Built onsolid ground") in both the label AND the shipped reference, and
+    the shipped value is what seeds the dashboard — so saving a row unchanged
+    would have published the missing space."""
+    html = re.sub(r"<br\s*/?>", " ", html, flags=re.I)
     return re.sub(r"<[^>]+>", "", html)
 
 
@@ -178,6 +209,8 @@ def process(html, page, report):
             report["already"] += 1
             continue
 
+        rich = ""
+
         if name in IMAGE_TAGS and media_depth:
             report["owned_elsewhere"] += 1
             continue
@@ -187,7 +220,9 @@ def process(html, page, report):
             if not src or src.startswith("data:"):
                 report["skipped_empty"] += 1
                 continue
-            text = a.get("alt", "")
+            # The reference shown in the dashboard has to be the picture the
+            # page uses; the alt text is not what the editor is replacing.
+            text = src
             kind = "image"
         else:
             # The element's own text, up to its closing tag. Nested markup is
@@ -199,16 +234,32 @@ def process(html, page, report):
             if not text or PLACEHOLDER.match(text):
                 report["skipped_empty"] += 1
                 continue
+            if "<" in inner:
+                # The element ships with markup inside it — a <br>, a
+                # <span class="grad"> highlight, a <b>, a mailto link. Plain
+                # textContent would flatten all of it on the first edit, so the
+                # element is marked as taking rich text instead.
+                rich = ' data-cms-rich'
+                report["rich"] += 1
             kind = "text"
 
         counters.setdefault(section, {}).setdefault(name, 0)
         counters[section][name] += 1
         n = counters[section][name]
         key = LEGACY_KEY_BY_ID.get(a.get("id", ""), "%s-%s-%d" % (section, name, n))
+        if (page, key) in EXCLUDE_KEYS:
+            report["excluded"] += 1
+            continue
 
-        out.append(html[pos:m.end() - 1])
-        out.append(' data-cms="%s"' % key)
-        pos = m.end() - 1
+        # Insert before ">" — and before a self-closing "/", or the result is
+        # <img ... / data-cms="x">, which browsers tolerate but no serializer
+        # should have to.
+        cut = m.end() - 1
+        while cut > m.start() and html[cut - 1] in '/ \t\r\n':
+            cut -= 1
+        out.append(html[pos:cut])
+        out.append(' data-cms="%s"%s' % (key, rich))
+        pos = cut
 
         rows.append({
             "page": page,
@@ -237,7 +288,8 @@ def main():
                  and f not in generated and f not in NOT_A_PAGE)
     )
 
-    manifest, report = [], {"already": 0, "skipped_empty": 0, "owned_elsewhere": 0}
+    manifest, report = [], {"already": 0, "skipped_empty": 0,
+                            "owned_elsewhere": 0, "excluded": 0, "rich": 0}
     changed = 0
     for name in names:
         path = os.path.join(ROOT, name)
@@ -259,8 +311,10 @@ def main():
         kinds[r["kind"]] = kinds.get(r["kind"], 0) + 1
     print("\npages: %d | keys: %d (%s)" % (len(names), len(manifest), kinds))
     print("already tagged: %d | skipped empty/placeholder: %d | "
-          "images owned by Category banners: %d"
-          % (report["already"], report["skipped_empty"], report["owned_elsewhere"]))
+          "images owned by Category banners: %d" %
+          (report["already"], report["skipped_empty"], report["owned_elsewhere"]))
+    print("excluded as JS-driven or unsafe: %d | take rich text: %d"
+          % (report["excluded"], report["rich"]))
 
     if not args.dry_run:
         io.open(MANIFEST, "w", encoding="utf-8", newline="\n").write(

@@ -1,5 +1,11 @@
+import io
+from contextlib import redirect_stdout
+
 from django import forms
-from django.contrib import admin
+from django.contrib import admin, messages
+from django.core.management import call_command
+from django.shortcuts import redirect
+from django.urls import path, reverse
 from django.db.models import Q
 from django.utils import timezone
 from django.utils.html import format_html
@@ -75,6 +81,40 @@ class PageSectionAdmin(admin.ModelAdmin):
     )
     readonly_fields = ('updated_at', 'shipped_reference', 'current_image',
                        'section')
+    change_list_template = 'admin/content/pagesection/change_list.html'
+
+    def get_urls(self):
+        return [
+            path('load-from-site/',
+                 self.admin_site.admin_view(self.load_from_site),
+                 name='content_pagesection_load'),
+        ] + super().get_urls()
+
+    def load_from_site(self, request):
+        """Pull the site's list of editable sections and add any that are new.
+
+        Reads the manifest the website publishes (tools/cms-manifest.json) and
+        creates one empty row per section. Empty rows publish nothing — the feed
+        skips a section with no value — so this is safe to press at any time and
+        it never touches a value someone typed.
+        """
+        out = io.StringIO()
+        try:
+            with redirect_stdout(out):
+                call_command('seed_page_sections')
+        except Exception as exc:
+            self.message_user(
+                request,
+                'Could not load the sections: %s' % exc,
+                level=messages.ERROR,
+            )
+        else:
+            self.message_user(
+                request,
+                out.getvalue().strip() or 'Sections loaded.',
+                level=messages.SUCCESS,
+            )
+        return redirect(reverse('admin:content_pagesection_changelist'))
 
     def get_queryset(self, request):
         return super().get_queryset(request).filter(is_deleted=False)
