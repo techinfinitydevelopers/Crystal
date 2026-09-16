@@ -42,6 +42,19 @@
     Array.prototype.forEach.call(
       document.querySelectorAll('input.crystal-focus'), bind);
 
+    // Django's default wording for replacing an existing upload is a bare
+    // "Change:" before the file input - easy to read past. Spell out what it
+    // does instead; the box around it (crystal_banners.css) does the rest of
+    // the work making it noticeable.
+    var upload = document.querySelector('.field-image .file-upload');
+    if (upload) {
+      Array.prototype.forEach.call(upload.childNodes, function (node) {
+        if (node.nodeType === Node.TEXT_NODE && node.textContent.trim() === 'Change:') {
+          node.textContent = 'Upload a new photo to replace it:';
+        }
+      });
+    }
+
     // Show a newly chosen file straight away, before it is uploaded.
     var file = document.querySelector('input[type="file"][name="image"]');
     if (file) {

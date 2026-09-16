@@ -53,6 +53,25 @@ input.crystal-focus { width: min(420px, 100%); accent-color: #ED3338; }
   font-variant-numeric: tabular-nums; font-weight: 600; color: #1A1A1A;
 }
 
+/* The image field's "Currently: ... / Change: [upload]" line is Django's
+   default markup - plain text with a bare file input, easy to miss next to
+   the big preview above and the red Save/Delete buttons to the side. Give it
+   its own visible box so replacing an existing banner is as obvious as
+   picking one for the first time. */
+.field-image .file-upload {
+  display: block; padding: 14px 16px; margin: 4px 0;
+  border: 1px dashed #cbd5e1; border-radius: 10px; background: #fafbfc;
+}
+.field-image .file-upload a { font-weight: 600; color: #ED3338; }
+.field-image .file-upload input[type="file"] {
+  display: block; margin-top: 10px; font-size: 13px;
+}
+.field-image .file-upload::before {
+  content: "Current image"; display: block; font-size: 11px;
+  text-transform: uppercase; letter-spacing: .03em; color: #94a3b8;
+  margin-bottom: 4px;
+}
+
 /* Changelist */
 .cb-thumb {
   display: block; width: 132px; height: 42px; border-radius: 7px;
