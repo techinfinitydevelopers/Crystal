@@ -17,6 +17,14 @@
  },
  {
   "page": "index.html",
+  "key": "hero3-poster-1",
+  "kind": "image",
+  "section": "hero3",
+  "label": "Hero3 — video poster 1",
+  "shipped": "home-v3-assets/video/hero-poster.jpg"
+ },
+ {
+  "page": "index.html",
   "key": "hero3-img-3",
   "kind": "image",
   "section": "hero3",
@@ -537,6 +545,14 @@
  },
  {
   "page": "About.html",
+  "key": "legacy-poster-1",
+  "kind": "image",
+  "section": "legacy",
+  "label": "Legacy — video poster 1",
+  "shipped": "about-assets/legacy-poster.jpg"
+ },
+ {
+  "page": "About.html",
   "key": "legacy-img-1",
   "kind": "image",
   "section": "legacy",
@@ -870,6 +886,14 @@
   "section": "page",
   "label": "Page — Get the latest guides, tips and stories from Cry…",
   "shipped": "Get the latest guides, tips and stories from Crystal delivered straight to your inbox. No spam — just useful kitchen and home-care know-how."
+ },
+ {
+  "page": "Brand-Crystal.html",
+  "key": "page-poster-1",
+  "kind": "image",
+  "section": "page",
+  "label": "Page — video poster 1",
+  "shipped": "brand-assets/crystal/hero-poster.jpg"
  },
  {
   "page": "Brand-Crystal.html",
@@ -1225,6 +1249,14 @@
  },
  {
   "page": "Brand-Crystalina.html",
+  "key": "page-poster-1",
+  "kind": "image",
+  "section": "page",
+  "label": "Page — video poster 1",
+  "shipped": "brand-assets/crystalina/hero-poster.jpg"
+ },
+ {
+  "page": "Brand-Crystalina.html",
   "key": "hero-title",
   "kind": "text",
   "section": "page",
@@ -1486,6 +1518,14 @@
   "section": "page",
   "label": "Page — Splendid Finish, Superior Experience",
   "shipped": "Splendid Finish, Superior Experience"
+ },
+ {
+  "page": "Brand-SparkMate.html",
+  "key": "page-poster-1",
+  "kind": "image",
+  "section": "page",
+  "label": "Page — video poster 1",
+  "shipped": "brand-assets/sparkmate/hero-poster.jpg"
  },
  {
   "page": "Brand-SparkMate.html",
@@ -1790,6 +1830,14 @@
   "section": "page",
   "label": "Page — Cleaning Made Simple, Every Day",
   "shipped": "Cleaning Made Simple, Every Day"
+ },
+ {
+  "page": "Brand-ValMate.html",
+  "key": "page-poster-1",
+  "kind": "image",
+  "section": "page",
+  "label": "Page — video poster 1",
+  "shipped": "brand-assets/valmate/hero-poster.jpg"
  },
  {
   "page": "Brand-ValMate.html",
@@ -7782,6 +7830,14 @@
   "section": "cta",
   "label": "Cta — From our family of brands to yours — bring home …",
   "shipped": "From our family of brands to yours — bring home the Crystal Wooden Range, or talk to our team about bulk, export and distribution."
+ },
+ {
+  "page": "index-v2.html",
+  "key": "hero-poster-1",
+  "kind": "image",
+  "section": "hero",
+  "label": "Hero — video poster 1",
+  "shipped": "https://proj.leo9studio.in/projects/crystal-wp/wp-content/uploads/2026/04/3-1.jpg"
  },
  {
   "page": "index-v2.html",

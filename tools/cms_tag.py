@@ -106,15 +106,20 @@ TEXT_TAGS = {"h1", "h2", "h3", "h4", "p", "li", "blockquote"}
 # a few pages; on the live site it is read-only and simply renders its `src`.
 # It shows a real photograph to a visitor, so it is as much page content as an
 # <img> -- and it observes `src`, so setting that attribute re-renders it.
-IMAGE_TAGS = {"img", "image-slot"}
-# Tags whose value belongs in an attribute rather than in the element. Without
-# this content-sync's applyImage falls through to setting a CSS background,
-# which a custom element with a shadow DOM never shows.
-IMAGE_ATTR_TAGS = {"image-slot": "src"}
+# A <video>'s poster is the still shown before it plays, or if autoplay is
+# blocked or the file is slow -- a real picture on the page, so it is offered
+# like any other. The video itself is not editable from the dashboard.
+IMAGE_TAGS = {"img", "image-slot", "video"}
+# Which attribute holds the picture. Doubles as the `data-cms-attr` written
+# out: without it content-sync's applyImage assigns el.src, which is the video
+# file on a <video> and nothing at all on a custom element with a shadow DOM.
+# A plain <img> is absent here -- it is read from src and set directly.
+IMAGE_ATTR_TAGS = {"image-slot": "src", "video": "poster"}
 # Keys are counted per tag, so an <img> and an <image-slot> in one section would
 # otherwise both be "-img-1"/"-image-slot-1". Counting them together keeps the
-# numbering unique and the key readable.
-KEY_TAG_NAME = {"image-slot": "img"}
+# numbering unique and the key readable. A video poster counts separately, or
+# adding one would renumber every <img> after it in its section.
+KEY_TAG_NAME = {"image-slot": "img", "video": "poster"}
 
 # A page's own <section id>; anything outside one is keyed against this.
 NO_SECTION = "page"
@@ -155,6 +160,8 @@ def label_for(section, tag, n, text):
     recognisable handle a person has, so they lead; the section is the
     fallback for an image or an empty element."""
     where = section.replace("-", " ").strip().title()
+    if tag == "video":
+        return "%s — video poster %d" % (where, n)
     if tag in IMAGE_TAGS:
         return "%s — image %d" % (where, n)
     snippet = text[:48] + ("…" if len(text) > 48 else "")
@@ -236,7 +243,10 @@ def process(html, page, report):
             continue
 
         if name in IMAGE_TAGS:
-            src = a.get("src", "")
+            # Same map as the attribute written out: a <video>'s picture is its
+            # poster, not its src. A video with no poster falls through as
+            # empty, which is right -- there is nothing to show or replace.
+            src = a.get(IMAGE_ATTR_TAGS.get(name, "src"), "")
             if not src or src.startswith("data:"):
                 report["skipped_empty"] += 1
                 continue
