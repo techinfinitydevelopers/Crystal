@@ -668,8 +668,16 @@ h1, h2 { overflow-wrap: break-word; }
 
   /* ---------- RESOLVE ID ---------- */
   const params = new URLSearchParams(location.search);
-  let id = params.get("id");
-  if (!id || !ARTICLES[id]) id = ORDER[0];
+  const id = params.get("id") || ORDER[0];
+  /* What to paint before the dashboard answers. A slug this page ships gets
+     its own article; anything else -- every post written in the dashboard --
+     gets the first shipped one as a holding page, and is replaced below.
+
+     The requested slug used to be discarded here when it was not one of the
+     three shipped ones, which meant a post created in the dashboard could be
+     listed on Blog.html but never opened: this page asked the API for the
+     wrong slug, got the wrong article, and showed it. */
+  const shipped = ARTICLES[id] || ARTICLES[ORDER[0]];
 
   /* ---------- RENDER ARTICLE ---------- */
   function renderArticle(a) {
@@ -699,7 +707,7 @@ h1, h2 { overflow-wrap: break-word; }
     }).join("");
   }
 
-  renderArticle(ARTICLES[id]);
+  renderArticle(shipped);
   renderRelatedFallback(id);
 
   /* Upgrade to the real Blog CMS post for this slug if one is published.
