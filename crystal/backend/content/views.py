@@ -25,6 +25,15 @@ class PageSectionFeedView(View):
                     entry['url'] = _abs(request, s.image.url)
                 except ValueError:
                     continue
+                # A phone-specific crop, optional. Sent as a second URL rather
+                # than picked here — this view has no idea what device is
+                # asking, and the page is the one that knows its own
+                # breakpoint.
+                if s.image_mobile:
+                    try:
+                        entry['url_mobile'] = _abs(request, s.image_mobile.url)
+                    except ValueError:
+                        pass
             else:
                 if not s.text_value:
                     continue

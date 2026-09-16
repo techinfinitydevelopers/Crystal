@@ -1,0 +1,131 @@
+{% extends "admin/base_site.html" %}
+{% load i18n static %}
+
+{% block breadcrumbs %}
+<div class="breadcrumbs">
+  <a href="{% url 'admin:index' %}">{% trans 'Home' %}</a>
+  &rsaquo; <a href="{% url 'admin:content_page_changelist' %}">Pages</a>
+  &rsaquo; {{ page_obj.title }}
+</div>
+{% endblock %}
+
+{% block extrastyle %}
+{{ block.super }}
+<style>
+  .pe-wrap { display: flex; gap: 20px; align-items: flex-start; }
+  .pe-sidebar {
+    width: 240px; flex: 0 0 240px; background: #fff; border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0,0,0,.08); max-height: 82vh; overflow-y: auto;
+    position: sticky; top: 20px;
+  }
+  .pe-sidebar h4 {
+    margin: 0; padding: 10px 14px 4px; font-size: 11px; text-transform: uppercase;
+    letter-spacing: .04em; color: #94a3b8;
+  }
+  .pe-sidebar a {
+    display: block; padding: 7px 14px; font-size: 13px; color: #334155;
+    text-decoration: none; border-left: 3px solid transparent;
+  }
+  .pe-sidebar a:hover { background: #f8fafc; }
+  .pe-sidebar a.active {
+    background: rgba(237,51,56,.08); border-left-color: #ED3338; color: #ED3338;
+    font-weight: 600;
+  }
+  .pe-main { flex: 1 1 auto; min-width: 0; }
+  .pe-group { background: #fff; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,.08);
+    margin-bottom: 18px; overflow: hidden; }
+  .pe-group h3 { margin: 0; padding: 12px 16px; background: #f8fafc;
+    border-bottom: 1px solid #e2e8f0; font-size: 14px; }
+  .pe-row { padding: 14px 16px; border-bottom: 1px solid #f1f5f9; }
+  .pe-row:last-child { border-bottom: none; }
+  .pe-row label.pe-name { display: block; font-weight: 600; font-size: 13px; margin-bottom: 6px; color: #1e293b; }
+  .pe-row .pe-key { color: #94a3b8; font-weight: 400; font-size: 11px; margin-left: 6px; }
+  .pe-row textarea { width: 100%; max-width: 640px; }
+  .pe-imgs { display: flex; gap: 24px; flex-wrap: wrap; }
+  .pe-imgcol { min-width: 200px; }
+  .pe-imgcol strong { display: block; font-size: 11px; color: #64748b; text-transform: uppercase;
+    letter-spacing: .03em; margin-bottom: 6px; }
+  .pe-imgcol img { max-height: 100px; border-radius: 6px; display: block; margin-bottom: 6px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.12); }
+  .pe-active { margin-top: 8px; font-size: 12px; color: #64748b; }
+  .pe-savebar { position: sticky; bottom: 0; background: #fff; padding: 12px 16px;
+    border-radius: 8px; box-shadow: 0 -2px 10px rgba(0,0,0,.08); margin-top: 4px; }
+  .pe-savebar button { background: #ED3338; color: #fff; border: none; padding: 9px 22px;
+    border-radius: 6px; font-weight: 700; font-size: 13px; cursor: pointer; }
+  .pe-empty { padding: 30px; text-align: center; color: #94a3b8; background: #fff; border-radius: 8px; }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="pe-wrap">
+  <div class="pe-sidebar">
+    {% regroup all_pages by group as page_groups %}
+    {% for g in page_groups %}
+      <h4>{{ g.grouper|default:"Other" }}</h4>
+      {% for p in g.list %}
+        <a href="{% url 'admin:content_page_editor' p.pk %}"
+           class="{% if p.pk == page_obj.pk %}active{% endif %}">{{ p.title }}</a>
+      {% endfor %}
+    {% endfor %}
+  </div>
+
+  <div class="pe-main">
+    <h1 style="margin-top:0;">{{ page_obj.title }}
+      <a href="{{ page_obj.url }}" target="_blank" rel="noopener"
+         style="font-size:12px;font-weight:400;margin-left:10px;">View page &#8599;</a>
+    </h1>
+
+    {% if not groups %}
+      <div class="pe-empty">
+        No sections loaded for this page yet. Use “Load sections from the
+        website” on the <a href="{% url 'admin:content_pagesection_changelist' %}">Page sections</a>
+        list, then come back here.
+      </div>
+    {% else %}
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ formset.management_form }}
+      {% for section_title, forms in groups %}
+        <div class="pe-group">
+          <h3>{{ section_title }}</h3>
+          {% for form in forms %}
+            <div class="pe-row">
+              {{ form.id }}
+              <label class="pe-name">{{ form.instance.label|default:form.instance.section_key }}
+                <span class="pe-key">{{ form.instance.section_key }}</span></label>
+
+              {% if form.instance.kind == 'image' %}
+                <div class="pe-imgs">
+                  <div class="pe-imgcol">
+                    <strong>Desktop / tablet</strong>
+                    {% if form.instance.image %}<img src="{{ form.instance.image.url }}">{% endif %}
+                    {{ form.image }}
+                  </div>
+                  <div class="pe-imgcol">
+                    <strong>Phone</strong>
+                    {% if form.instance.image_mobile %}<img src="{{ form.instance.image_mobile.url }}">{% endif %}
+                    {{ form.image_mobile }}
+                    <div style="font-size:11px;color:#94a3b8;margin-top:4px;">Optional — leave empty and phones show the desktop picture.</div>
+                  </div>
+                </div>
+              {% else %}
+                {{ form.text_value }}
+              {% endif %}
+
+              <div class="pe-active">
+                {{ form.is_active }} <label for="{{ form.is_active.id_for_label }}">Live on the site</label>
+                {% if form.errors %}<div style="color:#dc2626;">{{ form.errors }}</div>{% endif %}
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      {% endfor %}
+      <div class="pe-savebar">
+        <button type="submit">Save changes</button>
+        <span style="margin-left:12px;color:#64748b;font-size:12px;">Live within a minute — nothing else to publish.</span>
+      </div>
+    </form>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

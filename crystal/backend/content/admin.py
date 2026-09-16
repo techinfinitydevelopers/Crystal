@@ -1,18 +1,112 @@
 import io
 from contextlib import redirect_stdout
+from itertools import groupby
 
 from django import forms
 from django.contrib import admin, messages
 from django.core.management import call_command
-from django.shortcuts import redirect
+from django.forms import modelformset_factory
+from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import path, reverse
 from django.db.models import Q
 from django.utils import timezone
 from django.utils.html import format_html
 from django.utils.safestring import mark_safe
 
-from .models import PageSection, PageSectionTrash
+from django.utils.http import url_has_allowed_host_and_scheme
+
+from .models import Page, PageSection, PageSectionTrash
 from .pages_registry import ALL_PAGES, PAGE_LABELS
+
+
+class PageSectionEditorForm(forms.ModelForm):
+    """One row inside the per-page editor. Same fields as the flat admin's
+    'Your version' fieldset, just rendered inline instead of on their own
+    change form."""
+
+    class Meta:
+        model = PageSection
+        fields = ('text_value', 'image', 'image_mobile', 'is_active')
+        widgets = {
+            'text_value': forms.Textarea(attrs={'rows': 3}),
+        }
+
+
+PageSectionEditorFormSet = modelformset_factory(
+    PageSection, form=PageSectionEditorForm, extra=0)
+
+
+@admin.register(Page)
+class PageAdmin(admin.ModelAdmin):
+    """The sidebar doorway the Page model's docstring describes: a list of
+    pages grouped the way the site is, each one opening straight into its own
+    section editor instead of Django's generic change form."""
+
+    list_display = ('title', 'group', 'section_count', 'edit_button')
+    list_display_links = ('title',)
+    list_filter = ('group',)
+    search_fields = ('title', 'filename', 'group')
+    ordering = ['order', 'group', 'title']
+
+    def get_urls(self):
+        return [
+            path('<int:pk>/editor/',
+                 self.admin_site.admin_view(self.editor_view),
+                 name='content_page_editor'),
+        ] + super().get_urls()
+
+    def has_add_permission(self, request):
+        # Pages come from pages_registry via seed_page_sections, not typed in
+        # by hand — a stray row here would have no file behind it to serve.
+        return False
+
+    @admin.display(description='Sections')
+    def section_count(self, obj):
+        live = obj.sections.filter(is_deleted=False)
+        total = live.count()
+        edited = live.filter(~Q(text_value='') | (~Q(image='') & Q(image__isnull=False))).count()
+        return f'{edited} edited of {total}'
+
+    @admin.display(description='')
+    def edit_button(self, obj):
+        return format_html(
+            '<a href="{}" class="btn btn-sm" '
+            'style="background:#ED3338;color:#fff;font-weight:600;">'
+            'Edit this page &rarr;</a>',
+            reverse('admin:content_page_editor', args=[obj.pk]))
+
+    def editor_view(self, request, pk):
+        page = get_object_or_404(Page, pk=pk)
+        qs = (PageSection.objects.filter(page_ref=page, is_deleted=False)
+              .order_by('section', 'section_key'))
+
+        if request.method == 'POST':
+            formset = PageSectionEditorFormSet(
+                request.POST, request.FILES, queryset=qs, prefix='sections')
+            if formset.is_valid():
+                formset.save()
+                messages.success(request, f'Saved “{page.title}”.')
+                return redirect(request.path)
+            messages.error(request, 'Could not save — check the fields below.')
+        else:
+            formset = PageSectionEditorFormSet(queryset=qs, prefix='sections')
+
+        forms_by_pk = {f.instance.pk: f for f in formset.forms}
+        groups = [
+            (section_title, [forms_by_pk[row.pk] for row in rows])
+            for section_title, rows in groupby(qs, key=lambda s: s.section_title)
+        ]
+
+        context = {
+            **self.admin_site.each_context(request),
+            'title': f'Edit — {page.title}',
+            'opts': self.model._meta,
+            'page_obj': page,
+            'all_pages': Page.objects.all(),
+            'formset': formset,
+            'groups': groups,
+        }
+        return render(request, 'admin/content/page/editor.html', context)
 
 
 class PageSectionForm(forms.ModelForm):
@@ -75,12 +169,12 @@ class PageSectionAdmin(admin.ModelAdmin):
                 'again at any time and the page falls back to what it ships. '
                 'The change is live within a minute — nothing to publish.'
             ),
-            'fields': ('text_value', 'image', 'current_image', 'is_active',
-                       'updated_at'),
+            'fields': ('text_value', 'image', 'current_image', 'image_mobile',
+                       'current_image_mobile', 'is_active', 'updated_at'),
         }),
     )
     readonly_fields = ('updated_at', 'shipped_reference', 'current_image',
-                       'section')
+                       'current_image_mobile', 'section')
     change_list_template = 'admin/content/pagesection/change_list.html'
 
     def get_urls(self):
@@ -181,6 +275,17 @@ class PageSectionAdmin(admin.ModelAdmin):
         return format_html(
             '<img src="{}" style="max-height:140px;border-radius:10px;'
             'box-shadow:0 4px 16px rgba(0,0,0,.15);">', obj.image.url)
+
+    @admin.display(description='Phone picture now in use')
+    def current_image_mobile(self, obj):
+        if not obj or obj.kind != PageSection.IMAGE:
+            return mark_safe('<span style="color:#94a3b8;">&mdash;</span>')
+        if not obj.image_mobile:
+            return mark_safe('<span style="color:#94a3b8;">Nothing uploaded &mdash; '
+                               'phones show the picture above.</span>')
+        return format_html(
+            '<img src="{}" style="max-height:140px;border-radius:10px;'
+            'box-shadow:0 4px 16px rgba(0,0,0,.15);">', obj.image_mobile.url)
 
     @admin.display(description='Content')
     def preview_cell(self, obj):

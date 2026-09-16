@@ -10,6 +10,48 @@ key, the shipped content stands.
 from django.db import models
 
 
+class Page(models.Model):
+    """One page of the website, so the dashboard can be browsed the way the
+    site is: a list of pages, then that page's own sections.
+
+    A flat list of 984 sections with a page filter was technically complete and
+    practically unusable — nobody thinks "edit section legacy-p-1", they think
+    "edit the About page". The rows themselves have not moved; this is the
+    doorway to them.
+    """
+
+    filename = models.CharField(
+        max_length=120, unique=True,
+        help_text='The file on the website, e.g. "About.html". This is what '
+                  'ties the page to its sections — do not change it.')
+    title = models.CharField(
+        max_length=160,
+        help_text='What this page is called in the dashboard.')
+    group = models.CharField(
+        max_length=80, blank=True, db_index=True,
+        help_text='Heading this page is listed under, e.g. "Cookware".')
+    order = models.PositiveIntegerField(default=0)
+
+    class Meta:
+        ordering = ['order', 'group', 'title']
+        verbose_name = 'Page'
+        verbose_name_plural = 'Pages'
+
+    def __str__(self):
+        return self.title or self.filename
+
+    @property
+    def slug(self):
+        """The key the website looks itself up by: the filename, lowercased
+        and without its extension."""
+        base = self.filename.rsplit('.', 1)[0]
+        return base.strip().lower().replace(' ', '-')
+
+    @property
+    def url(self):
+        return 'https://crystal-cook-production.up.railway.app/%s' % self.filename
+
+
 class PageSection(models.Model):
     TEXT = 'text'
     IMAGE = 'image'
@@ -19,6 +61,10 @@ class PageSection(models.Model):
         max_length=120, db_index=True,
         help_text='The page this belongs to, exactly as the file is named, '
                   'e.g. "About.html".')
+    page_ref = models.ForeignKey(
+        Page, null=True, blank=True, on_delete=models.PROTECT,
+        related_name='sections', verbose_name='Page',
+        help_text='Set automatically from the filename above.')
     section_key = models.SlugField(
         max_length=120,
         help_text='Matches the data-cms id on that element in the page HTML, '
@@ -33,7 +79,14 @@ class PageSection(models.Model):
                               'exactly as typed, no HTML.')
     image = models.ImageField(
         upload_to='page-sections/', blank=True, null=True,
-        help_text='Used when Kind is Image.')
+        help_text='Used when Kind is Image. Shown on desktops and tablets, and '
+                  'on phones too unless a phone picture is set below.')
+    image_mobile = models.ImageField(
+        upload_to='page-sections/mobile/', blank=True, null=True,
+        verbose_name='Phone picture',
+        help_text='Optional. A crop that suits a narrow screen — phones get '
+                  'this one instead. Leave empty and phones show the picture '
+                  'above.')
     section = models.CharField(
         max_length=120, blank=True, db_index=True,
         help_text='Which band of the page this sits in, e.g. "hero". Filled in '
@@ -68,6 +121,24 @@ class PageSection(models.Model):
         """The key the website looks itself up by: the page name, lowercased."""
         name = self.page[:-5] if self.page.lower().endswith('.html') else self.page
         return name.strip().lower().replace(' ', '-')
+
+    @property
+    def section_title(self):
+        """Human-readable group heading for the page-editor screen — 'hero'
+        becomes 'Hero', 'about3' becomes 'About3'. Good enough as a heading;
+        the label on each individual row is what carries the real meaning."""
+        return (self.section or 'Other').replace('-', ' ').replace('_', ' ').strip().title()
+
+    def save(self, *args, **kwargs):
+        # Keep page_ref in step with the page filename so a row created any
+        # way other than through Page's own inline (a fixture, seed_page_sections,
+        # a future importer) still shows up under its page in the dashboard.
+        if self.page and (self.page_ref_id is None or self.page_ref.filename != self.page):
+            self.page_ref, _ = Page.objects.get_or_create(
+                filename=self.page,
+                defaults={'title': self.page, 'order': 999},
+            )
+        super().save(*args, **kwargs)
 
 
 class PageSectionTrash(PageSection):

@@ -23,8 +23,8 @@ import urllib.request
 from django.core.management.base import BaseCommand, CommandError
 from django.db import transaction
 
-from content.models import PageSection
-from content.pages_registry import ALL_PAGES
+from content.models import Page, PageSection
+from content.pages_registry import ALL_PAGES, PAGES_REGISTRY
 
 DEFAULT_URL = os.environ.get(
     "CMS_MANIFEST_URL",
@@ -48,6 +48,7 @@ class Command(BaseCommand):
         parser.add_argument("--dry-run", action="store_true")
 
     def handle(self, *args, **opts):
+        pages_created, pages_updated = self._sync_pages(opts["dry_run"])
         rows = self._load(opts)
 
         if not isinstance(rows, list):
@@ -102,12 +103,43 @@ class Command(BaseCommand):
                     updated += 1
 
         self.stdout.write(
-            "Sections in manifest: %d | created: %d | refreshed: %d | skipped: %d"
-            % (len(rows), created, updated, skipped)
+            "Pages: %d new, %d refreshed | sections in manifest: %d | "
+            "created: %d | refreshed: %d | skipped: %d"
+            % (pages_created, pages_updated, len(rows), created, updated, skipped)
         )
         self.stdout.write("Total rows now: %d" % PageSection.objects.count())
         if opts["dry_run"]:
             self.stdout.write("(dry run — nothing written)")
+
+    def _sync_pages(self, dry_run):
+        """Make sure every page in pages_registry has a Page row, with the
+        title, group and order the registry currently says.
+
+        Runs before the manifest import so a page that only just appeared in
+        the registry already has somewhere for its sections to attach to.
+        Never deletes: a page removed from the registry keeps its row and its
+        sections, just unreachable from the picker until it is added back.
+        """
+        created = updated = 0
+        order = 0
+        for group, pages in PAGES_REGISTRY:
+            for filename, label in pages:
+                order += 1
+                defaults = {"title": label, "group": group, "order": order}
+                existing = Page.objects.filter(filename=filename).first()
+                if existing is None:
+                    if not dry_run:
+                        Page.objects.create(filename=filename, **defaults)
+                    created += 1
+                    continue
+                changes = {f: v for f, v in defaults.items() if getattr(existing, f) != v}
+                if changes:
+                    if not dry_run:
+                        for f, v in changes.items():
+                            setattr(existing, f, v)
+                        existing.save(update_fields=list(changes))
+                    updated += 1
+        return created, updated
 
     def _load(self, opts):
         if opts["file"]:
