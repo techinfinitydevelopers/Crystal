@@ -48,6 +48,12 @@ class Page(models.Model):
         return base.strip().lower().replace(' ', '-')
 
     @property
+    def is_real_page(self):
+        """False for the pseudo-page holding the shared header and footer --
+        it has no file on the site, so there is nothing to link to."""
+        return not self.filename.startswith('_')
+
+    @property
     def url(self):
         return 'https://crystal-cook-production.up.railway.app/%s' % self.filename
 

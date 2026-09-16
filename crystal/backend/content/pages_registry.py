@@ -8,6 +8,12 @@ live pages) are deliberately left out.
 """
 
 PAGES_REGISTRY = [
+    # Not a page on the site: the header and footer are identical everywhere,
+    # so their keys are held here once instead of 64 times over. content-sync
+    # applies this page's values on top of whatever page it is running on.
+    ('Site-wide', [
+        ('_site.html', 'Header & footer (every page)'),
+    ]),
     ('Home', [
         ('index.html', 'Home'),
         ('index-v2.html', 'Home (v2)'),

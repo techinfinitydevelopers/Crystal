@@ -95,8 +95,12 @@
 
   <div class="pe-main">
     <h1 style="margin-top:0;">{{ page_obj.title }}
+      {% if page_obj.is_real_page %}
       <a href="{{ page_obj.url }}" target="_blank" rel="noopener"
          style="font-size:12px;font-weight:400;margin-left:10px;">View page &#8599;</a>
+      {% else %}
+      <span style="font-size:12px;font-weight:400;margin-left:10px;color:#64748b;">Shown on every page of the site</span>
+      {% endif %}
       {% comment %}
         Both services deploy from one push, so the dashboard's own seed can run
         before the website has published the section list it reads -- in which

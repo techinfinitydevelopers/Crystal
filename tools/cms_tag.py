@@ -134,6 +134,95 @@ with io.open(os.path.join(ROOT, "tools", "legacy-ids.json"), encoding="utf-8") a
     LEGACY_KEY_BY_ID = json.load(_fh)
 
 
+# ── Site-wide chrome ────────────────────────────────────────────────────────
+# The header and footer are the same on all 64 pages, which is why the walk
+# below skips them: a per-page key there would mean editing one phone number
+# 64 times. These get ONE key each instead, recorded against the pseudo-page
+# below, written into every page's copy, and applied by content-sync on top of
+# whatever that page's own keys say.
+#
+# Matched by a distinctive substring, not by position. Fifteen pages list four
+# brand links in the footer that the other forty-nine do not, so the same
+# position is "Cookware" on one page and "Crystal" on another -- one key would
+# have edited two different things.
+#
+# Menu items are deliberately absent. "Products" and "Brands" wrap an entire
+# dropdown, and content-sync replaces an element's children, so a key there
+# would take the menu with it -- the same trap EXCLUDE_KEYS exists for.
+SITE_PAGE = "_site.html"
+# index.html is spliced together by build_v3.py: its body comes from
+# v3_main.html and its header and footer from shell-donor.html. So the chrome
+# tags have to go into the donor -- v3_main.html has no header or footer to
+# tag, and tagging the built index.html would be undone by the next build.
+# Only the site-wide pass runs over it; everything between its HERO and FOOTER
+# markers is discarded at build time, so page keys there would be thrown away.
+SITE_ONLY_FILES = [os.path.join("home-v3-src", "shell-donor.html")]
+# The three contact lines are tagged on the <a> inside the <li>, not the <li>.
+# The anchor carries the tel: link and the map jump; tagging the <li> would
+# make the value rich text, and then editing the phone number to plain digits
+# would take the click-to-call away with it. On the <a> the value is the
+# visible text and the link is untouched.
+SITE_WIDE = [
+    ("site-support-bar",   "div", "Customer Support",                    "Support bar"),
+    ("site-foot-cta",      "h3",  "every corner of your home",           "Footer heading"),
+    ("site-foot-desc",     "p",   "Complete Kitchen and Home Solutions", "Footer description"),
+    ("site-addr-rajkot",   "a",   "G.I.D.C Metoda",                      "Factory address"),
+    ("site-addr-mumbai",   "a",   "Sahar Plaza",                         "Office address"),
+    ("site-phone",         "a",   "022-49702803 / 06",                   "Phone number"),
+]
+
+
+# The search runs inside these and nowhere else. Contact.html lists the same
+# phone number in its own contact block, ahead of the footer, and a document-
+# wide search took that one -- so editing the site-wide phone number would have
+# rewritten one page's content instead of the footer on all 64.
+CHROME_REGIONS = [
+    r'<div[^>]*class="[^"]*support-bar[^"]*"[^>]*>.*?</div>',
+    r'<header\b.*?</header>',
+    r'<footer\b.*?</footer>',
+]
+
+
+def tag_site_wide(html, report):
+    """Mark this page's copy of the shared chrome. Returns (html, rows)."""
+    rows = []
+    spans = []
+    for region in CHROME_REGIONS:
+        for m in re.finditer(region, html, re.S | re.I):
+            spans.append((m.start(), m.end()))
+
+    for key, tag, needle, label in SITE_WIDE:
+        pat = re.compile(r"<%s\b([^>]*)>((?:(?!</%s>).)*?%s(?:(?!</%s>).)*?)</%s>"
+                         % (tag, tag, re.escape(needle), tag, tag), re.S)
+        hit = None
+        for start, end in spans:
+            m = pat.search(html, start, end)
+            if m:
+                hit = m
+                break
+        if not hit:
+            report["site_not_found"] += 1
+            continue
+        if "data-cms" in hit.group(1):
+            report["already"] += 1
+            rows.append((key, hit.group(2), label))
+            continue
+        # Nested markup (a <span> highlight, a <br>) would be flattened by a
+        # plain text swap, same rule as the main walk.
+        rich = ' data-cms-rich' if "<" in hit.group(2) else ""
+        cut = hit.start() + len("<%s" % tag) + len(hit.group(1))
+        while cut > hit.start() and html[cut - 1] in '/ \t\r\n':
+            cut -= 1
+        insert = ' data-cms="%s"%s' % (key, rich)
+        html = html[:cut] + insert + html[cut:]
+        # Everything after the insertion point shifted along with it.
+        spans = [(s + len(insert) if s > cut else s,
+                  e + len(insert) if e > cut else e) for s, e in spans]
+        report["site_tagged"] += 1
+        rows.append((key, hit.group(2), label))
+    return html, rows
+
+
 def attrs_of(raw):
     return dict(ATTR.findall(raw))
 
@@ -327,8 +416,10 @@ def main():
     )
 
     manifest, report = [], {"already": 0, "skipped_empty": 0,
-                            "owned_elsewhere": 0, "excluded": 0, "rich": 0}
+                            "owned_elsewhere": 0, "excluded": 0, "rich": 0,
+                            "site_tagged": 0, "site_not_found": 0}
     changed = 0
+    site_rows = {}
     for name in names:
         path = os.path.join(ROOT, name)
         if not os.path.isfile(path):
@@ -336,13 +427,43 @@ def main():
             continue
         html = io.open(path, encoding="utf-8", newline="").read()
         new, rows = process(html, GENERATED_FROM.get(name, name), report)
+        # The shared chrome is tagged in every page but described once: the
+        # first page to carry a key contributes its row, the other 63 just get
+        # the attribute.
+        new, found = tag_site_wide(new, report)
+        for key, shipped, label in found:
+            site_rows.setdefault(key, (shipped, label))
         manifest.extend(rows)
-        if rows and not args.dry_run and new != html:
+        if not args.dry_run and new != html:
             io.open(path, "w", encoding="utf-8", newline="").write(new)
             changed += 1
         as_page = GENERATED_FROM.get(name)
         print("%-40s %4d keys%s" % (name, len(rows),
                                     "  -> %s" % as_page if as_page else ""))
+
+    for rel in SITE_ONLY_FILES:
+        path = os.path.join(ROOT, rel)
+        if not os.path.isfile(path):
+            print("missing: %s" % rel)
+            continue
+        html = io.open(path, encoding="utf-8", newline="").read()
+        new, found = tag_site_wide(html, report)
+        for key, shipped, label in found:
+            site_rows.setdefault(key, (shipped, label))
+        if not args.dry_run and new != html:
+            io.open(path, "w", encoding="utf-8", newline="").write(new)
+            changed += 1
+        print("%-40s %4s      (chrome only)" % (rel, len(found)))
+
+    for key, (shipped, label) in site_rows.items():
+        manifest.append({
+            "page": SITE_PAGE,
+            "key": key,
+            "kind": "text",
+            "section": "site",
+            "label": label,
+            "shipped": unescape(strip_tags(shipped)).strip()[:300],
+        })
 
     kinds = {}
     for r in manifest:
@@ -353,6 +474,8 @@ def main():
           (report["already"], report["skipped_empty"], report["owned_elsewhere"]))
     print("excluded as JS-driven or unsafe: %d | take rich text: %d"
           % (report["excluded"], report["rich"]))
+    print("site-wide chrome: %d keys, newly tagged on %d pages, not found %d times"
+          % (len(site_rows), report["site_tagged"], report["site_not_found"]))
 
     if not args.dry_run:
         io.open(MANIFEST, "w", encoding="utf-8", newline="\n").write(

@@ -7958,5 +7958,53 @@
   "section": "cta",
   "label": "Cta — for your home",
   "shipped": "for your home"
+ },
+ {
+  "page": "_site.html",
+  "key": "site-support-bar",
+  "kind": "text",
+  "section": "site",
+  "label": "Support bar",
+  "shipped": "Customer Support - 022-49702803/06"
+ },
+ {
+  "page": "_site.html",
+  "key": "site-foot-cta",
+  "kind": "text",
+  "section": "site",
+  "label": "Footer heading",
+  "shipped": "Bring Crystal into every corner of your home."
+ },
+ {
+  "page": "_site.html",
+  "key": "site-foot-desc",
+  "kind": "text",
+  "section": "site",
+  "label": "Footer description",
+  "shipped": "Complete Kitchen and Home Solutions — crafted for everyday ease, built on trust."
+ },
+ {
+  "page": "_site.html",
+  "key": "site-addr-rajkot",
+  "kind": "text",
+  "section": "site",
+  "label": "Factory address",
+  "shipped": "G.I.D.C Metoda, Rajkot 360021, Gujarat"
+ },
+ {
+  "page": "_site.html",
+  "key": "site-addr-mumbai",
+  "kind": "text",
+  "section": "site",
+  "label": "Office address",
+  "shipped": "Sahar Plaza, Andheri (E), Mumbai 400059"
+ },
+ {
+  "page": "_site.html",
+  "key": "site-phone",
+  "kind": "text",
+  "section": "site",
+  "label": "Phone number",
+  "shipped": "022-49702803 / 06"
  }
 ]

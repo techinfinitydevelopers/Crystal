@@ -152,18 +152,25 @@
   fetch(API, { mode: "cors", credentials: "omit" })
     .then(function (r) { return r.ok ? r.json() : null; })
     .then(function (data) {
-      var sections = data && data.pages && data.pages[slug];
-      if (!sections) return;
+      var pages = data && data.pages;
+      if (!pages) return;
 
-      Object.keys(sections).forEach(function (key) {
-        var section = sections[key];
-        if (!section) return;
-        var targets = elementsFor(key);
-        if (!targets.length) return;
-        for (var i = 0; i < targets.length; i++) {
-          if (section.kind === "image" && section.url) applyImage(targets[i], section.url);
-          else if (section.kind === "text" && section.text) applyText(targets[i], section.text);
-        }
+      /* The header and footer are the same on every page, so their keys live
+         under one pseudo-page rather than being repeated 64 times. Applied
+         first, so a page that ever wants its own version of a shared key can
+         override it by carrying that key itself. */
+      [pages["_site"], pages[slug]].forEach(function (sections) {
+        if (!sections) return;
+        Object.keys(sections).forEach(function (key) {
+          var section = sections[key];
+          if (!section) return;
+          var targets = elementsFor(key);
+          if (!targets.length) return;
+          for (var i = 0; i < targets.length; i++) {
+            if (section.kind === "image" && section.url) applyImage(targets[i], section.url);
+            else if (section.kind === "text" && section.text) applyText(targets[i], section.text);
+          }
+        });
       });
     })
     .catch(function () { /* the shipped copy stands */ });
