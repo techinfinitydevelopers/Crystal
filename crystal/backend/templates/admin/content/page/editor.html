@@ -40,6 +40,11 @@
   .pe-row:last-child { border-bottom: none; }
   .pe-row label.pe-name { display: block; font-weight: 600; font-size: 13px; margin-bottom: 6px; color: #1e293b; }
   .pe-row .pe-key { color: #94a3b8; font-weight: 400; font-size: 11px; margin-left: 6px; }
+  .pe-badge { display: inline-block; margin-left: 8px; padding: 1px 8px; border-radius: 100px;
+    font-size: 10px; font-weight: 700; letter-spacing: .02em; text-transform: uppercase;
+    background: #f1f5f9; color: #94a3b8; vertical-align: middle; }
+  .pe-badge--yours { background: rgba(22,101,52,.12); color: #166534; }
+  .pe-hint { font-size: 11px; color: #94a3b8; margin-top: 4px; }
   .pe-row textarea { width: 100%; max-width: 640px; }
   .pe-imgs { display: flex; gap: 24px; flex-wrap: wrap; }
   .pe-imgcol { min-width: 200px; }
@@ -154,24 +159,35 @@
             <div class="pe-row">
               {{ form.id }}
               <label class="pe-name">{{ form.instance.label|default:form.instance.section_key }}
+                {% if form.instance.is_overridden %}
+                  <span class="pe-badge pe-badge--yours">Your version</span>
+                {% else %}
+                  <span class="pe-badge">As the page ships it</span>
+                {% endif %}
                 <span class="pe-key">{{ form.instance.section_key }}</span></label>
 
               {% if form.instance.kind == 'image' %}
                 <div class="pe-imgs">
                   <div class="pe-imgcol">
                     <strong>Desktop / tablet</strong>
-                    {% if form.instance.image %}<img src="{{ form.instance.image.url }}">{% endif %}
+                    {% if form.instance.image %}
+                      <img src="{{ form.instance.image.url }}">
+                    {% elif form.instance.shipped_image_url %}
+                      <img src="{{ form.instance.shipped_image_url }}" title="{{ form.instance.shipped_value }}">
+                      <div class="pe-hint">On the site now. Upload below to replace it.</div>
+                    {% endif %}
                     {{ form.image }}
                   </div>
                   <div class="pe-imgcol">
                     <strong>Phone</strong>
                     {% if form.instance.image_mobile %}<img src="{{ form.instance.image_mobile.url }}">{% endif %}
                     {{ form.image_mobile }}
-                    <div style="font-size:11px;color:#94a3b8;margin-top:4px;">Optional — leave empty and phones show the desktop picture.</div>
+                    <div class="pe-hint">Optional — leave empty and phones show the desktop picture.</div>
                   </div>
                 </div>
               {% else %}
                 {{ form.text_value }}
+                <div class="pe-hint">Clear the box to go back to the page's own wording.</div>
               {% endif %}
 
               <div class="pe-active">

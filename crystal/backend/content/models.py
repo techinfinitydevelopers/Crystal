@@ -134,6 +134,27 @@ class PageSection(models.Model):
         raw = re.sub(r'(\d+)$', r' \1', self.section or 'Other')
         return raw.replace('-', ' ').replace('_', ' ').strip().title()
 
+    @property
+    def is_overridden(self):
+        """Whether a visitor is seeing something typed here rather than the
+        page's own content."""
+        return bool(self.text_value or self.image)
+
+    @property
+    def shipped_image_url(self):
+        """The photo the page shows today, addressed absolutely.
+
+        `shipped_value` holds a path relative to the website's root
+        ("about-assets/leadership.webp"), and that file lives on the website,
+        not in this service's media store -- the two are separate deployables.
+        So it can only be shown here by pointing at the site.
+        """
+        if self.kind != self.IMAGE or not self.shipped_value:
+            return ''
+        from django.conf import settings
+        base = getattr(settings, 'PUBLIC_SITE_URL', '').rstrip('/')
+        return '%s/%s' % (base, self.shipped_value.lstrip('/'))
+
     def save(self, *args, **kwargs):
         # Keep page_ref in step with the page filename so a row created any
         # way other than through Page's own inline (a fixture, seed_page_sections,

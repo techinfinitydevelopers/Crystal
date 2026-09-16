@@ -51,9 +51,20 @@ class CategoryBannerInlineForm(forms.ModelForm):
 
 
 class PageSectionEditorForm(forms.ModelForm):
-    """One row inside the per-page editor. Same fields as the flat admin's
-    'Your version' fieldset, just rendered inline instead of on their own
-    change form."""
+    """One row inside the per-page editor.
+
+    The box starts out holding what the page actually says today, not empty.
+    An empty `text_value` means "no override, use what the page ships", which
+    is right for the database but wrong for a person: it showed a blank box
+    next to a truncated label, so the only way to change one word of a
+    paragraph was to retype the paragraph from the live site.
+
+    So the shipped copy is loaded in as the starting value, and `clean` puts
+    it back to empty if it comes back unchanged. Editing is direct, and a
+    section nobody touched stays un-overridden -- which matters, because
+    seed_page_sections refreshes `shipped_value` from the site on every
+    deploy, and a row frozen as an override would stop tracking the site.
+    """
 
     class Meta:
         model = PageSection
@@ -61,6 +72,19 @@ class PageSectionEditorForm(forms.ModelForm):
         widgets = {
             'text_value': forms.Textarea(attrs={'rows': 3}),
         }
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        inst = self.instance
+        if inst and inst.pk and inst.kind == PageSection.TEXT and not inst.text_value:
+            self.initial['text_value'] = inst.shipped_value
+
+    def clean_text_value(self):
+        value = self.cleaned_data.get('text_value') or ''
+        shipped = self.instance.shipped_value or ''
+        if value.strip() == shipped.strip():
+            return ''
+        return value
 
 
 PageSectionEditorFormSet = modelformset_factory(
