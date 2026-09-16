@@ -15,8 +15,39 @@ from django.utils.safestring import mark_safe
 
 from django.utils.http import url_has_allowed_host_and_scheme
 
+from banners.models import CategoryBanner
+
 from .models import Page, PageSection, PageSectionTrash
 from .pages_registry import ALL_PAGES, PAGE_LABELS
+
+# Groups (from pages_registry) whose pages carry a hero photograph through
+# CategoryBanner rather than a data-cms image section — Cookware, Kitchenware
+# and the rest are template pages with no standalone <img data-cms> at all,
+# so without this the per-page editor would show text only and look like
+# there was no way to change the picture, when there is one, just in a
+# different table.
+CATEGORY_BANNER_GROUPS = {
+    'Cookware', 'Kitchenware', 'Cleaning Aid', 'Electric Appliances',
+    'Standalone categories',
+}
+
+
+class CategoryBannerInlineForm(forms.ModelForm):
+    """The category banner's editable fields, embedded in the page editor
+    instead of its own change form. 'page' and 'label' are set from the Page
+    object rather than typed here."""
+
+    class Meta:
+        model = CategoryBanner
+        fields = ('image', 'focus', 'mobile_focus', 'is_active')
+        widgets = {
+            'focus': forms.NumberInput(attrs={'type': 'range', 'min': 0, 'max': 100,
+                                              'step': 1, 'class': 'crystal-focus',
+                                              'data-preview': 'desktop'}),
+            'mobile_focus': forms.NumberInput(attrs={'type': 'range', 'min': 0, 'max': 100,
+                                                     'step': 1, 'class': 'crystal-focus',
+                                                     'data-preview': 'mobile'}),
+        }
 
 
 class PageSectionEditorForm(forms.ModelForm):
@@ -80,16 +111,41 @@ class PageAdmin(admin.ModelAdmin):
         qs = (PageSection.objects.filter(page_ref=page, is_deleted=False)
               .order_by('section', 'section_key'))
 
+        banner_obj = CategoryBanner.objects.filter(page=page.filename).first()
+        show_banner = banner_obj is not None or page.group in CATEGORY_BANNER_GROUPS
+        banner_instance = banner_obj or CategoryBanner(page=page.filename, label=page.title)
+
         if request.method == 'POST':
             formset = PageSectionEditorFormSet(
                 request.POST, request.FILES, queryset=qs, prefix='sections')
-            if formset.is_valid():
+            banner_form = None
+            banner_ok = True
+            if show_banner:
+                banner_form = CategoryBannerInlineForm(
+                    request.POST, request.FILES, instance=banner_instance, prefix='banner')
+                # A banner that does not exist yet is only worth creating if a
+                # photo was actually chosen -- otherwise every unrelated save
+                # on this page would fail on the image field being required.
+                if banner_instance.pk or request.FILES.get('banner-image'):
+                    banner_ok = banner_form.is_valid()
+                    if banner_ok:
+                        b = banner_form.save(commit=False)
+                        b.page = page.filename
+                        b.label = b.label or page.title
+                else:
+                    banner_ok = True
+
+            if formset.is_valid() and banner_ok:
                 formset.save()
+                if show_banner and (banner_instance.pk or request.FILES.get('banner-image')):
+                    b.save()
                 messages.success(request, f'Saved “{page.title}”.')
                 return redirect(request.path)
             messages.error(request, 'Could not save — check the fields below.')
         else:
             formset = PageSectionEditorFormSet(queryset=qs, prefix='sections')
+            banner_form = (CategoryBannerInlineForm(instance=banner_instance, prefix='banner')
+                           if show_banner else None)
 
         forms_by_pk = {f.instance.pk: f for f in formset.forms}
         groups = [
@@ -105,6 +161,8 @@ class PageAdmin(admin.ModelAdmin):
             'all_pages': Page.objects.all(),
             'formset': formset,
             'groups': groups,
+            'banner_form': banner_form,
+            'banner_obj': banner_obj,
         }
         return render(request, 'admin/content/page/editor.html', context)
 
