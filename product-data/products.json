@@ -4513,8 +4513,10 @@
         "size": "Medium",
         "with_blade": "Without Blade"
       },
-      "hero": "product-photos/MKA091A/hero.webp",
-      "gallery": [],
+      "hero": "product-photos/MKA091A/main.png",
+      "gallery": [
+        "product-photos/MKA091A/hero.webp"
+      ],
       "match_tier": "exact_sku",
       "id": "mka091a"
     },
@@ -4543,8 +4545,10 @@
         "size": "Extra Large",
         "with_blade": "Without Blade"
       },
-      "hero": "product-photos/MKA093A/hero.webp",
-      "gallery": [],
+      "hero": "product-photos/MKA093A/main.png",
+      "gallery": [
+        "product-photos/MKA093A/hero.webp"
+      ],
       "match_tier": "exact_sku",
       "id": "mka093a"
     },
@@ -5974,8 +5978,10 @@
       "filters": {
         "use": "Garlic Press"
       },
-      "hero": "product-photos/CLMK-011/hero.png",
-      "gallery": [],
+      "hero": "product-photos/CLMK-011/main.png",
+      "gallery": [
+        "product-photos/CLMK-011/hero.png"
+      ],
       "match_tier": "dump_name_match",
       "id": "clmk-011"
     },
@@ -6000,8 +6006,10 @@
       "filters": {
         "use": "Nut Cracker"
       },
-      "hero": "product-photos/CLMK-012/hero.gif",
-      "gallery": [],
+      "hero": "product-photos/CLMK-012/main.png",
+      "gallery": [
+        "product-photos/CLMK-012/hero.gif"
+      ],
       "match_tier": "dump_name_match",
       "id": "clmk-012"
     },
