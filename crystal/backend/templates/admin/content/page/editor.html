@@ -97,6 +97,13 @@
     <h1 style="margin-top:0;">{{ page_obj.title }}
       <a href="{{ page_obj.url }}" target="_blank" rel="noopener"
          style="font-size:12px;font-weight:400;margin-left:10px;">View page &#8599;</a>
+      {# Both services deploy from one push, so the dashboard's own seed can run
+         before the website has published the section list it reads -- in which
+         case a section added to the site is missing here until this is
+         pressed. It only ever adds rows; nothing typed is touched. #}
+      <a href="{% url 'admin:content_pagesection_load' %}?next={{ request.path|urlencode }}"
+         style="font-size:12px;font-weight:400;margin-left:10px;color:#ED3338;"
+         title="Adds a row for any section on the live site that is missing here. Never changes anything you have typed.">Load new sections from the site</a>
     </h1>
 
     {% if not groups and not banner_form %}

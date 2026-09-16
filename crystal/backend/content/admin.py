@@ -290,6 +290,13 @@ class PageSectionAdmin(admin.ModelAdmin):
                 out.getvalue().strip() or 'Sections loaded.',
                 level=messages.SUCCESS,
             )
+        # Pressing this from a page's own editor should come back to that
+        # editor, not dump someone into the 988-row flat list.
+        nxt = request.GET.get('next')
+        if nxt and url_has_allowed_host_and_scheme(
+                nxt, allowed_hosts={request.get_host()},
+                require_https=request.is_secure()):
+            return redirect(nxt)
         return redirect(reverse('admin:content_pagesection_changelist'))
 
     def get_queryset(self, request):
