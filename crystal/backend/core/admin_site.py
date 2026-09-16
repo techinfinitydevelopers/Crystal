@@ -10,7 +10,7 @@ class CrystalAdminSite(AdminSite):
     def index(self, request, extra_context=None):
         from products.models import Product, Brand
         from enquiry.models import Enquiry
-        from content.models import PageSection
+        from content.models import Page, PageSection
         from content.pages_registry import PAGES_REGISTRY
 
         try:
@@ -20,13 +20,18 @@ class CrystalAdminSite(AdminSite):
             stat_blogs = 0
 
         section_counts = dict(
-            PageSection.objects.values("page")
+            PageSection.objects.filter(is_deleted=False).values("page")
             .annotate(n=Count("id"))
             .values_list("page", "n")
         )
+        # Every chip jumps straight into the same per-page editor the "Pages"
+        # sidebar entry opens — this card used to link the flat, page-filtered
+        # PageSection list instead, a second, confusing route to the same job.
+        page_pks = dict(Page.objects.values_list("filename", "pk"))
         pages_overview = [
             (group, [
-                {"file": fn, "label": label, "count": section_counts.get(fn, 0)}
+                {"file": fn, "label": label, "count": section_counts.get(fn, 0),
+                 "pk": page_pks.get(fn)}
                 for fn, label in pages
             ])
             for group, pages in PAGES_REGISTRY

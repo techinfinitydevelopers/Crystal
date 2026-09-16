@@ -265,7 +265,9 @@ JAZZMIN_SETTINGS = {
     "hide_apps": [],
     "hide_models": ["auth.group"],
     "order_with_respect_to": [
-        "products", "banners", "content", "enquiry", "blog", "downloads", "core", "auth",
+        "products", "banners",
+        "content", "content.page", "content.pagesection", "content.pagesectiontrash",
+        "enquiry", "blog", "downloads", "core", "auth",
     ],
 
     "icons": {
@@ -288,6 +290,7 @@ JAZZMIN_SETTINGS = {
         "banners": "fas fa-panorama",
         "banners.categorybanner": "fas fa-image",
         "content": "fas fa-file-alt",
+        "content.page": "fas fa-file-alt",
         "content.pagesection": "fas fa-edit",
         "content.pagesectiontrash": "fas fa-trash",
     },

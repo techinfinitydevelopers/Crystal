@@ -125,9 +125,14 @@ class PageSection(models.Model):
     @property
     def section_title(self):
         """Human-readable group heading for the page-editor screen — 'hero'
-        becomes 'Hero', 'about3' becomes 'About3'. Good enough as a heading;
-        the label on each individual row is what carries the real meaning."""
-        return (self.section or 'Other').replace('-', ' ').replace('_', ' ').strip().title()
+        becomes 'Hero', 'about3' becomes 'About 3' (the trailing digit is a
+        repeat count from the site's build, e.g. the third "about" band on
+        the page — not part of the word, so it gets a space before it. Good
+        enough as a heading; the label on each individual row is what
+        carries the real meaning."""
+        import re
+        raw = re.sub(r'(\d+)$', r' \1', self.section or 'Other')
+        return raw.replace('-', ' ').replace('_', ' ').strip().title()
 
     def save(self, *args, **kwargs):
         # Keep page_ref in step with the page filename so a row created any

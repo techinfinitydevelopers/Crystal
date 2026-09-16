@@ -70,7 +70,7 @@
     <div class="card crx-card">
       <div class="crx-card__head">
         <h3 class="crx-card__title"><i class="fas fa-file-alt"></i> Pages — edit any section</h3>
-        <a href="{% url 'admin:content_pagesection_add' %}" class="crx-card__action">+ New section &rarr;</a>
+        <a href="{% url 'admin:content_page_changelist' %}" class="crx-card__action">All pages &rarr;</a>
       </div>
       <div class="card-body">
         {% for group, pages in pages_overview %}
@@ -78,11 +78,17 @@
           <h4 class="crx-page-group__title">{{ group }}</h4>
           <div class="crx-page-grid">
             {% for p in pages %}
+            {% if p.pk %}
             <a class="crx-page-chip{% if p.count %} crx-page-chip--has{% endif %}"
-               href="{% url 'admin:content_pagesection_changelist' %}?page={{ p.file|urlencode }}">
+               href="{% url 'admin:content_page_editor' p.pk %}">
               {{ p.label }}
               {% if p.count %}<span class="crx-page-chip__badge">{{ p.count }}</span>{% endif %}
             </a>
+            {% else %}
+            <span class="crx-page-chip" title="Not loaded yet — use &quot;Load sections from the website&quot; on Page sections.">
+              {{ p.label }}
+            </span>
+            {% endif %}
             {% endfor %}
           </div>
         </div>
