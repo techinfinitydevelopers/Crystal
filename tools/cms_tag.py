@@ -257,6 +257,104 @@ def label_for(section, tag, n, text):
     return "%s — %s" % (where, snippet) if snippet else "%s — %s %d" % (where, tag, n)
 
 
+
+# ── Expected upload size, guessed from the page's own CSS ──────────────────
+# The point: an editor uploading a photo has no way to know it will be
+# cropped to a fixed shape until after they save and look at the live page.
+# Every image row gets a plain-English "upload roughly this size" hint,
+# resolved from the CSS rule that actually sizes its container -- the same
+# rule the browser uses, so the hint can never drift from the real crop.
+
+STYLE_BLOCK = re.compile(r"<style\b[^>]*>(.*?)</style>", re.S | re.I)
+ASPECT_RATIO = re.compile(r"aspect-ratio\s*:\s*([\d.]+)\s*/\s*([\d.]+)")
+ASPECT_RATIO_1 = re.compile(r"aspect-ratio\s*:\s*([\d.]+)\s*;")
+PX_PAIR = re.compile(r"width\s*:\s*(\d+)px[^;]*;.*?height\s*:\s*(\d+)px", re.S)
+MIN_HEIGHT = re.compile(r"height\s*:\s*min\([^,]+,\s*(\d+)px\)")
+
+# Common ratios get a named, round recommendation instead of the raw CSS
+# numbers -- "469 x 334" means nothing to someone choosing a photo; "roughly
+# 1400 x 1000px, landscape" does. Matched by the simplified ratio, to 2dp.
+_NAMED_RATIOS = [
+    (1.0, "Square", "1000 × 1000"),
+    (16 / 9, "Widescreen (16:9)", "1600 × 900"),
+    (16 / 10, "Widescreen (16:10)", "1600 × 1000"),
+    (4 / 3, "Classic (4:3)", "1200 × 900"),
+    (5 / 4, "5:4", "1250 × 1000"),
+    (0.5, "Tall (1:2)", "800 × 1600"),
+]
+
+
+def _rule_for(css, selector):
+    """The declaration block of the first rule whose selector is exactly this,
+    matched as one item of a comma-separated list -- ".a, .b img { ... }"
+    matches selector ".b img" even though the brace sits after ".a" too, and
+    the block that eventually opens belongs to the whole list. `selector` is
+    a plain string like ".bp-tile img" -- escaped here, once, correctly,
+    rather than by the caller."""
+    esc = re.escape(selector)
+    pat = re.compile(
+        r"(?:^|[{}\s,])" + esc + r"\s*(?:,[^{]*)?\{([^}]*)\}", re.S)
+    m = pat.search(css)
+    return m.group(1) if m else None
+
+
+def _box_from_rule(rule):
+    m = ASPECT_RATIO.search(rule)
+    if m:
+        w, h = float(m.group(1)), float(m.group(2))
+        return _describe_ratio(w, h)
+    m = ASPECT_RATIO_1.search(rule)
+    if m:
+        return _describe_ratio(float(m.group(1)), 1.0)
+    m = PX_PAIR.search(rule)
+    if m:
+        w, h = int(m.group(1)), int(m.group(2))
+        return "%d × %d px" % (w, h)
+    m = MIN_HEIGHT.search(rule)
+    if m:
+        h = int(m.group(1))
+        return ("Full-width banner — landscape, roughly %d × %d px "
+                "or wider. It stretches edge to edge and is capped around "
+                "%dpx tall on a computer, so keep the subject centred or it "
+                "gets cropped on the sides on a narrow screen." % (h * 2, h, h))
+    return None
+
+
+def _describe_ratio(w, h):
+    ratio = w / h if h else 1.0
+    for target, name, px in _NAMED_RATIOS:
+        if abs(ratio - target) < 0.03:
+            return "%s — roughly %spx or larger" % (name, px)
+    # An unnamed ratio: show it plainly, at a size close to the CSS's own
+    # numbers (design tools often export the crop at literal pixel values,
+    # which is exactly what these look like) doubled for a sharp screen.
+    scale = 1
+    while w * scale < 500 and h * scale < 500:
+        scale += 1
+    return "Landscape (%d:%d) — roughly %d × %d px or larger" % (
+        round(w), round(h), round(w * scale), round(h * scale))
+
+
+def expected_box(css, tag, container_classes):
+    """Best-guess upload size for an image/video/image-slot element, given
+    the classes of its immediate parent. Two lookups, most specific first:
+    the element's own tag inside that container (".x img"), which is where a
+    crop is usually declared, then the bare container (".x")."""
+    if not container_classes:
+        return None
+    combo = "." + ".".join(container_classes)
+    tries = [combo + " " + tag, combo]
+    for cls in container_classes:
+        tries += ["." + cls + " " + tag, "." + cls]
+    for selector in tries:
+        rule = _rule_for(css, selector)
+        if rule:
+            box = _box_from_rule(rule)
+            if box:
+                return box
+    return None
+
+
 def process(html, page, report):
     """Return the page with data-cms added, plus the manifest rows it earned."""
     out = []
@@ -265,14 +363,25 @@ def process(html, page, report):
     depth = {name: 0 for name in SKIP_INSIDE}
     container_depth = []          # open depths of skipped chrome containers
     media_depth = []              # depths where images are owned elsewhere
+    parent_stack = []              # classes of each currently-open element,
+                                    # innermost last -- how an <img> finds the
+                                    # container that actually sizes it
     section = NO_SECTION
     section_depth = None
     open_depth = 0
     counters = {}
+    css = "\n".join(STYLE_BLOCK.findall(html))
 
     for m in TAG.finditer(html):
         closing, name, raw = m.group(1) == "/", m.group(2).lower(), m.group(3)
         self_closing = raw.rstrip().endswith("/") or name in ("img", "br", "hr", "input", "meta", "link", "source")
+        # Captured before this tag can push its own entry, so it always
+        # names the element ENCLOSING this one -- for a self-closing <img>
+        # that push never happens anyway, but a non-self-closing <video> or
+        # <image-slot> pushes itself first, and without this snapshot the
+        # "container" lookup below would see the element's own (usually
+        # empty) classes instead of its parent's.
+        enclosing_classes = parent_stack[-1][1] if parent_stack else []
 
         if closing:
             if name in depth and depth[name]:
@@ -282,6 +391,8 @@ def process(html, page, report):
                 container_depth.pop()
             while media_depth and open_depth < media_depth[-1]:
                 media_depth.pop()
+            if parent_stack and open_depth < parent_stack[-1][0]:
+                parent_stack.pop()
             if section_depth is not None and open_depth < section_depth:
                 section, section_depth = NO_SECTION, None
             continue
@@ -299,6 +410,8 @@ def process(html, page, report):
                 container_depth.append(open_depth)
             elif names & SKIP_CONTAINERS_MEDIA:
                 media_depth.append(open_depth)
+            classes = [c for c in (a0.get("class", "") or "").split() if c]
+            parent_stack.append((open_depth, classes))
 
         if name == "section" and not closing:
             got = attrs_of(raw).get("id")
@@ -326,6 +439,7 @@ def process(html, page, report):
         existing_key = a.get("data-cms")
 
         rich = ""
+        box = None
 
         if name in IMAGE_TAGS and media_depth:
             report["owned_elsewhere"] += 1
@@ -343,6 +457,11 @@ def process(html, page, report):
             # page uses; the alt text is not what the editor is replacing.
             text = src
             kind = "image"
+            # What actually sizes this element on the page: the nearest
+            # enclosing element's classes, e.g. an <img> with no class of its
+            # own inside <a class="bp-tile">. None yet (an image straight in
+            # <body>) resolves to nothing, same as an unmatched selector.
+            box = expected_box(css, name, enclosing_classes)
         else:
             # The element's own text, up to its closing tag. Nested markup is
             # stripped for the label only — the attribute goes on the element
@@ -388,14 +507,17 @@ def process(html, page, report):
             out.append(' data-cms="%s"%s%s' % (key, rich, cms_attr))
             pos = cut
 
-        rows.append({
+        row = {
             "page": page,
             "key": key,
             "kind": kind,
             "section": section,
             "label": label_for(section, name, n, text),
             "shipped": text[:300],
-        })
+        }
+        if box:
+            row["box"] = box
+        rows.append(row)
 
     out.append(html[pos:])
     return "".join(out), rows

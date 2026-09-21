@@ -251,12 +251,13 @@ class PageSectionAdmin(admin.ModelAdmin):
                 'again at any time and the page falls back to what it ships. '
                 'The change is live within a minute — nothing to publish.'
             ),
-            'fields': ('text_value', 'image', 'current_image', 'image_mobile',
-                       'current_image_mobile', 'is_active', 'updated_at'),
+            'fields': ('text_value', 'size_hint', 'image', 'current_image',
+                       'image_mobile', 'current_image_mobile', 'is_active',
+                       'updated_at'),
         }),
     )
-    readonly_fields = ('updated_at', 'shipped_reference', 'current_image',
-                       'current_image_mobile', 'section')
+    readonly_fields = ('updated_at', 'shipped_reference', 'size_hint',
+                       'current_image', 'current_image_mobile', 'section')
     change_list_template = 'admin/content/pagesection/change_list.html'
 
     def get_urls(self):
@@ -353,6 +354,29 @@ class PageSectionAdmin(admin.ModelAdmin):
             '<div style="max-width:640px;padding:10px 12px;border-left:3px solid #cbd5e1;'
             'background:#f8fafc;color:#334155;font-size:13px;line-height:1.5;">{}</div>',
             obj.shipped_value)
+
+    @admin.display(description='Upload this size')
+    def size_hint(self, obj):
+        """Worked out from the CSS of the box this photo actually lands in --
+        see tools/cms_tag.py `expected_box`. This is the answer to "why did my
+        photo get cut off": the site always fills that box edge to edge, so
+        anything the wrong shape is cropped to fit, silently, after upload."""
+        if not obj or obj.kind != PageSection.IMAGE:
+            return mark_safe('<span style="color:#94a3b8;">&mdash;</span>')
+        if not obj.expected_size:
+            return mark_safe(
+                '<span style="color:#166534;">No fixed shape here &mdash; '
+                'whatever you upload is shown in full, nothing is cropped.</span>')
+        return format_html(
+            '<div style="display:inline-flex;align-items:center;gap:8px;'
+            'padding:6px 12px;border-radius:8px;background:rgba(237,51,56,.08);'
+            'border:1px solid rgba(237,51,56,.25);color:#ED3338;font-weight:700;'
+            'font-size:13px;">{}</div>'
+            '<div style="margin-top:6px;font-size:11.5px;color:#64748b;">'
+            'The site crops any photo to fill this box exactly &mdash; a photo '
+            'a different shape loses its edges, which is why it can look cut '
+            'off after you save.</div>',
+            obj.expected_size)
 
     @admin.display(description='Image now in use')
     def current_image(self, obj):

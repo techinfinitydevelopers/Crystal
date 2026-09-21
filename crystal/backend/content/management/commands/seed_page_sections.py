@@ -81,6 +81,7 @@ class Command(BaseCommand):
                     "label": (row.get("label") or "")[:160],
                     "section": (row.get("section") or "")[:120],
                     "shipped_value": row.get("shipped") or "",
+                    "expected_size": (row.get("box") or "")[:200],
                 }
 
                 existing = PageSection.objects.filter(page=page, section_key=key).first()

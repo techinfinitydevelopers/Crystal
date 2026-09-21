@@ -101,6 +101,13 @@ class PageSection(models.Model):
         blank=True,
         help_text='What the page shows today, for reference. Leave the value '
                   'above empty and the page keeps showing this.')
+    expected_size = models.CharField(
+        max_length=200, blank=True,
+        help_text="For an image: the box it lands in on the page, worked out "
+                  "from that box's own CSS. Upload something close to this "
+                  "shape, or the site crops it to fit -- this is why a photo "
+                  "sometimes looks cut off after saving. Blank means the box "
+                  "has no fixed shape, so nothing is cropped.")
     is_active = models.BooleanField(
         default=True,
         help_text='Untick to fall back to the content the page already '

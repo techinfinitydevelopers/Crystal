@@ -549,7 +549,8 @@
   "kind": "image",
   "section": "legacy",
   "label": "Legacy — video poster 1",
-  "shipped": "about-assets/legacy-poster.jpg"
+  "shipped": "about-assets/legacy-poster.jpg",
+  "box": "Widescreen (16:9) — roughly 1600 × 900px or larger"
  },
  {
   "page": "About.html",
@@ -605,7 +606,8 @@
   "kind": "image",
   "section": "vmv",
   "label": "Vmv — image 1",
-  "shipped": "about-assets/leadership.webp"
+  "shipped": "about-assets/leadership.webp",
+  "box": "Landscape (796:836) — roughly 796 × 836 px or larger"
  },
  {
   "page": "About.html",
@@ -893,7 +895,8 @@
   "kind": "image",
   "section": "page",
   "label": "Page — video poster 1",
-  "shipped": "brand-assets/crystal/hero-poster.jpg"
+  "shipped": "brand-assets/crystal/hero-poster.jpg",
+  "box": "Full-width banner — landscape, roughly 1520 × 760 px or wider. It stretches edge to edge and is capped around 760px tall on a computer, so keep the subject centred or it gets cropped on the sides on a narrow screen."
  },
  {
   "page": "Brand-Crystal.html",
@@ -949,7 +952,8 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 2",
-  "shipped": "brand-assets/crystal/portfolio/tri-pro.jpg"
+  "shipped": "brand-assets/crystal/portfolio/tri-pro.jpg",
+  "box": "Landscape (469:334) — roughly 938 × 668 px or larger"
  },
  {
   "page": "Brand-Crystal.html",
@@ -957,7 +961,8 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 3",
-  "shipped": "brand-assets/crystal/portfolio/cast-iron.jpg"
+  "shipped": "brand-assets/crystal/portfolio/cast-iron.jpg",
+  "box": "Landscape (469:334) — roughly 938 × 668 px or larger"
  },
  {
   "page": "Brand-Crystal.html",
@@ -965,7 +970,8 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 4",
-  "shipped": "brand-assets/crystal/portfolio/non-stick.jpg"
+  "shipped": "brand-assets/crystal/portfolio/non-stick.jpg",
+  "box": "Landscape (469:334) — roughly 938 × 668 px or larger"
  },
  {
   "page": "Brand-Crystal.html",
@@ -973,7 +979,8 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 5",
-  "shipped": "brand-assets/crystal/portfolio/non-stick-mini.jpg"
+  "shipped": "brand-assets/crystal/portfolio/non-stick-mini.jpg",
+  "box": "Landscape (469:334) — roughly 938 × 668 px or larger"
  },
  {
   "page": "Brand-Crystal.html",
@@ -981,7 +988,8 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 6",
-  "shipped": "brand-assets/crystal/portfolio/sandwich-bottom-steel.jpg"
+  "shipped": "brand-assets/crystal/portfolio/sandwich-bottom-steel.jpg",
+  "box": "Landscape (469:334) — roughly 938 × 668 px or larger"
  },
  {
   "page": "Brand-Crystal.html",
@@ -989,7 +997,8 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 7",
-  "shipped": "brand-assets/crystal/portfolio/cooktop.jpg"
+  "shipped": "brand-assets/crystal/portfolio/cooktop.jpg",
+  "box": "Landscape (469:334) — roughly 938 × 668 px or larger"
  },
  {
   "page": "Brand-Crystal.html",
@@ -997,7 +1006,8 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 8",
-  "shipped": "brand-assets/crystal/portfolio/oil-pourers.jpg"
+  "shipped": "brand-assets/crystal/portfolio/oil-pourers.jpg",
+  "box": "Landscape (469:334) — roughly 938 × 668 px or larger"
  },
  {
   "page": "Brand-Crystal.html",
@@ -1005,7 +1015,8 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 9",
-  "shipped": "brand-assets/crystal/portfolio/lighters.jpg"
+  "shipped": "brand-assets/crystal/portfolio/lighters.jpg",
+  "box": "Landscape (469:334) — roughly 938 × 668 px or larger"
  },
  {
   "page": "Brand-Crystal.html",
@@ -1013,7 +1024,8 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 10",
-  "shipped": "brand-assets/crystal/portfolio/knives.jpg"
+  "shipped": "brand-assets/crystal/portfolio/knives.jpg",
+  "box": "Landscape (469:334) — roughly 938 × 668 px or larger"
  },
  {
   "page": "Brand-Crystal.html",
@@ -1021,7 +1033,8 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 11",
-  "shipped": "brand-assets/crystal/portfolio/peelers.jpg"
+  "shipped": "brand-assets/crystal/portfolio/peelers.jpg",
+  "box": "Landscape (469:334) — roughly 938 × 668 px or larger"
  },
  {
   "page": "Brand-Crystal.html",
@@ -1029,7 +1042,8 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 12",
-  "shipped": "brand-assets/crystal/portfolio/chopping-boards.jpg"
+  "shipped": "brand-assets/crystal/portfolio/chopping-boards.jpg",
+  "box": "Landscape (469:334) — roughly 938 × 668 px or larger"
  },
  {
   "page": "Brand-Crystal.html",
@@ -1037,7 +1051,8 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 13",
-  "shipped": "brand-assets/crystal/portfolio/manual-kitchen-appliances.jpg"
+  "shipped": "brand-assets/crystal/portfolio/manual-kitchen-appliances.jpg",
+  "box": "Landscape (469:334) — roughly 938 × 668 px or larger"
  },
  {
   "page": "Brand-Crystal.html",
@@ -1045,7 +1060,8 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 14",
-  "shipped": "brand-assets/crystal/portfolio/cutlery.jpg"
+  "shipped": "brand-assets/crystal/portfolio/cutlery.jpg",
+  "box": "Landscape (469:334) — roughly 938 × 668 px or larger"
  },
  {
   "page": "Brand-Crystal.html",
@@ -1053,7 +1069,8 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 15",
-  "shipped": "brand-assets/crystal/portfolio/servers.jpg"
+  "shipped": "brand-assets/crystal/portfolio/servers.jpg",
+  "box": "Landscape (469:334) — roughly 938 × 668 px or larger"
  },
  {
   "page": "Brand-Crystal.html",
@@ -1061,7 +1078,8 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 16",
-  "shipped": "brand-assets/crystal/portfolio/wood-range.jpg"
+  "shipped": "brand-assets/crystal/portfolio/wood-range.jpg",
+  "box": "Landscape (469:334) — roughly 938 × 668 px or larger"
  },
  {
   "page": "Brand-Crystal.html",
@@ -1085,7 +1103,8 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 17",
-  "shipped": "brand-assets/crystal/usp/designed-for-indian-cooking-styles.jpg"
+  "shipped": "brand-assets/crystal/usp/designed-for-indian-cooking-styles.jpg",
+  "box": "Square — roughly 1000 × 1000px or larger"
  },
  {
   "page": "Brand-Crystal.html",
@@ -1109,7 +1128,8 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 18",
-  "shipped": "brand-assets/crystal/usp/durability-you-can-trust.jpg"
+  "shipped": "brand-assets/crystal/usp/durability-you-can-trust.jpg",
+  "box": "Square — roughly 1000 × 1000px or larger"
  },
  {
   "page": "Brand-Crystal.html",
@@ -1125,7 +1145,8 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 19",
-  "shipped": "brand-assets/crystal/usp/comfortable-easy-handling.jpg"
+  "shipped": "brand-assets/crystal/usp/comfortable-easy-handling.jpg",
+  "box": "Square — roughly 1000 × 1000px or larger"
  },
  {
   "page": "Brand-Crystal.html",
@@ -1149,7 +1170,8 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 20",
-  "shipped": "brand-assets/crystal/usp/wide-product-range.jpg"
+  "shipped": "brand-assets/crystal/usp/wide-product-range.jpg",
+  "box": "Square — roughly 1000 × 1000px or larger"
  },
  {
   "page": "Brand-Crystal.html",
@@ -1165,7 +1187,8 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 21",
-  "shipped": "brand-assets/crystal/usp/trusted-indian-brand-heritage.jpg"
+  "shipped": "brand-assets/crystal/usp/trusted-indian-brand-heritage.jpg",
+  "box": "Square — roughly 1000 × 1000px or larger"
  },
  {
   "page": "Brand-Crystal.html",
@@ -1181,7 +1204,8 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 22",
-  "shipped": "brand-assets/crystal/usp/great-value-for-everyday-homes.jpg"
+  "shipped": "brand-assets/crystal/usp/great-value-for-everyday-homes.jpg",
+  "box": "Square — roughly 1000 × 1000px or larger"
  },
  {
   "page": "Brand-Crystal.html",
@@ -1205,7 +1229,8 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 23",
-  "shipped": "brand-assets/crystal/resources/built-for-the-way-india-cooks.jpg"
+  "shipped": "brand-assets/crystal/resources/built-for-the-way-india-cooks.jpg",
+  "box": "Widescreen (16:9) — roughly 1600 × 900px or larger"
  },
  {
   "page": "Brand-Crystal.html",
@@ -1221,7 +1246,8 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 24",
-  "shipped": "brand-assets/crystal/resources/why-triply-cookware-is-a-smart-choice.jpg"
+  "shipped": "brand-assets/crystal/resources/why-triply-cookware-is-a-smart-choice.jpg",
+  "box": "Widescreen (16:9) — roughly 1600 × 900px or larger"
  },
  {
   "page": "Brand-Crystal.html",
@@ -1237,7 +1263,8 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 25",
-  "shipped": "brand-assets/crystal/resources/everyday-cooking-made-effortless.jpg"
+  "shipped": "brand-assets/crystal/resources/everyday-cooking-made-effortless.jpg",
+  "box": "Widescreen (16:9) — roughly 1600 × 900px or larger"
  },
  {
   "page": "Brand-Crystal.html",
@@ -1253,7 +1280,8 @@
   "kind": "image",
   "section": "page",
   "label": "Page — video poster 1",
-  "shipped": "brand-assets/crystalina/hero-poster.jpg"
+  "shipped": "brand-assets/crystalina/hero-poster.jpg",
+  "box": "Full-width banner — landscape, roughly 1520 × 760 px or wider. It stretches edge to edge and is capped around 760px tall on a computer, so keep the subject centred or it gets cropped on the sides on a narrow screen."
  },
  {
   "page": "Brand-Crystalina.html",
@@ -1309,7 +1337,8 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 2",
-  "shipped": "brand-assets/crystalina/portfolio/modern-kitchen-aids.jpg"
+  "shipped": "brand-assets/crystalina/portfolio/modern-kitchen-aids.jpg",
+  "box": "Landscape (469:334) — roughly 938 × 668 px or larger"
  },
  {
   "page": "Brand-Crystalina.html",
@@ -1317,7 +1346,8 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 3",
-  "shipped": "brand-assets/crystalina/portfolio/knives.jpg"
+  "shipped": "brand-assets/crystalina/portfolio/knives.jpg",
+  "box": "Landscape (469:334) — roughly 938 × 668 px or larger"
  },
  {
   "page": "Brand-Crystalina.html",
@@ -1325,7 +1355,8 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 4",
-  "shipped": "brand-assets/crystalina/portfolio/nylon-cook-n-serve.jpg"
+  "shipped": "brand-assets/crystalina/portfolio/nylon-cook-n-serve.jpg",
+  "box": "Landscape (469:334) — roughly 938 × 668 px or larger"
  },
  {
   "page": "Brand-Crystalina.html",
@@ -1333,7 +1364,8 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 5",
-  "shipped": "brand-assets/crystalina/portfolio/life-style-products.jpg"
+  "shipped": "brand-assets/crystalina/portfolio/life-style-products.jpg",
+  "box": "Landscape (469:334) — roughly 938 × 668 px or larger"
  },
  {
   "page": "Brand-Crystalina.html",
@@ -1357,7 +1389,8 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 6",
-  "shipped": "brand-assets/crystalina/usp/premium-kitchen-tools.jpg"
+  "shipped": "brand-assets/crystalina/usp/premium-kitchen-tools.jpg",
+  "box": "Square — roughly 1000 × 1000px or larger"
  },
  {
   "page": "Brand-Crystalina.html",
@@ -1381,7 +1414,8 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 7",
-  "shipped": "brand-assets/crystalina/usp/high-quality-materials.jpg"
+  "shipped": "brand-assets/crystalina/usp/high-quality-materials.jpg",
+  "box": "Square — roughly 1000 × 1000px or larger"
  },
  {
   "page": "Brand-Crystalina.html",
@@ -1397,7 +1431,8 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 8",
-  "shipped": "brand-assets/crystalina/usp/precision-ease-of-use.jpg"
+  "shipped": "brand-assets/crystalina/usp/precision-ease-of-use.jpg",
+  "box": "Square — roughly 1000 × 1000px or larger"
  },
  {
   "page": "Brand-Crystalina.html",
@@ -1421,7 +1456,8 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 9",
-  "shipped": "brand-assets/crystalina/usp/designed-for-everyday-convenience.jpg"
+  "shipped": "brand-assets/crystalina/usp/designed-for-everyday-convenience.jpg",
+  "box": "Square — roughly 1000 × 1000px or larger"
  },
  {
   "page": "Brand-Crystalina.html",
@@ -1437,7 +1473,8 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 10",
-  "shipped": "brand-assets/crystalina/usp/trusted-premium-quality-from-crystal.jpg"
+  "shipped": "brand-assets/crystalina/usp/trusted-premium-quality-from-crystal.jpg",
+  "box": "Square — roughly 1000 × 1000px or larger"
  },
  {
   "page": "Brand-Crystalina.html",
@@ -1453,7 +1490,8 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 11",
-  "shipped": "brand-assets/crystalina/usp/smart-utility-solutions.jpg"
+  "shipped": "brand-assets/crystalina/usp/smart-utility-solutions.jpg",
+  "box": "Square — roughly 1000 × 1000px or larger"
  },
  {
   "page": "Brand-Crystalina.html",
@@ -1477,7 +1515,8 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 12",
-  "shipped": "brand-assets/crystalina/resources/why-good-kitchen-tools-matter-more-than-you-think.jpg"
+  "shipped": "brand-assets/crystalina/resources/why-good-kitchen-tools-matter-more-than-you-think.jpg",
+  "box": "Widescreen (16:9) — roughly 1600 × 900px or larger"
  },
  {
   "page": "Brand-Crystalina.html",
@@ -1493,7 +1532,8 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 13",
-  "shipped": "brand-assets/crystalina/resources/elevate-your-kitchen-one-tool-at-a-time.jpg"
+  "shipped": "brand-assets/crystalina/resources/elevate-your-kitchen-one-tool-at-a-time.jpg",
+  "box": "Widescreen (16:9) — roughly 1600 × 900px or larger"
  },
  {
   "page": "Brand-Crystalina.html",
@@ -1509,7 +1549,8 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 14",
-  "shipped": "brand-assets/crystalina/resources/splendid-finish-superior-experience.jpg"
+  "shipped": "brand-assets/crystalina/resources/splendid-finish-superior-experience.jpg",
+  "box": "Widescreen (16:9) — roughly 1600 × 900px or larger"
  },
  {
   "page": "Brand-Crystalina.html",
@@ -1525,7 +1566,8 @@
   "kind": "image",
   "section": "page",
   "label": "Page — video poster 1",
-  "shipped": "brand-assets/sparkmate/hero-poster.jpg"
+  "shipped": "brand-assets/sparkmate/hero-poster.jpg",
+  "box": "Full-width banner — landscape, roughly 1520 × 760 px or wider. It stretches edge to edge and is capped around 760px tall on a computer, so keep the subject centred or it gets cropped on the sides on a narrow screen."
  },
  {
   "page": "Brand-SparkMate.html",
@@ -1581,7 +1623,8 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 2",
-  "shipped": "brand-assets/sparkmate/portfolio/spin-mops.jpg"
+  "shipped": "brand-assets/sparkmate/portfolio/spin-mops.jpg",
+  "box": "Landscape (469:334) — roughly 938 × 668 px or larger"
  },
  {
   "page": "Brand-SparkMate.html",
@@ -1589,7 +1632,8 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 3",
-  "shipped": "brand-assets/sparkmate/portfolio/hand-held-mops.jpg"
+  "shipped": "brand-assets/sparkmate/portfolio/hand-held-mops.jpg",
+  "box": "Landscape (469:334) — roughly 938 × 668 px or larger"
  },
  {
   "page": "Brand-SparkMate.html",
@@ -1597,7 +1641,8 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 4",
-  "shipped": "brand-assets/sparkmate/portfolio/broom-dust-pans.jpg"
+  "shipped": "brand-assets/sparkmate/portfolio/broom-dust-pans.jpg",
+  "box": "Landscape (469:334) — roughly 938 × 668 px or larger"
  },
  {
   "page": "Brand-SparkMate.html",
@@ -1605,7 +1650,8 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 5",
-  "shipped": "brand-assets/sparkmate/portfolio/wipers.jpg"
+  "shipped": "brand-assets/sparkmate/portfolio/wipers.jpg",
+  "box": "Landscape (469:334) — roughly 938 × 668 px or larger"
  },
  {
   "page": "Brand-SparkMate.html",
@@ -1613,7 +1659,8 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 6",
-  "shipped": "brand-assets/sparkmate/portfolio/brushes.jpg"
+  "shipped": "brand-assets/sparkmate/portfolio/brushes.jpg",
+  "box": "Landscape (469:334) — roughly 938 × 668 px or larger"
  },
  {
   "page": "Brand-SparkMate.html",
@@ -1621,7 +1668,8 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 7",
-  "shipped": "brand-assets/sparkmate/portfolio/scrubbers-scourers.jpg"
+  "shipped": "brand-assets/sparkmate/portfolio/scrubbers-scourers.jpg",
+  "box": "Landscape (469:334) — roughly 938 × 668 px or larger"
  },
  {
   "page": "Brand-SparkMate.html",
@@ -1629,7 +1677,8 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 8",
-  "shipped": "brand-assets/sparkmate/portfolio/sink-organiser.jpg"
+  "shipped": "brand-assets/sparkmate/portfolio/sink-organiser.jpg",
+  "box": "Landscape (469:334) — roughly 938 × 668 px or larger"
  },
  {
   "page": "Brand-SparkMate.html",
@@ -1637,7 +1686,8 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 9",
-  "shipped": "brand-assets/sparkmate/portfolio/bins.jpg"
+  "shipped": "brand-assets/sparkmate/portfolio/bins.jpg",
+  "box": "Landscape (469:334) — roughly 938 × 668 px or larger"
  },
  {
   "page": "Brand-SparkMate.html",
@@ -1645,7 +1695,8 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 10",
-  "shipped": "brand-assets/sparkmate/portfolio/wipes.jpg"
+  "shipped": "brand-assets/sparkmate/portfolio/wipes.jpg",
+  "box": "Landscape (469:334) — roughly 938 × 668 px or larger"
  },
  {
   "page": "Brand-SparkMate.html",
@@ -1669,7 +1720,8 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 11",
-  "shipped": "brand-assets/sparkmate/usp/practical-everyday-cleaning-tools.jpg"
+  "shipped": "brand-assets/sparkmate/usp/practical-everyday-cleaning-tools.jpg",
+  "box": "Square — roughly 1000 × 1000px or larger"
  },
  {
   "page": "Brand-SparkMate.html",
@@ -1693,7 +1745,8 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 12",
-  "shipped": "brand-assets/sparkmate/usp/durable-reliable-construction.jpg"
+  "shipped": "brand-assets/sparkmate/usp/durable-reliable-construction.jpg",
+  "box": "Square — roughly 1000 × 1000px or larger"
  },
  {
   "page": "Brand-SparkMate.html",
@@ -1709,7 +1762,8 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 13",
-  "shipped": "brand-assets/sparkmate/usp/ergonomic-and-easy-to-use.jpg"
+  "shipped": "brand-assets/sparkmate/usp/ergonomic-and-easy-to-use.jpg",
+  "box": "Square — roughly 1000 × 1000px or larger"
  },
  {
   "page": "Brand-SparkMate.html",
@@ -1733,7 +1787,8 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 14",
-  "shipped": "brand-assets/sparkmate/usp/affordable-and-accessible.jpg"
+  "shipped": "brand-assets/sparkmate/usp/affordable-and-accessible.jpg",
+  "box": "Square — roughly 1000 × 1000px or larger"
  },
  {
   "page": "Brand-SparkMate.html",
@@ -1749,7 +1804,8 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 15",
-  "shipped": "brand-assets/sparkmate/usp/complements-kitchen-home-maintenance.jpg"
+  "shipped": "brand-assets/sparkmate/usp/complements-kitchen-home-maintenance.jpg",
+  "box": "Square — roughly 1000 × 1000px or larger"
  },
  {
   "page": "Brand-SparkMate.html",
@@ -1765,7 +1821,8 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 16",
-  "shipped": "brand-assets/sparkmate/usp/part-of-the-crystal-homeware-family.jpg"
+  "shipped": "brand-assets/sparkmate/usp/part-of-the-crystal-homeware-family.jpg",
+  "box": "Square — roughly 1000 × 1000px or larger"
  },
  {
   "page": "Brand-SparkMate.html",
@@ -1789,7 +1846,8 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 17",
-  "shipped": "brand-assets/sparkmate/resources/smart-cleaning-for-modern-homes.jpg"
+  "shipped": "brand-assets/sparkmate/resources/smart-cleaning-for-modern-homes.jpg",
+  "box": "Widescreen (16:9) — roughly 1600 × 900px or larger"
  },
  {
   "page": "Brand-SparkMate.html",
@@ -1805,7 +1863,8 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 18",
-  "shipped": "brand-assets/sparkmate/resources/everyday-hygiene-starts-at-home.jpg"
+  "shipped": "brand-assets/sparkmate/resources/everyday-hygiene-starts-at-home.jpg",
+  "box": "Widescreen (16:9) — roughly 1600 × 900px or larger"
  },
  {
   "page": "Brand-SparkMate.html",
@@ -1821,7 +1880,8 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 19",
-  "shipped": "brand-assets/sparkmate/resources/cleaning-made-simple-every-day.jpg"
+  "shipped": "brand-assets/sparkmate/resources/cleaning-made-simple-every-day.jpg",
+  "box": "Widescreen (16:9) — roughly 1600 × 900px or larger"
  },
  {
   "page": "Brand-SparkMate.html",
@@ -1837,7 +1897,8 @@
   "kind": "image",
   "section": "page",
   "label": "Page — video poster 1",
-  "shipped": "brand-assets/valmate/hero-poster.jpg"
+  "shipped": "brand-assets/valmate/hero-poster.jpg",
+  "box": "Full-width banner — landscape, roughly 1520 × 760 px or wider. It stretches edge to edge and is capped around 760px tall on a computer, so keep the subject centred or it gets cropped on the sides on a narrow screen."
  },
  {
   "page": "Brand-ValMate.html",
@@ -1893,7 +1954,8 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 2",
-  "shipped": "brand-assets/valmate/portfolio/kitchenware.jpg"
+  "shipped": "brand-assets/valmate/portfolio/kitchenware.jpg",
+  "box": "Landscape (469:334) — roughly 938 × 668 px or larger"
  },
  {
   "page": "Brand-ValMate.html",
@@ -1917,7 +1979,8 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 3",
-  "shipped": "brand-assets/valmate/usp/affordable-without-compromise.jpg"
+  "shipped": "brand-assets/valmate/usp/affordable-without-compromise.jpg",
+  "box": "Square — roughly 1000 × 1000px or larger"
  },
  {
   "page": "Brand-ValMate.html",
@@ -1941,7 +2004,8 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 4",
-  "shipped": "brand-assets/valmate/usp/strong-practical-build.jpg"
+  "shipped": "brand-assets/valmate/usp/strong-practical-build.jpg",
+  "box": "Square — roughly 1000 × 1000px or larger"
  },
  {
   "page": "Brand-ValMate.html",
@@ -1957,7 +2021,8 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 5",
-  "shipped": "brand-assets/valmate/usp/no-frills-functional-design.jpg"
+  "shipped": "brand-assets/valmate/usp/no-frills-functional-design.jpg",
+  "box": "Square — roughly 1000 × 1000px or larger"
  },
  {
   "page": "Brand-ValMate.html",
@@ -1981,7 +2046,8 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 6",
-  "shipped": "brand-assets/valmate/usp/ideal-for-large-families.jpg"
+  "shipped": "brand-assets/valmate/usp/ideal-for-large-families.jpg",
+  "box": "Square — roughly 1000 × 1000px or larger"
  },
  {
   "page": "Brand-ValMate.html",
@@ -1997,7 +2063,8 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 7",
-  "shipped": "brand-assets/valmate/usp/backed-by-trusted-manufacturing.jpg"
+  "shipped": "brand-assets/valmate/usp/backed-by-trusted-manufacturing.jpg",
+  "box": "Square — roughly 1000 × 1000px or larger"
  },
  {
   "page": "Brand-ValMate.html",
@@ -2013,7 +2080,8 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 8",
-  "shipped": "brand-assets/valmate/usp/smart-choice-for-value-driven-homes.jpg"
+  "shipped": "brand-assets/valmate/usp/smart-choice-for-value-driven-homes.jpg",
+  "box": "Square — roughly 1000 × 1000px or larger"
  },
  {
   "page": "Brand-ValMate.html",
@@ -2037,7 +2105,8 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 9",
-  "shipped": "brand-assets/valmate/resources/everyday-cooking-for-real-homes.jpg"
+  "shipped": "brand-assets/valmate/resources/everyday-cooking-for-real-homes.jpg",
+  "box": "Widescreen (16:9) — roughly 1600 × 900px or larger"
  },
  {
   "page": "Brand-ValMate.html",
@@ -2053,7 +2122,8 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 10",
-  "shipped": "brand-assets/valmate/resources/value-that-makes-sense.jpg"
+  "shipped": "brand-assets/valmate/resources/value-that-makes-sense.jpg",
+  "box": "Widescreen (16:9) — roughly 1600 × 900px or larger"
  },
  {
   "page": "Brand-ValMate.html",
@@ -2069,7 +2139,8 @@
   "kind": "image",
   "section": "page",
   "label": "Page — image 11",
-  "shipped": "brand-assets/valmate/resources/smart-cooking-starts-with-smart-choices.jpg"
+  "shipped": "brand-assets/valmate/resources/smart-cooking-starts-with-smart-choices.jpg",
+  "box": "Widescreen (16:9) — roughly 1600 × 900px or larger"
  },
  {
   "page": "Brand-ValMate.html",
@@ -2101,7 +2172,8 @@
   "kind": "image",
   "section": "brands",
   "label": "Brands — image 1",
-  "shipped": "https://proj.leo9studio.in/projects/crystal-wp/wp-content/uploads/2026/04/Tri-Pro-2-1.jpg"
+  "shipped": "https://proj.leo9studio.in/projects/crystal-wp/wp-content/uploads/2026/04/Tri-Pro-2-1.jpg",
+  "box": "5:4 — roughly 1250 × 1000px or larger"
  },
  {
   "page": "Brands.html",
@@ -2141,7 +2213,8 @@
   "kind": "image",
   "section": "brands",
   "label": "Brands — image 2",
-  "shipped": "https://proj.leo9studio.in/projects/crystal-wp/wp-content/uploads/2026/04/6.jpg"
+  "shipped": "https://proj.leo9studio.in/projects/crystal-wp/wp-content/uploads/2026/04/6.jpg",
+  "box": "5:4 — roughly 1250 × 1000px or larger"
  },
  {
   "page": "Brands.html",
@@ -2149,7 +2222,8 @@
   "kind": "image",
   "section": "brands",
   "label": "Brands — image 3",
-  "shipped": "https://proj.leo9studio.in/projects/crystal-wp/wp-content/uploads/2026/04/Spin-Mops-2.jpg"
+  "shipped": "https://proj.leo9studio.in/projects/crystal-wp/wp-content/uploads/2026/04/Spin-Mops-2.jpg",
+  "box": "5:4 — roughly 1250 × 1000px or larger"
  },
  {
   "page": "Brands.html",
@@ -2189,7 +2263,8 @@
   "kind": "image",
   "section": "brands",
   "label": "Brands — image 4",
-  "shipped": "https://proj.leo9studio.in/projects/crystal-wp/wp-content/uploads/2026/04/CPC_023.jpg"
+  "shipped": "https://proj.leo9studio.in/projects/crystal-wp/wp-content/uploads/2026/04/CPC_023.jpg",
+  "box": "5:4 — roughly 1250 × 1000px or larger"
  },
  {
   "page": "Brands.html",
