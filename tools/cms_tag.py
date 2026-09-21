@@ -43,6 +43,13 @@ GENERATED_FROM = {
     os.path.join("home-v3-src", "v3_main.html"): "index.html",
 }
 
+# A generated source that carries no <style> of its own -- see process()'s
+# `extra_css`. The build step inlines this file into <style> tags that don't
+# exist yet when cms_tag.py runs against the source.
+GENERATED_CSS = {
+    os.path.join("home-v3-src", "v3_main.html"): os.path.join("home-v3-src", "v3.css"),
+}
+
 # Design-tool leftovers that live in the site's repo root but are not live
 # pages. content/pages_registry.py leaves them out of the dashboard's picker
 # for the same reason, so tagging them would only add rows nobody can reach.
@@ -335,28 +342,56 @@ def _describe_ratio(w, h):
         round(w), round(h), round(w * scale), round(h * scale))
 
 
-def expected_box(css, tag, container_classes):
-    """Best-guess upload size for an image/video/image-slot element, given
-    the classes of its immediate parent. Two lookups, most specific first:
-    the element's own tag inside that container (".x img"), which is where a
-    crop is usually declared, then the bare container (".x")."""
-    if not container_classes:
-        return None
-    combo = "." + ".".join(container_classes)
-    tries = [combo + " " + tag, combo]
-    for cls in container_classes:
-        tries += ["." + cls + " " + tag, "." + cls]
-    for selector in tries:
+def expected_box(css, tag, own_classes, ancestor_levels):
+    """Best-guess upload size for an image/video/image-slot element.
+
+    Three kinds of markup all show up on this site, tried in that order:
+      * the element carries its own sizing class (a bare <img class="x">,
+        no wrapper) -- ".x" / ".x img";
+      * a crop is declared on the immediate parent -- ".parent img" / ".parent"
+        (the common case: an <img> with no class of its own inside
+        <a class="bp-tile">);
+      * a swiper-style carousel, where the box the browser actually renders
+        comes from an ANCESTOR two or three levels up (.hero3-swiper-wrap),
+        with generic, unstyled wrapper divs (.swiper-slide, .slide-inner) in
+        between that carry no size of their own. Walked outward until
+        something resolves, or the wrappers run out.
+    """
+    def tries_for(classes):
+        if not classes:
+            return []
+        combo = "." + ".".join(classes)
+        out = [combo + " " + tag, combo]
+        for cls in classes:
+            out += ["." + cls + " " + tag, "." + cls]
+        return out
+
+    for selector in tries_for(own_classes):
         rule = _rule_for(css, selector)
         if rule:
             box = _box_from_rule(rule)
             if box:
                 return box
+
+    for classes in ancestor_levels:
+        for selector in tries_for(classes):
+            rule = _rule_for(css, selector)
+            if rule:
+                box = _box_from_rule(rule)
+                if box:
+                    return box
     return None
 
 
-def process(html, page, report):
-    """Return the page with data-cms added, plus the manifest rows it earned."""
+def process(html, page, report, extra_css=""):
+    """Return the page with data-cms added, plus the manifest rows it earned.
+
+    `extra_css` is for a source file with no <style> of its own --
+    home-v3-src/v3_main.html carries none; its rules live in the sibling
+    v3.css and only get inlined by build_v3.py, well after this runs. Without
+    it every image on that page silently resolved no box at all: not "this
+    box has no fixed shape", just nothing to search.
+    """
     out = []
     rows = []
     pos = 0
@@ -370,18 +405,21 @@ def process(html, page, report):
     section_depth = None
     open_depth = 0
     counters = {}
-    css = "\n".join(STYLE_BLOCK.findall(html))
+    css = "\n".join(STYLE_BLOCK.findall(html)) + "\n" + extra_css
 
     for m in TAG.finditer(html):
         closing, name, raw = m.group(1) == "/", m.group(2).lower(), m.group(3)
         self_closing = raw.rstrip().endswith("/") or name in ("img", "br", "hr", "input", "meta", "link", "source")
-        # Captured before this tag can push its own entry, so it always
-        # names the element ENCLOSING this one -- for a self-closing <img>
-        # that push never happens anyway, but a non-self-closing <video> or
+        # Captured before this tag can push its own entry, so it always names
+        # elements ENCLOSING this one -- for a self-closing <img> that push
+        # never happens anyway, but a non-self-closing <video> or
         # <image-slot> pushes itself first, and without this snapshot the
         # "container" lookup below would see the element's own (usually
-        # empty) classes instead of its parent's.
-        enclosing_classes = parent_stack[-1][1] if parent_stack else []
+        # empty) classes instead of its ancestors'. Nearest first, several
+        # levels deep: a swiper carousel wraps its <img> in two or three
+        # generic, unstyled divs (.swiper-slide, .slide-inner) before
+        # reaching the one that actually carries a size.
+        ancestor_levels = [cls for _, cls in reversed(parent_stack[-6:]) if cls]
 
         if closing:
             if name in depth and depth[name]:
@@ -457,11 +495,12 @@ def process(html, page, report):
             # page uses; the alt text is not what the editor is replacing.
             text = src
             kind = "image"
-            # What actually sizes this element on the page: the nearest
-            # enclosing element's classes, e.g. an <img> with no class of its
-            # own inside <a class="bp-tile">. None yet (an image straight in
-            # <body>) resolves to nothing, same as an unmatched selector.
-            box = expected_box(css, name, enclosing_classes)
+            # What actually sizes this element on the page: its own class
+            # first (a bare, unwrapped <img class="x">), then each enclosing
+            # element's classes in turn, nearest first. None anywhere
+            # resolves to nothing, same as an unmatched selector.
+            own_classes = [c for c in (a.get("class", "") or "").split() if c]
+            box = expected_box(css, name, own_classes, ancestor_levels)
         else:
             # The element's own text, up to its closing tag. Nested markup is
             # stripped for the label only — the attribute goes on the element
@@ -548,7 +587,11 @@ def main():
             print("missing: %s" % name)
             continue
         html = io.open(path, encoding="utf-8", newline="").read()
-        new, rows = process(html, GENERATED_FROM.get(name, name), report)
+        extra_css = ""
+        css_path = GENERATED_CSS.get(name)
+        if css_path:
+            extra_css = io.open(os.path.join(ROOT, css_path), encoding="utf-8").read()
+        new, rows = process(html, GENERATED_FROM.get(name, name), report, extra_css)
         # The shared chrome is tagged in every page but described once: the
         # first page to carry a key contributes its row, the other 63 just get
         # the attribute.

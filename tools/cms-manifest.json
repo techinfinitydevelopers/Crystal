@@ -5,7 +5,8 @@
   "kind": "image",
   "section": "hero3",
   "label": "Hero3 — image 1",
-  "shipped": "home-v3-assets/video/hero-poster.jpg"
+  "shipped": "home-v3-assets/video/hero-poster.jpg",
+  "box": "478 × 351 px"
  },
  {
   "page": "index.html",
@@ -13,7 +14,8 @@
   "kind": "image",
   "section": "hero3",
   "label": "Hero3 — image 2",
-  "shipped": "home-v3-assets/video/hero-poster.jpg"
+  "shipped": "home-v3-assets/video/hero-poster.jpg",
+  "box": "478 × 351 px"
  },
  {
   "page": "index.html",
@@ -21,7 +23,8 @@
   "kind": "image",
   "section": "hero3",
   "label": "Hero3 — video poster 1",
-  "shipped": "home-v3-assets/video/hero-poster.jpg"
+  "shipped": "home-v3-assets/video/hero-poster.jpg",
+  "box": "478 × 351 px"
  },
  {
   "page": "index.html",
@@ -29,7 +32,8 @@
   "kind": "image",
   "section": "hero3",
   "label": "Hero3 — image 3",
-  "shipped": "home-v3-assets/video/hero-poster.jpg"
+  "shipped": "home-v3-assets/video/hero-poster.jpg",
+  "box": "478 × 351 px"
  },
  {
   "page": "index.html",
@@ -37,7 +41,8 @@
   "kind": "image",
   "section": "hero3",
   "label": "Hero3 — image 4",
-  "shipped": "home-v3-assets/video/hero-poster.jpg"
+  "shipped": "home-v3-assets/video/hero-poster.jpg",
+  "box": "478 × 351 px"
  },
  {
   "page": "index.html",
@@ -125,7 +130,8 @@
   "kind": "image",
   "section": "about3",
   "label": "About3 — image 1",
-  "shipped": "home-v3-assets/img/1-2.jpg"
+  "shipped": "home-v3-assets/img/1-2.jpg",
+  "box": "Widescreen (16:9) — roughly 1600 × 900px or larger"
  },
  {
   "page": "index.html",
@@ -157,7 +163,8 @@
   "kind": "image",
   "section": "brand3",
   "label": "Brand3 — image 1",
-  "shipped": "home-v3-assets/logos/company1.svg"
+  "shipped": "home-v3-assets/logos/company1.svg",
+  "box": "Landscape (170:81) — roughly 510 × 243 px or larger"
  },
  {
   "page": "index.html",
@@ -173,7 +180,8 @@
   "kind": "image",
   "section": "brand3",
   "label": "Brand3 — image 2",
-  "shipped": "home-v3-assets/logos/company3.svg"
+  "shipped": "home-v3-assets/logos/company3.svg",
+  "box": "Landscape (170:81) — roughly 510 × 243 px or larger"
  },
  {
   "page": "index.html",
@@ -189,7 +197,8 @@
   "kind": "image",
   "section": "brand3",
   "label": "Brand3 — image 3",
-  "shipped": "home-v3-assets/logos/company2.svg"
+  "shipped": "home-v3-assets/logos/company2.svg",
+  "box": "Landscape (170:81) — roughly 510 × 243 px or larger"
  },
  {
   "page": "index.html",
@@ -205,7 +214,8 @@
   "kind": "image",
   "section": "brand3",
   "label": "Brand3 — image 4",
-  "shipped": "home-v3-assets/logos/company4.svg"
+  "shipped": "home-v3-assets/logos/company4.svg",
+  "box": "Landscape (170:81) — roughly 510 × 243 px or larger"
  },
  {
   "page": "index.html",
@@ -221,7 +231,8 @@
   "kind": "image",
   "section": "trust3",
   "label": "Trust3 — image 1",
-  "shipped": "home-v3-assets/partners/trust7.svg"
+  "shipped": "home-v3-assets/partners/trust7.svg",
+  "box": "Landscape (310:190) — roughly 620 × 380 px or larger"
  },
  {
   "page": "index.html",
@@ -229,7 +240,8 @@
   "kind": "image",
   "section": "trust3",
   "label": "Trust3 — image 2",
-  "shipped": "home-v3-assets/partners/trust10.svg"
+  "shipped": "home-v3-assets/partners/trust10.svg",
+  "box": "Landscape (310:190) — roughly 620 × 380 px or larger"
  },
  {
   "page": "index.html",
@@ -237,7 +249,8 @@
   "kind": "image",
   "section": "trust3",
   "label": "Trust3 — image 3",
-  "shipped": "home-v3-assets/partners/trust11.svg"
+  "shipped": "home-v3-assets/partners/trust11.svg",
+  "box": "Landscape (310:190) — roughly 620 × 380 px or larger"
  },
  {
   "page": "index.html",
@@ -245,7 +258,8 @@
   "kind": "image",
   "section": "trust3",
   "label": "Trust3 — image 4",
-  "shipped": "home-v3-assets/partners/Smart_Bazaar_logo.png"
+  "shipped": "home-v3-assets/partners/Smart_Bazaar_logo.png",
+  "box": "Landscape (310:190) — roughly 620 × 380 px or larger"
  },
  {
   "page": "index.html",
@@ -253,7 +267,8 @@
   "kind": "image",
   "section": "trust3",
   "label": "Trust3 — image 5",
-  "shipped": "home-v3-assets/partners/trust8.svg"
+  "shipped": "home-v3-assets/partners/trust8.svg",
+  "box": "Landscape (310:190) — roughly 620 × 380 px or larger"
  },
  {
   "page": "index.html",
@@ -261,7 +276,8 @@
   "kind": "image",
   "section": "trust3",
   "label": "Trust3 — image 6",
-  "shipped": "home-v3-assets/partners/trust6.svg"
+  "shipped": "home-v3-assets/partners/trust6.svg",
+  "box": "Landscape (310:190) — roughly 620 × 380 px or larger"
  },
  {
   "page": "index.html",
@@ -269,7 +285,8 @@
   "kind": "image",
   "section": "trust3",
   "label": "Trust3 — image 7",
-  "shipped": "home-v3-assets/partners/trust5.svg"
+  "shipped": "home-v3-assets/partners/trust5.svg",
+  "box": "Landscape (310:190) — roughly 620 × 380 px or larger"
  },
  {
   "page": "index.html",
@@ -277,7 +294,8 @@
   "kind": "image",
   "section": "trust3",
   "label": "Trust3 — image 8",
-  "shipped": "home-v3-assets/partners/trust4.svg"
+  "shipped": "home-v3-assets/partners/trust4.svg",
+  "box": "Landscape (310:190) — roughly 620 × 380 px or larger"
  },
  {
   "page": "index.html",
@@ -285,7 +303,8 @@
   "kind": "image",
   "section": "trust3",
   "label": "Trust3 — image 9",
-  "shipped": "home-v3-assets/partners/trust3.svg"
+  "shipped": "home-v3-assets/partners/trust3.svg",
+  "box": "Landscape (310:190) — roughly 620 × 380 px or larger"
  },
  {
   "page": "index.html",
@@ -293,7 +312,8 @@
   "kind": "image",
   "section": "trust3",
   "label": "Trust3 — image 10",
-  "shipped": "home-v3-assets/partners/trust2.svg"
+  "shipped": "home-v3-assets/partners/trust2.svg",
+  "box": "Landscape (310:190) — roughly 620 × 380 px or larger"
  },
  {
   "page": "index.html",
@@ -301,7 +321,8 @@
   "kind": "image",
   "section": "trust3",
   "label": "Trust3 — image 11",
-  "shipped": "home-v3-assets/partners/trust9.svg"
+  "shipped": "home-v3-assets/partners/trust9.svg",
+  "box": "Landscape (310:190) — roughly 620 × 380 px or larger"
  },
  {
   "page": "index.html",
@@ -309,7 +330,8 @@
   "kind": "image",
   "section": "trust3",
   "label": "Trust3 — image 12",
-  "shipped": "home-v3-assets/partners/unnamed.webp"
+  "shipped": "home-v3-assets/partners/unnamed.webp",
+  "box": "Landscape (310:190) — roughly 620 × 380 px or larger"
  },
  {
   "page": "index.html",
@@ -333,7 +355,8 @@
   "kind": "image",
   "section": "map3",
   "label": "Map3 — image 2",
-  "shipped": "home-v3-assets/img/Office.jpg"
+  "shipped": "home-v3-assets/img/Office.jpg",
+  "box": "Landscape (840:316) — roughly 840 × 316 px or larger"
  },
  {
   "page": "index.html",
@@ -341,7 +364,8 @@
   "kind": "image",
   "section": "map3",
   "label": "Map3 — image 3",
-  "shipped": "home-v3-assets/img/3-Lac-Factory-Size.jpg"
+  "shipped": "home-v3-assets/img/3-Lac-Factory-Size.jpg",
+  "box": "Landscape (840:316) — roughly 840 × 316 px or larger"
  },
  {
   "page": "index.html",
@@ -349,7 +373,8 @@
   "kind": "image",
   "section": "map3",
   "label": "Map3 — image 4",
-  "shipped": "home-v3-assets/img/Warehouse.jpg"
+  "shipped": "home-v3-assets/img/Warehouse.jpg",
+  "box": "Landscape (840:316) — roughly 840 × 316 px or larger"
  },
  {
   "page": "index.html",
@@ -357,7 +382,8 @@
   "kind": "image",
   "section": "map3",
   "label": "Map3 — image 5",
-  "shipped": "home-v3-assets/img/Outlets.jpg"
+  "shipped": "home-v3-assets/img/Outlets.jpg",
+  "box": "Landscape (840:316) — roughly 840 × 316 px or larger"
  },
  {
   "page": "index.html",
@@ -365,7 +391,8 @@
   "kind": "image",
   "section": "map3",
   "label": "Map3 — image 6",
-  "shipped": "home-v3-assets/img/Factories.jpg"
+  "shipped": "home-v3-assets/img/Factories.jpg",
+  "box": "Landscape (840:316) — roughly 840 × 316 px or larger"
  },
  {
   "page": "index.html",
@@ -421,7 +448,8 @@
   "kind": "image",
   "section": "res3",
   "label": "Res3 — image 1",
-  "shipped": "home-v3-assets/img/03-Trusted-Indian-Brand-Heritage-1024x419.jpg"
+  "shipped": "home-v3-assets/img/03-Trusted-Indian-Brand-Heritage-1024x419.jpg",
+  "box": "5:4 — roughly 1250 × 1000px or larger"
  },
  {
   "page": "index.html",
@@ -445,7 +473,8 @@
   "kind": "image",
   "section": "res3",
   "label": "Res3 — image 2",
-  "shipped": "home-v3-assets/img/02-Crystal-Kadhai-1024x419.jpg"
+  "shipped": "home-v3-assets/img/02-Crystal-Kadhai-1024x419.jpg",
+  "box": "5:4 — roughly 1250 × 1000px or larger"
  },
  {
   "page": "index.html",
@@ -469,7 +498,8 @@
   "kind": "image",
   "section": "res3",
   "label": "Res3 — image 3",
-  "shipped": "home-v3-assets/img/01-Crystal-Cooker-1024x419.jpg"
+  "shipped": "home-v3-assets/img/01-Crystal-Cooker-1024x419.jpg",
+  "box": "5:4 — roughly 1250 × 1000px or larger"
  },
  {
   "page": "index.html",
@@ -509,7 +539,8 @@
   "kind": "image",
   "section": "pre3",
   "label": "Pre3 — image 2",
-  "shipped": "home-v3-assets/img/crystal-prefooter.png"
+  "shipped": "home-v3-assets/img/crystal-prefooter.png",
+  "box": "Classic (4:3) — roughly 1200 × 900px or larger"
  },
  {
   "page": "About.html",
