@@ -107,8 +107,30 @@ SKIP_CONTAINERS = {
     "searchov", "search-ov", "search-results", "search-row", "enqdrawer",
     "enq-drawer", "enq-panel", "cart", "toast", "modal", "overlay",
     "breadcrumb", "crumbs", "wa-float",
+    # A hidden developer overlay for live-tweaking a category page's layout
+    # (id="twkPanel", "TWEAKS PANEL" in its own HTML comment) shipped on 53
+    # pages. Not a visitor ever sees it; its field names ("Mood", "Grid
+    # columns", "Accent") are not page content and were showing up as
+    # dashboard rows before this.
+    "twk",
 }
 TEXT_TAGS = {"h1", "h2", "h3", "h4", "p", "li", "blockquote"}
+# span/div/a carry real copy too -- an eyebrow kicker, a stat number and its
+# label, a button's own words, the support-bar phone number -- all missed
+# until now, because none of them are in TEXT_TAGS. Not safe to tag on sight
+# the way a heading is, though: a <div> is just as often a layout wrapper
+# around OTHER editable elements, and tagging the wrapper as one text blob
+# would both duplicate the child's key and let an edit here delete it. Only
+# taken when the element is a genuine leaf -- see the "<" in inner check
+# below, which skips (does not tag) anything that contains markup instead of
+# marking it rich the way a heading does. A real wrapper always has a child
+# tag, so it fails that check on its own; nothing here has to know in advance
+# which divs are "layout" and which are "copy".
+TEXT_LEAF_TAGS = {"span", "div", "a"}
+# A leaf has to look like copy, not decoration, to be worth a dashboard row:
+# at least one letter or digit rules out a bare arrow, pipe, or icon glyph
+# ("→", "×", "★" alone) while still allowing "54+" or a phone number through.
+HAS_ALNUM = re.compile(r"[0-9A-Za-zÀ-ɏ]")
 # <image-slot> is a design-tool custom element (image-slot.js) left in place on
 # a few pages; on the live site it is read-only and simply renders its `src`.
 # It shows a real photograph to a visitor, so it is as much page content as an
@@ -463,7 +485,7 @@ def process(html, page, report, extra_css=""):
         if inside_skipped:
             continue
 
-        if name not in TEXT_TAGS and name not in IMAGE_TAGS:
+        if name not in TEXT_TAGS and name not in IMAGE_TAGS and name not in TEXT_LEAF_TAGS:
             continue
 
         a = attrs_of(raw)
@@ -507,8 +529,28 @@ def process(html, page, report, extra_css=""):
             # either way, and the dashboard replaces its whole text.
             close = re.search(r"</%s\b" % name, html[m.end():], re.I)
             inner = html[m.end():m.end() + close.start()] if close else ""
+            if name in TEXT_LEAF_TAGS and "<" in inner:
+                # A span/div/a with markup inside it is a wrapper around
+                # other elements -- possibly ones that already earned their
+                # own key -- not a piece of copy in its own right. Skipped
+                # outright rather than marked rich, unlike a heading: tagging
+                # the wrapper would duplicate whatever is inside it, and an
+                # edit here would delete that child entirely.
+                report["skipped_empty"] += 1
+                continue
             text = unescape(strip_tags(inner))
+            # A counted stat starts at "0" in the markup -- content-sync's
+            # own count-up script animates it up to data-count/data-target on
+            # load. "0" is not the number this page ships, so it is not what
+            # the reference (or the row's starting value) should show.
+            counted = a.get("data-count") or a.get("data-target")
+            if counted:
+                text = counted
             if not text or PLACEHOLDER.match(text):
+                report["skipped_empty"] += 1
+                continue
+            if name in TEXT_LEAF_TAGS and not HAS_ALNUM.search(text):
+                # A bare arrow, pipe or icon glyph -- decoration, not copy.
                 report["skipped_empty"] += 1
                 continue
             if "<" in inner:

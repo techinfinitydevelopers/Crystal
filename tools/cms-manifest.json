@@ -54,6 +54,14 @@
  },
  {
   "page": "index.html",
+  "key": "hero3-span-1",
+  "kind": "text",
+  "section": "hero3",
+  "label": "Hero3 — Get in Touch",
+  "shipped": "Get in Touch"
+ },
+ {
+  "page": "index.html",
   "key": "split3-h2-1",
   "kind": "text",
   "section": "split3",
@@ -126,12 +134,52 @@
  },
  {
   "page": "index.html",
+  "key": "about3-span-1",
+  "kind": "text",
+  "section": "about3",
+  "label": "About3 — Know More",
+  "shipped": "Know More"
+ },
+ {
+  "page": "index.html",
   "key": "about3-img-1",
   "kind": "image",
   "section": "about3",
   "label": "About3 — image 1",
   "shipped": "home-v3-assets/img/1-2.jpg",
   "box": "Widescreen (16:9) — roughly 1600 × 900px or larger"
+ },
+ {
+  "page": "index.html",
+  "key": "about-stat-years-num",
+  "kind": "text",
+  "section": "about3",
+  "label": "About3 — 50",
+  "shipped": "50"
+ },
+ {
+  "page": "index.html",
+  "key": "about-stat-employees-num",
+  "kind": "text",
+  "section": "about3",
+  "label": "About3 — 2000",
+  "shipped": "2000"
+ },
+ {
+  "page": "index.html",
+  "key": "about-stat-products-num",
+  "kind": "text",
+  "section": "about3",
+  "label": "About3 — 1000",
+  "shipped": "1000"
+ },
+ {
+  "page": "index.html",
+  "key": "about-stat-customers-num",
+  "kind": "text",
+  "section": "about3",
+  "label": "About3 — 10",
+  "shipped": "10"
  },
  {
   "page": "index.html",
@@ -216,6 +264,14 @@
   "label": "Brand3 — image 4",
   "shipped": "home-v3-assets/logos/company4.svg",
   "box": "Landscape (170:81) — roughly 510 × 243 px or larger"
+ },
+ {
+  "page": "index.html",
+  "key": "brand3-span-1",
+  "kind": "text",
+  "section": "brand3",
+  "label": "Brand3 — Learn More",
+  "shipped": "Learn More"
  },
  {
   "page": "index.html",
@@ -343,6 +399,30 @@
  },
  {
   "page": "index.html",
+  "key": "map3-span-1",
+  "kind": "text",
+  "section": "map3",
+  "label": "Map3 — Made",
+  "shipped": "Made"
+ },
+ {
+  "page": "index.html",
+  "key": "map3-span-2",
+  "kind": "text",
+  "section": "map3",
+  "label": "Map3 — In India",
+  "shipped": "In India"
+ },
+ {
+  "page": "index.html",
+  "key": "map3-div-1",
+  "kind": "text",
+  "section": "map3",
+  "label": "Map3 — __INDIA_MAP__",
+  "shipped": "__INDIA_MAP__"
+ },
+ {
+  "page": "index.html",
   "key": "map3-h2-2",
   "kind": "text",
   "section": "map3",
@@ -444,6 +524,14 @@
  },
  {
   "page": "index.html",
+  "key": "res3-a-1",
+  "kind": "text",
+  "section": "res3",
+  "label": "Res3 — Blogs",
+  "shipped": "Blogs"
+ },
+ {
+  "page": "index.html",
   "key": "res3-img-1",
   "kind": "image",
   "section": "res3",
@@ -535,6 +623,14 @@
  },
  {
   "page": "index.html",
+  "key": "pre3-span-1",
+  "kind": "text",
+  "section": "pre3",
+  "label": "Pre3 — Get in Touch",
+  "shipped": "Get in Touch"
+ },
+ {
+  "page": "index.html",
   "key": "pre3-img-2",
   "kind": "image",
   "section": "pre3",
@@ -544,11 +640,35 @@
  },
  {
   "page": "About.html",
+  "key": "site-support-bar",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Customer Support - 022-49702803/06",
+  "shipped": "Customer Support - 022-49702803/06"
+ },
+ {
+  "page": "About.html",
+  "key": "hero-pretext",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — About Crystal · Since 1971",
+  "shipped": "About Crystal · Since 1971"
+ },
+ {
+  "page": "About.html",
   "key": "hero-title",
   "kind": "text",
   "section": "hero",
   "label": "Hero — CRAFTING EVERYDAY",
   "shipped": "CRAFTING EVERYDAY"
+ },
+ {
+  "page": "About.html",
+  "key": "hero-span-2",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — EVERYDAY",
+  "shipped": "EVERYDAY"
  },
  {
   "page": "About.html",
@@ -565,6 +685,14 @@
   "section": "hero",
   "label": "Hero — Crystal is committed to responsible growth — pro…",
   "shipped": "Crystal is committed to responsible growth — promoting women's empowerment, fair employment, and inclusive workplace practices since 1971."
+ },
+ {
+  "page": "About.html",
+  "key": "hero-span-3",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Scroll",
+  "shipped": "Scroll"
  },
  {
   "page": "About.html",
@@ -585,11 +713,91 @@
  },
  {
   "page": "About.html",
+  "key": "stat-years-num",
+  "kind": "text",
+  "section": "legacy",
+  "label": "Legacy — 50",
+  "shipped": "50"
+ },
+ {
+  "page": "About.html",
+  "key": "stat-years-lbl",
+  "kind": "text",
+  "section": "legacy",
+  "label": "Legacy — Years of Trust",
+  "shipped": "Years of Trust"
+ },
+ {
+  "page": "About.html",
+  "key": "stat-people-num",
+  "kind": "text",
+  "section": "legacy",
+  "label": "Legacy — 2000",
+  "shipped": "2000"
+ },
+ {
+  "page": "About.html",
+  "key": "stat-people-lbl",
+  "kind": "text",
+  "section": "legacy",
+  "label": "Legacy — People Strong",
+  "shipped": "People Strong"
+ },
+ {
+  "page": "About.html",
+  "key": "stat-skus-num",
+  "kind": "text",
+  "section": "legacy",
+  "label": "Legacy — 1000",
+  "shipped": "1000"
+ },
+ {
+  "page": "About.html",
+  "key": "stat-skus-lbl",
+  "kind": "text",
+  "section": "legacy",
+  "label": "Legacy — Products & SKUs",
+  "shipped": "Products & SKUs"
+ },
+ {
+  "page": "About.html",
+  "key": "stat-customers-num",
+  "kind": "text",
+  "section": "legacy",
+  "label": "Legacy — 10",
+  "shipped": "10"
+ },
+ {
+  "page": "About.html",
+  "key": "stat-customers-lbl",
+  "kind": "text",
+  "section": "legacy",
+  "label": "Legacy — Happy Customers",
+  "shipped": "Happy Customers"
+ },
+ {
+  "page": "About.html",
+  "key": "legacy-div-5",
+  "kind": "text",
+  "section": "legacy",
+  "label": "Legacy — Awards & Recognition",
+  "shipped": "Awards & Recognition"
+ },
+ {
+  "page": "About.html",
   "key": "legacy-img-1",
   "kind": "image",
   "section": "legacy",
   "label": "Legacy — image 1",
   "shipped": "about-assets/award-trophy.jpg"
+ },
+ {
+  "page": "About.html",
+  "key": "legacy-span-5",
+  "kind": "text",
+  "section": "legacy",
+  "label": "Legacy — Home & Kitchen",
+  "shipped": "Home & Kitchen"
  },
  {
   "page": "About.html",
@@ -642,6 +850,54 @@
  },
  {
   "page": "About.html",
+  "key": "vmv-div-1",
+  "kind": "text",
+  "section": "vmv",
+  "label": "Vmv — Our Vision",
+  "shipped": "Our Vision"
+ },
+ {
+  "page": "About.html",
+  "key": "vmv-div-2",
+  "kind": "text",
+  "section": "vmv",
+  "label": "Vmv — Purposeful innovation for modern living. Instinc…",
+  "shipped": "Purposeful innovation for modern living. Instinctively trusted for thoughtfully designed, reliable solutions that elevate everyday cooking and cleaning in modern homes."
+ },
+ {
+  "page": "About.html",
+  "key": "vmv-div-3",
+  "kind": "text",
+  "section": "vmv",
+  "label": "Vmv — Our Mission",
+  "shipped": "Our Mission"
+ },
+ {
+  "page": "About.html",
+  "key": "vmv-div-4",
+  "kind": "text",
+  "section": "vmv",
+  "label": "Vmv — Crafting quality and design that stand the test …",
+  "shipped": "Crafting quality and design that stand the test of time. Simplifying daily life with precise, durable, and ethically crafted products that evolve with every Indian household."
+ },
+ {
+  "page": "About.html",
+  "key": "vmv-div-5",
+  "kind": "text",
+  "section": "vmv",
+  "label": "Vmv — Our Values",
+  "shipped": "Our Values"
+ },
+ {
+  "page": "About.html",
+  "key": "vmv-div-6",
+  "kind": "text",
+  "section": "vmv",
+  "label": "Vmv — Simplifying daily chores, adding pride to every …",
+  "shipped": "Simplifying daily chores, adding pride to every home. Thoughtfully designed for modern homes — trusted, durable solutions powered by ethical, science-driven manufacturing that cares for the planet."
+ },
+ {
+  "page": "About.html",
   "key": "journey-h2-1",
   "kind": "text",
   "section": "journey",
@@ -671,6 +927,94 @@
   "section": "infrastructure",
   "label": "Infrastructure — Three offices, three factories, five warehouses …",
   "shipped": "Three offices, three factories, five warehouses and a 30,000 sq. ft. manufacturing backbone — engineered in India, trusted across the country."
+ },
+ {
+  "page": "About.html",
+  "key": "stat-offices-num",
+  "kind": "text",
+  "section": "infrastructure",
+  "label": "Infrastructure — 3",
+  "shipped": "3"
+ },
+ {
+  "page": "About.html",
+  "key": "stat-offices-lbl",
+  "kind": "text",
+  "section": "infrastructure",
+  "label": "Infrastructure — Corporate Offices",
+  "shipped": "Corporate Offices"
+ },
+ {
+  "page": "About.html",
+  "key": "stat-units-num",
+  "kind": "text",
+  "section": "infrastructure",
+  "label": "Infrastructure — 3",
+  "shipped": "3"
+ },
+ {
+  "page": "About.html",
+  "key": "stat-units-lbl",
+  "kind": "text",
+  "section": "infrastructure",
+  "label": "Infrastructure — Manufacturing Units",
+  "shipped": "Manufacturing Units"
+ },
+ {
+  "page": "About.html",
+  "key": "stat-warehouses-num",
+  "kind": "text",
+  "section": "infrastructure",
+  "label": "Infrastructure — 5",
+  "shipped": "5"
+ },
+ {
+  "page": "About.html",
+  "key": "stat-warehouses-lbl",
+  "kind": "text",
+  "section": "infrastructure",
+  "label": "Infrastructure — Warehouses",
+  "shipped": "Warehouses"
+ },
+ {
+  "page": "About.html",
+  "key": "stat-outlets-num",
+  "kind": "text",
+  "section": "infrastructure",
+  "label": "Infrastructure — 1000",
+  "shipped": "1000"
+ },
+ {
+  "page": "About.html",
+  "key": "stat-outlets-lbl",
+  "kind": "text",
+  "section": "infrastructure",
+  "label": "Infrastructure — Retail Outlets",
+  "shipped": "Retail Outlets"
+ },
+ {
+  "page": "About.html",
+  "key": "stat-factory-num",
+  "kind": "text",
+  "section": "infrastructure",
+  "label": "Infrastructure — 30,000",
+  "shipped": "30,000"
+ },
+ {
+  "page": "About.html",
+  "key": "infrastructure-span-6",
+  "kind": "text",
+  "section": "infrastructure",
+  "label": "Infrastructure — Sq.Ft.",
+  "shipped": "Sq.Ft."
+ },
+ {
+  "page": "About.html",
+  "key": "stat-factory-lbl",
+  "kind": "text",
+  "section": "infrastructure",
+  "label": "Infrastructure — Factory Space",
+  "shipped": "Factory Space"
  },
  {
   "page": "About.html",
@@ -714,6 +1058,14 @@
  },
  {
   "page": "About.html",
+  "key": "help-span-1",
+  "kind": "text",
+  "section": "help",
+  "label": "Help — 01",
+  "shipped": "01"
+ },
+ {
+  "page": "About.html",
   "key": "help-h4-1",
   "kind": "text",
   "section": "help",
@@ -727,6 +1079,14 @@
   "section": "help",
   "label": "Help — Reliable, high-quality home solutions tailored f…",
   "shipped": "Reliable, high-quality home solutions tailored for large-scale and institutional requirements."
+ },
+ {
+  "page": "About.html",
+  "key": "help-span-2",
+  "kind": "text",
+  "section": "help",
+  "label": "Help — 02",
+  "shipped": "02"
  },
  {
   "page": "About.html",
@@ -746,6 +1106,14 @@
  },
  {
   "page": "About.html",
+  "key": "help-span-3",
+  "kind": "text",
+  "section": "help",
+  "label": "Help — 03",
+  "shipped": "03"
+ },
+ {
+  "page": "About.html",
   "key": "help-h4-3",
   "kind": "text",
   "section": "help",
@@ -762,6 +1130,22 @@
  },
  {
   "page": "All-Products.html",
+  "key": "site-support-bar",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Customer Support - 022-49702803/06",
+  "shipped": "Customer Support - 022-49702803/06"
+ },
+ {
+  "page": "All-Products.html",
+  "key": "hero-pretext",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — All Collections",
+  "shipped": "All Collections"
+ },
+ {
+  "page": "All-Products.html",
   "key": "hero-title",
   "kind": "text",
   "section": "hero",
@@ -770,11 +1154,35 @@
  },
  {
   "page": "All-Products.html",
+  "key": "hero-span-2",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Collection",
+  "shipped": "Collection"
+ },
+ {
+  "page": "All-Products.html",
   "key": "hero-sub",
   "kind": "text",
   "section": "hero",
   "label": "Hero — Everything for a better kitchen and a brighter h…",
   "shipped": "Everything for a better kitchen and a brighter home — explore the complete range of cookware, tools, cleaning aids and more, trusted across India since 1971."
+ },
+ {
+  "page": "All-Products.html",
+  "key": "hero-a-1",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Featured Collections",
+  "shipped": "Featured Collections"
+ },
+ {
+  "page": "All-Products.html",
+  "key": "hero-span-3",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Scroll",
+  "shipped": "Scroll"
  },
  {
   "page": "All-Products.html",
@@ -826,6 +1234,62 @@
  },
  {
   "page": "All-Products.html",
+  "key": "value-span-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — (SINCE 1971)",
+  "shipped": "(SINCE 1971)"
+ },
+ {
+  "page": "All-Products.html",
+  "key": "value-span-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 54",
+  "shipped": "54"
+ },
+ {
+  "page": "All-Products.html",
+  "key": "value-div-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Years of trust",
+  "shipped": "Years of trust"
+ },
+ {
+  "page": "All-Products.html",
+  "key": "value-span-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 1000",
+  "shipped": "1000"
+ },
+ {
+  "page": "All-Products.html",
+  "key": "value-div-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Products & SKUs",
+  "shipped": "Products & SKUs"
+ },
+ {
+  "page": "All-Products.html",
+  "key": "value-span-4",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 6",
+  "shipped": "6"
+ },
+ {
+  "page": "All-Products.html",
+  "key": "value-div-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Trusted brands",
+  "shipped": "Trusted brands"
+ },
+ {
+  "page": "All-Products.html",
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
@@ -839,6 +1303,22 @@
   "section": "cta",
   "label": "Cta — From our family of brands to yours — find the pe…",
   "shipped": "From our family of brands to yours — find the perfect everyday essential, or talk to our team about bulk, export and distribution."
+ },
+ {
+  "page": "Article.html",
+  "key": "site-support-bar",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Customer Support - 022-49702803/06",
+  "shipped": "Customer Support - 022-49702803/06"
+ },
+ {
+  "page": "Article.html",
+  "key": "page-span-1",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Cookware",
+  "shipped": "Cookware"
  },
  {
   "page": "Article.html",
@@ -874,11 +1354,35 @@
  },
  {
   "page": "Blog.html",
+  "key": "site-support-bar",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Customer Support - 022-49702803/06",
+  "shipped": "Customer Support - 022-49702803/06"
+ },
+ {
+  "page": "Blog.html",
+  "key": "hero-pretext",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Knowledge Centre",
+  "shipped": "Knowledge Centre"
+ },
+ {
+  "page": "Blog.html",
   "key": "hero-title",
   "kind": "text",
   "section": "page",
   "label": "Page — Tips, Guides & Stories",
   "shipped": "Tips, Guides & Stories"
+ },
+ {
+  "page": "Blog.html",
+  "key": "page-span-2",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Stories",
+  "shipped": "Stories"
  },
  {
   "page": "Blog.html",
@@ -922,12 +1426,28 @@
  },
  {
   "page": "Brand-Crystal.html",
+  "key": "site-support-bar",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Customer Support - 022-49702803/06",
+  "shipped": "Customer Support - 022-49702803/06"
+ },
+ {
+  "page": "Brand-Crystal.html",
   "key": "page-poster-1",
   "kind": "image",
   "section": "page",
   "label": "Page — video poster 1",
   "shipped": "brand-assets/crystal/hero-poster.jpg",
   "box": "Full-width banner — landscape, roughly 1520 × 760 px or wider. It stretches edge to edge and is capped around 760px tall on a computer, so keep the subject centred or it gets cropped on the sides on a narrow screen."
+ },
+ {
+  "page": "Brand-Crystal.html",
+  "key": "hero-pretext",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Brand",
+  "shipped": "Brand"
  },
  {
   "page": "Brand-Crystal.html",
@@ -988,12 +1508,28 @@
  },
  {
   "page": "Brand-Crystal.html",
+  "key": "page-span-2",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Tri-Pro",
+  "shipped": "Tri-Pro"
+ },
+ {
+  "page": "Brand-Crystal.html",
   "key": "page-img-3",
   "kind": "image",
   "section": "page",
   "label": "Page — image 3",
   "shipped": "brand-assets/crystal/portfolio/cast-iron.jpg",
   "box": "Landscape (469:334) — roughly 938 × 668 px or larger"
+ },
+ {
+  "page": "Brand-Crystal.html",
+  "key": "page-span-3",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Cast Iron",
+  "shipped": "Cast Iron"
  },
  {
   "page": "Brand-Crystal.html",
@@ -1006,12 +1542,28 @@
  },
  {
   "page": "Brand-Crystal.html",
+  "key": "page-span-4",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Non-Stick",
+  "shipped": "Non-Stick"
+ },
+ {
+  "page": "Brand-Crystal.html",
   "key": "page-img-5",
   "kind": "image",
   "section": "page",
   "label": "Page — image 5",
   "shipped": "brand-assets/crystal/portfolio/non-stick-mini.jpg",
   "box": "Landscape (469:334) — roughly 938 × 668 px or larger"
+ },
+ {
+  "page": "Brand-Crystal.html",
+  "key": "page-span-5",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Non-Stick Mini",
+  "shipped": "Non-Stick Mini"
  },
  {
   "page": "Brand-Crystal.html",
@@ -1024,12 +1576,28 @@
  },
  {
   "page": "Brand-Crystal.html",
+  "key": "page-span-6",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Sandwich Bottom Steel",
+  "shipped": "Sandwich Bottom Steel"
+ },
+ {
+  "page": "Brand-Crystal.html",
   "key": "page-img-7",
   "kind": "image",
   "section": "page",
   "label": "Page — image 7",
   "shipped": "brand-assets/crystal/portfolio/cooktop.jpg",
   "box": "Landscape (469:334) — roughly 938 × 668 px or larger"
+ },
+ {
+  "page": "Brand-Crystal.html",
+  "key": "page-span-7",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Cooktop",
+  "shipped": "Cooktop"
  },
  {
   "page": "Brand-Crystal.html",
@@ -1042,12 +1610,28 @@
  },
  {
   "page": "Brand-Crystal.html",
+  "key": "page-span-8",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Oil Pourers",
+  "shipped": "Oil Pourers"
+ },
+ {
+  "page": "Brand-Crystal.html",
   "key": "page-img-9",
   "kind": "image",
   "section": "page",
   "label": "Page — image 9",
   "shipped": "brand-assets/crystal/portfolio/lighters.jpg",
   "box": "Landscape (469:334) — roughly 938 × 668 px or larger"
+ },
+ {
+  "page": "Brand-Crystal.html",
+  "key": "page-span-9",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Lighters",
+  "shipped": "Lighters"
  },
  {
   "page": "Brand-Crystal.html",
@@ -1060,12 +1644,28 @@
  },
  {
   "page": "Brand-Crystal.html",
+  "key": "page-span-10",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Knives",
+  "shipped": "Knives"
+ },
+ {
+  "page": "Brand-Crystal.html",
   "key": "page-img-11",
   "kind": "image",
   "section": "page",
   "label": "Page — image 11",
   "shipped": "brand-assets/crystal/portfolio/peelers.jpg",
   "box": "Landscape (469:334) — roughly 938 × 668 px or larger"
+ },
+ {
+  "page": "Brand-Crystal.html",
+  "key": "page-span-11",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Peelers",
+  "shipped": "Peelers"
  },
  {
   "page": "Brand-Crystal.html",
@@ -1078,12 +1678,28 @@
  },
  {
   "page": "Brand-Crystal.html",
+  "key": "page-span-12",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Chopping Boards",
+  "shipped": "Chopping Boards"
+ },
+ {
+  "page": "Brand-Crystal.html",
   "key": "page-img-13",
   "kind": "image",
   "section": "page",
   "label": "Page — image 13",
   "shipped": "brand-assets/crystal/portfolio/manual-kitchen-appliances.jpg",
   "box": "Landscape (469:334) — roughly 938 × 668 px or larger"
+ },
+ {
+  "page": "Brand-Crystal.html",
+  "key": "page-span-13",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Manual Kitchen Appliances",
+  "shipped": "Manual Kitchen Appliances"
  },
  {
   "page": "Brand-Crystal.html",
@@ -1096,6 +1712,14 @@
  },
  {
   "page": "Brand-Crystal.html",
+  "key": "page-span-14",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Cutlery",
+  "shipped": "Cutlery"
+ },
+ {
+  "page": "Brand-Crystal.html",
   "key": "page-img-15",
   "kind": "image",
   "section": "page",
@@ -1105,12 +1729,28 @@
  },
  {
   "page": "Brand-Crystal.html",
+  "key": "page-span-15",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Servers",
+  "shipped": "Servers"
+ },
+ {
+  "page": "Brand-Crystal.html",
   "key": "page-img-16",
   "kind": "image",
   "section": "page",
   "label": "Page — image 16",
   "shipped": "brand-assets/crystal/portfolio/wood-range.jpg",
   "box": "Landscape (469:334) — roughly 938 × 668 px or larger"
+ },
+ {
+  "page": "Brand-Crystal.html",
+  "key": "page-span-16",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Wooden Range",
+  "shipped": "Wooden Range"
  },
  {
   "page": "Brand-Crystal.html",
@@ -1265,11 +1905,27 @@
  },
  {
   "page": "Brand-Crystal.html",
+  "key": "page-div-2",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — 8th February, 2026",
+  "shipped": "8th February, 2026"
+ },
+ {
+  "page": "Brand-Crystal.html",
   "key": "page-h4-9",
   "kind": "text",
   "section": "page",
   "label": "Page — Built for the Way India Cooks",
   "shipped": "Built for the Way India Cooks"
+ },
+ {
+  "page": "Brand-Crystal.html",
+  "key": "page-span-17",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Know More &rarr;",
+  "shipped": "Know More &rarr;"
  },
  {
   "page": "Brand-Crystal.html",
@@ -1282,11 +1938,27 @@
  },
  {
   "page": "Brand-Crystal.html",
+  "key": "page-div-3",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — 8th January, 2026",
+  "shipped": "8th January, 2026"
+ },
+ {
+  "page": "Brand-Crystal.html",
   "key": "page-h4-10",
   "kind": "text",
   "section": "page",
   "label": "Page — Why Triply Cookware is a Smart Choice",
   "shipped": "Why Triply Cookware is a Smart Choice"
+ },
+ {
+  "page": "Brand-Crystal.html",
+  "key": "page-span-18",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Know More &rarr;",
+  "shipped": "Know More &rarr;"
  },
  {
   "page": "Brand-Crystal.html",
@@ -1299,11 +1971,35 @@
  },
  {
   "page": "Brand-Crystal.html",
+  "key": "page-div-4",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — 8th December, 2025",
+  "shipped": "8th December, 2025"
+ },
+ {
+  "page": "Brand-Crystal.html",
   "key": "page-h4-11",
   "kind": "text",
   "section": "page",
   "label": "Page — Everyday Cooking Made Effortless",
   "shipped": "Everyday Cooking Made Effortless"
+ },
+ {
+  "page": "Brand-Crystal.html",
+  "key": "page-span-19",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Know More &rarr;",
+  "shipped": "Know More &rarr;"
+ },
+ {
+  "page": "Brand-Crystalina.html",
+  "key": "site-support-bar",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Customer Support - 022-49702803/06",
+  "shipped": "Customer Support - 022-49702803/06"
  },
  {
   "page": "Brand-Crystalina.html",
@@ -1313,6 +2009,14 @@
   "label": "Page — video poster 1",
   "shipped": "brand-assets/crystalina/hero-poster.jpg",
   "box": "Full-width banner — landscape, roughly 1520 × 760 px or wider. It stretches edge to edge and is capped around 760px tall on a computer, so keep the subject centred or it gets cropped on the sides on a narrow screen."
+ },
+ {
+  "page": "Brand-Crystalina.html",
+  "key": "hero-pretext",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Brand",
+  "shipped": "Brand"
  },
  {
   "page": "Brand-Crystalina.html",
@@ -1373,12 +2077,28 @@
  },
  {
   "page": "Brand-Crystalina.html",
+  "key": "page-span-2",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Modern Kitchen Aids",
+  "shipped": "Modern Kitchen Aids"
+ },
+ {
+  "page": "Brand-Crystalina.html",
   "key": "page-img-3",
   "kind": "image",
   "section": "page",
   "label": "Page — image 3",
   "shipped": "brand-assets/crystalina/portfolio/knives.jpg",
   "box": "Landscape (469:334) — roughly 938 × 668 px or larger"
+ },
+ {
+  "page": "Brand-Crystalina.html",
+  "key": "page-span-3",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Knives",
+  "shipped": "Knives"
  },
  {
   "page": "Brand-Crystalina.html",
@@ -1391,12 +2111,28 @@
  },
  {
   "page": "Brand-Crystalina.html",
+  "key": "page-span-4",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Nylon Cook N Serve",
+  "shipped": "Nylon Cook N Serve"
+ },
+ {
+  "page": "Brand-Crystalina.html",
   "key": "page-img-5",
   "kind": "image",
   "section": "page",
   "label": "Page — image 5",
   "shipped": "brand-assets/crystalina/portfolio/life-style-products.jpg",
   "box": "Landscape (469:334) — roughly 938 × 668 px or larger"
+ },
+ {
+  "page": "Brand-Crystalina.html",
+  "key": "page-span-5",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Life Style Products",
+  "shipped": "Life Style Products"
  },
  {
   "page": "Brand-Crystalina.html",
@@ -1551,11 +2287,27 @@
  },
  {
   "page": "Brand-Crystalina.html",
+  "key": "page-div-2",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — 8th September, 2025",
+  "shipped": "8th September, 2025"
+ },
+ {
+  "page": "Brand-Crystalina.html",
   "key": "page-h4-9",
   "kind": "text",
   "section": "page",
   "label": "Page — Why Good Kitchen Tools Matter More Than You Thin…",
   "shipped": "Why Good Kitchen Tools Matter More Than You Think"
+ },
+ {
+  "page": "Brand-Crystalina.html",
+  "key": "page-span-6",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Know More &rarr;",
+  "shipped": "Know More &rarr;"
  },
  {
   "page": "Brand-Crystalina.html",
@@ -1568,11 +2320,27 @@
  },
  {
   "page": "Brand-Crystalina.html",
+  "key": "page-div-3",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — 8th October, 2025",
+  "shipped": "8th October, 2025"
+ },
+ {
+  "page": "Brand-Crystalina.html",
   "key": "page-h4-10",
   "kind": "text",
   "section": "page",
   "label": "Page — Elevate Your Kitchen, One Tool at a Time",
   "shipped": "Elevate Your Kitchen, One Tool at a Time"
+ },
+ {
+  "page": "Brand-Crystalina.html",
+  "key": "page-span-7",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Know More &rarr;",
+  "shipped": "Know More &rarr;"
  },
  {
   "page": "Brand-Crystalina.html",
@@ -1585,11 +2353,35 @@
  },
  {
   "page": "Brand-Crystalina.html",
+  "key": "page-div-4",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — 8th November, 2025",
+  "shipped": "8th November, 2025"
+ },
+ {
+  "page": "Brand-Crystalina.html",
   "key": "page-h4-11",
   "kind": "text",
   "section": "page",
   "label": "Page — Splendid Finish, Superior Experience",
   "shipped": "Splendid Finish, Superior Experience"
+ },
+ {
+  "page": "Brand-Crystalina.html",
+  "key": "page-span-8",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Know More &rarr;",
+  "shipped": "Know More &rarr;"
+ },
+ {
+  "page": "Brand-SparkMate.html",
+  "key": "site-support-bar",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Customer Support - 022-49702803/06",
+  "shipped": "Customer Support - 022-49702803/06"
  },
  {
   "page": "Brand-SparkMate.html",
@@ -1599,6 +2391,14 @@
   "label": "Page — video poster 1",
   "shipped": "brand-assets/sparkmate/hero-poster.jpg",
   "box": "Full-width banner — landscape, roughly 1520 × 760 px or wider. It stretches edge to edge and is capped around 760px tall on a computer, so keep the subject centred or it gets cropped on the sides on a narrow screen."
+ },
+ {
+  "page": "Brand-SparkMate.html",
+  "key": "hero-pretext",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Brand",
+  "shipped": "Brand"
  },
  {
   "page": "Brand-SparkMate.html",
@@ -1659,12 +2459,28 @@
  },
  {
   "page": "Brand-SparkMate.html",
+  "key": "page-span-2",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Spin Mops",
+  "shipped": "Spin Mops"
+ },
+ {
+  "page": "Brand-SparkMate.html",
   "key": "page-img-3",
   "kind": "image",
   "section": "page",
   "label": "Page — image 3",
   "shipped": "brand-assets/sparkmate/portfolio/hand-held-mops.jpg",
   "box": "Landscape (469:334) — roughly 938 × 668 px or larger"
+ },
+ {
+  "page": "Brand-SparkMate.html",
+  "key": "page-span-3",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Hand Held Mops",
+  "shipped": "Hand Held Mops"
  },
  {
   "page": "Brand-SparkMate.html",
@@ -1677,12 +2493,28 @@
  },
  {
   "page": "Brand-SparkMate.html",
+  "key": "page-span-4",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Broom & Dust Pans",
+  "shipped": "Broom & Dust Pans"
+ },
+ {
+  "page": "Brand-SparkMate.html",
   "key": "page-img-5",
   "kind": "image",
   "section": "page",
   "label": "Page — image 5",
   "shipped": "brand-assets/sparkmate/portfolio/wipers.jpg",
   "box": "Landscape (469:334) — roughly 938 × 668 px or larger"
+ },
+ {
+  "page": "Brand-SparkMate.html",
+  "key": "page-span-5",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Wipers",
+  "shipped": "Wipers"
  },
  {
   "page": "Brand-SparkMate.html",
@@ -1695,12 +2527,28 @@
  },
  {
   "page": "Brand-SparkMate.html",
+  "key": "page-span-6",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Brushes",
+  "shipped": "Brushes"
+ },
+ {
+  "page": "Brand-SparkMate.html",
   "key": "page-img-7",
   "kind": "image",
   "section": "page",
   "label": "Page — image 7",
   "shipped": "brand-assets/sparkmate/portfolio/scrubbers-scourers.jpg",
   "box": "Landscape (469:334) — roughly 938 × 668 px or larger"
+ },
+ {
+  "page": "Brand-SparkMate.html",
+  "key": "page-span-7",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Scrubbers & Scourers",
+  "shipped": "Scrubbers & Scourers"
  },
  {
   "page": "Brand-SparkMate.html",
@@ -1713,6 +2561,14 @@
  },
  {
   "page": "Brand-SparkMate.html",
+  "key": "page-span-8",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Sink Organiser",
+  "shipped": "Sink Organiser"
+ },
+ {
+  "page": "Brand-SparkMate.html",
   "key": "page-img-9",
   "kind": "image",
   "section": "page",
@@ -1722,12 +2578,28 @@
  },
  {
   "page": "Brand-SparkMate.html",
+  "key": "page-span-9",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Bins",
+  "shipped": "Bins"
+ },
+ {
+  "page": "Brand-SparkMate.html",
   "key": "page-img-10",
   "kind": "image",
   "section": "page",
   "label": "Page — image 10",
   "shipped": "brand-assets/sparkmate/portfolio/wipes.jpg",
   "box": "Landscape (469:334) — roughly 938 × 668 px or larger"
+ },
+ {
+  "page": "Brand-SparkMate.html",
+  "key": "page-span-10",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Wipes",
+  "shipped": "Wipes"
  },
  {
   "page": "Brand-SparkMate.html",
@@ -1882,11 +2754,27 @@
  },
  {
   "page": "Brand-SparkMate.html",
+  "key": "page-div-2",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — 8th September, 2025",
+  "shipped": "8th September, 2025"
+ },
+ {
+  "page": "Brand-SparkMate.html",
   "key": "page-h4-9",
   "kind": "text",
   "section": "page",
   "label": "Page — Smart Cleaning for Modern Homes",
   "shipped": "Smart Cleaning for Modern Homes"
+ },
+ {
+  "page": "Brand-SparkMate.html",
+  "key": "page-span-11",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Know More &rarr;",
+  "shipped": "Know More &rarr;"
  },
  {
   "page": "Brand-SparkMate.html",
@@ -1899,11 +2787,27 @@
  },
  {
   "page": "Brand-SparkMate.html",
+  "key": "page-div-3",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — 8th August, 2025",
+  "shipped": "8th August, 2025"
+ },
+ {
+  "page": "Brand-SparkMate.html",
   "key": "page-h4-10",
   "kind": "text",
   "section": "page",
   "label": "Page — Everyday Hygiene Starts at Home",
   "shipped": "Everyday Hygiene Starts at Home"
+ },
+ {
+  "page": "Brand-SparkMate.html",
+  "key": "page-span-12",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Know More &rarr;",
+  "shipped": "Know More &rarr;"
  },
  {
   "page": "Brand-SparkMate.html",
@@ -1916,11 +2820,35 @@
  },
  {
   "page": "Brand-SparkMate.html",
+  "key": "page-div-4",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — 8th July, 2025",
+  "shipped": "8th July, 2025"
+ },
+ {
+  "page": "Brand-SparkMate.html",
   "key": "page-h4-11",
   "kind": "text",
   "section": "page",
   "label": "Page — Cleaning Made Simple, Every Day",
   "shipped": "Cleaning Made Simple, Every Day"
+ },
+ {
+  "page": "Brand-SparkMate.html",
+  "key": "page-span-13",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Know More &rarr;",
+  "shipped": "Know More &rarr;"
+ },
+ {
+  "page": "Brand-ValMate.html",
+  "key": "site-support-bar",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Customer Support - 022-49702803/06",
+  "shipped": "Customer Support - 022-49702803/06"
  },
  {
   "page": "Brand-ValMate.html",
@@ -1930,6 +2858,14 @@
   "label": "Page — video poster 1",
   "shipped": "brand-assets/valmate/hero-poster.jpg",
   "box": "Full-width banner — landscape, roughly 1520 × 760 px or wider. It stretches edge to edge and is capped around 760px tall on a computer, so keep the subject centred or it gets cropped on the sides on a narrow screen."
+ },
+ {
+  "page": "Brand-ValMate.html",
+  "key": "hero-pretext",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Brand",
+  "shipped": "Brand"
  },
  {
   "page": "Brand-ValMate.html",
@@ -1987,6 +2923,14 @@
   "label": "Page — image 2",
   "shipped": "brand-assets/valmate/portfolio/kitchenware.jpg",
   "box": "Landscape (469:334) — roughly 938 × 668 px or larger"
+ },
+ {
+  "page": "Brand-ValMate.html",
+  "key": "page-span-2",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Kitchenware",
+  "shipped": "Kitchenware"
  },
  {
   "page": "Brand-ValMate.html",
@@ -2141,11 +3085,27 @@
  },
  {
   "page": "Brand-ValMate.html",
+  "key": "page-div-2",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — 8th June, 2025",
+  "shipped": "8th June, 2025"
+ },
+ {
+  "page": "Brand-ValMate.html",
   "key": "page-h4-9",
   "kind": "text",
   "section": "page",
   "label": "Page — Everyday Cooking for Real Homes",
   "shipped": "Everyday Cooking for Real Homes"
+ },
+ {
+  "page": "Brand-ValMate.html",
+  "key": "page-span-3",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Know More &rarr;",
+  "shipped": "Know More &rarr;"
  },
  {
   "page": "Brand-ValMate.html",
@@ -2158,11 +3118,27 @@
  },
  {
   "page": "Brand-ValMate.html",
+  "key": "page-div-3",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — 8th May, 2025",
+  "shipped": "8th May, 2025"
+ },
+ {
+  "page": "Brand-ValMate.html",
   "key": "page-h4-10",
   "kind": "text",
   "section": "page",
   "label": "Page — Value That Makes Sense",
   "shipped": "Value That Makes Sense"
+ },
+ {
+  "page": "Brand-ValMate.html",
+  "key": "page-span-4",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Know More &rarr;",
+  "shipped": "Know More &rarr;"
  },
  {
   "page": "Brand-ValMate.html",
@@ -2175,11 +3151,43 @@
  },
  {
   "page": "Brand-ValMate.html",
+  "key": "page-div-4",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — 8th April, 2025",
+  "shipped": "8th April, 2025"
+ },
+ {
+  "page": "Brand-ValMate.html",
   "key": "page-h4-11",
   "kind": "text",
   "section": "page",
   "label": "Page — Smart Cooking Starts with Smart Choices",
   "shipped": "Smart Cooking Starts with Smart Choices"
+ },
+ {
+  "page": "Brand-ValMate.html",
+  "key": "page-span-5",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Know More &rarr;",
+  "shipped": "Know More &rarr;"
+ },
+ {
+  "page": "Brands.html",
+  "key": "site-support-bar",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Customer Support - 022-49702803/06",
+  "shipped": "Customer Support - 022-49702803/06"
+ },
+ {
+  "page": "Brands.html",
+  "key": "hero-pretext",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Our Brands",
+  "shipped": "Our Brands"
  },
  {
   "page": "Brands.html",
@@ -2188,6 +3196,14 @@
   "section": "page",
   "label": "Page — One family. Four trusted brands.",
   "shipped": "One family. Four trusted brands."
+ },
+ {
+  "page": "Brands.html",
+  "key": "page-span-2",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Four trusted brands.",
+  "shipped": "Four trusted brands."
  },
  {
   "page": "Brands.html",
@@ -2208,11 +3224,35 @@
  },
  {
   "page": "Brands.html",
+  "key": "brands-span-1",
+  "kind": "text",
+  "section": "brands",
+  "label": "Brands — Since 1971",
+  "shipped": "Since 1971"
+ },
+ {
+  "page": "Brands.html",
+  "key": "brands-span-2",
+  "kind": "text",
+  "section": "brands",
+  "label": "Brands — 01 — Flagship Brand",
+  "shipped": "01 — Flagship Brand"
+ },
+ {
+  "page": "Brands.html",
   "key": "brands-h3-1",
   "kind": "text",
   "section": "brands",
   "label": "Brands — Crystal",
   "shipped": "Crystal"
+ },
+ {
+  "page": "Brands.html",
+  "key": "brands-div-1",
+  "kind": "text",
+  "section": "brands",
+  "label": "Brands — World of Kitchenware",
+  "shipped": "World of Kitchenware"
  },
  {
   "page": "Brands.html",
@@ -2224,11 +3264,27 @@
  },
  {
   "page": "Brands.html",
+  "key": "brands-span-3",
+  "kind": "text",
+  "section": "brands",
+  "label": "Brands — 02 — Premium Serveware",
+  "shipped": "02 — Premium Serveware"
+ },
+ {
+  "page": "Brands.html",
   "key": "brands-h3-2",
   "kind": "text",
   "section": "brands",
   "label": "Brands — Crystalina",
   "shipped": "Crystalina"
+ },
+ {
+  "page": "Brands.html",
+  "key": "brands-div-2",
+  "kind": "text",
+  "section": "brands",
+  "label": "Brands — Splendid Finish",
+  "shipped": "Splendid Finish"
  },
  {
   "page": "Brands.html",
@@ -2249,12 +3305,36 @@
  },
  {
   "page": "Brands.html",
+  "key": "brands-span-4",
+  "kind": "text",
+  "section": "brands",
+  "label": "Brands — Mirror Finish",
+  "shipped": "Mirror Finish"
+ },
+ {
+  "page": "Brands.html",
   "key": "brands-img-3",
   "kind": "image",
   "section": "brands",
   "label": "Brands — image 3",
   "shipped": "https://proj.leo9studio.in/projects/crystal-wp/wp-content/uploads/2026/04/Spin-Mops-2.jpg",
   "box": "5:4 — roughly 1250 × 1000px or larger"
+ },
+ {
+  "page": "Brands.html",
+  "key": "brands-span-5",
+  "kind": "text",
+  "section": "brands",
+  "label": "Brands — Effortless Clean",
+  "shipped": "Effortless Clean"
+ },
+ {
+  "page": "Brands.html",
+  "key": "brands-span-6",
+  "kind": "text",
+  "section": "brands",
+  "label": "Brands — 03 — Cleaning Essentials",
+  "shipped": "03 — Cleaning Essentials"
  },
  {
   "page": "Brands.html",
@@ -2266,6 +3346,14 @@
  },
  {
   "page": "Brands.html",
+  "key": "brands-div-3",
+  "kind": "text",
+  "section": "brands",
+  "label": "Brands — Cleaning Simplified",
+  "shipped": "Cleaning Simplified"
+ },
+ {
+  "page": "Brands.html",
   "key": "brands-p-3",
   "kind": "text",
   "section": "brands",
@@ -2274,11 +3362,27 @@
  },
  {
   "page": "Brands.html",
+  "key": "brands-span-7",
+  "kind": "text",
+  "section": "brands",
+  "label": "Brands — 04 — Everyday Value",
+  "shipped": "04 — Everyday Value"
+ },
+ {
+  "page": "Brands.html",
   "key": "brands-h3-4",
   "kind": "text",
   "section": "brands",
   "label": "Brands — ValMate",
   "shipped": "ValMate"
+ },
+ {
+  "page": "Brands.html",
+  "key": "brands-div-4",
+  "kind": "text",
+  "section": "brands",
+  "label": "Brands — Value for Money",
+  "shipped": "Value for Money"
  },
  {
   "page": "Brands.html",
@@ -2299,11 +3403,35 @@
  },
  {
   "page": "Brands.html",
+  "key": "brands-span-8",
+  "kind": "text",
+  "section": "brands",
+  "label": "Brands — Value for Money",
+  "shipped": "Value for Money"
+ },
+ {
+  "page": "Brands.html",
   "key": "page-h2-1",
   "kind": "text",
   "section": "page",
   "label": "Page — Find the right Crystal product for your home",
   "shipped": "Find the right Crystal product for your home"
+ },
+ {
+  "page": "Career.html",
+  "key": "site-support-bar",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Customer Support - 022-49702803/06",
+  "shipped": "Customer Support - 022-49702803/06"
+ },
+ {
+  "page": "Career.html",
+  "key": "hero-pretext",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Careers",
+  "shipped": "Careers"
  },
  {
   "page": "Career.html",
@@ -2339,6 +3467,14 @@
  },
  {
   "page": "Career.html",
+  "key": "page-span-2",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — 01",
+  "shipped": "01"
+ },
+ {
+  "page": "Career.html",
   "key": "page-h4-1",
   "kind": "text",
   "section": "page",
@@ -2352,6 +3488,14 @@
   "section": "page",
   "label": "Page — Clear paths to learn, lead and rise. We invest i…",
   "shipped": "Clear paths to learn, lead and rise. We invest in our people with real ownership and room to grow across functions."
+ },
+ {
+  "page": "Career.html",
+  "key": "page-span-3",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — 02",
+  "shipped": "02"
  },
  {
   "page": "Career.html",
@@ -2371,6 +3515,14 @@
  },
  {
   "page": "Career.html",
+  "key": "page-span-4",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — 03",
+  "shipped": "03"
+ },
+ {
+  "page": "Career.html",
   "key": "page-h4-3",
   "kind": "text",
   "section": "page",
@@ -2384,6 +3536,14 @@
   "section": "page",
   "label": "Page — A supportive, collaborative culture that values …",
   "shipped": "A supportive, collaborative culture that values your wellbeing, your voice and a healthy work-life balance."
+ },
+ {
+  "page": "Career.html",
+  "key": "page-span-5",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — 04",
+  "shipped": "04"
  },
  {
   "page": "Career.html",
@@ -2427,6 +3587,30 @@
  },
  {
   "page": "Career.html",
+  "key": "page-span-6",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Mumbai",
+  "shipped": "Mumbai"
+ },
+ {
+  "page": "Career.html",
+  "key": "page-span-7",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Full-time",
+  "shipped": "Full-time"
+ },
+ {
+  "page": "Career.html",
+  "key": "page-span-8",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Sales & Distribution",
+  "shipped": "Sales & Distribution"
+ },
+ {
+  "page": "Career.html",
   "key": "page-h4-6",
   "kind": "text",
   "section": "page",
@@ -2435,11 +3619,59 @@
  },
  {
   "page": "Career.html",
+  "key": "page-span-9",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Rajkot",
+  "shipped": "Rajkot"
+ },
+ {
+  "page": "Career.html",
+  "key": "page-span-10",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Full-time",
+  "shipped": "Full-time"
+ },
+ {
+  "page": "Career.html",
+  "key": "page-span-11",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Manufacturing",
+  "shipped": "Manufacturing"
+ },
+ {
+  "page": "Career.html",
   "key": "page-h4-7",
   "kind": "text",
   "section": "page",
   "label": "Page — Digital Marketing Associate",
   "shipped": "Digital Marketing Associate"
+ },
+ {
+  "page": "Career.html",
+  "key": "page-span-12",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Mumbai",
+  "shipped": "Mumbai"
+ },
+ {
+  "page": "Career.html",
+  "key": "page-span-13",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Full-time",
+  "shipped": "Full-time"
+ },
+ {
+  "page": "Career.html",
+  "key": "page-span-14",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Marketing",
+  "shipped": "Marketing"
  },
  {
   "page": "Career.html",
@@ -2459,6 +3691,22 @@
  },
  {
   "page": "Catalogue.html",
+  "key": "site-support-bar",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Customer Support - 022-49702803/06",
+  "shipped": "Customer Support - 022-49702803/06"
+ },
+ {
+  "page": "Catalogue.html",
+  "key": "hero-pretext",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Catalogue",
+  "shipped": "Catalogue"
+ },
+ {
+  "page": "Catalogue.html",
   "key": "hero-title",
   "kind": "text",
   "section": "page",
@@ -2467,11 +3715,27 @@
  },
  {
   "page": "Catalogue.html",
+  "key": "page-span-2",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Crystal Catalogue",
+  "shipped": "Crystal Catalogue"
+ },
+ {
+  "page": "Catalogue.html",
   "key": "hero-sub",
   "kind": "text",
   "section": "page",
   "label": "Page — Explore our complete range of cookware, kitchenw…",
   "shipped": "Explore our complete range of cookware, kitchenware, cleaning aids and electric appliances across four trusted brands. Download a catalogue or request a tailored quote."
+ },
+ {
+  "page": "Catalogue.html",
+  "key": "page-a-1",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Request Quote",
+  "shipped": "Request Quote"
  },
  {
   "page": "Catalogue.html",
@@ -2499,11 +3763,43 @@
  },
  {
   "page": "Catalogue.html",
+  "key": "by-brand-span-1",
+  "kind": "text",
+  "section": "by-brand",
+  "label": "By Brand — World of Kitchenware",
+  "shipped": "World of Kitchenware"
+ },
+ {
+  "page": "Catalogue.html",
+  "key": "by-brand-a-1",
+  "kind": "text",
+  "section": "by-brand",
+  "label": "By Brand — Download",
+  "shipped": "Download"
+ },
+ {
+  "page": "Catalogue.html",
   "key": "by-brand-h3-2",
   "kind": "text",
   "section": "by-brand",
   "label": "By Brand — Crystalina",
   "shipped": "Crystalina"
+ },
+ {
+  "page": "Catalogue.html",
+  "key": "by-brand-span-2",
+  "kind": "text",
+  "section": "by-brand",
+  "label": "By Brand — Splendid Finish",
+  "shipped": "Splendid Finish"
+ },
+ {
+  "page": "Catalogue.html",
+  "key": "by-brand-a-2",
+  "kind": "text",
+  "section": "by-brand",
+  "label": "By Brand — Download",
+  "shipped": "Download"
  },
  {
   "page": "Catalogue.html",
@@ -2515,11 +3811,43 @@
  },
  {
   "page": "Catalogue.html",
+  "key": "by-brand-span-3",
+  "kind": "text",
+  "section": "by-brand",
+  "label": "By Brand — Cleaning Simplified",
+  "shipped": "Cleaning Simplified"
+ },
+ {
+  "page": "Catalogue.html",
+  "key": "by-brand-a-3",
+  "kind": "text",
+  "section": "by-brand",
+  "label": "By Brand — Download",
+  "shipped": "Download"
+ },
+ {
+  "page": "Catalogue.html",
   "key": "by-brand-h3-4",
   "kind": "text",
   "section": "by-brand",
   "label": "By Brand — ValMate",
   "shipped": "ValMate"
+ },
+ {
+  "page": "Catalogue.html",
+  "key": "by-brand-span-4",
+  "kind": "text",
+  "section": "by-brand",
+  "label": "By Brand — Value for Money",
+  "shipped": "Value for Money"
+ },
+ {
+  "page": "Catalogue.html",
+  "key": "by-brand-a-4",
+  "kind": "text",
+  "section": "by-brand",
+  "label": "By Brand — Download",
+  "shipped": "Download"
  },
  {
   "page": "Catalogue.html",
@@ -2603,6 +3931,22 @@
  },
  {
   "page": "Cleaning-Aid-Bins.html",
+  "key": "site-support-bar",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Customer Support - 022-49702803/06",
+  "shipped": "Customer Support - 022-49702803/06"
+ },
+ {
+  "page": "Cleaning-Aid-Bins.html",
+  "key": "hero-pretext",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — SparkMate · Bins",
+  "shipped": "SparkMate · Bins"
+ },
+ {
+  "page": "Cleaning-Aid-Bins.html",
   "key": "hero-title",
   "kind": "text",
   "section": "hero",
@@ -2611,11 +3955,35 @@
  },
  {
   "page": "Cleaning-Aid-Bins.html",
+  "key": "hero-span-2",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Sorted Simply",
+  "shipped": "Sorted Simply"
+ },
+ {
+  "page": "Cleaning-Aid-Bins.html",
   "key": "hero-sub",
   "kind": "text",
   "section": "hero",
   "label": "Hero — 5 SparkMate dust bins — pedal, tabletop and mult…",
   "shipped": "5 SparkMate dust bins — pedal, tabletop and multiutility styles — built for tidy, everyday Indian homes since 1971."
+ },
+ {
+  "page": "Cleaning-Aid-Bins.html",
+  "key": "hero-a-1",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — ← All Cleaning Aid",
+  "shipped": "← All Cleaning Aid"
+ },
+ {
+  "page": "Cleaning-Aid-Bins.html",
+  "key": "hero-span-3",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Scroll",
+  "shipped": "Scroll"
  },
  {
   "page": "Cleaning-Aid-Bins.html",
@@ -2667,6 +4035,62 @@
  },
  {
   "page": "Cleaning-Aid-Bins.html",
+  "key": "value-span-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — (SINCE 1971)",
+  "shipped": "(SINCE 1971)"
+ },
+ {
+  "page": "Cleaning-Aid-Bins.html",
+  "key": "value-span-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 54",
+  "shipped": "54"
+ },
+ {
+  "page": "Cleaning-Aid-Bins.html",
+  "key": "value-div-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Years of trust",
+  "shipped": "Years of trust"
+ },
+ {
+  "page": "Cleaning-Aid-Bins.html",
+  "key": "value-span-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 1000",
+  "shipped": "1000"
+ },
+ {
+  "page": "Cleaning-Aid-Bins.html",
+  "key": "value-div-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Products & SKUs",
+  "shipped": "Products & SKUs"
+ },
+ {
+  "page": "Cleaning-Aid-Bins.html",
+  "key": "value-span-4",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 6",
+  "shipped": "6"
+ },
+ {
+  "page": "Cleaning-Aid-Bins.html",
+  "key": "value-div-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Trusted brands",
+  "shipped": "Trusted brands"
+ },
+ {
+  "page": "Cleaning-Aid-Bins.html",
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
@@ -2683,6 +4107,22 @@
  },
  {
   "page": "Cleaning-Aid-Brooms.html",
+  "key": "site-support-bar",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Customer Support - 022-49702803/06",
+  "shipped": "Customer Support - 022-49702803/06"
+ },
+ {
+  "page": "Cleaning-Aid-Brooms.html",
+  "key": "hero-pretext",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — SparkMate · Broom & Dust Pans",
+  "shipped": "SparkMate · Broom & Dust Pans"
+ },
+ {
+  "page": "Cleaning-Aid-Brooms.html",
   "key": "hero-title",
   "kind": "text",
   "section": "hero",
@@ -2691,11 +4131,35 @@
  },
  {
   "page": "Cleaning-Aid-Brooms.html",
+  "key": "hero-span-2",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Every Corner",
+  "shipped": "Every Corner"
+ },
+ {
+  "page": "Cleaning-Aid-Brooms.html",
   "key": "hero-sub",
   "kind": "text",
   "section": "hero",
   "label": "Hero — 10 SparkMate brooms and dust pans — sturdy sweep…",
   "shipped": "10 SparkMate brooms and dust pans — sturdy sweeping brooms, kharatas and dustpans — built for everyday Indian homes since 1971."
+ },
+ {
+  "page": "Cleaning-Aid-Brooms.html",
+  "key": "hero-a-1",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — ← All Cleaning Aid",
+  "shipped": "← All Cleaning Aid"
+ },
+ {
+  "page": "Cleaning-Aid-Brooms.html",
+  "key": "hero-span-3",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Scroll",
+  "shipped": "Scroll"
  },
  {
   "page": "Cleaning-Aid-Brooms.html",
@@ -2747,6 +4211,62 @@
  },
  {
   "page": "Cleaning-Aid-Brooms.html",
+  "key": "value-span-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — (SINCE 1971)",
+  "shipped": "(SINCE 1971)"
+ },
+ {
+  "page": "Cleaning-Aid-Brooms.html",
+  "key": "value-span-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 54",
+  "shipped": "54"
+ },
+ {
+  "page": "Cleaning-Aid-Brooms.html",
+  "key": "value-div-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Years of trust",
+  "shipped": "Years of trust"
+ },
+ {
+  "page": "Cleaning-Aid-Brooms.html",
+  "key": "value-span-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 1000",
+  "shipped": "1000"
+ },
+ {
+  "page": "Cleaning-Aid-Brooms.html",
+  "key": "value-div-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Products & SKUs",
+  "shipped": "Products & SKUs"
+ },
+ {
+  "page": "Cleaning-Aid-Brooms.html",
+  "key": "value-span-4",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 6",
+  "shipped": "6"
+ },
+ {
+  "page": "Cleaning-Aid-Brooms.html",
+  "key": "value-div-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Trusted brands",
+  "shipped": "Trusted brands"
+ },
+ {
+  "page": "Cleaning-Aid-Brooms.html",
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
@@ -2763,6 +4283,22 @@
  },
  {
   "page": "Cleaning-Aid-Brush.html",
+  "key": "site-support-bar",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Customer Support - 022-49702803/06",
+  "shipped": "Customer Support - 022-49702803/06"
+ },
+ {
+  "page": "Cleaning-Aid-Brush.html",
+  "key": "hero-pretext",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — SparkMate · Brush",
+  "shipped": "SparkMate · Brush"
+ },
+ {
+  "page": "Cleaning-Aid-Brush.html",
   "key": "hero-title",
   "kind": "text",
   "section": "hero",
@@ -2771,11 +4307,35 @@
  },
  {
   "page": "Cleaning-Aid-Brush.html",
+  "key": "hero-span-2",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Sparkling Clean",
+  "shipped": "Sparkling Clean"
+ },
+ {
+  "page": "Cleaning-Aid-Brush.html",
   "key": "hero-sub",
   "kind": "text",
   "section": "hero",
   "label": "Hero — 13 SparkMate cleaning brushes — toilet, sink, fl…",
   "shipped": "13 SparkMate cleaning brushes — toilet, sink, floor and utility styles — for every corner of your home, since 1971."
+ },
+ {
+  "page": "Cleaning-Aid-Brush.html",
+  "key": "hero-a-1",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — ← All Cleaning Aid",
+  "shipped": "← All Cleaning Aid"
+ },
+ {
+  "page": "Cleaning-Aid-Brush.html",
+  "key": "hero-span-3",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Scroll",
+  "shipped": "Scroll"
  },
  {
   "page": "Cleaning-Aid-Brush.html",
@@ -2827,6 +4387,62 @@
  },
  {
   "page": "Cleaning-Aid-Brush.html",
+  "key": "value-span-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — (SINCE 1971)",
+  "shipped": "(SINCE 1971)"
+ },
+ {
+  "page": "Cleaning-Aid-Brush.html",
+  "key": "value-span-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 54",
+  "shipped": "54"
+ },
+ {
+  "page": "Cleaning-Aid-Brush.html",
+  "key": "value-div-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Years of trust",
+  "shipped": "Years of trust"
+ },
+ {
+  "page": "Cleaning-Aid-Brush.html",
+  "key": "value-span-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 1000",
+  "shipped": "1000"
+ },
+ {
+  "page": "Cleaning-Aid-Brush.html",
+  "key": "value-div-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Products & SKUs",
+  "shipped": "Products & SKUs"
+ },
+ {
+  "page": "Cleaning-Aid-Brush.html",
+  "key": "value-span-4",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 6",
+  "shipped": "6"
+ },
+ {
+  "page": "Cleaning-Aid-Brush.html",
+  "key": "value-div-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Trusted brands",
+  "shipped": "Trusted brands"
+ },
+ {
+  "page": "Cleaning-Aid-Brush.html",
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
@@ -2843,6 +4459,22 @@
  },
  {
   "page": "Cleaning-Aid-Hand-Held-Mops.html",
+  "key": "site-support-bar",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Customer Support - 022-49702803/06",
+  "shipped": "Customer Support - 022-49702803/06"
+ },
+ {
+  "page": "Cleaning-Aid-Hand-Held-Mops.html",
+  "key": "hero-pretext",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — SparkMate · Hand Held Mops",
+  "shipped": "SparkMate · Hand Held Mops"
+ },
+ {
+  "page": "Cleaning-Aid-Hand-Held-Mops.html",
   "key": "hero-title",
   "kind": "text",
   "section": "hero",
@@ -2851,11 +4483,35 @@
  },
  {
   "page": "Cleaning-Aid-Hand-Held-Mops.html",
+  "key": "hero-span-2",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Effortless Clean",
+  "shipped": "Effortless Clean"
+ },
+ {
+  "page": "Cleaning-Aid-Hand-Held-Mops.html",
   "key": "hero-sub",
   "kind": "text",
   "section": "hero",
   "label": "Hero — 7 SparkMate hand held mops — clip, deck and micr…",
   "shipped": "7 SparkMate hand held mops — clip, deck and microfiber styles — built for quick, everyday cleaning across Indian homes since 1971."
+ },
+ {
+  "page": "Cleaning-Aid-Hand-Held-Mops.html",
+  "key": "hero-a-1",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — ← All Cleaning Aid",
+  "shipped": "← All Cleaning Aid"
+ },
+ {
+  "page": "Cleaning-Aid-Hand-Held-Mops.html",
+  "key": "hero-span-3",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Scroll",
+  "shipped": "Scroll"
  },
  {
   "page": "Cleaning-Aid-Hand-Held-Mops.html",
@@ -2907,6 +4563,62 @@
  },
  {
   "page": "Cleaning-Aid-Hand-Held-Mops.html",
+  "key": "value-span-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — (SINCE 1971)",
+  "shipped": "(SINCE 1971)"
+ },
+ {
+  "page": "Cleaning-Aid-Hand-Held-Mops.html",
+  "key": "value-span-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 54",
+  "shipped": "54"
+ },
+ {
+  "page": "Cleaning-Aid-Hand-Held-Mops.html",
+  "key": "value-div-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Years of trust",
+  "shipped": "Years of trust"
+ },
+ {
+  "page": "Cleaning-Aid-Hand-Held-Mops.html",
+  "key": "value-span-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 1000",
+  "shipped": "1000"
+ },
+ {
+  "page": "Cleaning-Aid-Hand-Held-Mops.html",
+  "key": "value-div-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Products & SKUs",
+  "shipped": "Products & SKUs"
+ },
+ {
+  "page": "Cleaning-Aid-Hand-Held-Mops.html",
+  "key": "value-span-4",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 6",
+  "shipped": "6"
+ },
+ {
+  "page": "Cleaning-Aid-Hand-Held-Mops.html",
+  "key": "value-div-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Trusted brands",
+  "shipped": "Trusted brands"
+ },
+ {
+  "page": "Cleaning-Aid-Hand-Held-Mops.html",
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
@@ -2923,6 +4635,22 @@
  },
  {
   "page": "Cleaning-Aid-Plunger.html",
+  "key": "site-support-bar",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Customer Support - 022-49702803/06",
+  "shipped": "Customer Support - 022-49702803/06"
+ },
+ {
+  "page": "Cleaning-Aid-Plunger.html",
+  "key": "hero-pretext",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — SparkMate · Plunger",
+  "shipped": "SparkMate · Plunger"
+ },
+ {
+  "page": "Cleaning-Aid-Plunger.html",
   "key": "hero-title",
   "kind": "text",
   "section": "hero",
@@ -2931,11 +4659,35 @@
  },
  {
   "page": "Cleaning-Aid-Plunger.html",
+  "key": "hero-span-2",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Hassle-Free",
+  "shipped": "Hassle-Free"
+ },
+ {
+  "page": "Cleaning-Aid-Plunger.html",
   "key": "hero-sub",
   "kind": "text",
   "section": "hero",
   "label": "Hero — 2 SparkMate multipurpose plungers, built to clea…",
   "shipped": "2 SparkMate multipurpose plungers, built to clear clogged drains quickly in homes across India since 1971."
+ },
+ {
+  "page": "Cleaning-Aid-Plunger.html",
+  "key": "hero-a-1",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — ← All Cleaning Aid",
+  "shipped": "← All Cleaning Aid"
+ },
+ {
+  "page": "Cleaning-Aid-Plunger.html",
+  "key": "hero-span-3",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Scroll",
+  "shipped": "Scroll"
  },
  {
   "page": "Cleaning-Aid-Plunger.html",
@@ -2987,6 +4739,62 @@
  },
  {
   "page": "Cleaning-Aid-Plunger.html",
+  "key": "value-span-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — (SINCE 1971)",
+  "shipped": "(SINCE 1971)"
+ },
+ {
+  "page": "Cleaning-Aid-Plunger.html",
+  "key": "value-span-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 54",
+  "shipped": "54"
+ },
+ {
+  "page": "Cleaning-Aid-Plunger.html",
+  "key": "value-div-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Years of trust",
+  "shipped": "Years of trust"
+ },
+ {
+  "page": "Cleaning-Aid-Plunger.html",
+  "key": "value-span-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 1000",
+  "shipped": "1000"
+ },
+ {
+  "page": "Cleaning-Aid-Plunger.html",
+  "key": "value-div-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Products & SKUs",
+  "shipped": "Products & SKUs"
+ },
+ {
+  "page": "Cleaning-Aid-Plunger.html",
+  "key": "value-span-4",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 6",
+  "shipped": "6"
+ },
+ {
+  "page": "Cleaning-Aid-Plunger.html",
+  "key": "value-div-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Trusted brands",
+  "shipped": "Trusted brands"
+ },
+ {
+  "page": "Cleaning-Aid-Plunger.html",
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
@@ -3003,6 +4811,22 @@
  },
  {
   "page": "Cleaning-Aid-Scrubber.html",
+  "key": "site-support-bar",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Customer Support - 022-49702803/06",
+  "shipped": "Customer Support - 022-49702803/06"
+ },
+ {
+  "page": "Cleaning-Aid-Scrubber.html",
+  "key": "hero-pretext",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — SparkMate · Scrubber & Scourer",
+  "shipped": "SparkMate · Scrubber & Scourer"
+ },
+ {
+  "page": "Cleaning-Aid-Scrubber.html",
   "key": "hero-title",
   "kind": "text",
   "section": "hero",
@@ -3011,11 +4835,35 @@
  },
  {
   "page": "Cleaning-Aid-Scrubber.html",
+  "key": "hero-span-2",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Effortlessly",
+  "shipped": "Effortlessly"
+ },
+ {
+  "page": "Cleaning-Aid-Scrubber.html",
   "key": "hero-sub",
   "kind": "text",
   "section": "hero",
   "label": "Hero — 4 SparkMate scrubbers and scourers — steel scour…",
   "shipped": "4 SparkMate scrubbers and scourers — steel scourers and scrub pads — built for tough, everyday cleaning since 1971."
+ },
+ {
+  "page": "Cleaning-Aid-Scrubber.html",
+  "key": "hero-a-1",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — ← All Cleaning Aid",
+  "shipped": "← All Cleaning Aid"
+ },
+ {
+  "page": "Cleaning-Aid-Scrubber.html",
+  "key": "hero-span-3",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Scroll",
+  "shipped": "Scroll"
  },
  {
   "page": "Cleaning-Aid-Scrubber.html",
@@ -3067,6 +4915,62 @@
  },
  {
   "page": "Cleaning-Aid-Scrubber.html",
+  "key": "value-span-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — (SINCE 1971)",
+  "shipped": "(SINCE 1971)"
+ },
+ {
+  "page": "Cleaning-Aid-Scrubber.html",
+  "key": "value-span-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 54",
+  "shipped": "54"
+ },
+ {
+  "page": "Cleaning-Aid-Scrubber.html",
+  "key": "value-div-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Years of trust",
+  "shipped": "Years of trust"
+ },
+ {
+  "page": "Cleaning-Aid-Scrubber.html",
+  "key": "value-span-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 1000",
+  "shipped": "1000"
+ },
+ {
+  "page": "Cleaning-Aid-Scrubber.html",
+  "key": "value-div-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Products & SKUs",
+  "shipped": "Products & SKUs"
+ },
+ {
+  "page": "Cleaning-Aid-Scrubber.html",
+  "key": "value-span-4",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 6",
+  "shipped": "6"
+ },
+ {
+  "page": "Cleaning-Aid-Scrubber.html",
+  "key": "value-div-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Trusted brands",
+  "shipped": "Trusted brands"
+ },
+ {
+  "page": "Cleaning-Aid-Scrubber.html",
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
@@ -3083,6 +4987,22 @@
  },
  {
   "page": "Cleaning-Aid-Sink-Organiser.html",
+  "key": "site-support-bar",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Customer Support - 022-49702803/06",
+  "shipped": "Customer Support - 022-49702803/06"
+ },
+ {
+  "page": "Cleaning-Aid-Sink-Organiser.html",
+  "key": "hero-pretext",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — SparkMate · Sink Organiser",
+  "shipped": "SparkMate · Sink Organiser"
+ },
+ {
+  "page": "Cleaning-Aid-Sink-Organiser.html",
   "key": "hero-title",
   "kind": "text",
   "section": "hero",
@@ -3091,11 +5011,35 @@
  },
  {
   "page": "Cleaning-Aid-Sink-Organiser.html",
+  "key": "hero-span-2",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Simplified",
+  "shipped": "Simplified"
+ },
+ {
+  "page": "Cleaning-Aid-Sink-Organiser.html",
   "key": "hero-sub",
   "kind": "text",
   "section": "hero",
   "label": "Hero — 2 SparkMate sink organisers — soap dispensers an…",
   "shipped": "2 SparkMate sink organisers — soap dispensers and sink-side essentials — built for a tidy kitchen, since 1971."
+ },
+ {
+  "page": "Cleaning-Aid-Sink-Organiser.html",
+  "key": "hero-a-1",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — ← All Cleaning Aid",
+  "shipped": "← All Cleaning Aid"
+ },
+ {
+  "page": "Cleaning-Aid-Sink-Organiser.html",
+  "key": "hero-span-3",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Scroll",
+  "shipped": "Scroll"
  },
  {
   "page": "Cleaning-Aid-Sink-Organiser.html",
@@ -3147,6 +5091,62 @@
  },
  {
   "page": "Cleaning-Aid-Sink-Organiser.html",
+  "key": "value-span-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — (SINCE 1971)",
+  "shipped": "(SINCE 1971)"
+ },
+ {
+  "page": "Cleaning-Aid-Sink-Organiser.html",
+  "key": "value-span-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 54",
+  "shipped": "54"
+ },
+ {
+  "page": "Cleaning-Aid-Sink-Organiser.html",
+  "key": "value-div-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Years of trust",
+  "shipped": "Years of trust"
+ },
+ {
+  "page": "Cleaning-Aid-Sink-Organiser.html",
+  "key": "value-span-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 1000",
+  "shipped": "1000"
+ },
+ {
+  "page": "Cleaning-Aid-Sink-Organiser.html",
+  "key": "value-div-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Products & SKUs",
+  "shipped": "Products & SKUs"
+ },
+ {
+  "page": "Cleaning-Aid-Sink-Organiser.html",
+  "key": "value-span-4",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 6",
+  "shipped": "6"
+ },
+ {
+  "page": "Cleaning-Aid-Sink-Organiser.html",
+  "key": "value-div-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Trusted brands",
+  "shipped": "Trusted brands"
+ },
+ {
+  "page": "Cleaning-Aid-Sink-Organiser.html",
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
@@ -3163,6 +5163,22 @@
  },
  {
   "page": "Cleaning-Aid-Spin-Mops.html",
+  "key": "site-support-bar",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Customer Support - 022-49702803/06",
+  "shipped": "Customer Support - 022-49702803/06"
+ },
+ {
+  "page": "Cleaning-Aid-Spin-Mops.html",
+  "key": "hero-pretext",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — SparkMate · Spin Mops",
+  "shipped": "SparkMate · Spin Mops"
+ },
+ {
+  "page": "Cleaning-Aid-Spin-Mops.html",
   "key": "hero-title",
   "kind": "text",
   "section": "hero",
@@ -3171,11 +5187,35 @@
  },
  {
   "page": "Cleaning-Aid-Spin-Mops.html",
+  "key": "hero-span-2",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Sparkling Floors",
+  "shipped": "Sparkling Floors"
+ },
+ {
+  "page": "Cleaning-Aid-Spin-Mops.html",
   "key": "hero-sub",
   "kind": "text",
   "section": "hero",
   "label": "Hero — 9 SparkMate spin mop essentials — sets, buckets,…",
   "shipped": "9 SparkMate spin mop essentials — sets, buckets, rods and refills — engineered for fast, effortless floor cleaning in homes across India since 1971."
+ },
+ {
+  "page": "Cleaning-Aid-Spin-Mops.html",
+  "key": "hero-a-1",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — ← All Cleaning Aid",
+  "shipped": "← All Cleaning Aid"
+ },
+ {
+  "page": "Cleaning-Aid-Spin-Mops.html",
+  "key": "hero-span-3",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Scroll",
+  "shipped": "Scroll"
  },
  {
   "page": "Cleaning-Aid-Spin-Mops.html",
@@ -3227,6 +5267,62 @@
  },
  {
   "page": "Cleaning-Aid-Spin-Mops.html",
+  "key": "value-span-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — (SINCE 1971)",
+  "shipped": "(SINCE 1971)"
+ },
+ {
+  "page": "Cleaning-Aid-Spin-Mops.html",
+  "key": "value-span-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 54",
+  "shipped": "54"
+ },
+ {
+  "page": "Cleaning-Aid-Spin-Mops.html",
+  "key": "value-div-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Years of trust",
+  "shipped": "Years of trust"
+ },
+ {
+  "page": "Cleaning-Aid-Spin-Mops.html",
+  "key": "value-span-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 1000",
+  "shipped": "1000"
+ },
+ {
+  "page": "Cleaning-Aid-Spin-Mops.html",
+  "key": "value-div-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Products & SKUs",
+  "shipped": "Products & SKUs"
+ },
+ {
+  "page": "Cleaning-Aid-Spin-Mops.html",
+  "key": "value-span-4",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 6",
+  "shipped": "6"
+ },
+ {
+  "page": "Cleaning-Aid-Spin-Mops.html",
+  "key": "value-div-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Trusted brands",
+  "shipped": "Trusted brands"
+ },
+ {
+  "page": "Cleaning-Aid-Spin-Mops.html",
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
@@ -3243,6 +5339,22 @@
  },
  {
   "page": "Cleaning-Aid-Wipe.html",
+  "key": "site-support-bar",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Customer Support - 022-49702803/06",
+  "shipped": "Customer Support - 022-49702803/06"
+ },
+ {
+  "page": "Cleaning-Aid-Wipe.html",
+  "key": "hero-pretext",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — SparkMate · Wipe",
+  "shipped": "SparkMate · Wipe"
+ },
+ {
+  "page": "Cleaning-Aid-Wipe.html",
   "key": "hero-title",
   "kind": "text",
   "section": "hero",
@@ -3251,11 +5363,35 @@
  },
  {
   "page": "Cleaning-Aid-Wipe.html",
+  "key": "hero-span-2",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Everyday Clean",
+  "shipped": "Everyday Clean"
+ },
+ {
+  "page": "Cleaning-Aid-Wipe.html",
   "key": "hero-sub",
   "kind": "text",
   "section": "hero",
   "label": "Hero — 2 SparkMate cleaning wipes — sponge wipes and mi…",
   "shipped": "2 SparkMate cleaning wipes — sponge wipes and microfiber floor cloths — for quick, everyday cleaning since 1971."
+ },
+ {
+  "page": "Cleaning-Aid-Wipe.html",
+  "key": "hero-a-1",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — ← All Cleaning Aid",
+  "shipped": "← All Cleaning Aid"
+ },
+ {
+  "page": "Cleaning-Aid-Wipe.html",
+  "key": "hero-span-3",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Scroll",
+  "shipped": "Scroll"
  },
  {
   "page": "Cleaning-Aid-Wipe.html",
@@ -3307,6 +5443,62 @@
  },
  {
   "page": "Cleaning-Aid-Wipe.html",
+  "key": "value-span-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — (SINCE 1971)",
+  "shipped": "(SINCE 1971)"
+ },
+ {
+  "page": "Cleaning-Aid-Wipe.html",
+  "key": "value-span-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 54",
+  "shipped": "54"
+ },
+ {
+  "page": "Cleaning-Aid-Wipe.html",
+  "key": "value-div-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Years of trust",
+  "shipped": "Years of trust"
+ },
+ {
+  "page": "Cleaning-Aid-Wipe.html",
+  "key": "value-span-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 1000",
+  "shipped": "1000"
+ },
+ {
+  "page": "Cleaning-Aid-Wipe.html",
+  "key": "value-div-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Products & SKUs",
+  "shipped": "Products & SKUs"
+ },
+ {
+  "page": "Cleaning-Aid-Wipe.html",
+  "key": "value-span-4",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 6",
+  "shipped": "6"
+ },
+ {
+  "page": "Cleaning-Aid-Wipe.html",
+  "key": "value-div-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Trusted brands",
+  "shipped": "Trusted brands"
+ },
+ {
+  "page": "Cleaning-Aid-Wipe.html",
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
@@ -3323,6 +5515,22 @@
  },
  {
   "page": "Cleaning-Aid-Wipers.html",
+  "key": "site-support-bar",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Customer Support - 022-49702803/06",
+  "shipped": "Customer Support - 022-49702803/06"
+ },
+ {
+  "page": "Cleaning-Aid-Wipers.html",
+  "key": "hero-pretext",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — SparkMate · Wipers",
+  "shipped": "SparkMate · Wipers"
+ },
+ {
+  "page": "Cleaning-Aid-Wipers.html",
   "key": "hero-title",
   "kind": "text",
   "section": "hero",
@@ -3331,11 +5539,35 @@
  },
  {
   "page": "Cleaning-Aid-Wipers.html",
+  "key": "hero-span-2",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Streak-Free Shine",
+  "shipped": "Streak-Free Shine"
+ },
+ {
+  "page": "Cleaning-Aid-Wipers.html",
   "key": "hero-sub",
   "kind": "text",
   "section": "hero",
   "label": "Hero — 12 SparkMate wipers — floor, glass and bathroom …",
   "shipped": "12 SparkMate wipers — floor, glass and bathroom styles — engineered for a fast, streak-free clean in homes across India since 1971."
+ },
+ {
+  "page": "Cleaning-Aid-Wipers.html",
+  "key": "hero-a-1",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — ← All Cleaning Aid",
+  "shipped": "← All Cleaning Aid"
+ },
+ {
+  "page": "Cleaning-Aid-Wipers.html",
+  "key": "hero-span-3",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Scroll",
+  "shipped": "Scroll"
  },
  {
   "page": "Cleaning-Aid-Wipers.html",
@@ -3387,6 +5619,62 @@
  },
  {
   "page": "Cleaning-Aid-Wipers.html",
+  "key": "value-span-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — (SINCE 1971)",
+  "shipped": "(SINCE 1971)"
+ },
+ {
+  "page": "Cleaning-Aid-Wipers.html",
+  "key": "value-span-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 54",
+  "shipped": "54"
+ },
+ {
+  "page": "Cleaning-Aid-Wipers.html",
+  "key": "value-div-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Years of trust",
+  "shipped": "Years of trust"
+ },
+ {
+  "page": "Cleaning-Aid-Wipers.html",
+  "key": "value-span-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 1000",
+  "shipped": "1000"
+ },
+ {
+  "page": "Cleaning-Aid-Wipers.html",
+  "key": "value-div-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Products & SKUs",
+  "shipped": "Products & SKUs"
+ },
+ {
+  "page": "Cleaning-Aid-Wipers.html",
+  "key": "value-span-4",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 6",
+  "shipped": "6"
+ },
+ {
+  "page": "Cleaning-Aid-Wipers.html",
+  "key": "value-div-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Trusted brands",
+  "shipped": "Trusted brands"
+ },
+ {
+  "page": "Cleaning-Aid-Wipers.html",
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
@@ -3403,6 +5691,22 @@
  },
  {
   "page": "Cleaning-Aid.html",
+  "key": "site-support-bar",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Customer Support - 022-49702803/06",
+  "shipped": "Customer Support - 022-49702803/06"
+ },
+ {
+  "page": "Cleaning-Aid.html",
+  "key": "hero-pretext",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Cleaning Aid Range",
+  "shipped": "Cleaning Aid Range"
+ },
+ {
+  "page": "Cleaning-Aid.html",
   "key": "hero-title",
   "kind": "text",
   "section": "hero",
@@ -3411,11 +5715,35 @@
  },
  {
   "page": "Cleaning-Aid.html",
+  "key": "hero-span-2",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Sparkling Home",
+  "shipped": "Sparkling Home"
+ },
+ {
+  "page": "Cleaning-Aid.html",
   "key": "hero-sub",
   "kind": "text",
   "section": "hero",
   "label": "Hero — 66 cleaning essentials — spin mops, brooms, wipe…",
   "shipped": "66 cleaning essentials — spin mops, brooms, wipers, brushes and more — engineered by SparkMate and Crystal to make everyday cleaning effortless, for homes across India since 1971."
+ },
+ {
+  "page": "Cleaning-Aid.html",
+  "key": "hero-a-1",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Featured Collections",
+  "shipped": "Featured Collections"
+ },
+ {
+  "page": "Cleaning-Aid.html",
+  "key": "hero-span-3",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Scroll",
+  "shipped": "Scroll"
  },
  {
   "page": "Cleaning-Aid.html",
@@ -3467,6 +5795,62 @@
  },
  {
   "page": "Cleaning-Aid.html",
+  "key": "value-span-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — (SINCE 1971)",
+  "shipped": "(SINCE 1971)"
+ },
+ {
+  "page": "Cleaning-Aid.html",
+  "key": "value-span-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 54",
+  "shipped": "54"
+ },
+ {
+  "page": "Cleaning-Aid.html",
+  "key": "value-div-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Years of trust",
+  "shipped": "Years of trust"
+ },
+ {
+  "page": "Cleaning-Aid.html",
+  "key": "value-span-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 1000",
+  "shipped": "1000"
+ },
+ {
+  "page": "Cleaning-Aid.html",
+  "key": "value-div-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Products & SKUs",
+  "shipped": "Products & SKUs"
+ },
+ {
+  "page": "Cleaning-Aid.html",
+  "key": "value-span-4",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 6",
+  "shipped": "6"
+ },
+ {
+  "page": "Cleaning-Aid.html",
+  "key": "value-div-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Trusted brands",
+  "shipped": "Trusted brands"
+ },
+ {
+  "page": "Cleaning-Aid.html",
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
@@ -3483,11 +5867,35 @@
  },
  {
   "page": "Contact.html",
+  "key": "site-support-bar",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Customer Support - 022-49702803/06",
+  "shipped": "Customer Support - 022-49702803/06"
+ },
+ {
+  "page": "Contact.html",
+  "key": "hero-pretext",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Contact · We're here to help",
+  "shipped": "Contact · We're here to help"
+ },
+ {
+  "page": "Contact.html",
   "key": "hero-title",
   "kind": "text",
   "section": "hero",
   "label": "Hero — Let's bring Crystal home",
   "shipped": "Let's bring Crystal home"
+ },
+ {
+  "page": "Contact.html",
+  "key": "hero-span-2",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Crystal",
+  "shipped": "Crystal"
  },
  {
   "page": "Contact.html",
@@ -3512,6 +5920,46 @@
   "section": "reach",
   "label": "Reach — Fill in the form and the right team at Crystal w…",
   "shipped": "Fill in the form and the right team at Crystal will reach out. Fields marked with * are required."
+ },
+ {
+  "page": "Contact.html",
+  "key": "reach-span-1",
+  "kind": "text",
+  "section": "reach",
+  "label": "Reach — Please enter your name.",
+  "shipped": "Please enter your name."
+ },
+ {
+  "page": "Contact.html",
+  "key": "reach-span-2",
+  "kind": "text",
+  "section": "reach",
+  "label": "Reach — Enter a valid email address.",
+  "shipped": "Enter a valid email address."
+ },
+ {
+  "page": "Contact.html",
+  "key": "reach-span-3",
+  "kind": "text",
+  "section": "reach",
+  "label": "Reach — Enter a valid phone number.",
+  "shipped": "Enter a valid phone number."
+ },
+ {
+  "page": "Contact.html",
+  "key": "reach-span-4",
+  "kind": "text",
+  "section": "reach",
+  "label": "Reach — Please choose a subject.",
+  "shipped": "Please choose a subject."
+ },
+ {
+  "page": "Contact.html",
+  "key": "reach-span-5",
+  "kind": "text",
+  "section": "reach",
+  "label": "Reach — Please enter a message (at least 10 characters).",
+  "shipped": "Please enter a message (at least 10 characters)."
  },
  {
   "page": "Contact.html",
@@ -3563,11 +6011,43 @@
  },
  {
   "page": "Contact.html",
+  "key": "reach-a-1",
+  "kind": "text",
+  "section": "reach",
+  "label": "Reach — 022-49702803 / 06",
+  "shipped": "022-49702803 / 06"
+ },
+ {
+  "page": "Contact.html",
+  "key": "reach-span-6",
+  "kind": "text",
+  "section": "reach",
+  "label": "Reach — Mon–Sat, 10:00 AM – 6:30 PM IST",
+  "shipped": "Mon–Sat, 10:00 AM – 6:30 PM IST"
+ },
+ {
+  "page": "Contact.html",
   "key": "reach-h4-4",
   "kind": "text",
   "section": "reach",
   "label": "Reach — Email Us",
   "shipped": "Email Us"
+ },
+ {
+  "page": "Contact.html",
+  "key": "reach-a-2",
+  "kind": "text",
+  "section": "reach",
+  "label": "Reach — sales@crystalcook.com",
+  "shipped": "sales@crystalcook.com"
+ },
+ {
+  "page": "Contact.html",
+  "key": "reach-a-3",
+  "kind": "text",
+  "section": "reach",
+  "label": "Reach — info@crystalcook.com",
+  "shipped": "info@crystalcook.com"
  },
  {
   "page": "Contact.html",
@@ -3595,6 +6075,14 @@
  },
  {
   "page": "Contact.html",
+  "key": "location-span-1",
+  "kind": "text",
+  "section": "location",
+  "label": "Location — Manufacturing Unit",
+  "shipped": "Manufacturing Unit"
+ },
+ {
+  "page": "Contact.html",
   "key": "location-h4-1",
   "kind": "text",
   "section": "location",
@@ -3608,6 +6096,14 @@
   "section": "location",
   "label": "Location — G.I.D.C Metoda, Rajkot 360021, Gujarat, India",
   "shipped": "G.I.D.C Metoda, Rajkot 360021, Gujarat, India"
+ },
+ {
+  "page": "Contact.html",
+  "key": "location-span-2",
+  "kind": "text",
+  "section": "location",
+  "label": "Location — Corporate Office",
+  "shipped": "Corporate Office"
  },
  {
   "page": "Contact.html",
@@ -3627,6 +6123,22 @@
  },
  {
   "page": "Cooktop.html",
+  "key": "site-support-bar",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Customer Support - 022-49702803/06",
+  "shipped": "Customer Support - 022-49702803/06"
+ },
+ {
+  "page": "Cooktop.html",
+  "key": "hero-pretext",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Cooktop Range",
+  "shipped": "Cooktop Range"
+ },
+ {
+  "page": "Cooktop.html",
   "key": "hero-title",
   "kind": "text",
   "section": "hero",
@@ -3635,11 +6147,35 @@
  },
  {
   "page": "Cooktop.html",
+  "key": "hero-span-2",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Cooktops",
+  "shipped": "Cooktops"
+ },
+ {
+  "page": "Cooktop.html",
   "key": "hero-sub",
   "kind": "text",
   "section": "hero",
   "label": "Hero — From sleek glass-top gas stoves to radiant infra…",
   "shipped": "From sleek glass-top gas stoves to radiant infrared and induction cooktops — engineered for even heat, safety and everyday reliability in Indian kitchens."
+ },
+ {
+  "page": "Cooktop.html",
+  "key": "hero-a-1",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Featured Collections",
+  "shipped": "Featured Collections"
+ },
+ {
+  "page": "Cooktop.html",
+  "key": "hero-span-3",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Scroll",
+  "shipped": "Scroll"
  },
  {
   "page": "Cooktop.html",
@@ -3691,6 +6227,62 @@
  },
  {
   "page": "Cooktop.html",
+  "key": "value-span-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — (SINCE 1971)",
+  "shipped": "(SINCE 1971)"
+ },
+ {
+  "page": "Cooktop.html",
+  "key": "value-span-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 54",
+  "shipped": "54"
+ },
+ {
+  "page": "Cooktop.html",
+  "key": "value-div-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Years of trust",
+  "shipped": "Years of trust"
+ },
+ {
+  "page": "Cooktop.html",
+  "key": "value-span-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 1000",
+  "shipped": "1000"
+ },
+ {
+  "page": "Cooktop.html",
+  "key": "value-div-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Products & SKUs",
+  "shipped": "Products & SKUs"
+ },
+ {
+  "page": "Cooktop.html",
+  "key": "value-span-4",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 6",
+  "shipped": "6"
+ },
+ {
+  "page": "Cooktop.html",
+  "key": "value-div-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Trusted brands",
+  "shipped": "Trusted brands"
+ },
+ {
+  "page": "Cooktop.html",
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
@@ -3707,11 +6299,35 @@
  },
  {
   "page": "Cookware-Cast-Iron.html",
+  "key": "site-support-bar",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Customer Support - 022-49702803/06",
+  "shipped": "Customer Support - 022-49702803/06"
+ },
+ {
+  "page": "Cookware-Cast-Iron.html",
+  "key": "hero-pretext",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Cookware · Cast Iron",
+  "shipped": "Cookware · Cast Iron"
+ },
+ {
+  "page": "Cookware-Cast-Iron.html",
   "key": "hero-title",
   "kind": "text",
   "section": "hero",
   "label": "Hero — Pre-Seasoned Cast Iron Cookware",
   "shipped": "Pre-Seasoned Cast Iron Cookware"
+ },
+ {
+  "page": "Cookware-Cast-Iron.html",
+  "key": "hero-span-2",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Cast Iron",
+  "shipped": "Cast Iron"
  },
  {
   "page": "Cookware-Cast-Iron.html",
@@ -3779,6 +6395,22 @@
  },
  {
   "page": "Cookware-Cast-Iron.html",
+  "key": "hero-a-1",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Featured Collections",
+  "shipped": "Featured Collections"
+ },
+ {
+  "page": "Cookware-Cast-Iron.html",
+  "key": "hero-span-3",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Scroll",
+  "shipped": "Scroll"
+ },
+ {
+  "page": "Cookware-Cast-Iron.html",
   "key": "browse-h2-1",
   "kind": "text",
   "section": "browse",
@@ -3827,6 +6459,62 @@
  },
  {
   "page": "Cookware-Cast-Iron.html",
+  "key": "value-span-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — (SINCE 1971)",
+  "shipped": "(SINCE 1971)"
+ },
+ {
+  "page": "Cookware-Cast-Iron.html",
+  "key": "value-span-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 54",
+  "shipped": "54"
+ },
+ {
+  "page": "Cookware-Cast-Iron.html",
+  "key": "value-div-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Years of trust",
+  "shipped": "Years of trust"
+ },
+ {
+  "page": "Cookware-Cast-Iron.html",
+  "key": "value-span-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 1000",
+  "shipped": "1000"
+ },
+ {
+  "page": "Cookware-Cast-Iron.html",
+  "key": "value-div-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Products & SKUs",
+  "shipped": "Products & SKUs"
+ },
+ {
+  "page": "Cookware-Cast-Iron.html",
+  "key": "value-span-4",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 6",
+  "shipped": "6"
+ },
+ {
+  "page": "Cookware-Cast-Iron.html",
+  "key": "value-div-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Trusted brands",
+  "shipped": "Trusted brands"
+ },
+ {
+  "page": "Cookware-Cast-Iron.html",
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
@@ -3843,11 +6531,35 @@
  },
  {
   "page": "Cookware-Hard-Anodised.html",
+  "key": "site-support-bar",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Customer Support - 022-49702803/06",
+  "shipped": "Customer Support - 022-49702803/06"
+ },
+ {
+  "page": "Cookware-Hard-Anodised.html",
+  "key": "hero-pretext",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Cookware · Hard Anodised",
+  "shipped": "Cookware · Hard Anodised"
+ },
+ {
+  "page": "Cookware-Hard-Anodised.html",
   "key": "hero-title",
   "kind": "text",
   "section": "hero",
   "label": "Hero — Hard Anodised Cookware",
   "shipped": "Hard Anodised Cookware"
+ },
+ {
+  "page": "Cookware-Hard-Anodised.html",
+  "key": "hero-span-2",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Anodised",
+  "shipped": "Anodised"
  },
  {
   "page": "Cookware-Hard-Anodised.html",
@@ -3899,6 +6611,22 @@
  },
  {
   "page": "Cookware-Hard-Anodised.html",
+  "key": "hero-a-1",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Featured Collections",
+  "shipped": "Featured Collections"
+ },
+ {
+  "page": "Cookware-Hard-Anodised.html",
+  "key": "hero-span-3",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Scroll",
+  "shipped": "Scroll"
+ },
+ {
+  "page": "Cookware-Hard-Anodised.html",
   "key": "browse-h2-1",
   "kind": "text",
   "section": "browse",
@@ -3947,6 +6675,62 @@
  },
  {
   "page": "Cookware-Hard-Anodised.html",
+  "key": "value-span-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — (SINCE 1971)",
+  "shipped": "(SINCE 1971)"
+ },
+ {
+  "page": "Cookware-Hard-Anodised.html",
+  "key": "value-span-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 54",
+  "shipped": "54"
+ },
+ {
+  "page": "Cookware-Hard-Anodised.html",
+  "key": "value-div-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Years of trust",
+  "shipped": "Years of trust"
+ },
+ {
+  "page": "Cookware-Hard-Anodised.html",
+  "key": "value-span-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 1000",
+  "shipped": "1000"
+ },
+ {
+  "page": "Cookware-Hard-Anodised.html",
+  "key": "value-div-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Products & SKUs",
+  "shipped": "Products & SKUs"
+ },
+ {
+  "page": "Cookware-Hard-Anodised.html",
+  "key": "value-span-4",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 6",
+  "shipped": "6"
+ },
+ {
+  "page": "Cookware-Hard-Anodised.html",
+  "key": "value-div-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Trusted brands",
+  "shipped": "Trusted brands"
+ },
+ {
+  "page": "Cookware-Hard-Anodised.html",
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
@@ -3963,11 +6747,35 @@
  },
  {
   "page": "Cookware-Non-Stick-Mini.html",
+  "key": "site-support-bar",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Customer Support - 022-49702803/06",
+  "shipped": "Customer Support - 022-49702803/06"
+ },
+ {
+  "page": "Cookware-Non-Stick-Mini.html",
+  "key": "hero-pretext",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Cookware · Non-Stick Mini",
+  "shipped": "Cookware · Non-Stick Mini"
+ },
+ {
+  "page": "Cookware-Non-Stick-Mini.html",
   "key": "hero-title",
   "kind": "text",
   "section": "hero",
   "label": "Hero — Compact Non-Stick Mini Cookware",
   "shipped": "Compact Non-Stick Mini Cookware"
+ },
+ {
+  "page": "Cookware-Non-Stick-Mini.html",
+  "key": "hero-span-2",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Non-Stick Mini",
+  "shipped": "Non-Stick Mini"
  },
  {
   "page": "Cookware-Non-Stick-Mini.html",
@@ -4035,6 +6843,22 @@
  },
  {
   "page": "Cookware-Non-Stick-Mini.html",
+  "key": "hero-a-1",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Featured Collections",
+  "shipped": "Featured Collections"
+ },
+ {
+  "page": "Cookware-Non-Stick-Mini.html",
+  "key": "hero-span-3",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Scroll",
+  "shipped": "Scroll"
+ },
+ {
+  "page": "Cookware-Non-Stick-Mini.html",
   "key": "browse-h2-1",
   "kind": "text",
   "section": "browse",
@@ -4083,6 +6907,62 @@
  },
  {
   "page": "Cookware-Non-Stick-Mini.html",
+  "key": "value-span-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — (SINCE 1971)",
+  "shipped": "(SINCE 1971)"
+ },
+ {
+  "page": "Cookware-Non-Stick-Mini.html",
+  "key": "value-span-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 54",
+  "shipped": "54"
+ },
+ {
+  "page": "Cookware-Non-Stick-Mini.html",
+  "key": "value-div-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Years of trust",
+  "shipped": "Years of trust"
+ },
+ {
+  "page": "Cookware-Non-Stick-Mini.html",
+  "key": "value-span-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 1000",
+  "shipped": "1000"
+ },
+ {
+  "page": "Cookware-Non-Stick-Mini.html",
+  "key": "value-div-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Products & SKUs",
+  "shipped": "Products & SKUs"
+ },
+ {
+  "page": "Cookware-Non-Stick-Mini.html",
+  "key": "value-span-4",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 6",
+  "shipped": "6"
+ },
+ {
+  "page": "Cookware-Non-Stick-Mini.html",
+  "key": "value-div-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Trusted brands",
+  "shipped": "Trusted brands"
+ },
+ {
+  "page": "Cookware-Non-Stick-Mini.html",
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
@@ -4099,11 +6979,35 @@
  },
  {
   "page": "Cookware-Non-Stick.html",
+  "key": "site-support-bar",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Customer Support - 022-49702803/06",
+  "shipped": "Customer Support - 022-49702803/06"
+ },
+ {
+  "page": "Cookware-Non-Stick.html",
+  "key": "hero-pretext",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Cookware · Non-Stick",
+  "shipped": "Cookware · Non-Stick"
+ },
+ {
+  "page": "Cookware-Non-Stick.html",
   "key": "hero-title",
   "kind": "text",
   "section": "hero",
   "label": "Hero — Everyday Non-Stick Cookware",
   "shipped": "Everyday Non-Stick Cookware"
+ },
+ {
+  "page": "Cookware-Non-Stick.html",
+  "key": "hero-span-2",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Non-Stick",
+  "shipped": "Non-Stick"
  },
  {
   "page": "Cookware-Non-Stick.html",
@@ -4187,6 +7091,22 @@
  },
  {
   "page": "Cookware-Non-Stick.html",
+  "key": "hero-a-1",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Featured Collections",
+  "shipped": "Featured Collections"
+ },
+ {
+  "page": "Cookware-Non-Stick.html",
+  "key": "hero-span-3",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Scroll",
+  "shipped": "Scroll"
+ },
+ {
+  "page": "Cookware-Non-Stick.html",
   "key": "browse-h2-1",
   "kind": "text",
   "section": "browse",
@@ -4235,6 +7155,62 @@
  },
  {
   "page": "Cookware-Non-Stick.html",
+  "key": "value-span-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — (SINCE 1971)",
+  "shipped": "(SINCE 1971)"
+ },
+ {
+  "page": "Cookware-Non-Stick.html",
+  "key": "value-span-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 54",
+  "shipped": "54"
+ },
+ {
+  "page": "Cookware-Non-Stick.html",
+  "key": "value-div-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Years of trust",
+  "shipped": "Years of trust"
+ },
+ {
+  "page": "Cookware-Non-Stick.html",
+  "key": "value-span-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 1000",
+  "shipped": "1000"
+ },
+ {
+  "page": "Cookware-Non-Stick.html",
+  "key": "value-div-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Products & SKUs",
+  "shipped": "Products & SKUs"
+ },
+ {
+  "page": "Cookware-Non-Stick.html",
+  "key": "value-span-4",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 6",
+  "shipped": "6"
+ },
+ {
+  "page": "Cookware-Non-Stick.html",
+  "key": "value-div-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Trusted brands",
+  "shipped": "Trusted brands"
+ },
+ {
+  "page": "Cookware-Non-Stick.html",
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
@@ -4251,11 +7227,35 @@
  },
  {
   "page": "Cookware-Sandwich-Bottom-Steel.html",
+  "key": "site-support-bar",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Customer Support - 022-49702803/06",
+  "shipped": "Customer Support - 022-49702803/06"
+ },
+ {
+  "page": "Cookware-Sandwich-Bottom-Steel.html",
+  "key": "hero-pretext",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Cookware · Sandwich Bottom Steel",
+  "shipped": "Cookware · Sandwich Bottom Steel"
+ },
+ {
+  "page": "Cookware-Sandwich-Bottom-Steel.html",
   "key": "hero-title",
   "kind": "text",
   "section": "hero",
   "label": "Hero — Sandwich Bottom Steel Cookware",
   "shipped": "Sandwich Bottom Steel Cookware"
+ },
+ {
+  "page": "Cookware-Sandwich-Bottom-Steel.html",
+  "key": "hero-span-2",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Steel",
+  "shipped": "Steel"
  },
  {
   "page": "Cookware-Sandwich-Bottom-Steel.html",
@@ -4315,6 +7315,22 @@
  },
  {
   "page": "Cookware-Sandwich-Bottom-Steel.html",
+  "key": "hero-a-1",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Featured Collections",
+  "shipped": "Featured Collections"
+ },
+ {
+  "page": "Cookware-Sandwich-Bottom-Steel.html",
+  "key": "hero-span-3",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Scroll",
+  "shipped": "Scroll"
+ },
+ {
+  "page": "Cookware-Sandwich-Bottom-Steel.html",
   "key": "browse-h2-1",
   "kind": "text",
   "section": "browse",
@@ -4363,6 +7379,62 @@
  },
  {
   "page": "Cookware-Sandwich-Bottom-Steel.html",
+  "key": "value-span-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — (SINCE 1971)",
+  "shipped": "(SINCE 1971)"
+ },
+ {
+  "page": "Cookware-Sandwich-Bottom-Steel.html",
+  "key": "value-span-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 54",
+  "shipped": "54"
+ },
+ {
+  "page": "Cookware-Sandwich-Bottom-Steel.html",
+  "key": "value-div-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Years of trust",
+  "shipped": "Years of trust"
+ },
+ {
+  "page": "Cookware-Sandwich-Bottom-Steel.html",
+  "key": "value-span-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 1000",
+  "shipped": "1000"
+ },
+ {
+  "page": "Cookware-Sandwich-Bottom-Steel.html",
+  "key": "value-div-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Products & SKUs",
+  "shipped": "Products & SKUs"
+ },
+ {
+  "page": "Cookware-Sandwich-Bottom-Steel.html",
+  "key": "value-span-4",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 6",
+  "shipped": "6"
+ },
+ {
+  "page": "Cookware-Sandwich-Bottom-Steel.html",
+  "key": "value-div-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Trusted brands",
+  "shipped": "Trusted brands"
+ },
+ {
+  "page": "Cookware-Sandwich-Bottom-Steel.html",
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
@@ -4379,11 +7451,35 @@
  },
  {
   "page": "Cookware-Tripro.html",
+  "key": "site-support-bar",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Customer Support - 022-49702803/06",
+  "shipped": "Customer Support - 022-49702803/06"
+ },
+ {
+  "page": "Cookware-Tripro.html",
+  "key": "hero-pretext",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Cookware · Tripro",
+  "shipped": "Cookware · Tripro"
+ },
+ {
+  "page": "Cookware-Tripro.html",
   "key": "hero-title",
   "kind": "text",
   "section": "hero",
   "label": "Hero — Tri-Ply Induction Tripro Cookware",
   "shipped": "Tri-Ply Induction Tripro Cookware"
+ },
+ {
+  "page": "Cookware-Tripro.html",
+  "key": "hero-span-2",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Tripro",
+  "shipped": "Tripro"
  },
  {
   "page": "Cookware-Tripro.html",
@@ -4435,6 +7531,22 @@
  },
  {
   "page": "Cookware-Tripro.html",
+  "key": "hero-a-1",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Featured Collections",
+  "shipped": "Featured Collections"
+ },
+ {
+  "page": "Cookware-Tripro.html",
+  "key": "hero-span-3",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Scroll",
+  "shipped": "Scroll"
+ },
+ {
+  "page": "Cookware-Tripro.html",
   "key": "browse-h2-1",
   "kind": "text",
   "section": "browse",
@@ -4483,6 +7595,62 @@
  },
  {
   "page": "Cookware-Tripro.html",
+  "key": "value-span-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — (SINCE 1971)",
+  "shipped": "(SINCE 1971)"
+ },
+ {
+  "page": "Cookware-Tripro.html",
+  "key": "value-span-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 54",
+  "shipped": "54"
+ },
+ {
+  "page": "Cookware-Tripro.html",
+  "key": "value-div-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Years of trust",
+  "shipped": "Years of trust"
+ },
+ {
+  "page": "Cookware-Tripro.html",
+  "key": "value-span-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 1000",
+  "shipped": "1000"
+ },
+ {
+  "page": "Cookware-Tripro.html",
+  "key": "value-div-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Products & SKUs",
+  "shipped": "Products & SKUs"
+ },
+ {
+  "page": "Cookware-Tripro.html",
+  "key": "value-span-4",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 6",
+  "shipped": "6"
+ },
+ {
+  "page": "Cookware-Tripro.html",
+  "key": "value-div-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Trusted brands",
+  "shipped": "Trusted brands"
+ },
+ {
+  "page": "Cookware-Tripro.html",
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
@@ -4499,6 +7667,22 @@
  },
  {
   "page": "Cookware.html",
+  "key": "site-support-bar",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Customer Support - 022-49702803/06",
+  "shipped": "Customer Support - 022-49702803/06"
+ },
+ {
+  "page": "Cookware.html",
+  "key": "hero-pretext",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Cookware",
+  "shipped": "Cookware"
+ },
+ {
+  "page": "Cookware.html",
   "key": "hero-title",
   "kind": "text",
   "section": "hero",
@@ -4507,11 +7691,35 @@
  },
  {
   "page": "Cookware.html",
+  "key": "hero-span-2",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Non-Stick",
+  "shipped": "Non-Stick"
+ },
+ {
+  "page": "Cookware.html",
   "key": "hero-sub",
   "kind": "text",
   "section": "hero",
   "label": "Hero — Triply stainless steel, cast iron, non-stick and…",
   "shipped": "Triply stainless steel, cast iron, non-stick and hard anodised cookware built to cook faster, distribute heat evenly and last for years on gas or induction — trusted in Indian kitchens since 1971."
+ },
+ {
+  "page": "Cookware.html",
+  "key": "hero-a-1",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Featured Collections",
+  "shipped": "Featured Collections"
+ },
+ {
+  "page": "Cookware.html",
+  "key": "hero-span-3",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Scroll",
+  "shipped": "Scroll"
  },
  {
   "page": "Cookware.html",
@@ -4563,6 +7771,62 @@
  },
  {
   "page": "Cookware.html",
+  "key": "value-span-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — (SINCE 1971)",
+  "shipped": "(SINCE 1971)"
+ },
+ {
+  "page": "Cookware.html",
+  "key": "value-span-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 54",
+  "shipped": "54"
+ },
+ {
+  "page": "Cookware.html",
+  "key": "value-div-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Years of trust",
+  "shipped": "Years of trust"
+ },
+ {
+  "page": "Cookware.html",
+  "key": "value-span-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 1000",
+  "shipped": "1000"
+ },
+ {
+  "page": "Cookware.html",
+  "key": "value-div-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Products & SKUs",
+  "shipped": "Products & SKUs"
+ },
+ {
+  "page": "Cookware.html",
+  "key": "value-span-4",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 6",
+  "shipped": "6"
+ },
+ {
+  "page": "Cookware.html",
+  "key": "value-div-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Trusted brands",
+  "shipped": "Trusted brands"
+ },
+ {
+  "page": "Cookware.html",
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
@@ -4579,6 +7843,22 @@
  },
  {
   "page": "Electric-Appliances-Air-Fryer.html",
+  "key": "site-support-bar",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Customer Support - 022-49702803/06",
+  "shipped": "Customer Support - 022-49702803/06"
+ },
+ {
+  "page": "Electric-Appliances-Air-Fryer.html",
+  "key": "hero-pretext",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Air Fryers",
+  "shipped": "Air Fryers"
+ },
+ {
+  "page": "Electric-Appliances-Air-Fryer.html",
   "key": "hero-title",
   "kind": "text",
   "section": "hero",
@@ -4587,11 +7867,35 @@
  },
  {
   "page": "Electric-Appliances-Air-Fryer.html",
+  "key": "hero-span-2",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Everyday",
+  "shipped": "Everyday"
+ },
+ {
+  "page": "Electric-Appliances-Air-Fryer.html",
   "key": "hero-sub",
   "kind": "text",
   "section": "hero",
   "label": "Hero — Crystal's air fryer range is on its way — for he…",
   "shipped": "Crystal's air fryer range is on its way — for healthier, everyday cooking, built on the trust Indian homes have placed in us since 1971."
+ },
+ {
+  "page": "Electric-Appliances-Air-Fryer.html",
+  "key": "hero-a-1",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — ← All Electric Appliances",
+  "shipped": "← All Electric Appliances"
+ },
+ {
+  "page": "Electric-Appliances-Air-Fryer.html",
+  "key": "hero-span-3",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Scroll",
+  "shipped": "Scroll"
  },
  {
   "page": "Electric-Appliances-Air-Fryer.html",
@@ -4643,6 +7947,62 @@
  },
  {
   "page": "Electric-Appliances-Air-Fryer.html",
+  "key": "value-span-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — (SINCE 1971)",
+  "shipped": "(SINCE 1971)"
+ },
+ {
+  "page": "Electric-Appliances-Air-Fryer.html",
+  "key": "value-span-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 54",
+  "shipped": "54"
+ },
+ {
+  "page": "Electric-Appliances-Air-Fryer.html",
+  "key": "value-div-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Years of trust",
+  "shipped": "Years of trust"
+ },
+ {
+  "page": "Electric-Appliances-Air-Fryer.html",
+  "key": "value-span-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 1000",
+  "shipped": "1000"
+ },
+ {
+  "page": "Electric-Appliances-Air-Fryer.html",
+  "key": "value-div-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Products & SKUs",
+  "shipped": "Products & SKUs"
+ },
+ {
+  "page": "Electric-Appliances-Air-Fryer.html",
+  "key": "value-span-4",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 6",
+  "shipped": "6"
+ },
+ {
+  "page": "Electric-Appliances-Air-Fryer.html",
+  "key": "value-div-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Trusted brands",
+  "shipped": "Trusted brands"
+ },
+ {
+  "page": "Electric-Appliances-Air-Fryer.html",
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
@@ -4659,6 +8019,22 @@
  },
  {
   "page": "Electric-Appliances-Chimney.html",
+  "key": "site-support-bar",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Customer Support - 022-49702803/06",
+  "shipped": "Customer Support - 022-49702803/06"
+ },
+ {
+  "page": "Electric-Appliances-Chimney.html",
+  "key": "hero-pretext",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Kitchen Chimneys",
+  "shipped": "Kitchen Chimneys"
+ },
+ {
+  "page": "Electric-Appliances-Chimney.html",
   "key": "hero-title",
   "kind": "text",
   "section": "hero",
@@ -4667,11 +8043,35 @@
  },
  {
   "page": "Electric-Appliances-Chimney.html",
+  "key": "hero-span-2",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Clutter-Free Kitchen",
+  "shipped": "Clutter-Free Kitchen"
+ },
+ {
+  "page": "Electric-Appliances-Chimney.html",
   "key": "hero-sub",
   "kind": "text",
   "section": "hero",
   "label": "Hero — Crystal's kitchen chimney range is on its way — …",
   "shipped": "Crystal's kitchen chimney range is on its way — engineered for strong suction and easy everyday cleaning, backed by the trust Indian homes have placed in us since 1971."
+ },
+ {
+  "page": "Electric-Appliances-Chimney.html",
+  "key": "hero-a-1",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — ← All Electric Appliances",
+  "shipped": "← All Electric Appliances"
+ },
+ {
+  "page": "Electric-Appliances-Chimney.html",
+  "key": "hero-span-3",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Scroll",
+  "shipped": "Scroll"
  },
  {
   "page": "Electric-Appliances-Chimney.html",
@@ -4723,6 +8123,62 @@
  },
  {
   "page": "Electric-Appliances-Chimney.html",
+  "key": "value-span-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — (SINCE 1971)",
+  "shipped": "(SINCE 1971)"
+ },
+ {
+  "page": "Electric-Appliances-Chimney.html",
+  "key": "value-span-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 54",
+  "shipped": "54"
+ },
+ {
+  "page": "Electric-Appliances-Chimney.html",
+  "key": "value-div-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Years of trust",
+  "shipped": "Years of trust"
+ },
+ {
+  "page": "Electric-Appliances-Chimney.html",
+  "key": "value-span-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 1000",
+  "shipped": "1000"
+ },
+ {
+  "page": "Electric-Appliances-Chimney.html",
+  "key": "value-div-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Products & SKUs",
+  "shipped": "Products & SKUs"
+ },
+ {
+  "page": "Electric-Appliances-Chimney.html",
+  "key": "value-span-4",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 6",
+  "shipped": "6"
+ },
+ {
+  "page": "Electric-Appliances-Chimney.html",
+  "key": "value-div-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Trusted brands",
+  "shipped": "Trusted brands"
+ },
+ {
+  "page": "Electric-Appliances-Chimney.html",
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
@@ -4739,6 +8195,22 @@
  },
  {
   "page": "Electric-Appliances-Food-Processor.html",
+  "key": "site-support-bar",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Customer Support - 022-49702803/06",
+  "shipped": "Customer Support - 022-49702803/06"
+ },
+ {
+  "page": "Electric-Appliances-Food-Processor.html",
+  "key": "hero-pretext",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Food Processors",
+  "shipped": "Food Processors"
+ },
+ {
+  "page": "Electric-Appliances-Food-Processor.html",
   "key": "hero-title",
   "kind": "text",
   "section": "hero",
@@ -4747,11 +8219,35 @@
  },
  {
   "page": "Electric-Appliances-Food-Processor.html",
+  "key": "hero-span-2",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Cook Smarter",
+  "shipped": "Cook Smarter"
+ },
+ {
+  "page": "Electric-Appliances-Food-Processor.html",
   "key": "hero-sub",
   "kind": "text",
   "section": "hero",
   "label": "Hero — The Crystal kitchen machine food processor — bui…",
   "shipped": "The Crystal kitchen machine food processor — built to chop, mix and prep faster, engineered for the convenience and lasting performance modern Indian kitchens demand."
+ },
+ {
+  "page": "Electric-Appliances-Food-Processor.html",
+  "key": "hero-a-1",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — ← All Electric Appliances",
+  "shipped": "← All Electric Appliances"
+ },
+ {
+  "page": "Electric-Appliances-Food-Processor.html",
+  "key": "hero-span-3",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Scroll",
+  "shipped": "Scroll"
  },
  {
   "page": "Electric-Appliances-Food-Processor.html",
@@ -4803,6 +8299,62 @@
  },
  {
   "page": "Electric-Appliances-Food-Processor.html",
+  "key": "value-span-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — (SINCE 1971)",
+  "shipped": "(SINCE 1971)"
+ },
+ {
+  "page": "Electric-Appliances-Food-Processor.html",
+  "key": "value-span-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 54",
+  "shipped": "54"
+ },
+ {
+  "page": "Electric-Appliances-Food-Processor.html",
+  "key": "value-div-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Years of trust",
+  "shipped": "Years of trust"
+ },
+ {
+  "page": "Electric-Appliances-Food-Processor.html",
+  "key": "value-span-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 1000",
+  "shipped": "1000"
+ },
+ {
+  "page": "Electric-Appliances-Food-Processor.html",
+  "key": "value-div-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Products & SKUs",
+  "shipped": "Products & SKUs"
+ },
+ {
+  "page": "Electric-Appliances-Food-Processor.html",
+  "key": "value-span-4",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 6",
+  "shipped": "6"
+ },
+ {
+  "page": "Electric-Appliances-Food-Processor.html",
+  "key": "value-div-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Trusted brands",
+  "shipped": "Trusted brands"
+ },
+ {
+  "page": "Electric-Appliances-Food-Processor.html",
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
@@ -4819,6 +8371,22 @@
  },
  {
   "page": "Electric-Appliances-Ice-Cream-Maker.html",
+  "key": "site-support-bar",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Customer Support - 022-49702803/06",
+  "shipped": "Customer Support - 022-49702803/06"
+ },
+ {
+  "page": "Electric-Appliances-Ice-Cream-Maker.html",
+  "key": "hero-pretext",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Ice Cream Makers",
+  "shipped": "Ice Cream Makers"
+ },
+ {
+  "page": "Electric-Appliances-Ice-Cream-Maker.html",
   "key": "hero-title",
   "kind": "text",
   "section": "hero",
@@ -4827,11 +8395,35 @@
  },
  {
   "page": "Electric-Appliances-Ice-Cream-Maker.html",
+  "key": "hero-span-2",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Made Easy",
+  "shipped": "Made Easy"
+ },
+ {
+  "page": "Electric-Appliances-Ice-Cream-Maker.html",
   "key": "hero-sub",
   "kind": "text",
   "section": "hero",
   "label": "Hero — Crystal's home ice cream maker range is on its w…",
   "shipped": "Crystal's home ice cream maker range is on its way — for effortless homemade dessert, built on the trust our kitchens have earned since 1971."
+ },
+ {
+  "page": "Electric-Appliances-Ice-Cream-Maker.html",
+  "key": "hero-a-1",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — ← All Electric Appliances",
+  "shipped": "← All Electric Appliances"
+ },
+ {
+  "page": "Electric-Appliances-Ice-Cream-Maker.html",
+  "key": "hero-span-3",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Scroll",
+  "shipped": "Scroll"
  },
  {
   "page": "Electric-Appliances-Ice-Cream-Maker.html",
@@ -4883,6 +8475,62 @@
  },
  {
   "page": "Electric-Appliances-Ice-Cream-Maker.html",
+  "key": "value-span-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — (SINCE 1971)",
+  "shipped": "(SINCE 1971)"
+ },
+ {
+  "page": "Electric-Appliances-Ice-Cream-Maker.html",
+  "key": "value-span-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 54",
+  "shipped": "54"
+ },
+ {
+  "page": "Electric-Appliances-Ice-Cream-Maker.html",
+  "key": "value-div-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Years of trust",
+  "shipped": "Years of trust"
+ },
+ {
+  "page": "Electric-Appliances-Ice-Cream-Maker.html",
+  "key": "value-span-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 1000",
+  "shipped": "1000"
+ },
+ {
+  "page": "Electric-Appliances-Ice-Cream-Maker.html",
+  "key": "value-div-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Products & SKUs",
+  "shipped": "Products & SKUs"
+ },
+ {
+  "page": "Electric-Appliances-Ice-Cream-Maker.html",
+  "key": "value-span-4",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 6",
+  "shipped": "6"
+ },
+ {
+  "page": "Electric-Appliances-Ice-Cream-Maker.html",
+  "key": "value-div-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Trusted brands",
+  "shipped": "Trusted brands"
+ },
+ {
+  "page": "Electric-Appliances-Ice-Cream-Maker.html",
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
@@ -4899,6 +8547,22 @@
  },
  {
   "page": "Electric-Appliances-Iron.html",
+  "key": "site-support-bar",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Customer Support - 022-49702803/06",
+  "shipped": "Customer Support - 022-49702803/06"
+ },
+ {
+  "page": "Electric-Appliances-Iron.html",
+  "key": "hero-pretext",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Electric Irons",
+  "shipped": "Electric Irons"
+ },
+ {
+  "page": "Electric-Appliances-Iron.html",
   "key": "hero-title",
   "kind": "text",
   "section": "hero",
@@ -4907,11 +8571,35 @@
  },
  {
   "page": "Electric-Appliances-Iron.html",
+  "key": "hero-span-2",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Effortlessly",
+  "shipped": "Effortlessly"
+ },
+ {
+  "page": "Electric-Appliances-Iron.html",
   "key": "hero-sub",
   "kind": "text",
   "section": "hero",
   "label": "Hero — Crystal's electric iron range is on its way — bu…",
   "shipped": "Crystal's electric iron range is on its way — built for smooth, reliable everyday pressing, backed by over 50 years of trusted manufacturing."
+ },
+ {
+  "page": "Electric-Appliances-Iron.html",
+  "key": "hero-a-1",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — ← All Electric Appliances",
+  "shipped": "← All Electric Appliances"
+ },
+ {
+  "page": "Electric-Appliances-Iron.html",
+  "key": "hero-span-3",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Scroll",
+  "shipped": "Scroll"
  },
  {
   "page": "Electric-Appliances-Iron.html",
@@ -4963,6 +8651,62 @@
  },
  {
   "page": "Electric-Appliances-Iron.html",
+  "key": "value-span-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — (SINCE 1971)",
+  "shipped": "(SINCE 1971)"
+ },
+ {
+  "page": "Electric-Appliances-Iron.html",
+  "key": "value-span-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 54",
+  "shipped": "54"
+ },
+ {
+  "page": "Electric-Appliances-Iron.html",
+  "key": "value-div-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Years of trust",
+  "shipped": "Years of trust"
+ },
+ {
+  "page": "Electric-Appliances-Iron.html",
+  "key": "value-span-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 1000",
+  "shipped": "1000"
+ },
+ {
+  "page": "Electric-Appliances-Iron.html",
+  "key": "value-div-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Products & SKUs",
+  "shipped": "Products & SKUs"
+ },
+ {
+  "page": "Electric-Appliances-Iron.html",
+  "key": "value-span-4",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 6",
+  "shipped": "6"
+ },
+ {
+  "page": "Electric-Appliances-Iron.html",
+  "key": "value-div-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Trusted brands",
+  "shipped": "Trusted brands"
+ },
+ {
+  "page": "Electric-Appliances-Iron.html",
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
@@ -4979,6 +8723,22 @@
  },
  {
   "page": "Electric-Appliances-JMG.html",
+  "key": "site-support-bar",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Customer Support - 022-49702803/06",
+  "shipped": "Customer Support - 022-49702803/06"
+ },
+ {
+  "page": "Electric-Appliances-JMG.html",
+  "key": "hero-pretext",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Juicer Mixer Grinder",
+  "shipped": "Juicer Mixer Grinder"
+ },
+ {
+  "page": "Electric-Appliances-JMG.html",
   "key": "hero-title",
   "kind": "text",
   "section": "hero",
@@ -4987,11 +8747,35 @@
  },
  {
   "page": "Electric-Appliances-JMG.html",
+  "key": "hero-span-2",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Grind — Done",
+  "shipped": "Grind — Done"
+ },
+ {
+  "page": "Electric-Appliances-JMG.html",
   "key": "hero-sub",
   "kind": "text",
   "section": "hero",
   "label": "Hero — 2 Crystal JMGs — juicer mixer grinders built for…",
   "shipped": "2 Crystal JMGs — juicer mixer grinders built for everyday blending, grinding and juicing, engineered for the convenience and lasting performance modern Indian kitchens demand."
+ },
+ {
+  "page": "Electric-Appliances-JMG.html",
+  "key": "hero-a-1",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — ← All Electric Appliances",
+  "shipped": "← All Electric Appliances"
+ },
+ {
+  "page": "Electric-Appliances-JMG.html",
+  "key": "hero-span-3",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Scroll",
+  "shipped": "Scroll"
  },
  {
   "page": "Electric-Appliances-JMG.html",
@@ -5043,6 +8827,62 @@
  },
  {
   "page": "Electric-Appliances-JMG.html",
+  "key": "value-span-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — (SINCE 1971)",
+  "shipped": "(SINCE 1971)"
+ },
+ {
+  "page": "Electric-Appliances-JMG.html",
+  "key": "value-span-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 54",
+  "shipped": "54"
+ },
+ {
+  "page": "Electric-Appliances-JMG.html",
+  "key": "value-div-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Years of trust",
+  "shipped": "Years of trust"
+ },
+ {
+  "page": "Electric-Appliances-JMG.html",
+  "key": "value-span-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 1000",
+  "shipped": "1000"
+ },
+ {
+  "page": "Electric-Appliances-JMG.html",
+  "key": "value-div-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Products & SKUs",
+  "shipped": "Products & SKUs"
+ },
+ {
+  "page": "Electric-Appliances-JMG.html",
+  "key": "value-span-4",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 6",
+  "shipped": "6"
+ },
+ {
+  "page": "Electric-Appliances-JMG.html",
+  "key": "value-div-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Trusted brands",
+  "shipped": "Trusted brands"
+ },
+ {
+  "page": "Electric-Appliances-JMG.html",
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
@@ -5059,6 +8899,22 @@
  },
  {
   "page": "Electric-Appliances-Kettle.html",
+  "key": "site-support-bar",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Customer Support - 022-49702803/06",
+  "shipped": "Customer Support - 022-49702803/06"
+ },
+ {
+  "page": "Electric-Appliances-Kettle.html",
+  "key": "hero-pretext",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Electric Kettles",
+  "shipped": "Electric Kettles"
+ },
+ {
+  "page": "Electric-Appliances-Kettle.html",
   "key": "hero-title",
   "kind": "text",
   "section": "hero",
@@ -5067,11 +8923,35 @@
  },
  {
   "page": "Electric-Appliances-Kettle.html",
+  "key": "hero-span-2",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Everyday Ease",
+  "shipped": "Everyday Ease"
+ },
+ {
+  "page": "Electric-Appliances-Kettle.html",
   "key": "hero-sub",
   "kind": "text",
   "section": "hero",
   "label": "Hero — 4 Crystal electric kettles — sturdy steel bodies…",
   "shipped": "4 Crystal electric kettles — sturdy steel bodies engineered for fast, reliable boiling, built for the convenience and lasting performance today's Indian kitchens demand."
+ },
+ {
+  "page": "Electric-Appliances-Kettle.html",
+  "key": "hero-a-1",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — ← All Electric Appliances",
+  "shipped": "← All Electric Appliances"
+ },
+ {
+  "page": "Electric-Appliances-Kettle.html",
+  "key": "hero-span-3",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Scroll",
+  "shipped": "Scroll"
  },
  {
   "page": "Electric-Appliances-Kettle.html",
@@ -5123,6 +9003,62 @@
  },
  {
   "page": "Electric-Appliances-Kettle.html",
+  "key": "value-span-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — (SINCE 1971)",
+  "shipped": "(SINCE 1971)"
+ },
+ {
+  "page": "Electric-Appliances-Kettle.html",
+  "key": "value-span-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 54",
+  "shipped": "54"
+ },
+ {
+  "page": "Electric-Appliances-Kettle.html",
+  "key": "value-div-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Years of trust",
+  "shipped": "Years of trust"
+ },
+ {
+  "page": "Electric-Appliances-Kettle.html",
+  "key": "value-span-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 1000",
+  "shipped": "1000"
+ },
+ {
+  "page": "Electric-Appliances-Kettle.html",
+  "key": "value-div-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Products & SKUs",
+  "shipped": "Products & SKUs"
+ },
+ {
+  "page": "Electric-Appliances-Kettle.html",
+  "key": "value-span-4",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 6",
+  "shipped": "6"
+ },
+ {
+  "page": "Electric-Appliances-Kettle.html",
+  "key": "value-div-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Trusted brands",
+  "shipped": "Trusted brands"
+ },
+ {
+  "page": "Electric-Appliances-Kettle.html",
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
@@ -5139,6 +9075,22 @@
  },
  {
   "page": "Electric-Appliances-OTG.html",
+  "key": "site-support-bar",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Customer Support - 022-49702803/06",
+  "shipped": "Customer Support - 022-49702803/06"
+ },
+ {
+  "page": "Electric-Appliances-OTG.html",
+  "key": "hero-pretext",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Oven Toaster Griller",
+  "shipped": "Oven Toaster Griller"
+ },
+ {
+  "page": "Electric-Appliances-OTG.html",
   "key": "hero-title",
   "kind": "text",
   "section": "hero",
@@ -5147,11 +9099,35 @@
  },
  {
   "page": "Electric-Appliances-OTG.html",
+  "key": "hero-span-2",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Grill at Home",
+  "shipped": "Grill at Home"
+ },
+ {
+  "page": "Electric-Appliances-OTG.html",
   "key": "hero-sub",
   "kind": "text",
   "section": "hero",
   "label": "Hero — 2 Crystal OTGs — oven toaster grillers built for…",
   "shipped": "2 Crystal OTGs — oven toaster grillers built for everyday baking, toasting and grilling, engineered for the convenience modern Indian kitchens demand."
+ },
+ {
+  "page": "Electric-Appliances-OTG.html",
+  "key": "hero-a-1",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — ← All Electric Appliances",
+  "shipped": "← All Electric Appliances"
+ },
+ {
+  "page": "Electric-Appliances-OTG.html",
+  "key": "hero-span-3",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Scroll",
+  "shipped": "Scroll"
  },
  {
   "page": "Electric-Appliances-OTG.html",
@@ -5203,6 +9179,62 @@
  },
  {
   "page": "Electric-Appliances-OTG.html",
+  "key": "value-span-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — (SINCE 1971)",
+  "shipped": "(SINCE 1971)"
+ },
+ {
+  "page": "Electric-Appliances-OTG.html",
+  "key": "value-span-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 54",
+  "shipped": "54"
+ },
+ {
+  "page": "Electric-Appliances-OTG.html",
+  "key": "value-div-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Years of trust",
+  "shipped": "Years of trust"
+ },
+ {
+  "page": "Electric-Appliances-OTG.html",
+  "key": "value-span-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 1000",
+  "shipped": "1000"
+ },
+ {
+  "page": "Electric-Appliances-OTG.html",
+  "key": "value-div-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Products & SKUs",
+  "shipped": "Products & SKUs"
+ },
+ {
+  "page": "Electric-Appliances-OTG.html",
+  "key": "value-span-4",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 6",
+  "shipped": "6"
+ },
+ {
+  "page": "Electric-Appliances-OTG.html",
+  "key": "value-div-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Trusted brands",
+  "shipped": "Trusted brands"
+ },
+ {
+  "page": "Electric-Appliances-OTG.html",
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
@@ -5219,6 +9251,22 @@
  },
  {
   "page": "Electric-Appliances-Rice-Cooker.html",
+  "key": "site-support-bar",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Customer Support - 022-49702803/06",
+  "shipped": "Customer Support - 022-49702803/06"
+ },
+ {
+  "page": "Electric-Appliances-Rice-Cooker.html",
+  "key": "hero-pretext",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Electric Rice Cookers",
+  "shipped": "Electric Rice Cookers"
+ },
+ {
+  "page": "Electric-Appliances-Rice-Cooker.html",
   "key": "hero-title",
   "kind": "text",
   "section": "hero",
@@ -5227,11 +9275,35 @@
  },
  {
   "page": "Electric-Appliances-Rice-Cooker.html",
+  "key": "hero-span-2",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Every Time",
+  "shipped": "Every Time"
+ },
+ {
+  "page": "Electric-Appliances-Rice-Cooker.html",
   "key": "hero-sub",
   "kind": "text",
   "section": "hero",
   "label": "Hero — The Crystal multi-purpose electric rice cooker —…",
   "shipped": "The Crystal multi-purpose electric rice cooker — built for effortless, consistent everyday cooking, engineered for the convenience modern Indian kitchens demand."
+ },
+ {
+  "page": "Electric-Appliances-Rice-Cooker.html",
+  "key": "hero-a-1",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — ← All Electric Appliances",
+  "shipped": "← All Electric Appliances"
+ },
+ {
+  "page": "Electric-Appliances-Rice-Cooker.html",
+  "key": "hero-span-3",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Scroll",
+  "shipped": "Scroll"
  },
  {
   "page": "Electric-Appliances-Rice-Cooker.html",
@@ -5283,6 +9355,62 @@
  },
  {
   "page": "Electric-Appliances-Rice-Cooker.html",
+  "key": "value-span-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — (SINCE 1971)",
+  "shipped": "(SINCE 1971)"
+ },
+ {
+  "page": "Electric-Appliances-Rice-Cooker.html",
+  "key": "value-span-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 54",
+  "shipped": "54"
+ },
+ {
+  "page": "Electric-Appliances-Rice-Cooker.html",
+  "key": "value-div-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Years of trust",
+  "shipped": "Years of trust"
+ },
+ {
+  "page": "Electric-Appliances-Rice-Cooker.html",
+  "key": "value-span-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 1000",
+  "shipped": "1000"
+ },
+ {
+  "page": "Electric-Appliances-Rice-Cooker.html",
+  "key": "value-div-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Products & SKUs",
+  "shipped": "Products & SKUs"
+ },
+ {
+  "page": "Electric-Appliances-Rice-Cooker.html",
+  "key": "value-span-4",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 6",
+  "shipped": "6"
+ },
+ {
+  "page": "Electric-Appliances-Rice-Cooker.html",
+  "key": "value-div-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Trusted brands",
+  "shipped": "Trusted brands"
+ },
+ {
+  "page": "Electric-Appliances-Rice-Cooker.html",
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
@@ -5299,6 +9427,22 @@
  },
  {
   "page": "Electric-Appliances.html",
+  "key": "site-support-bar",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Customer Support - 022-49702803/06",
+  "shipped": "Customer Support - 022-49702803/06"
+ },
+ {
+  "page": "Electric-Appliances.html",
+  "key": "hero-pretext",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Electric Appliances Range",
+  "shipped": "Electric Appliances Range"
+ },
+ {
+  "page": "Electric-Appliances.html",
   "key": "hero-title",
   "kind": "text",
   "section": "hero",
@@ -5307,11 +9451,35 @@
  },
  {
   "page": "Electric-Appliances.html",
+  "key": "hero-span-2",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Modern Kitchen",
+  "shipped": "Modern Kitchen"
+ },
+ {
+  "page": "Electric-Appliances.html",
   "key": "hero-sub",
   "kind": "text",
   "section": "hero",
   "label": "Hero — 10 electric essentials — kettles, OTGs, rice coo…",
   "shipped": "10 electric essentials — kettles, OTGs, rice cookers and more — engineered by Crystal for the convenience today's Indian kitchens demand."
+ },
+ {
+  "page": "Electric-Appliances.html",
+  "key": "hero-a-1",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Featured Collections",
+  "shipped": "Featured Collections"
+ },
+ {
+  "page": "Electric-Appliances.html",
+  "key": "hero-span-3",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Scroll",
+  "shipped": "Scroll"
  },
  {
   "page": "Electric-Appliances.html",
@@ -5363,6 +9531,62 @@
  },
  {
   "page": "Electric-Appliances.html",
+  "key": "value-span-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — (SINCE 1971)",
+  "shipped": "(SINCE 1971)"
+ },
+ {
+  "page": "Electric-Appliances.html",
+  "key": "value-span-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 54",
+  "shipped": "54"
+ },
+ {
+  "page": "Electric-Appliances.html",
+  "key": "value-div-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Years of trust",
+  "shipped": "Years of trust"
+ },
+ {
+  "page": "Electric-Appliances.html",
+  "key": "value-span-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 1000",
+  "shipped": "1000"
+ },
+ {
+  "page": "Electric-Appliances.html",
+  "key": "value-div-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Products & SKUs",
+  "shipped": "Products & SKUs"
+ },
+ {
+  "page": "Electric-Appliances.html",
+  "key": "value-span-4",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 6",
+  "shipped": "6"
+ },
+ {
+  "page": "Electric-Appliances.html",
+  "key": "value-div-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Trusted brands",
+  "shipped": "Trusted brands"
+ },
+ {
+  "page": "Electric-Appliances.html",
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
@@ -5376,6 +9600,22 @@
   "section": "cta",
   "label": "Cta — Explore the full Crystal appliances range, or ta…",
   "shipped": "Explore the full Crystal appliances range, or talk to our team about bulk, export and distribution requirements."
+ },
+ {
+  "page": "Enquiry.html",
+  "key": "site-support-bar",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Customer Support - 022-49702803/06",
+  "shipped": "Customer Support - 022-49702803/06"
+ },
+ {
+  "page": "Enquiry.html",
+  "key": "hero-pretext",
+  "kind": "text",
+  "section": "top",
+  "label": "Top — Enquiry List",
+  "shipped": "Enquiry List"
  },
  {
   "page": "Enquiry.html",
@@ -5419,11 +9659,115 @@
  },
  {
   "page": "Enquiry.html",
+  "key": "page-span-1",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — You're submitting a product enquiry — not placin…",
+  "shipped": "You're submitting a product enquiry — not placing an online order. Our team will contact you with pricing & availability."
+ },
+ {
+  "page": "Enquiry.html",
+  "key": "page-span-2",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Please enter your name.",
+  "shipped": "Please enter your name."
+ },
+ {
+  "page": "Enquiry.html",
+  "key": "page-span-3",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Enter a valid email address.",
+  "shipped": "Enter a valid email address."
+ },
+ {
+  "page": "Enquiry.html",
+  "key": "page-span-4",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Enter a valid phone number.",
+  "shipped": "Enter a valid phone number."
+ },
+ {
+  "page": "Enquiry.html",
+  "key": "page-span-5",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Please enter your city.",
+  "shipped": "Please enter your city."
+ },
+ {
+  "page": "Enquiry.html",
+  "key": "page-span-6",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Please enter your state.",
+  "shipped": "Please enter your state."
+ },
+ {
+  "page": "Enquiry.html",
+  "key": "page-span-7",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Please enter your country.",
+  "shipped": "Please enter your country."
+ },
+ {
+  "page": "Enquiry.html",
+  "key": "page-span-8",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Please choose a business type.",
+  "shipped": "Please choose a business type."
+ },
+ {
+  "page": "Enquiry.html",
+  "key": "page-div-2",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Please add at least one product to your enquiry …",
+  "shipped": "Please add at least one product to your enquiry list before submitting."
+ },
+ {
+  "page": "Enquiry.html",
   "key": "page-h2-3",
   "kind": "text",
   "section": "page",
   "label": "Page — Enquiry submitted successfully",
   "shipped": "Enquiry submitted successfully"
+ },
+ {
+  "page": "Enquiry.html",
+  "key": "page-a-1",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Back to Home",
+  "shipped": "Back to Home"
+ },
+ {
+  "page": "Kitchenware-Chopping-Boards.html",
+  "key": "site-support-bar",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Customer Support - 022-49702803/06",
+  "shipped": "Customer Support - 022-49702803/06"
+ },
+ {
+  "page": "Kitchenware-Chopping-Boards.html",
+  "key": "hero-a-1",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Kitchenware",
+  "shipped": "Kitchenware"
+ },
+ {
+  "page": "Kitchenware-Chopping-Boards.html",
+  "key": "hero-pretext",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Chopping Boards",
+  "shipped": "Chopping Boards"
  },
  {
   "page": "Kitchenware-Chopping-Boards.html",
@@ -5432,6 +9776,14 @@
   "section": "hero",
   "label": "Hero — Chopping Boards Built to Take a Beating",
   "shipped": "Chopping Boards Built to Take a Beating"
+ },
+ {
+  "page": "Kitchenware-Chopping-Boards.html",
+  "key": "hero-span-2",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Take a Beating",
+  "shipped": "Take a Beating"
  },
  {
   "page": "Kitchenware-Chopping-Boards.html",
@@ -5483,6 +9835,22 @@
  },
  {
   "page": "Kitchenware-Chopping-Boards.html",
+  "key": "hero-a-2",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Featured Picks",
+  "shipped": "Featured Picks"
+ },
+ {
+  "page": "Kitchenware-Chopping-Boards.html",
+  "key": "hero-span-3",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Scroll",
+  "shipped": "Scroll"
+ },
+ {
+  "page": "Kitchenware-Chopping-Boards.html",
   "key": "browse-h2-1",
   "kind": "text",
   "section": "browse",
@@ -5531,6 +9899,62 @@
  },
  {
   "page": "Kitchenware-Chopping-Boards.html",
+  "key": "value-span-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — (SINCE 1971)",
+  "shipped": "(SINCE 1971)"
+ },
+ {
+  "page": "Kitchenware-Chopping-Boards.html",
+  "key": "value-span-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 54",
+  "shipped": "54"
+ },
+ {
+  "page": "Kitchenware-Chopping-Boards.html",
+  "key": "value-div-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Years of trust",
+  "shipped": "Years of trust"
+ },
+ {
+  "page": "Kitchenware-Chopping-Boards.html",
+  "key": "value-span-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 1000",
+  "shipped": "1000"
+ },
+ {
+  "page": "Kitchenware-Chopping-Boards.html",
+  "key": "value-div-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Products & SKUs",
+  "shipped": "Products & SKUs"
+ },
+ {
+  "page": "Kitchenware-Chopping-Boards.html",
+  "key": "value-span-4",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 6",
+  "shipped": "6"
+ },
+ {
+  "page": "Kitchenware-Chopping-Boards.html",
+  "key": "value-div-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Trusted brands",
+  "shipped": "Trusted brands"
+ },
+ {
+  "page": "Kitchenware-Chopping-Boards.html",
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
@@ -5547,11 +9971,43 @@
  },
  {
   "page": "Kitchenware-Cutlery.html",
+  "key": "site-support-bar",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Customer Support - 022-49702803/06",
+  "shipped": "Customer Support - 022-49702803/06"
+ },
+ {
+  "page": "Kitchenware-Cutlery.html",
+  "key": "hero-a-1",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Kitchenware",
+  "shipped": "Kitchenware"
+ },
+ {
+  "page": "Kitchenware-Cutlery.html",
+  "key": "hero-pretext",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Cutlery",
+  "shipped": "Cutlery"
+ },
+ {
+  "page": "Kitchenware-Cutlery.html",
   "key": "hero-title",
   "kind": "text",
   "section": "hero",
   "label": "Hero — Cutlery Crafted for Everyday Dining",
   "shipped": "Cutlery Crafted for Everyday Dining"
+ },
+ {
+  "page": "Kitchenware-Cutlery.html",
+  "key": "hero-span-2",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Everyday Dining",
+  "shipped": "Everyday Dining"
  },
  {
   "page": "Kitchenware-Cutlery.html",
@@ -5603,6 +10059,22 @@
  },
  {
   "page": "Kitchenware-Cutlery.html",
+  "key": "hero-a-2",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Featured Picks",
+  "shipped": "Featured Picks"
+ },
+ {
+  "page": "Kitchenware-Cutlery.html",
+  "key": "hero-span-3",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Scroll",
+  "shipped": "Scroll"
+ },
+ {
+  "page": "Kitchenware-Cutlery.html",
   "key": "browse-h2-1",
   "kind": "text",
   "section": "browse",
@@ -5651,6 +10123,62 @@
  },
  {
   "page": "Kitchenware-Cutlery.html",
+  "key": "value-span-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — (SINCE 1971)",
+  "shipped": "(SINCE 1971)"
+ },
+ {
+  "page": "Kitchenware-Cutlery.html",
+  "key": "value-span-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 54",
+  "shipped": "54"
+ },
+ {
+  "page": "Kitchenware-Cutlery.html",
+  "key": "value-div-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Years of trust",
+  "shipped": "Years of trust"
+ },
+ {
+  "page": "Kitchenware-Cutlery.html",
+  "key": "value-span-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 1000",
+  "shipped": "1000"
+ },
+ {
+  "page": "Kitchenware-Cutlery.html",
+  "key": "value-div-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Products & SKUs",
+  "shipped": "Products & SKUs"
+ },
+ {
+  "page": "Kitchenware-Cutlery.html",
+  "key": "value-span-4",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 6",
+  "shipped": "6"
+ },
+ {
+  "page": "Kitchenware-Cutlery.html",
+  "key": "value-div-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Trusted brands",
+  "shipped": "Trusted brands"
+ },
+ {
+  "page": "Kitchenware-Cutlery.html",
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
@@ -5667,11 +10195,43 @@
  },
  {
   "page": "Kitchenware-Kitchen-Tools.html",
+  "key": "site-support-bar",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Customer Support - 022-49702803/06",
+  "shipped": "Customer Support - 022-49702803/06"
+ },
+ {
+  "page": "Kitchenware-Kitchen-Tools.html",
+  "key": "hero-a-1",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Kitchenware",
+  "shipped": "Kitchenware"
+ },
+ {
+  "page": "Kitchenware-Kitchen-Tools.html",
+  "key": "hero-pretext",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Kitchen Tools",
+  "shipped": "Kitchen Tools"
+ },
+ {
+  "page": "Kitchenware-Kitchen-Tools.html",
   "key": "hero-title",
   "kind": "text",
   "section": "hero",
   "label": "Hero — Everyday Tools for a Smarter Kitchen",
   "shipped": "Everyday Tools for a Smarter Kitchen"
+ },
+ {
+  "page": "Kitchenware-Kitchen-Tools.html",
+  "key": "hero-span-2",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Smarter Kitchen",
+  "shipped": "Smarter Kitchen"
  },
  {
   "page": "Kitchenware-Kitchen-Tools.html",
@@ -5723,6 +10283,22 @@
  },
  {
   "page": "Kitchenware-Kitchen-Tools.html",
+  "key": "hero-a-2",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Featured Picks",
+  "shipped": "Featured Picks"
+ },
+ {
+  "page": "Kitchenware-Kitchen-Tools.html",
+  "key": "hero-span-3",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Scroll",
+  "shipped": "Scroll"
+ },
+ {
+  "page": "Kitchenware-Kitchen-Tools.html",
   "key": "browse-h2-1",
   "kind": "text",
   "section": "browse",
@@ -5771,6 +10347,62 @@
  },
  {
   "page": "Kitchenware-Kitchen-Tools.html",
+  "key": "value-span-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — (SINCE 1971)",
+  "shipped": "(SINCE 1971)"
+ },
+ {
+  "page": "Kitchenware-Kitchen-Tools.html",
+  "key": "value-span-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 54",
+  "shipped": "54"
+ },
+ {
+  "page": "Kitchenware-Kitchen-Tools.html",
+  "key": "value-div-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Years of trust",
+  "shipped": "Years of trust"
+ },
+ {
+  "page": "Kitchenware-Kitchen-Tools.html",
+  "key": "value-span-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 1000",
+  "shipped": "1000"
+ },
+ {
+  "page": "Kitchenware-Kitchen-Tools.html",
+  "key": "value-div-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Products & SKUs",
+  "shipped": "Products & SKUs"
+ },
+ {
+  "page": "Kitchenware-Kitchen-Tools.html",
+  "key": "value-span-4",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 6",
+  "shipped": "6"
+ },
+ {
+  "page": "Kitchenware-Kitchen-Tools.html",
+  "key": "value-div-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Trusted brands",
+  "shipped": "Trusted brands"
+ },
+ {
+  "page": "Kitchenware-Kitchen-Tools.html",
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
@@ -5787,11 +10419,43 @@
  },
  {
   "page": "Kitchenware-Knives.html",
+  "key": "site-support-bar",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Customer Support - 022-49702803/06",
+  "shipped": "Customer Support - 022-49702803/06"
+ },
+ {
+  "page": "Kitchenware-Knives.html",
+  "key": "hero-a-1",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Kitchenware",
+  "shipped": "Kitchenware"
+ },
+ {
+  "page": "Kitchenware-Knives.html",
+  "key": "hero-pretext",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Knives",
+  "shipped": "Knives"
+ },
+ {
+  "page": "Kitchenware-Knives.html",
   "key": "hero-title",
   "kind": "text",
   "section": "hero",
   "label": "Hero — India’s Widest Range of Kitchen Knives",
   "shipped": "India’s Widest Range of Kitchen Knives"
+ },
+ {
+  "page": "Kitchenware-Knives.html",
+  "key": "hero-span-2",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Kitchen Knives",
+  "shipped": "Kitchen Knives"
  },
  {
   "page": "Kitchenware-Knives.html",
@@ -5851,6 +10515,22 @@
  },
  {
   "page": "Kitchenware-Knives.html",
+  "key": "hero-a-2",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Featured Picks",
+  "shipped": "Featured Picks"
+ },
+ {
+  "page": "Kitchenware-Knives.html",
+  "key": "hero-span-3",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Scroll",
+  "shipped": "Scroll"
+ },
+ {
+  "page": "Kitchenware-Knives.html",
   "key": "browse-h2-1",
   "kind": "text",
   "section": "browse",
@@ -5899,6 +10579,62 @@
  },
  {
   "page": "Kitchenware-Knives.html",
+  "key": "value-span-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — (SINCE 1971)",
+  "shipped": "(SINCE 1971)"
+ },
+ {
+  "page": "Kitchenware-Knives.html",
+  "key": "value-span-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 54",
+  "shipped": "54"
+ },
+ {
+  "page": "Kitchenware-Knives.html",
+  "key": "value-div-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Years of trust",
+  "shipped": "Years of trust"
+ },
+ {
+  "page": "Kitchenware-Knives.html",
+  "key": "value-span-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 1000",
+  "shipped": "1000"
+ },
+ {
+  "page": "Kitchenware-Knives.html",
+  "key": "value-div-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Products & SKUs",
+  "shipped": "Products & SKUs"
+ },
+ {
+  "page": "Kitchenware-Knives.html",
+  "key": "value-span-4",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 6",
+  "shipped": "6"
+ },
+ {
+  "page": "Kitchenware-Knives.html",
+  "key": "value-div-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Trusted brands",
+  "shipped": "Trusted brands"
+ },
+ {
+  "page": "Kitchenware-Knives.html",
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
@@ -5915,11 +10651,43 @@
  },
  {
   "page": "Kitchenware-Lighters.html",
+  "key": "site-support-bar",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Customer Support - 022-49702803/06",
+  "shipped": "Customer Support - 022-49702803/06"
+ },
+ {
+  "page": "Kitchenware-Lighters.html",
+  "key": "hero-a-1",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Kitchenware",
+  "shipped": "Kitchenware"
+ },
+ {
+  "page": "Kitchenware-Lighters.html",
+  "key": "hero-pretext",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Lighters",
+  "shipped": "Lighters"
+ },
+ {
+  "page": "Kitchenware-Lighters.html",
   "key": "hero-title",
   "kind": "text",
   "section": "hero",
   "label": "Hero — Lighters Built for Everyday Ignition",
   "shipped": "Lighters Built for Everyday Ignition"
+ },
+ {
+  "page": "Kitchenware-Lighters.html",
+  "key": "hero-span-2",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Everyday Ignition",
+  "shipped": "Everyday Ignition"
  },
  {
   "page": "Kitchenware-Lighters.html",
@@ -5971,6 +10739,22 @@
  },
  {
   "page": "Kitchenware-Lighters.html",
+  "key": "hero-a-2",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Featured Picks",
+  "shipped": "Featured Picks"
+ },
+ {
+  "page": "Kitchenware-Lighters.html",
+  "key": "hero-span-3",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Scroll",
+  "shipped": "Scroll"
+ },
+ {
+  "page": "Kitchenware-Lighters.html",
   "key": "browse-h2-1",
   "kind": "text",
   "section": "browse",
@@ -6019,6 +10803,62 @@
  },
  {
   "page": "Kitchenware-Lighters.html",
+  "key": "value-span-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — (SINCE 1971)",
+  "shipped": "(SINCE 1971)"
+ },
+ {
+  "page": "Kitchenware-Lighters.html",
+  "key": "value-span-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 54",
+  "shipped": "54"
+ },
+ {
+  "page": "Kitchenware-Lighters.html",
+  "key": "value-div-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Years of trust",
+  "shipped": "Years of trust"
+ },
+ {
+  "page": "Kitchenware-Lighters.html",
+  "key": "value-span-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 1000",
+  "shipped": "1000"
+ },
+ {
+  "page": "Kitchenware-Lighters.html",
+  "key": "value-div-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Products & SKUs",
+  "shipped": "Products & SKUs"
+ },
+ {
+  "page": "Kitchenware-Lighters.html",
+  "key": "value-span-4",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 6",
+  "shipped": "6"
+ },
+ {
+  "page": "Kitchenware-Lighters.html",
+  "key": "value-div-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Trusted brands",
+  "shipped": "Trusted brands"
+ },
+ {
+  "page": "Kitchenware-Lighters.html",
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
@@ -6035,11 +10875,43 @@
  },
  {
   "page": "Kitchenware-Manual-Appliances.html",
+  "key": "site-support-bar",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Customer Support - 022-49702803/06",
+  "shipped": "Customer Support - 022-49702803/06"
+ },
+ {
+  "page": "Kitchenware-Manual-Appliances.html",
+  "key": "hero-a-1",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Kitchenware",
+  "shipped": "Kitchenware"
+ },
+ {
+  "page": "Kitchenware-Manual-Appliances.html",
+  "key": "hero-pretext",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Manual Kitchen Appliances",
+  "shipped": "Manual Kitchen Appliances"
+ },
+ {
+  "page": "Kitchenware-Manual-Appliances.html",
   "key": "hero-title",
   "kind": "text",
   "section": "hero",
   "label": "Hero — Manual Appliances for Hands-On Cooking",
   "shipped": "Manual Appliances for Hands-On Cooking"
+ },
+ {
+  "page": "Kitchenware-Manual-Appliances.html",
+  "key": "hero-span-2",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Hands-On Cooking",
+  "shipped": "Hands-On Cooking"
  },
  {
   "page": "Kitchenware-Manual-Appliances.html",
@@ -6099,6 +10971,22 @@
  },
  {
   "page": "Kitchenware-Manual-Appliances.html",
+  "key": "hero-a-2",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Featured Picks",
+  "shipped": "Featured Picks"
+ },
+ {
+  "page": "Kitchenware-Manual-Appliances.html",
+  "key": "hero-span-3",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Scroll",
+  "shipped": "Scroll"
+ },
+ {
+  "page": "Kitchenware-Manual-Appliances.html",
   "key": "browse-h2-1",
   "kind": "text",
   "section": "browse",
@@ -6147,6 +11035,62 @@
  },
  {
   "page": "Kitchenware-Manual-Appliances.html",
+  "key": "value-span-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — (SINCE 1971)",
+  "shipped": "(SINCE 1971)"
+ },
+ {
+  "page": "Kitchenware-Manual-Appliances.html",
+  "key": "value-span-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 54",
+  "shipped": "54"
+ },
+ {
+  "page": "Kitchenware-Manual-Appliances.html",
+  "key": "value-div-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Years of trust",
+  "shipped": "Years of trust"
+ },
+ {
+  "page": "Kitchenware-Manual-Appliances.html",
+  "key": "value-span-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 1000",
+  "shipped": "1000"
+ },
+ {
+  "page": "Kitchenware-Manual-Appliances.html",
+  "key": "value-div-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Products & SKUs",
+  "shipped": "Products & SKUs"
+ },
+ {
+  "page": "Kitchenware-Manual-Appliances.html",
+  "key": "value-span-4",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 6",
+  "shipped": "6"
+ },
+ {
+  "page": "Kitchenware-Manual-Appliances.html",
+  "key": "value-div-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Trusted brands",
+  "shipped": "Trusted brands"
+ },
+ {
+  "page": "Kitchenware-Manual-Appliances.html",
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
@@ -6163,11 +11107,43 @@
  },
  {
   "page": "Kitchenware-Peelers.html",
+  "key": "site-support-bar",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Customer Support - 022-49702803/06",
+  "shipped": "Customer Support - 022-49702803/06"
+ },
+ {
+  "page": "Kitchenware-Peelers.html",
+  "key": "hero-a-1",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Kitchenware",
+  "shipped": "Kitchenware"
+ },
+ {
+  "page": "Kitchenware-Peelers.html",
+  "key": "hero-pretext",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Peelers",
+  "shipped": "Peelers"
+ },
+ {
+  "page": "Kitchenware-Peelers.html",
   "key": "hero-title",
   "kind": "text",
   "section": "hero",
   "label": "Hero — Peelers Made for Effortless Prep",
   "shipped": "Peelers Made for Effortless Prep"
+ },
+ {
+  "page": "Kitchenware-Peelers.html",
+  "key": "hero-span-2",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Effortless Prep",
+  "shipped": "Effortless Prep"
  },
  {
   "page": "Kitchenware-Peelers.html",
@@ -6219,6 +11195,22 @@
  },
  {
   "page": "Kitchenware-Peelers.html",
+  "key": "hero-a-2",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Featured Picks",
+  "shipped": "Featured Picks"
+ },
+ {
+  "page": "Kitchenware-Peelers.html",
+  "key": "hero-span-3",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Scroll",
+  "shipped": "Scroll"
+ },
+ {
+  "page": "Kitchenware-Peelers.html",
   "key": "browse-h2-1",
   "kind": "text",
   "section": "browse",
@@ -6267,6 +11259,62 @@
  },
  {
   "page": "Kitchenware-Peelers.html",
+  "key": "value-span-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — (SINCE 1971)",
+  "shipped": "(SINCE 1971)"
+ },
+ {
+  "page": "Kitchenware-Peelers.html",
+  "key": "value-span-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 54",
+  "shipped": "54"
+ },
+ {
+  "page": "Kitchenware-Peelers.html",
+  "key": "value-div-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Years of trust",
+  "shipped": "Years of trust"
+ },
+ {
+  "page": "Kitchenware-Peelers.html",
+  "key": "value-span-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 1000",
+  "shipped": "1000"
+ },
+ {
+  "page": "Kitchenware-Peelers.html",
+  "key": "value-div-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Products & SKUs",
+  "shipped": "Products & SKUs"
+ },
+ {
+  "page": "Kitchenware-Peelers.html",
+  "key": "value-span-4",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 6",
+  "shipped": "6"
+ },
+ {
+  "page": "Kitchenware-Peelers.html",
+  "key": "value-div-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Trusted brands",
+  "shipped": "Trusted brands"
+ },
+ {
+  "page": "Kitchenware-Peelers.html",
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
@@ -6283,11 +11331,43 @@
  },
  {
   "page": "Kitchenware-Servers.html",
+  "key": "site-support-bar",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Customer Support - 022-49702803/06",
+  "shipped": "Customer Support - 022-49702803/06"
+ },
+ {
+  "page": "Kitchenware-Servers.html",
+  "key": "hero-a-1",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Kitchenware",
+  "shipped": "Kitchenware"
+ },
+ {
+  "page": "Kitchenware-Servers.html",
+  "key": "hero-pretext",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Servers",
+  "shipped": "Servers"
+ },
+ {
+  "page": "Kitchenware-Servers.html",
   "key": "hero-title",
   "kind": "text",
   "section": "hero",
   "label": "Hero — Servers Built for Every Table",
   "shipped": "Servers Built for Every Table"
+ },
+ {
+  "page": "Kitchenware-Servers.html",
+  "key": "hero-span-2",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Every Table",
+  "shipped": "Every Table"
  },
  {
   "page": "Kitchenware-Servers.html",
@@ -6339,6 +11419,22 @@
  },
  {
   "page": "Kitchenware-Servers.html",
+  "key": "hero-a-2",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Featured Picks",
+  "shipped": "Featured Picks"
+ },
+ {
+  "page": "Kitchenware-Servers.html",
+  "key": "hero-span-3",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Scroll",
+  "shipped": "Scroll"
+ },
+ {
+  "page": "Kitchenware-Servers.html",
   "key": "browse-h2-1",
   "kind": "text",
   "section": "browse",
@@ -6387,6 +11483,62 @@
  },
  {
   "page": "Kitchenware-Servers.html",
+  "key": "value-span-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — (SINCE 1971)",
+  "shipped": "(SINCE 1971)"
+ },
+ {
+  "page": "Kitchenware-Servers.html",
+  "key": "value-span-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 54",
+  "shipped": "54"
+ },
+ {
+  "page": "Kitchenware-Servers.html",
+  "key": "value-div-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Years of trust",
+  "shipped": "Years of trust"
+ },
+ {
+  "page": "Kitchenware-Servers.html",
+  "key": "value-span-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 1000",
+  "shipped": "1000"
+ },
+ {
+  "page": "Kitchenware-Servers.html",
+  "key": "value-div-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Products & SKUs",
+  "shipped": "Products & SKUs"
+ },
+ {
+  "page": "Kitchenware-Servers.html",
+  "key": "value-span-4",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 6",
+  "shipped": "6"
+ },
+ {
+  "page": "Kitchenware-Servers.html",
+  "key": "value-div-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Trusted brands",
+  "shipped": "Trusted brands"
+ },
+ {
+  "page": "Kitchenware-Servers.html",
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
@@ -6403,11 +11555,43 @@
  },
  {
   "page": "Kitchenware-Trolleys.html",
+  "key": "site-support-bar",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Customer Support - 022-49702803/06",
+  "shipped": "Customer Support - 022-49702803/06"
+ },
+ {
+  "page": "Kitchenware-Trolleys.html",
+  "key": "hero-a-1",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Kitchenware",
+  "shipped": "Kitchenware"
+ },
+ {
+  "page": "Kitchenware-Trolleys.html",
+  "key": "hero-pretext",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Trolleys",
+  "shipped": "Trolleys"
+ },
+ {
+  "page": "Kitchenware-Trolleys.html",
   "key": "hero-title",
   "kind": "text",
   "section": "hero",
   "label": "Hero — Trolleys That Keep Your Kitchen Moving",
   "shipped": "Trolleys That Keep Your Kitchen Moving"
+ },
+ {
+  "page": "Kitchenware-Trolleys.html",
+  "key": "hero-span-2",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Kitchen Moving",
+  "shipped": "Kitchen Moving"
  },
  {
   "page": "Kitchenware-Trolleys.html",
@@ -6459,6 +11643,22 @@
  },
  {
   "page": "Kitchenware-Trolleys.html",
+  "key": "hero-a-2",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Featured Picks",
+  "shipped": "Featured Picks"
+ },
+ {
+  "page": "Kitchenware-Trolleys.html",
+  "key": "hero-span-3",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Scroll",
+  "shipped": "Scroll"
+ },
+ {
+  "page": "Kitchenware-Trolleys.html",
   "key": "browse-h2-1",
   "kind": "text",
   "section": "browse",
@@ -6507,6 +11707,62 @@
  },
  {
   "page": "Kitchenware-Trolleys.html",
+  "key": "value-span-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — (SINCE 1971)",
+  "shipped": "(SINCE 1971)"
+ },
+ {
+  "page": "Kitchenware-Trolleys.html",
+  "key": "value-span-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 54",
+  "shipped": "54"
+ },
+ {
+  "page": "Kitchenware-Trolleys.html",
+  "key": "value-div-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Years of trust",
+  "shipped": "Years of trust"
+ },
+ {
+  "page": "Kitchenware-Trolleys.html",
+  "key": "value-span-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 1000",
+  "shipped": "1000"
+ },
+ {
+  "page": "Kitchenware-Trolleys.html",
+  "key": "value-div-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Products & SKUs",
+  "shipped": "Products & SKUs"
+ },
+ {
+  "page": "Kitchenware-Trolleys.html",
+  "key": "value-span-4",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 6",
+  "shipped": "6"
+ },
+ {
+  "page": "Kitchenware-Trolleys.html",
+  "key": "value-div-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Trusted brands",
+  "shipped": "Trusted brands"
+ },
+ {
+  "page": "Kitchenware-Trolleys.html",
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
@@ -6523,11 +11779,43 @@
  },
  {
   "page": "Kitchenware-Water-Filter.html",
+  "key": "site-support-bar",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Customer Support - 022-49702803/06",
+  "shipped": "Customer Support - 022-49702803/06"
+ },
+ {
+  "page": "Kitchenware-Water-Filter.html",
+  "key": "hero-a-1",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Kitchenware",
+  "shipped": "Kitchenware"
+ },
+ {
+  "page": "Kitchenware-Water-Filter.html",
+  "key": "hero-pretext",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Water Filter",
+  "shipped": "Water Filter"
+ },
+ {
+  "page": "Kitchenware-Water-Filter.html",
   "key": "hero-title",
   "kind": "text",
   "section": "hero",
   "label": "Hero — Clean Water, Every Day",
   "shipped": "Clean Water, Every Day"
+ },
+ {
+  "page": "Kitchenware-Water-Filter.html",
+  "key": "hero-span-2",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Every Day",
+  "shipped": "Every Day"
  },
  {
   "page": "Kitchenware-Water-Filter.html",
@@ -6579,6 +11867,22 @@
  },
  {
   "page": "Kitchenware-Water-Filter.html",
+  "key": "hero-a-2",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Featured Picks",
+  "shipped": "Featured Picks"
+ },
+ {
+  "page": "Kitchenware-Water-Filter.html",
+  "key": "hero-span-3",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Scroll",
+  "shipped": "Scroll"
+ },
+ {
+  "page": "Kitchenware-Water-Filter.html",
   "key": "browse-h2-1",
   "kind": "text",
   "section": "browse",
@@ -6627,6 +11931,62 @@
  },
  {
   "page": "Kitchenware-Water-Filter.html",
+  "key": "value-span-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — (SINCE 1971)",
+  "shipped": "(SINCE 1971)"
+ },
+ {
+  "page": "Kitchenware-Water-Filter.html",
+  "key": "value-span-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 54",
+  "shipped": "54"
+ },
+ {
+  "page": "Kitchenware-Water-Filter.html",
+  "key": "value-div-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Years of trust",
+  "shipped": "Years of trust"
+ },
+ {
+  "page": "Kitchenware-Water-Filter.html",
+  "key": "value-span-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 1000",
+  "shipped": "1000"
+ },
+ {
+  "page": "Kitchenware-Water-Filter.html",
+  "key": "value-div-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Products & SKUs",
+  "shipped": "Products & SKUs"
+ },
+ {
+  "page": "Kitchenware-Water-Filter.html",
+  "key": "value-span-4",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 6",
+  "shipped": "6"
+ },
+ {
+  "page": "Kitchenware-Water-Filter.html",
+  "key": "value-div-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Trusted brands",
+  "shipped": "Trusted brands"
+ },
+ {
+  "page": "Kitchenware-Water-Filter.html",
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
@@ -6643,6 +12003,22 @@
  },
  {
   "page": "Kitchenware.html",
+  "key": "site-support-bar",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Customer Support - 022-49702803/06",
+  "shipped": "Customer Support - 022-49702803/06"
+ },
+ {
+  "page": "Kitchenware.html",
+  "key": "hero-pretext",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Kitchenware",
+  "shipped": "Kitchenware"
+ },
+ {
+  "page": "Kitchenware.html",
   "key": "hero-title",
   "kind": "text",
   "section": "hero",
@@ -6651,11 +12027,35 @@
  },
  {
   "page": "Kitchenware.html",
+  "key": "hero-span-2",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Kitchen Tools",
+  "shipped": "Kitchen Tools"
+ },
+ {
+  "page": "Kitchenware.html",
   "key": "hero-sub",
   "kind": "text",
   "section": "hero",
   "label": "Hero — India's widest surgical-steel knife range, plus …",
   "shipped": "India's widest surgical-steel knife range, plus cutlery, servers, peelers, chopping boards, lighters and everyday kitchen tools — built for the way Indian kitchens work, trusted since 1971."
+ },
+ {
+  "page": "Kitchenware.html",
+  "key": "hero-a-1",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Featured Collections",
+  "shipped": "Featured Collections"
+ },
+ {
+  "page": "Kitchenware.html",
+  "key": "hero-span-3",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Scroll",
+  "shipped": "Scroll"
  },
  {
   "page": "Kitchenware.html",
@@ -6707,6 +12107,62 @@
  },
  {
   "page": "Kitchenware.html",
+  "key": "value-span-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — (SINCE 1971)",
+  "shipped": "(SINCE 1971)"
+ },
+ {
+  "page": "Kitchenware.html",
+  "key": "value-span-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 54",
+  "shipped": "54"
+ },
+ {
+  "page": "Kitchenware.html",
+  "key": "value-div-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Years of trust",
+  "shipped": "Years of trust"
+ },
+ {
+  "page": "Kitchenware.html",
+  "key": "value-span-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 1000",
+  "shipped": "1000"
+ },
+ {
+  "page": "Kitchenware.html",
+  "key": "value-div-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Products & SKUs",
+  "shipped": "Products & SKUs"
+ },
+ {
+  "page": "Kitchenware.html",
+  "key": "value-span-4",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 6",
+  "shipped": "6"
+ },
+ {
+  "page": "Kitchenware.html",
+  "key": "value-div-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Trusted brands",
+  "shipped": "Trusted brands"
+ },
+ {
+  "page": "Kitchenware.html",
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
@@ -6723,6 +12179,22 @@
  },
  {
   "page": "Lunch-Box.html",
+  "key": "site-support-bar",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Customer Support - 022-49702803/06",
+  "shipped": "Customer Support - 022-49702803/06"
+ },
+ {
+  "page": "Lunch-Box.html",
+  "key": "hero-pretext",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Lunch Box · Launching Soon",
+  "shipped": "Lunch Box · Launching Soon"
+ },
+ {
+  "page": "Lunch-Box.html",
   "key": "hero-title",
   "kind": "text",
   "section": "hero",
@@ -6731,11 +12203,35 @@
  },
  {
   "page": "Lunch-Box.html",
+  "key": "hero-span-2",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Coming Soon",
+  "shipped": "Coming Soon"
+ },
+ {
+  "page": "Lunch-Box.html",
   "key": "hero-sub",
   "kind": "text",
   "section": "hero",
   "label": "Hero — We're building a Crystal Lunch Box range for eve…",
   "shipped": "We're building a Crystal Lunch Box range for everyday carry — leak-proof, insulated and made to last. Check back shortly, or reach out for early access."
+ },
+ {
+  "page": "Lunch-Box.html",
+  "key": "hero-a-1",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Get in Touch",
+  "shipped": "Get in Touch"
+ },
+ {
+  "page": "Lunch-Box.html",
+  "key": "hero-span-3",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Scroll",
+  "shipped": "Scroll"
  },
  {
   "page": "Lunch-Box.html",
@@ -6787,6 +12283,62 @@
  },
  {
   "page": "Lunch-Box.html",
+  "key": "value-span-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — (SINCE 1971)",
+  "shipped": "(SINCE 1971)"
+ },
+ {
+  "page": "Lunch-Box.html",
+  "key": "value-span-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 54",
+  "shipped": "54"
+ },
+ {
+  "page": "Lunch-Box.html",
+  "key": "value-div-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Years of trust",
+  "shipped": "Years of trust"
+ },
+ {
+  "page": "Lunch-Box.html",
+  "key": "value-span-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 1000",
+  "shipped": "1000"
+ },
+ {
+  "page": "Lunch-Box.html",
+  "key": "value-div-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Products & SKUs",
+  "shipped": "Products & SKUs"
+ },
+ {
+  "page": "Lunch-Box.html",
+  "key": "value-span-4",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 6",
+  "shipped": "6"
+ },
+ {
+  "page": "Lunch-Box.html",
+  "key": "value-div-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Trusted brands",
+  "shipped": "Trusted brands"
+ },
+ {
+  "page": "Lunch-Box.html",
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
@@ -6803,11 +12355,35 @@
  },
  {
   "page": "Oil-Pourer-Sprayer.html",
+  "key": "site-support-bar",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Customer Support - 022-49702803/06",
+  "shipped": "Customer Support - 022-49702803/06"
+ },
+ {
+  "page": "Oil-Pourer-Sprayer.html",
+  "key": "hero-pretext",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Oil Pourer & Sprayer",
+  "shipped": "Oil Pourer & Sprayer"
+ },
+ {
+  "page": "Oil-Pourer-Sprayer.html",
   "key": "hero-title",
   "kind": "text",
   "section": "hero",
   "label": "Hero — Pour Clean, Cook Clean",
   "shipped": "Pour Clean, Cook Clean"
+ },
+ {
+  "page": "Oil-Pourer-Sprayer.html",
+  "key": "hero-span-2",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Cook Clean",
+  "shipped": "Cook Clean"
  },
  {
   "page": "Oil-Pourer-Sprayer.html",
@@ -6859,6 +12435,22 @@
  },
  {
   "page": "Oil-Pourer-Sprayer.html",
+  "key": "hero-a-1",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Featured Collections",
+  "shipped": "Featured Collections"
+ },
+ {
+  "page": "Oil-Pourer-Sprayer.html",
+  "key": "hero-span-3",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Scroll",
+  "shipped": "Scroll"
+ },
+ {
+  "page": "Oil-Pourer-Sprayer.html",
   "key": "browse-h2-1",
   "kind": "text",
   "section": "browse",
@@ -6907,6 +12499,62 @@
  },
  {
   "page": "Oil-Pourer-Sprayer.html",
+  "key": "value-span-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — (SINCE 1971)",
+  "shipped": "(SINCE 1971)"
+ },
+ {
+  "page": "Oil-Pourer-Sprayer.html",
+  "key": "value-span-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 54",
+  "shipped": "54"
+ },
+ {
+  "page": "Oil-Pourer-Sprayer.html",
+  "key": "value-div-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Years of trust",
+  "shipped": "Years of trust"
+ },
+ {
+  "page": "Oil-Pourer-Sprayer.html",
+  "key": "value-span-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 1000",
+  "shipped": "1000"
+ },
+ {
+  "page": "Oil-Pourer-Sprayer.html",
+  "key": "value-div-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Products & SKUs",
+  "shipped": "Products & SKUs"
+ },
+ {
+  "page": "Oil-Pourer-Sprayer.html",
+  "key": "value-span-4",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 6",
+  "shipped": "6"
+ },
+ {
+  "page": "Oil-Pourer-Sprayer.html",
+  "key": "value-div-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Trusted brands",
+  "shipped": "Trusted brands"
+ },
+ {
+  "page": "Oil-Pourer-Sprayer.html",
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
@@ -6923,6 +12571,22 @@
  },
  {
   "page": "Pressure-Cooker.html",
+  "key": "site-support-bar",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Customer Support - 022-49702803/06",
+  "shipped": "Customer Support - 022-49702803/06"
+ },
+ {
+  "page": "Pressure-Cooker.html",
+  "key": "hero-pretext",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Pressure Cookers · Tri-Pro",
+  "shipped": "Pressure Cookers · Tri-Pro"
+ },
+ {
+  "page": "Pressure-Cooker.html",
   "key": "hero-title",
   "kind": "text",
   "section": "hero",
@@ -6931,11 +12595,35 @@
  },
  {
   "page": "Pressure-Cooker.html",
+  "key": "hero-span-2",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Faster",
+  "shipped": "Faster"
+ },
+ {
+  "page": "Pressure-Cooker.html",
   "key": "hero-sub",
   "kind": "text",
   "section": "hero",
   "label": "Hero — Triply, induction-ready pressure cookers that sa…",
   "shipped": "Triply, induction-ready pressure cookers that save fuel and time on every meal — available in 2, 3 and 5 litre sizes with a toughened glass lid, built for the everyday Indian kitchen."
+ },
+ {
+  "page": "Pressure-Cooker.html",
+  "key": "hero-a-1",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Featured Collections",
+  "shipped": "Featured Collections"
+ },
+ {
+  "page": "Pressure-Cooker.html",
+  "key": "hero-span-3",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Scroll",
+  "shipped": "Scroll"
  },
  {
   "page": "Pressure-Cooker.html",
@@ -6987,6 +12675,62 @@
  },
  {
   "page": "Pressure-Cooker.html",
+  "key": "value-span-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — (SINCE 1971)",
+  "shipped": "(SINCE 1971)"
+ },
+ {
+  "page": "Pressure-Cooker.html",
+  "key": "value-span-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 54",
+  "shipped": "54"
+ },
+ {
+  "page": "Pressure-Cooker.html",
+  "key": "value-div-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Years of trust",
+  "shipped": "Years of trust"
+ },
+ {
+  "page": "Pressure-Cooker.html",
+  "key": "value-span-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 1000",
+  "shipped": "1000"
+ },
+ {
+  "page": "Pressure-Cooker.html",
+  "key": "value-div-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Products & SKUs",
+  "shipped": "Products & SKUs"
+ },
+ {
+  "page": "Pressure-Cooker.html",
+  "key": "value-span-4",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 6",
+  "shipped": "6"
+ },
+ {
+  "page": "Pressure-Cooker.html",
+  "key": "value-div-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Trusted brands",
+  "shipped": "Trusted brands"
+ },
+ {
+  "page": "Pressure-Cooker.html",
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
@@ -7000,6 +12744,22 @@
   "section": "cta",
   "label": "Cta — From our family of brands to yours — bring home …",
   "shipped": "From our family of brands to yours — bring home the Tri-Pro pressure cooker range, or talk to our team about bulk, export and distribution."
+ },
+ {
+  "page": "Privacy.html",
+  "key": "site-support-bar",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Customer Support - 022-49702803/06",
+  "shipped": "Customer Support - 022-49702803/06"
+ },
+ {
+  "page": "Privacy.html",
+  "key": "hero-pretext",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Legal",
+  "shipped": "Legal"
  },
  {
   "page": "Privacy.html",
@@ -7242,6 +13002,46 @@
   "shipped": "If you have any questions about this Privacy Policy or how we handle your data, please contact us at sales@crystalcook.com or call 022-49702803 / 06."
  },
  {
+  "page": "Privacy.html",
+  "key": "page-a-1",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — sales@crystalcook.com",
+  "shipped": "sales@crystalcook.com"
+ },
+ {
+  "page": "Privacy.html",
+  "key": "page-a-2",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — 022-49702803 / 06",
+  "shipped": "022-49702803 / 06"
+ },
+ {
+  "page": "Product.html",
+  "key": "site-support-bar",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Customer Support - 022-49702803/06",
+  "shipped": "Customer Support - 022-49702803/06"
+ },
+ {
+  "page": "Product.html",
+  "key": "hero-span-1",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Quantity",
+  "shipped": "Quantity"
+ },
+ {
+  "page": "Product.html",
+  "key": "hero-span-2",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Enquire Now",
+  "shipped": "Enquire Now"
+ },
+ {
   "page": "Product.html",
   "key": "overview-h2-1",
   "kind": "text",
@@ -7283,6 +13083,14 @@
  },
  {
   "page": "Product.html",
+  "key": "specs-span-1",
+  "kind": "text",
+  "section": "specs",
+  "label": "Specs — Quality-checked and backed by our manufacturing …",
+  "shipped": "Quality-checked and backed by our manufacturing warranty."
+ },
+ {
+  "page": "Product.html",
   "key": "gallery-h2-1",
   "kind": "text",
   "section": "gallery",
@@ -7307,6 +13115,14 @@
  },
  {
   "page": "Product.html",
+  "key": "brandstory-a-1",
+  "kind": "text",
+  "section": "brandstory",
+  "label": "Brandstory — Our Story",
+  "shipped": "Our Story"
+ },
+ {
+  "page": "Product.html",
   "key": "cta-h2-1",
   "kind": "text",
   "section": "cta",
@@ -7322,12 +13138,44 @@
   "shipped": "Explore the complete Crystal range, or talk to our team about bulk, export and distribution."
  },
  {
+  "page": "Product.html",
+  "key": "page-span-1",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Enquire",
+  "shipped": "Enquire"
+ },
+ {
+  "page": "Quote.html",
+  "key": "site-support-bar",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Customer Support - 022-49702803/06",
+  "shipped": "Customer Support - 022-49702803/06"
+ },
+ {
+  "page": "Quote.html",
+  "key": "hero-pretext",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Request a Quote",
+  "shipped": "Request a Quote"
+ },
+ {
   "page": "Quote.html",
   "key": "hero-title",
   "kind": "text",
   "section": "hero",
   "label": "Hero — Let's talk business",
   "shipped": "Let's talk business"
+ },
+ {
+  "page": "Quote.html",
+  "key": "hero-span-2",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — business",
+  "shipped": "business"
  },
  {
   "page": "Quote.html",
@@ -7352,6 +13200,62 @@
   "section": "request",
   "label": "Request — Fill in the form and our team will get back with…",
   "shipped": "Fill in the form and our team will get back with pricing and details. Fields marked with * are required."
+ },
+ {
+  "page": "Quote.html",
+  "key": "request-span-1",
+  "kind": "text",
+  "section": "request",
+  "label": "Request — Please enter your name.",
+  "shipped": "Please enter your name."
+ },
+ {
+  "page": "Quote.html",
+  "key": "request-span-2",
+  "kind": "text",
+  "section": "request",
+  "label": "Request — Enter a valid email address.",
+  "shipped": "Enter a valid email address."
+ },
+ {
+  "page": "Quote.html",
+  "key": "request-span-3",
+  "kind": "text",
+  "section": "request",
+  "label": "Request — Enter a valid phone number.",
+  "shipped": "Enter a valid phone number."
+ },
+ {
+  "page": "Quote.html",
+  "key": "request-span-4",
+  "kind": "text",
+  "section": "request",
+  "label": "Request — Please choose an enquiry type.",
+  "shipped": "Please choose an enquiry type."
+ },
+ {
+  "page": "Quote.html",
+  "key": "request-span-5",
+  "kind": "text",
+  "section": "request",
+  "label": "Request — Please choose a product interest.",
+  "shipped": "Please choose a product interest."
+ },
+ {
+  "page": "Quote.html",
+  "key": "request-span-6",
+  "kind": "text",
+  "section": "request",
+  "label": "Request — (optional)",
+  "shipped": "(optional)"
+ },
+ {
+  "page": "Quote.html",
+  "key": "request-span-7",
+  "kind": "text",
+  "section": "request",
+  "label": "Request — Please enter a message (at least 10 characters).",
+  "shipped": "Please enter a message (at least 10 characters)."
  },
  {
   "page": "Quote.html",
@@ -7435,6 +13339,30 @@
  },
  {
   "page": "Quote.html",
+  "key": "request-a-1",
+  "kind": "text",
+  "section": "request",
+  "label": "Request — sales@crystalcook.com",
+  "shipped": "sales@crystalcook.com"
+ },
+ {
+  "page": "Quote.html",
+  "key": "request-a-2",
+  "kind": "text",
+  "section": "request",
+  "label": "Request — 022-49702803 / 06",
+  "shipped": "022-49702803 / 06"
+ },
+ {
+  "page": "Quote.html",
+  "key": "request-span-8",
+  "kind": "text",
+  "section": "request",
+  "label": "Request — Mon–Sat, 10:00 AM – 6:30 PM IST",
+  "shipped": "Mon–Sat, 10:00 AM – 6:30 PM IST"
+ },
+ {
+  "page": "Quote.html",
   "key": "cta-h2-1",
   "kind": "text",
   "section": "cta",
@@ -7448,6 +13376,22 @@
   "section": "cta",
   "label": "Cta — Have a specific requirement in mind? Email our s…",
   "shipped": "Have a specific requirement in mind? Email our sales team and we'll move fast on your quote."
+ },
+ {
+  "page": "Terms.html",
+  "key": "site-support-bar",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Customer Support - 022-49702803/06",
+  "shipped": "Customer Support - 022-49702803/06"
+ },
+ {
+  "page": "Terms.html",
+  "key": "hero-pretext",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Legal",
+  "shipped": "Legal"
  },
  {
   "page": "Terms.html",
@@ -7626,12 +13570,52 @@
   "shipped": "For any questions regarding these Terms & Conditions, please contact us at sales@crystalcook.com or call 022-49702803 / 06."
  },
  {
+  "page": "Terms.html",
+  "key": "page-a-1",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — sales@crystalcook.com",
+  "shipped": "sales@crystalcook.com"
+ },
+ {
+  "page": "Terms.html",
+  "key": "page-a-2",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — 022-49702803 / 06",
+  "shipped": "022-49702803 / 06"
+ },
+ {
+  "page": "Water-Bottle.html",
+  "key": "site-support-bar",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Customer Support - 022-49702803/06",
+  "shipped": "Customer Support - 022-49702803/06"
+ },
+ {
+  "page": "Water-Bottle.html",
+  "key": "hero-pretext",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Water Bottles",
+  "shipped": "Water Bottles"
+ },
+ {
   "page": "Water-Bottle.html",
   "key": "hero-title",
   "kind": "text",
   "section": "hero",
   "label": "Hero — Steel Bottles Built for Everyday Carry",
   "shipped": "Steel Bottles Built for Everyday Carry"
+ },
+ {
+  "page": "Water-Bottle.html",
+  "key": "hero-span-2",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — for Everyday Carry",
+  "shipped": "for Everyday Carry"
  },
  {
   "page": "Water-Bottle.html",
@@ -7691,6 +13675,22 @@
  },
  {
   "page": "Water-Bottle.html",
+  "key": "hero-a-1",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Featured Collections",
+  "shipped": "Featured Collections"
+ },
+ {
+  "page": "Water-Bottle.html",
+  "key": "hero-span-3",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Scroll",
+  "shipped": "Scroll"
+ },
+ {
+  "page": "Water-Bottle.html",
   "key": "browse-h2-1",
   "kind": "text",
   "section": "browse",
@@ -7739,6 +13739,62 @@
  },
  {
   "page": "Water-Bottle.html",
+  "key": "value-span-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — (SINCE 1971)",
+  "shipped": "(SINCE 1971)"
+ },
+ {
+  "page": "Water-Bottle.html",
+  "key": "value-span-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 54",
+  "shipped": "54"
+ },
+ {
+  "page": "Water-Bottle.html",
+  "key": "value-div-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Years of trust",
+  "shipped": "Years of trust"
+ },
+ {
+  "page": "Water-Bottle.html",
+  "key": "value-span-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 1000",
+  "shipped": "1000"
+ },
+ {
+  "page": "Water-Bottle.html",
+  "key": "value-div-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Products & SKUs",
+  "shipped": "Products & SKUs"
+ },
+ {
+  "page": "Water-Bottle.html",
+  "key": "value-span-4",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 6",
+  "shipped": "6"
+ },
+ {
+  "page": "Water-Bottle.html",
+  "key": "value-div-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Trusted brands",
+  "shipped": "Trusted brands"
+ },
+ {
+  "page": "Water-Bottle.html",
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
@@ -7755,11 +13811,35 @@
  },
  {
   "page": "Wood-Range.html",
+  "key": "site-support-bar",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Customer Support - 022-49702803/06",
+  "shipped": "Customer Support - 022-49702803/06"
+ },
+ {
+  "page": "Wood-Range.html",
+  "key": "hero-pretext",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Wooden Range · Teakwood Collection",
+  "shipped": "Wooden Range · Teakwood Collection"
+ },
+ {
+  "page": "Wood-Range.html",
   "key": "hero-title",
   "kind": "text",
   "section": "hero",
   "label": "Hero — Crystal Wood Range",
   "shipped": "Crystal Wood Range"
+ },
+ {
+  "page": "Wood-Range.html",
+  "key": "hero-span-2",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Range",
+  "shipped": "Range"
  },
  {
   "page": "Wood-Range.html",
@@ -7816,6 +13896,22 @@
   "section": "hero",
   "label": "Hero — Adds warmth, elegance, & long-lasting utility",
   "shipped": "Adds warmth, elegance, & long-lasting utility"
+ },
+ {
+  "page": "Wood-Range.html",
+  "key": "hero-a-1",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Featured Collections",
+  "shipped": "Featured Collections"
+ },
+ {
+  "page": "Wood-Range.html",
+  "key": "hero-span-3",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Scroll",
+  "shipped": "Scroll"
  },
  {
   "page": "Wood-Range.html",
@@ -7923,6 +14019,62 @@
  },
  {
   "page": "Wood-Range.html",
+  "key": "value-span-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — (SINCE 1971)",
+  "shipped": "(SINCE 1971)"
+ },
+ {
+  "page": "Wood-Range.html",
+  "key": "value-span-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 54",
+  "shipped": "54"
+ },
+ {
+  "page": "Wood-Range.html",
+  "key": "value-div-1",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Years of trust",
+  "shipped": "Years of trust"
+ },
+ {
+  "page": "Wood-Range.html",
+  "key": "value-span-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 1000",
+  "shipped": "1000"
+ },
+ {
+  "page": "Wood-Range.html",
+  "key": "value-div-2",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Products & SKUs",
+  "shipped": "Products & SKUs"
+ },
+ {
+  "page": "Wood-Range.html",
+  "key": "value-span-4",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — 6",
+  "shipped": "6"
+ },
+ {
+  "page": "Wood-Range.html",
+  "key": "value-div-3",
+  "kind": "text",
+  "section": "value",
+  "label": "Value — Trusted brands",
+  "shipped": "Trusted brands"
+ },
+ {
+  "page": "Wood-Range.html",
   "key": "cta-title",
   "kind": "text",
   "section": "cta",
@@ -7936,6 +14088,14 @@
   "section": "cta",
   "label": "Cta — From our family of brands to yours — bring home …",
   "shipped": "From our family of brands to yours — bring home the Crystal Wooden Range, or talk to our team about bulk, export and distribution."
+ },
+ {
+  "page": "index-v2.html",
+  "key": "site-support-bar",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Customer Support - 022-49702803/06",
+  "shipped": "Customer Support - 022-49702803/06"
  },
  {
   "page": "index-v2.html",
@@ -7955,11 +14115,107 @@
  },
  {
   "page": "index-v2.html",
+  "key": "hero-span-1",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Since 1971",
+  "shipped": "Since 1971"
+ },
+ {
+  "page": "index-v2.html",
+  "key": "hero-a-1",
+  "kind": "text",
+  "section": "hero",
+  "label": "Hero — Explore Products",
+  "shipped": "Explore Products"
+ },
+ {
+  "page": "index-v2.html",
   "key": "about-p-1",
   "kind": "text",
   "section": "about",
   "label": "About — From cooking to serving to cleaning — making eve…",
   "shipped": "From cooking to serving to cleaning — making everyday living effortless, elegant & extraordinary, with a wide & reliable range trusted by homes and retailers alike."
+ },
+ {
+  "page": "index-v2.html",
+  "key": "about-span-1",
+  "kind": "text",
+  "section": "about",
+  "label": "About — since 1971",
+  "shipped": "since 1971"
+ },
+ {
+  "page": "index-v2.html",
+  "key": "about-stat-years-num",
+  "kind": "text",
+  "section": "about",
+  "label": "About — 50",
+  "shipped": "50"
+ },
+ {
+  "page": "index-v2.html",
+  "key": "about-stat-years-lbl",
+  "kind": "text",
+  "section": "about",
+  "label": "About — Years of Experience",
+  "shipped": "Years of Experience"
+ },
+ {
+  "page": "index-v2.html",
+  "key": "about-stat-employees-num",
+  "kind": "text",
+  "section": "about",
+  "label": "About — 2000",
+  "shipped": "2000"
+ },
+ {
+  "page": "index-v2.html",
+  "key": "about-stat-employees-lbl",
+  "kind": "text",
+  "section": "about",
+  "label": "About — Employees",
+  "shipped": "Employees"
+ },
+ {
+  "page": "index-v2.html",
+  "key": "about-stat-products-num",
+  "kind": "text",
+  "section": "about",
+  "label": "About — 1000",
+  "shipped": "1000"
+ },
+ {
+  "page": "index-v2.html",
+  "key": "about-stat-products-lbl",
+  "kind": "text",
+  "section": "about",
+  "label": "About — Products",
+  "shipped": "Products"
+ },
+ {
+  "page": "index-v2.html",
+  "key": "about-stat-customers-num",
+  "kind": "text",
+  "section": "about",
+  "label": "About — 1000",
+  "shipped": "1000"
+ },
+ {
+  "page": "index-v2.html",
+  "key": "about-stat-customers-lbl",
+  "kind": "text",
+  "section": "about",
+  "label": "About — Satisfied Customers",
+  "shipped": "Satisfied Customers"
+ },
+ {
+  "page": "index-v2.html",
+  "key": "about-span-6",
+  "kind": "text",
+  "section": "about",
+  "label": "About — since 1971",
+  "shipped": "since 1971"
  },
  {
   "page": "index-v2.html",
@@ -7984,6 +14240,14 @@
   "section": "services",
   "label": "Services — From cooking to serving to cleaning — a complete…",
   "shipped": "From cooking to serving to cleaning — a complete range engineered for every Indian home."
+ },
+ {
+  "page": "index-v2.html",
+  "key": "services-div-1",
+  "kind": "text",
+  "section": "services",
+  "label": "Services — 01 / 05",
+  "shipped": "01 / 05"
  },
  {
   "page": "index-v2.html",
@@ -8019,6 +14283,94 @@
  },
  {
   "page": "index-v2.html",
+  "key": "infra-offices-num",
+  "kind": "text",
+  "section": "infrastructure",
+  "label": "Infrastructure — 3",
+  "shipped": "3"
+ },
+ {
+  "page": "index-v2.html",
+  "key": "infra-offices-lbl",
+  "kind": "text",
+  "section": "infrastructure",
+  "label": "Infrastructure — Corporate Offices",
+  "shipped": "Corporate Offices"
+ },
+ {
+  "page": "index-v2.html",
+  "key": "infra-units-num",
+  "kind": "text",
+  "section": "infrastructure",
+  "label": "Infrastructure — 3",
+  "shipped": "3"
+ },
+ {
+  "page": "index-v2.html",
+  "key": "infra-units-lbl",
+  "kind": "text",
+  "section": "infrastructure",
+  "label": "Infrastructure — Manufacturing Units",
+  "shipped": "Manufacturing Units"
+ },
+ {
+  "page": "index-v2.html",
+  "key": "infra-warehouses-num",
+  "kind": "text",
+  "section": "infrastructure",
+  "label": "Infrastructure — 5",
+  "shipped": "5"
+ },
+ {
+  "page": "index-v2.html",
+  "key": "infra-warehouses-lbl",
+  "kind": "text",
+  "section": "infrastructure",
+  "label": "Infrastructure — Warehouses",
+  "shipped": "Warehouses"
+ },
+ {
+  "page": "index-v2.html",
+  "key": "infra-outlets-num",
+  "kind": "text",
+  "section": "infrastructure",
+  "label": "Infrastructure — 1000",
+  "shipped": "1000"
+ },
+ {
+  "page": "index-v2.html",
+  "key": "infra-outlets-lbl",
+  "kind": "text",
+  "section": "infrastructure",
+  "label": "Infrastructure — Retail Outlets",
+  "shipped": "Retail Outlets"
+ },
+ {
+  "page": "index-v2.html",
+  "key": "infra-factory-num",
+  "kind": "text",
+  "section": "infrastructure",
+  "label": "Infrastructure — 30,000",
+  "shipped": "30,000"
+ },
+ {
+  "page": "index-v2.html",
+  "key": "infrastructure-span-6",
+  "kind": "text",
+  "section": "infrastructure",
+  "label": "Infrastructure — Sq.Ft.",
+  "shipped": "Sq.Ft."
+ },
+ {
+  "page": "index-v2.html",
+  "key": "infra-factory-lbl",
+  "kind": "text",
+  "section": "infrastructure",
+  "label": "Infrastructure — Factory Space",
+  "shipped": "Factory Space"
+ },
+ {
+  "page": "index-v2.html",
   "key": "why-h2-1",
   "kind": "text",
   "section": "why",
@@ -8032,6 +14384,78 @@
   "section": "why",
   "label": "Why — Transforming millions of homes with simple, beau…",
   "shipped": "Transforming millions of homes with simple, beautifully designed solutions for everyday chores."
+ },
+ {
+  "page": "index-v2.html",
+  "key": "why-span-1",
+  "kind": "text",
+  "section": "why",
+  "label": "Why — (SINCE 1971)",
+  "shipped": "(SINCE 1971)"
+ },
+ {
+  "page": "index-v2.html",
+  "key": "brand-stat-years-num",
+  "kind": "text",
+  "section": "why",
+  "label": "Why — 50",
+  "shipped": "50"
+ },
+ {
+  "page": "index-v2.html",
+  "key": "brand-stat-years-lbl",
+  "kind": "text",
+  "section": "why",
+  "label": "Why — Years of Trust",
+  "shipped": "Years of Trust"
+ },
+ {
+  "page": "index-v2.html",
+  "key": "brand-stat-outlets-num",
+  "kind": "text",
+  "section": "why",
+  "label": "Why — 1000",
+  "shipped": "1000"
+ },
+ {
+  "page": "index-v2.html",
+  "key": "brand-stat-outlets-lbl",
+  "kind": "text",
+  "section": "why",
+  "label": "Why — Retail Outlets",
+  "shipped": "Retail Outlets"
+ },
+ {
+  "page": "index-v2.html",
+  "key": "brand-stat-skus-num",
+  "kind": "text",
+  "section": "why",
+  "label": "Why — 1000",
+  "shipped": "1000"
+ },
+ {
+  "page": "index-v2.html",
+  "key": "brand-stat-skus-lbl",
+  "kind": "text",
+  "section": "why",
+  "label": "Why — Products & SKUs",
+  "shipped": "Products & SKUs"
+ },
+ {
+  "page": "index-v2.html",
+  "key": "brand-stat-people-num",
+  "kind": "text",
+  "section": "why",
+  "label": "Why — 2000",
+  "shipped": "2000"
+ },
+ {
+  "page": "index-v2.html",
+  "key": "brand-stat-people-lbl",
+  "kind": "text",
+  "section": "why",
+  "label": "Why — People Strong",
+  "shipped": "People Strong"
  },
  {
   "page": "index-v2.html",

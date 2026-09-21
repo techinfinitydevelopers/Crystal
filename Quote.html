@@ -531,8 +531,8 @@ h1, h2 { overflow-wrap: break-word; }
 <!-- HERO -->
 <section class="ct-hero" id="hero">
   <div class="wrap">
-    <span class="eyebrow" data-fade><span class="pip"></span><span id="heroPreTxt">Request a Quote</span></span>
-    <h1 id="heroTitle" data-split data-cms="hero-title" data-cms-rich>Let's talk <span class="grad">business</span></h1>
+    <span class="eyebrow" data-fade><span class="pip"></span><span id="heroPreTxt" data-cms="hero-pretext">Request a Quote</span></span>
+    <h1 id="heroTitle" data-split data-cms="hero-title" data-cms-rich>Let's talk <span class="grad" data-cms="hero-span-2">business</span></h1>
     <p class="sub" id="heroSub" data-fade data-cms="hero-sub">Planning a bulk order, exploring an export opportunity, or looking to distribute Crystal in your region? Share your requirement and our sales team will prepare a tailored quote for you.</p>
     <div class="trust" data-fade>
       <span><span class="dot"></span>Since 1971</span>
@@ -556,7 +556,7 @@ h1, h2 { overflow-wrap: break-word; }
         <div class="field">
           <label for="f-name">Full Name <span class="req">*</span></label>
           <input type="text" id="f-name" name="name" placeholder="e.g. Rohan Shah" autocomplete="name" />
-          <span class="msg">Please enter your name.</span>
+          <span class="msg" data-cms="request-span-1">Please enter your name.</span>
         </div>
         <div class="field">
           <label for="f-company">Company</label>
@@ -566,12 +566,12 @@ h1, h2 { overflow-wrap: break-word; }
         <div class="field">
           <label for="f-email">Email <span class="req">*</span></label>
           <input type="email" id="f-email" name="email" placeholder="you@example.com" autocomplete="email" />
-          <span class="msg">Enter a valid email address.</span>
+          <span class="msg" data-cms="request-span-2">Enter a valid email address.</span>
         </div>
         <div class="field">
           <label for="f-phone">Phone <span class="req">*</span></label>
           <input type="tel" id="f-phone" name="phone" placeholder="+91 00000 00000" autocomplete="tel" />
-          <span class="msg">Enter a valid phone number.</span>
+          <span class="msg" data-cms="request-span-3">Enter a valid phone number.</span>
         </div>
         <div class="field">
           <label for="f-type">Enquiry Type <span class="req">*</span></label>
@@ -583,7 +583,7 @@ h1, h2 { overflow-wrap: break-word; }
             <option>Retail</option>
             <option>Other</option>
           </select>
-          <span class="msg">Please choose an enquiry type.</span>
+          <span class="msg" data-cms="request-span-4">Please choose an enquiry type.</span>
         </div>
         <div class="field">
           <label for="f-product">Product Interest <span class="req">*</span></label>
@@ -595,17 +595,17 @@ h1, h2 { overflow-wrap: break-word; }
             <option>Electric Appliances</option>
             <option>Multiple</option>
           </select>
-          <span class="msg">Please choose a product interest.</span>
+          <span class="msg" data-cms="request-span-5">Please choose a product interest.</span>
         </div>
         <div class="field full">
-          <label for="f-qty">Quantity <span style="font-weight:500;text-transform:none;letter-spacing:0;color:var(--muted)">(optional)</span></label>
+          <label for="f-qty">Quantity <span style="font-weight:500;text-transform:none;letter-spacing:0;color:var(--muted)" data-cms="request-span-6">(optional)</span></label>
           <input type="text" id="f-qty" name="quantity" placeholder="e.g. 500 units, 2 containers" />
           <span class="msg">&nbsp;</span>
         </div>
         <div class="field full">
           <label for="f-message">Message <span class="req">*</span></label>
           <textarea id="f-message" name="message" placeholder="Tell us about your requirement, timelines and target region…"></textarea>
-          <span class="msg">Please enter a message (at least 10 characters).</span>
+          <span class="msg" data-cms="request-span-7">Please enter a message (at least 10 characters).</span>
         </div>
         <div class="frm-foot">
           <span class="note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Your details stay private and are never shared.</span>
@@ -652,9 +652,9 @@ h1, h2 { overflow-wrap: break-word; }
         <span class="ic-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M4 7l8 6 8-6"/></svg></span>
         <div class="ic-b">
           <h4 data-cms="request-h4-4">Talk to Sales Directly</h4>
-          <a href="mailto:sales@crystalcook.com">sales@crystalcook.com</a>
-          <a href="tel:02249702803">022-49702803 / 06</a>
-          <span class="sm">Mon–Sat, 10:00 AM – 6:30 PM IST</span>
+          <a href="mailto:sales@crystalcook.com" data-cms="request-a-1">sales@crystalcook.com</a>
+          <a href="tel:02249702803" data-cms="request-a-2">022-49702803 / 06</a>
+          <span class="sm" data-cms="request-span-8">Mon–Sat, 10:00 AM – 6:30 PM IST</span>
         </div>
       </div>
     </div>

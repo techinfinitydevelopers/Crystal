@@ -524,7 +524,7 @@ h1, h2 { overflow-wrap: break-word; }
 <main>
   <!-- ===== PAGE HERO ===== -->
   <section class="enq-hero wrap" id="top">
-    <span class="eyebrow"><span class="pip"></span><span id="heroPreTxt">Enquiry List</span></span>
+    <span class="eyebrow"><span class="pip"></span><span id="heroPreTxt" data-cms="hero-pretext">Enquiry List</span></span>
     <h1 id="heroTitle" data-cms="hero-title">Your Product Enquiry</h1>
     <p class="sub" id="heroSub" data-cms="hero-sub">Review your selected products and send us your requirement — our team will respond with pricing and availability.</p>
   </section>
@@ -551,13 +551,13 @@ h1, h2 { overflow-wrap: break-word; }
         <h2 data-cms="page-h2-2">Enquiry Details</h2>
         <div class="enq-banner">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
-          <span>You're submitting a product enquiry — not placing an online order. Our team will contact you with pricing &amp; availability.</span>
+          <span data-cms="page-span-1">You're submitting a product enquiry — not placing an online order. Our team will contact you with pricing &amp; availability.</span>
         </div>
         <form class="frm" id="enqForm" novalidate>
           <div class="field">
             <label for="f-name">Full Name <span class="req">*</span></label>
             <input type="text" id="f-name" name="name" placeholder="e.g. Rohan Shah" autocomplete="name" />
-            <span class="msg">Please enter your name.</span>
+            <span class="msg" data-cms="page-span-2">Please enter your name.</span>
           </div>
           <div class="field">
             <label for="f-company">Company Name</label>
@@ -567,27 +567,27 @@ h1, h2 { overflow-wrap: break-word; }
           <div class="field">
             <label for="f-email">Email Address <span class="req">*</span></label>
             <input type="email" id="f-email" name="email" placeholder="you@example.com" autocomplete="email" />
-            <span class="msg">Enter a valid email address.</span>
+            <span class="msg" data-cms="page-span-3">Enter a valid email address.</span>
           </div>
           <div class="field">
             <label for="f-phone">Phone Number <span class="req">*</span></label>
             <input type="tel" id="f-phone" name="phone" placeholder="+91 00000 00000" autocomplete="tel" />
-            <span class="msg">Enter a valid phone number.</span>
+            <span class="msg" data-cms="page-span-4">Enter a valid phone number.</span>
           </div>
           <div class="field">
             <label for="f-city">City <span class="req">*</span></label>
             <input type="text" id="f-city" name="city" placeholder="e.g. Mumbai" autocomplete="address-level2" />
-            <span class="msg">Please enter your city.</span>
+            <span class="msg" data-cms="page-span-5">Please enter your city.</span>
           </div>
           <div class="field">
             <label for="f-state">State <span class="req">*</span></label>
             <input type="text" id="f-state" name="state" placeholder="e.g. Maharashtra" autocomplete="address-level1" />
-            <span class="msg">Please enter your state.</span>
+            <span class="msg" data-cms="page-span-6">Please enter your state.</span>
           </div>
           <div class="field">
             <label for="f-country">Country <span class="req">*</span></label>
             <input type="text" id="f-country" name="country" value="India" autocomplete="country-name" />
-            <span class="msg">Please enter your country.</span>
+            <span class="msg" data-cms="page-span-7">Please enter your country.</span>
           </div>
           <div class="field">
             <label for="f-biztype">Business Type <span class="req">*</span></label>
@@ -599,14 +599,14 @@ h1, h2 { overflow-wrap: break-word; }
               <option>Customer</option>
               <option>Other</option>
             </select>
-            <span class="msg">Please choose a business type.</span>
+            <span class="msg" data-cms="page-span-8">Please choose a business type.</span>
           </div>
           <div class="field full">
             <label for="f-message">Message / Requirement Details</label>
             <textarea id="f-message" name="message" placeholder="Tell us about quantities, timelines or any specific requirement…"></textarea>
             <span class="msg">&nbsp;</span>
           </div>
-          <div class="frm-err" id="frmErr">Please add at least one product to your enquiry list before submitting.</div>
+          <div class="frm-err" id="frmErr" data-cms="page-div-2">Please add at least one product to your enquiry list before submitting.</div>
           <div class="frm-foot">
             <span class="note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Your details stay private and are never shared.</span>
             <button type="submit" class="btn btn-red" id="enqSubmit">Submit Enquiry <span class="arr">↗</span></button>
@@ -625,7 +625,7 @@ h1, h2 { overflow-wrap: break-word; }
         <p>Thank you, <span id="successName"></span>. The Crystal Cook team will contact you shortly with pricing and availability.</p>
         <div class="sc-actions">
           <a href="All-Products.html" class="btn btn-dark">Continue Browsing <span class="arr">↗</span></a>
-          <a href="index.html" class="btn btn-ghost">Back to Home</a>
+          <a href="index.html" class="btn btn-ghost" data-cms="page-a-1">Back to Home</a>
         </div>
       </div>
     </div>

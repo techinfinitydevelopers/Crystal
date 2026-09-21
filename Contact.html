@@ -546,8 +546,8 @@ h1, h2 { overflow-wrap: break-word; }
 <!-- HERO -->
 <section class="ct-hero" id="hero">
   <div class="wrap">
-    <span class="eyebrow" data-fade><span class="pip"></span><span id="heroPreTxt">Contact · We're here to help</span></span>
-    <h1 id="heroTitle" data-split data-cms="hero-title" data-cms-rich>Let's bring <span class="grad">Crystal</span> home</h1>
+    <span class="eyebrow" data-fade><span class="pip"></span><span id="heroPreTxt" data-cms="hero-pretext">Contact · We're here to help</span></span>
+    <h1 id="heroTitle" data-split data-cms="hero-title" data-cms-rich>Let's bring <span class="grad" data-cms="hero-span-2">Crystal</span> home</h1>
     <p class="sub" id="heroSub" data-fade data-cms="hero-sub">Questions about a product, bulk orders, distributorship or partnerships — our team would love to hear from you. Reach out and we'll get back within one business day.</p>
     <div class="ct-quick" data-fade>
       <a href="mailto:sales@crystalcook.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M4 7l8 6 8-6"/></svg>sales@crystalcook.com</a>
@@ -568,17 +568,17 @@ h1, h2 { overflow-wrap: break-word; }
         <div class="field">
           <label for="f-name">Full Name <span class="req">*</span></label>
           <input type="text" id="f-name" name="name" placeholder="e.g. Rohan Shah" autocomplete="name" />
-          <span class="msg">Please enter your name.</span>
+          <span class="msg" data-cms="reach-span-1">Please enter your name.</span>
         </div>
         <div class="field">
           <label for="f-email">Email <span class="req">*</span></label>
           <input type="email" id="f-email" name="email" placeholder="you@example.com" autocomplete="email" />
-          <span class="msg">Enter a valid email address.</span>
+          <span class="msg" data-cms="reach-span-2">Enter a valid email address.</span>
         </div>
         <div class="field">
           <label for="f-phone">Phone</label>
           <input type="tel" id="f-phone" name="phone" placeholder="+91 00000 00000" autocomplete="tel" />
-          <span class="msg">Enter a valid phone number.</span>
+          <span class="msg" data-cms="reach-span-3">Enter a valid phone number.</span>
         </div>
         <div class="field">
           <label for="f-subject">Subject <span class="req">*</span></label>
@@ -590,12 +590,12 @@ h1, h2 { overflow-wrap: break-word; }
             <option>Partnership &amp; Export</option>
             <option>Customer Support</option>
           </select>
-          <span class="msg">Please choose a subject.</span>
+          <span class="msg" data-cms="reach-span-4">Please choose a subject.</span>
         </div>
         <div class="field full">
           <label for="f-message">Message <span class="req">*</span></label>
           <textarea id="f-message" name="message" placeholder="Tell us a little about what you need…"></textarea>
-          <span class="msg">Please enter a message (at least 10 characters).</span>
+          <span class="msg" data-cms="reach-span-5">Please enter a message (at least 10 characters).</span>
         </div>
         <div class="frm-foot">
           <span class="note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Your details stay private and are never shared.</span>
@@ -630,16 +630,16 @@ h1, h2 { overflow-wrap: break-word; }
         <span class="ic-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L19 13l5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></span>
         <div class="ic-b">
           <h4 data-cms="reach-h4-3">Call Us</h4>
-          <a href="tel:02249702803">022-49702803 / 06</a>
-          <span class="sm">Mon–Sat, 10:00 AM – 6:30 PM IST</span>
+          <a href="tel:02249702803" data-cms="reach-a-1">022-49702803 / 06</a>
+          <span class="sm" data-cms="reach-span-6">Mon–Sat, 10:00 AM – 6:30 PM IST</span>
         </div>
       </div>
       <div class="ic-card" data-fade>
         <span class="ic-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M4 7l8 6 8-6"/></svg></span>
         <div class="ic-b">
           <h4 data-cms="reach-h4-4">Email Us</h4>
-          <a href="mailto:sales@crystalcook.com">sales@crystalcook.com</a>
-          <a href="mailto:info@crystalcook.com">info@crystalcook.com</a>
+          <a href="mailto:sales@crystalcook.com" data-cms="reach-a-2">sales@crystalcook.com</a>
+          <a href="mailto:info@crystalcook.com" data-cms="reach-a-3">info@crystalcook.com</a>
         </div>
       </div>
       <div class="ic-card" data-fade>
@@ -671,13 +671,13 @@ h1, h2 { overflow-wrap: break-word; }
     <div class="loc-grid">
       <div class="loc-cards">
         <button class="loc-card active" data-map="Crystal+Cook+and+Serve+GIDC+Metoda+Rajkot+Gujarat" data-fade>
-          <span class="lc-tag">Manufacturing Unit</span>
+          <span class="lc-tag" data-cms="location-span-1">Manufacturing Unit</span>
           <h4 data-cms="location-h4-1">Rajkot, Gujarat</h4>
           <p data-cms="location-p-2">G.I.D.C Metoda, Rajkot 360021, Gujarat, India</p>
           <span class="lc-dir">View on map <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
         </button>
         <button class="loc-card" data-map="Sahar+Plaza+Andheri+East+Mumbai+400059" data-fade>
-          <span class="lc-tag">Corporate Office</span>
+          <span class="lc-tag" data-cms="location-span-2">Corporate Office</span>
           <h4 data-cms="location-h4-2">Mumbai, Maharashtra</h4>
           <p data-cms="location-p-3">Sahar Plaza, Andheri (East), Mumbai 400059, Maharashtra, India</p>
           <span class="lc-dir">View on map <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
