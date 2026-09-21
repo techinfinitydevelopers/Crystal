@@ -175,8 +175,13 @@ header .nav .btn-outline, header .burger span {
 }
 .v3 .split3-swiper-wrap { position: relative; width: 50%; height: 100%; }
 .v3 .split3-swiper-wrap .swiper, .v3 .map3-swiper .swiper { height: 100%; width: 100%; }
-.v3 .slide-inner { height: 100%; width: 100%; will-change: transform; }
-.v3 .slide-inner img { height: 100%; width: 100%; object-fit: cover; }
+.v3 .slide-inner { height: 100%; width: 100%; will-change: transform; background: #f2f2f2; }
+/* contain, not cover: split3's box is viewport-height-relative and map3's is
+   840:316 -- both unusually shaped, and every current photo was pre-cropped
+   to match exactly (so this renders identically today). It only matters the
+   next time one of these nine photos gets replaced with a normal, uncropped
+   shot -- contain shows the whole thing instead of silently cropping it. */
+.v3 .slide-inner img { height: 100%; width: 100%; object-fit: contain; }
 .v3 .split3-swiper-wrap .swiper-slide { overflow: hidden; }
 
 /* ---------- 03 ABOUT ---------- */

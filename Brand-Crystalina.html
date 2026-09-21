@@ -282,9 +282,15 @@
 
   .bp-usp-lead { color: var(--muted); font-size: clamp(15px,1.4vw,17px); line-height: 1.62; max-width: 70ch; margin-top: 14px; }
   .bp-usps { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(12px,1.5vw,20px); margin-top: 40px; }
-  .bp-usp { position: relative; border-radius: var(--r); overflow: hidden; border: 1.5px solid var(--line); aspect-ratio: 1/1; color: #fff; }
+  .bp-usp { position: relative; border-radius: var(--r); overflow: hidden; border: 1.5px solid var(--line); aspect-ratio: 1/1; color: #fff; background: var(--cream); }
   .bp-usp.tall { grid-row: span 2; aspect-ratio: 1/2.06; }
-  .bp-usp img, .bp-usp video { width: 100%; height: 100%; object-fit: cover; display: block; }
+  /* The still photo takes contain, not cover: every current photo here was
+     pre-cropped to a perfect square (matches this box exactly, so nothing
+     changes visually today) -- this only protects the next one uploaded
+     that isn't. The two .tall cards' looping background video stays cover
+     on purpose -- a letterboxed video looks broken, a photo doesn't. */
+  .bp-usp img { width: 100%; height: 100%; object-fit: contain; display: block; }
+  .bp-usp video { width: 100%; height: 100%; object-fit: cover; display: block; }
   .bp-usp::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(15,15,15,0) 45%, rgba(15,15,15,0.8) 100%); }
   .bp-usp h4 { position: absolute; left: 16px; right: 16px; bottom: 15px; z-index: 2; font-family: var(--head); font-weight: 700; text-transform: uppercase; font-size: 15px; line-height: 1.2; }
 

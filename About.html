@@ -228,8 +228,12 @@
   /* The photograph's own ratio, not a design ratio. 4/5 cropped 64px off
      each side and the men only have 54px and 62px of margin, so the outer
      two were being clipped here as well as on phones. */
-  .vmv-image { position: sticky; top: 120px; width: 100%; aspect-ratio: 796 / 836; border-radius: var(--r); overflow: hidden; border: 1.5px solid rgba(255,255,255,0.14); box-shadow: 0 30px 70px -34px rgba(0,0,0,0.6); }
-  .vmv-image img { width: 100%; height: 100%; object-fit: cover; }
+  .vmv-image { position: sticky; top: 120px; width: 100%; aspect-ratio: 796 / 836; border-radius: var(--r); overflow: hidden; border: 1.5px solid rgba(255,255,255,0.14); box-shadow: 0 30px 70px -34px rgba(0,0,0,0.6); background: var(--ink-deep); }
+  /* contain, not cover: the box ratio was set to match the shipped photo
+     exactly (see above), so this renders identically today. It only matters
+     the next time this photo is replaced with a different shape — contain
+     shows the whole thing instead of silently cropping it. */
+  .vmv-image img { width: 100%; height: 100%; object-fit: contain; }
   .vmv-tabs { display: flex; flex-direction: column; gap: 14px; }
   .vmv-tab { position: relative; padding: 26px 28px; border-radius: var(--r); background: rgba(255,255,255,0.06); border: 1.5px solid rgba(255,255,255,0.13); cursor: pointer; transition: background .3s cubic-bezier(.2,.8,.2,1), border-color .3s, transform .3s; }
   .vmv-tab.active { background: rgba(255,255,255,0.13); border-color: rgba(255,255,255,0.3); }
@@ -267,8 +271,11 @@
   .sustain-card { background: var(--ink-deep); color: #fff; border-radius: clamp(24px, 3vw, 40px); padding: clamp(36px, 5vw, 64px); display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 4vw, 60px); align-items: center; overflow: hidden; }
   .sustain-card h2 { font-size: clamp(28px, 4vw, 54px); text-transform: uppercase; margin-top: 14px; color: #fff; line-height: 1; }
   .sustain-card .lead { color: var(--muted-d); font-size: 16px; line-height: 1.6; margin-top: 18px; max-width: 440px; }
-  .sustain-img { border-radius: var(--r); overflow: hidden; height: clamp(260px, 34vw, 420px); }
-  .sustain-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s; }
+  .sustain-img { border-radius: var(--r); overflow: hidden; height: clamp(260px, 34vw, 420px); background: rgba(255,255,255,0.06); }
+  /* contain, not cover -- see the same note on .vmv-image above. The mobile
+     aspect-ratio below matches the shipped photo exactly, so nothing changes
+     today; this only protects the next photo that goes in here. */
+  .sustain-img img { width: 100%; height: 100%; object-fit: contain; transition: transform .6s; }
   .sustain-img:hover img { transform: scale(1.04); }
 
   /* ===== HELP / PARTNER ===== */
