@@ -109,10 +109,38 @@ class Download(models.Model):
         super().save(*args, **kwargs)
 
     @classmethod
-    def live_catalogue(cls):
-        """The row the website actually serves: newest active catalogue with a file."""
+    def _catalogues(cls):
         return (cls.objects
                 .filter(is_active=True, category='catalogue')
                 .exclude(file='')
-                .order_by('-created_at')
-                .first())
+                .select_related('brand')
+                .order_by('-created_at'))
+
+    @classmethod
+    def live_catalogue(cls, brand_slug=None):
+        """The row the website serves for one audience.
+
+        `brand_slug=None` is the general catalogue behind the hero button; a slug
+        is the per-brand card on the Catalogue page. Newest active wins within
+        each audience, so the brands do not compete with the general edition.
+        """
+        qs = cls._catalogues()
+        qs = qs.filter(brand__slug=brand_slug) if brand_slug else qs.filter(brand__isnull=True)
+        return qs.first()
+
+    @classmethod
+    def live_catalogue_pks(cls):
+        """Every row currently on the website — one per audience.
+
+        The changelist mixes all audiences together, so a single "newest" is the
+        wrong answer: a brand catalogue is live even when a newer general one
+        exists above it.
+        """
+        seen, live = set(), set()
+        for row in cls._catalogues():
+            audience = row.brand.slug if row.brand else None
+            if audience in seen:
+                continue
+            seen.add(audience)
+            live.add(row.pk)
+        return live

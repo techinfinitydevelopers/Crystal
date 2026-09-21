@@ -503,7 +503,7 @@ h1, h2 { overflow-wrap: break-word; }
         <span class="tag" data-cms="by-brand-span-1">World of Kitchenware</span>
         <div class="links">
           <a href="All-Products.html?brand=crystal">View Products <span>↗</span></a>
-          <a href="#" data-cms="by-brand-a-1">Download</a>
+          <a href="#" data-catalogue-brand="crystal" target="_blank" rel="noopener" data-cms="by-brand-a-1">Download</a>
         </div>
       </article>
       <article class="brand-card" data-fade>
@@ -511,7 +511,7 @@ h1, h2 { overflow-wrap: break-word; }
         <span class="tag" data-cms="by-brand-span-2">Splendid Finish</span>
         <div class="links">
           <a href="All-Products.html?brand=crystalina">View Products <span>↗</span></a>
-          <a href="#" data-cms="by-brand-a-2">Download</a>
+          <a href="#" data-catalogue-brand="crystalina" target="_blank" rel="noopener" data-cms="by-brand-a-2">Download</a>
         </div>
       </article>
       <article class="brand-card" data-fade>
@@ -519,7 +519,7 @@ h1, h2 { overflow-wrap: break-word; }
         <span class="tag" data-cms="by-brand-span-3">Cleaning Simplified</span>
         <div class="links">
           <a href="All-Products.html?brand=sparkmate">View Products <span>↗</span></a>
-          <a href="#" data-cms="by-brand-a-3">Download</a>
+          <a href="#" data-catalogue-brand="sparkmate" target="_blank" rel="noopener" data-cms="by-brand-a-3">Download</a>
         </div>
       </article>
       <article class="brand-card" data-fade>
@@ -527,7 +527,7 @@ h1, h2 { overflow-wrap: break-word; }
         <span class="tag" data-cms="by-brand-span-4">Value for Money</span>
         <div class="links">
           <a href="All-Products.html?brand=valmate">View Products <span>↗</span></a>
-          <a href="#" data-cms="by-brand-a-4">Download</a>
+          <a href="#" data-catalogue-brand="valmate" target="_blank" rel="noopener" data-cms="by-brand-a-4">Download</a>
         </div>
       </article>
     </div>
@@ -684,22 +684,48 @@ h1, h2 { overflow-wrap: break-word; }
 /* Lets the dashboard replace the catalogue PDF without a deploy.
 
    Same inversion as the category banners and the page sections: the site is
-   static files in git, the dashboard is a separate service, and a 52 MB PDF
+   static files in git, the dashboard is a separate service, and a 25 MB PDF
    is the last thing anyone wants to push through a commit to change a year.
    The page ships the catalogue it knows about and asks, on load, whether a
    newer one has been uploaded.
 
-   Upload it in the dashboard under Downloads with category "Catalogue". The
-   newest active one wins, so replacing next year's edition is an upload, not
-   an edit. Nothing here can hold the page up: on a timeout, an error, an
-   empty list or a dashboard that is down, the shipped PDF stands. */
+   Five links are fed from one fetch: the hero button takes the catalogue with
+   no brand set, and each brand card takes its own. Upload under Downloads with
+   category "Catalogue" — blank Brand for the general edition, a brand for that
+   card. Newest active wins within each of those separately, so a new general
+   catalogue never displaces a brand one.
+
+   The brand cards shipped as href="#", which looks clickable and does nothing,
+   so they are pointed at the general catalogue up front and only upgraded if a
+   brand edition exists. Nothing here can hold the page up: on a timeout, an
+   error, an empty list or a dashboard that is down, every link still resolves
+   to the shipped PDF. */
 (function () {
   "use strict";
-  var link = document.getElementById("cataloguePdf");
-  if (!link) return;
+  var hero = document.getElementById("cataloguePdf");
+  if (!hero) return;
+  var cards = [].slice.call(document.querySelectorAll("[data-catalogue-brand]"));
 
   var API = "https://crystal-production-eb2e.up.railway.app/api/downloads/?category=catalogue";
   var DEADLINE_MS = 2500;
+
+  function apply(link, url, title) {
+    if (!url) return;
+    link.href = url;
+    if (title) link.title = title;
+    /* A cross-origin `download` is ignored by the browser — left on the anchor
+       it would promise a save that never happens, and target="_blank" already
+       opens the file. On the shipped PDF, same origin, it still works. */
+    if (/^https?:/i.test(url) && url.indexOf(location.origin) !== 0) {
+      link.removeAttribute("download");
+    } else {
+      link.setAttribute("download", "");
+    }
+  }
+
+  /* Before the network is involved, so a dead dashboard cannot leave a dead link. */
+  var shipped = hero.getAttribute("href");
+  cards.forEach(function (link) { apply(link, shipped, hero.title || null); });
 
   var done = false;
   setTimeout(function () { done = true; }, DEADLINE_MS);
@@ -710,17 +736,26 @@ h1, h2 { overflow-wrap: break-word; }
       if (done) return;
       var list = data && (data.results || data);
       if (!Array.isArray(list) || !list.length) return;
-      var pick = null;
-      for (var i = 0; i < list.length; i++) {
-        if (list[i] && list[i].file_url) { pick = list[i]; break; }
+
+      /* The API hands back newest first, so the first match for an audience is
+         the one the dashboard marks live. */
+      function pick(brand) {
+        for (var i = 0; i < list.length; i++) {
+          var row = list[i];
+          if (!row || !row.file_url) continue;
+          if ((row.brand_slug || null) === brand) return row;
+        }
+        return null;
       }
-      if (!pick) return;
-      link.href = pick.file_url;
-      if (pick.title) link.title = pick.title;
-      /* The file now lives on the dashboard's domain, and a cross-origin
-         `download` is ignored by the browser — left on the anchor it would
-         promise a save that never happens. target="_blank" already opens it. */
-      link.removeAttribute("download");
+
+      var general = pick(null);
+      if (general) apply(hero, general.file_url, general.title);
+
+      cards.forEach(function (link) {
+        var own = pick(link.getAttribute("data-catalogue-brand"));
+        var row = own || general;
+        if (row) apply(link, row.file_url, row.title);
+      });
     })
     .catch(function () { /* the shipped catalogue stands */ });
 })();

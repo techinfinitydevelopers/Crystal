@@ -14,17 +14,19 @@ class DownloadAdmin(admin.ModelAdmin):
             'fields': ('title', 'brand', 'category', 'description'),
             'description': (
                 'Upload the catalogue here and the website picks it up on its own — '
-                'no deploy needed. Set <b>Category</b> to <b>Catalogue</b>: that is the '
-                'one wired to the <b>Download PDF</b> button on the Catalogue page. '
-                'Leave <b>Brand</b> blank for the general catalogue.'
+                'no deploy needed. Set <b>Category</b> to <b>Catalogue</b>: that is what '
+                'the Catalogue page reads. Leave <b>Brand</b> blank for the general '
+                'catalogue behind the <b>Download PDF</b> button, or pick a brand to fill '
+                'that brand’s card lower down the page.'
             ),
         }),
         ('Upload', {
             'fields': ('file', 'thumbnail'),
             'description': (
-                'PDF only, up to 80 MB. When several catalogues are active the '
-                '<b>newest</b> one wins, so uploading a new edition is enough — '
-                'there is nothing to delete or reorder.'
+                'PDF only, up to 80 MB. The <b>newest</b> active catalogue wins, so '
+                'uploading a new edition is enough — there is nothing to delete or '
+                'reorder. Each brand is counted separately, so a new general '
+                'catalogue never displaces a brand one.'
             ),
         }),
         ('Visibility', {
@@ -40,12 +42,11 @@ class DownloadAdmin(admin.ModelAdmin):
         Resolved once per request and closed over, rather than re-queried per
         row or cached on the admin singleton, which is shared across threads.
         """
-        live = Download.live_catalogue()
-        live_pk = live.pk if live else None
+        live_pks = Download.live_catalogue_pks()
 
         @admin.display(description='On the website')
         def live_badge(obj):
-            if obj.pk == live_pk:
+            if obj.pk in live_pks:
                 return mark_safe(
                     '<span style="background:#16a34a;color:#fff;padding:3px 10px;'
                     'border-radius:100px;font-size:11px;font-weight:700;">LIVE NOW</span>'
@@ -64,19 +65,24 @@ class DownloadAdmin(admin.ModelAdmin):
         """The same answer on the change form, where someone edits one file."""
         if obj.pk is None:
             return 'Save this download to see whether the website will serve it.'
-        live = Download.live_catalogue()
-        if live and live.pk == obj.pk:
-            return mark_safe(
-                '<b style="color:#16a34a;">This is the catalogue the website is serving.</b>'
-            )
         if obj.category != 'catalogue':
-            return 'Not a catalogue, so the Catalogue page button ignores it.'
+            return 'Not a catalogue, so the Catalogue page ignores it.'
+
+        audience = obj.brand.slug if obj.brand else None
+        where = f'the {obj.brand.name} card' if obj.brand else 'the Download PDF button'
+        live = Download.live_catalogue(audience)
+
+        if live and live.pk == obj.pk:
+            return format_html(
+                '<b style="color:#16a34a;">Live on the website</b> — this is what {} serves.',
+                where,
+            )
         if not obj.is_active:
             return 'Inactive — the website skips it.'
         if live:
             return format_html(
-                'Superseded by a newer catalogue: "{}" (uploaded {}).',
-                live.title, live.created_at.strftime('%d %b %Y'),
+                'Superseded by "{}" (uploaded {}), which {} serves instead.',
+                live.title, live.created_at.strftime('%d %b %Y'), where,
             )
         return 'No file on this record yet.'
 
