@@ -270,8 +270,10 @@
       /* The same split the server does, so the preview cannot promise a
          layout the page will not produce. */
       var lead = [], points = [];
-      value.split(/?
-/).forEach(function (raw) {
+      value.split(String.fromCharCode(10)).forEach(function (raw) {
+        /* trim() takes the carriage return off a Windows paste, so splitting
+           on the newline alone is enough and no escape has to survive the
+           trip through the template. */
         var line = raw.trim();
         if (!line) return;
         var m = line.match(/^[-•*]\s+(.*)$/);

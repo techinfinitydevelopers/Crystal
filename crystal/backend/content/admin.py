@@ -50,6 +50,27 @@ class CategoryBannerInlineForm(forms.ModelForm):
         }
 
 
+def html_warning(fmt):
+    """What to do about tags, given what the section is set to.
+
+    Pointing at HTML is the right advice from Plain text. From the bullet-list
+    setting it is the wrong first suggestion: someone there wants the hero's
+    lead-and-points layout, and typing it plainly gets that -- switching to HTML
+    means styling it by hand instead.
+    """
+    if fmt == PageSection.LIST:
+        return (
+            'Remove the tags and type the points plainly — first line the '
+            'heading, then one "- point" per line. The bullets and their styling '
+            'are added for you. (If you really do want to write the markup '
+            'yourself, set "Show this as" to HTML.)'
+        )
+    return (
+        'This looks like HTML. Set "Show this as" to HTML, or the tags will be '
+        'shown to visitors exactly as typed.'
+    )
+
+
 class PageSectionEditorForm(forms.ModelForm):
     """One row inside the per-page editor.
 
@@ -98,10 +119,7 @@ class PageSectionEditorForm(forms.ModelForm):
         value = cleaned.get('text_value') or ''
         fmt = cleaned.get('text_format')
         if value and fmt != PageSection.HTML and PageSection.looks_like_html(value):
-            self.add_error('text_value', forms.ValidationError(
-                'This looks like HTML. Set "Show this as" to HTML, or the tags '
-                'will be shown to visitors exactly as typed.'
-            ))
+            self.add_error('text_value', forms.ValidationError(html_warning(fmt)))
         return cleaned
 
 
@@ -223,10 +241,7 @@ class PageSectionForm(forms.ModelForm):
         value = cleaned.get('text_value') or ''
         fmt = cleaned.get('text_format')
         if value and fmt != PageSection.HTML and PageSection.looks_like_html(value):
-            self.add_error('text_value', forms.ValidationError(
-                'This looks like HTML. Set "Show this as" to HTML, or the tags '
-                'will be shown to visitors exactly as typed.'
-            ))
+            self.add_error('text_value', forms.ValidationError(html_warning(fmt)))
         return cleaned
 
 
