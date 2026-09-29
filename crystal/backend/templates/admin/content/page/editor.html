@@ -77,6 +77,18 @@
   .pe-banner__sliders label { display: block; font-size: 11px; color: #64748b;
     text-transform: uppercase; letter-spacing: .03em; margin-bottom: 4px; }
   .pe-banner__sliders input[type=range] { width: 220px; accent-color: #ED3338; }
+  .pe-html { display:flex; align-items:center; gap:8px; margin-top:8px; flex-wrap:wrap; }
+  .pe-html label { font-size:12px; font-weight:600; color:#334155; margin:0; }
+  .pe-html-eg { font-family:ui-monospace,Menlo,Consolas,monospace; font-size:11px; color:#94a3b8; }
+  /* The point of the tick is that markup renders, so show it rendering — the
+     paragraph that started this was published with a literal <br> in it and
+     nobody saw until the live page was opened. */
+  .pe-preview { margin-top:8px; border:1px solid #e2e8f0; border-left:3px solid #16a34a;
+                border-radius:8px; padding:10px 12px; background:#f8fafc; }
+  .pe-preview-tag { display:block; font-size:10px; font-weight:700; letter-spacing:.08em;
+                    text-transform:uppercase; color:#16a34a; margin-bottom:6px; }
+  .pe-preview-out { font-size:13px; line-height:1.55; color:#0f172a; overflow-wrap:break-word; }
+  .pe-preview-out img, .pe-preview-out svg { max-width:100%; }
 </style>
 {% endblock %}
 
@@ -204,6 +216,12 @@
                 </div>
               {% else %}
                 {{ form.text_value }}
+                <div class="pe-html">
+                  {{ form.allow_html }}
+                  <label for="{{ form.allow_html.id_for_label }}">Format with HTML</label>
+                  <span class="pe-html-eg">&lt;br&gt; &lt;b&gt;bold&lt;/b&gt; &lt;span style="color:#ED3338"&gt;red&lt;/span&gt;</span>
+                </div>
+                <div class="pe-preview" hidden><span class="pe-preview-tag">Preview</span><div class="pe-preview-out"></div></div>
                 <div class="pe-hint">Clear the box to go back to the page's own wording.</div>
               {% endif %}
 
@@ -223,4 +241,31 @@
     {% endif %}
   </div>
 </div>
+
+<script>
+/* Show what the HTML will actually look like, next to the box it is typed in.
+   Only when "Format with HTML" is ticked — unticked, the page prints the value
+   verbatim and the textarea is already an accurate preview of that. */
+(function () {
+  "use strict";
+  document.querySelectorAll(".pe-row").forEach(function (row) {
+    var box = row.querySelector("textarea");
+    var tick = row.querySelector('.pe-html input[type="checkbox"]');
+    var panel = row.querySelector(".pe-preview");
+    if (!box || !tick || !panel) return;
+    var out = panel.querySelector(".pe-preview-out");
+
+    function render() {
+      if (!tick.checked || !box.value.trim()) { panel.hidden = true; return; }
+      panel.hidden = false;
+      /* Scripts do not run from innerHTML, and this is the admin's own typed
+         value being shown back to the person who just typed it. */
+      out.innerHTML = box.value;
+    }
+    tick.addEventListener("change", render);
+    box.addEventListener("input", render);
+    render();
+  });
+})();
+</script>
 {% endblock %}

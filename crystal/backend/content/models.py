@@ -7,6 +7,8 @@ asks this service whether a newer value has been set for each of its section
 keys and swaps it in live if so. If this service is down or has nothing for a
 key, the shipped content stands.
 """
+import re
+
 from django.db import models
 
 
@@ -81,8 +83,15 @@ class PageSection(models.Model):
                   'key is used.')
     kind = models.CharField(max_length=10, choices=KIND_CHOICES, default=TEXT)
     text_value = models.TextField(
-        blank=True, help_text='Used when Kind is Text. Plain text -- shown '
-                              'exactly as typed, no HTML.')
+        blank=True, help_text='Used when Kind is Text. Typed straight onto the '
+                              'page. Tick "Format with HTML" below to use tags '
+                              'and styling here.')
+    allow_html = models.BooleanField(
+        default=False, verbose_name='Format with HTML',
+        help_text='Tick to write HTML here -- <br> for a line break, '
+                  '<b>bold</b>, <span style="color:#ED3338">colour</span>. '
+                  'Left unticked, tags are shown to visitors as the literal '
+                  'text you typed, which is almost never what you want.')
     image = models.ImageField(
         upload_to='page-sections/', blank=True, null=True,
         help_text='Used when Kind is Image. Shown on desktops and tablets, and '
@@ -146,6 +155,17 @@ class PageSection(models.Model):
         import re
         raw = re.sub(r'(\d+)$', r' \1', self.section or 'Other')
         return raw.replace('-', ' ').replace('_', ' ').strip().title()
+
+    HTML_TAG = re.compile(r'<\s*/?\s*[a-zA-Z][a-zA-Z0-9]*(\s[^<>]*)?/?>')
+
+    @classmethod
+    def looks_like_html(cls, value):
+        """Whether a value carries real markup rather than a stray angle bracket.
+
+        Deliberately narrow: it has to look like an actual tag, so copy such as
+        "10 < 20" or an arrow in "-> Next" does not trip it.
+        """
+        return bool(value) and bool(cls.HTML_TAG.search(value))
 
     @property
     def is_overridden(self):
