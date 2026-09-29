@@ -38,14 +38,22 @@ class PageSectionFeedView(View):
                 if not s.text_value:
                     continue
                 entry['text'] = s.text_value
-                # Whether the page should parse this as markup. Sent per
-                # section rather than decided on the page, because the page's
-                # own `data-cms-rich` attribute is baked into the static HTML
-                # and the dashboard cannot reach it -- which is exactly why a
-                # <br> typed into an untagged paragraph used to reach visitors
-                # as the literal text "<br>".
-                if s.allow_html:
-                    entry['html'] = True
+                # How the page should render this. Sent per section rather
+                # than decided on the page, because the page's own
+                # `data-cms-rich` attribute is baked into the static HTML and
+                # the dashboard cannot reach it -- which is exactly why a <br>
+                # typed into an untagged paragraph used to reach visitors as
+                # the literal text "<br>".
+                if s.text_format == PageSection.HTML:
+                    entry['format'] = PageSection.HTML
+                elif s.text_format == PageSection.LIST:
+                    # Parsed here, once, rather than leaving every page to
+                    # agree on what "a bullet" looks like.
+                    lead, bullets = PageSection.parse_list(s.text_value)
+                    if bullets:
+                        entry['format'] = PageSection.LIST
+                        entry['lead'] = lead
+                        entry['bullets'] = bullets
             pages.setdefault(s.slug, {})[s.section_key] = entry
 
         res = JsonResponse({'pages': pages})

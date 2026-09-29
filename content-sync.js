@@ -109,6 +109,31 @@
     return legacy ? [legacy] : [];
   }
 
+  function applyList(el, lead, bullets) {
+    /* Build exactly what the 31 pages that ship this layout already contain:
+       a lead paragraph followed by a sibling <ul class="hero-points">, not a
+       <ul> nested inside the paragraph. Same DOM means the same CSS applies
+       with nothing new to style, and it stays valid markup. */
+    el.textContent = lead || "";
+    el.classList.add("hero-lead");
+
+    var list = el.nextElementSibling;
+    if (!list || !list.hasAttribute("data-cms-list")) {
+      list = document.createElement("ul");
+      list.setAttribute("data-cms-list", "");
+      el.parentNode.insertBefore(list, el.nextSibling);
+    }
+    list.className = "hero-points";
+    /* Rebuilt rather than appended to: the feed can be applied more than once
+       on a page, and appending would grow the list each time. */
+    list.textContent = "";
+    for (var i = 0; i < bullets.length; i++) {
+      var li = document.createElement("li");
+      li.textContent = bullets[i];
+      list.appendChild(li);
+    }
+  }
+
   function applyText(el, text, asHtml) {
     var attr = el.getAttribute("data-cms-attr");
     if (attr) { el.setAttribute(attr, text); return; }
@@ -173,7 +198,10 @@
           if (!targets.length) return;
           for (var i = 0; i < targets.length; i++) {
             if (section.kind === "image" && section.url) applyImage(targets[i], section.url);
-            else if (section.kind === "text" && section.text) applyText(targets[i], section.text, section.html === true);
+            else if (section.kind === "text" && section.format === "list" && section.bullets)
+              applyList(targets[i], section.lead, section.bullets);
+            else if (section.kind === "text" && section.text)
+              applyText(targets[i], section.text, section.format === "html");
           }
         });
       });

@@ -89,6 +89,14 @@
                     text-transform:uppercase; color:#16a34a; margin-bottom:6px; }
   .pe-preview-out { font-size:13px; line-height:1.55; color:#0f172a; overflow-wrap:break-word; }
   .pe-preview-out img, .pe-preview-out svg { max-width:100%; }
+  /* Mirrors the hero's own lead-and-bullets look closely enough to judge it. */
+  .pe-preview-out .pe-lead { font-weight:700; margin:0 0 6px; }
+  .pe-preview-out .pe-points { list-style:none; margin:0; padding:0; display:grid; gap:5px; }
+  .pe-preview-out .pe-points li { position:relative; padding-left:18px; }
+  .pe-preview-out .pe-points li::before { content:""; position:absolute; left:2px; top:.55em;
+    width:6px; height:6px; border-radius:50%; background:#ED3338; }
+  .pe-preview-out .pe-warn { margin-top:6px; font-size:11px; color:#b45309; }
+  .pe-html select { font-size:12px; padding:3px 6px; border:1px solid #cbd5e1; border-radius:6px; }
 </style>
 {% endblock %}
 
@@ -217,9 +225,11 @@
               {% else %}
                 {{ form.text_value }}
                 <div class="pe-html">
-                  {{ form.allow_html }}
-                  <label for="{{ form.allow_html.id_for_label }}">Format with HTML</label>
-                  <span class="pe-html-eg">&lt;br&gt; &lt;b&gt;bold&lt;/b&gt; &lt;span style="color:#ED3338"&gt;red&lt;/span&gt;</span>
+                  <label for="{{ form.text_format.id_for_label }}">Show this as</label>
+                  {{ form.text_format }}
+                  <span class="pe-html-eg" data-eg="plain">shown exactly as typed</span>
+                  <span class="pe-html-eg" data-eg="list" hidden>first line = heading, then one &ldquo;- point&rdquo; per line</span>
+                  <span class="pe-html-eg" data-eg="html" hidden>&lt;br&gt; &lt;b&gt;bold&lt;/b&gt; &lt;span style="color:#ED3338"&gt;red&lt;/span&gt;</span>
                 </div>
                 <div class="pe-preview" hidden><span class="pe-preview-tag">Preview</span><div class="pe-preview-out"></div></div>
                 <div class="pe-hint">Clear the box to go back to the page's own wording.</div>
@@ -250,19 +260,62 @@
   "use strict";
   document.querySelectorAll(".pe-row").forEach(function (row) {
     var box = row.querySelector("textarea");
-    var tick = row.querySelector('.pe-html input[type="checkbox"]');
+    var pick = row.querySelector(".pe-html select");
     var panel = row.querySelector(".pe-preview");
-    if (!box || !tick || !panel) return;
+    if (!box || !pick || !panel) return;
     var out = panel.querySelector(".pe-preview-out");
+    var hints = row.querySelectorAll(".pe-html-eg");
+
+    function bullets(value) {
+      /* The same split the server does, so the preview cannot promise a
+         layout the page will not produce. */
+      var lead = [], points = [];
+      value.split(/?
+/).forEach(function (raw) {
+        var line = raw.trim();
+        if (!line) return;
+        var m = line.match(/^[-•*]\s+(.*)$/);
+        if (m) points.push(m[1].trim());
+        else if (!points.length) lead.push(line);
+      });
+      return { lead: lead.join(" "), points: points };
+    }
 
     function render() {
-      if (!tick.checked || !box.value.trim()) { panel.hidden = true; return; }
+      var mode = pick.value;
+      hints.forEach(function (h) { h.hidden = h.getAttribute("data-eg") !== mode; });
+      if (mode === "plain" || !box.value.trim()) { panel.hidden = true; return; }
       panel.hidden = false;
-      /* Scripts do not run from innerHTML, and this is the admin's own typed
-         value being shown back to the person who just typed it. */
-      out.innerHTML = box.value;
+      if (mode === "html") {
+        /* Scripts do not run from innerHTML, and this is the admin's own typed
+           value being shown back to the person who just typed it. */
+        out.innerHTML = box.value;
+        return;
+      }
+      var parsed = bullets(box.value);
+      out.textContent = "";
+      if (parsed.lead) {
+        var lead = document.createElement("p");
+        lead.className = "pe-lead";
+        lead.textContent = parsed.lead;
+        out.appendChild(lead);
+      }
+      var ul = document.createElement("ul");
+      ul.className = "pe-points";
+      parsed.points.forEach(function (t) {
+        var li = document.createElement("li");
+        li.textContent = t;
+        ul.appendChild(li);
+      });
+      out.appendChild(ul);
+      if (!parsed.points.length) {
+        var warn = document.createElement("div");
+        warn.className = "pe-warn";
+        warn.textContent = 'No bullets found — start each point with "- ".';
+        out.appendChild(warn);
+      }
     }
-    tick.addEventListener("change", render);
+    pick.addEventListener("change", render);
     box.addEventListener("input", render);
     render();
   });

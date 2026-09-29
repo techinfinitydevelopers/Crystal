@@ -68,7 +68,7 @@ class PageSectionEditorForm(forms.ModelForm):
 
     class Meta:
         model = PageSection
-        fields = ('text_value', 'allow_html', 'image', 'image_mobile', 'is_active')
+        fields = ('text_value', 'text_format', 'image', 'image_mobile', 'is_active')
         widgets = {
             'text_value': forms.Textarea(attrs={'rows': 3}),
         }
@@ -89,18 +89,18 @@ class PageSectionEditorForm(forms.ModelForm):
     def clean(self):
         """Catch the mistake that produced this field.
 
-        Typing <br> into a paragraph that is not marked as HTML used to publish
-        the characters "<br>" to visitors, and nothing said so until someone
-        looked at the live page. The fix is one tick, so say that rather than
+        Typing <br> into a paragraph left on Plain text publishes the
+        characters "<br>" to visitors, and nothing said so until someone looked
+        at the live page. The fix is one dropdown, so say that rather than
         letting it through.
         """
         cleaned = super().clean()
         value = cleaned.get('text_value') or ''
-        if value and not cleaned.get('allow_html') and PageSection.looks_like_html(value):
+        fmt = cleaned.get('text_format')
+        if value and fmt != PageSection.HTML and PageSection.looks_like_html(value):
             self.add_error('text_value', forms.ValidationError(
-                'This looks like HTML, and with "Format with HTML" unticked the '
-                'tags would be shown to visitors exactly as typed. Tick it to '
-                'make them render.'
+                'This looks like HTML. Set "Show this as" to HTML, or the tags '
+                'will be shown to visitors exactly as typed.'
             ))
         return cleaned
 
@@ -221,11 +221,11 @@ class PageSectionForm(forms.ModelForm):
         """Same guard as the page editor -- both doors lead to the same row."""
         cleaned = super().clean()
         value = cleaned.get('text_value') or ''
-        if value and not cleaned.get('allow_html') and PageSection.looks_like_html(value):
+        fmt = cleaned.get('text_format')
+        if value and fmt != PageSection.HTML and PageSection.looks_like_html(value):
             self.add_error('text_value', forms.ValidationError(
-                'This looks like HTML, and with "Format with HTML" unticked the '
-                'tags would be shown to visitors exactly as typed. Tick it to '
-                'make them render.'
+                'This looks like HTML. Set "Show this as" to HTML, or the tags '
+                'will be shown to visitors exactly as typed.'
             ))
         return cleaned
 
@@ -281,7 +281,7 @@ class PageSectionAdmin(admin.ModelAdmin):
                 'again at any time and the page falls back to what it ships. '
                 'The change is live within a minute — nothing to publish.'
             ),
-            'fields': ('text_value', 'allow_html', 'size_hint', 'image',
+            'fields': ('text_value', 'text_format', 'size_hint', 'image',
                        'current_image', 'image_mobile', 'current_image_mobile',
                        'is_active', 'updated_at'),
         }),

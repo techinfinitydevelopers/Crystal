@@ -203,6 +203,24 @@
   .hero-banner .pre { margin-bottom: clamp(12px, 1.8vw, 20px); }
   .hero-banner h1 { margin: 0; max-width: 14ch; }
   .hero-banner .hero-sub { margin: clamp(16px, 2vw, 22px) 0 clamp(20px, 2.6vw, 28px); max-width: 46ch; }
+  /* The heading-plus-bullets hero layout, matching the 31 pages that ship it
+     as markup. These pages ship a single paragraph instead, so the classes go
+     unused until a section here is set to "Heading + bullet list" in the
+     dashboard -- at which point content-sync builds the same DOM and this is
+     what styles it. Placed after .hero-sub so the lead's tighter bottom
+     margin wins over it on the same element. */
+  .hero-banner .hero-lead { margin: clamp(14px, 1.8vw, 20px) 0 10px; font-family: var(--head);
+    font-weight: 700; font-size: clamp(14px, 1.35vw, 16px); letter-spacing: .02em;
+    color: var(--ink); }
+  .hero-banner .hero-points { list-style: none; display: grid; gap: 7px; margin: 0 0 clamp(20px, 2.6vw, 28px);
+    max-width: 46ch; color: var(--muted); font-size: clamp(14px, 1.45vw, 16px); line-height: 1.45; }
+  .hero-banner .hero-points li { position: relative; padding-left: 20px; }
+  .hero-banner .hero-points li::before { content: ""; position: absolute; left: 2px; top: .55em;
+    width: 7px; height: 7px; border-radius: 50%; background: var(--red); }
+  @media (max-width: 860px) {
+    .hero-banner .hero-points { margin-inline: auto; text-align: left; display: inline-grid; }
+    .hero-banner .hero-lead { text-align: center; }
+  }
   .hero-banner .hero-cta { justify-content: flex-start; }
   .hero-banner .scroll-hint { left: auto; right: clamp(20px, 4vw, 54px); transform: none; }
 

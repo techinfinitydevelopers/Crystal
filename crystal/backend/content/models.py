@@ -83,15 +83,24 @@ class PageSection(models.Model):
                   'key is used.')
     kind = models.CharField(max_length=10, choices=KIND_CHOICES, default=TEXT)
     text_value = models.TextField(
-        blank=True, help_text='Used when Kind is Text. Typed straight onto the '
-                              'page. Tick "Format with HTML" below to use tags '
-                              'and styling here.')
-    allow_html = models.BooleanField(
-        default=False, verbose_name='Format with HTML',
-        help_text='Tick to write HTML here -- <br> for a line break, '
-                  '<b>bold</b>, <span style="color:#ED3338">colour</span>. '
-                  'Left unticked, tags are shown to visitors as the literal '
-                  'text you typed, which is almost never what you want.')
+        blank=True, help_text='Used when Kind is Text. How it is rendered is '
+                              'set by "Show this as" below.')
+    PLAIN = 'plain'
+    LIST = 'list'
+    HTML = 'html'
+    FORMAT_CHOICES = [
+        (PLAIN, 'Plain text'),
+        (LIST, 'Heading + bullet list'),
+        (HTML, 'HTML'),
+    ]
+    text_format = models.CharField(
+        max_length=10, choices=FORMAT_CHOICES, default=PLAIN,
+        verbose_name='Show this as',
+        help_text='Plain text is typed onto the page exactly as written. '
+                  '"Heading + bullet list" turns the first line into a bold '
+                  'lead and every line after it starting with "-" into a red '
+                  'bullet, the way the category heroes look. HTML lets you '
+                  'write tags and inline styles yourself.')
     image = models.ImageField(
         upload_to='page-sections/', blank=True, null=True,
         help_text='Used when Kind is Image. Shown on desktops and tablets, and '
@@ -166,6 +175,30 @@ class PageSection(models.Model):
         "10 < 20" or an arrow in "-> Next" does not trip it.
         """
         return bool(value) and bool(cls.HTML_TAG.search(value))
+
+    BULLET = re.compile(r'^\s*[-•*]\s+(.*)$')
+
+    @classmethod
+    def parse_list(cls, value):
+        """Split typed copy into a lead line and its bullets.
+
+        Returns (lead, [bullet, ...]). Anything before the first bullet is the
+        lead; blank lines are dropped. A value with no bullet markers comes
+        back as a lead and an empty list, which renders as an ordinary
+        paragraph -- typing the heading first and the points afterwards should
+        never produce a half-built list.
+        """
+        lead, bullets = [], []
+        for raw in (value or '').splitlines():
+            line = raw.strip()
+            if not line:
+                continue
+            match = cls.BULLET.match(line)
+            if match:
+                bullets.append(match.group(1).strip())
+            elif not bullets:
+                lead.append(line)
+        return ' '.join(lead), bullets
 
     @property
     def is_overridden(self):
