@@ -94,6 +94,7 @@ INSTALLED_APPS = [
     'enquiry',
     'blog',
     'downloads',
+    'awards',
 ]
 
 MIDDLEWARE = [
@@ -267,7 +268,7 @@ JAZZMIN_SETTINGS = {
     "order_with_respect_to": [
         "products", "banners",
         "content", "content.page", "content.pagesection", "content.pagesectiontrash",
-        "enquiry", "blog", "downloads", "core", "auth",
+        "awards", "enquiry", "blog", "downloads", "core", "auth",
     ],
 
     "icons": {
@@ -293,6 +294,8 @@ JAZZMIN_SETTINGS = {
         "content.page": "fas fa-file-alt",
         "content.pagesection": "fas fa-edit",
         "content.pagesectiontrash": "fas fa-trash",
+        "awards": "fas fa-award",
+        "awards.award": "fas fa-award",
     },
 
     "default_icon_parents": "fas fa-chevron-circle-right",
