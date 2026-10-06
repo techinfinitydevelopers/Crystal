@@ -1274,9 +1274,13 @@ h1, h2 { overflow-wrap: break-word; }
 
   var API = "https://crystal-production-eb2e.up.railway.app/api/awards.json";
   var DEADLINE_MS = 2500;
-  /* Slow enough to read a caption as it passes, quick enough that the strip is
-     plainly moving rather than drifting. */
-  var SPEED_PX_PER_SEC = 30;
+  /* One card goes past per second. Expressed in cards rather than pixels
+     because a card is clamp()ed against the viewport -- a fixed px/s would run
+     a card a second on a desktop and crawl on a phone. */
+  var SECONDS_PER_CARD = 1;
+  /* How long a touch holds the strip still. A phone has no hover to leave, so
+     this is the only thing that lets go. */
+  var TOUCH_HOLD_MS = 3000;
 
   function card(item) {
     /* A PDF makes the whole card the link, rather than a small "view" control
@@ -1329,6 +1333,7 @@ h1, h2 { overflow-wrap: break-word; }
     var paused = false;
     var raf = null;
     var loopWidth = 0;
+    var speed = 0;
     var pos = 0;
     var written = -1;
     var last = 0;
@@ -1358,7 +1363,11 @@ h1, h2 { overflow-wrap: break-word; }
       if (!originals.length) return;
       var firstCopy = null;
       var guard = 0;
-      while (track.scrollWidth < track.clientWidth * 2 && guard++ < 8) {
+      /* At least one copy always, then more until the track is twice the
+         visible width. A plain while() skipped the body entirely on a phone,
+         where four cards already overflow several times over -- no copy meant
+         no seam to loop on, and the strip never moved at all there. */
+      do {
         for (var i = 0; i < originals.length; i++) {
           var copy = originals[i].cloneNode(true);
           copy.setAttribute("aria-hidden", "true");
@@ -1366,8 +1375,13 @@ h1, h2 { overflow-wrap: break-word; }
           track.appendChild(copy);
           if (!firstCopy) firstCopy = copy;
         }
-      }
-      if (firstCopy) loopWidth = offsetIn(firstCopy);
+      } while (track.scrollWidth < track.clientWidth * 2 && guard++ < 8);
+      if (!firstCopy) return;
+      loopWidth = offsetIn(firstCopy);
+      /* loopWidth is one full set, so dividing by the cards in it gives the
+         width of one card plus its gap -- cover that in a second and exactly
+         one card goes past per second, whatever the viewport has made them. */
+      speed = loopWidth / originals.length / SECONDS_PER_CARD;
     }
 
     function frame(now) {
@@ -1384,7 +1398,7 @@ h1, h2 { overflow-wrap: break-word; }
       if (written >= 0 && Math.abs(track.scrollLeft - written) > 2) {
         pos = track.scrollLeft;
       }
-      pos += SPEED_PX_PER_SEC * dt;
+      pos += speed * dt;
       while (pos >= loopWidth) pos -= loopWidth;
       track.scrollLeft = pos;
       written = track.scrollLeft;
@@ -1406,13 +1420,32 @@ h1, h2 { overflow-wrap: break-word; }
     if (loopWidth < 1) return;
 
     /* Reading a certificate takes a while, and clicking one means pointing at
-       it first, so the strip holds still for a pointer, a tab stop or a touch. */
-    ["mouseenter", "focusin", "touchstart", "pointerdown"].forEach(function (ev) {
-      track.addEventListener(ev, function () { paused = true; }, { passive: true });
+       it first, so the strip holds still while someone is on it.
+
+       Three separate reasons rather than one flag. A touch used to set the same
+       flag a mouse did, and the only things that cleared it were mouseleave and
+       focusout -- neither of which a phone ever fires. One touch, even one
+       picked up while scrolling the page past, and the strip was stopped for
+       good. Touch instead holds for a few seconds after the last contact. */
+    var hovering = false, focused = false, touchUntil = 0;
+    function syncPaused() {
+      paused = hovering || focused || performance.now() < touchUntil;
+    }
+    function holdForTouch() {
+      touchUntil = performance.now() + TOUCH_HOLD_MS;
+      syncPaused();
+    }
+
+    track.addEventListener("mouseenter", function () { hovering = true; syncPaused(); }, { passive: true });
+    track.addEventListener("mouseleave", function () { hovering = false; syncPaused(); }, { passive: true });
+    track.addEventListener("focusin", function () { focused = true; syncPaused(); }, { passive: true });
+    track.addEventListener("focusout", function () { focused = false; syncPaused(); }, { passive: true });
+    ["touchstart", "touchmove", "touchend"].forEach(function (ev) {
+      track.addEventListener(ev, holdForTouch, { passive: true });
     });
-    ["mouseleave", "focusout"].forEach(function (ev) {
-      track.addEventListener(ev, function () { paused = false; }, { passive: true });
-    });
+    /* The hold expires on its own, so the loop has to re-ask rather than wait
+       to be told. */
+    setInterval(syncPaused, 250);
     document.addEventListener("visibilitychange", function () {
       if (document.hidden) stop(); else start();
     });
