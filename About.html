@@ -267,6 +267,12 @@
      that number would be wrong the moment a title wrapped to two lines. */
   .cert-body { flex: 1 1 auto; min-height: 0; background: #f1f5f9; }
   .cert-frame { width: 100%; height: 100%; border: 0; display: block; }
+  /* The pages we draw ourselves: one canvas each, stacked and scrolled. */
+  .cert-pages { height: 100%; overflow: auto; padding: 12px; display: grid; gap: 12px;
+    justify-items: center; align-content: start; -webkit-overflow-scrolling: touch; }
+  .cert-page { max-width: 100%; height: auto; background: #fff; border-radius: 6px;
+    box-shadow: 0 10px 26px -18px rgba(15,15,15,0.5); }
+  .cert-note { margin: 0; padding: 24px 12px; color: var(--muted); font-size: 13px; }
   .cert-full { width: 100%; height: 100%; object-fit: contain; display: block; padding: 12px; }
   /* Edge to edge on a phone, where a certificate needs every pixel. The
      max-height matters: a modal dialog's own browser styling caps it at about
@@ -1438,6 +1444,74 @@ h1, h2 { overflow-wrap: break-word; }
     }
   }
 
+  /* Drawing the PDF ourselves, rather than handing it to the browser.
+
+     #toolbar=0 only persuades Chrome and Edge; Firefox's viewer ignores it and
+     puts its own toolbar -- download button and all -- back on top. Rendering
+     the pages onto canvases means no viewer, so no toolbar, in any of them.
+
+     The library is fetched the first time someone opens a certificate, not on
+     page load: it is around a megabyte, and most visitors never open one. */
+  var PDFJS = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js";
+  var PDFJS_WORKER = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+  var pdfjsReady = null;
+  /* Bumped on every open, so a render that finishes after its viewer has been
+     closed -- or after a different certificate was opened -- throws its pages
+     away instead of painting them into the wrong one. */
+  var openToken = 0;
+
+  function loadPdfJs() {
+    if (pdfjsReady) return pdfjsReady;
+    pdfjsReady = new Promise(function (resolve, reject) {
+      if (window.pdfjsLib) return resolve(window.pdfjsLib);
+      var s = document.createElement("script");
+      s.src = PDFJS;
+      s.onload = function () {
+        if (!window.pdfjsLib) return reject(new Error("pdf.js did not register"));
+        window.pdfjsLib.GlobalWorkerOptions.workerSrc = PDFJS_WORKER;
+        resolve(window.pdfjsLib);
+      };
+      s.onerror = function () { reject(new Error("pdf.js failed to load")); };
+      document.head.appendChild(s);
+    });
+    return pdfjsReady;
+  }
+
+  function renderPdf(url, into, token, onFirstPage) {
+    return loadPdfJs()
+      .then(function (lib) { return lib.getDocument(url).promise; })
+      .then(function (doc) {
+        var chain = Promise.resolve();
+        for (var n = 1; n <= doc.numPages; n++) {
+          chain = chain.then(drawPage(doc, n, into, token));
+          if (n === 1 && onFirstPage) chain = chain.then(onFirstPage);
+        }
+        return chain;
+      });
+  }
+
+  function drawPage(doc, number, into, token) {
+    return function () {
+      if (token !== openToken) return null;
+      return doc.getPage(number).then(function (page) {
+        if (token !== openToken) return null;
+        var unit = page.getViewport({ scale: 1 });
+        /* Fit the width of the panel, then multiply by the screen's pixel
+           ratio so the text is sharp rather than a blown-up low-res bitmap. */
+        var room = Math.max(160, into.clientWidth - 24);
+        var dpr = window.devicePixelRatio || 1;
+        var view = page.getViewport({ scale: (room / unit.width) * dpr });
+        var canvas = document.createElement("canvas");
+        canvas.className = "cert-page";
+        canvas.width = view.width;
+        canvas.height = view.height;
+        canvas.style.width = (view.width / dpr) + "px";
+        into.appendChild(canvas);
+        return page.render({ canvasContext: canvas.getContext("2d"), viewport: view }).promise;
+      });
+    };
+  }
+
   function openViewer(item) {
     if (!viewer) viewer = buildViewer();
     var body = viewer.querySelector(".cert-body");
@@ -1445,12 +1519,47 @@ h1, h2 { overflow-wrap: break-word; }
     viewer.querySelector(".cert-title").textContent =
       item.title || item.alt || "Certificate";
 
+    var startRender = null;
+
     if (item.pdf) {
-      var frame = document.createElement("iframe");
-      frame.className = "cert-frame";
-      frame.title = item.title || item.alt || "Certificate";
-      frame.src = item.pdf + "#toolbar=0&navpanes=0&statusbar=0&view=FitH";
-      body.appendChild(frame);
+      openToken += 1;
+      var token = openToken;
+      var pages = document.createElement("div");
+      pages.className = "cert-pages";
+      var note = document.createElement("p");
+      note.className = "cert-note";
+      note.textContent = "Loading the certificate…";
+      pages.appendChild(note);
+      body.appendChild(pages);
+
+      /* Deferred until the dialog is actually open. A dialog that has not been
+         shown has no layout, so the panel measured 0 wide and every page came
+         out rendered at the 160px floor. */
+      startRender = function () {
+        renderPdf(item.pdf, pages, token, function firstPageDone() {
+          /* Cleared on the first page rather than the last: a certificate is
+             usually one page, but on anything longer the reader should not sit
+             behind a "Loading" line while the rest are drawn. */
+          if (token === openToken && note.parentNode) note.parentNode.removeChild(note);
+        })
+        .then(function () {
+          if (token !== openToken) return;
+          if (note.parentNode) note.parentNode.removeChild(note);
+        })
+        .catch(function () {
+          if (token !== openToken) return;
+          /* Rendering it ourselves is what keeps every browser's own toolbar --
+             and its download button -- out of the way. If the library cannot be
+             had, showing the certificate still matters more, so fall back to
+             the embed and accept the toolbar where a browser insists on one. */
+          pages.textContent = "";
+          var frame = document.createElement("iframe");
+          frame.className = "cert-frame";
+          frame.title = item.title || item.alt || "Certificate";
+          frame.src = item.pdf + "#toolbar=0&navpanes=0&statusbar=0&view=FitH";
+          pages.appendChild(frame);
+        });
+      };
     } else {
       var img = document.createElement("img");
       img.className = "cert-full";
@@ -1468,6 +1577,9 @@ h1, h2 { overflow-wrap: break-word; }
        we have and paying for it with a visible jump. */
     if (typeof viewer.showModal === "function") viewer.showModal();
     else viewer.setAttribute("open", "");
+
+    // Now that the panel has a width to fit the pages to.
+    if (startRender) startRender();
   }
 
   /* Read by the strip's pause check: with the viewer over the page the mouse
