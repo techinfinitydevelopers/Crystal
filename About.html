@@ -206,11 +206,14 @@
      the dashboard now and there can be any number of them. No scroll-behavior
      here on purpose -- the rotation calls scrollTo({behavior:"smooth"}) and the
      two animations fight each other if both are set. */
+  /* No scroll snapping: the strip is driven a fraction of a pixel at a time, and
+     snap rounds every one of those back to the nearest card edge -- written 400,
+     read 385, and the rotation never left the first card. */
   .ritems { display: flex; gap: clamp(14px, 1.8vw, 24px); align-items: stretch;
-    overflow-x: auto; scroll-snap-type: x proximity; -webkit-overflow-scrolling: touch;
+    overflow-x: auto; -webkit-overflow-scrolling: touch;
     padding: 6px 2px 10px; scrollbar-width: none; overscroll-behavior-x: contain; }
   .ritems::-webkit-scrollbar { display: none; }
-  .award-card { flex: 0 0 clamp(210px, 22vw, 268px); scroll-snap-align: start;
+  .award-card { flex: 0 0 clamp(210px, 22vw, 268px);
     display: flex; align-items: center; gap: 16px; margin: 0; padding: 16px; background: #fff; border: 1.5px solid var(--line); border-radius: 18px; box-shadow: 0 24px 46px -30px rgba(15,15,15,0.35); transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s; }
   /* A caption sits beside the picture, so those cards need more room. */
   .award-card.has-caption { flex-basis: clamp(290px, 30vw, 360px); }
@@ -1271,7 +1274,9 @@ h1, h2 { overflow-wrap: break-word; }
 
   var API = "https://crystal-production-eb2e.up.railway.app/api/awards.json";
   var DEADLINE_MS = 2500;
-  var DWELL_MS = 3500;
+  /* Slow enough to read a caption as it passes, quick enough that the strip is
+     plainly moving rather than drifting. */
+  var SPEED_PX_PER_SEC = 30;
 
   function card(item) {
     /* A PDF makes the whole card the link, rather than a small "view" control
@@ -1307,10 +1312,14 @@ h1, h2 { overflow-wrap: break-word; }
     }
 
     if (item.pdf) {
+      /* An arrow out of the corner, not a downward one: the certificate opens
+         in a tab to be looked at. A download glyph promises a file landing in
+         someone's Downloads folder, which is not what this does, and the rest
+         of the site already uses this arrow to mean "opens". */
       var pip = document.createElement("span");
       pip.className = "award-pdf";
       pip.setAttribute("aria-hidden", "true");
-      pip.textContent = "↓";
+      pip.textContent = "↗";
       el.appendChild(pip);
     }
     return el;
@@ -1318,47 +1327,86 @@ h1, h2 { overflow-wrap: break-word; }
 
   function rotate() {
     var paused = false;
-    var timer = null;
-
-    function cards() { return track.children; }
+    var raf = null;
+    var loopWidth = 0;
+    var pos = 0;
+    var written = -1;
+    var last = 0;
 
     function offsetIn(child) {
       /* How far the card sits along the track's own scroll axis. offsetLeft is
          measured from the offsetParent, which is not the track, so comparing it
-         against scrollLeft mixes two origins -- the strip then refused to wrap
-         at the end and bounced between the last two cards instead. */
+         against scrollLeft mixes two origins. */
       return child.getBoundingClientRect().left
         - track.getBoundingClientRect().left + track.scrollLeft;
     }
 
-    function step() {
-      var list = cards();
-      if (paused || list.length < 2 || document.hidden) return;
-      var x = track.scrollLeft;
-      var end = track.scrollWidth - track.clientWidth;
-      /* Checked before looking for a next card: at the end there is always a
-         card partly off-screen to the right, so the search would find one and
-         the strip would never return to the start. */
-      if (x >= end - 4) { track.scrollTo({ left: 0, behavior: "smooth" }); return; }
-      /* Which card is at the left edge now, rather than a counter we keep
-         ourselves: the visitor can scroll or swipe this strip at any moment,
-         and a counter would then be pointing somewhere they are not. */
-      for (var i = 0; i < list.length; i++) {
-        var left = offsetIn(list[i]);
-        if (left > x + 4) { track.scrollTo({ left: left, behavior: "smooth" }); return; }
+    function build() {
+      /* Repeat the set until it is at least twice the visible width.
+
+         Without this the motion is only as long as the overflow, and four cards
+         on a desktop overflow by about 120px -- the strip crept a little and
+         then sat still, which reads as broken rather than as a strip that has
+         finished. Repeated, it can travel forever: once it has moved the width
+         of one full set, scrollLeft drops back by exactly that width onto
+         identical content, so the jump cannot be seen.
+
+         The copies are hidden from screen readers and taken out of the tab
+         order -- they are the same certificates, and nobody should meet them
+         twice. */
+      var originals = [].slice.call(track.children);
+      if (!originals.length) return;
+      var firstCopy = null;
+      var guard = 0;
+      while (track.scrollWidth < track.clientWidth * 2 && guard++ < 8) {
+        for (var i = 0; i < originals.length; i++) {
+          var copy = originals[i].cloneNode(true);
+          copy.setAttribute("aria-hidden", "true");
+          if (copy.tagName === "A") copy.tabIndex = -1;
+          track.appendChild(copy);
+          if (!firstCopy) firstCopy = copy;
+        }
       }
-      track.scrollTo({ left: 0, behavior: "smooth" });
+      if (firstCopy) loopWidth = offsetIn(firstCopy);
+    }
+
+    function frame(now) {
+      raf = requestAnimationFrame(frame);
+      if (!last) { last = now; return; }
+      /* Clamped: coming back to a backgrounded tab hands you one enormous gap,
+         and the strip would leap instead of resume. */
+      var dt = Math.min((now - last) / 1000, 0.05);
+      last = now;
+      if (paused || document.hidden || loopWidth < 1) return;
+
+      /* If the strip is not where we left it, a visitor scrolled or swiped it.
+         Carry on from where they are rather than yanking it back. */
+      if (written >= 0 && Math.abs(track.scrollLeft - written) > 2) {
+        pos = track.scrollLeft;
+      }
+      pos += SPEED_PX_PER_SEC * dt;
+      while (pos >= loopWidth) pos -= loopWidth;
+      track.scrollLeft = pos;
+      written = track.scrollLeft;
     }
 
     function start() {
-      if (timer) return;
-      if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-      timer = setInterval(step, DWELL_MS);
+      if (raf) return;
+      last = 0;
+      raf = requestAnimationFrame(frame);
     }
-    function stop() { clearInterval(timer); timer = null; }
+    function stop() { cancelAnimationFrame(raf); raf = null; }
 
-    /* Reading a certificate takes longer than the dwell, so pointing at the
-       strip, tabbing into it or touching it holds it still. */
+    /* Left alone entirely when the visitor has asked for less movement: the
+       strip is still there and still scrolls by hand, it simply does not move
+       on its own. */
+    if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    build();
+    if (loopWidth < 1) return;
+
+    /* Reading a certificate takes a while, and clicking one means pointing at
+       it first, so the strip holds still for a pointer, a tab stop or a touch. */
     ["mouseenter", "focusin", "touchstart", "pointerdown"].forEach(function (ev) {
       track.addEventListener(ev, function () { paused = true; }, { passive: true });
     });
