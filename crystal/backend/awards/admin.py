@@ -1,7 +1,38 @@
 from django.contrib import admin
 from django.utils.html import format_html, mark_safe
 
-from .models import Award
+from .models import Award, AwardSettings
+
+
+@admin.register(AwardSettings)
+class AwardSettingsAdmin(admin.ModelAdmin):
+    """One row, so the list is pointless — go straight to editing it."""
+
+    fieldsets = (
+        ('How the strip moves', {
+            'description': (
+                'This is the <b>Awards &amp; Recognition</b> strip on the About '
+                'page. It scrolls on its own and stops while a visitor is '
+                'pointing at it or has just touched it, so they can read a '
+                'certificate or click through to its PDF. Changes reach the site '
+                'within a couple of minutes.'
+            ),
+            'fields': ('seconds_per_card', 'autoscroll', 'updated_at'),
+        }),
+    )
+    readonly_fields = ('updated_at',)
+
+    def has_add_permission(self, request):
+        return False
+
+    def has_delete_permission(self, request, obj=None):
+        return False
+
+    def changelist_view(self, request, extra_context=None):
+        from django.shortcuts import redirect
+        from django.urls import reverse
+        obj = AwardSettings.load()
+        return redirect(reverse('admin:awards_awardsettings_change', args=[obj.pk]))
 
 
 @admin.register(Award)

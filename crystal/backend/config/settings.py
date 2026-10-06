@@ -296,6 +296,7 @@ JAZZMIN_SETTINGS = {
         "content.pagesectiontrash": "fas fa-trash",
         "awards": "fas fa-award",
         "awards.award": "fas fa-award",
+        "awards.awardsettings": "fas fa-sliders-h",
     },
 
     "default_icon_parents": "fas fa-chevron-circle-right",

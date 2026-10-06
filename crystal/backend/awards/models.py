@@ -11,7 +11,51 @@ the page had exactly four slots baked into a CSS grid, one `data-cms` key each.
 That lets someone swap a certificate but never add a fifth, which is the whole
 request.
 """
+from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
+
+
+class AwardSettings(models.Model):
+    """How the strip moves. One row, edited, never added to or deleted.
+
+    Kept apart from `Award` because it describes the strip rather than any
+    certificate in it -- putting a speed on every row would invite four
+    different answers to one question.
+    """
+
+    seconds_per_card = models.DecimalField(
+        max_digits=4, decimal_places=1, default=0.6,
+        verbose_name='Seconds per certificate',
+        validators=[MinValueValidator(0.2), MaxValueValidator(20)],
+        help_text='How long one certificate takes to go past. Lower is faster. '
+                  '0.6 is the default, 0.3 is quick, 3 gives people time to '
+                  'read a caption before it leaves. Anything from 0.2 to 20.')
+    autoscroll = models.BooleanField(
+        default=True, verbose_name='Scroll by itself',
+        help_text='Untick to leave the strip still. Visitors can still drag or '
+                  'swipe through the certificates.')
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        verbose_name = 'Scrolling speed'
+        verbose_name_plural = 'Scrolling speed'
+
+    def __str__(self):
+        return 'Awards strip — %s s per certificate' % self.seconds_per_card
+
+    def save(self, *args, **kwargs):
+        # Pinned to one row: a second set of settings would silently win or lose
+        # depending on which the feed read first.
+        self.pk = 1
+        super().save(*args, **kwargs)
+
+    def delete(self, *args, **kwargs):
+        pass
+
+    @classmethod
+    def load(cls):
+        obj, _ = cls.objects.get_or_create(pk=1)
+        return obj
 
 
 class Award(models.Model):

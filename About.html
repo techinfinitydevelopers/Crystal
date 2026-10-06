@@ -1274,10 +1274,15 @@ h1, h2 { overflow-wrap: break-word; }
 
   var API = "https://crystal-production-eb2e.up.railway.app/api/awards.json";
   var DEADLINE_MS = 2500;
-  /* One card goes past per second. Expressed in cards rather than pixels
+  /* How long one card takes to go past. Expressed in cards rather than pixels
      because a card is clamp()ed against the viewport -- a fixed px/s would run
-     a card a second on a desktop and crawl on a phone. */
-  var SECONDS_PER_CARD = 1;
+     a card a second on a desktop and crawl on a phone.
+
+     The dashboard owns this (Awards → Scrolling speed) and sends it with the
+     feed; this is only what the page falls back to when the dashboard has not
+     answered. */
+  var secondsPerCard = 0.6;
+  var autoscroll = true;
   /* How long a touch holds the strip still. A phone has no hover to leave, so
      this is the only thing that lets go. */
   var TOUCH_HOLD_MS = 3000;
@@ -1381,7 +1386,7 @@ h1, h2 { overflow-wrap: break-word; }
       /* loopWidth is one full set, so dividing by the cards in it gives the
          width of one card plus its gap -- cover that in a second and exactly
          one card goes past per second, whatever the viewport has made them. */
-      speed = loopWidth / originals.length / SECONDS_PER_CARD;
+      speed = loopWidth / originals.length / secondsPerCard;
     }
 
     function frame(now) {
@@ -1411,9 +1416,10 @@ h1, h2 { overflow-wrap: break-word; }
     }
     function stop() { cancelAnimationFrame(raf); raf = null; }
 
-    /* Left alone entirely when the visitor has asked for less movement: the
-       strip is still there and still scrolls by hand, it simply does not move
-       on its own. */
+    /* Left alone entirely when the visitor has asked for less movement, or when
+       the dashboard has turned the scrolling off: the strip is still there and
+       still scrolls by hand, it simply does not move on its own. */
+    if (!autoscroll) return;
     if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     build();
@@ -1459,6 +1465,18 @@ h1, h2 { overflow-wrap: break-word; }
     .then(function (r) { return r.ok ? r.json() : null; })
     .then(function (data) {
       if (done) return;
+
+      /* Read before the cards are looked at, so a speed set in the dashboard
+         still applies on a page whose certificates are the shipped ones. */
+      var scroll = data && data.scroll;
+      if (scroll) {
+        var secs = parseFloat(scroll.secondsPerCard);
+        /* Floored rather than trusted: a zero would divide the pitch into an
+           infinite speed and the strip would tear past unreadably. */
+        if (isFinite(secs) && secs >= 0.2) secondsPerCard = secs;
+        if (scroll.autoscroll === false) autoscroll = false;
+      }
+
       var list = data && data.awards;
       if (!Array.isArray(list) || !list.length) return;
       var frag = document.createDocumentFragment();
