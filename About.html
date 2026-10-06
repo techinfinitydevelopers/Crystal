@@ -1111,13 +1111,46 @@ h1, h2 { overflow-wrap: break-word; }
       gsap.from(el, { y: 38, opacity: 0, duration: 0.7, ease: "power2.out", scrollTrigger: { trigger: el, start: "top 88%", once: true } });
     });
 
-    /* legacy statement: scroll-SCRUBBED word reveal (matches home about) */
+    /* legacy statement: scroll-SCRUBBED word reveal, held in place until every
+       word has filled.
+
+       It used to be scrubbed against the whole #legacy section, which also
+       holds an eleven-minute film, the stats, the product strip and the
+       awards -- so the reader was past the paragraph long before it had
+       finished lighting up. Pinning the paragraph itself means the page waits
+       for it: the scroll drives the fill while nothing moves, and only then
+       carries on.
+
+       The paragraph alone is pinned, never the section, which is several
+       screens tall. */
+    const statement = document.querySelector("[data-lines]");
     const aboutWords = gsap.utils.toArray("[data-lines] .word");
-    if (aboutWords.length) {
+    if (aboutWords.length && statement) {
       gsap.set(aboutWords, { opacity: 0.16 });
       gsap.to(aboutWords, {
         opacity: 1, ease: "none", stagger: { each: 0.5 },
-        scrollTrigger: { trigger: "#legacy", start: "top 76%", end: "center 46%", scrub: 0.6 }
+        scrollTrigger: {
+          trigger: statement,
+          /* Centred while it fits on screen, which it does at every size we
+             have -- 37% of the viewport on a desktop, 51% on a phone. The
+             fallback matters because this paragraph is editable from the
+             dashboard: a much longer one would hang off the top if it were
+             still centred, so it anchors to its own top instead.
+
+             Both are functions, not a measurement taken once. Read once at
+             startup this was a race -- the viewport was still settling, the
+             check came out false and the pin silently never happened. As
+             functions they are worked out again on every refresh, and the pin
+             no longer depends on any of it. */
+          start: () => statement.offsetHeight < window.innerHeight * 0.8
+            ? "center center" : "top top",
+          /* A screen's worth of scrolling to read it through. */
+          end: () => "+=" + Math.round(window.innerHeight * 0.9),
+          scrub: 0.6,
+          pin: true,
+          anticipatePin: 1,
+          invalidateOnRefresh: true
+        }
       });
     }
 
