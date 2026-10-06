@@ -242,6 +242,41 @@
   }
   @media (prefers-reduced-motion: reduce) { .award-card { transition: none; } }
 
+  /* The certificate viewer. A <dialog>, so Escape, the backdrop and focus are
+     the browser's job rather than ours. */
+  /* margin:auto is what centres a modal dialog, and this page's reset zeroes
+     every margin, so it has to be said again here or the viewer opens pinned to
+     the top-left corner. */
+  .cert-dialog { width: min(920px, 94vw); max-width: 94vw; height: min(88vh, 1100px);
+    margin: auto; padding: 0; border: none; border-radius: 18px; overflow: hidden;
+    background: #fff; box-shadow: 0 40px 90px -30px rgba(15,15,15,0.55); }
+  .cert-dialog[open] { display: flex; flex-direction: column; }
+  .cert-dialog::backdrop { background: rgba(15,15,15,0.72); }
+  .cert-head { flex: 0 0 auto; display: flex; align-items: center; gap: 14px; padding: 14px 16px;
+    border-bottom: 1px solid var(--line); background: #fff; }
+  .cert-title { font-family: var(--head); font-weight: 700; font-size: 15px;
+    line-height: 1.3; flex: 1 1 auto; overflow-wrap: anywhere; }
+  .cert-close { flex: 0 0 auto; width: 34px; height: 34px; border-radius: 50%;
+    border: 1.5px solid var(--line); background: #fff; color: var(--ink);
+    font-size: 22px; line-height: 1; cursor: pointer;
+    transition: background .2s, border-color .2s, color .2s; }
+  .cert-close:hover { background: var(--red); border-color: var(--red); color: #fff; }
+  .cert-close:focus-visible { outline: 3px solid var(--red); outline-offset: 2px; }
+  /* The head is a fixed strip and the body takes whatever is left, worked out
+     by the flex column rather than by subtracting a measured header height --
+     that number would be wrong the moment a title wrapped to two lines. */
+  .cert-body { flex: 1 1 auto; min-height: 0; background: #f1f5f9; }
+  .cert-frame { width: 100%; height: 100%; border: 0; display: block; }
+  .cert-full { width: 100%; height: 100%; object-fit: contain; display: block; padding: 12px; }
+  /* Edge to edge on a phone, where a certificate needs every pixel. The
+     max-height matters: a modal dialog's own browser styling caps it at about
+     2em short of the viewport, so without this it came out 774px tall inside an
+     812px screen -- square corners and full width, but a gap top and bottom. */
+  @media (max-width: 560px) {
+    .cert-dialog { width: 100vw; max-width: 100vw; height: 100vh; max-height: 100vh;
+      border-radius: 0; }
+  }
+
   /* ===== MARQUEE (ported) ===== */
   .marquee { overflow: hidden; padding-block: 20px; background: var(--grad-red); color: #fff; }
   .mq-track { display: flex; width: max-content; animation: scrollX 24s linear infinite; }
@@ -1297,10 +1332,18 @@ h1, h2 { overflow-wrap: break-word; }
     var el = document.createElement(item.pdf ? "a" : "figure");
     el.className = "award-card" + (item.title ? " has-caption" : " cert-card");
     if (item.pdf) {
+      /* Still a real link, with a real href: the viewer opens over the page, but
+         a middle-click, a right-click or a browser without this script running
+         should still land somewhere sensible rather than nowhere. */
       el.href = item.pdf;
       el.target = "_blank";
       el.rel = "noopener";
-      el.title = "Open the certificate (PDF)";
+      el.title = "View the certificate";
+      el.addEventListener("click", function (e) {
+        if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
+        e.preventDefault();
+        openViewer(item);
+      });
     }
 
     var img = document.createElement("img");
@@ -1325,18 +1368,111 @@ h1, h2 { overflow-wrap: break-word; }
     }
 
     if (item.pdf) {
-      /* An arrow out of the corner, not a downward one: the certificate opens
-         in a tab to be looked at. A download glyph promises a file landing in
-         someone's Downloads folder, which is not what this does, and the rest
-         of the site already uses this arrow to mean "opens". */
+      /* A magnifier, not an arrow: the certificate now opens over this page
+         rather than going anywhere, and a download glyph would promise a file
+         landing in someone's Downloads folder, which this does not do. */
       var pip = document.createElement("span");
       pip.className = "award-pdf";
       pip.setAttribute("aria-hidden", "true");
-      pip.textContent = "↗";
+      pip.textContent = "⌕";
       el.appendChild(pip);
     }
     return el;
   }
+
+  /* ---- The certificate viewer -------------------------------------------
+     Opens over the page instead of in a new tab. A new tab means the browser's
+     own PDF viewer, which carries a download and a print button of its own --
+     the toolbar is turned off here with the #toolbar=0 fragment that Chrome
+     and Edge honour.
+
+     Worth being straight about what that is and is not: it removes the offer
+     to download, not the ability. The file is still a URL and anyone who wants
+     it can take it. Nothing shown in a browser can be stopped from being
+     saved; this is about not inviting it. */
+  var viewer = null;
+
+  function buildViewer() {
+    var dlg = document.createElement("dialog");
+    dlg.className = "cert-dialog";
+    dlg.innerHTML =
+      '<div class="cert-head">' +
+        '<span class="cert-title"></span>' +
+        '<button type="button" class="cert-close" aria-label="Close">&times;</button>' +
+      '</div>' +
+      '<div class="cert-body"></div>';
+
+    dlg.querySelector(".cert-close").addEventListener("click", closeViewer);
+    /* A click on the backdrop lands on the dialog itself, never on its
+       children, which is what tells the two apart. */
+    dlg.addEventListener("click", function (e) { if (e.target === dlg) closeViewer(); });
+    /* Escape, and whatever else a browser decides counts as dismissing a
+       dialog. Both are listened for, and the cleanup is safe to run twice --
+       the `close` event turned out not to fire at all in one engine here, which
+       left the page scroll-locked behind a dialog that was already gone. That
+       is why nothing depends on it. */
+    dlg.addEventListener("cancel", closeViewer);
+    dlg.addEventListener("close", closeViewer);
+    dlg.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" || e.key === "Esc") closeViewer();
+    });
+    document.body.appendChild(dlg);
+    return dlg;
+  }
+
+  var closing = false;
+
+  function closeViewer() {
+    if (!viewer || closing) return;
+    closing = true;
+    try {
+      if (viewer.open) {
+        if (typeof viewer.close === "function") viewer.close();
+        else viewer.removeAttribute("open");
+      }
+      // Drop the file, so a closed viewer is not quietly still loading it.
+      viewer.querySelector(".cert-body").textContent = "";
+      modalOpen = false;
+    } finally {
+      closing = false;
+    }
+  }
+
+  function openViewer(item) {
+    if (!viewer) viewer = buildViewer();
+    var body = viewer.querySelector(".cert-body");
+    body.textContent = "";
+    viewer.querySelector(".cert-title").textContent =
+      item.title || item.alt || "Certificate";
+
+    if (item.pdf) {
+      var frame = document.createElement("iframe");
+      frame.className = "cert-frame";
+      frame.title = item.title || item.alt || "Certificate";
+      frame.src = item.pdf + "#toolbar=0&navpanes=0&statusbar=0&view=FitH";
+      body.appendChild(frame);
+    } else {
+      var img = document.createElement("img");
+      img.className = "cert-full";
+      img.alt = item.alt || item.title || "Certificate";
+      img.src = item.image;
+      body.appendChild(img);
+    }
+
+    modalOpen = true;
+    /* Deliberately no scroll lock. Hiding the page's overflow takes its
+       scrollbar away, and this layout then jumps 8px sideways as the viewer
+       opens: body does not stretch to the root here, so standing padding in
+       for the missing scrollbar fixes it on neither element. A modal <dialog>
+       already makes everything behind it inert, so the lock was buying a guard
+       we have and paying for it with a visible jump. */
+    if (typeof viewer.showModal === "function") viewer.showModal();
+    else viewer.setAttribute("open", "");
+  }
+
+  /* Read by the strip's pause check: with the viewer over the page the mouse
+     has left the strip, so hover alone would let it carry on scrolling behind. */
+  var modalOpen = false;
 
   function rotate() {
     var paused = false;
@@ -1466,7 +1602,7 @@ h1, h2 { overflow-wrap: break-word; }
        good. Touch instead holds for a few seconds after the last contact. */
     var hovering = false, focused = false, touchUntil = 0;
     function syncPaused() {
-      paused = hovering || focused || performance.now() < touchUntil;
+      paused = modalOpen || hovering || focused || performance.now() < touchUntil;
     }
     function holdForTouch() {
       touchUntil = performance.now() + TOUCH_HOLD_MS;
