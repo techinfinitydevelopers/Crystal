@@ -24,12 +24,14 @@ class AwardSettings(models.Model):
     """
 
     seconds_per_card = models.DecimalField(
-        max_digits=4, decimal_places=1, default=0.6,
+        max_digits=4, decimal_places=1, null=True, blank=True,
         verbose_name='Seconds per certificate',
         validators=[MinValueValidator(0.2), MaxValueValidator(20)],
-        help_text='How long one certificate takes to go past. Lower is faster. '
-                  '0.6 is the default, 0.3 is quick, 3 gives people time to '
-                  'read a caption before it leaves. Anything from 0.2 to 20.')
+        help_text='<b>Leave this empty</b> and the certificates move at exactly '
+                  'the same pace as the product strip just above them on the '
+                  'page. Fill it in only to override that: it is how long one '
+                  'certificate takes to go past, so lower is faster — 0.3 is '
+                  'quick, 3 gives people time to read a caption. 0.2 to 20.')
     autoscroll = models.BooleanField(
         default=True, verbose_name='Scroll by itself',
         help_text='Untick to leave the strip still. Visitors can still drag or '

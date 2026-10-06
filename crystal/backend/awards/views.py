@@ -33,7 +33,14 @@ class AwardFeedView(View):
             # needs both before it can start, and one round trip is the whole
             # point of this feed.
             'scroll': {
-                'secondsPerCard': float(settings.seconds_per_card),
+                # null means "whatever the product strip above is doing" -- the
+                # page works that out from that strip's own geometry, because
+                # both are clamp()ed against the viewport and a number that
+                # matched on a desktop would not on a phone.
+                'secondsPerCard': (
+                    float(settings.seconds_per_card)
+                    if settings.seconds_per_card is not None else None
+                ),
                 'autoscroll': settings.autoscroll,
             },
         })

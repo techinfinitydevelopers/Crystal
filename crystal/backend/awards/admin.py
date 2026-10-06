@@ -14,8 +14,9 @@ class AwardSettingsAdmin(admin.ModelAdmin):
                 'This is the <b>Awards &amp; Recognition</b> strip on the About '
                 'page. It scrolls on its own and stops while a visitor is '
                 'pointing at it or has just touched it, so they can read a '
-                'certificate or click through to its PDF. Changes reach the site '
-                'within a couple of minutes.'
+                'certificate or click through to its PDF. Out of the box it '
+                'keeps step with the product strip above it, so the two bands '
+                'read as one. Changes reach the site within a couple of minutes.'
             ),
             'fields': ('seconds_per_card', 'autoscroll', 'updated_at'),
         }),

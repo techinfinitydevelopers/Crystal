@@ -1274,15 +1274,19 @@ h1, h2 { overflow-wrap: break-word; }
 
   var API = "https://crystal-production-eb2e.up.railway.app/api/awards.json";
   var DEADLINE_MS = 2500;
-  /* How long one card takes to go past. Expressed in cards rather than pixels
-     because a card is clamp()ed against the viewport -- a fixed px/s would run
-     a card a second on a desktop and crawl on a phone.
+  /* How fast the strip runs. The dashboard owns both of these (Awards →
+     Scrolling speed) and sends them with the feed; what is here is what the
+     page uses until it has answered.
 
-     The dashboard owns this (Awards → Scrolling speed) and sends it with the
-     feed; this is only what the page falls back to when the dashboard has not
-     answered. */
-  var secondsPerCard = 0.6;
+     null means "keep step with the product strip above", worked out from that
+     strip's own geometry. A number overrides it, and is how long one
+     certificate takes to go past -- stated in cards rather than pixels because
+     a card is clamp()ed against the viewport, so a fixed px/s would mean two
+     different paces on a desktop and a phone. */
+  var secondsPerCard = null;
   var autoscroll = true;
+  /* Only reached if the product strip is gone and no override is set. */
+  var FALLBACK_SECONDS_PER_CARD = 0.6;
   /* How long a touch holds the strip still. A phone has no hover to leave, so
      this is the only thing that lets go. */
   var TOUCH_HOLD_MS = 3000;
@@ -1383,10 +1387,37 @@ h1, h2 { overflow-wrap: break-word; }
       } while (track.scrollWidth < track.clientWidth * 2 && guard++ < 8);
       if (!firstCopy) return;
       loopWidth = offsetIn(firstCopy);
-      /* loopWidth is one full set, so dividing by the cards in it gives the
-         width of one card plus its gap -- cover that in a second and exactly
-         one card goes past per second, whatever the viewport has made them. */
-      speed = loopWidth / originals.length / secondsPerCard;
+
+      if (secondsPerCard === null) {
+        /* No override set, so move at the pace of the product strip above and
+           let the two bands read as one. */
+        speed = donorSpeed() || perCardSpeed(FALLBACK_SECONDS_PER_CARD);
+      } else {
+        speed = perCardSpeed(secondsPerCard);
+      }
+
+      function perCardSpeed(secs) {
+        /* loopWidth is one full set, so dividing by the cards in it gives the
+           width of one card plus its gap -- cover that in `secs` and exactly one
+           card goes past in that time, whatever the viewport made of them. */
+        return loopWidth / originals.length / secs;
+      }
+    }
+
+    function donorSpeed() {
+      /* The product marquee immediately above runs one full set every 28s, via
+         a CSS animation to translateX(-50%) over content the markup doubles.
+
+         Its geometry is read rather than its 28 copied: both strips size their
+         cards with clamp(), so a pixel rate that matched on a desktop would be
+         wrong on a phone. Reading it keeps them in step everywhere, and if that
+         strip is ever retimed this follows without being touched. */
+      var donor = document.getElementById("prodTrack");
+      if (!donor) return 0;
+      var setWidth = donor.scrollWidth / 2;
+      var seconds = parseFloat(window.getComputedStyle(donor).animationDuration);
+      if (!setWidth || !isFinite(seconds) || seconds <= 0) return 0;
+      return setWidth / seconds;
     }
 
     function frame(now) {
@@ -1470,10 +1501,12 @@ h1, h2 { overflow-wrap: break-word; }
          still applies on a page whose certificates are the shipped ones. */
       var scroll = data && data.scroll;
       if (scroll) {
+        /* An override only when one is actually set. Null, empty or nonsense
+           all leave it null, which means "keep step with the strip above".
+           Floored rather than trusted: a zero would divide a card's width by
+           nothing and the strip would tear past unreadably. */
         var secs = parseFloat(scroll.secondsPerCard);
-        /* Floored rather than trusted: a zero would divide the pitch into an
-           infinite speed and the strip would tear past unreadably. */
-        if (isFinite(secs) && secs >= 0.2) secondsPerCard = secs;
+        secondsPerCard = (isFinite(secs) && secs >= 0.2) ? secs : null;
         if (scroll.autoscroll === false) autoscroll = false;
       }
 
