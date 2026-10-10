@@ -329,3 +329,25 @@ same file); hero images for `CTV-092/093/094/095`; and the SKUs behind "Oil
 Pourer: 3 missing / Pressure Cooker: 2 / Plunger: 1 / Bins: 1". The `CPC_0xx.png`
 files the client sent are 372px against the 1500px heroes already on the site,
 so they were deliberately not used.
+
+### Follow-up, same day — the phone's brand accordion
+
+Client sent a phone screenshot: on the home page's Our Brands accordion the
+white logo card sat on top of "World of Kitchenware" and cut it mid-word.
+
+`.v3 .acc3-logo` is `position: absolute; bottom: -2px; right: 60px; width:
+170px`, with **no mobile override at all**. Measured across widths with the
+tagline's own text rect (the `<p>` is a full-width block, so its border box
+overlaps the logo at every size and says nothing): the collision starts below
+about 430px — at 390px the text runs to 167px and the logo starts at 130px.
+
+Rather than pick a breakpoint, below 640px the logo goes back into normal flow
+under the text. The taglines are CMS-editable (`brand3-p-2`..`p-5`), so a fixed
+reserved gap would only postpone the same bug. `display: none` by default and
+shown on `.active`, since in flow an invisible absolute logo would otherwise
+take up space on all four rows.
+
+Edited `home-v3-src/v3.css` and rebuilt through `build_v3.py`. The rebuild's
+diff against the committed index.html was exactly the twelve new lines, which
+also confirms the generated page was in sync with its sources. Verified at
+768/640/600/480/430/390/360/320. Commit c3f56b9.
