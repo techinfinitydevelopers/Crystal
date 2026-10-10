@@ -351,3 +351,50 @@ Edited `home-v3-src/v3.css` and rebuilt through `build_v3.py`. The rebuild's
 diff against the committed index.html was exactly the twelve new lines, which
 also confirms the generated page was in sync with its sources. Verified at
 768/640/600/480/430/390/360/320. Commit c3f56b9.
+
+## 2026-10-10 — SparkMate Amazon scrape, and three kettle photos
+
+**Task:** Client sent a SparkMate sheet of 119 ASINs and asked for the Amazon
+images to be scraped in against each product id, with no duplicates — "dekh
+kar karna".
+
+**Environment note that changed the approach:** `curl` from the shell *does*
+have outbound network here (an earlier note in memory said otherwise). But
+Python `urllib` with identical headers gets a 3.7 KB captcha page from Amazon
+while curl gets the real 1.7 MB listing, so the extractor shells out to curl.
+Whatever is being fingerprinted sits below the header level.
+
+**Scope, measured before downloading anything.** 115 of the 119 sheet rows match
+the catalogue. Of those, only **25** lacked a gallery. Surveying those 25
+listings first: **10 carry 2 photos, 15 carry exactly 1**. The 15 were dropped
+without downloading — a single Amazon photo is the hero the site already shows,
+and adding it would put the same picture on the page twice.
+
+**Then the useful part: all 9 remaining candidates were duplicates too.**
+A dhash comparison said they were new (distance 71–100 from the hero), and
+*looking at them* said otherwise:
+
+- `PSM-002/003/004/005` — the hero photograph with marketing text printed over
+  it. Same picture.
+- `PSMB-002/003/004` — the hero photograph with a SparkMate logo badge in the
+  corner. Same picture.
+- `PSMB009` — the product sealed in a polybag. Different, but a packaging shot.
+- `SMB009` — genuinely a second angle, and then: dhash distance **0** against
+  `sparkmate/SMB009/img-2.jpg`, which the site already ships. The harvest had
+  only compared against the *hero*, not the existing gallery.
+
+So the scrape yielded **zero** images the site does not already have, and
+nothing was added. Worth keeping in mind that a perceptual hash catches
+"same photo, different resolution" but not "same photo, logo added" — text and
+badges move the hash a long way while a human sees one picture.
+
+**Kettles (committed, 13bb836).** `CKTL-051`, `CKTL-055`, `CKTL-056` had
+`hero: null`, empty galleries and no folder — the "Kettle missing" item on the
+client's list. The photos arrived on WhatsApp captioned with those exact SKUs;
+pulled them out of the page as blobs, checked they were three visibly different
+kettles, and set each as its product's hero. Verified on the Kettle listing
+page: all three load.
+
+**Open on these:** the three products' *names* are still their SKUs, so the page
+shows a customer "CKTL-051" where a name belongs, and `CKTL-057` still has no
+photo at all.
