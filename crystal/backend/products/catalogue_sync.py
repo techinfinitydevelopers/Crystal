@@ -182,6 +182,15 @@ def sync_catalogue(items):
             "collection_name": p.get("collection") or "",
             "tags": p.get("tags") or [],
             "image_url": p.get("hero") or "",
+            # The catalogue's Amazon URL has to land on the Product itself, not
+            # only in the ProductMarketplaceLink row written further down:
+            # site_amazon_link() treats Product.amazon_link as the authority and
+            # consults marketplace links only for dashboard-created products. So
+            # without this a synced product has no Buy Now target at all, and
+            # the site falls back to an Amazon *search* — which is exactly what
+            # the client reported. The skip loop below still lets a dashboard
+            # edit outrank it, because 'amazon_link' is in SYNC_FIELDS_FOR_KEY.
+            "amazon_link": p.get("amazon_link") or "",
             "is_active": True,
             "price": p.get("mrp") if isinstance(p.get("mrp"), (int, float)) else None,
             "show_price": bool(isinstance(p.get("mrp"), (int, float))),
