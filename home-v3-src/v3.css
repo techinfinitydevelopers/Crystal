@@ -421,4 +421,16 @@ header .nav .btn-outline, header .burger span {
   .v3 .brand3-cta, .v3 .brand3-nav { bottom: 20px; }
   .v3 .brand3-cta { left: 20px; }
   .v3 .brand3-nav { right: 20px; }
+  /* The brand logo is absolutely positioned bottom-right, which clears the
+     tagline while the accordion is its desktop 530px. On a phone the item is
+     barely wider than the 170px logo: measured, "World of Kitchenware" runs to
+     167px and the logo starts at 130px on a 390px screen, so the logo sat on
+     top of the words. Put it back in the flow under the text, where no tagline
+     length can collide with it -- these are CMS-editable, so reserving a fixed
+     gap instead would only move the breakpoint at which it happens again. */
+  .v3 .acc3-logo {
+    position: static; transform: none; opacity: 1;
+    display: none; width: 136px; margin: 2px 0 14px;
+  }
+  .v3 .acc3-item.active .acc3-logo { display: block; transform: none; }
 }
