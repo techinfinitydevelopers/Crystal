@@ -398,3 +398,71 @@ page: all three load.
 **Open on these:** the three products' *names* are still their SKUs, so the page
 shows a customer "CKTL-051" where a name belongs, and `CKTL-057` still has no
 photo at all.
+
+## 2026-10-10 — Crystal moved onto the client's own VPS (not yet live)
+
+**Task:** Migrate the whole site off Railway onto the Hostinger KVM 2 the client
+owns, ahead of the 11 Oct go-live. Everything except the DNS switch.
+
+**Server:** `srv2035352.hstgr.cloud`, 187.126.118.190, Ubuntu 24.04.5, 2 cores,
+7.8 GB RAM, 95 GB free. Site at `/var/www/crystal`, dashboard at
+`crystal/backend` inside it, venv at `/opt/crystal-venv`, gunicorn on
+127.0.0.1:8001 behind nginx.
+
+**No Postgres dump was taken, deliberately.** The production dashboard reported
+**0 enquiries and 0 blog posts**, so it held nothing irreplaceable — and its
+product rows were *worse* than the repo's catalogue. So the database was rebuilt
+from source: `sync_catalogue --file` off `product-data/products.json`, the two
+seeds, then a script replaying only what a human had typed or uploaded (31
+category banners, 16 page sections, 5 awards). The 56 uploaded files were pulled
+off the old host over HTTP first, so the Railway volume never had to be opened
+and the production database never had to be exposed to the internet.
+
+### Three real bugs surfaced, all now fixed
+
+**1. `sync_catalogue` never set `Product.amazon_link` (bfac9ae).** It wrote the
+catalogue's URL only into a `ProductMarketplaceLink` row, while
+`site_amazon_link()` treats `Product.amazon_link` as the authority and consults
+marketplace links *only* for dashboard-created products. A freshly synced
+database therefore published **0 links out of 579**. This is the root cause of
+the client's "Buy Now goes to an Amazon search" — production had drifted to
+310 of 578, and the 130-product gap was simply where it had never been set.
+After the fix the new server publishes **439 of 579, matching products.json
+exactly, 0 mismatches**.
+
+**2. 52 pages hard-coded the Railway dashboard hostname (843d6d2).** Correct
+while the website and dashboard were separate Railway services; wrong the moment
+they share an origin. On the new box About.html called the old host, got nothing
+and fell back to its shipped card — six copies of the trophy where the client's
+four certificates belong. Each literal is now an expression that keeps naming
+Railway when served from `*.up.railway.app` and calls its own origin anywhere
+else, so **both deployments work and the switch stays reversible**.
+
+**3. nginx: `location /media/` lost to the image regex block.** Regex locations
+beat prefix locations, so every `/media/**.png` fell through to
+`try_files` under the site root and 404'd. Fixed with `location ^~ /media/`.
+
+### Verified on the box
+
+579 products / 439 links / 0 "Kithcen"; awards 5 = 5, banners 31 = 31, sections
+16 over 13 pages = identical to the old feed; **all 48 dashboard-published asset
+URLs return 200** with correct content types; 8 pages rendered with **0 broken
+images**, including All-Products.html at 506 images; SMS001 — the product the
+client screenshotted — now links to `amazon.in/dp/B0BC8MH6YY` rather than a
+search.
+
+A throwaway self-signed certificate is installed so the bare IP could be tested
+in its final shape: HTTPS serves everything and HTTP 301s to it. certbot will
+replace that certificate; nothing else about the config changes.
+
+### Not done
+
+- **DNS untouched.** crystalcook.com still resolves to 78.129.208.60 (nameservers
+  `ns1-4.umiyaji.com`, a third party). Switching is two A records plus certbot.
+- **No admin user yet** — the client picks that password, not us.
+- **16 products carry dashboard image overrides** (hero/gallery picks, 9 of them
+  uploads) that were not replayed; the override feed is derived from
+  `overridden_fields` plus ProductImage rows and reconstructing it exactly needs
+  more care than launch eve allows. Without them those 16 show their
+  products.json hero instead of the client's pick. Nothing is broken, and the
+  files are already on the server.
