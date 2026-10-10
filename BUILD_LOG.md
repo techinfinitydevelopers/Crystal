@@ -466,3 +466,44 @@ replace that certificate; nothing else about the config changes.
   more care than launch eve allows. Without them those 16 show their
   products.json hero instead of the client's pick. Nothing is broken, and the
   files are already on the server.
+
+### Follow-up: the 16 dashboard overrides, and the upload 500
+
+**The 500 the client hit.** One POST to a product change page returned 500
+while every GET was fine — nginx's access log held exactly one 5xx all day, and
+it was a `POST`. Cause: the repo was cloned as root, so `/var/www/crystal` was
+`root:root`, and gunicorn runs as `www-data`. `MEDIA_ROOT` *is* that tree — the
+whole point of co-locating site and dashboard — so **every save in the dashboard
+would have failed**, not just that one. Fixed by chowning the tree to www-data
+with setgid on directories, and giving the unit a writable `HOME` (gunicorn had
+been failing to create its control socket in `/var/www/.gunicorn`). Proved by
+writing, reading and deleting a file through `default_storage` as www-data, then
+re-running the same POST.
+
+`vps-deploy.sh` re-chowns on every run, because `git` runs as root and would
+otherwise reintroduce it on the next pull. Note `git config --system
+--add safe.directory` — `--global` is not read by systemd units, which have no
+HOME, and that cost the first auto-deploy run.
+
+**Auto-deploy** (15b39b7): a systemd timer every 5 minutes, deploying only when
+`origin/main` has moved. Polling, not a webhook — nothing opened to the
+internet, no secret to leak, and an unreachable GitHub just retries. `touch
+/root/HOLD-DEPLOY` pauses it for the DNS cutover without disabling the timer,
+and it keeps logging that it is holding so a forgotten hold is visible.
+
+**The 16 overrides, restored exactly.** `sync_catalogue` had already created a
+ProductImage row per catalogue photo; what was missing was the client's *choice*
+— that on CL-216 `g4.jpg` is the main image and the original `hero.jpeg` belongs
+in the gallery. That lives only as row order plus `is_hero`, published through
+`overridden_fields`. The script rebuilds each product's rows in feed order,
+flags the first as hero, replays CLMK-007's four field edits, and re-creates the
+`RetiredSku` tombstone for MKA042 (a tombstone, not a deletion: products.json
+still names it, so without one the next sync would bring it straight back).
+
+`ProductImage.image` is only ever assigned a *name*, never a copied file —
+MEDIA_ROOT is the site root here, so `product-photos/CL-216/g4.jpg` already
+resolves and `_image_url()` publishes that string verbatim.
+
+Verified by fetching the new `image-overrides.json` and diffing it against the
+one taken off production: **16 products both sides, same hidden list, zero
+entries differing**.
