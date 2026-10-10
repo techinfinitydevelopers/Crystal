@@ -270,3 +270,62 @@ Titles confirmed to match expected products before any save. Old images deleted 
 **Found on commit:** a concurrent session (co-authored "Claude Opus 5") had independently built and pushed byte-identical work as ca224e0 while this was in progress. Working tree came back clean against it — nothing left to commit. Same pattern as the earlier fbb66bc/3f1d518 convergences in this project.
 
 **Page-sections dashboard is now wired across:** all 46 listing pages (hero, CTA), About.html (hero, about-adjacent stats, stats x2), 4 Brand pages (hero, about section), index.html and index-v2.html (hero, stats, CTA).
+
+## 2026-10-10 — Pre-launch client changes, and the tablet breakpoint
+
+**Task:** Work the change list the client filed on WhatsApp (group "Crystal -
+SEO and AMC", 8-10 Oct) ahead of the 11 Oct 12:00-12:45 PM go-live, then make
+the site work on tablets.
+
+**Done:**
+
+- *Map links.* The footer's two address lines were `href="#"` on **63 pages**,
+  so a click jumped to the top of the page — the client read that as "map links
+  redirect to home page". Pointed Rajkot at the place URL the client supplied
+  (tracking query stripped) and Mumbai at a Maps URL-API search, both
+  `target="_blank" rel="noopener"`. `home-v3-src/shell-donor.html` included, or
+  the next v3 build would have put `href="#"` back.
+- *Support phone.* `<div class="support-bar">` was plain text on **66 pages**;
+  wrapped the number in `tel:+912249702803`, tagged the bar `data-cms-rich` so a
+  dashboard edit goes through innerHTML (content-sync.js:140) instead of
+  flattening the anchor, and added a `.support-bar a` rule — the bar is
+  white-on-red, so an unstyled anchor would have come out browser-blue.
+- *"Kithcen Tools"* -> "Kitchen Tools" on 29 products, in `products.json` and
+  `crystal/backend/dashboard-seed.json`. No correctly-spelled twin collection
+  existed, so nothing had to be merged.
+- *Products removed* (584 -> 579): `SMW001`/`SMW002` (Star and Super Wiper —
+  both empty rows, no hero, no gallery, no link, `match_tier: unmatched`) and
+  the three Volcano Infrared cooktops `CGIRF-041/042/043`, leaving Cooktop as
+  exactly Ignite, Magnite, Lexa, Imperia and Induction as asked.
+- *Contact.* Dropped `info@crystalcook.com`. The HR address that replaces it is
+  not known yet, so the slot is a commented-out line naming what is missing
+  rather than a guess — `careers@crystalcook.com` exists on Career.html but is a
+  careers inbox, not confirmed as HR.
+
+**Tablet ("tab view"), measured rather than guessed.** Served the site locally
+and read the header at a range of widths. The logo image went 140px at 1280,
+100px at 1150, 55px at 1100, 10px at 1050, **0px at 1024** — an iPad in
+landscape had no logo at all. Two causes: `.logo { flex: 1 }` is shorthand for
+`1 1 0%`, a shrinkable box with a zero basis, and the burger only took over at
+960px, so 961-1199px showed a desktop nav that did not fit ("Knowledge Centre"
+wrapped to two lines, nav height 69 -> 74px).
+
+Added a nav-only `@media (max-width: 1199px)` block on **67 pages** (+ the
+builder source), kept deliberately separate from each page's existing 960px
+block — that one carries the grid layouts, which are correct where they are and
+should not move the day before launch. Also made the logo unshrinkable
+(`flex: 1 0 auto` + `header .logo img { flex-shrink: 0 }`) as a guard above
+1200px.
+
+**Verified in a real browser**, 5 pages x 6 widths (1366/1200/1180/1024/834/768):
+logo 140px at every width, burger switching at <=1199, zero wrapped nav links,
+zero horizontal overflow. Checked the live DOM for the new `tel:` href, the
+underline, and both map hrefs.
+
+**Not done, waiting on the client:** the HR email address; real certificate
+images (`about-assets/cert-1/2/3.png` are three copies of one stock template,
+"Kristen Kennedy — E-Commerce Marketing Master", and `awards/t-iso.png` is the
+same file); hero images for `CTV-092/093/094/095`; and the SKUs behind "Oil
+Pourer: 3 missing / Pressure Cooker: 2 / Plunger: 1 / Bins: 1". The `CPC_0xx.png`
+files the client sent are 372px against the 1500px heroes already on the site,
+so they were deliberately not used.

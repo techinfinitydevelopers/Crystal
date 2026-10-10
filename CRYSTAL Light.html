@@ -82,7 +82,8 @@
   header { position: fixed; inset: 14px 0 auto 0; z-index: 100; }
   .nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; border: 1.5px solid transparent; border-radius: 100px; padding: 9px 9px 9px 22px; transition: background .35s, border-color .35s, box-shadow .35s, backdrop-filter .35s; }
   header.scrolled .nav { background: rgba(255,255,255,0.78); border-color: var(--line); backdrop-filter: blur(14px); box-shadow: 0 12px 30px -20px rgba(0,0,0,0.5); }
-  .logo { display: flex; align-items: center; flex: 1; }
+  .logo { display: flex; align-items: center; flex: 1 0 auto; }
+  header .logo img { flex-shrink: 0; }
   /* .logo .blob removed — replaced by logo.png */
   .nav-links { display: flex; gap: 4px; list-style: none; }
   .nav-links a { font-weight: 600; font-size: 15px; padding: 9px 16px; border-radius: 100px; transition: background .2s, color .2s; }
@@ -90,6 +91,16 @@
   .nav-right { display: flex; align-items: center; gap: 10px; flex: 1; justify-content: flex-end; }
   .burger { display: none; flex-direction: column; gap: 5px; background: var(--ink); border: none; border-radius: 100px; cursor: pointer; padding: 13px 12px; }
   .burger span { width: 22px; height: 2.5px; background: #fff; border-radius: 2px; }
+
+  /* Tablets get the phone's menu. The desktop nav needs about 1200px before
+     "Knowledge Centre" wraps onto a second line and the logo starts being
+     squeezed out, and an iPad in landscape is 1024. Kept separate from the
+     960px block further down, which carries this page's grid layouts -- those
+     are still right where they are. */
+  @media (max-width: 1199px) {
+    .nav-links, .nav-right .btn { display: none; }
+    .burger { display: flex; }
+  }
 
   /* fade helper (non-split blocks) */
   [data-fade] { will-change: transform, opacity; }

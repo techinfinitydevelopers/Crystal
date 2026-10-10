@@ -64,13 +64,24 @@
   header { position: fixed; inset: 14px 0 auto 0; z-index: 100; }
   .nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; border: 1.5px solid transparent; border-radius: 100px; padding: 9px 9px 9px 22px; transition: background .35s, border-color .35s, box-shadow .35s, backdrop-filter .35s; }
   header.scrolled .nav { background: rgba(255,255,255,0.78); border-color: var(--line); backdrop-filter: blur(14px); box-shadow: 0 12px 30px -20px rgba(0,0,0,0.5); }
-  .logo { display: flex; align-items: center; flex: 1; }
+  .logo { display: flex; align-items: center; flex: 1 0 auto; }
+  header .logo img { flex-shrink: 0; }
   .nav-links { display: flex; gap: 4px; list-style: none; align-items: center; }
   .nav-links a { font-weight: 600; font-size: 15px; padding: 9px 16px; border-radius: 100px; transition: background .2s, color .2s; }
   .nav-links a:hover { background: var(--ink); color: #fff; }
   .nav-right { display: flex; align-items: center; gap: 10px; flex: 1; justify-content: flex-end; }
   .burger { display: none; flex-direction: column; gap: 5px; background: var(--ink); border: none; border-radius: 100px; cursor: pointer; padding: 13px 12px; }
   .burger span { width: 22px; height: 2.5px; background: #fff; border-radius: 2px; }
+
+  /* Tablets get the phone's menu. The desktop nav needs about 1200px before
+     "Knowledge Centre" wraps onto a second line and the logo starts being
+     squeezed out, and an iPad in landscape is 1024. Kept separate from the
+     960px block further down, which carries this page's grid layouts -- those
+     are still right where they are. */
+  @media (max-width: 1199px) {
+    .nav-links, .nav-right .btn { display: none; }
+    .burger { display: flex; }
+  }
   /* Brands dropdown (nav) */
   .has-dd { position: relative; }
   .dd-toggle { display: inline-flex; align-items: center; gap: 6px; }
@@ -203,6 +214,7 @@
     .mobile-menu a { font-size: clamp(30px, 12vw, 48px); }
   }
   /* ===== UNIFIED HEADER (support bar / icon nav) ===== */
+  .support-bar a { color: inherit; text-decoration: underline; text-underline-offset: 2px; text-decoration-thickness: 1px; }
   .support-bar { position: fixed; top: 0; left: 0; right: 0; z-index: 102; background: var(--grad-red); color: #fff; text-align: center; font-size: 13px; font-weight: 600; letter-spacing: 0.02em; padding: 9px 16px; }
   header { position: fixed; inset: 38px 0 auto 0; z-index: 100; }
   .icon-btn { display: inline-flex; align-items: center; gap: 6px; color: var(--ink); width: auto; height: auto; padding: 8px; border-radius: 50%; transition: background .2s, color .2s; }
@@ -352,7 +364,7 @@ h1, h2 { overflow-wrap: break-word; }
 <body>
 
 <!-- ===== HEADER ===== -->
-<div class="support-bar" data-cms="site-support-bar">Customer Support - 022-49702803/06</div>
+<div class="support-bar" data-cms="site-support-bar" data-cms-rich>Customer Support - <a href="tel:+912249702803">022-49702803/06</a></div>
 <header id="hdr">
   <div class="wrap">
     <div class="nav">
@@ -648,8 +660,8 @@ h1, h2 { overflow-wrap: break-word; }
       <div class="foot-col">
         <h5>Contact Us</h5>
         <ul>
-          <li><a href="#" data-cms="site-addr-rajkot">G.I.D.C Metoda, Rajkot 360021, Gujarat</a></li>
-          <li><a href="#" data-cms="site-addr-mumbai">Sahar Plaza, Andheri (E), Mumbai 400059</a></li>
+          <li><a href="https://www.google.com/maps/place/Crystal+Cook/@22.2457206,70.685332,17z/data=!3m1!4b1!4m6!3m5!1s0x3959b59140000001:0x3084fbb734010fba!8m2!3d22.2457206!4d70.685332!16s%2Fg%2F1hcb4fp8r" target="_blank" rel="noopener" data-cms="site-addr-rajkot">G.I.D.C Metoda, Rajkot 360021, Gujarat</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Sahar+Plaza+Andheri+East+Mumbai+400059" target="_blank" rel="noopener" data-cms="site-addr-mumbai">Sahar Plaza, Andheri (E), Mumbai 400059</a></li>
           <li><a href="tel:02249702803" data-cms="site-phone">022-49702803 / 06</a></li>
         </ul>
       </div>
