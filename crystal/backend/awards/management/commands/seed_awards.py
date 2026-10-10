@@ -1,8 +1,8 @@
-"""Put the four awards About.html already ships into the dashboard.
+"""Put the award About.html already ships into the dashboard.
 
 Without this the Awards screen opens empty, and the first certificate someone
 adds would be the *only* one on the page — the feed replaces the shipped set
-wholesale, as every feed on this site does. Seeding first makes "add a fifth"
+wholesale, as every feed on this site does. Seeding first makes "add another"
 mean what it says.
 
 Idempotent, and it never touches a row someone has edited: it matches on
@@ -21,21 +21,11 @@ SHIPPED = [
         'alt': 'HomeShop18 STAR Award — Home & Kitchen',
         'order': 10,
     },
-    {
-        'image_path': 'about-assets/cert-1.png',
-        'alt': 'Certificate of achievement',
-        'order': 20,
-    },
-    {
-        'image_path': 'about-assets/cert-2.png',
-        'alt': 'Certificate of achievement',
-        'order': 30,
-    },
-    {
-        'image_path': 'about-assets/cert-3.png',
-        'alt': 'Certificate of achievement',
-        'order': 40,
-    },
+    # cert-1/2/3.png are deliberately not here. They were three copies of one
+    # stock template ("Kristen Kennedy — E-Commerce Marketing Master") that
+    # shipped as placeholder art, and the client asked for them to go. Seeding
+    # them would put them straight back on the page, because the feed replaces
+    # About.html's shipped set wholesale.
 ]
 
 

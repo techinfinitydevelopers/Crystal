@@ -13,9 +13,9 @@ buildCommand = "python manage.py collectstatic --no-input"
 # seed_page_sections does the same for the editable page sections: it reads
 # tools/cms-manifest.json off the website and adds a row for any data-cms key
 # that has none yet. It never overwrites a value someone typed.
-# seed_awards puts the four certificates About.html already ships into the
-# Awards table, so the screen is not empty and the first one the client adds is
-# a fifth rather than the only one -- the feed replaces the shipped set whole.
+# seed_awards puts the award About.html already ships into the Awards table, so
+# the screen is not empty and the first one the client adds joins it rather than
+# replacing it -- the feed replaces the shipped set whole.
 preDeployCommand = "python manage.py migrate --no-input && (python manage.py sync_catalogue || echo 'catalogue sync skipped - see error above') && (python manage.py seed_page_sections || echo 'page-section seed skipped - see error above') && (python manage.py seed_awards || echo 'awards seed skipped - see error above')"
 startCommand = "gunicorn config.wsgi --workers 2 --bind 0.0.0.0:$PORT"
 healthcheckPath = "/api/products/"
