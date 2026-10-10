@@ -19803,7 +19803,7 @@
         "type": "Kettle",
         "material": "Steel"
       },
-      "hero": null,
+      "hero": "product-photos/CKTL-051/hero.jpg",
       "gallery": [],
       "match_tier": "unmatched",
       "id": "cktl-051"
@@ -19825,7 +19825,7 @@
         "type": "Kettle",
         "material": "Steel"
       },
-      "hero": null,
+      "hero": "product-photos/CKTL-055/hero.jpg",
       "gallery": [],
       "match_tier": "unmatched",
       "id": "cktl-055"
@@ -19847,7 +19847,7 @@
         "type": "Kettle",
         "material": "Steel"
       },
-      "hero": null,
+      "hero": "product-photos/CKTL-056/hero.jpg",
       "gallery": [],
       "match_tier": "unmatched",
       "id": "cktl-056"
