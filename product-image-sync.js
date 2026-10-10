@@ -21,7 +21,7 @@
 (function () {
   "use strict";
 
-  var API = "https://crystal-production-eb2e.up.railway.app/api/products/image-overrides.json/";
+  var API = (location.hostname.endsWith(".up.railway.app")?"https://crystal-production-eb2e.up.railway.app":"")+"/api/products/image-overrides.json/";
   var DEADLINE_MS = 2500;
 
   if (typeof window.fetch !== "function" || typeof window.Response !== "function") return;

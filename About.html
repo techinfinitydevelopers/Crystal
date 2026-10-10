@@ -1355,7 +1355,7 @@ h1, h2 { overflow-wrap: break-word; }
   var track = document.getElementById("awardTrack");
   if (!track) return;
 
-  var API = "https://crystal-production-eb2e.up.railway.app/api/awards.json";
+  var API = (location.hostname.endsWith(".up.railway.app")?"https://crystal-production-eb2e.up.railway.app":"")+"/api/awards.json";
   var DEADLINE_MS = 2500;
   /* How fast the strip runs. The dashboard owns both of these (Awards →
      Scrolling speed) and sends them with the feed; what is here is what the

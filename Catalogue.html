@@ -718,7 +718,7 @@ h1, h2 { overflow-wrap: break-word; }
   if (!hero) return;
   var cards = [].slice.call(document.querySelectorAll("[data-catalogue-brand]"));
 
-  var API = "https://crystal-production-eb2e.up.railway.app/api/downloads/?category=catalogue";
+  var API = (location.hostname.endsWith(".up.railway.app")?"https://crystal-production-eb2e.up.railway.app":"")+"/api/downloads/?category=catalogue";
   var DEADLINE_MS = 2500;
 
   function apply(link, url, title) {

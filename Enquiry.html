@@ -848,7 +848,7 @@ h1, h2 { overflow-wrap: break-word; }
   }
 
   // The dashboard service that stores enquiries and sends the emails.
-  const ENQUIRY_API = "https://crystal-production-eb2e.up.railway.app/api/enquiry/";
+  const ENQUIRY_API = (location.hostname.endsWith(".up.railway.app")?"https://crystal-production-eb2e.up.railway.app":"")+"/api/enquiry/";
 
   form.addEventListener("submit", e => {
     e.preventDefault();

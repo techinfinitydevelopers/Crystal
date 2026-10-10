@@ -726,7 +726,7 @@ h1, h2 { overflow-wrap: break-word; }
      Same inversion as content-sync.js: the shipped article paints first and
      stands unless the dashboard actually has this slug, so an unpublished or
      missing post never blanks the page. */
-  const BLOG_API = "https://crystal-production-eb2e.up.railway.app/api/blog/";
+  const BLOG_API = (location.hostname.endsWith(".up.railway.app")?"https://crystal-production-eb2e.up.railway.app":"")+"/api/blog/";
   function fmtDate(iso) {
     return iso ? new Date(iso).toLocaleDateString("en-IN", { day: "numeric", month: "long", year: "numeric" }) : "";
   }

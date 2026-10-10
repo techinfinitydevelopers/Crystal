@@ -603,7 +603,7 @@ h1, h2 { overflow-wrap: break-word; }
      content-sync.js/banner-sync: the shipped fallback stands until the
      dashboard actually has something, so an empty Blog app never blanks
      the page. */
-  fetch("https://crystal-production-eb2e.up.railway.app/api/blog/", { mode: "cors", credentials: "omit" })
+  fetch((location.hostname.endsWith(".up.railway.app")?"https://crystal-production-eb2e.up.railway.app":"")+"/api/blog/", { mode: "cors", credentials: "omit" })
     .then(function (r) { return r.ok ? r.json() : null; })
     .then(function (data) {
       if (!Array.isArray(data) || !data.length) return;

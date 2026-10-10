@@ -30,7 +30,7 @@
   if (!file) return;
   var slug = decodeURIComponent(file).trim().toLowerCase().replace(/\s+/g, "-");
 
-  var API = "https://crystal-production-eb2e.up.railway.app/api/sections.json";
+  var API = (location.hostname.endsWith(".up.railway.app")?"https://crystal-production-eb2e.up.railway.app":"")+"/api/sections.json";
 
   // key -> element id, for pages that predate data-cms. Only used as a
   // fallback; an element carrying the key as data-cms always wins.

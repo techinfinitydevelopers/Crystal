@@ -1519,7 +1519,7 @@ h1, h2 { overflow-wrap: break-word; }
   if (!file) return;
   var slug = decodeURIComponent(file).trim().toLowerCase().replace(/\s+/g, "-");
 
-  var API = "https://crystal-production-eb2e.up.railway.app/api/banners.json";
+  var API = (location.hostname.endsWith(".up.railway.app")?"https://crystal-production-eb2e.up.railway.app":"")+"/api/banners.json";
 
   fetch(API, { mode: "cors", credentials: "omit" })
     .then(function (r) { return r.ok ? r.json() : null; })
