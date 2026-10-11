@@ -507,3 +507,39 @@ resolves and `_image_url()` publishes that string verbatim.
 Verified by fetching the new `image-overrides.json` and diffing it against the
 one taken off production: **16 products both sides, same hidden list, zero
 entries differing**.
+
+## 2026-10-11 — Live on crystalcook.com
+
+The domain's A record had already been pointed at the VPS when this was picked
+up. nginx was serving the static site happily — it does not care about the Host
+header — but **every Django endpoint was answering 400**: `ALLOWED_HOSTS` still
+only held the bare IP. So the site was up and looked fine while the banners,
+page sections, awards strip and admin were all silently absent, and nothing in
+the logs said so. Worth remembering: a 200 from the home page proves nothing
+about the half of the site that comes from the dashboard.
+
+Fixed by putting `crystalcook.com` and `www.` into `ALLOWED_HOSTS`,
+`PUBLIC_SITE_URL`, `CORS_ALLOWED_ORIGINS` and `CSRF_TRUSTED_ORIGINS`, and into
+nginx's `server_name` (it had been the catch-all `_`), then restarting. All
+endpoints went to 200.
+
+`certbot --nginx` then issued a real certificate for both names, replacing the
+throwaway self-signed one used for bare-IP testing, and added the HTTP→HTTPS
+redirect. Renewal timer enabled; expiry 2027-01-09.
+
+**Verified live over HTTPS with a validating certificate:** home, www, every API
+endpoint and the admin login all 200; HTTP 301s to HTTPS; **64 of 64** asset
+URLs the dashboard publishes (5 awards, 4 PDFs, 31 banners, 8 page-section
+images, 16 product override heroes) return 200; the home page renders 52 images
+with none broken; SMS001's Buy Now points at `amazon.in/dp/B0BC8MH6YY` rather
+than a search; all four kettle photos serve, including the one the client
+uploaded through the dashboard.
+
+`HOLD-DEPLOY` was set for the cutover and has been removed — auto-deploy is live
+again.
+
+**Still open, none of it blocking:** the three kettles are still named after
+their SKUs (`CKTL-051` and friends) where a product name belongs; `CKTL-057`
+has no photo of its own; `CTV-092/093/094/095` have no images; the HR email
+address for Contact.html; and 140 products have no Amazon link anywhere, listed
+in `CRYSTAL-Amazon-Links-Missing.xlsx`.
