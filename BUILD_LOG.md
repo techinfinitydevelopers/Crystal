@@ -543,3 +543,23 @@ their SKUs (`CKTL-051` and friends) where a product name belongs; `CKTL-057`
 has no photo of its own; `CTV-092/093/094/095` have no images; the HR email
 address for Contact.html; and 140 products have no Amazon link anywhere, listed
 in `CRYSTAL-Amazon-Links-Missing.xlsx`.
+
+## 2026-10-12 — Search Console verification and GA4
+
+Added the Search Console verification meta and the GA4 tag (`G-MET1S841PH`) to
+all 69 pages, anchored on the charset meta so both land at the top of the head:
+Google only looks for the verification meta inside `<head>`, and gtag wants to
+run before anything else or a quick bounce goes uncounted.
+
+`home-v3-src/shell-donor.html` was patched alongside index.html. index.html is
+generated from it, so patching only the page would have dropped the tag at the
+next home-page rebuild — the sort of thing nobody notices until the analytics
+go quiet. Rebuilt through `build_v3.py` to prove it: output byte-identical.
+
+**Verified live, not just present in the markup.** `window.google_tag_manager`
+exists on https://crystalcook.com with `G-MET1S841PH` registered, which only
+happens once googletagmanager's script has downloaded and run — `gtag()` itself
+is defined by the inline snippet and proves nothing on its own.
+
+Not added, and worth a decision: there is no cookie-consent banner. Fine for
+India today; it matters if the site starts taking EU traffic.
