@@ -26,3 +26,11 @@ crystal/backend/static/admin/_preview/
 # local Amazon scraping scratch data
 amazon-products/
 amazon-videos/
+
+# SEO: written by the dashboard (manage.py apply_seo) on whichever server runs it.
+# Product and blog pages, the sitemap and robots.txt are rebuilt from the database
+# on every deploy, so committing them would only create diffs on every edit.
+/products/
+/blog/*.html
+/sitemap.xml
+/robots.txt

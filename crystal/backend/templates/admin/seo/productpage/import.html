@@ -1,0 +1,30 @@
+{% extends "admin/base_site.html" %}
+{% block content %}
+<div style="max-width:760px;">
+  <p>Edit titles, descriptions and page addresses for many products at once.</p>
+  <ol style="line-height:1.7;">
+    <li>Use <a href="{% url 'admin:seo_productpage_export' %}"><b>Download as spreadsheet</b></a> on the product list.</li>
+    <li>Open it in Excel or Google Sheets and change <b>page_address</b>, <b>search_title</b>, <b>search_description</b> or <b>hide_from_search</b> (yes / no). Leave <b>entry_id</b> alone &mdash; it is how each row finds its product.</li>
+    <li>Save it as CSV and upload it here.</li>
+  </ol>
+  <p style="color:#64748b;font-size:13px;">Columns: {{ columns|join:", " }}. A blank search title or description clears it, and the site builds one from the product name instead. A changed address is redirected from the old one automatically.</p>
+
+  <form method="post" enctype="multipart/form-data" style="margin:18px 0;">
+    {% csrf_token %}
+    <input type="file" name="file" accept=".csv,text/csv" required>
+    <button type="submit" class="btn btn-primary" style="margin-left:8px;">Upload and apply</button>
+  </form>
+
+  {% if result %}
+    <div style="padding:14px 16px;border-radius:10px;border:1px solid #e2e8f0;background:#fff;">
+      <b>{{ result.updated }}</b> product{{ result.updated|pluralize }} updated,
+      <b>{{ result.unchanged }}</b> already matched.
+      {% if result.updated %}<div style="color:#16a34a;margin-top:6px;">The pages are being rewritten and will be live in a few seconds.</div>{% endif %}
+      {% if result.errors %}
+        <div style="margin-top:10px;color:#b91c1c;font-weight:700;">{{ result.errors|length }} row{{ result.errors|length|pluralize }} could not be used:</div>
+        <ul style="color:#b91c1c;">{% for e in result.errors|slice:":40" %}<li>{{ e }}</li>{% endfor %}</ul>
+      {% endif %}
+    </div>
+  {% endif %}
+</div>
+{% endblock %}

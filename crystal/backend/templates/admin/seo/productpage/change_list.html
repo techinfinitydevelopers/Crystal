@@ -1,0 +1,8 @@
+{% extends "admin/change_list.html" %}
+
+{% block object-tools-items %}
+  <li><a href="{% url 'admin:seo_productpage_export' %}" class="btn btn-outline-secondary btn-sm">&#8595; Download as spreadsheet</a></li>
+  <li><a href="{% url 'admin:seo_productpage_import' %}" class="btn btn-outline-secondary btn-sm">&#8593; Upload spreadsheet</a></li>
+  <li><a href="{% url 'admin:seo_productpage_rebuild' %}" class="btn btn-outline-secondary btn-sm">&#8635; Rebuild product pages now</a></li>
+  {{ block.super }}
+{% endblock %}

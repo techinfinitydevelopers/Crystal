@@ -40,9 +40,9 @@ class Blog(models.Model):
 
     @property
     def url(self):
-        """Where this post reads on the website. Article.html is one shared
-        template that looks its post up by slug."""
-        return 'https://crystal-cook-production.up.railway.app/Article.html?id=%s' % self.slug
+        """Where this post reads on the website: its own page, /blog/<slug>."""
+        from django.conf import settings
+        return '%s/blog/%s' % (settings.PUBLIC_SITE_URL.rstrip('/'), self.slug)
 
     def save(self, *args, **kwargs):
         if not self.slug:

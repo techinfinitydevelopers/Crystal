@@ -95,6 +95,7 @@ INSTALLED_APPS = [
     'blog',
     'downloads',
     'awards',
+    'seo',
 ]
 
 MIDDLEWARE = [
@@ -169,6 +170,18 @@ MEDIA_URL = '/media/'
 _site_root = BASE_DIR.parent.parent
 MEDIA_ROOT = Path(env('MEDIA_ROOT', default=str(
     _site_root if (_site_root / 'product-data').is_dir() else BASE_DIR / 'media')))
+
+# Where the website's own files are, so the SEO tools can write titles,
+# descriptions, product pages and sitemap.xml straight into them. Set on the
+# VPS, where the dashboard and the site share one tree; empty elsewhere, in which
+# case those tools say so and do nothing rather than writing in the wrong place.
+_site_root_env = env('SITE_ROOT', default='')
+if _site_root_env:
+    SITE_ROOT = Path(_site_root_env)
+elif (_site_root / 'product-data').is_dir():
+    SITE_ROOT = _site_root
+else:
+    SITE_ROOT = None
 
 # ---------------------------------------------------------------------------
 # Production hardening. All of it is conditional on DEBUG being off, so local
@@ -268,6 +281,8 @@ JAZZMIN_SETTINGS = {
     "order_with_respect_to": [
         "products", "banners",
         "content", "content.page", "content.pagesection", "content.pagesectiontrash",
+        "seo", "seo.seometa", "seo.productpage", "seo.blogpostseo", "seo.scriptblock",
+        "seo.redirect", "seo.seosettings",
         "awards", "enquiry", "blog", "downloads", "core", "auth",
     ],
 
@@ -297,6 +312,13 @@ JAZZMIN_SETTINGS = {
         "awards": "fas fa-award",
         "awards.award": "fas fa-award",
         "awards.awardsettings": "fas fa-sliders-h",
+        "seo": "fas fa-search",
+        "seo.seometa": "fas fa-file-alt",
+        "seo.productpage": "fas fa-box-open",
+        "seo.blogpostseo": "fas fa-newspaper",
+        "seo.scriptblock": "fas fa-code",
+        "seo.seosettings": "fas fa-cog",
+        "seo.redirect": "fas fa-random",
     },
 
     "default_icon_parents": "fas fa-chevron-circle-right",

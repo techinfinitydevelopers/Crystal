@@ -48,7 +48,20 @@ say "Database"
 say "Catalogue"
 # From the file in this checkout, not over HTTP: the repo is right here, and a
 # local read cannot be served a stale or truncated copy by a cache.
-"$VENV/bin/python" manage.py sync_catalogue --file "$APP/product-data/products.json" | tail -3
+# SEO_AUTOBAKE=0: the sync saves every product, and each save would otherwise
+# queue a page rebuild. The next step does that once, properly.
+SEO_AUTOBAKE=0 "$VENV/bin/python" manage.py sync_catalogue --file "$APP/product-data/products.json" | tail -3
+
+say "SEO"
+# `git reset --hard` above put every page back to what is committed, so the
+# titles, descriptions, tracking code, product pages, blog pages, redirects,
+# sitemap.xml and robots.txt that live in the dashboard are written out again.
+# Not fatal: a failure here leaves the committed pages, which are still correct.
+SEO_AUTOBAKE=0 "$VENV/bin/python" manage.py apply_seo | tail -4 || echo "   SEO step failed - committed pages are in place"
+# apply_seo runs as root and has just created files; the dashboard (www-data)
+# has to be able to rewrite them when someone edits a title.
+chown -R www-data:www-data "$APP"
+find "$APP" -type d -exec chmod 2775 {} +
 
 say "Static files"
 "$VENV/bin/python" manage.py collectstatic --no-input | tail -1

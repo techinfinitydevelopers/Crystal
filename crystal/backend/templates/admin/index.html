@@ -4,6 +4,7 @@
 {% block content %}
 {% load i18n %}
 
+{% if perms.products.view_product %}
 <!-- ── Stat Cards ──
      One accent only: the icon blocks are neutral, the number is the loudest
      thing on the tile, and Crystal red is reserved for the two places that are
@@ -61,6 +62,8 @@
   </div>
 </div>
 
+{% endif %}
+
 <!-- ── Pages: every page on the site, grouped, jumping straight into its
      editable sections. This IS the sidebar-equivalent page picker: Jazzmin's
      sidebar can only list models, not 65 individual pages, so the picker
@@ -100,6 +103,7 @@
 
 <!-- ── Recent Enquiries ── -->
 <div class="row">
+  {% if perms.enquiry.view_enquiry %}
   <div class="col-lg-8">
     <div class="card crx-card">
       <div class="crx-card__head">
@@ -150,30 +154,61 @@
       </div>
     </div>
   </div>
+  {% endif %}
 
   <!-- ── Quick Links + Recent Actions ── -->
-  <div class="col-lg-4">
+  <div class="col-lg-{% if perms.enquiry.view_enquiry %}4{% else %}12{% endif %}">
     <div class="card crx-card mb-3">
       <div class="crx-card__head">
         <h3 class="crx-card__title"><i class="fas fa-bolt"></i> Quick Actions</h3>
       </div>
       <div class="card-body crx-quick">
+        {% if perms.products.add_product %}
         <a href="{% url 'admin:products_product_add' %}" class="crx-qa crx-qa--primary">
           <i class="fas fa-plus"></i> Add Product
         </a>
+        {% endif %}
+        {% if perms.products.add_brand %}
         <a href="{% url 'admin:products_brand_add' %}" class="crx-qa">
           <i class="fas fa-plus"></i> Add Brand
         </a>
+        {% endif %}
+        {% if perms.blog.add_blog %}
         <a href="{% url 'admin:blog_blog_add' %}" class="crx-qa">
           <i class="fas fa-plus"></i> Add Blog Post
         </a>
+        {% endif %}
+        {% if perms.downloads.add_download %}
         <a href="{% url 'admin:downloads_download_add' %}" class="crx-qa">
           <i class="fas fa-plus"></i> Add Download
         </a>
+        {% endif %}
+        {% if perms.enquiry.view_enquiry %}
         <a href="{% url 'admin:enquiry_enquiry_changelist' %}?status=new" class="crx-qa">
           <i class="fas fa-inbox"></i> New Enquiries
           {% if stat_new_enquiries %}<span class="crx-qa__badge">{{ stat_new_enquiries }}</span>{% endif %}
         </a>
+        {% endif %}
+        {% if perms.seo.view_seometa %}
+        <a href="{% url 'admin:seo_seometa_changelist' %}" class="crx-qa crx-qa--primary">
+          <i class="fas fa-search"></i> Page SEO
+        </a>
+        {% endif %}
+        {% if perms.seo.view_productpage %}
+        <a href="{% url 'admin:seo_productpage_changelist' %}" class="crx-qa">
+          <i class="fas fa-box-open"></i> Product pages
+        </a>
+        {% endif %}
+        {% if perms.seo.view_blogpostseo %}
+        <a href="{% url 'admin:seo_blogpostseo_changelist' %}" class="crx-qa">
+          <i class="fas fa-newspaper"></i> Blog post SEO
+        </a>
+        {% endif %}
+        {% if perms.seo.view_scriptblock %}
+        <a href="{% url 'admin:seo_scriptblock_changelist' %}" class="crx-qa">
+          <i class="fas fa-code"></i> Tracking codes
+        </a>
+        {% endif %}
       </div>
     </div>
 

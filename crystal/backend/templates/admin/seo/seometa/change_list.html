@@ -1,0 +1,37 @@
+{% extends "admin/change_list.html" %}
+{% load i18n %}
+
+{% block object-tools-items %}
+  <li>
+    <a href="{% url 'admin:seo_seometa_rebuild' %}" class="btn btn-outline-secondary btn-sm"
+       title="Rewrite every page, product page, redirect, sitemap.xml and robots.txt now">
+      &#8635; Rebuild all SEO files now
+    </a>
+  </li>
+  {{ block.super }}
+{% endblock %}
+
+{% block result_list %}
+  {% if seo_coverage %}
+  <div style="display:flex;gap:10px;flex-wrap:wrap;margin:0 0 14px;">
+    {% with c=seo_coverage %}
+    <div style="padding:10px 14px;border:1px solid #e2e8f0;border-radius:10px;background:#fff;">
+      <div style="font-size:20px;font-weight:800;">{{ c.indexed }}<span style="font-size:12px;color:#64748b;font-weight:600;"> / {{ c.pages }} pages shown in search</span></div>
+    </div>
+    <div style="padding:10px 14px;border:1px solid #e2e8f0;border-radius:10px;background:#fff;">
+      <div style="font-size:20px;font-weight:800;color:{% if c.no_description %}#dc2626{% else %}#16a34a{% endif %};">{{ c.no_description }}</div>
+      <div style="font-size:12px;color:#64748b;font-weight:600;">without a description</div>
+    </div>
+    <div style="padding:10px 14px;border:1px solid #e2e8f0;border-radius:10px;background:#fff;">
+      <div style="font-size:20px;font-weight:800;color:{% if c.long_title %}#d97706{% else %}#16a34a{% endif %};">{{ c.long_title }}</div>
+      <div style="font-size:12px;color:#64748b;font-weight:600;">titles over 60 characters</div>
+    </div>
+    <div style="padding:10px 14px;border:1px solid #e2e8f0;border-radius:10px;background:#fff;">
+      <div style="font-size:20px;font-weight:800;color:{% if c.long_description %}#d97706{% else %}#16a34a{% endif %};">{{ c.long_description }}</div>
+      <div style="font-size:12px;color:#64748b;font-weight:600;">descriptions over 155 characters</div>
+    </div>
+    {% endwith %}
+  </div>
+  {% endif %}
+  {{ block.super }}
+{% endblock %}
