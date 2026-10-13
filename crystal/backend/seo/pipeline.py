@@ -123,8 +123,12 @@ def seed_pages(root=None):
                 t, d = defaults.COPY[name]
                 # Only where the page had nothing usable: a written title or
                 # description is kept as the starting value, not replaced.
-                weak_title = (not row.shipped_title or len(row.shipped_title) < 24
+                # "About Us — CRYSTAL" and "Crystal Cook N Serve Products - Home"
+                # say nothing a search result needs; anything this short, or a
+                # bare "- Home", is a placeholder rather than a title.
+                weak_title = (not row.shipped_title or len(row.shipped_title) < 30
                               or '<title>' in row.shipped_title
+                              or row.shipped_title.lower().rstrip().endswith('- home')
                               or row.shipped_title.lower().endswith('social media agency'))
                 if weak_title:
                     row.title = t
