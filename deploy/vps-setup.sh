@@ -145,6 +145,17 @@ server {
         expires 30d; access_log off; try_files \$uri =404;
     }
 
+    # index.html is the same file as "/": one address, not two.
+    # The \`index index.html;\` above makes nginx serve "/" by an *internal* jump to
+    # /index.html, which would land on this very location and bounce back to "/"
+    # forever. \$request_uri is the address the visitor actually asked for, and an
+    # internal jump does not change it, so only a real request for /index.html
+    # is redirected.
+    location = /index.html {
+        if (\$request_uri ~* "^/index\.html(\$|\?)") { return 301 /\$is_args\$args; }
+    }
+    location = /index { return 301 /\$is_args\$args; }
+
     location / { try_files \$uri \$uri/ \$uri.html =404; }
 }
 EOF
