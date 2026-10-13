@@ -10,7 +10,30 @@ So this is baked instead. `manage.py apply_seo` writes these values into the
 static HTML, and the deploy runs it after pulling. The served file really does
 carry the title, which is the only version that counts.
 """
+from django.core.exceptions import ValidationError
 from django.db import models
+
+
+def validate_canonical(value):
+    """A canonical is either a full address or a path on this site."""
+    v = (value or '').strip()
+    if not v:
+        return
+    if v.startswith('/') and not v.startswith('//'):
+        return
+    if v.startswith(('http://', 'https://')) and ' ' not in v and len(v) > 12:
+        return
+    raise ValidationError(
+        'Give a full address (https://…) or a path starting with a slash, e.g. /Cookware.')
+
+
+CANONICAL_HELP = (
+    'Which address Google should treat as the "real" one for this page. Leave it '
+    'empty and the page names itself, which is right almost always and is what '
+    'stops /About and /About.html counting twice. Fill it in only to point this '
+    'page at a different one — for a page that is a near-copy of another, the '
+    'copy gets the original\'s address. A path like /Cookware or a full address '
+    'both work.')
 
 
 class SeoMeta(models.Model):
@@ -42,11 +65,9 @@ class SeoMeta(models.Model):
         help_text='Optional and ignored by Google since 2009. Here only '
                   'because some other tools still read it.')
 
-    canonical = models.URLField(
-        blank=True,
-        help_text='Leave empty. Filled in automatically with this page\'s own '
-                  'address, which is what stops the same page counting twice. '
-                  'Set one only to point this page at a different one.')
+    canonical = models.CharField(
+        max_length=300, blank=True, validators=[validate_canonical],
+        help_text=CANONICAL_HELP)
 
     og_title = models.CharField(
         max_length=200, blank=True,
@@ -236,6 +257,12 @@ class SeoSettings(models.Model):
         default=True, verbose_name='Build a page per product',
         help_text='Gives every product its own address instead of sharing one. '
                   'Turning this off leaves the pages already built in place.')
+    auto_canonical = models.BooleanField(
+        default=True, verbose_name='Write canonical tags automatically',
+        help_text='On: every page names its own address as the canonical one, '
+                  'which keeps duplicates (/About and /About.html) from competing. '
+                  'Off: no canonical tag is written unless a page, product or '
+                  'post has one typed in for it.')
     updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
@@ -348,6 +375,9 @@ class ProductPage(models.Model):
     noindex = models.BooleanField(
         default=False, verbose_name='Hide from search',
         help_text='Ask search engines to leave this product out of results.')
+    canonical = models.CharField(
+        max_length=300, blank=True, validators=[validate_canonical],
+        help_text=CANONICAL_HELP)
     updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
@@ -416,3 +446,79 @@ def _blog_proxy():
 
 
 BlogPostSeo = _blog_proxy()
+
+
+class SitemapConfig(models.Model):
+    """What goes at /sitemap.xml: the one the dashboard writes, or the team's own.
+
+    One row. A custom file is for when someone has a sitemap built elsewhere
+    (an SEO tool's crawl, a sitemap index, one with image or video entries) and
+    wants it served as it is. The automatic one lists every page, product and
+    post, and is rebuilt whenever any of them changes.
+    """
+
+    AUTO = 'auto'
+    CUSTOM = 'custom'
+    MODE_CHOICES = [
+        (AUTO, 'Automatic — the dashboard writes it from the pages, products and posts'),
+        (CUSTOM, 'My own file — serve the file uploaded below, exactly as it is'),
+    ]
+    mode = models.CharField(max_length=10, choices=MODE_CHOICES, default=AUTO)
+    custom_file = models.FileField(
+        upload_to='seo/', blank=True, null=True, verbose_name='Sitemap file',
+        help_text='An XML sitemap (a <urlset>, or a <sitemapindex> that points at '
+                  'other sitemaps). Up to 10 MB and 50,000 addresses. It is '
+                  'checked before it is accepted.')
+    extra_urls = models.TextField(
+        blank=True, verbose_name='Extra addresses',
+        help_text='Automatic mode only. One full address per line, added to the end '
+                  'of the generated sitemap — for pages that live outside this site '
+                  'builder, such as a landing page on a sub-domain path.')
+    last_built = models.DateTimeField(null=True, blank=True, editable=False)
+    last_count = models.PositiveIntegerField(default=0, editable=False)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        verbose_name = 'Sitemap'
+        verbose_name_plural = 'Sitemap'
+
+    def __str__(self):
+        return 'Sitemap (%s)' % self.get_mode_display().split(' — ')[0]
+
+    def save(self, *args, **kwargs):
+        self.pk = 1
+        super().save(*args, **kwargs)
+
+    def delete(self, *args, **kwargs):
+        pass
+
+    @classmethod
+    def load(cls):
+        obj, _ = cls.objects.get_or_create(pk=1)
+        return obj
+
+    def extra_url_list(self):
+        return [u.strip() for u in (self.extra_urls or '').splitlines()
+                if u.strip().startswith(('http://', 'https://'))]
+
+
+class BlogSeoExtra(models.Model):
+    """The SEO fields a blog post has no column for.
+
+    Blog already carries slug, meta_title and meta_description. Rather than add
+    columns to another app's table, the rest sit here, one row per post.
+    """
+
+    blog = models.OneToOneField('blog.Blog', on_delete=models.CASCADE, related_name='seo_extra')
+    canonical = models.CharField(
+        max_length=300, blank=True, validators=[validate_canonical], help_text=CANONICAL_HELP)
+    noindex = models.BooleanField(
+        default=False, verbose_name='Hide from search',
+        help_text='Ask search engines to leave this post out of results.')
+
+    class Meta:
+        verbose_name = 'Blog post SEO extras'
+        verbose_name_plural = 'Blog post SEO extras'
+
+    def __str__(self):
+        return 'SEO extras for %s' % self.blog_id

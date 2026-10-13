@@ -71,13 +71,15 @@ def db_posts():
     except Exception:
         return []
     out = []
-    for p in Blog.objects.filter(is_published=True).select_related('category'):
+    for p in Blog.objects.filter(is_published=True).select_related('category', 'seo_extra'):
+        extra = getattr(p, 'seo_extra', None)
         out.append({
             'slug': p.slug, 'tag': p.category.name if p.category else '',
             'title': p.title, 'date': _fmt_date(p.published_at), 'when': p.published_at,
             'excerpt': p.excerpt, 'img': p.featured_image.url if p.featured_image else '',
             'body': p.content or '', 'author': p.author or 'Team Crystal',
             'meta_title': p.meta_title, 'meta_description': p.meta_description, 'source': 'db',
+            'canonical': getattr(extra, 'canonical', ''), 'noindex': getattr(extra, 'noindex', False),
         })
     return out
 
@@ -123,6 +125,7 @@ def article_info(post, st, root):
     }
     return PageInfo(
         path, title, desc, og_title=title, og_description=desc, og_image=image,
+        canonical=post.get('canonical', ''), noindex=post.get('noindex', False),
         og_type='article', base_href=True, script_page='Article.html',
         jsonld=[doc, crumbs],
         inline='<script>window.__ARTICLE_ID__=%s;</script>' % json.dumps(post['slug']),
@@ -130,7 +133,7 @@ def article_info(post, st, root):
 
 
 def bake_blog(report, write_pages=True):
-    """Write every post's page. Returns [(path, last-modified)] for the sitemap.
+    """Write every post's page. Returns [(path, last-modified, listed-in-sitemap)].
 
     With write_pages=False nothing is written; the list is still returned, for the
     callers that only need to know which posts have a page."""
@@ -147,7 +150,7 @@ def bake_blog(report, write_pages=True):
     live, urls = set(), []
     for slug, post in sorted(posts.items()):
         if not write_pages:
-            urls.append(('/blog/%s' % slug, post['when']))
+            urls.append(('/blog/%s' % slug, post['when'], not post.get('noindex')))
             continue
         try:
             info, image = article_info(post, st, root)
@@ -159,7 +162,7 @@ def bake_blog(report, write_pages=True):
                 body = body.replace('<head>', '<head>' + chr(10) + GENERATED_MARK, 1)
             report.count(write(out_dir / (slug + '.html'), body))
             live.add(slug + '.html')
-            urls.append(('/blog/%s' % slug, post['when']))
+            urls.append(('/blog/%s' % slug, post['when'], not post.get('noindex')))
         except Exception as exc:
             report.skipped.append('blog %s: %s' % (slug, exc))
     if write_pages and out_dir.is_dir():

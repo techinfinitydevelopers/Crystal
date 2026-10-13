@@ -12,6 +12,7 @@ GROUP_PERMISSIONS = [
     ('seo', 'scriptblock', ('view', 'add', 'change', 'delete')),
     ('seo', 'seosettings', ('view', 'change')),
     ('seo', 'redirect', ('view', 'add', 'change', 'delete')),
+    ('seo', 'sitemapconfig', ('view', 'change')),
     # They also own the words on the pages and the blog, which is half of SEO.
     ('content', 'pagesection', ('view', 'change')),
     ('content', 'page', ('view', 'change')),

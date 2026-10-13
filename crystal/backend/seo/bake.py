@@ -173,7 +173,14 @@ class PageInfo:
 
 def meta_block(info, st):
     """The <head> lines that carry this page's search and social copy."""
-    canonical = info.canonical or abs_url(st, info.path)
+    # A canonical typed in for this page always wins. Otherwise the page names
+    # itself -- unless the team has switched that off in SEO settings, in which
+    # case no canonical tag is written at all.
+    explicit = (info.canonical or '').strip()
+    if explicit.startswith('/') and not explicit.startswith('//'):
+        explicit = abs_url(st, explicit)
+    canonical = explicit or abs_url(st, info.path)
+    write_canonical = bool(explicit) or st.auto_canonical
     robots = ('noindex,follow' if info.noindex
               else 'index,follow,max-image-preview:large,max-snippet:-1')
     og_title = info.og_title or info.title
@@ -184,7 +191,8 @@ def meta_block(info, st):
     if info.keywords:
         lines.append('<meta name="keywords" content="%s">' % esc(info.keywords))
     lines.append('<meta name="robots" content="%s">' % robots)
-    lines.append('<link rel="canonical" href="%s">' % esc(canonical))
+    if write_canonical:
+        lines.append('<link rel="canonical" href="%s">' % esc(canonical))
     lines.append('<meta property="og:site_name" content="%s">' % esc('CRYSTAL'))
     lines.append('<meta property="og:locale" content="en_IN">')
     lines.append('<meta property="og:type" content="%s">' % esc(info.og_type))

@@ -19,7 +19,8 @@ from django.utils.safestring import mark_safe
 
 from . import pipeline
 from .bake import abs_url, site_root
-from .models import BlogPostSeo, ProductPage, Redirect, ScriptBlock, SeoMeta, SeoSettings
+from .models import (CANONICAL_HELP, BlogPostSeo, BlogSeoExtra, ProductPage, Redirect,
+                     ScriptBlock, SeoMeta, SeoSettings, SitemapConfig, validate_canonical)
 
 SLUG_RE = re.compile(r'^[a-z0-9]+(?:-[a-z0-9]+)*$')
 
@@ -271,7 +272,8 @@ class ProductPageForm(SlugCleaning, forms.ModelForm):
 
     class Meta:
         model = ProductPage
-        fields = ('slug', 'noindex')
+        fields = ('slug', 'noindex', 'canonical')
+        widgets = {'canonical': forms.TextInput(attrs=WIDE)}
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -328,6 +330,7 @@ class ProductPageAdmin(RebuildMixin, admin.ModelAdmin):
             'fields': ('slug', 'live_address', 'noindex'),
         }),
         ('How it looks in Google', {'fields': ('meta_title', 'meta_description', 'google_preview')}),
+        ('Canonical address', {'classes': ('collapse',), 'fields': ('canonical',)}),
     )
 
     class Media:
@@ -534,7 +537,7 @@ class ScriptBlockAdmin(admin.ModelAdmin):
 @admin.register(SeoSettings)
 class SeoSettingsAdmin(admin.ModelAdmin):
     fieldsets = (
-        ('Site', {'fields': ('site_url', 'default_og_image', 'generate_product_pages')}),
+        ('Site', {'fields': ('site_url', 'default_og_image', 'generate_product_pages', 'auto_canonical')}),
         ('Google & Bing', {
             'description': 'The Analytics tag and the verification tags are written onto every '
                            'page from these boxes. Change them here and nowhere else.',
@@ -594,11 +597,26 @@ class RedirectAdmin(admin.ModelAdmin):
 # Blog posts
 # ---------------------------------------------------------------------------
 class BlogSeoForm(forms.ModelForm):
+    # These two have no column on Blog; they live in BlogSeoExtra, one row a post.
+    canonical = forms.CharField(
+        required=False, max_length=300, validators=[validate_canonical],
+        widget=forms.TextInput(attrs=WIDE), help_text=CANONICAL_HELP)
+    noindex = forms.BooleanField(
+        required=False, label='Hide from search',
+        help_text='Ask search engines to leave this post out of results.')
+
     class Meta:
         model = BlogPostSeo
         fields = ('slug', 'meta_title', 'meta_description')
         widgets = {'meta_title': forms.TextInput(attrs=WIDE),
                    'meta_description': forms.Textarea(attrs=dict(WIDE, rows=3))}
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        extra = BlogSeoExtra.objects.filter(blog_id=self.instance.pk).first() if self.instance.pk else None
+        if extra:
+            self.fields['canonical'].initial = extra.canonical
+            self.fields['noindex'].initial = extra.noindex
 
     def clean_slug(self):
         slug = (self.cleaned_data.get('slug') or '').strip().lower()
@@ -626,6 +644,7 @@ class BlogPostSeoAdmin(admin.ModelAdmin):
             'description': 'Empty fields are built from the post\'s title and summary.',
             'fields': ('meta_title', 'meta_description', 'google_preview'),
         }),
+        ('Search engines', {'classes': ('collapse',), 'fields': ('noindex', 'canonical')}),
     )
 
     class Media:
@@ -636,6 +655,17 @@ class BlogPostSeoAdmin(admin.ModelAdmin):
 
     def has_delete_permission(self, request, obj=None):
         return False
+
+    def save_model(self, request, obj, form, change):
+        super().save_model(request, obj, form, change)
+        if 'canonical' in form.cleaned_data:
+            extra, _ = BlogSeoExtra.objects.get_or_create(blog_id=obj.pk)
+            extra.canonical = (form.cleaned_data.get('canonical') or '').strip()
+            extra.noindex = bool(form.cleaned_data.get('noindex'))
+            extra.save()
+            # The post's own save (above) already queued a rebuild, but before
+            # these two were stored; ask again so the page sees them.
+            pipeline.request_bake(products=False, blog=True)
 
     @admin.display(description='Title tag')
     def title_state(self, obj):
@@ -664,3 +694,95 @@ class BlogPostSeoAdmin(admin.ModelAdmin):
             obj.title, obj.excerpt)
 
     # saving the post fires the blog signal, which rebuilds the page and writes the redirect
+
+
+# ---------------------------------------------------------------------------
+# Sitemap
+# ---------------------------------------------------------------------------
+class SitemapConfigForm(forms.ModelForm):
+    class Meta:
+        model = SitemapConfig
+        fields = ('mode', 'custom_file', 'extra_urls')
+        widgets = {
+            'mode': forms.RadioSelect,
+            'extra_urls': forms.Textarea(attrs=dict(WIDE, rows=5, placeholder='https://crystalcook.com/landing/summer-sale')),
+        }
+
+    def clean_custom_file(self):
+        from django.core.files.uploadedfile import UploadedFile
+        f = self.cleaned_data.get('custom_file')
+        # Only a file that has just been uploaded is inspected. An existing one is
+        # left alone -- and must not be touched even to ask its size, since the
+        # file on disk may be gone, which would make this screen impossible to
+        # open and so impossible to fix.
+        if not isinstance(f, UploadedFile):
+            return f
+        from . import sitemap as sm
+        data = f.read()
+        f.seek(0)
+        try:
+            self._kind, self._count = sm.inspect(data)
+        except sm.SitemapProblem as exc:
+            raise forms.ValidationError(str(exc))
+        return f
+
+    def clean(self):
+        cleaned = super().clean()
+        if cleaned.get('mode') == SitemapConfig.CUSTOM and not cleaned.get('custom_file'):
+            self.add_error('custom_file', 'Upload a file, or switch back to Automatic.')
+        urls = [u.strip() for u in (cleaned.get('extra_urls') or '').splitlines() if u.strip()]
+        bad = [u for u in urls if not u.startswith(('http://', 'https://'))]
+        if bad:
+            self.add_error('extra_urls', 'Each address must be a full one starting with https:// — '
+                                         'not accepted: %s' % ', '.join(bad[:3]))
+        return cleaned
+
+
+@admin.register(SitemapConfig)
+class SitemapConfigAdmin(admin.ModelAdmin):
+    form = SitemapConfigForm
+    readonly_fields = ('where_it_lives', 'what_it_holds')
+    fieldsets = (
+        ('Your sitemap', {
+            'description': 'The list of pages search engines are told about. Submit its address in '
+                           'Google Search Console once; after that it keeps itself up to date.',
+            'fields': ('where_it_lives', 'what_it_holds'),
+        }),
+        ('Which one to serve', {
+            'description': 'Automatic is right unless you have a sitemap made elsewhere that you '
+                           'want served exactly as it is.',
+            'fields': ('mode', 'custom_file'),
+        }),
+        ('Add addresses to the automatic one', {
+            'classes': ('collapse',),
+            'fields': ('extra_urls',),
+        }),
+    )
+
+    def has_add_permission(self, request):
+        return False
+
+    def has_delete_permission(self, request, obj=None):
+        return False
+
+    def changelist_view(self, request, extra_context=None):
+        obj = SitemapConfig.load()
+        return redirect(reverse('admin:seo_sitemapconfig_change', args=[obj.pk]))
+
+    @admin.display(description='Address')
+    def where_it_lives(self, obj):
+        url = abs_url(SeoSettings.load(), '/sitemap.xml')
+        return format_html('<a href="{}" target="_blank"><b>{}</b></a> &nbsp;<span style="color:#64748b;">'
+                           '— open it to see exactly what search engines read</span>', url, url)
+
+    @admin.display(description='Right now')
+    def what_it_holds(self, obj):
+        if obj.last_built:
+            when = obj.last_built.strftime('%d %b %Y, %H:%M')
+            what = 'your own file' if obj.mode == SitemapConfig.CUSTOM else 'written by the dashboard'
+            return format_html('{} — {} entries, last written {}.', what.capitalize(), obj.last_count, when)
+        return 'Not written yet. Saving this screen writes it.'
+
+    def save_model(self, request, obj, form, change):
+        super().save_model(request, obj, form, change)
+        _rebuild(request, products=False, blog=False)

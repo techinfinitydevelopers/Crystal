@@ -282,7 +282,7 @@ JAZZMIN_SETTINGS = {
         "products", "banners",
         "content", "content.page", "content.pagesection", "content.pagesectiontrash",
         "seo", "seo.seometa", "seo.productpage", "seo.blogpostseo", "seo.scriptblock",
-        "seo.redirect", "seo.seosettings",
+        "seo.sitemapconfig", "seo.redirect", "seo.seosettings",
         "awards", "enquiry", "blog", "downloads", "core", "auth",
     ],
 
@@ -319,6 +319,7 @@ JAZZMIN_SETTINGS = {
         "seo.scriptblock": "fas fa-code",
         "seo.seosettings": "fas fa-cog",
         "seo.redirect": "fas fa-random",
+        "seo.sitemapconfig": "fas fa-sitemap",
     },
 
     "default_icon_parents": "fas fa-chevron-circle-right",

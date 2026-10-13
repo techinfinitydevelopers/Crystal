@@ -26,7 +26,7 @@ from .bake import (
     GENERATED_MARK, STUB_MARK, PageInfo, abs_url, apply_to_html, asset_url, clip,
     esc, og_image_for, read, site_root, write, TITLE_BUDGET, DESC_BUDGET,
 )
-from .models import ProductPage, Redirect, ScriptBlock, SeoMeta, SeoSettings
+from .models import ProductPage, Redirect, ScriptBlock, SeoMeta, SeoSettings, SitemapConfig
 
 _LOCK = threading.Lock()
 
@@ -403,7 +403,8 @@ def product_info(e, row, st, root, with_code=False):
     }
     inline = ('<script>window.__PRODUCT_ID__=%s;</script>' % json.dumps(e['id']))
     return PageInfo(
-        row.path, title, desc, noindex=row.noindex, og_title=title, og_description=desc,
+        row.path, title, desc, noindex=row.noindex, canonical=row.canonical,
+        og_title=title, og_description=desc,
         og_image=hero, og_type='product', base_href=True, script_page='Product.html',
         jsonld=[product_jsonld(e, row, st, brand_name, root), breadcrumb(st, trail)],
         inline=inline, fills=fills,
@@ -546,7 +547,7 @@ def write_product_urls(pages, blog_urls, report):
     if not root:
         return
     products = {eid: row.slug for eid, row in sorted(pages.items())}
-    posts = {path.rsplit('/', 1)[1]: True for path, _ in sorted(blog_urls)}
+    posts = {path.rsplit('/', 1)[1]: True for path, _, _ in sorted(blog_urls)}
     nl = chr(10)
     body = (
         '/* Written by the dashboard (SEO). Maps a product id to its page address,' + nl
@@ -565,6 +566,26 @@ def write_sitemap(pages, blog_urls, report):
     if not root:
         return
     st = SeoSettings.load()
+    cfg = SitemapConfig.load()
+
+    # The team's own file, served exactly as uploaded. Checked again here rather
+    # than trusted from when it was accepted: the file lives on disk and could
+    # have been replaced, and a bad one must fall back, not be published.
+    if cfg.mode == SitemapConfig.CUSTOM and cfg.custom_file:
+        try:
+            from . import sitemap as sm
+            with cfg.custom_file.open('rb') as fh:
+                data = fh.read()
+            kind, count = sm.inspect(data)
+            text = data.decode('utf-8-sig')
+            report.count(write(Path(root) / 'sitemap.xml', text))
+            report.notes.append('sitemap: your own file (%d %s)'
+                                % (count, 'sitemaps' if kind == 'sitemapindex' else 'addresses'))
+            SitemapConfig.objects.filter(pk=1).update(last_built=timezone.now(), last_count=count)
+            return
+        except Exception as exc:
+            report.skipped.append('custom sitemap not used, the automatic one was written instead: %s' % exc)
+
     urls = []
     for row in SeoMeta.objects.filter(in_sitemap=True, indexing=SeoMeta.INDEX_YES).order_by('-priority', 'page'):
         f = Path(root) / row.page
@@ -576,16 +597,23 @@ def write_sitemap(pages, blog_urls, report):
         if row.noindex:
             continue
         urls.append((abs_url(st, row.path), _lastmod(row.updated_at), 'monthly', '0.6'))
-    for path, when in blog_urls:
-        urls.append((abs_url(st, path), _lastmod(when), 'monthly', '0.5'))
+    for path, when, listed in blog_urls:
+        if listed:
+            urls.append((abs_url(st, path), _lastmod(when), 'monthly', '0.5'))
+    seen = {u[0] for u in urls}
+    extras = [u for u in cfg.extra_url_list() if u not in seen]
     parts = ['<?xml version="1.0" encoding="UTF-8"?>',
              '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for loc, mod, freq, prio in urls:
         parts.append('  <url><loc>%s</loc><lastmod>%s</lastmod><changefreq>%s</changefreq><priority>%s</priority></url>'
                      % (esc(loc), mod, freq, prio))
-    parts.append('</urlset>\n')
-    report.count(write(Path(root) / 'sitemap.xml', '\n'.join(parts)))
-    report.notes.append('sitemap: %d addresses' % len(urls))
+    for loc in extras:
+        parts.append('  <url><loc>%s</loc></url>' % esc(loc))
+    parts.append('</urlset>' + chr(10))
+    report.count(write(Path(root) / 'sitemap.xml', chr(10).join(parts)))
+    total = len(urls) + len(extras)
+    SitemapConfig.objects.filter(pk=1).update(last_built=timezone.now(), last_count=total)
+    report.notes.append('sitemap: %d addresses' % total)
 
 
 def write_robots(report):
@@ -612,7 +640,7 @@ def write_robots(report):
 def live_url_set(pages, blog_urls):
     urls = {r.url_path for r in SeoMeta.objects.all()}
     urls |= {r.path for r in pages.values()}
-    urls |= {p for p, _ in blog_urls}
+    urls |= {p for p, _, _ in blog_urls}
     return urls
 
 
