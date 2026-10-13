@@ -129,8 +129,11 @@ def article_info(post, st, root):
         fills=fills), image
 
 
-def bake_blog(report):
-    """Write every post's page. Returns [(path, last-modified)] for the sitemap."""
+def bake_blog(report, write_pages=True):
+    """Write every post's page. Returns [(path, last-modified)] for the sitemap.
+
+    With write_pages=False nothing is written; the list is still returned, for the
+    callers that only need to know which posts have a page."""
     root = site_root()
     if not root:
         return []
@@ -143,6 +146,9 @@ def bake_blog(report):
     posts = all_posts(root)
     live, urls = set(), []
     for slug, post in sorted(posts.items()):
+        if not write_pages:
+            urls.append(('/blog/%s' % slug, post['when']))
+            continue
         try:
             info, image = article_info(post, st, root)
             body = apply_to_html(template, info, st)
@@ -156,7 +162,7 @@ def bake_blog(report):
             urls.append(('/blog/%s' % slug, post['when']))
         except Exception as exc:
             report.skipped.append('blog %s: %s' % (slug, exc))
-    if out_dir.is_dir():
+    if write_pages and out_dir.is_dir():
         for f in out_dir.glob('*.html'):
             if f.name in live:
                 continue

@@ -30,8 +30,14 @@ def _can_bake():
 
 
 @receiver(pre_save, sender='blog.Blog', dispatch_uid='seo-blog-slug-watch')
+@receiver(pre_save, sender='seo.BlogPostSeo', dispatch_uid='seo-blogseo-slug-watch')
 def blog_slug_watch(sender, instance, raw=False, **kwargs):
-    """A post's address is /blog/<slug>, so changing the slug moves the page."""
+    """A post's address is /blog/<slug>, so changing the slug moves the page.
+
+    Connected to the proxy model as well as Blog: a proxy sends its own class as
+    the signal's sender, so saving through the SEO screen would otherwise bypass
+    every handler here -- the redirect would never be written.
+    """
     if raw or not instance.pk:
         return
     try:
@@ -43,6 +49,7 @@ def blog_slug_watch(sender, instance, raw=False, **kwargs):
 
 
 @receiver(post_save, sender='blog.Blog', dispatch_uid='seo-blog-saved')
+@receiver(post_save, sender='seo.BlogPostSeo', dispatch_uid='seo-blogseo-saved')
 def blog_saved(sender, instance, raw=False, **kwargs):
     if raw:
         return
@@ -59,6 +66,7 @@ def blog_saved(sender, instance, raw=False, **kwargs):
 
 
 @receiver(post_delete, sender='blog.Blog', dispatch_uid='seo-blog-deleted')
+@receiver(post_delete, sender='seo.BlogPostSeo', dispatch_uid='seo-blogseo-deleted')
 def blog_deleted(sender, instance, **kwargs):
     try:
         if _can_bake():

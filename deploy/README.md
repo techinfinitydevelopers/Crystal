@@ -46,3 +46,33 @@ locations first, and every uploaded image 404s.
     journalctl -u crystal -n 50          # the Django app
     tail -f /var/log/crystal-autodeploy.log
     tail -f /var/log/nginx/access.log
+
+## SEO
+
+Titles, descriptions, canonical tags, tracking code, one page per product
+(`/products/<slug>`), one per blog post (`/blog/<slug>`), redirects,
+`sitemap.xml` and `robots.txt` are written into the site's files by
+`manage.py apply_seo`. They cannot be fetched by the page after it loads — a
+crawler or a WhatsApp preview never runs the script.
+
+`vps-deploy.sh` runs it after the catalogue sync, because `git reset --hard` puts
+every page back to what is committed. It is not fatal: if it fails, the
+committed pages are still correct and the site works. Edits made in the
+dashboard rebuild the affected files on their own, two seconds after the last
+save.
+
+Generated and gitignored: `products/`, `blog/*.html`, `sitemap.xml`,
+`robots.txt`. `product-urls.js` is tracked but is overwritten by the server.
+
+**Give the SEO team a login** (on the server):
+
+    cd /var/www/crystal/crystal/backend
+    set -a; . ./.env; set +a
+    /opt/crystal-venv/bin/python manage.py create_seo_user priya --email priya@agency.com
+
+It prints a generated password once. The account is staff but never superuser,
+in the group "SEO Team": the SEO screens, page and blog text, nothing else.
+Anyone in that group can paste a script that runs on every page of the site, so
+give it only to people you would give the site's code to.
+
+**Rebuild by hand:** `apply_seo` (everything) or `apply_seo --pages-only`.

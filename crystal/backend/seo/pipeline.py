@@ -323,12 +323,24 @@ def sync_product_pages(entries):
     return pages
 
 
-def product_title(e, brand_name):
+def product_title(e, brand_name, with_code=False):
     if e.get('meta_title'):
-        return e['meta_title']
+        typed = e['meta_title']
+        if with_code:
+            # One title typed for a product that has several sizes lands on every
+            # size's page. The size (or code) tells them apart.
+            label = (e.get('variant_label') or e.get('sku') or '').strip()
+            if label and label.lower() not in typed.lower():
+                return '%s (%s)' % (typed, label)
+        return typed
     name = (e.get('name') or '').strip()
     suffix = ' | CRYSTAL'
     room = TITLE_BUDGET - len(suffix)
+    if with_code and e.get('sku'):
+        # Two products can share a name (a different pack, a different finish).
+        # Identical titles compete with each other, so the code tells them apart.
+        tag = ' (%s)' % e['sku'].upper()
+        return clip(name, room - len(tag)) + tag + suffix
     if brand_name and brand_name.lower() not in name.lower():
         name = '%s %s' % (brand_name, name) if len(name) + len(brand_name) + 1 <= room else name
     return clip(name, room) + suffix
@@ -370,10 +382,10 @@ def product_jsonld(e, row, st, brand_name, root):
     return doc
 
 
-def product_info(e, row, st, root):
+def product_info(e, row, st, root, with_code=False):
     brand_slug = (e.get('brand') or '').lower()
     brand_name = defaults.BRAND_NAMES.get(brand_slug, (e.get('brand') or '').title())
-    title = product_title(e, brand_name)
+    title = product_title(e, brand_name, with_code)
     desc = product_description(e, brand_name)
     name = e.get('name') or ''
     hero = asset_url(st, e.get('hero')) or og_image_for(st, None, root)
@@ -411,10 +423,17 @@ def bake_products(report, entries=None):
     live_paths = set()
     template = read(template_path)
     out_dir = Path(root) / 'products'
+    # Which generated titles more than one product would share.
+    from collections import Counter
+    counts = Counter(product_title(e, defaults.BRAND_NAMES.get((e.get('brand') or '').lower(),
+                                                              (e.get('brand') or '').title()))
+                     for e in entries)
     for e in entries:
         row = pages[e['id']]
         try:
-            info, hero, name = product_info(e, row, st, root)
+            brand = defaults.BRAND_NAMES.get((e.get('brand') or '').lower(), (e.get('brand') or '').title())
+            clash = counts[product_title(e, brand)] > 1
+            info, hero, name = product_info(e, row, st, root, with_code=clash)
             body = apply_to_html(template, info, st)
             # the hero as a real image, so there is a picture before any script runs
             if e.get('hero'):
@@ -615,12 +634,14 @@ def bake_all(include_products=True, include_blog=True):
         else:
             pages = {p.entry_id: p for p in ProductPage.objects.all()}
         blog_urls = []
-        if include_blog:
-            try:
-                from .blog import bake_blog
-                blog_urls = bake_blog(report)
-            except ImportError:
-                blog_urls = []
+        try:
+            from .blog import bake_blog
+            # Always asked for the list: the sitemap and the address map are
+            # rewritten on every run, so leaving the posts out of a product-only
+            # rebuild would quietly drop them from both.
+            blog_urls = bake_blog(report, write_pages=include_blog)
+        except ImportError:
+            blog_urls = []
         bake_redirects(report, live_url_set(pages, blog_urls))
         write_product_urls(pages, blog_urls, report)
         write_sitemap(pages, blog_urls, report)
