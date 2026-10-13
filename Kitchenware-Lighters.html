@@ -15,6 +15,8 @@
 
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script src="product-urls.js"></script>
+<script src="seo-links.js"></script>
 <title>Kitchen &amp; Gas Lighters — Flint, Electronic, ABS | CRYSTAL</title>
 <meta name="description" content="Shop Crystal kitchen lighters — durable flint-stone and ABS gas-stove lighters, the range that started Crystal's story in 1971. Reliable ignition for everyday Indian kitchens." />
 <script>document.documentElement.className += " js";</script>
@@ -952,7 +954,7 @@ h1, h2 { overflow-wrap: break-word; }
   // the manifest fetch resolves.
   let P = [];
   let PID = {};
-  const pdpHref = p => "Product.html?p=" + (p.id || PID[p.n] || "");
+  const pdpHref = p => productHref(p.id || PID[p.n] || "");
 
   const MAIN_COLLECTIONS = [
     { tag: "Crystal", title: "Tri-Pro Cookware", desc: "Triply, induction-ready cookware that cooks faster and lasts a lifetime.", img: U + "2026/05/CTV-097.jpg", cls: "tall", filter: { c: "cookware" } },
@@ -1302,7 +1304,7 @@ h1, h2 { overflow-wrap: break-word; }
       const hits = items.filter(p => p.hay.includes(ql)).slice(0, 8);
       if (!hits.length) { results.innerHTML = '<div class="search-empty">No products found for “' + q + '”.</div>'; return; }
       results.innerHTML = hits.map(p =>
-        `<a class="search-hit" href="Product.html?p=${encodeURIComponent(p.id)}">
+        `<a class="search-hit" href="${productHref(p.id)}">
           <img src="${p.img.startsWith('about-assets/') || p.img.startsWith('product-photos/') ? p.img : 'about-assets/placeholder.svg'}" alt="" loading="lazy">
           <div><div class="sh-name">${p.name}</div><div class="sh-cat">${p.cat}${p.brand ? " · " + p.brand : ""}</div></div>
         </a>`).join("");

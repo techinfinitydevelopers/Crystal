@@ -15,6 +15,8 @@
 
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script src="product-urls.js"></script>
+<script src="seo-links.js"></script>
 <title>SparkMate - Brand Portfolio | CRYSTAL</title>
 <script>document.documentElement.className += " js";</script>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -722,7 +724,7 @@ h1, h2 { overflow-wrap: break-word; }
       const hits = items.filter(p => p.hay.includes(ql)).slice(0, 8);
       if (!hits.length) { results.innerHTML = '<div class="search-empty">No products found for “' + q + '”.</div>'; return; }
       results.innerHTML = hits.map(p =>
-        `<a class="search-hit" href="Product.html?p=${encodeURIComponent(p.id)}">
+        `<a class="search-hit" href="${productHref(p.id)}">
           <img src="${p.img.startsWith('about-assets/') || p.img.startsWith('product-photos/') ? p.img : 'about-assets/placeholder.svg'}" alt="" loading="lazy">
           <div><div class="sh-name">${p.name}</div><div class="sh-cat">${p.cat}${p.brand ? " · " + p.brand : ""}</div></div>
         </a>`).join("");
