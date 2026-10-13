@@ -29,6 +29,11 @@ hold is visible rather than silent.
 | `vps-deploy.sh` | fetch, re-chown, pip, migrate, sync catalogue, collectstatic, restart, then verify `/api/products/` answers 200 before reporting success. |
 | `vps-autodeploy.sh` | deploys only when `origin/main` has moved; what the timer runs. |
 
+**These are copies.** `vps-setup.sh` installs them into `/root`, and the timer runs
+`/root/deploy.sh`, not the file in the repo. Editing `vps-deploy.sh` and pushing
+does nothing until it is copied over (`cp /var/www/crystal/deploy/vps-deploy.sh
+/root/deploy.sh`). The SEO step was missing from a deploy for exactly this reason.
+
 ## Two things that will bite you
 
 **Ownership.** `MEDIA_ROOT` is the repo root on this server — that is deliberate,

@@ -243,7 +243,9 @@ class SlugCleaning:
         slug = (self.cleaned_data.get('slug') or '').strip().lower()
         if not SLUG_RE.match(slug):
             raise forms.ValidationError('Lower-case letters, numbers and single hyphens only, e.g. "steel-tawa-26-cm".')
-        if slug in ('index', 'all', 'new'):
+        # 'gallery' is the folder dashboard-uploaded product photos live in, in the
+        # same /products/ directory these pages are written to.
+        if slug in ('index', 'all', 'new', 'gallery'):
             raise forms.ValidationError('That address is reserved.')
         return slug
 
