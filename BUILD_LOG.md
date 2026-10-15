@@ -563,3 +563,25 @@ is defined by the inline snippet and proves nothing on its own.
 
 Not added, and worth a decision: there is no cookie-consent banner. Fine for
 India today; it matters if the site starts taking EU traffic.
+
+## 2026-10-15 — llms.txt, Home mobile fixes (client list, first batch)
+
+- `llms.txt` added at the site root (`f40705a`), live at crystalcook.com/llms.txt. nginx `location /`
+  serves it as a plain file; all 54 page URLs in it map to real pages (`sitemap.xml` and `/blog/*`
+  are generated on the server).
+- Home on phones/tablets (`v3.css` + inlined into `index.html`): the brand carousel box was 4:5
+  portrait with `cover`, cropping ~30% off the 959x832 landscape photos. It now takes the photo's own
+  shape (`aspect-ratio: 959/832`, `contain`), overlay gradient shortened to 38%. The "Made In India"
+  heading was absolutely positioned over the dark map; on <=1024px it now sits above the map
+  (`position: static`). Checked at 390px: box ratio 1.153 = photo ratio, no horizontal scroll.
+- Fixed the `Crystailina Swivel Peeler` typo in `products.json` (CLMK-007).
+- **Trap hit:** re-running `home-v3-src/build_v3.py` regenerates `index.html` WITHOUT the SEO head
+  (title, description, canonical, og/twitter, JSON-LD, `seo:` markers) that the SEO dashboard wrote
+  into the committed file. First commit stripped it; caught on diff review, fixed in `d08d190` by
+  patching only the CSS into the previous `index.html`. After any Home rebuild, diff `index.html` and
+  restore the head block (or re-run `manage.py apply_seo`).
+- Not done (needs input): CLMK-007/009 photos (the 2026-27 PDF has no Crystalina scoop/peeler pages
+  and no text layer; client wants the CDR), About "2 dots in legacy" (journey dots = 15 = 15 cards;
+  no extra dot found, needs a screenshot), missing products/links list, Cooktop induction range.
+- MKA-078..080 and MKA083..085 are already single products in `products.json` and live; nothing is
+  grouped there.

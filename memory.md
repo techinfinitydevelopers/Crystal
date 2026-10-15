@@ -325,3 +325,10 @@ Not just Browser-pane tabs (see above) — the per-session scratchpad temp direc
   CLCL-003, CLMK-015, CWB042), 1 product missing (LI010), 1 differs (CC-996).
 - To check a link points at the right product, look for the **product code in
   the Amazon title** first; word overlap alone fails on abbreviations.
+
+## Home rebuild strips the SEO head (2026-10-15)
+- `home-v3-src/build_v3.py` rebuilds `index.html` from `shell-donor.html` and drops everything the
+  SEO dashboard wrote into the head (title, canonical, og/twitter, JSON-LD). After a rebuild, diff
+  `index.html`; ship only the intended change (or restore the head / re-run `apply_seo`).
+- Home brand carousel photos are 959x832 landscape; mobile box must keep that ratio.
+- `py -3` is the working Python on this machine (`python3` is a Store stub).
