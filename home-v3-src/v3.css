@@ -382,8 +382,12 @@ header .nav .btn-outline, header .burger span {
   /* Stacked, these two lose their big desktop indent — but they are outside
      .v-wrap, so zeroing it put the headings hard against the screen edge. */
   .v3 .split3 .left-txt, .v3 .brand3-container { padding-inline: var(--v-gutter); }
-  /* Absolutely positioned over the map, so it needs the gutter spelled out. */
-  .v3 .map3-float { left: var(--v-gutter); }
+  /* Stacked, the black heading sat on top of the dark map states and letters
+     ("a" in India) disappeared into them. Put it above the map instead. */
+  .v3 .map3-float { position: static; padding: 0 var(--v-gutter) var(--m20); }
+  .v3 .map3-float .v-head span { font-size: clamp(36px, 10vw, 56px); line-height: 1.1; }
+  .v3 .map3-float .v-head br { display: none; }
+  .v3 .map3-float .v-head span.line-1::after { content: "\00a0"; }
   .v3 .split3 .left-txt, .v3 .about3-left, .v3 .about3-right, .v3 .brand3-left, .v3 .brand3-acc { max-width: none; }
   .v3 .map3-right {
     width: 100%; height: auto; border-radius: 10px; margin-top: var(--m40);
@@ -401,6 +405,11 @@ header .nav .btn-outline, header .burger span {
     height: min(125vw, 640px);
   }
   .v3 .brand3-swiper .swiper-slide { border-radius: 10px; }
+  /* the brand photos are all landscape (959x832); the 4:5 box above cropped
+     30% off their sides. Give this one box the photo's own shape instead. */
+  .v3 .brand3-right { height: auto; aspect-ratio: 959 / 832; background: #000; }
+  .v3 .brand3-right::after { height: 38%; }
+  .v3 .brand3-swiper img { object-fit: contain; }
   .v3 .map3-container { margin: 0 auto; }
   .v3 .map3 { padding-top: var(--s80); }
   .v3 .res3-grid { grid-template-columns: repeat(2, 1fr); }
