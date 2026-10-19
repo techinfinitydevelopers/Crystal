@@ -585,3 +585,18 @@ India today; it matters if the site starts taking EU traffic.
   no extra dot found, needs a screenshot), missing products/links list, Cooktop induction range.
 - MKA-078..080 and MKA083..085 are already single products in `products.json` and live; nothing is
   grouped there.
+
+## 2026-10-19 — Add Product: Brand / Category dropdowns invisible
+
+- Symptom: on Add product, Brand and Category showed nothing to pick. Reproduced locally (scratch copy
+  of the DB, 41 categories / 4 brands exist, `/admin/autocomplete/` returns them): the select2 box had
+  collapsed to 0px wide. Brand/Category are autocomplete fields, which start with no `<option>`s, so
+  select2 sizes them from the empty select (inline `width: 24px`); `crystal_product_form.css` then
+  set `min-width: 0; flex: 1 1 auto` on them, and they vanished beside their icon links.
+- Fix (CSS only): `crystal_product_form.css` — related-widget selects get a 200px floor and the icon
+  links wrap beneath instead of overlapping the next field; `crystal_theme.css` — same floor, dropdown
+  min-width 220px. Verified in the browser at 1280px: box 140px wide, dropdown lists the categories,
+  no overlap with the Category label; add form saves a product (scratch DB).
+- Not a data problem and not a permissions problem for superusers. A staff user without *view*
+  permission on Brand/Category would also get empty dropdowns (Django's autocomplete checks it) —
+  the SEO Team group has no product permissions at all, so it can't add products by design.

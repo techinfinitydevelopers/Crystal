@@ -354,10 +354,18 @@ a.deletelink:focus-visible {
 }
 .related-widget-wrapper > select,
 .related-widget-wrapper > .select2 {
-  flex: 1 1 160px;
-  min-width: 0;
+  flex: 1 1 200px;
+  min-width: min(200px, 100%);
   max-width: 100%;
 }
+/* An autocomplete select starts with no <option>s, so select2 sizes it from
+   that empty select (24px inline) and the Brand / Category boxes collapsed to
+   nothing beside their icons. Give them a floor and a field box to match. */
+.select2-container.select2-container--admin-autocomplete,
+.related-widget-wrapper .select2-container { min-width: min(200px, 100%); }
+.select2-dropdown { min-width: 220px; }
+.change-form .fieldBox { min-width: min(280px, 100%); }
+.change-form .fieldBox input.vTextField { min-width: 0; width: 100%; }
 
 /* ---------- tables ---------- */
 .table, #result_list {

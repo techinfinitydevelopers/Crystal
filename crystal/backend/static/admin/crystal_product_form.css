@@ -205,13 +205,13 @@
   display: flex;
   align-items: center;
   gap: 6px;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   min-width: 0;
 }
 .related-widget-wrapper > .select2-container,
 .related-widget-wrapper > select {
-  flex: 1 1 auto;
-  min-width: 0;
+  flex: 1 1 200px;
+  min-width: min(200px, 100%);
 }
 .related-widget-wrapper-link {
   flex: 0 0 auto;
