@@ -600,3 +600,9 @@ India today; it matters if the site starts taking EU traffic.
 - Not a data problem and not a permissions problem for superusers. A staff user without *view*
   permission on Brand/Category would also get empty dropdowns (Django's autocomplete checks it) —
   the SEO Team group has no product permissions at all, so it can't add products by design.
+
+Live check of the above (2026-10-21, user's logged-in Chrome): Brand (4 options) and Category (21 per page,
+more on scroll) autocompletes are 236px wide and open; the other selects on the product form (image
+variant, marketplace) are native selects and fine. Added a test product through the real form —
+`Dashboard Test Product`, SKU `ZZ-DASH-TEST`, id 580, left INACTIVE so it is not on the public site.
+Delete it from the dashboard when done (deleting writes a "Removed products" tombstone).
