@@ -618,3 +618,11 @@ Delete it from the dashboard when done (deleting writes a "Removed products" tom
 - Edited in `home-v3-src/v3.js` AND directly in `index.html` (same hunks) — NOT rebuilt, because
   `build_v3.py` strips the SEO head (see 2026-10-15). Kept the two in step.
 - Left unpinned on mobile on purpose (the old comment: a held viewport fights touch scrolling).
+
+## 2026-10-21 — Home map: 3px inset
+- `.map3-wrap` got `padding: 3px; box-sizing: border-box` so the India map no longer touches the edges of
+  its box (measured at 390px: 3.0-3.7px of clear space on all four sides). Edited in `v3.css` and the
+  inlined copy in `index.html` (no rebuild, SEO head stays).
+- Also shipped earlier today (`3609f27`): products created in the dashboard are sent whole in
+  `/api/products/image-overrides.json/` (`added`) and appended by `product-image-sync.js`; before this a
+  brand-new dashboard product never reached any page. Test product id 580 (`ZZ-DASH-TEST`) is still inactive.

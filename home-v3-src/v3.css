@@ -290,7 +290,7 @@ header .nav .btn-outline, header .burger span {
   content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
   background: radial-gradient(50% 50% at 50% 50%, rgba(255,255,255,0) 0, rgba(255,255,255,0) 48.56%, #fff 100%);
 }
-.v3 .map3-wrap { height: 100%; width: 100%; position: relative; z-index: 2; }
+.v3 .map3-wrap { height: 100%; width: 100%; position: relative; z-index: 2; padding: 3px; box-sizing: border-box; }
 .v3 .map3-wrap svg { height: 100%; width: 100%; }
 .v3 .map3-bg { height: 100%; width: 100%; position: absolute; inset: 0; z-index: 0; }
 .v3 .map3-bg img { height: 100%; width: 100%; object-fit: cover; }
