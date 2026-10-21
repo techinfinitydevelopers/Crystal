@@ -635,3 +635,10 @@ Delete it from the dashboard when done (deleting writes a "Removed products" tom
   `product-image-sync.js`. All 64 pages now load `product-image-sync.js?v=20261021` (`48e972a`).
   Bump that version whenever the script changes.
 - Test product is ACTIVE and public now, with no photo. Deactivate or delete it when done.
+
+## 2026-10-21 — New dashboard products at the top of their pages
+- Feed `added` is now newest-first (`-created_at`), and `product-image-sync.js` puts those entries at the
+  FRONT of the catalogue (listing pages' default "Featured" sort is plain catalogue order). Script
+  version bumped to `?v=20261021b` on all 64 pages (`94b9753`).
+- Verified live: test product is #1 on Cleaning-Aid-Brush (of 28), Cleaning-Aid (of 108) and All-Products
+  (of 501). Brand-Crystal.html lists no individual products, so nothing to place there.
