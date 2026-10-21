@@ -642,3 +642,13 @@ Delete it from the dashboard when done (deleting writes a "Removed products" tom
   version bumped to `?v=20261021b` on all 64 pages (`94b9753`).
 - Verified live: test product is #1 on Cleaning-Aid-Brush (of 28), Cleaning-Aid (of 108) and All-Products
   (of 501). Brand-Crystal.html lists no individual products, so nothing to place there.
+
+## 2026-10-21 — Inter everywhere (form controls)
+- Audit: all 68 pages already load Inter (Google Fonts) and set `--head`/`--body` to Inter; Home renders
+  Inter 400/500/600/700, same as the leo9 reference. The only non-Inter text was `<button>`, `<input>`,
+  `<select>`, `<textarea>` (browsers give them a system font -> Arial): close/arrow buttons, search and
+  form fields on every page.
+- Fix: `<style id="font-inherit">button,input,select,textarea,optgroup{font-family:inherit}</style>` right
+  after the Inter link on all 68 pages + `home-v3-src/shell-donor.html` (`54fa229`). Re-audited 12 pages:
+  zero non-Inter elements. Live on Home, Contact and the generated /products/ pages.
+- Not changed: other pages use Inter 800 for headings; the reference tops out at 700. Ask before changing.
