@@ -42,6 +42,7 @@
         if (!map || typeof map !== "object") return finish(null);
         finish({
           products: map,
+          added: Array.isArray(body.added) ? body.added : [],
           hidden: Array.isArray(body.hidden) ? body.hidden : [],
           brands: (body.brands && typeof body.brands === "object") ? body.brands : {},
           categories: (body.categories && typeof body.categories === "object") ? body.categories : {}
@@ -88,10 +89,25 @@
 
   /* Returns true if anything was actually replaced — no point rebuilding the
      response for a catalogue that came out identical. */
-  function applyOverrides(data, map, hidden) {
+  function applyOverrides(data, map, hidden, added) {
     var list = data && data.products;
     if (!Array.isArray(list)) return false;
     var touched = false;
+
+    /* Products created in the dashboard that the catalogue file has never
+       listed. Appended whole, unless the file already carries that code (the
+       file then wins, and the patches below still apply to it). */
+    if (added && added.length) {
+      var have = {};
+      for (var a = 0; a < list.length; a++) if (list[a] && list[a].sku) have[list[a].sku] = true;
+      for (var n = 0; n < added.length; n++) {
+        var fresh = added[n];
+        if (!fresh || !fresh.sku || have[fresh.sku]) continue;
+        have[fresh.sku] = true;
+        list.push(fresh);
+        touched = true;
+      }
+    }
 
     /* Products removed in the dashboard. The catalogue file still lists them —
        it is in git and the dashboard cannot edit it — so dropping them here is
@@ -298,7 +314,7 @@
       return res.clone().json().then(function (data) {
         return overrides.then(function (feed) {
           if (!feed) return res;
-          if (!applyOverrides(data, feed.products || {}, feed.hidden || [])) return res;
+          if (!applyOverrides(data, feed.products || {}, feed.hidden || [], feed.added || [])) return res;
           return new Response(JSON.stringify(data), {
             status: res.status,
             statusText: res.statusText,

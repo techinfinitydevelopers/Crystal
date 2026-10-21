@@ -192,12 +192,46 @@ class ImageOverridesView(APIView):
 
         return Response({
             'products': overrides,
+            'added': self._added(absolute, hidden),
             'hidden': sorted(hidden),
             'brands': self._simple(Brand.objects.all(), ov.BRAND_PUBLISHABLE,
                                    ov.BRAND_FIELD_KEYS),
             'categories': self._simple(Category.objects.all(), ov.CATEGORY_PUBLISHABLE,
                                        ov.CATEGORY_FIELD_KEYS),
         })
+
+    @staticmethod
+    def _added(absolute, hidden):
+        """Products created in the dashboard, whole.
+
+        Everything above only patches products the site's catalogue file already
+        lists, so a product that was never in that file (is_dashboard_managed is
+        True only for those; imported rows are False) could be saved here and
+        never appear on any page. These are sent in full, in the catalogue's own
+        entry shape, and the pages append the ones they do not already carry.
+        """
+        products = (
+            Product.objects.filter(is_active=True, is_dashboard_managed=True)
+            .select_related('brand', 'category__parent')
+            .prefetch_related(
+                'images', 'variants', 'specifications',
+                'marketplace_links__marketplace',
+            )
+            .order_by('id')
+        )
+        out = []
+        for product in products:
+            for entry in site_product_entries(product):
+                sku = entry.get('sku')
+                if not sku or sku in hidden:
+                    continue
+                entry['hero'] = absolute(entry.get('hero')) if entry.get('hero') else None
+                entry['gallery'] = [u for u in (absolute(g) for g in entry.get('gallery') or []) if u]
+                if entry.get('marketplaces'):
+                    entry['marketplaces'] = [dict(row, logo=absolute(row.get('logo')))
+                                             for row in entry['marketplaces']]
+                out.append(entry)
+        return out
 
     @staticmethod
     def _simple(queryset, publishable, field_keys):
