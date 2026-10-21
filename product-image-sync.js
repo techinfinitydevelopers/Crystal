@@ -137,6 +137,7 @@
       for (var key in override) {
         if (!Object.prototype.hasOwnProperty.call(override, key)) continue;
         if (key === "gallery") continue;          // handled with the hero
+        if (key === "removed_photos") continue;   // applied after the merge
         if (key === "hero") {
           if (!override.hero) continue;
           applyPhotos(entry, override);
@@ -148,6 +149,17 @@
       /* A gallery edit that did not move the hero still has to land. */
       if (!override.hero && Array.isArray(override.gallery)) {
         entry.gallery = override.gallery;
+        touched = true;
+      }
+      /* Photos deleted or replaced in the dashboard. The merge above keeps
+         every photo the catalogue file ships, so without this an old photo
+         stayed on the site next to its replacement. */
+      if (Array.isArray(override.removed_photos) && override.removed_photos.length) {
+        var gone = {};
+        for (var r = 0; r < override.removed_photos.length; r++) gone[photoKey(override.removed_photos[r])] = true;
+        var left = (Array.isArray(entry.gallery) ? entry.gallery : []).filter(function (u) { return !gone[photoKey(u)]; });
+        if (entry.hero && gone[photoKey(entry.hero)]) entry.hero = left.shift() || null;
+        entry.gallery = left;
         touched = true;
       }
     }

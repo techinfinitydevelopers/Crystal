@@ -151,6 +151,16 @@ class Product(models.Model):
                   "should no longer be taken from the website's catalogue file.",
     )
 
+    # Photo paths deleted or replaced here. The site merges the dashboard's
+    # photos with the ones its catalogue file ships (so a product whose
+    # dashboard copy is incomplete keeps its full strip), which on its own
+    # means a photo removed here would never leave the site. This list is what
+    # takes it off. Kept up to date by ProductImage.save()/delete().
+    removed_photos = models.JSONField(
+        default=list, blank=True,
+        help_text="Internal — photos removed in the dashboard, so the website drops them too.",
+    )
+
     is_dashboard_managed = models.BooleanField(
         default=True,
         help_text="Internal — leave this on. Only products created here (rather than bulk-imported from the "
@@ -214,6 +224,37 @@ class ProductImage(models.Model):
     def __str__(self):
         scope = f" ({self.variant.name})" if self.variant_id else ""
         return f"{self.product.name}{scope} image {self.order}"
+
+    def _note_removed(self, add=(), drop=()):
+        add = [p for p in add if p]
+        drop = [p for p in drop if p]
+        if not (add or drop):
+            return
+        current = (Product.objects.filter(pk=self.product_id)
+                   .values_list('removed_photos', flat=True).first())
+        if current is None:
+            return
+        paths = [p for p in (current or []) if p not in drop]
+        paths += [p for p in add if p not in paths]
+        if paths != (current or []):
+            Product.objects.filter(pk=self.product_id).update(removed_photos=paths)
+
+    def save(self, *args, **kwargs):
+        old = None
+        if self.pk:
+            old = (ProductImage.objects.filter(pk=self.pk)
+                   .values_list('image', flat=True).first())
+        super().save(*args, **kwargs)
+        new = self.image.name or None
+        # Replacing the file on an existing row removes the old photo just as
+        # deleting the row would; re-adding a removed photo restores it.
+        self._note_removed(add=[old] if old and old != new else [], drop=[new])
+
+    def delete(self, *args, **kwargs):
+        path = self.image.name or None
+        result = super().delete(*args, **kwargs)
+        self._note_removed(add=[path])
+        return result
 
 
 class ProductSpecification(models.Model):

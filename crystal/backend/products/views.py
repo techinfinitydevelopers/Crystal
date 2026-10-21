@@ -183,6 +183,10 @@ class ImageOverridesView(APIView):
                         value = [dict(row, logo=absolute(row.get('logo')))
                                  for row in value or []]
                     patch[key] = value
+                # The pages merge these photos with the ones the catalogue file
+                # ships; without this list a photo deleted here stays on the site.
+                if product.removed_photos and ({'hero', 'gallery'} & publish):
+                    patch['removed_photos'] = list(product.removed_photos)
                 # 95 codes exist both as a standalone product and as a size of
                 # another one (all the standalone copies are inactive, so only
                 # one of each reaches the feed today). If that ever stops being
