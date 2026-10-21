@@ -2096,12 +2096,20 @@ h1, h2 { overflow-wrap: break-word; }
   }
 
   function splitProgress(p) {
+    splitSwiperProgress(p);
+    splitWordsProgress(p);
+  }
+
+  function splitSwiperProgress(p) {
     if (splitSwiper && splitSwiper.slides.length) {
       var last = splitSwiper.slides.length - 1;
       splitSwiper.setTranslate(-p * last * splitSwiper.height);
       splitSwiper.updateActiveIndex();
       splitSwiper.updateSlidesClasses();
     }
+  }
+
+  function splitWordsProgress(p) {
     var filled = Math.floor(p * splitWordList.length);
     splitWordList.forEach(function (w, i) {
       gsap.to(w, {
@@ -2128,16 +2136,25 @@ h1, h2 { overflow-wrap: break-word; }
       return function () { st.kill(); };
     });
 
-    // mobile: no pin - a held viewport fights touch scrolling
+    // mobile: no pin - a held viewport fights touch scrolling. Each half is
+    // driven by its own position instead: tied to the whole stacked section the
+    // words were only ~74% filled by the time the paragraph scrolled off the top.
     mm.add(MOB, function () {
-      var st = ScrollTrigger.create({
-        trigger: ".split3",
-        start: "top 75%",
-        end: "bottom 40%",
+      var words = ScrollTrigger.create({
+        trigger: ".split3 .anim-text",
+        start: "top 85%",
+        end: "top 30%",
         scrub: 1,
-        onUpdate: function (self) { splitProgress(self.progress); },
+        onUpdate: function (self) { splitWordsProgress(self.progress); },
       });
-      return function () { st.kill(); };
+      var photos = ScrollTrigger.create({
+        trigger: ".split3-swiper-wrap",
+        start: "top 85%",
+        end: "bottom 35%",
+        scrub: 1,
+        onUpdate: function (self) { splitSwiperProgress(self.progress); },
+      });
+      return function () { words.kill(); photos.kill(); };
     });
   }
 

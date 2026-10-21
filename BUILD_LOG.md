@@ -606,3 +606,15 @@ more on scroll) autocompletes are 236px wide and open; the other selects on the 
 variant, marketplace) are native selects and fine. Added a test product through the real form —
 `Dashboard Test Product`, SKU `ZZ-DASH-TEST`, id 580, left INACTIVE so it is not on the public site.
 Delete it from the dashboard when done (deleting writes a "Removed products" tombstone).
+
+## 2026-10-21 — Home, "Since 1971" section: word fill on phones
+
+- On a phone the section is not pinned, and the word-fill + photo stack were both driven by progress
+  through the WHOLE stacked section (top 75% -> bottom 40%). The paragraph sits at the top of it, so it
+  scrolled off the screen about 74% filled (measured at 390x844: range y 211..1325, paragraph gone by
+  y~1030). Now the words have their own trigger on the paragraph (top 85% -> top 30%, i.e. fully filled
+  while the text is mid-screen) and the photo stack has its own on its box. Desktop pin untouched
+  (checked: pinned, 27/27 words at the end of the pin).
+- Edited in `home-v3-src/v3.js` AND directly in `index.html` (same hunks) — NOT rebuilt, because
+  `build_v3.py` strips the SEO head (see 2026-10-15). Kept the two in step.
+- Left unpinned on mobile on purpose (the old comment: a held viewport fights touch scrolling).
