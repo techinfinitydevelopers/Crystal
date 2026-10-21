@@ -626,3 +626,12 @@ Delete it from the dashboard when done (deleting writes a "Removed products" tom
 - Also shipped earlier today (`3609f27`): products created in the dashboard are sent whole in
   `/api/products/image-overrides.json/` (`added`) and appended by `product-image-sync.js`; before this a
   brand-new dashboard product never reached any page. Test product id 580 (`ZZ-DASH-TEST`) is still inactive.
+
+## 2026-10-21 — New dashboard product verified live
+- Activated test product 580 (`ZZ-DASH-TEST`, Cleaning Aid > Brush) in the user's logged-in Chrome. Live
+  feed `added` lists it; Cleaning-Aid-Brush.html shows it (28 products) linking to
+  `/products/dashboard-test-product`, which returns 200 with the right H1 and breadcrumb.
+- The user still did not see it: nginx sends `.js` with no Cache-Control, so their browser kept the old
+  `product-image-sync.js`. All 64 pages now load `product-image-sync.js?v=20261021` (`48e972a`).
+  Bump that version whenever the script changes.
+- Test product is ACTIVE and public now, with no photo. Deactivate or delete it when done.
