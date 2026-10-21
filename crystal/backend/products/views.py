@@ -208,7 +208,8 @@ class ImageOverridesView(APIView):
         lists, so a product that was never in that file (is_dashboard_managed is
         True only for those; imported rows are False) could be saved here and
         never appear on any page. These are sent in full, in the catalogue's own
-        entry shape, and the pages append the ones they do not already carry.
+        entry shape, newest first, and the pages put the ones they do not already
+        carry at the top of the listing.
         """
         products = (
             Product.objects.filter(is_active=True, is_dashboard_managed=True)
@@ -217,7 +218,9 @@ class ImageOverridesView(APIView):
                 'images', 'variants', 'specifications',
                 'marketplace_links__marketplace',
             )
-            .order_by('id')
+            # Newest first: the pages put these at the top of the listing in
+            # exactly this order.
+            .order_by('-created_at', '-id')
         )
         out = []
         for product in products:

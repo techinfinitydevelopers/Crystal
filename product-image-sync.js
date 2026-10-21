@@ -95,16 +95,22 @@
     var touched = false;
 
     /* Products created in the dashboard that the catalogue file has never
-       listed. Appended whole, unless the file already carries that code (the
-       file then wins, and the patches below still apply to it). */
+       listed. Added whole, unless the file already carries that code (the
+       file then wins, and the patches below still apply to it). They go to
+       the FRONT, newest first as the feed sends them: every listing page's
+       default "Featured" order is simply catalogue order, so this is what puts
+       a new product at the top of its category page. */
     if (added && added.length) {
-      var have = {};
+      var have = {}, fresh = [];
       for (var a = 0; a < list.length; a++) if (list[a] && list[a].sku) have[list[a].sku] = true;
       for (var n = 0; n < added.length; n++) {
-        var fresh = added[n];
-        if (!fresh || !fresh.sku || have[fresh.sku]) continue;
-        have[fresh.sku] = true;
-        list.push(fresh);
+        var item = added[n];
+        if (!item || !item.sku || have[item.sku]) continue;
+        have[item.sku] = true;
+        fresh.push(item);
+      }
+      if (fresh.length) {
+        data.products = list = fresh.concat(list);
         touched = true;
       }
     }
