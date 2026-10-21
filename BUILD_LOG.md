@@ -652,3 +652,18 @@ Delete it from the dashboard when done (deleting writes a "Removed products" tom
   after the Inter link on all 68 pages + `home-v3-src/shell-donor.html` (`54fa229`). Re-audited 12 pages:
   zero non-Inter elements. Live on Home, Contact and the generated /products/ pages.
 - Not changed: other pages use Inter 800 for headings; the reference tops out at 700. Ask before changing.
+
+## 2026-10-21 — Old photo stayed on the site after replacing it in the dashboard
+- Cause: `product-image-sync.js` merges dashboard photos with the catalogue file's (kept deliberately so
+  CC-850 doesn't drop to 1-2 photos), so a photo deleted/replaced in the dashboard never left the site.
+  Live: 6 products showed site-only photos; MKA-008/MKA-010 showed every photo twice (catalogue amz-N +
+  uploaded amz-N_1), CL-216, MKA114, CLMK-019 kept the replaced ones.
+- Fix (`fd0f60b`): `Product.removed_photos` (migration 0018) filled by `ProductImage.delete()` and by
+  `save()` when a row's file is replaced (re-adding a path clears it). Feed publishes it with hero/gallery
+  patches; the script drops those photos after the merge (promotes the next photo if the hero was one).
+  Migration backfills CL-216, MKA-008, MKA-010, MKA114, CLMK-019. CC-850 deliberately left alone.
+  Script version `?v=20261021c` on all 64 pages.
+- Verified live: feed lists removed photos for the 5; /products/crystal-super-veg-swivel-peeler (MKA-008)
+  shows only the 9 uploaded photos, none of the old catalogue ones.
+- Note: Product.html takes `?p=<id>`; `?id=` falls back to the first catalogue product (now the test
+  product, since dashboard products are put first).
