@@ -684,3 +684,7 @@ Delete it from the dashboard when done (deleting writes a "Removed products" tom
 - cms_tag.py fixes: no new key inside a data-cms-rich element; an already-keyed wrapper keeps its row (the
   support bar's row had silently dropped on 63 pages); `#awardTrack` skipped. Manifest: About rows only.
 - Inter now loaded 400-700 only on all 68 pages (reference loads exactly those); 800/900 resolve to 700.
+- Follow-up (`ab8741e`): a blank gap appeared above Vision/Mission/Values on desktop. Its pin was measured
+  before the statement pin above existed (start 2834 vs real 3492), so it stuck ~650px early. Pins now
+  refresh top to bottom via refreshPriority (statement 2, vmv 1, rest 0). Verified live at 1517x730:
+  start 3492 = real top; journey triggers line up with their elements.
