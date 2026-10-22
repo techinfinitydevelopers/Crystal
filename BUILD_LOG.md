@@ -688,6 +688,7 @@ Delete it from the dashboard when done (deleting writes a "Removed products" tom
   before the statement pin above existed (start 2834 vs real 3492), so it stuck ~650px early. Pins now
   refresh top to bottom via refreshPriority (statement 2, vmv 1, rest 0). Verified live at 1517x730:
   start 3492 = real top; journey triggers line up with their elements.
-- 2026-10-22: Vision/Mission/Values section removed from About at the user's request (with its CSS, its
-  script and its pin), which also removes the blank gap above it. Manifest: only the 8 vmv rows dropped.
-  Order now: banner, statement, video + counters, awards, journey, sustainability, help, pre-footer.
+- 2026-10-22 (correction): the user did NOT want Vision/Mission/Values removed — "nikalna" meant the gap.
+  Section restored (revert of 2f20a02). Its pin now holds it centred in the space below the floating
+  header instead of stuck at the top under it (checked 1540x930: 56px above / 54 below the band at
+  1366x768; centred 179/178 at 1540x930 before the header offset). Their screenshot was a cached page.

@@ -677,6 +677,199 @@
     .ab-vid-counters { flex-wrap: wrap; gap: 20px; }
     .ab-vid-counter { width: calc(50% - 10px); }
   }
+/* ===== VISION / MISSION / VALUES (ref: section.mv-sec, red band) =====
+   Desktop (>=1200): red band, no vertical padding; 3 columns --
+     left  "Our" + active word at top, the other two (60% size, 50% opacity) at the bottom
+     mid   image flush with the band's top and bottom edges, shown whole (796/836)
+     right H3 + paragraph, white
+   <=1199: ref's mobile version -- a white card on the red band, black text;
+     "Our" + tabs on top, image and text side by side
+   <=990:  image stacks above the text.                                        */
+.ab-mv {
+  --ab-mv-h: clamp(26px, 3.33vw, 64px);            /* ref --fs64 (comm-head) */
+  --ab-mv-h3: clamp(20px, 1.5vw, 30px);            /* ref --fs30 */
+  --ab-mv-p: clamp(18px, 1.04vw, 20px);            /* ref --fs20 */
+  background: var(--red, #ED3338);
+  color: #fff;
+  padding: 0;
+  overflow: hidden;
+}
+.ab-mv-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding-inline: clamp(16px, 2.5vw, 40px);
+  width: 100%;
+}
+.ab-mv-grid {
+  display: grid;
+  grid-template-columns: minmax(180px, .6fr) minmax(0, 1fr) minmax(280px, .9fr);
+  grid-template-areas: "left img panels";
+  align-items: stretch;
+  column-gap: 0;
+}
+
+/* ---- left column ---- */
+.ab-mv-left {
+  grid-area: left;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: clamp(30px, 5vw, 120px) 16px clamp(24px, 3.13vw, 60px) 0;  /* ref --pad120 top */
+}
+.ab-mv-our,
+.ab-mv-tab {
+  font-family: var(--head, "Inter", sans-serif);
+  font-weight: 700;
+  font-size: var(--ab-mv-h);
+  line-height: 1.25;
+  letter-spacing: -0.0833vw;
+  color: #fff;
+}
+.ab-mv-our { margin: 0; }
+.ab-mv-tabs {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.ab-mv-tab {
+  appearance: none;
+  -webkit-appearance: none;
+  background: none;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  text-align: left;
+  font-size: calc(var(--ab-mv-h) * .6);            /* ref: scale(.6) */
+  opacity: .5;
+  transition: font-size .45s cubic-bezier(.2,.8,.2,1), opacity .3s;
+  border-radius: 6px;
+}
+.ab-mv-tab:hover { opacity: .8; }
+.ab-mv-tab.is-active {
+  order: -1;                     /* active word sits right under "Our" ... */
+  margin-bottom: auto;           /* ... and pushes the other two to the bottom */
+  font-size: var(--ab-mv-h);
+  opacity: 1;
+  cursor: default;
+}
+.ab-mv-tab:focus-visible { outline: 3px solid #fff; outline-offset: 4px; }
+
+/* ---- image ---- */
+.ab-mv-img {
+  grid-area: img;
+  align-self: center;
+  width: 100%;
+  max-width: 640px;
+  justify-self: center;
+  aspect-ratio: 796 / 836;
+  overflow: hidden;
+}
+.ab-mv-img img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: contain;
+}
+
+/* ---- text panels ---- */
+.ab-mv-panels {
+  grid-area: panels;
+  display: grid;                 /* all panels share one cell: height = tallest */
+  align-content: center;
+  min-width: 0;
+  max-width: 560px;
+  padding: clamp(24px, 3.13vw, 60px) 0 clamp(24px, 3.13vw, 60px) clamp(30px, 4.17vw, 80px);
+}
+.ab-mv-panel {
+  grid-area: 1 / 1;
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity .4s ease, transform .4s cubic-bezier(.2,.8,.2,1), visibility 0s linear .4s;
+}
+.ab-mv-panel.is-active {
+  visibility: visible;
+  opacity: 1;
+  transform: none;
+  transition: opacity .4s ease .05s, transform .4s cubic-bezier(.2,.8,.2,1) .05s, visibility 0s;
+}
+.ab-mv-panel h3 {
+  margin: 0 0 clamp(8px, .83vw, 16px);
+  font-family: var(--head, "Inter", sans-serif);
+  font-size: var(--ab-mv-h3);
+  font-weight: 700;
+  line-height: 1.26;
+  letter-spacing: 0;
+  color: inherit;
+}
+.ab-mv-panel p {
+  margin: 0;
+  font-size: var(--ab-mv-p);
+  font-weight: 400;
+  line-height: 1.75;
+  color: inherit;
+}
+
+@media (max-width: 1440px) {
+  .ab-mv-grid { grid-template-columns: minmax(180px, .55fr) minmax(0, 1fr) minmax(280px, .95fr); }
+}
+
+/* ---- <=1199: white card on red (ref .mv-container-mob / .mv-card) ---- */
+@media (max-width: 1199px) {
+  .ab-mv { padding: clamp(40px, 4.17vw, 80px) 0; }          /* ref --spc4080 */
+  .ab-mv-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-areas: "left left" "img panels";
+    column-gap: 40px;
+    row-gap: 20px;
+    background: #fff;
+    color: var(--ink, #000);
+    border-radius: 16px;
+    padding: 24px;
+  }
+  .ab-mv-left {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: baseline;
+    column-gap: .3em;
+    padding: 0;
+    margin-bottom: clamp(8px, 2vw, 20px);
+  }
+  .ab-mv-our { color: var(--ink, #000); }
+  .ab-mv-tabs {
+    flex: 0 1 auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: baseline;
+    column-gap: .5em;
+    row-gap: 4px;
+  }
+  .ab-mv-tab {
+    color: var(--ink, #000);
+    font-size: calc(var(--ab-mv-h) * .6);
+    opacity: .4;
+  }
+  .ab-mv-tab.is-active { order: 0; margin-bottom: 0; font-size: var(--ab-mv-h); opacity: 1; }
+  .ab-mv-tab:focus-visible { outline-color: var(--ink, #000); outline-offset: 2px; }
+  .ab-mv-img { max-width: none; border-radius: 16px; align-self: center; }
+  .ab-mv-panels { max-width: 700px; padding: 0; }
+  .ab-mv-panel p { font-size: 16px; }
+}
+@media (max-width: 990px) {
+  .ab-mv-grid { grid-template-columns: minmax(0, 1fr); grid-template-areas: "left" "img" "panels"; }
+  .ab-mv-panels { max-width: 100%; }
+}
+@media (max-width: 640px) {
+  .ab-mv-grid { padding: 16px; }
+  .ab-mv-panel p { font-size: 14px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ab-mv-tab, .ab-mv-panel, .ab-mv-panel.is-active { transition: none; }
+}
 /* ==========================================================================
    05 SUSTAINABILITY — mirrors the reference .nurture-sec
    Grey rounded card, white wash fading left-to-right, heading + red pill on
@@ -1133,6 +1326,46 @@ h1, h2 { overflow-wrap: break-word; }
   </div>
 </section>
 
+<!-- ===== 03 VMV ===== -->
+<section class="ab-mv" id="vmv" aria-labelledby="ab-mv-our">
+  <div class="ab-mv-container">
+    <div class="ab-mv-grid">
+
+      <!-- LEFT: "Our" + Vision / Mission / Values switcher -->
+      <div class="ab-mv-left">
+        <h2 class="ab-mv-our" id="ab-mv-our" data-cms="vmv-h2-1">Our</h2>
+        <div class="ab-mv-tabs" role="tablist" aria-labelledby="ab-mv-our">
+          <button class="ab-mv-tab is-active" type="button" role="tab" id="ab-mv-tab-vision" aria-controls="ab-mv-panel-vision" aria-selected="true" tabindex="0">Vision</button>
+          <button class="ab-mv-tab" type="button" role="tab" id="ab-mv-tab-mission" aria-controls="ab-mv-panel-mission" aria-selected="false" tabindex="-1">Mission</button>
+          <button class="ab-mv-tab" type="button" role="tab" id="ab-mv-tab-values" aria-controls="ab-mv-panel-values" aria-selected="false" tabindex="-1">Values</button>
+        </div>
+      </div>
+
+      <!-- MIDDLE: image, shown whole (796x836) -->
+      <div class="ab-mv-img">
+        <img src="about-assets/leadership.webp" alt="Crystal leadership" width="796" height="836" loading="lazy" decoding="async" data-cms="vmv-img-1" />
+      </div>
+
+      <!-- RIGHT: text panels (stacked in one grid cell so the height never jumps) -->
+      <div class="ab-mv-panels">
+        <div class="ab-mv-panel is-active" role="tabpanel" id="ab-mv-panel-vision" aria-labelledby="ab-mv-tab-vision">
+          <h3 data-cms="vmv-h3-1">Purposeful innovation for modern living.</h3>
+          <p data-cms="vmv-p-1">Instinctively trusted for thoughtfully designed, reliable solutions that elevate everyday cooking and cleaning in modern homes.</p>
+        </div>
+        <div class="ab-mv-panel" role="tabpanel" id="ab-mv-panel-mission" aria-labelledby="ab-mv-tab-mission">
+          <h3 data-cms="vmv-h3-2">Crafting quality and design that stand the test of time.</h3>
+          <p data-cms="vmv-p-2">Simplifying daily life with precise, durable, and ethically crafted products that evolve with every Indian household.</p>
+        </div>
+        <div class="ab-mv-panel" role="tabpanel" id="ab-mv-panel-values" aria-labelledby="ab-mv-tab-values">
+          <h3 data-cms="vmv-h3-3">Simplifying daily chores, adding pride to every home.</h3>
+          <p data-cms="vmv-p-3">Thoughtfully designed for modern homes, we deliver trusted, durable solutions for everyday cooking, serving, storing, and cleaning—powered by ethical, science-driven manufacturing that cares for the planet.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- ===== 04 THE CRYSTAL STORY (timeline) ===== -->
 <section class="sec wrap" id="journey">
   <div class="sec-head">
@@ -1456,7 +1689,8 @@ h1, h2 { overflow-wrap: break-word; }
           pin: true,
           anticipatePin: 1,
           invalidateOnRefresh: true,
-          /* Measured before every other trigger, so they all see its spacer. */
+          /* Pins are measured top to bottom: this one, then #vmv's (1), then
+             everything else (0), so each sees the spacers above it. */
           refreshPriority: 2
         }
       });
@@ -2211,6 +2445,118 @@ h1, h2 { overflow-wrap: break-word; }
   measure();
   render();
   start();
+})();
+</script>
+<script>
+/* Vision / Mission / Values switcher (section#vmv). Vanilla, no globals.
+   - WAI-ARIA tabs: roving tabindex, Arrow keys / Home / End, automatic activation.
+   - Desktop: the active word moves up under "Our" (CSS order); a small FLIP
+     animation slides the words instead of letting them jump.
+   - Touch: horizontal swipe on the image/text moves to the next/previous item. */
+(function () {
+  var sec = document.getElementById("vmv");
+  if (!sec) return;
+  var tabs = [].slice.call(sec.querySelectorAll(".ab-mv-tab"));
+  var panels = tabs.map(function (t) { return document.getElementById(t.getAttribute("aria-controls")); });
+  if (!tabs.length) return;
+  var reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var desktop = window.matchMedia ? matchMedia("(min-width: 1200px)") : { matches: true };
+  var current = Math.max(0, tabs.findIndex(function (t) { return t.classList.contains("is-active"); }));
+
+  function select(i, focus) {
+    i = (i + tabs.length) % tabs.length;
+    if (i === current) { if (focus) tabs[i].focus(); return; }
+    var flip = desktop.matches && !reduce && typeof tabs[0].animate === "function";
+    var before = flip ? tabs.map(function (t) { return t.getBoundingClientRect().top; }) : null;
+
+    tabs.forEach(function (t, k) {
+      var on = k === i;
+      t.classList.toggle("is-active", on);
+      t.setAttribute("aria-selected", on ? "true" : "false");
+      t.tabIndex = on ? 0 : -1;
+      if (panels[k]) panels[k].classList.toggle("is-active", on);
+    });
+    current = i;
+    if (focus) tabs[i].focus();
+
+    if (flip) {
+      tabs.forEach(function (t, k) {
+        var dy = before[k] - t.getBoundingClientRect().top;
+        if (Math.abs(dy) > 1) {
+          t.animate([{ transform: "translateY(" + dy + "px)" }, { transform: "none" }],
+                    { duration: 450, easing: "cubic-bezier(.2,.8,.2,1)" });
+        }
+      });
+    }
+  }
+
+  tabs.forEach(function (t, k) {
+    t.addEventListener("click", function () { select(k, false); });
+    t.addEventListener("keydown", function (e) {
+      var n = null;
+      switch (e.key) {
+        case "ArrowRight": case "ArrowDown": n = current + 1; break;
+        case "ArrowLeft":  case "ArrowUp":   n = current - 1; break;
+        case "Home": n = 0; break;
+        case "End":  n = tabs.length - 1; break;
+      }
+      if (n !== null) { e.preventDefault(); select(n, true); }
+    });
+  });
+
+  /* Scroll drives the switch, as on the reference. Desktop holds the section
+     on screen while Vision -> Mission -> Values advance; a phone is not pinned
+     (a held viewport fights touch scrolling), the item just follows the
+     section's position. refreshPriority 1 sits between the statement pin
+     above (2) and every trigger below (0), so each is measured after the
+     spacers above it exist. */
+  if (window.gsap && window.ScrollTrigger && !reduce) {
+    gsap.registerPlugin(ScrollTrigger);
+    var byProgress = function (p) { select(Math.min(tabs.length - 1, Math.floor(p * tabs.length)), false); };
+    var mmVmv = gsap.matchMedia();
+    mmVmv.add("(min-width: 1024px)", function () {
+      var st = ScrollTrigger.create({
+        /* Held centred in the part of the screen below the floating header
+           (or just under it, if the section is too tall to centre). */
+        trigger: sec,
+        start: function () {
+          var hdr = document.getElementById("hdr");
+          var below = hdr ? Math.round(hdr.getBoundingClientRect().bottom) + 12 : 0;
+          var spare = Math.max(0, window.innerHeight - below - sec.offsetHeight);
+          return "top " + Math.round(below + spare / 2) + "px";
+        },
+        end: function () { return "+=" + Math.round(window.innerHeight * 1.5); },
+        invalidateOnRefresh: true,
+        pin: true, anticipatePin: 1, refreshPriority: 1,
+        onUpdate: function (self) { byProgress(self.progress); }
+      });
+      return function () { st.kill(); };
+    });
+    mmVmv.add("(max-width: 1023px)", function () {
+      var st = ScrollTrigger.create({
+        trigger: sec, start: "top 60%", end: "bottom 40%",
+        onUpdate: function (self) { byProgress(self.progress); }
+      });
+      return function () { st.kill(); };
+    });
+    ScrollTrigger.refresh();
+  }
+
+  /* swipe (touch only; vertical scrolling is left alone) */
+  var x0 = null, y0 = null;
+  [sec.querySelector(".ab-mv-img"), sec.querySelector(".ab-mv-panels")].forEach(function (el) {
+    if (!el) return;
+    el.addEventListener("touchstart", function (e) {
+      if (e.touches.length !== 1) { x0 = null; return; }
+      x0 = e.touches[0].clientX; y0 = e.touches[0].clientY;
+    }, { passive: true });
+    el.addEventListener("touchend", function (e) {
+      if (x0 === null) return;
+      var dx = e.changedTouches[0].clientX - x0, dy = e.changedTouches[0].clientY - y0;
+      x0 = null;
+      if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy) * 1.5) select(current + (dx < 0 ? 1 : -1), false);
+    }, { passive: true });
+  });
 })();
 </script>
 <script src="enquiry.js"></script>
