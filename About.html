@@ -572,7 +572,7 @@
   }
   .ab-banner-head { max-width: calc(850px + 2 * var(--pad)); text-align: center; position: relative; z-index: 2; }
   .ab-banner-eyebrow { font-size: 14px; font-weight: 500; letter-spacing: .06em; justify-content: center; margin-bottom: clamp(8px, .9vw, 16px); }
-  /* Size comes from the site-wide HEADING SIZE block (37px / 26-34px phones). */
+  /* Size comes from the site-wide TYPOGRAPHY block (26px phone .. 64px wide). */
   .ab-banner-title { color: var(--ink); text-transform: none; line-height: 1.2; margin: 0 auto clamp(10px, 1vw, 16px); max-width: 22ch; }
   .ab-banner-txt { color: #2f2f2f; font-size: clamp(16px, .94vw, 18px); line-height: 1.6; margin: 0 auto clamp(24px, 2.5vw, 44px); }
   .ab-banner-cta { display: flex; justify-content: center; }
@@ -1021,30 +1021,32 @@
 @media (prefers-reduced-motion: reduce) {
   .ab-pre-btn, .ab-pre-bg, .ab-pre-label { transition: none; }
 }
-
 /* ==========================================================================
-   HEADING SIZE — every h1 and h2 on the site renders at 37px
+   TYPOGRAPHY — the client's reference site (leo9studio crystal-wp)
    --------------------------------------------------------------------------
-   Appended last so it wins over the per-section clamp() scales without those
-   having to be hunted down one by one. Phones get a smaller step, since a
-   fixed size in a 360px viewport overflows on any multi-word heading.
+   Measured on 11 of its pages: one family (Inter, 400/500/600/700 only),
+   section and hero headings on one fluid scale -- 26px on a phone, 48px at
+   1440, 64px at 1920 -- line-height 1.25, slightly tight tracking, never
+   uppercase. Hero titles are Medium (500), section headings Bold (700).
+   Appended last so it wins over each page's own per-section scales.
    ========================================================================== */
+body { font-weight: 400; letter-spacing: normal; }
 h1, h2,
 .v3 h1, .v3 h2,
 .v3 .v-head, .v3 .hero3-title,
 .sec-head h2, .hero h1, main h2 {
-  font-size: 37px !important;
-  line-height: 1.15;
+  font-size: clamp(26px, 3.33vw, 64px) !important;
+  line-height: 1.25 !important;
+  letter-spacing: -0.025em !important;
+  text-transform: none !important;
 }
-@media (max-width: 900px) {
-  h1, h2,
-  .v3 h1, .v3 h2,
-  .v3 .v-head, .v3 .hero3-title,
-  .sec-head h2, .hero h1, main h2 {
-    font-size: clamp(26px, 6.4vw, 34px) !important;
-  }
-}
-/* A forced size can outgrow a narrow column; a flex child defaults to
+h1, .v3 h1, .v3 .hero3-title, .hero h1 { font-weight: 500 !important; }
+h2, .v3 h2, .v3 .v-head, .sec-head h2, main h2 { font-weight: 700 !important; }
+h1 b, h1 strong, .v3 .hero3-title b { font-weight: 700; }
+h3 { font-weight: 600; }
+h4 { font-weight: 700; }
+.btn { font-weight: 500; }
+/* A big heading can outgrow a narrow column; a flex child defaults to
    min-width:auto and would widen its track rather than wrap. */
 h1, h2 { overflow-wrap: break-word; }
 .v3 .map3-right, .v3 .map3-container, .v3 .brand3-left, .v3 .split3 .left-txt { min-width: 0; }

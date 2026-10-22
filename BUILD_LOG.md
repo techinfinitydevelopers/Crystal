@@ -692,3 +692,15 @@ Delete it from the dashboard when done (deleting writes a "Removed products" tom
   Section restored (revert of 2f20a02). Its pin now holds it centred in the space below the floating
   header instead of stuck at the top under it (checked 1540x930: 56px above / 54 below the band at
   1366x768; centred 179/178 at 1540x930 before the header offset). Their screenshot was a cached page.
+
+## 2026-10-22 — Typography matches the client's reference site, on every page
+- Scanned the leo9 reference (11 pages, 1034 text elements, at 390/1440/1920): Inter only, 400/500/600/700,
+  section/hero headings on `clamp(26px, 3.33vw, 64px)` (26 phone, 48 at 1440, 64 at 1920), line-height 1.25,
+  tracking about -0.025em, never uppercase; h1 500, h2 700, h3 600, h4 700, buttons 500.
+- The site-wide "HEADING SIZE" block (37px) in all 68 pages + `home-v3-src/heading-size.css` was swapped for
+  a "TYPOGRAPHY" block with those values; `apply_heading_size.py` now stamps the new block. index.html patched
+  in place (no rebuild — SEO head).
+- Verified: before/after audit of 62 pages at 1440 and 390 — 0 pages with horizontal scroll, 0 new headings
+  overflowing (About journey slider counts unchanged); clip check on 9 page types at 1440/1024/390 clean
+  (Home hero title only reads "outside" because it starts hidden 1000px down for its reveal animation).
+  Home's "Available In Multiple Countries" keeps its smaller size.
