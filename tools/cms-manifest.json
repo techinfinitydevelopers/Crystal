@@ -651,193 +651,225 @@
   "key": "hero-pretext",
   "kind": "text",
   "section": "hero",
-  "label": "Hero — About Crystal · Since 1971",
-  "shipped": "About Crystal · Since 1971"
+  "label": "Hero — About Us",
+  "shipped": "About Us"
  },
  {
   "page": "About.html",
   "key": "hero-title",
   "kind": "text",
   "section": "hero",
-  "label": "Hero — CRAFTING EVERYDAY",
-  "shipped": "CRAFTING EVERYDAY"
- },
- {
-  "page": "About.html",
-  "key": "hero-span-2",
-  "kind": "text",
-  "section": "hero",
-  "label": "Hero — EVERYDAY",
-  "shipped": "EVERYDAY"
- },
- {
-  "page": "About.html",
-  "key": "hero-title-2",
-  "kind": "text",
-  "section": "hero",
-  "label": "Hero — ESSENTIALS WITH CARE",
-  "shipped": "ESSENTIALS WITH CARE"
+  "label": "Hero — Crafting Everyday Essentials with Care",
+  "shipped": "Crafting Everyday Essentials with Care"
  },
  {
   "page": "About.html",
   "key": "hero-sub",
   "kind": "text",
   "section": "hero",
-  "label": "Hero — Crystal is committed to responsible growth — pro…",
-  "shipped": "Crystal is committed to responsible growth — promoting women's empowerment, fair employment, and inclusive workplace practices since 1971."
+  "label": "Hero — Crystal is committed to responsible growth that …",
+  "shipped": "Crystal is committed to responsible growth that supports people, communities, and the environment. Crystal actively promotes women’s empowerment through skill development, fair employment, and inclusive workplace practices. Crystal focuses on using safe, sustainable materials, reducing waste, and pr"
  },
  {
   "page": "About.html",
-  "key": "hero-span-3",
+  "key": "hero-a-1",
   "kind": "text",
   "section": "hero",
-  "label": "Hero — Scroll",
-  "shipped": "Scroll"
+  "label": "Hero — Know More",
+  "shipped": "Know More"
  },
  {
   "page": "About.html",
-  "key": "legacy-p-1",
-  "kind": "text",
-  "section": "legacy",
-  "label": "Legacy — Since 1971, Crystal has grown synonymous with th…",
-  "shipped": "Since 1971, Crystal has grown synonymous with the modern Indian kitchen — trusted by quality-conscious homes for products that keep pace with changing times. From precision gas lighters to a complete range of kitchenware, cookware, cutlery, storage and cleaning aids, we remain a complete home soluti"
- },
- {
-  "page": "About.html",
-  "key": "legacy-poster-1",
+  "key": "hero-img-1",
   "kind": "image",
-  "section": "legacy",
-  "label": "Legacy — video poster 1",
-  "shipped": "about-assets/legacy-poster.jpg",
-  "box": "Widescreen (16:9) — roughly 1600 × 900px or larger"
+  "section": "hero",
+  "label": "Hero — image 1",
+  "shipped": "about-assets/50-yrs.webp",
+  "box": "Square — roughly 1000 × 1000px or larger"
  },
  {
   "page": "About.html",
-  "key": "stat-years-num",
+  "key": "hero-img-2",
+  "kind": "image",
+  "section": "hero",
+  "label": "Hero — image 2",
+  "shipped": "about-assets/prod-1.jpg",
+  "box": "Landscape (207:244) — roughly 621 × 732 px or larger"
+ },
+ {
+  "page": "About.html",
+  "key": "hero-img-3",
+  "kind": "image",
+  "section": "hero",
+  "label": "Hero — image 3",
+  "shipped": "about-assets/prod-2.jpg",
+  "box": "Landscape (207:244) — roughly 621 × 732 px or larger"
+ },
+ {
+  "page": "About.html",
+  "key": "hero-img-4",
+  "kind": "image",
+  "section": "hero",
+  "label": "Hero — image 4",
+  "shipped": "about-assets/prod-3.jpg",
+  "box": "Landscape (207:244) — roughly 621 × 732 px or larger"
+ },
+ {
+  "page": "About.html",
+  "key": "hero-img-5",
+  "kind": "image",
+  "section": "hero",
+  "label": "Hero — image 5",
+  "shipped": "about-assets/prod-4.jpg",
+  "box": "Landscape (207:244) — roughly 621 × 732 px or larger"
+ },
+ {
+  "page": "About.html",
+  "key": "hero-img-6",
+  "kind": "image",
+  "section": "hero",
+  "label": "Hero — image 6",
+  "shipped": "about-assets/prod-5.jpg",
+  "box": "Landscape (207:244) — roughly 621 × 732 px or larger"
+ },
+ {
+  "page": "About.html",
+  "key": "hero-img-7",
+  "kind": "image",
+  "section": "hero",
+  "label": "Hero — image 7",
+  "shipped": "about-assets/prod-6.jpg",
+  "box": "Landscape (207:244) — roughly 621 × 732 px or larger"
+ },
+ {
+  "page": "About.html",
+  "key": "hero-img-8",
+  "kind": "image",
+  "section": "hero",
+  "label": "Hero — image 8",
+  "shipped": "about-assets/prod-7.jpg",
+  "box": "Landscape (207:244) — roughly 621 × 732 px or larger"
+ },
+ {
+  "page": "About.html",
+  "key": "hero-img-9",
+  "kind": "image",
+  "section": "hero",
+  "label": "Hero — image 9",
+  "shipped": "about-assets/prod-8.jpg",
+  "box": "Landscape (207:244) — roughly 621 × 732 px or larger"
+ },
+ {
+  "page": "About.html",
+  "key": "page-p-1",
   "kind": "text",
-  "section": "legacy",
-  "label": "Legacy — 50",
+  "section": "page",
+  "label": "Page — Crystal, synonymous with durability and innovati…",
+  "shipped": "Crystal, synonymous with durability and innovation, is the first choice of quality-conscious consumers. The Crystal Group is a trusted manufacturer and marketer of kitchenware, cookware, serveware, storage solutions, and cleaning aids a complete home solutions provider."
+ },
+ {
+  "page": "About.html",
+  "key": "page-span-1",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — Crystal, synonymous with durability and innovati…",
+  "shipped": "Crystal, synonymous with durability and innovation, is the first choice of quality-conscious consumers."
+ },
+ {
+  "page": "About.html",
+  "key": "page-span-2",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — The Crystal Group is a trusted manufacturer and …",
+  "shipped": "The Crystal Group is a trusted manufacturer and marketer of kitchenware, cookware, serveware,"
+ },
+ {
+  "page": "About.html",
+  "key": "page-span-3",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — storage solutions, and cleaning aids a complete …",
+  "shipped": "storage solutions, and cleaning aids a complete home solutions provider."
+ },
+ {
+  "page": "About.html",
+  "key": "page-span-4",
+  "kind": "text",
+  "section": "page",
+  "label": "Page — 50",
   "shipped": "50"
  },
  {
   "page": "About.html",
-  "key": "stat-years-lbl",
+  "key": "page-p-2",
   "kind": "text",
-  "section": "legacy",
-  "label": "Legacy — Years of Trust",
-  "shipped": "Years of Trust"
+  "section": "page",
+  "label": "Page — Years of Experience",
+  "shipped": "Years of Experience"
  },
  {
   "page": "About.html",
-  "key": "stat-people-num",
+  "key": "page-span-5",
   "kind": "text",
-  "section": "legacy",
-  "label": "Legacy — 2000",
+  "section": "page",
+  "label": "Page — 2000",
   "shipped": "2000"
  },
  {
   "page": "About.html",
-  "key": "stat-people-lbl",
+  "key": "page-p-3",
   "kind": "text",
-  "section": "legacy",
-  "label": "Legacy — People Strong",
-  "shipped": "People Strong"
+  "section": "page",
+  "label": "Page — Employees",
+  "shipped": "Employees"
  },
  {
   "page": "About.html",
-  "key": "stat-skus-num",
+  "key": "page-span-6",
   "kind": "text",
-  "section": "legacy",
-  "label": "Legacy — 1000",
+  "section": "page",
+  "label": "Page — 1000",
   "shipped": "1000"
  },
  {
   "page": "About.html",
-  "key": "stat-skus-lbl",
+  "key": "page-p-4",
   "kind": "text",
-  "section": "legacy",
-  "label": "Legacy — Products & SKUs",
-  "shipped": "Products & SKUs"
+  "section": "page",
+  "label": "Page — Products",
+  "shipped": "Products"
  },
  {
   "page": "About.html",
-  "key": "stat-customers-num",
+  "key": "page-span-7",
   "kind": "text",
-  "section": "legacy",
-  "label": "Legacy — 10",
+  "section": "page",
+  "label": "Page — 10",
   "shipped": "10"
  },
  {
   "page": "About.html",
-  "key": "stat-customers-lbl",
+  "key": "page-span-8",
   "kind": "text",
-  "section": "legacy",
-  "label": "Legacy — Happy Customers",
-  "shipped": "Happy Customers"
+  "section": "page",
+  "label": "Page — + Cr",
+  "shipped": "+ Cr"
  },
  {
   "page": "About.html",
-  "key": "legacy-div-5",
+  "key": "page-p-5",
   "kind": "text",
-  "section": "legacy",
-  "label": "Legacy — Awards & Recognition",
-  "shipped": "Awards & Recognition"
- },
- {
-  "page": "About.html",
-  "key": "legacy-img-1",
-  "kind": "image",
-  "section": "legacy",
-  "label": "Legacy — image 1",
-  "shipped": "about-assets/award-trophy.jpg"
- },
- {
-  "page": "About.html",
-  "key": "legacy-span-5",
-  "kind": "text",
-  "section": "legacy",
-  "label": "Legacy — Home & Kitchen",
-  "shipped": "Home & Kitchen"
- },
- {
-  "page": "About.html",
-  "key": "legacy-img-2",
-  "kind": "image",
-  "section": "legacy",
-  "label": "Legacy — image 2",
-  "shipped": "about-assets/cert-1.png"
- },
- {
-  "page": "About.html",
-  "key": "legacy-img-3",
-  "kind": "image",
-  "section": "legacy",
-  "label": "Legacy — image 3",
-  "shipped": "about-assets/cert-2.png"
- },
- {
-  "page": "About.html",
-  "key": "legacy-img-4",
-  "kind": "image",
-  "section": "legacy",
-  "label": "Legacy — image 4",
-  "shipped": "about-assets/cert-3.png"
+  "section": "page",
+  "label": "Page — Satisfied Customers",
+  "shipped": "Satisfied Customers"
  },
  {
   "page": "About.html",
   "key": "vmv-h2-1",
   "kind": "text",
   "section": "vmv",
-  "label": "Vmv — Vision · Mission · Values",
-  "shipped": "Vision · Mission · Values"
- },
- {
-  "page": "About.html",
-  "key": "vmv-p-1",
-  "kind": "text",
-  "section": "vmv",
-  "label": "Vmv — The beliefs that shape every product we make and…",
-  "shipped": "The beliefs that shape every product we make and every home we serve."
+  "label": "Vmv — Our",
+  "shipped": "Our"
  },
  {
   "page": "About.html",
@@ -850,51 +882,51 @@
  },
  {
   "page": "About.html",
-  "key": "vmv-div-1",
+  "key": "vmv-h3-1",
   "kind": "text",
   "section": "vmv",
-  "label": "Vmv — Our Vision",
-  "shipped": "Our Vision"
+  "label": "Vmv — Purposeful innovation for modern living.",
+  "shipped": "Purposeful innovation for modern living."
  },
  {
   "page": "About.html",
-  "key": "vmv-div-2",
+  "key": "vmv-p-1",
   "kind": "text",
   "section": "vmv",
-  "label": "Vmv — Purposeful innovation for modern living. Instinc…",
-  "shipped": "Purposeful innovation for modern living. Instinctively trusted for thoughtfully designed, reliable solutions that elevate everyday cooking and cleaning in modern homes."
+  "label": "Vmv — Instinctively trusted for thoughtfully designed,…",
+  "shipped": "Instinctively trusted for thoughtfully designed, reliable solutions that elevate everyday cooking and cleaning in modern homes."
  },
  {
   "page": "About.html",
-  "key": "vmv-div-3",
-  "kind": "text",
-  "section": "vmv",
-  "label": "Vmv — Our Mission",
-  "shipped": "Our Mission"
- },
- {
-  "page": "About.html",
-  "key": "vmv-div-4",
+  "key": "vmv-h3-2",
   "kind": "text",
   "section": "vmv",
   "label": "Vmv — Crafting quality and design that stand the test …",
-  "shipped": "Crafting quality and design that stand the test of time. Simplifying daily life with precise, durable, and ethically crafted products that evolve with every Indian household."
+  "shipped": "Crafting quality and design that stand the test of time."
  },
  {
   "page": "About.html",
-  "key": "vmv-div-5",
+  "key": "vmv-p-2",
   "kind": "text",
   "section": "vmv",
-  "label": "Vmv — Our Values",
-  "shipped": "Our Values"
+  "label": "Vmv — Simplifying daily life with precise, durable, an…",
+  "shipped": "Simplifying daily life with precise, durable, and ethically crafted products that evolve with every Indian household."
  },
  {
   "page": "About.html",
-  "key": "vmv-div-6",
+  "key": "vmv-h3-3",
   "kind": "text",
   "section": "vmv",
   "label": "Vmv — Simplifying daily chores, adding pride to every …",
-  "shipped": "Simplifying daily chores, adding pride to every home. Thoughtfully designed for modern homes — trusted, durable solutions powered by ethical, science-driven manufacturing that cares for the planet."
+  "shipped": "Simplifying daily chores, adding pride to every home."
+ },
+ {
+  "page": "About.html",
+  "key": "vmv-p-3",
+  "kind": "text",
+  "section": "vmv",
+  "label": "Vmv — Thoughtfully designed for modern homes, we deliv…",
+  "shipped": "Thoughtfully designed for modern homes, we deliver trusted, durable solutions for everyday cooking, serving, storing, and cleaning—powered by ethical, science-driven manufacturing that cares for the planet."
  },
  {
   "page": "About.html",
@@ -914,110 +946,6 @@
  },
  {
   "page": "About.html",
-  "key": "infrastructure-h2-1",
-  "kind": "text",
-  "section": "infrastructure",
-  "label": "Infrastructure — Built on solid ground",
-  "shipped": "Built on solid ground"
- },
- {
-  "page": "About.html",
-  "key": "infrastructure-p-1",
-  "kind": "text",
-  "section": "infrastructure",
-  "label": "Infrastructure — Three offices, three factories, five warehouses …",
-  "shipped": "Three offices, three factories, five warehouses and a 30,000 sq. ft. manufacturing backbone — engineered in India, trusted across the country."
- },
- {
-  "page": "About.html",
-  "key": "stat-offices-num",
-  "kind": "text",
-  "section": "infrastructure",
-  "label": "Infrastructure — 3",
-  "shipped": "3"
- },
- {
-  "page": "About.html",
-  "key": "stat-offices-lbl",
-  "kind": "text",
-  "section": "infrastructure",
-  "label": "Infrastructure — Corporate Offices",
-  "shipped": "Corporate Offices"
- },
- {
-  "page": "About.html",
-  "key": "stat-units-num",
-  "kind": "text",
-  "section": "infrastructure",
-  "label": "Infrastructure — 3",
-  "shipped": "3"
- },
- {
-  "page": "About.html",
-  "key": "stat-units-lbl",
-  "kind": "text",
-  "section": "infrastructure",
-  "label": "Infrastructure — Manufacturing Units",
-  "shipped": "Manufacturing Units"
- },
- {
-  "page": "About.html",
-  "key": "stat-warehouses-num",
-  "kind": "text",
-  "section": "infrastructure",
-  "label": "Infrastructure — 5",
-  "shipped": "5"
- },
- {
-  "page": "About.html",
-  "key": "stat-warehouses-lbl",
-  "kind": "text",
-  "section": "infrastructure",
-  "label": "Infrastructure — Warehouses",
-  "shipped": "Warehouses"
- },
- {
-  "page": "About.html",
-  "key": "stat-outlets-num",
-  "kind": "text",
-  "section": "infrastructure",
-  "label": "Infrastructure — 1000",
-  "shipped": "1000"
- },
- {
-  "page": "About.html",
-  "key": "stat-outlets-lbl",
-  "kind": "text",
-  "section": "infrastructure",
-  "label": "Infrastructure — Retail Outlets",
-  "shipped": "Retail Outlets"
- },
- {
-  "page": "About.html",
-  "key": "stat-factory-num",
-  "kind": "text",
-  "section": "infrastructure",
-  "label": "Infrastructure — 30,000",
-  "shipped": "30,000"
- },
- {
-  "page": "About.html",
-  "key": "infrastructure-span-6",
-  "kind": "text",
-  "section": "infrastructure",
-  "label": "Infrastructure — Sq.Ft.",
-  "shipped": "Sq.Ft."
- },
- {
-  "page": "About.html",
-  "key": "stat-factory-lbl",
-  "kind": "text",
-  "section": "infrastructure",
-  "label": "Infrastructure — Factory Space",
-  "shipped": "Factory Space"
- },
- {
-  "page": "About.html",
   "key": "sustainability-h2-1",
   "kind": "text",
   "section": "sustainability",
@@ -1026,11 +954,11 @@
  },
  {
   "page": "About.html",
-  "key": "sustainability-p-1",
+  "key": "sustainability-a-1",
   "kind": "text",
   "section": "sustainability",
-  "label": "Sustainability — Responsible manufacturing, fair employment and c…",
-  "shipped": "Responsible manufacturing, fair employment and community livelihoods at the heart of everything we build."
+  "label": "Sustainability — Get in Touch",
+  "shipped": "Get in Touch"
  },
  {
   "page": "About.html",
@@ -1038,35 +966,20 @@
   "kind": "image",
   "section": "sustainability",
   "label": "Sustainability — image 1",
-  "shipped": "about-assets/sustainability.webp"
+  "shipped": "about-assets/sustainability.webp",
+  "box": "Landscape (462:566) — roughly 462 × 566 px or larger"
  },
  {
   "page": "About.html",
   "key": "help-h2-1",
   "kind": "text",
   "section": "help",
-  "label": "Help — We're here to help you with",
-  "shipped": "We're here to help you with"
+  "label": "Help — We are here to help you with",
+  "shipped": "We are here to help you with"
  },
  {
   "page": "About.html",
-  "key": "help-p-1",
-  "kind": "text",
-  "section": "help",
-  "label": "Help — From bulk orders to global exports and distribut…",
-  "shipped": "From bulk orders to global exports and distribution — partner with a brand homes have trusted since 1971."
- },
- {
-  "page": "About.html",
-  "key": "help-span-1",
-  "kind": "text",
-  "section": "help",
-  "label": "Help — 01",
-  "shipped": "01"
- },
- {
-  "page": "About.html",
-  "key": "help-h4-1",
+  "key": "help-h3-1",
   "kind": "text",
   "section": "help",
   "label": "Help — Bulk Enquiry",
@@ -1074,7 +987,7 @@
  },
  {
   "page": "About.html",
-  "key": "help-p-2",
+  "key": "help-p-1",
   "kind": "text",
   "section": "help",
   "label": "Help — Reliable, high-quality home solutions tailored f…",
@@ -1082,15 +995,7 @@
  },
  {
   "page": "About.html",
-  "key": "help-span-2",
-  "kind": "text",
-  "section": "help",
-  "label": "Help — 02",
-  "shipped": "02"
- },
- {
-  "page": "About.html",
-  "key": "help-h4-2",
+  "key": "help-h3-2",
   "kind": "text",
   "section": "help",
   "label": "Help — Export Enquiry",
@@ -1098,7 +1003,7 @@
  },
  {
   "page": "About.html",
-  "key": "help-p-3",
+  "key": "help-p-2",
   "kind": "text",
   "section": "help",
   "label": "Help — Bringing trusted Indian craftsmanship to global …",
@@ -1106,15 +1011,7 @@
  },
  {
   "page": "About.html",
-  "key": "help-span-3",
-  "kind": "text",
-  "section": "help",
-  "label": "Help — 03",
-  "shipped": "03"
- },
- {
-  "page": "About.html",
-  "key": "help-h4-3",
+  "key": "help-h3-3",
   "kind": "text",
   "section": "help",
   "label": "Help — Distribution Partnership",
@@ -1122,11 +1019,60 @@
  },
  {
   "page": "About.html",
-  "key": "help-p-4",
+  "key": "help-p-3",
   "kind": "text",
   "section": "help",
-  "label": "Help — Partner with us to expand Crystal's presence acr…",
-  "shipped": "Partner with us to expand Crystal's presence across markets through a strong, reliable network."
+  "label": "Help — Partner with us to expand Crystal’s presence acr…",
+  "shipped": "Partner with us to expand Crystal’s presence across markets through a strong and reliable product network."
+ },
+ {
+  "page": "About.html",
+  "key": "legacy-div-5",
+  "kind": "text",
+  "section": "legacy",
+  "label": "Legacy — Awards & Recognition",
+  "shipped": "Awards & Recognition"
+ },
+ {
+  "page": "About.html",
+  "key": "legacy-img-1",
+  "kind": "image",
+  "section": "legacy",
+  "label": "Legacy — image 1",
+  "shipped": "about-assets/award-trophy.jpg"
+ },
+ {
+  "page": "About.html",
+  "key": "legacy-span-1",
+  "kind": "text",
+  "section": "legacy",
+  "label": "Legacy — Home & Kitchen",
+  "shipped": "Home & Kitchen"
+ },
+ {
+  "page": "About.html",
+  "key": "ab-pre-h2-1",
+  "kind": "text",
+  "section": "ab-pre",
+  "label": "Ab Pre — Crafting Everyday Essentials with Care",
+  "shipped": "Crafting Everyday Essentials with Care"
+ },
+ {
+  "page": "About.html",
+  "key": "ab-pre-span-1",
+  "kind": "text",
+  "section": "ab-pre",
+  "label": "Ab Pre — Get In Touch",
+  "shipped": "Get In Touch"
+ },
+ {
+  "page": "About.html",
+  "key": "ab-pre-img-1",
+  "kind": "image",
+  "section": "ab-pre",
+  "label": "Ab Pre — image 1",
+  "shipped": "about-assets/hero-couple.webp",
+  "box": "5:4 — roughly 1250 × 1000px or larger"
  },
  {
   "page": "All-Products.html",
@@ -6046,8 +5992,8 @@
   "key": "reach-a-3",
   "kind": "text",
   "section": "reach",
-  "label": "Reach — info@crystalcook.com",
-  "shipped": "info@crystalcook.com"
+  "label": "Reach — HR-ADDRESS",
+  "shipped": "HR-ADDRESS"
  },
  {
   "page": "Contact.html",

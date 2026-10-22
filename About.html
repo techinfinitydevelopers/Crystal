@@ -39,7 +39,7 @@
 <script>document.documentElement.className += " js";</script>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <style id="font-inherit">button,input,select,textarea,optgroup{font-family:inherit}</style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
@@ -554,6 +554,469 @@
     .mobile-menu .mm-social svg { width: 18px; height: 18px; }
   }
 
+/* ===== About page sections (match the client's reference layout) ===== */
+  /* ===== 01 BANNER (reference: .about-banner-sec) =====
+     Centred copy, then a curved "panorama" ring of the 8 product photos with
+     the 50-yrs emblem pinned at its centre. 01-banner.js moves the ring and
+     bends it; without JS the ring is a plain centred row (still no repeats). */
+  .ab-banner {
+    --ab-w: clamp(120px, 14vw, 300px);          /* one product card's width */
+    --ab-gap: clamp(10px, 1.4vw, 24px);
+    position: relative; overflow: hidden; background: var(--white);
+    padding-top: clamp(112px, 15vh, 150px);   /* clears the fixed header */
+    padding-bottom: clamp(40px, 5.5vw, 80px);
+  }
+  .ab-banner-head { max-width: calc(850px + 2 * var(--pad)); text-align: center; position: relative; z-index: 2; }
+  .ab-banner-eyebrow { font-size: 14px; font-weight: 500; letter-spacing: .06em; justify-content: center; margin-bottom: clamp(8px, .9vw, 16px); }
+  /* Size comes from the site-wide HEADING SIZE block (37px / 26-34px phones). */
+  .ab-banner-title { color: var(--ink); text-transform: none; line-height: 1.2; margin: 0 auto clamp(10px, 1vw, 16px); max-width: 22ch; }
+  .ab-banner-txt { color: #2f2f2f; font-size: clamp(16px, .94vw, 18px); line-height: 1.6; margin: 0 auto clamp(24px, 2.5vw, 44px); }
+  .ab-banner-cta { display: flex; justify-content: center; }
+  .ab-banner-btn { text-transform: uppercase; font-size: 14px; font-weight: 600; letter-spacing: .04em; }
+
+  /* ---- curved product ring ---- */
+  .ab-banner-curve { position: relative; margin-top: clamp(32px, 4.5vw, 72px); }
+  .ab-banner-track {
+    list-style: none; margin: 0; padding: calc(var(--ab-w) * .16) 0;   /* room for the enlarged edge cards */
+    display: flex; justify-content: center; gap: var(--ab-gap);
+    touch-action: pan-y; user-select: none; -webkit-user-select: none;
+  }
+  .ab-banner-slide {
+    flex: 0 0 var(--ab-w); width: var(--ab-w);
+    background: #fff7f7; border-radius: 10px;
+    padding: clamp(8px, 1.2vw, 20px);
+    backface-visibility: hidden; will-change: transform, opacity;
+  }
+  .ab-banner-img { width: 100%; aspect-ratio: 207 / 244; overflow: hidden; }
+  .ab-banner-img img { width: 100%; height: 100%; object-fit: contain; pointer-events: none; -webkit-user-drag: none; }
+
+  /* JS on: every card sits in one grid cell, JS places it along the ring. */
+  .ab-banner-curve.is-live .ab-banner-track { display: grid; justify-items: center; align-items: center; cursor: grab; }
+  .ab-banner-curve.is-live .ab-banner-track.is-drag { cursor: grabbing; }
+  .ab-banner-curve.is-live .ab-banner-slide { grid-area: 1 / 1; }
+
+  /* 50-yrs emblem; hides itself if the image 404s (onerror in the markup). */
+  .ab-banner-emblem {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 10;
+    width: 100px; aspect-ratio: 1; border-radius: 50%; overflow: hidden; pointer-events: none;
+  }
+  .ab-banner-emblem img { width: 100%; height: 100%; object-fit: contain; }
+
+  @media (max-width: 1440px) { .ab-banner-emblem { width: 80px; } }
+  @media (max-width: 900px) {
+    .ab-banner-title { max-width: none; }
+  }
+  @media (max-width: 600px) {
+    .ab-banner { --ab-w: clamp(120px, 34vw, 160px); --ab-gap: 10px; }
+    .ab-banner-txt { font-size: 15px; }
+    .ab-banner-emblem { width: 64px; }
+  }
+/* ---------- ABOUT STATEMENT (ref: .anim-text-sec) ---------- */
+.ab-statement { background: var(--white); padding-block: clamp(40px, 4.17vw, 80px); position: relative; overflow-x: clip; }
+/* reference text column is 1250px wide; .wrap supplies the side gutter */
+.wrap.ab-statement-inner { max-width: calc(1250px + 2 * var(--pad)); text-align: center; }
+
+/* slot for the reference's 80px travelling emblem; collapses while empty */
+.ab-statement-emblem { width: 80px; aspect-ratio: 1 / 1; border-radius: 50%; overflow: hidden; margin: 0 auto clamp(20px, 2.08vw, 40px); display: flex; align-items: center; justify-content: center; }
+.ab-statement-emblem:empty { display: none; }
+
+/* reference: 400 weight, fs32 = clamp(20px, 1.67vw, 32px), line-height 1.75,
+   #d8d8d8 -> ink. The unfilled grey comes from the scrub's 0.16 opacity. */
+.ab-statement-text {
+  font-family: var(--body); font-weight: 400;
+  font-size: clamp(20px, 1.67vw, 32px); line-height: 1.75; letter-spacing: -0.005em;
+  color: var(--ink); max-width: 1250px; margin: 0 auto;
+  overflow-wrap: break-word; text-wrap: pretty;
+}
+/* line-segment spans: inline (natural wrap) by default, reference breaks on wide screens */
+.ab-statement-text > span:not(.w-mask) { display: inline; }
+@media (min-width: 1200px) {
+  .ab-statement-text > span:not(.w-mask) { display: block; }
+}
+/* .w-mask clips for the rise effect; this one only fades, so let descenders breathe */
+.ab-statement-text .w-mask { overflow: visible; }
+
+@media (max-width: 768px) {
+  .ab-statement { padding-block: 48px; }
+  .ab-statement-text { font-size: clamp(18.5px, 5vw, 20px); line-height: 1.6; }
+}
+@media (max-width: 400px) {
+  .ab-statement-text { font-size: 18.5px; line-height: 1.58; }
+}
+  /* ---------- Video + counters (ref: about-vid-sec) ---------- */
+  .ab-vid-sec { padding-block: clamp(40px, 4.17vw, 80px); position: relative; overflow: hidden; }
+  .ab-vid-container { max-width: 1590px; }
+  .ab-vid-wrap {
+    width: 100%; max-width: 1084px; aspect-ratio: 16 / 9; margin: 0 auto clamp(16px, 1.8vw, 30px);
+    border-radius: clamp(14px, 1.04vw, 20px); overflow: hidden; position: relative; background: #000;
+  }
+  .ab-vid-wrap video { display: block; width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
+  .ab-vid-counters { display: flex; justify-content: space-between; gap: 60px; width: 100%; max-width: 1380px; margin: 0 auto; }
+  .ab-vid-counter { align-content: center; min-width: 0; }
+  .ab-vid-box { display: flex; align-items: center; width: max-content; margin: 0 auto; }
+  .ab-vid-box span {
+    color: #000; font-family: var(--head); font-size: clamp(24px, 2vw, 48px); font-weight: 600;
+    line-height: 1.33; letter-spacing: -0.0834vw; font-variant-numeric: tabular-nums; white-space: pre;
+  }
+  .ab-vid-lbl { margin: 0; color: #2f2f2f; text-align: center; font-size: clamp(16px, .94vw, 18px); font-weight: 400; line-height: 1.33; }
+
+  @media (max-width: 1440px) {
+    .ab-vid-wrap { max-width: 900px; }
+    .ab-vid-counters { max-width: 1000px; }
+  }
+  @media (max-width: 1366px) { .ab-vid-wrap { max-width: 800px; } }
+  @media (max-width: 1024px) {
+    .ab-vid-wrap { max-width: 100%; }
+    .ab-vid-counters { gap: 24px; }
+  }
+  @media (max-width: 640px) {
+    .ab-vid-counters { flex-wrap: wrap; gap: 20px; }
+    .ab-vid-counter { width: calc(50% - 10px); }
+  }
+/* ===== VISION / MISSION / VALUES (ref: section.mv-sec, red band) =====
+   Desktop (>=1200): red band, no vertical padding; 3 columns --
+     left  "Our" + active word at top, the other two (60% size, 50% opacity) at the bottom
+     mid   image flush with the band's top and bottom edges, shown whole (796/836)
+     right H3 + paragraph, white
+   <=1199: ref's mobile version -- a white card on the red band, black text;
+     "Our" + tabs on top, image and text side by side
+   <=990:  image stacks above the text.                                        */
+.ab-mv {
+  --ab-mv-h: clamp(26px, 3.33vw, 64px);            /* ref --fs64 (comm-head) */
+  --ab-mv-h3: clamp(20px, 1.5vw, 30px);            /* ref --fs30 */
+  --ab-mv-p: clamp(18px, 1.04vw, 20px);            /* ref --fs20 */
+  background: var(--red, #ED3338);
+  color: #fff;
+  padding: 0;
+  overflow: hidden;
+}
+.ab-mv-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding-inline: clamp(16px, 2.5vw, 40px);
+  width: 100%;
+}
+.ab-mv-grid {
+  display: grid;
+  grid-template-columns: minmax(180px, .6fr) minmax(0, 1fr) minmax(280px, .9fr);
+  grid-template-areas: "left img panels";
+  align-items: stretch;
+  column-gap: 0;
+}
+
+/* ---- left column ---- */
+.ab-mv-left {
+  grid-area: left;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: clamp(30px, 5vw, 120px) 16px clamp(24px, 3.13vw, 60px) 0;  /* ref --pad120 top */
+}
+.ab-mv-our,
+.ab-mv-tab {
+  font-family: var(--head, "Inter", sans-serif);
+  font-weight: 700;
+  font-size: var(--ab-mv-h);
+  line-height: 1.25;
+  letter-spacing: -0.0833vw;
+  color: #fff;
+}
+.ab-mv-our { margin: 0; }
+.ab-mv-tabs {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.ab-mv-tab {
+  appearance: none;
+  -webkit-appearance: none;
+  background: none;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  text-align: left;
+  font-size: calc(var(--ab-mv-h) * .6);            /* ref: scale(.6) */
+  opacity: .5;
+  transition: font-size .45s cubic-bezier(.2,.8,.2,1), opacity .3s;
+  border-radius: 6px;
+}
+.ab-mv-tab:hover { opacity: .8; }
+.ab-mv-tab.is-active {
+  order: -1;                     /* active word sits right under "Our" ... */
+  margin-bottom: auto;           /* ... and pushes the other two to the bottom */
+  font-size: var(--ab-mv-h);
+  opacity: 1;
+  cursor: default;
+}
+.ab-mv-tab:focus-visible { outline: 3px solid #fff; outline-offset: 4px; }
+
+/* ---- image ---- */
+.ab-mv-img {
+  grid-area: img;
+  align-self: center;
+  width: 100%;
+  max-width: 640px;
+  justify-self: center;
+  aspect-ratio: 796 / 836;
+  overflow: hidden;
+}
+.ab-mv-img img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: contain;
+}
+
+/* ---- text panels ---- */
+.ab-mv-panels {
+  grid-area: panels;
+  display: grid;                 /* all panels share one cell: height = tallest */
+  align-content: center;
+  min-width: 0;
+  max-width: 560px;
+  padding: clamp(24px, 3.13vw, 60px) 0 clamp(24px, 3.13vw, 60px) clamp(30px, 4.17vw, 80px);
+}
+.ab-mv-panel {
+  grid-area: 1 / 1;
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity .4s ease, transform .4s cubic-bezier(.2,.8,.2,1), visibility 0s linear .4s;
+}
+.ab-mv-panel.is-active {
+  visibility: visible;
+  opacity: 1;
+  transform: none;
+  transition: opacity .4s ease .05s, transform .4s cubic-bezier(.2,.8,.2,1) .05s, visibility 0s;
+}
+.ab-mv-panel h3 {
+  margin: 0 0 clamp(8px, .83vw, 16px);
+  font-family: var(--head, "Inter", sans-serif);
+  font-size: var(--ab-mv-h3);
+  font-weight: 700;
+  line-height: 1.26;
+  letter-spacing: 0;
+  color: inherit;
+}
+.ab-mv-panel p {
+  margin: 0;
+  font-size: var(--ab-mv-p);
+  font-weight: 400;
+  line-height: 1.75;
+  color: inherit;
+}
+
+@media (max-width: 1440px) {
+  .ab-mv-grid { grid-template-columns: minmax(180px, .55fr) minmax(0, 1fr) minmax(280px, .95fr); }
+}
+
+/* ---- <=1199: white card on red (ref .mv-container-mob / .mv-card) ---- */
+@media (max-width: 1199px) {
+  .ab-mv { padding: clamp(40px, 4.17vw, 80px) 0; }          /* ref --spc4080 */
+  .ab-mv-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-areas: "left left" "img panels";
+    column-gap: 40px;
+    row-gap: 20px;
+    background: #fff;
+    color: var(--ink, #000);
+    border-radius: 16px;
+    padding: 24px;
+  }
+  .ab-mv-left {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: baseline;
+    column-gap: .3em;
+    padding: 0;
+    margin-bottom: clamp(8px, 2vw, 20px);
+  }
+  .ab-mv-our { color: var(--ink, #000); }
+  .ab-mv-tabs {
+    flex: 0 1 auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: baseline;
+    column-gap: .5em;
+    row-gap: 4px;
+  }
+  .ab-mv-tab {
+    color: var(--ink, #000);
+    font-size: calc(var(--ab-mv-h) * .6);
+    opacity: .4;
+  }
+  .ab-mv-tab.is-active { order: 0; margin-bottom: 0; font-size: var(--ab-mv-h); opacity: 1; }
+  .ab-mv-tab:focus-visible { outline-color: var(--ink, #000); outline-offset: 2px; }
+  .ab-mv-img { max-width: none; border-radius: 16px; align-self: center; }
+  .ab-mv-panels { max-width: 700px; padding: 0; }
+  .ab-mv-panel p { font-size: 16px; }
+}
+@media (max-width: 990px) {
+  .ab-mv-grid { grid-template-columns: minmax(0, 1fr); grid-template-areas: "left" "img" "panels"; }
+  .ab-mv-panels { max-width: 100%; }
+}
+@media (max-width: 640px) {
+  .ab-mv-grid { padding: 16px; }
+  .ab-mv-panel p { font-size: 14px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ab-mv-tab, .ab-mv-panel, .ab-mv-panel.is-active { transition: none; }
+}
+/* ==========================================================================
+   05 SUSTAINABILITY — mirrors the reference .nurture-sec
+   Grey rounded card, white wash fading left-to-right, heading + red pill on
+   the left, the 462x566 photo pinned bottom-right and rising ABOVE the card
+   (the section's top padding is computed from that overhang). <=640px the
+   photo drops into the flow under the text, full card width.
+   Font size of the h2 is left to the site-wide 37px heading block.
+   ========================================================================== */
+.ab-nurture {
+  --ab-nurture-w: 410px;                       /* photo width            */
+  --ab-nurture-h: calc(var(--ab-nurture-w) * 566 / 462);
+  --ab-nurture-minh: 400px;                    /* card min-height        */
+  --ab-nurture-x: clamp(24px, 5.56vw, 80px);   /* card side inset        */
+  --ab-nurture-y: clamp(24px, 4.17vw, 60px);   /* card bottom inset      */
+  --ab-nurture-over: calc(var(--ab-nurture-h) + var(--ab-nurture-y) - var(--ab-nurture-minh));
+  padding-top: max(48px, calc(var(--ab-nurture-over) + 40px));
+  padding-bottom: clamp(40px, 4.17vw, 80px);
+}
+.ab-nurture-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: var(--ab-nurture-minh);
+  padding: var(--ab-nurture-y) calc(var(--ab-nurture-x) + var(--ab-nurture-w) + 32px) var(--ab-nurture-y) var(--ab-nurture-x);
+  border-radius: clamp(14px, 1.04vw, 20px);
+  background: #ecebed;
+}
+.ab-nurture-card::after {
+  content: "";
+  position: absolute; inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(90deg, rgba(255,255,255,0.73) 10.47%, rgba(255,255,255,0.74) 48.82%, rgba(255,255,255,0) 75.36%);
+  pointer-events: none;
+}
+.ab-nurture-text { position: relative; z-index: 2; min-width: 0; }
+.ab-nurture-head {
+  color: var(--ink);
+  line-height: 1.2 !important;
+  text-transform: none;
+  margin-bottom: clamp(24px, 2.5vw, 48px);
+}
+.ab-nurture-btn {
+  min-height: 50px;
+  padding: 0 30px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  justify-content: center;
+}
+.ab-nurture-img {
+  position: absolute;
+  right: var(--ab-nurture-x);
+  bottom: var(--ab-nurture-y);
+  z-index: 2;
+  width: var(--ab-nurture-w);
+  aspect-ratio: 462 / 566;
+}
+.ab-nurture-img img { width: 100%; height: 100%; object-fit: contain; }
+
+@media (min-width: 1537px) {
+  .ab-nurture { --ab-nurture-w: 462px; --ab-nurture-minh: 470px; }
+}
+@media (max-width: 1366px) {
+  .ab-nurture { --ab-nurture-w: 350px; }
+}
+@media (max-width: 1100px) {
+  .ab-nurture { --ab-nurture-w: 300px; --ab-nurture-minh: 340px; }
+}
+@media (max-width: 1024px) {
+  .ab-nurture { --ab-nurture-w: 250px; --ab-nurture-minh: 300px; }
+}
+@media (max-width: 990px) {
+  .ab-nurture { --ab-nurture-w: 220px; --ab-nurture-minh: 250px; }
+}
+@media (max-width: 640px) {
+  .ab-nurture { padding-top: clamp(40px, 10vw, 60px); }
+  .ab-nurture-card {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+    min-height: 0;
+    padding: 24px 16px;
+    text-align: center;
+  }
+  .ab-nurture-head br { display: none; }
+  .ab-nurture-head { margin-bottom: 20px; }
+  .ab-nurture-btn { display: flex; width: max-content; margin: 0 auto; }
+  .ab-nurture-img { position: relative; right: auto; bottom: auto; width: 100%; }
+}
+  /* ===== 06 HELP (ref: leo9 .help-container / .help-card) =====
+     Values lifted from ref-main.css: --spc4080, --m16, --m30, --br20, --pad40,
+     --fs64, --fs24, --fs18; container = .container-sm breakpoints. */
+  .ab-help { padding-block: clamp(40px, 4.17vw, 80px); }
+  .ab-help-wrap { max-width: 1600px; width: 100%; margin-inline: auto; padding-inline: 15px; }
+  .ab-help-head { text-align: center; margin-bottom: clamp(16px, 1.8vw, 30px); }
+  .ab-help-head h2 { color: #000; font-size: clamp(26px, 3.33vw, 64px); font-weight: 700; line-height: 1.25; letter-spacing: -0.0833vw; text-transform: none; margin-bottom: clamp(8px, .83vw, 16px); }
+  .ab-help-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; width: 100%; }
+  .ab-help-card { display: flex; flex-direction: column; justify-content: space-between; gap: 24px; min-height: 450px; height: 100%; padding: clamp(16px, 2.1vw, 40px); border-radius: clamp(14px, 1.04vw, 20px); background: #f3f3f3; color: inherit; }
+  .ab-help-card:focus-visible { outline: 2px solid var(--red); outline-offset: 3px; }
+  .ab-help-icon { width: 80px; aspect-ratio: 1 / 1; overflow: hidden; flex: none; color: var(--red); }
+  .ab-help-icon img, .ab-help-icon svg { display: block; width: 100%; height: 100%; object-fit: contain; }
+  .ab-help-txt h3 { color: #000; font-size: clamp(18px, 1.25vw, 24px); font-weight: 700; line-height: normal; letter-spacing: normal; margin-bottom: 6px; }
+  .ab-help-txt p { color: #5a5a5a; font-size: clamp(16px, .94vw, 18px); font-weight: 400; line-height: 1.5; }
+
+  @media (max-width: 1536px) { .ab-help-wrap { max-width: 1440px; } }
+  @media (max-width: 1440px) { .ab-help-wrap { max-width: 1366px; } .ab-help-card { min-height: 350px; } }
+  @media (max-width: 1366px) { .ab-help-wrap { max-width: 1200px; } .ab-help-card { min-height: 300px; } .ab-help-icon { width: 60px; } }
+  @media (max-width: 1280px) { .ab-help-wrap { max-width: 1100px; } }
+  @media (max-width: 1024px) { .ab-help-wrap { max-width: 990px; } }
+  @media (max-width: 990px)  { .ab-help-wrap { max-width: 800px; } .ab-help-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 768px)  { .ab-help-wrap { max-width: 100%; } }
+  @media (max-width: 640px)  { .ab-help-grid { grid-template-columns: minmax(0, 1fr); } .ab-help-card { min-height: 250px; } .ab-help-icon { width: 50px; } }
+/* ---------- PRE-FOOTER ----------
+   Mirrors the reference int-pre-footer and Home's .pre3: red band, no bottom
+   padding, so the cut-out photo's lower edge sits flush on the footer. Image is
+   810x656 and shown whole (contain, fixed aspect), never cropped. */
+.ab-pre { background: var(--red); color: #fff; padding: clamp(40px, 4.17vw, 80px) 0 0; position: relative; overflow: hidden; }
+.ab-pre-wrap { max-width: 1440px; margin: 0 auto; padding-inline: var(--pad); width: 100%;
+  display: flex; align-items: flex-end; justify-content: space-between; gap: clamp(24px, 3vw, 60px); }
+.ab-pre-left { flex: 1 1 auto; min-width: 0; padding-bottom: clamp(40px, 4.17vw, 80px); align-self: center; }
+.ab-pre-head { color: #fff; font-family: var(--head); font-size: clamp(26px, 3.33vw, 64px); font-weight: 700;
+  line-height: 1.25; letter-spacing: -0.0833vw; text-transform: none; margin: 0 0 clamp(24px, 2.5vw, 48px); }
+.ab-pre-right { flex: 0 0 auto; width: min(810px, 54%); aspect-ratio: 810 / 656; }
+.ab-pre-right img { display: block; width: 100%; height: 100%; object-fit: contain; object-position: bottom center; }
+
+/* Reference pill button (black on red) with the circle-wipe hover - same as Home's .v-btn.black */
+.ab-pre-btn { display: inline-flex; align-items: center; justify-content: center; height: 50px; padding: 0 30px;
+  border: 1px solid #fff; border-radius: 60px; background: #000; color: #fff; text-decoration: none;
+  position: relative; overflow: hidden; cursor: pointer; transition: all .5s ease-in-out; }
+.ab-pre-bg { position: absolute; top: 0; left: 0; min-width: 225%; min-height: 225%; aspect-ratio: 1; border-radius: 50%;
+  background: #fff; transform: translate(-50%, -50%) scale(0); transition: all .5s ease-in-out; pointer-events: none; }
+.ab-pre-label { position: relative; z-index: 2; color: #fff; font-family: var(--body); font-size: 14px; font-weight: 600;
+  text-transform: uppercase; letter-spacing: .04em; transition: color .3s ease-in-out; }
+.ab-pre-btn:hover, .ab-pre-btn:focus-visible { background: transparent; border-color: #000; }
+.ab-pre-btn:hover .ab-pre-bg, .ab-pre-btn:focus-visible .ab-pre-bg { transform: translate(-50%, -50%) scale(1); }
+.ab-pre-btn:hover .ab-pre-label, .ab-pre-btn:focus-visible .ab-pre-label { color: #000; }
+.ab-pre-btn:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+
+/* Reference stacks at 640px: centred heading (br dropped), centred button, photo below */
+@media (max-width: 640px) {
+  .ab-pre-wrap { flex-direction: column; align-items: center; gap: 32px; }
+  .ab-pre-left { width: 100%; padding-bottom: 0; text-align: center; align-self: stretch; }
+  .ab-pre-head { font-size: clamp(28px, 7.6vw, 40px); letter-spacing: -0.02em; margin-bottom: 22px; }
+  .ab-pre-head br { display: none; }
+  .ab-pre-right { width: 100%; max-width: 480px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ab-pre-btn, .ab-pre-bg, .ab-pre-label { transition: none; }
+}
+
 /* ==========================================================================
    HEADING SIZE — every h1 and h2 on the site renders at 37px
    --------------------------------------------------------------------------
@@ -768,91 +1231,110 @@ h1, h2 { overflow-wrap: break-word; }
 
 <span id="top"></span>
 
-<!-- ===== 01 HERO ===== -->
-<section class="hero" id="hero">
-  <div class="wrap">
-    <div class="pre" data-fade><span id="heroPreTxt" data-cms="hero-pretext">About Crystal · Since 1971</span></div>
-    <h1 data-split id="heroTitle" data-cms="hero-title" data-cms-rich>CRAFTING <span class="grad" data-cms="hero-span-2">EVERYDAY</span></h1>
-    <h1 data-split id="heroTitle2" data-cms="hero-title-2">ESSENTIALS WITH CARE</h1>
-    <p class="hero-sub" id="heroSub" data-fade data-cms="hero-sub">Crystal is committed to responsible growth — promoting women's empowerment, fair employment, and inclusive workplace practices since 1971.</p>
-    <div class="hero-cta" data-fade>
-      <a href="#legacy" class="btn btn-red">Know More <span class="arr">↗</span></a>
-      <a href="#help" class="btn btn-dark">Partner With Us <span class="arr">↗</span></a>
+<!-- ===== 01 BANNER (matches reference .about-banner-sec) ===== -->
+<section class="ab-banner" id="hero">
+  <div class="wrap ab-banner-head">
+    <span class="eyebrow ab-banner-eyebrow" data-fade><span id="heroPreTxt" data-cms="hero-pretext">About Us</span></span>
+    <h1 class="ab-banner-title" id="heroTitle" data-split data-cms="hero-title">Crafting Everyday Essentials with Care</h1>
+    <p class="ab-banner-txt" id="heroSub" data-fade data-cms="hero-sub">Crystal is committed to responsible growth that supports people, communities, and the environment. Crystal actively promotes women’s empowerment through skill development, fair employment, and inclusive workplace practices. Crystal focuses on using safe, sustainable materials, reducing waste, and promoting energy-efficient practices across its operations. Crystal follows eco-conscious, non-polluting manufacturing methods, prioritizing safe materials, waste reduction, and energy efficiency. By promoting hygiene awareness, ethical sourcing, and sustainable practices, Crystal aims to create a positive and lasting social and environmental impact.</p>
+    <div class="ab-banner-cta" data-fade>
+      <a href="Contact.html" class="btn btn-dark ab-banner-btn" data-cms="hero-a-1">Know More</a>
     </div>
   </div>
-  <div class="scroll-hint"><span data-cms="hero-span-3">Scroll</span><span class="ln"></span></div>
+
+  <div class="ab-banner-curve" data-fade data-ab-curve>
+    <div class="ab-banner-emblem">
+      <img src="about-assets/50-yrs.webp" width="100" height="100" alt="50 years of Crystal" onerror="this.parentNode.style.display='none'" data-cms="hero-img-1">
+    </div>
+    <ul class="ab-banner-track" role="list">
+      <li class="ab-banner-slide"><div class="ab-banner-img"><img src="about-assets/prod-1.jpg" width="207" height="244" alt="Crystal product" draggable="false" decoding="async" data-cms="hero-img-2"></div></li>
+      <li class="ab-banner-slide"><div class="ab-banner-img"><img src="about-assets/prod-2.jpg" width="207" height="244" alt="Crystal product" draggable="false" decoding="async" data-cms="hero-img-3"></div></li>
+      <li class="ab-banner-slide"><div class="ab-banner-img"><img src="about-assets/prod-3.jpg" width="207" height="244" alt="Crystal product" draggable="false" decoding="async" data-cms="hero-img-4"></div></li>
+      <li class="ab-banner-slide"><div class="ab-banner-img"><img src="about-assets/prod-4.jpg" width="207" height="244" alt="Crystal product" draggable="false" decoding="async" data-cms="hero-img-5"></div></li>
+      <li class="ab-banner-slide"><div class="ab-banner-img"><img src="about-assets/prod-5.jpg" width="207" height="244" alt="Crystal product" draggable="false" decoding="async" data-cms="hero-img-6"></div></li>
+      <li class="ab-banner-slide"><div class="ab-banner-img"><img src="about-assets/prod-6.jpg" width="207" height="244" alt="Crystal product" draggable="false" decoding="async" data-cms="hero-img-7"></div></li>
+      <li class="ab-banner-slide"><div class="ab-banner-img"><img src="about-assets/prod-7.jpg" width="207" height="244" alt="Crystal product" draggable="false" decoding="async" data-cms="hero-img-8"></div></li>
+      <li class="ab-banner-slide"><div class="ab-banner-img"><img src="about-assets/prod-8.jpg" width="207" height="244" alt="Crystal product" draggable="false" decoding="async" data-cms="hero-img-9"></div></li>
+    </ul>
+  </div>
 </section>
 
-<!-- ===== 02 LEGACY ===== -->
-<section class="sec wrap sec-cream legacy" id="legacy">
-  <span class="eyebrow" data-fade><span class="pip"></span>Our Legacy</span>
-  <p class="statement" data-lines style="margin-top:22px" data-cms="legacy-p-1" data-cms-rich>Since 1971, Crystal has grown synonymous with the modern Indian kitchen — trusted by quality-conscious homes for products that keep pace with changing times. From precision gas lighters to a complete range of kitchenware, cookware, cutlery, storage and cleaning aids, we remain <b>a complete home solutions provider.</b></p>
-  <!-- The company film. It runs 11 minutes and carries a soundtrack. Browsers
-       only allow autoplay when muted, so it starts silently and the visitor
-       unmutes via the native controls if they want sound. -->
-  <div class="legacy-video legacy-film" data-fade>
-    <video controls autoplay muted preload="auto" playsinline
-           poster="about-assets/legacy-poster.jpg" data-cms="legacy-poster-1" data-cms-attr="poster">
-      <source src="about-assets/crystal-legacy.mp4" type="video/mp4">
-      Your browser cannot play this video.
-    </video>
-  </div>
-  <div class="stats">
-    <div class="stat" data-fade><div class="num"><span data-count="50" id="statYearsNum" data-cms="stat-years-num">0</span>+</div><div class="lbl" id="statYearsLbl" data-cms="stat-years-lbl">Years of Trust</div></div>
-    <div class="stat" data-fade><div class="num"><span data-count="2000" id="statPeopleNum" data-cms="stat-people-num">0</span>+</div><div class="lbl" id="statPeopleLbl" data-cms="stat-people-lbl">People Strong</div></div>
-    <div class="stat" data-fade><div class="num"><span data-count="1000" id="statSkusNum" data-cms="stat-skus-num">0</span>+</div><div class="lbl" id="statSkusLbl" data-cms="stat-skus-lbl">Products &amp; SKUs</div></div>
-    <div class="stat" data-fade><div class="num"><span data-count="10" id="statCustomersNum" data-cms="stat-customers-num">0</span>+ Cr</div><div class="lbl" id="statCustomersLbl" data-cms="stat-customers-lbl">Happy Customers</div></div>
-  </div>
-  <div class="prod-strip" aria-hidden="true">
-    <div class="prod-track" id="prodTrack"></div>
-  </div>
-  <div class="recog" data-fade>
-    <div class="rtitle" data-cms="legacy-div-5">Awards &amp; Recognition</div>
-    <!-- The four shipped cards are the fallback. The dashboard owns this strip
-         now (Awards & certificates), so these carry no data-cms keys: two
-         systems writing the same <img> would race on load. Seeded rows in the
-         dashboard point at these same four files. -->
-    <div class="ritems" id="awardTrack" tabindex="0" role="region" aria-label="Awards and certificates">
-      <figure class="award-card has-caption">
-        <img class="trophy" src="about-assets/award-trophy.jpg" alt="HomeShop18 STAR Award — Home &amp; Kitchen" />
-        <figcaption>HomeShop18 STAR Award<span>Home &amp; Kitchen</span></figcaption>
-      </figure>
-      <!-- The three cert cards that used to sit here were three copies of one
-           stock template ("Kristen Kennedy — E-Commerce Marketing Master"), not
-           Crystal's own. Removed at the client's request. Real certificates go
-           in through the dashboard (Awards & certificates), which replaces this
-           shipped set wholesale — they do not need to come back into this
-           file. -->
-    </div>
+<!-- ===== 02 STATEMENT ===== -->
+<!-- About statement (reference: section.anim-text-sec) -- scroll-scrubbed word fill.
+     Relies on the page's existing [data-lines] splitter + pinned scrub (see 02-statement.js).
+     The three un-classed <span>s are the reference's line breaks; they survive the
+     word splitter (it keeps the tag, drops the class) and only break on wide screens. -->
+<section class="ab-statement" aria-label="About Crystal">
+  <div class="wrap ab-statement-inner">
+    <div class="ab-statement-emblem" aria-hidden="true"></div>
+    <p class="ab-statement-text" data-lines data-cms="page-p-1" data-cms-rich><span data-cms="page-span-1">Crystal, synonymous with durability and innovation, is the first choice of quality-conscious consumers.</span> <span data-cms="page-span-2">The Crystal Group is a trusted manufacturer and marketer of kitchenware, cookware, serveware,</span> <span data-cms="page-span-3">storage solutions, and cleaning aids a complete home solutions provider.</span></p>
   </div>
 </section>
+
+<!-- ===== 02b VIDEO + COUNTERS ===== -->
+<!-- Video + counters (ref: about-vid-sec) -->
+    <section class="ab-vid-sec" aria-label="Crystal in numbers">
+      <div class="wrap ab-vid-container">
+        <div class="ab-vid-wrap">
+          <video src="about-assets/about-vid.mp4" autoplay loop muted playsinline preload="auto" width="1280" height="720" aria-hidden="true" tabindex="-1"></video>
+        </div>
+        <div class="ab-vid-counters">
+          <div class="ab-vid-counter">
+            <div class="ab-vid-box"><span data-count="50" data-cms="page-span-4">0</span><span class="ab-vid-plus">+</span></div>
+            <p class="ab-vid-lbl" data-cms="page-p-2">Years of Experience</p>
+          </div>
+          <div class="ab-vid-counter">
+            <div class="ab-vid-box"><span data-count="2000" data-cms="page-span-5">0</span><span class="ab-vid-plus">+</span></div>
+            <p class="ab-vid-lbl" data-cms="page-p-3">Employees</p>
+          </div>
+          <div class="ab-vid-counter">
+            <div class="ab-vid-box"><span data-count="1000" data-cms="page-span-6">0</span><span class="ab-vid-plus">+</span></div>
+            <p class="ab-vid-lbl" data-cms="page-p-4">Products</p>
+          </div>
+          <div class="ab-vid-counter">
+            <div class="ab-vid-box"><span data-count="10" data-cms="page-span-7">0</span><span class="ab-vid-plus" data-cms="page-span-8">+ Cr</span></div>
+            <p class="ab-vid-lbl" data-cms="page-p-5">Satisfied Customers</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
 <!-- ===== 03 VMV ===== -->
-<section class="vmv sec-dark" id="vmv">
-  <div class="wrap">
-    <div class="sec-head">
-      <div>
-        <span class="eyebrow" data-fade style="color:var(--muted-d)"><span class="pip"></span>Our Purpose</span>
-        <h2 data-split style="color:#fff;margin-top:14px" data-cms="vmv-h2-1">Vision · Mission · Values</h2>
-      </div>
-      <p class="lead" data-cms="vmv-p-1">The beliefs that shape every product we make and every home we serve.</p>
-    </div>
-    <div class="vmv-wrapper">
-      <div class="vmv-image" data-fade><img src="about-assets/leadership.webp" alt="Crystal leadership" data-cms="vmv-img-1" /></div>
-      <div class="vmv-tabs" id="vmv-tabs">
-        <div class="vmv-tab active" data-tab="vision">
-          <div class="vmv-tab-head"><div class="vmv-tab-badge" data-badge></div><div class="vmv-tab-label" data-cms="vmv-div-1">Our Vision</div></div>
-          <div class="vmv-tab-desc" data-cms="vmv-div-2">Purposeful innovation for modern living. Instinctively trusted for thoughtfully designed, reliable solutions that elevate everyday cooking and cleaning in modern homes.</div>
-        </div>
-        <div class="vmv-tab" data-tab="mission">
-          <div class="vmv-tab-head"><div class="vmv-tab-badge" data-badge></div><div class="vmv-tab-label" data-cms="vmv-div-3">Our Mission</div></div>
-          <div class="vmv-tab-desc" data-cms="vmv-div-4">Crafting quality and design that stand the test of time. Simplifying daily life with precise, durable, and ethically crafted products that evolve with every Indian household.</div>
-        </div>
-        <div class="vmv-tab" data-tab="values">
-          <div class="vmv-tab-head"><div class="vmv-tab-badge" data-badge></div><div class="vmv-tab-label" data-cms="vmv-div-5">Our Values</div></div>
-          <div class="vmv-tab-desc" data-cms="vmv-div-6">Simplifying daily chores, adding pride to every home. Thoughtfully designed for modern homes — trusted, durable solutions powered by ethical, science-driven manufacturing that cares for the planet.</div>
+<section class="ab-mv" id="vmv" aria-labelledby="ab-mv-our">
+  <div class="ab-mv-container">
+    <div class="ab-mv-grid">
+
+      <!-- LEFT: "Our" + Vision / Mission / Values switcher -->
+      <div class="ab-mv-left">
+        <h2 class="ab-mv-our" id="ab-mv-our" data-cms="vmv-h2-1">Our</h2>
+        <div class="ab-mv-tabs" role="tablist" aria-labelledby="ab-mv-our">
+          <button class="ab-mv-tab is-active" type="button" role="tab" id="ab-mv-tab-vision" aria-controls="ab-mv-panel-vision" aria-selected="true" tabindex="0">Vision</button>
+          <button class="ab-mv-tab" type="button" role="tab" id="ab-mv-tab-mission" aria-controls="ab-mv-panel-mission" aria-selected="false" tabindex="-1">Mission</button>
+          <button class="ab-mv-tab" type="button" role="tab" id="ab-mv-tab-values" aria-controls="ab-mv-panel-values" aria-selected="false" tabindex="-1">Values</button>
         </div>
       </div>
+
+      <!-- MIDDLE: image, shown whole (796x836) -->
+      <div class="ab-mv-img">
+        <img src="about-assets/leadership.webp" alt="Crystal leadership" width="796" height="836" loading="lazy" decoding="async" data-cms="vmv-img-1" />
+      </div>
+
+      <!-- RIGHT: text panels (stacked in one grid cell so the height never jumps) -->
+      <div class="ab-mv-panels">
+        <div class="ab-mv-panel is-active" role="tabpanel" id="ab-mv-panel-vision" aria-labelledby="ab-mv-tab-vision">
+          <h3 data-cms="vmv-h3-1">Purposeful innovation for modern living.</h3>
+          <p data-cms="vmv-p-1">Instinctively trusted for thoughtfully designed, reliable solutions that elevate everyday cooking and cleaning in modern homes.</p>
+        </div>
+        <div class="ab-mv-panel" role="tabpanel" id="ab-mv-panel-mission" aria-labelledby="ab-mv-tab-mission">
+          <h3 data-cms="vmv-h3-2">Crafting quality and design that stand the test of time.</h3>
+          <p data-cms="vmv-p-2">Simplifying daily life with precise, durable, and ethically crafted products that evolve with every Indian household.</p>
+        </div>
+        <div class="ab-mv-panel" role="tabpanel" id="ab-mv-panel-values" aria-labelledby="ab-mv-tab-values">
+          <h3 data-cms="vmv-h3-3">Simplifying daily chores, adding pride to every home.</h3>
+          <p data-cms="vmv-p-3">Thoughtfully designed for modern homes, we deliver trusted, durable solutions for everyday cooking, serving, storing, and cleaning—powered by ethical, science-driven manufacturing that cares for the planet.</p>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -876,68 +1358,84 @@ h1, h2 { overflow-wrap: break-word; }
   <div class="journey-dots" id="journeyDots"></div>
 </section>
 
-<!-- ===== 04b INFRASTRUCTURE ===== -->
-<section class="sec wrap" id="infrastructure">
-  <div class="sec-head">
-    <div>
-      <span class="eyebrow" data-fade><span class="pip"></span>Our Reach</span>
-      <h2 data-split style="margin-top:14px" data-cms="infrastructure-h2-1" data-cms-rich>Built on<br>solid ground</h2>
+<!-- ===== 05 SUSTAINABILITY (reference: nurture-sec) ===== -->
+<section class="ab-nurture wrap" id="sustainability">
+  <div class="ab-nurture-card">
+    <div class="ab-nurture-text" data-fade>
+      <h2 class="ab-nurture-head" data-cms="sustainability-h2-1" data-cms-rich>Nurturing Livelihoods,<br>Supporting Sustainability</h2>
+      <a href="Contact.html" class="btn btn-red ab-nurture-btn" data-cms="sustainability-a-1">Get in Touch</a>
     </div>
-    <p class="lead" data-cms="infrastructure-p-1">Three offices, three factories, five warehouses and a 30,000 sq. ft. manufacturing backbone — engineered in India, trusted across the country.</p>
-  </div>
-  <div class="stats infra-stats">
-    <div class="stat" data-fade><div class="num"><span data-count="3" id="statOfficesNum" data-cms="stat-offices-num">0</span></div><div class="lbl" id="statOfficesLbl" data-cms="stat-offices-lbl">Corporate Offices</div></div>
-    <div class="stat" data-fade><div class="num"><span data-count="3" id="statUnitsNum" data-cms="stat-units-num">0</span></div><div class="lbl" id="statUnitsLbl" data-cms="stat-units-lbl">Manufacturing Units</div></div>
-    <div class="stat" data-fade><div class="num"><span data-count="5" id="statWarehousesNum" data-cms="stat-warehouses-num">0</span></div><div class="lbl" id="statWarehousesLbl" data-cms="stat-warehouses-lbl">Warehouses</div></div>
-    <div class="stat" data-fade><div class="num"><span id="statOutletsNum" data-cms="stat-outlets-num">1000</span></div><div class="lbl" id="statOutletsLbl" data-cms="stat-outlets-lbl">Retail Outlets</div></div>
-    <div class="stat" data-fade><div class="num"><span id="statFactoryNum" data-cms="stat-factory-num">30,000</span> <span class="unit" data-cms="infrastructure-span-6">Sq.Ft.</span></div><div class="lbl" id="statFactoryLbl" data-cms="stat-factory-lbl">Factory Space</div></div>
+    <div class="ab-nurture-img" data-fade>
+      <img src="about-assets/sustainability.webp" alt="Nurturing Livelihoods, Supporting Sustainability" width="462" height="566" loading="lazy" decoding="async" data-cms="sustainability-img-1" />
+    </div>
   </div>
 </section>
 
-<!-- ===== 05 SUSTAINABILITY ===== -->
-<section class="sec wrap" id="sustainability">
-  <div class="sustain-card">
-    <div data-fade>
-      <span class="eyebrow" style="color:var(--muted-d)"><span class="pip"></span>Sustainability &amp; CSR</span>
-      <h2 data-split data-cms="sustainability-h2-1">Nurturing Livelihoods, Supporting Sustainability</h2>
-      <p class="lead" data-cms="sustainability-p-1">Responsible manufacturing, fair employment and community livelihoods at the heart of everything we build.</p>
-      <div style="margin-top:24px"><a href="#help" class="btn btn-red">Get in Touch <span class="arr">↗</span></a></div>
+<!-- ===== 06 HELP (inline-SVG icons fallback) ===== -->
+<section class="ab-help" id="help">
+  <div class="ab-help-wrap">
+    <div class="ab-help-head">
+      <h2 data-fade data-cms="help-h2-1">We are here to help you with</h2>
     </div>
-    <div class="sustain-img" data-parallax="0.07"><img src="about-assets/sustainability.webp" alt="Sustainability" data-cms="sustainability-img-1" /></div>
+    <div class="ab-help-grid">
+      <a class="ab-help-card" href="mailto:sales@crystalcook.com?subject=Bulk%20Enquiry" data-fade>
+        <div class="ab-help-icon"><svg width="80" height="80" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" role="img" aria-label="Bulk Enquiry"><rect x="6" y="26" width="14" height="14" rx="1.5"/><rect x="28" y="26" width="14" height="14" rx="1.5"/><rect x="17" y="9" width="14" height="14" rx="1.5"/></svg></div>
+        <div class="ab-help-txt">
+          <h3 data-cms="help-h3-1">Bulk Enquiry</h3>
+          <p data-cms="help-p-1">Reliable, high-quality home solutions tailored for large-scale and institutional requirements.</p>
+        </div>
+      </a>
+      <a class="ab-help-card" href="mailto:sales@crystalcook.com?subject=Export%20Enquiry" data-fade>
+        <div class="ab-help-icon"><svg width="80" height="80" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" role="img" aria-label="Export Enquiry"><rect x="6" y="11" width="36" height="26" rx="2.5"/><path d="M6 14l18 13L42 14"/></svg></div>
+        <div class="ab-help-txt">
+          <h3 data-cms="help-h3-2">Export Enquiry</h3>
+          <p data-cms="help-p-2">Bringing trusted Indian craftsmanship to global markets with consistent quality and compliance.</p>
+        </div>
+      </a>
+      <a class="ab-help-card" href="mailto:sales@crystalcook.com?subject=Distribution%20Partnership" data-fade>
+        <div class="ab-help-icon"><svg width="80" height="80" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" role="img" aria-label="Distribution Partnership"><path d="M24 13l5-3 13 7-7 9-4-3-7 6-7-6-4 3-7-9 13-7 5 3z"/><path d="M17 22l5 5"/></svg></div>
+        <div class="ab-help-txt">
+          <h3 data-cms="help-h3-3">Distribution Partnership</h3>
+          <p data-cms="help-p-3">Partner with us to expand Crystal’s presence across markets through a strong and reliable product network.</p>
+        </div>
+      </a>
+    </div>
   </div>
 </section>
 
-<!-- ===== 06 HELP ===== -->
-<section class="sec wrap" id="help">
-  <div class="sec-head">
-    <div>
-      <span class="eyebrow" data-fade><span class="pip"></span>Partner with Crystal</span>
-      <h2 data-split style="margin-top:14px" data-cms="help-h2-1" data-cms-rich>We're here to<br>help you with</h2>
+<!-- ===== AWARDS (unchanged block, reference order: after Help) ===== -->
+<section class="sec wrap sec-cream legacy" id="legacy">
+  <div class="recog" data-fade>
+    <div class="rtitle" data-cms="legacy-div-5">Awards &amp; Recognition</div>
+    <!-- The four shipped cards are the fallback. The dashboard owns this strip
+         now (Awards & certificates), so these carry no data-cms keys: two
+         systems writing the same <img> would race on load. Seeded rows in the
+         dashboard point at these same four files. -->
+    <div class="ritems" id="awardTrack" tabindex="0" role="region" aria-label="Awards and certificates">
+      <figure class="award-card has-caption">
+        <img class="trophy" src="about-assets/award-trophy.jpg" alt="HomeShop18 STAR Award — Home &amp; Kitchen" data-cms="legacy-img-1" />
+        <figcaption>HomeShop18 STAR Award<span data-cms="legacy-span-1">Home &amp; Kitchen</span></figcaption>
+      </figure>
+      <!-- The three cert cards that used to sit here were three copies of one
+           stock template ("Kristen Kennedy — E-Commerce Marketing Master"), not
+           Crystal's own. Removed at the client's request. Real certificates go
+           in through the dashboard (Awards & certificates), which replaces this
+           shipped set wholesale — they do not need to come back into this
+           file. -->
     </div>
-    <p class="lead" data-cms="help-p-1">From bulk orders to global exports and distribution — partner with a brand homes have trusted since 1971.</p>
   </div>
-  <div class="help-grid">
-    <a class="help-card" href="mailto:sales@crystalcook.com?subject=Bulk%20Enquiry">
-      <span class="help-num" data-cms="help-span-1">01</span>
-      <span class="help-ic"><svg width="46" height="46" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"><rect x="6" y="26" width="14" height="14" rx="1.5"/><rect x="28" y="26" width="14" height="14" rx="1.5"/><rect x="17" y="9" width="14" height="14" rx="1.5"/></svg></span>
-      <h4 data-cms="help-h4-1">Bulk Enquiry</h4>
-      <p data-cms="help-p-2">Reliable, high-quality home solutions tailored for large-scale and institutional requirements.</p>
-      <span class="help-link">Start an enquiry <span class="arr">↗</span></span>
-    </a>
-    <a class="help-card" href="mailto:sales@crystalcook.com?subject=Export%20Enquiry">
-      <span class="help-num" data-cms="help-span-2">02</span>
-      <span class="help-ic"><svg width="46" height="46" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"><rect x="6" y="11" width="36" height="26" rx="2.5"/><path d="M6 14l18 13L42 14"/></svg></span>
-      <h4 data-cms="help-h4-2">Export Enquiry</h4>
-      <p data-cms="help-p-3">Bringing trusted Indian craftsmanship to global markets with consistent quality and compliance.</p>
-      <span class="help-link">Start an enquiry <span class="arr">↗</span></span>
-    </a>
-    <a class="help-card" href="mailto:sales@crystalcook.com?subject=Distribution%20Partnership">
-      <span class="help-num" data-cms="help-span-3">03</span>
-      <span class="help-ic"><svg width="46" height="46" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"><path d="M24 13l5-3 13 7-7 9-4-3-7 6-7-6-4 3-7-9 13-7 5 3z"/><path d="M17 22l5 5"/></svg></span>
-      <h4 data-cms="help-h4-3">Distribution Partnership</h4>
-      <p data-cms="help-p-4">Partner with us to expand Crystal's presence across markets through a strong, reliable network.</p>
-      <span class="help-link">Become a partner <span class="arr">↗</span></span>
-    </a>
+</section>
+
+<!-- ===== PRE-FOOTER (reference: pre-footer-sec int-pre-footer) ===== -->
+<section class="ab-pre" id="ab-pre">
+  <div class="ab-pre-wrap">
+    <div class="ab-pre-left">
+      <h2 class="ab-pre-head" data-cms="ab-pre-h2-1" data-cms-rich>Crafting Everyday<br> Essentials with Care</h2>
+      <a href="Contact.html" class="ab-pre-btn"><span class="ab-pre-label" data-cms="ab-pre-span-1">Get In Touch</span><span class="ab-pre-bg" aria-hidden="true"></span></a>
+    </div>
+    <div class="ab-pre-right">
+      <img src="about-assets/hero-couple.webp" alt="Crafting Everyday Essentials with Care" width="810" height="656" loading="lazy" decoding="async" data-cms="ab-pre-img-1">
+    </div>
   </div>
 </section>
 
@@ -1007,9 +1505,7 @@ h1, h2 { overflow-wrap: break-word; }
     el.innerHTML = out.join(" ");
   });
 
-  /* ---------- RENDER: product strip + VMV badge ---------- */
-  const prods = ["prod-1.jpg","prod-2.jpg","prod-3.jpg","prod-4.jpg","prod-5.jpg","prod-6.jpg","prod-7.jpg","prod-8.jpg"];
-  document.getElementById("prodTrack").innerHTML = prods.concat(prods).map(p => `<div class="pc"><img src="about-assets/${p}" alt="Crystal product" loading="lazy"></div>`).join("");
+  /* ---------- RENDER: VMV badge ---------- */
 
   const bSVG = `<svg viewBox="0 0 100 100" width="62" height="62" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="48" fill="rgba(237,51,56,0.10)"/><circle cx="50" cy="50" r="47" stroke="#ED3338" stroke-width="2.5"/><circle cx="50" cy="50" r="40" stroke="#ED3338" stroke-width="1.2" stroke-dasharray="2.8 2.8"/><text x="50" y="47" text-anchor="middle" dominant-baseline="middle" font-family="Inter,sans-serif" font-weight="700" font-size="24" fill="#ED3338">50+</text><path id="arcB" d="M 18,50 a 32,32 0 0,0 64,0" fill="none"/><text font-family="Inter,sans-serif" font-weight="700" font-size="7.5" fill="#D5D5D5" letter-spacing="1.4"><textPath href="#arcB" startOffset="50%" text-anchor="middle">YEARS OF EXCELLENCE</textPath></text></svg>`;
   document.querySelectorAll("[data-badge]").forEach(b => b.innerHTML = bSVG);
@@ -1135,9 +1631,7 @@ h1, h2 { overflow-wrap: break-word; }
     const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
     tl.from("#hero [data-split] .word", { yPercent: 118, duration: 0.9, stagger: 0.05, delay: 0.15 })
       .from("#hero .pre", { y: 30, opacity: 0, duration: 0.6 }, 0.1)
-      .from(".hero-sub", { y: 24, opacity: 0, duration: 0.6 }, "-=0.35")
-      .from(".hero-cta", { y: 20, opacity: 0, duration: 0.55 }, "-=0.3")
-      .from(".hero-couple", { y: 50, opacity: 0, duration: 0.8 }, "-=0.5")
+      .from("#hero [data-fade]", { y: 24, opacity: 0, duration: 0.6, stagger: 0.12 }, 0.1)
       ;
 
     /* generic split-heading reveal on scroll (non-hero) */
@@ -1195,8 +1689,6 @@ h1, h2 { overflow-wrap: break-word; }
       });
     }
 
-    /* help cards stagger */
-    gsap.from(".help-card", { y: 48, opacity: 0, duration: 0.6, stagger: 0.15, ease: "power2.out", scrollTrigger: { trigger: ".help-grid", start: "top 82%", once: true } });
 
     /* footer wordmark water fill */
 
@@ -1299,7 +1791,7 @@ h1, h2 { overflow-wrap: break-word; }
 
   function failsafeReveal() {
     if (window.gsap) {
-      gsap.set("[data-split] .word, [data-lines] .word, [data-fade], .help-card, .hero-couple, .float", { clearProps: "opacity,transform,x,y,xPercent,yPercent,scale,rotation,clipPath" });
+      gsap.set("[data-split] .word, [data-lines] .word, [data-fade], .float", { clearProps: "opacity,transform,x,y,xPercent,yPercent,scale,rotation,clipPath" });
     }
     countEls.forEach(el => { if (!counted.has(el)) { counted.add(el); const t = parseFloat(el.dataset.count); el.textContent = (t % 1 ? t.toFixed(1) : t); } });
   }
@@ -1401,7 +1893,7 @@ h1, h2 { overflow-wrap: break-word; }
   var secondsPerCard = null;
   var autoscroll = true;
   /* Only reached if the product strip is gone and no override is set. */
-  var FALLBACK_SECONDS_PER_CARD = 0.6;
+  var FALLBACK_SECONDS_PER_CARD = 5;
   /* How long a touch holds the strip still. A phone has no hover to leave, so
      this is the only thing that lets go. */
   var TOUCH_HOLD_MS = 3000;
@@ -1847,6 +2339,208 @@ h1, h2 { overflow-wrap: break-word; }
 })();
 </script>
 
+<script>
+/* ===== 01 BANNER: curved product ring (stands in for the reference's
+   Swiper "panorama" carousel; no library).
+   Each card is placed by modular arithmetic on an endless ring, so the 8
+   photos loop forever without cloning any of them. Cards bend away on a
+   concave cylinder (rotateY + translateZ) and fade out at the seam where
+   they wrap round. Auto-drifts; drag/swipe to scrub. Reduced motion: no
+   drift, still draggable. Paused while off-screen or the tab is hidden. */
+(function () {
+  var root = document.querySelector("[data-ab-curve]");
+  if (!root) return;
+  var track = root.querySelector(".ab-banner-track");
+  var slides = Array.prototype.slice.call(track.children);
+  var n = slides.length;
+  if (!n) return;
+
+  var RM = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var ANG = 10;                 /* degrees of curve per card */
+  var step = 0, R = 0, W = 0, speed = 0;
+  var offset = 0, last = 0, raf = 0, onScreen = true;
+  var drag = null;
+
+  root.classList.add("is-live");
+
+  function measure() {
+    var w = slides[0].offsetWidth;
+    var gap = parseFloat(getComputedStyle(track).columnGap) || 0;
+    step = w + gap;
+    W = n * step;
+    R = step / (ANG * Math.PI / 180);          /* cylinder radius for that arc */
+    speed = step * 0.16;                       /* ~one card every 6s */
+    track.style.perspective = Math.round(R * 1.25) + "px";
+  }
+
+  function render() {
+    for (var i = 0; i < n; i++) {
+      var x = ((i * step - offset) % W + W) % W;
+      if (x >= W / 2) x -= W;                  /* x in [-W/2, W/2) */
+      var th = (x / step) * ANG;
+      var z = R * (1 - Math.cos(th * Math.PI / 180));
+      var o = Math.min(1, Math.max(0, (W / 2 - Math.abs(x)) / (step * 0.75)));
+      var s = slides[i].style;
+      s.transform = "translate3d(" + x.toFixed(1) + "px,0," + z.toFixed(1) + "px) rotateY(" + (-th).toFixed(2) + "deg)";
+      s.opacity = o.toFixed(3);
+    }
+  }
+
+  function tick(t) {
+    var dt = last ? Math.min(64, t - last) : 0;
+    last = t;
+    if (!drag) offset += speed * dt / 1000;
+    render();
+    raf = requestAnimationFrame(tick);
+  }
+  function start() {
+    if (RM || raf || !onScreen || document.hidden) return;
+    last = 0;
+    raf = requestAnimationFrame(tick);
+  }
+  function stop() { if (raf) cancelAnimationFrame(raf); raf = 0; }
+
+  /* drag / swipe (horizontal only; vertical page scroll stays native via touch-action: pan-y) */
+  track.addEventListener("pointerdown", function (e) {
+    if (e.button !== 0) return;
+    drag = { x: e.clientX, off: offset, id: e.pointerId };
+    track.classList.add("is-drag");
+    try { track.setPointerCapture(e.pointerId); } catch (_) {}
+  });
+  track.addEventListener("pointermove", function (e) {
+    if (!drag || e.pointerId !== drag.id) return;
+    offset = drag.off - (e.clientX - drag.x);
+    if (!raf) render();
+  });
+  function endDrag(e) {
+    if (!drag || (e && e.pointerId !== drag.id)) return;
+    drag = null;
+    track.classList.remove("is-drag");
+  }
+  track.addEventListener("pointerup", endDrag);
+  track.addEventListener("pointercancel", endDrag);
+  track.addEventListener("lostpointercapture", endDrag);
+
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver(function (en) {
+      onScreen = en[0].isIntersecting;
+      onScreen ? start() : stop();
+    }).observe(root);
+  }
+  document.addEventListener("visibilitychange", function () { document.hidden ? stop() : start(); });
+
+  var rz;
+  window.addEventListener("resize", function () {
+    clearTimeout(rz);
+    rz = setTimeout(function () { var p = step ? offset / step : 0; measure(); offset = p * step; render(); }, 120);
+  });
+
+  measure();
+  render();
+  start();
+})();
+</script>
+<script>
+/* Vision / Mission / Values switcher (section#vmv). Vanilla, no globals.
+   - WAI-ARIA tabs: roving tabindex, Arrow keys / Home / End, automatic activation.
+   - Desktop: the active word moves up under "Our" (CSS order); a small FLIP
+     animation slides the words instead of letting them jump.
+   - Touch: horizontal swipe on the image/text moves to the next/previous item. */
+(function () {
+  var sec = document.getElementById("vmv");
+  if (!sec) return;
+  var tabs = [].slice.call(sec.querySelectorAll(".ab-mv-tab"));
+  var panels = tabs.map(function (t) { return document.getElementById(t.getAttribute("aria-controls")); });
+  if (!tabs.length) return;
+  var reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var desktop = window.matchMedia ? matchMedia("(min-width: 1200px)") : { matches: true };
+  var current = Math.max(0, tabs.findIndex(function (t) { return t.classList.contains("is-active"); }));
+
+  function select(i, focus) {
+    i = (i + tabs.length) % tabs.length;
+    if (i === current) { if (focus) tabs[i].focus(); return; }
+    var flip = desktop.matches && !reduce && typeof tabs[0].animate === "function";
+    var before = flip ? tabs.map(function (t) { return t.getBoundingClientRect().top; }) : null;
+
+    tabs.forEach(function (t, k) {
+      var on = k === i;
+      t.classList.toggle("is-active", on);
+      t.setAttribute("aria-selected", on ? "true" : "false");
+      t.tabIndex = on ? 0 : -1;
+      if (panels[k]) panels[k].classList.toggle("is-active", on);
+    });
+    current = i;
+    if (focus) tabs[i].focus();
+
+    if (flip) {
+      tabs.forEach(function (t, k) {
+        var dy = before[k] - t.getBoundingClientRect().top;
+        if (Math.abs(dy) > 1) {
+          t.animate([{ transform: "translateY(" + dy + "px)" }, { transform: "none" }],
+                    { duration: 450, easing: "cubic-bezier(.2,.8,.2,1)" });
+        }
+      });
+    }
+  }
+
+  tabs.forEach(function (t, k) {
+    t.addEventListener("click", function () { select(k, false); });
+    t.addEventListener("keydown", function (e) {
+      var n = null;
+      switch (e.key) {
+        case "ArrowRight": case "ArrowDown": n = current + 1; break;
+        case "ArrowLeft":  case "ArrowUp":   n = current - 1; break;
+        case "Home": n = 0; break;
+        case "End":  n = tabs.length - 1; break;
+      }
+      if (n !== null) { e.preventDefault(); select(n, true); }
+    });
+  });
+
+  /* Scroll drives the switch, as on the reference. Desktop holds the section
+     on screen while Vision -> Mission -> Values advance; a phone is not pinned
+     (a held viewport fights touch scrolling), the item just follows the
+     section's position. refreshPriority: the page's other triggers are made
+     earlier and must be measured after this pin adds its spacer. */
+  if (window.gsap && window.ScrollTrigger && !reduce) {
+    gsap.registerPlugin(ScrollTrigger);
+    var byProgress = function (p) { select(Math.min(tabs.length - 1, Math.floor(p * tabs.length)), false); };
+    var mmVmv = gsap.matchMedia();
+    mmVmv.add("(min-width: 1024px)", function () {
+      var st = ScrollTrigger.create({
+        trigger: sec, start: "top top",
+        end: function () { return "+=" + Math.round(window.innerHeight * 1.5); },
+        pin: true, anticipatePin: 1, refreshPriority: 1,
+        onUpdate: function (self) { byProgress(self.progress); }
+      });
+      return function () { st.kill(); };
+    });
+    mmVmv.add("(max-width: 1023px)", function () {
+      var st = ScrollTrigger.create({
+        trigger: sec, start: "top 60%", end: "bottom 40%",
+        onUpdate: function (self) { byProgress(self.progress); }
+      });
+      return function () { st.kill(); };
+    });
+  }
+
+  /* swipe (touch only; vertical scrolling is left alone) */
+  var x0 = null, y0 = null;
+  [sec.querySelector(".ab-mv-img"), sec.querySelector(".ab-mv-panels")].forEach(function (el) {
+    if (!el) return;
+    el.addEventListener("touchstart", function (e) {
+      if (e.touches.length !== 1) { x0 = null; return; }
+      x0 = e.touches[0].clientX; y0 = e.touches[0].clientY;
+    }, { passive: true });
+    el.addEventListener("touchend", function (e) {
+      if (x0 === null) return;
+      var dx = e.changedTouches[0].clientX - x0, dy = e.changedTouches[0].clientY - y0;
+      x0 = null;
+      if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy) * 1.5) select(current + (dx < 0 ? 1 : -1), false);
+    }, { passive: true });
+  });
+})();
+</script>
 <script src="enquiry.js"></script>
 <script src="content-sync.js"></script>
 </body>

@@ -89,6 +89,7 @@ NOT_A_PAGE = {
 # text, and never matched IMAGE_TAGS.
 TAG = re.compile(r"<(/?)([a-zA-Z][a-zA-Z0-9-]*)\b([^>]*)>", re.S)
 ATTR = re.compile(r'([\w:-]+)\s*=\s*"([^"]*)"')
+RICH_ATTR = re.compile(r'(?:^|\s)data-cms-rich(?=[\s/>]|$)')
 
 SKIP_INSIDE = {"script", "style", "header", "footer", "nav", "svg", "select", "template"}
 
@@ -420,6 +421,7 @@ def process(html, page, report, extra_css=""):
     depth = {name: 0 for name in SKIP_INSIDE}
     container_depth = []          # open depths of skipped chrome containers
     media_depth = []              # depths where images are owned elsewhere
+    rich_depth = []               # open depths of elements tagged data-cms-rich
     parent_stack = []              # classes of each currently-open element,
                                     # innermost last -- how an <img> finds the
                                     # container that actually sizes it
@@ -451,6 +453,8 @@ def process(html, page, report, extra_css=""):
                 container_depth.pop()
             while media_depth and open_depth < media_depth[-1]:
                 media_depth.pop()
+            while rich_depth and open_depth < rich_depth[-1]:
+                rich_depth.pop()
             if parent_stack and open_depth < parent_stack[-1][0]:
                 parent_stack.pop()
             if section_depth is not None and open_depth < section_depth:
@@ -460,8 +464,14 @@ def process(html, page, report, extra_css=""):
         if not self_closing:
             open_depth += 1
 
+        # Read before this element can push itself: a rich element's own tag
+        # is still processed, only what sits inside it is not.
+        inside_rich = bool(rich_depth)
         if not self_closing:
             a0 = attrs_of(raw)
+            # ATTR only matches name="value" pairs; data-cms-rich has no value.
+            if RICH_ATTR.search(raw):
+                rich_depth.append(open_depth)
             names = set()
             if a0.get("id"):
                 names.add(a0["id"].lower())
@@ -498,6 +508,12 @@ def process(html, page, report, extra_css=""):
         # handful of keys that happened to be new: 984 rows down to 7.
         existing_key = a.get("data-cms")
 
+        # Inside an element whose whole innerHTML the dashboard replaces, a new
+        # key would be overwritten by its parent on every load. Keys already
+        # given out there (hero "EVERYDAY" spans) stay; nothing new is added.
+        if inside_rich and not existing_key:
+            continue
+
         rich = ""
         box = None
 
@@ -529,7 +545,9 @@ def process(html, page, report, extra_css=""):
             # either way, and the dashboard replaces its whole text.
             close = re.search(r"</%s\b" % name, html[m.end():], re.I)
             inner = html[m.end():m.end() + close.start()] if close else ""
-            if name in TEXT_LEAF_TAGS and "<" in inner:
+            if name in TEXT_LEAF_TAGS and "<" in inner and not existing_key:
+                # One that already has a key was deliberately made rich (the
+                # support bar wraps a tel: link) and keeps its row.
                 # A span/div/a with markup inside it is a wrapper around
                 # other elements -- possibly ones that already earned their
                 # own key -- not a piece of copy in its own right. Skipped
