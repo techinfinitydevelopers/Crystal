@@ -1684,7 +1684,10 @@ h1, h2 { overflow-wrap: break-word; }
           scrub: 0.6,
           pin: true,
           anticipatePin: 1,
-          invalidateOnRefresh: true
+          invalidateOnRefresh: true,
+          /* Pins are measured top to bottom: this one, then #vmv's (1), then
+             everything else (0), so each sees the spacers above it. */
+          refreshPriority: 2
         }
       });
     }
@@ -2500,8 +2503,9 @@ h1, h2 { overflow-wrap: break-word; }
   /* Scroll drives the switch, as on the reference. Desktop holds the section
      on screen while Vision -> Mission -> Values advance; a phone is not pinned
      (a held viewport fights touch scrolling), the item just follows the
-     section's position. refreshPriority: the page's other triggers are made
-     earlier and must be measured after this pin adds its spacer. */
+     section's position. refreshPriority 1 sits between the statement pin
+     above (2) and every trigger below (0), so each is measured after the
+     spacers above it exist. */
   if (window.gsap && window.ScrollTrigger && !reduce) {
     gsap.registerPlugin(ScrollTrigger);
     var byProgress = function (p) { select(Math.min(tabs.length - 1, Math.floor(p * tabs.length)), false); };
@@ -2522,6 +2526,7 @@ h1, h2 { overflow-wrap: break-word; }
       });
       return function () { st.kill(); };
     });
+    ScrollTrigger.refresh();
   }
 
   /* swipe (touch only; vertical scrolling is left alone) */
