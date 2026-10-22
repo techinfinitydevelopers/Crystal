@@ -422,30 +422,32 @@
     .mobile-menu .mm-social a:hover { background: var(--red); color: #fff; }
     .mobile-menu .mm-social svg { width: 18px; height: 18px; }
   }
-
 /* ==========================================================================
-   HEADING SIZE — every h1 and h2 on the site renders at 37px
+   TYPOGRAPHY — the client's reference site (leo9studio crystal-wp)
    --------------------------------------------------------------------------
-   Appended last so it wins over the per-section clamp() scales without those
-   having to be hunted down one by one. Phones get a smaller step, since a
-   fixed size in a 360px viewport overflows on any multi-word heading.
+   Measured on 11 of its pages: one family (Inter, 400/500/600/700 only),
+   section and hero headings on one fluid scale -- 26px on a phone, 48px at
+   1440, 64px at 1920 -- line-height 1.25, slightly tight tracking, never
+   uppercase. Hero titles are Medium (500), section headings Bold (700).
+   Appended last so it wins over each page's own per-section scales.
    ========================================================================== */
+body { font-weight: 400; letter-spacing: normal; }
 h1, h2,
 .v3 h1, .v3 h2,
 .v3 .v-head, .v3 .hero3-title,
 .sec-head h2, .hero h1, main h2 {
-  font-size: 37px !important;
-  line-height: 1.15;
+  font-size: clamp(26px, 3.33vw, 64px) !important;
+  line-height: 1.25 !important;
+  letter-spacing: -0.025em !important;
+  text-transform: none !important;
 }
-@media (max-width: 900px) {
-  h1, h2,
-  .v3 h1, .v3 h2,
-  .v3 .v-head, .v3 .hero3-title,
-  .sec-head h2, .hero h1, main h2 {
-    font-size: clamp(26px, 6.4vw, 34px) !important;
-  }
-}
-/* A forced size can outgrow a narrow column; a flex child defaults to
+h1, .v3 h1, .v3 .hero3-title, .hero h1 { font-weight: 500 !important; }
+h2, .v3 h2, .v3 .v-head, .sec-head h2, main h2 { font-weight: 700 !important; }
+h1 b, h1 strong, .v3 .hero3-title b { font-weight: 700; }
+h3 { font-weight: 600; }
+h4 { font-weight: 700; }
+.btn { font-weight: 500; }
+/* A big heading can outgrow a narrow column; a flex child defaults to
    min-width:auto and would widen its track rather than wrap. */
 h1, h2 { overflow-wrap: break-word; }
 .v3 .map3-right, .v3 .map3-container, .v3 .brand3-left, .v3 .split3 .left-txt { min-width: 0; }
