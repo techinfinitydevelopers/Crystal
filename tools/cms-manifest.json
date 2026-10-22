@@ -3669,6 +3669,15 @@
  },
  {
   "page": "Catalogue.html",
+  "key": "page-img-1",
+  "kind": "image",
+  "section": "page",
+  "label": "Page — image 1",
+  "shipped": "catalogue-assets/catalogue-tree.webp",
+  "box": "5:4 — roughly 1250 × 1000px or larger"
+ },
+ {
+  "page": "Catalogue.html",
   "key": "by-brand-h2-1",
   "kind": "text",
   "section": "by-brand",

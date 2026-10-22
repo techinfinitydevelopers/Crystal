@@ -211,6 +211,15 @@
   .cat-hero h1 .grad { background: var(--grad-red); -webkit-background-clip: text; background-clip: text; color: transparent; }
   .cat-hero .sub { max-width: 560px; margin: 24px 0 30px; font-size: clamp(15px, 1.6vw, 18px); color: var(--muted); line-height: 1.6; }
   .cat-hero .row { display: flex; gap: 14px; flex-wrap: wrap; }
+  /* Text left, the catalogue artwork right; stacked under the text on narrow screens. */
+  .cat-hero-grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); gap: clamp(28px, 4vw, 64px); align-items: center; }
+  .cat-hero-text { min-width: 0; }
+  .cat-hero-art { margin: 0; aspect-ratio: 927 / 747; border-radius: var(--r, 24px); overflow: hidden; background: #8c1d1d; box-shadow: 0 30px 70px -34px rgba(15,15,15,0.45); }
+  .cat-hero-art img { width: 100%; height: 100%; object-fit: cover; }
+  @media (max-width: 900px) {
+    .cat-hero-grid { grid-template-columns: minmax(0, 1fr); }
+    .cat-hero-art { max-width: 560px; }
+  }
 
   .brand-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
   .brand-card { border: 1.5px solid var(--line); border-radius: var(--r); padding: 28px 24px 24px; display: flex; flex-direction: column; gap: 10px; min-height: 230px; transition: transform .3s, box-shadow .3s, border-color .3s; }
@@ -524,12 +533,19 @@ h1, h2 { overflow-wrap: break-word; }
 
   <!-- ===== HERO ===== -->
   <section class="sec wrap cat-hero">
-    <span class="eyebrow" data-fade><span class="pip"></span><span id="heroPreTxt" data-cms="hero-pretext">Catalogue</span></span>
-    <h1 id="heroTitle" data-fade data-cms="hero-title" data-cms-rich>Browse the <span class="grad" data-cms="page-span-2">Crystal Catalogue</span></h1>
-    <p class="sub" id="heroSub" data-fade data-cms="hero-sub">Explore our complete range of cookware, kitchenware, cleaning aids and electric appliances across four trusted brands. Download a catalogue or request a tailored quote.</p>
-    <div class="row" data-fade>
-      <a id="cataloguePdf" href="downloads/Crystal-Product-Catalogue-2026-27.pdf" class="btn btn-red" target="_blank" rel="noopener" download>Download PDF <span class="arr">↗</span></a>
-      <a href="Quote.html" class="btn btn-dark" data-cms="page-a-1">Request Quote</a>
+    <div class="cat-hero-grid">
+      <div class="cat-hero-text">
+        <span class="eyebrow" data-fade><span class="pip"></span><span id="heroPreTxt" data-cms="hero-pretext">Catalogue</span></span>
+        <h1 id="heroTitle" data-fade data-cms="hero-title" data-cms-rich>Browse the <span class="grad" data-cms="page-span-2">Crystal Catalogue</span></h1>
+        <p class="sub" id="heroSub" data-fade data-cms="hero-sub">Explore our complete range of cookware, kitchenware, cleaning aids and electric appliances across four trusted brands. Download a catalogue or request a tailored quote.</p>
+        <div class="row" data-fade>
+          <a id="cataloguePdf" href="downloads/Crystal-Product-Catalogue-2026-27.pdf" class="btn btn-red" target="_blank" rel="noopener" download>Download PDF <span class="arr">↗</span></a>
+          <a href="Quote.html" class="btn btn-dark" data-cms="page-a-1">Request Quote</a>
+        </div>
+      </div>
+      <figure class="cat-hero-art" data-fade>
+        <img src="catalogue-assets/catalogue-tree.webp" width="927" height="747" alt="Crystal's range of kitchen tools drawn as a tree" data-cms="page-img-1">
+      </figure>
     </div>
   </section>
 
