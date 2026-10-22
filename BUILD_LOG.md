@@ -704,3 +704,6 @@ Delete it from the dashboard when done (deleting writes a "Removed products" tom
   overflowing (About journey slider counts unchanged); clip check on 9 page types at 1440/1024/390 clean
   (Home hero title only reads "outside" because it starts hidden 1000px down for its reveal animation).
   Home's "Available In Multiple Countries" keeps its smaller size.
+- Follow-up (`23feec9`): Product.html keeps its CSS in `product-page.css`, which still had the 37px block (the
+  swap only covered inline styles). Swapped there too; link versioned `?v=20261022`. Live on Product.html and
+  the generated /products/ pages. All 62 site pages now carry the TYPOGRAPHY block.
