@@ -277,11 +277,15 @@
   /* the certificates are landscape scans - let each fill its own card */
   .cert-card { padding: 8px; }
   .cert { width: 100%; height: 168px; object-fit: contain; border-radius: 8px; }
-  /* The track already handles narrow screens by scrolling; the cards just need
-     to stop being wider than the phone they are on. */
+  /* A phone shows the same moving row as desktop, scaled down (desktop's
+     268:202 card at ~150px wide) so more than one award is in view at once. */
   @media (max-width: 560px) {
-    .award-card { flex-basis: min(78vw, 300px); }
-    .award-card.has-caption { flex-basis: min(86vw, 330px); }
+    .award-card { flex-basis: 150px; padding: 10px; gap: 10px; border-radius: 14px; }
+    .award-card.has-caption { flex-basis: 210px; }
+    .cert-card { padding: 6px; }
+    .trophy, .cert { height: 94px; }
+    .award-card figcaption, .award-card .award-cap { font-size: 13px; }
+    .award-card figcaption span, .award-card .award-cap span { font-size: 11px; margin-top: 2px; }
   }
   @media (prefers-reduced-motion: reduce) { .award-card { transition: none; } }
 
