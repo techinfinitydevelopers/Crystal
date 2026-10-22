@@ -27,6 +27,9 @@ location ~ /\.(?!well-known/) { return 404; }
 location ^~ /crystal/      { return 404; }
 location ^~ /deploy/       { return 404; }
 location ^~ /home-v3-src/  { return 404; }
+location ^~ /docs/         { return 404; }
+location ^~ /scripts/      { return 404; }
+location ^~ /archive/      { return 404; }
 location ~ ^/tools/(?!cms-manifest\.json$) { return 404; }
 location ~* \.(md|py|pyc|sh|sqlite3|env|log|bak|toml|ini|cfg|lock|zip|docx)$ { return 404; }
 EOF
@@ -36,7 +39,7 @@ EOF
 cat > "$SNIP_MEDIA" <<'EOF'
 # Same rules for the /media/ alias of the site tree. (deploy/harden-nginx.sh)
 location ~ /\. { return 404; }
-location ~ ^/media/(crystal|deploy|home-v3-src)/ { return 404; }
+location ~ ^/media/(crystal|deploy|home-v3-src|docs|scripts|archive)/ { return 404; }
 location ~ ^/media/tools/ { return 404; }
 location ~* \.(md|py|pyc|sh|sqlite3|env|log|bak|toml|ini|cfg|lock|zip|docx)$ { return 404; }
 EOF
@@ -72,7 +75,8 @@ fi
 
 echo
 echo "Check (all should be 404 except the last two, which must be 200):"
-for u in crystal/backend/.env .git/config media/crystal/backend/.env BUILD_LOG.md memory.md \
+for u in crystal/backend/.env .git/config media/crystal/backend/.env docs/BUILD_LOG.md docs/memory.md \
+         docs/data/CRYSTAL-Product-List.docx "archive/LOUD%20Agency.html" scripts/merge_excel_products.py \
          crystal/backend/config/settings.py deploy/vps-setup.sh tools/cms_tag.py \
          tools/cms-manifest.json product-data/products.json; do
   printf "  %-36s %s\n" "$u" "$(curl -s -o /dev/null -w '%{http_code}' "https://crystalcook.com/$u")"

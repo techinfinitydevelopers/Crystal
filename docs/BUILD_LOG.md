@@ -718,3 +718,14 @@ Delete it from the dashboard when done (deleting writes a "Removed products" tom
   `vps-setup.sh` now runs it. No SSH key here, so it must be run on the server:
   `ssh root@187.126.118.190 'bash /var/www/crystal/deploy/harden-nginx.sh'`
 - After it runs: rotate everything in crystal/backend/.env (Django SECRET_KEY, DB password, any API/email keys).
+
+## 2026-10-22 — Repo tidy (safe cleanup; no URL or asset path changed)
+- Moved with `git mv`: notes/logs → `docs/` (BUILD_LOG.md, BUILD-LOG.md, memory.md, AUDIT.md,
+  ENQUIRY-FLOW.md, about-content.md); spreadsheets/documents → `docs/data/`; `screenshots/` → `docs/screenshots/`;
+  `fix_highlight_description.py`, `merge_excel_products.py` → `scripts/` (both use absolute paths);
+  never-live design exports (CRYSTAL Home/Light, LOUD Agency, index-old-v1) → `archive/`.
+- Kept at root on purpose: every public page (file name = URL), `index-v2.html` (in the dashboard's page
+  registry), shared JS/CSS (pages load them by path), all asset folders (paths live in products.json + DB).
+- Dashboard's import template is generated in code; the root copies were reference only.
+- Added README.md (folder map). harden-nginx.sh now also blocks /docs/, /scripts/, /archive/ — needs a re-run
+  on the server to take effect.
