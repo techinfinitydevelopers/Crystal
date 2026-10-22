@@ -707,3 +707,14 @@ Delete it from the dashboard when done (deleting writes a "Removed products" tom
 - Follow-up (`23feec9`): Product.html keeps its CSS in `product-page.css`, which still had the 37px block (the
   swap only covered inline styles). Swapped there too; link versioned `?v=20261022`. Live on Product.html and
   the generated /products/ pages. All 62 site pages now carry the TYPOGRAPHY block.
+
+## 2026-10-22 — SECURITY: the live server served the repo's internals
+- Found while blocking *.md: nginx's root is the git checkout and /media/ aliases the same tree, so
+  `crystal/backend/.env` (production secrets), `.git/`, the Django source, deploy scripts and notes were all
+  downloadable (confirmed with 1-byte range requests only; contents not read), also via `/media/...`.
+- `deploy/harden-nginx.sh` (idempotent, backs up, `nginx -t`, restores on failure): denies dotfiles,
+  /crystal/, /deploy/, /home-v3-src/, /tools/* except cms-manifest.json, and *.md/.py/.sh/.sqlite3/.env/...,
+  inside the /media/ alias too; prints a status check and any earlier .env/.git requests from the access logs.
+  `vps-setup.sh` now runs it. No SSH key here, so it must be run on the server:
+  `ssh root@187.126.118.190 'bash /var/www/crystal/deploy/harden-nginx.sh'`
+- After it runs: rotate everything in crystal/backend/.env (Django SECRET_KEY, DB password, any API/email keys).

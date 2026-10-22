@@ -164,6 +164,9 @@ ln -sf /etc/nginx/sites-available/crystal /etc/nginx/sites-enabled/crystal
 nginx -t
 systemctl reload nginx
 echo "   nginx reloaded"
+# The site root is the checkout itself: keep .env, .git, the backend source,
+# scripts and notes off the web.
+bash "$APP_DIR/deploy/harden-nginx.sh"
 
 say "Firewall"
 ufw allow OpenSSH >/dev/null
