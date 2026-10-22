@@ -865,6 +865,14 @@
  },
  {
   "page": "About.html",
+  "key": "legacy-div-5",
+  "kind": "text",
+  "section": "legacy",
+  "label": "Legacy — Awards & Recognition",
+  "shipped": "Awards & Recognition"
+ },
+ {
+  "page": "About.html",
   "key": "vmv-h2-1",
   "kind": "text",
   "section": "vmv",
@@ -1024,30 +1032,6 @@
   "section": "help",
   "label": "Help — Partner with us to expand Crystal’s presence acr…",
   "shipped": "Partner with us to expand Crystal’s presence across markets through a strong and reliable product network."
- },
- {
-  "page": "About.html",
-  "key": "legacy-div-5",
-  "kind": "text",
-  "section": "legacy",
-  "label": "Legacy — Awards & Recognition",
-  "shipped": "Awards & Recognition"
- },
- {
-  "page": "About.html",
-  "key": "legacy-img-1",
-  "kind": "image",
-  "section": "legacy",
-  "label": "Legacy — image 1",
-  "shipped": "about-assets/award-trophy.jpg"
- },
- {
-  "page": "About.html",
-  "key": "legacy-span-1",
-  "kind": "text",
-  "section": "legacy",
-  "label": "Legacy — Home & Kitchen",
-  "shipped": "Home & Kitchen"
  },
  {
   "page": "About.html",

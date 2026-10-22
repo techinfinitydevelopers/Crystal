@@ -114,6 +114,9 @@ SKIP_CONTAINERS = {
     # columns", "Accent") are not page content and were showing up as
     # dashboard rows before this.
     "twk",
+    # About's awards strip: the dashboard's Awards table replaces these cards
+    # wholesale, so a data-cms key on them would race it on load.
+    "awardtrack",
 }
 TEXT_TAGS = {"h1", "h2", "h3", "h4", "p", "li", "blockquote"}
 # span/div/a carry real copy too -- an eyebrow kicker, a stat number and its

@@ -667,3 +667,20 @@ Delete it from the dashboard when done (deleting writes a "Removed products" tom
   shows only the 9 uploaded photos, none of the old catalogue ones.
 - Note: Product.html takes `?p=<id>`; `?id=` falls back to the first catalogue product (now the test
   product, since dashboard products are put first).
+
+## 2026-10-22 — About page rebuilt to the client's reference (leo9 crystal-wp/about)
+- 10 parallel agents: 7 built one section each into the scratchpad, 3 audited (JS dependencies, dashboard
+  keys, exact reference copy). Integrated by one script; header, footer, the "Our Journey · Since 1971"
+  timeline and the awards block are byte-identical (checked by diff).
+- New order: banner (8 product photos ring + 50-yrs badge slot), statement (scroll word fill), video loop +
+  counters, AWARDS (kept in its original place, per the user), Vision/Mission/Values (switches on scroll;
+  pinned on >=1024px, follows position on phones), journey, sustainability, help, red pre-footer.
+  Copy is the reference's word for word. Removed: infrastructure stats and the 11-min film (not in the
+  reference). No image appears twice. Awards strip pace kept (fallback 5 s/card) now the product strip
+  it borrowed speed from is gone.
+- Reference images already existed locally at the same sizes (leadership = mv-img, sustainability =
+  nurture-img, hero-couple = int-pre-img, prod-1..8, about-vid.mp4). Missing: 50-yrs.webp badge (hidden by
+  onerror until added) and the 3 help-card SVG icons (our inline icons used) — download not yet approved.
+- cms_tag.py fixes: no new key inside a data-cms-rich element; an already-keyed wrapper keeps its row (the
+  support bar's row had silently dropped on 63 pages); `#awardTrack` skipped. Manifest: About rows only.
+- Inter now loaded 400-700 only on all 68 pages (reference loads exactly those); 800/900 resolve to 700.

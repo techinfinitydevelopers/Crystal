@@ -1299,6 +1299,29 @@ h1, h2 { overflow-wrap: break-word; }
       </div>
     </section>
 
+<!-- ===== AWARDS (unchanged block, in its original place under the counters) ===== -->
+<section class="sec wrap sec-cream legacy" id="legacy">
+  <div class="recog" data-fade>
+    <div class="rtitle" data-cms="legacy-div-5">Awards &amp; Recognition</div>
+    <!-- The four shipped cards are the fallback. The dashboard owns this strip
+         now (Awards & certificates), so these carry no data-cms keys: two
+         systems writing the same <img> would race on load. Seeded rows in the
+         dashboard point at these same four files. -->
+    <div class="ritems" id="awardTrack" tabindex="0" role="region" aria-label="Awards and certificates">
+      <figure class="award-card has-caption">
+        <img class="trophy" src="about-assets/award-trophy.jpg" alt="HomeShop18 STAR Award — Home &amp; Kitchen" />
+        <figcaption>HomeShop18 STAR Award<span>Home &amp; Kitchen</span></figcaption>
+      </figure>
+      <!-- The three cert cards that used to sit here were three copies of one
+           stock template ("Kristen Kennedy — E-Commerce Marketing Master"), not
+           Crystal's own. Removed at the client's request. Real certificates go
+           in through the dashboard (Awards & certificates), which replaces this
+           shipped set wholesale — they do not need to come back into this
+           file. -->
+    </div>
+  </div>
+</section>
+
 <!-- ===== 03 VMV ===== -->
 <section class="ab-mv" id="vmv" aria-labelledby="ab-mv-our">
   <div class="ab-mv-container">
@@ -1399,29 +1422,6 @@ h1, h2 { overflow-wrap: break-word; }
           <p data-cms="help-p-3">Partner with us to expand Crystal’s presence across markets through a strong and reliable product network.</p>
         </div>
       </a>
-    </div>
-  </div>
-</section>
-
-<!-- ===== AWARDS (unchanged block, reference order: after Help) ===== -->
-<section class="sec wrap sec-cream legacy" id="legacy">
-  <div class="recog" data-fade>
-    <div class="rtitle" data-cms="legacy-div-5">Awards &amp; Recognition</div>
-    <!-- The four shipped cards are the fallback. The dashboard owns this strip
-         now (Awards & certificates), so these carry no data-cms keys: two
-         systems writing the same <img> would race on load. Seeded rows in the
-         dashboard point at these same four files. -->
-    <div class="ritems" id="awardTrack" tabindex="0" role="region" aria-label="Awards and certificates">
-      <figure class="award-card has-caption">
-        <img class="trophy" src="about-assets/award-trophy.jpg" alt="HomeShop18 STAR Award — Home &amp; Kitchen" data-cms="legacy-img-1" />
-        <figcaption>HomeShop18 STAR Award<span data-cms="legacy-span-1">Home &amp; Kitchen</span></figcaption>
-      </figure>
-      <!-- The three cert cards that used to sit here were three copies of one
-           stock template ("Kristen Kennedy — E-Commerce Marketing Master"), not
-           Crystal's own. Removed at the client's request. Real certificates go
-           in through the dashboard (Awards & certificates), which replaces this
-           shipped set wholesale — they do not need to come back into this
-           file. -->
     </div>
   </div>
 </section>
