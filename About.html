@@ -655,8 +655,11 @@
     border-radius: clamp(14px, 1.04vw, 20px); overflow: hidden; position: relative; background: #000;
   }
   .ab-vid-wrap video { display: block; width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
-  .ab-vid-counters { display: flex; justify-content: space-between; gap: 60px; width: 100%; max-width: 1380px; margin: 0 auto; }
-  .ab-vid-counter { align-content: center; min-width: 0; }
+  /* Same width as the video above it, four equal columns split by hairlines,
+     so the row lines up under the video instead of hanging past its edges. */
+  .ab-vid-counters { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); width: 100%; max-width: 1084px; margin: 0 auto; }
+  .ab-vid-counter { min-width: 0; padding: 6px 12px; text-align: center; }
+  .ab-vid-counter + .ab-vid-counter { border-left: 1px solid var(--line, #e6e6e6); }
   .ab-vid-box { display: flex; align-items: center; width: max-content; margin: 0 auto; }
   .ab-vid-box span {
     color: #000; font-family: var(--head); font-size: clamp(24px, 2vw, 48px); font-weight: 600;
@@ -665,17 +668,15 @@
   .ab-vid-lbl { margin: 0; color: #2f2f2f; text-align: center; font-size: clamp(16px, .94vw, 18px); font-weight: 400; line-height: 1.33; }
 
   @media (max-width: 1440px) {
-    .ab-vid-wrap { max-width: 900px; }
-    .ab-vid-counters { max-width: 1000px; }
+    .ab-vid-wrap, .ab-vid-counters { max-width: 900px; }
   }
-  @media (max-width: 1366px) { .ab-vid-wrap { max-width: 800px; } }
+  @media (max-width: 1366px) { .ab-vid-wrap, .ab-vid-counters { max-width: 800px; } }
   @media (max-width: 1024px) {
-    .ab-vid-wrap { max-width: 100%; }
-    .ab-vid-counters { gap: 24px; }
+    .ab-vid-wrap, .ab-vid-counters { max-width: 100%; }
   }
   @media (max-width: 640px) {
-    .ab-vid-counters { flex-wrap: wrap; gap: 20px; }
-    .ab-vid-counter { width: calc(50% - 10px); }
+    .ab-vid-counters { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 20px; }
+    .ab-vid-counter:nth-child(odd) { border-left: none; }
   }
 /* ===== VISION / MISSION / VALUES (ref: section.mv-sec, red band) =====
    Desktop (>=1200): red band, no vertical padding; 3 columns --
