@@ -876,6 +876,8 @@
 @media (max-width: 990px) {
   .ab-mv-grid { grid-template-columns: minmax(0, 1fr); grid-template-areas: "left" "img" "panels"; }
   .ab-mv-panels { max-width: 100%; }
+  /* stacked layout: the photo sits right above, so no lift — it would touch the photo */
+  .ab-mv-badge { top: 0; }
 }
 @media (max-width: 640px) {
   .ab-mv-grid { padding: 16px; }
