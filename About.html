@@ -784,8 +784,22 @@
   max-width: 560px;
   padding: clamp(24px, 3.13vw, 60px) 0 clamp(24px, 3.13vw, 60px) clamp(30px, 4.17vw, 80px);
 }
-.ab-mv-panel {
+/* "50+ years of excellence" seal: sits above the text in the panel column and
+   stays put while Vision / Mission / Values change underneath it. It rises in
+   when the section scrolls into view (class set from the script at the end). */
+.ab-mv-badge {
   grid-area: 1 / 1;
+  display: block;
+  width: clamp(88px, 7.5vw, 140px);
+  height: auto;
+  margin: 0 0 clamp(14px, 1.5vw, 28px);
+  position: relative;
+  top: calc(-1 * clamp(18px, 2.4vw, 44px));   /* lifted clear of the heading */
+  transition: opacity .7s ease, transform .9s cubic-bezier(.2,.8,.2,1);
+}
+.ab-mv-badge.is-pre { opacity: 0; transform: translateY(24px) scale(.82) rotate(-10deg); }
+.ab-mv-panel {
+  grid-area: 2 / 1;
   visibility: hidden;
   opacity: 0;
   transform: translateY(14px);
@@ -870,6 +884,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   .ab-mv-tab, .ab-mv-panel, .ab-mv-panel.is-active { transition: none; }
+  .ab-mv-badge { transition: none; }
 }
 /* ==========================================================================
    05 SUSTAINABILITY — mirrors the reference .nurture-sec
@@ -1351,6 +1366,7 @@ h1, h2 { overflow-wrap: break-word; }
 
       <!-- RIGHT: text panels (stacked in one grid cell so the height never jumps) -->
       <div class="ab-mv-panels">
+        <img class="ab-mv-badge" src="about-assets/years-of-excellence-badge.webp" alt="50+ years of excellence" width="381" height="381" loading="lazy" decoding="async" />
         <div class="ab-mv-panel is-active" role="tabpanel" id="ab-mv-panel-vision" aria-labelledby="ab-mv-tab-vision">
           <h3 data-cms="vmv-h3-1">Purposeful innovation for modern living.</h3>
           <p data-cms="vmv-p-1">Instinctively trusted for thoughtfully designed, reliable solutions that elevate everyday cooking and cleaning in modern homes.</p>
@@ -2560,6 +2576,22 @@ h1, h2 { overflow-wrap: break-word; }
       if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy) * 1.5) select(current + (dx < 0 ? 1 : -1), false);
     }, { passive: true });
   });
+})();
+
+/* "50+ years" seal in the Vision panel column: hidden at first, rises in once the
+   section scrolls into view. Without IntersectionObserver (or with reduced
+   motion) it simply stays visible. */
+(function () {
+  var badge = document.querySelector("#vmv .ab-mv-badge");
+  if (!badge || typeof IntersectionObserver !== "function") return;
+  if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  badge.classList.add("is-pre");
+  var io = new IntersectionObserver(function (entries) {
+    if (!entries.some(function (e) { return e.isIntersecting; })) return;
+    badge.classList.remove("is-pre");
+    io.disconnect();
+  }, { threshold: 0.35 });
+  io.observe(document.getElementById("vmv"));
 })();
 </script>
 <script src="enquiry.js"></script>
