@@ -1452,3 +1452,24 @@ Worth knowing: **`export_products_json` rewrites `product-data/products.json` ev
 zero dashboard entries to write.** Running it just to prove the code path still imports produced
 a diff in a file this change had no business touching. Same family as the round-trip reformat
 already noted above — treat that command as a write, never as a read.
+
+## 2026-10-21 — Local setup, serve.json, Tripro size variants
+- Fresh clone to `C:\dev\Crystal`, branch `sanjeev/maintenance` (at `fe2bed5`), local admin rebuilt (new venv, migrate, `dashboard-seed.json`, new `localadmin`).
+- Added `serve.json` (clean URLs off + rewrites): plain `npx serve` redirected `Product.html?p=x` to `/Product` and dropped the query, so every product showed the first one (lighter). Browser-cached 301s need a cleared cache or a new port.
+- `product-data/products.json`: grouped `ctp-edk-001` (22 CM) into vg-10 and `ctp-sp-003` (18 CM) into vg-12, reordered sizes. Verified: Tripro listing shows one card per size family; product pages show all size chips.
+- Not done: live/dashboard DB not updated; `cl-073/cl-074` left alone; nothing committed or pushed.
+
+## 2026-10-22 — Same-image sizes, highlight casing
+- `cns-955` / `cns-956` (Tuff Plus Flat Tawa 280/300 MM) now use `CNS-954/g1.jpg` + `hero.jpg`, so all sizes show the same pan.
+- 183 `highlight` lines that were ALL CAPS copies of the product name (182) or a misspelt copy (`clmk-007`) now hold the Title Case name. Edited as text lines (JSON round-trip reformats ~200 bytes). 5 remain caps because the name itself is a code (CKTL-051 etc.).
+- Side effect: for those products the line under the code repeats the title. Real one-line descriptions (like CTV-099's "Combines three layers…") still need writing. 7 lowercase highlights starting with a digit (`cwb-043/045`, `cpw-027`, `cns-752..755`) untouched.
+- Reverted the highlight-casing change above at the user's request: all `highlight` lines are back to the committed values (diff has no highlight lines). The size grouping (Tripro) and the Tuff Plus tawa image change stay. Not applied: replacing name-copy highlights with sentence-case first sentences of `description` (sample shown, user did not proceed).
+
+## 2026-10-22 — Product page: intro line capitalised
+`product-page.js`: added `capWords()` and applied it to `#pIntro` (line under the title) and `#ovLead` (overview lead) for every product, both on first render and on a size-chip switch. Each word becomes Capital + lowercase; tokens with a digit (14CM, 250MM) and SS/OTG/BBQ/LED etc. keep their capitals. Data untouched. The long description paragraph (`#ovDesc`) is not changed. Verified on ctp-tp-001 and against 10 sample products.
+
+## 2026-10-22 — Highlight casing on listing cards (all pages)
+The previous fix only covered Product.html; the user meant the description line on the product cards. `product-image-sync.js` now runs `tidyHighlights()` on every products.json response (after the dashboard overrides, so added products are included, and even when the dashboard feed is unreachable): each word Capital + lowercase, digit-bearing tokens and SS/OTG/BBQ/LED etc. kept. Script version bumped to `?v=20261022a` on all 64 pages so browsers drop the cached copy. Data in products.json untouched. Verified: Tripro and All-Products have no all-caps card text left. Known quirk: "Ss" stays "Ss" inside product names (name is not touched) and S.S/SS in highlights is uppercased.
+
+## 2026-10-22 — Chopping boards grouped
+`mka-079` (S.S Counter Top Large Chopping Board) and `mka-080` (X-Large) now share `vg-43` with size labels "L" / "XL" (changed from "Large" at the user's request). Listing shows one card (Large); the product page shows both size chips. Local `products.json` only: the live site and dashboard DB still list them separately, and the live slugs (`ss-counter-top-large-chopping-board`, `ss-counter-top-x-large-chopping-board`) were not checked or changed.

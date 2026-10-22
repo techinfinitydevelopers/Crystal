@@ -51,6 +51,37 @@
       .catch(function () { finish(null); });
   });
 
+  /* The line shown under a product's title (its highlight) arrives in whatever
+     case it was typed — ALL CAPS, sentence case, or a mix. Every page reads
+     products.json through this wrapper, so it is made uniform here, once, for
+     the listing cards, the search overlay and the product page alike: each word
+     starts with a capital and the rest is lower case. Words holding a digit
+     (14CM, 250MM) and the acronyms below keep their capitals. */
+  var KEEP_CAPS = { "SS": 1, "S.S": 1, "OTG": 1, "JMG": 1, "LED": 1, "BBQ": 1, "PS": 1, "ABS": 1, "RO": 1, "UV": 1, "USB": 1, "GST": 1 };
+
+  function capWords(text) {
+    return String(text == null ? "" : text).replace(/[A-Za-z0-9][A-Za-z0-9.'/&\-]*/g, function (w) {
+      var bare = w.replace(/[.,;:!?]+$/, "");
+      if (KEEP_CAPS[bare.toUpperCase()]) return bare.toUpperCase() + w.slice(bare.length);
+      if (/\d/.test(bare)) return w;
+      return w.charAt(0).toUpperCase() + w.slice(1).toLowerCase();
+    });
+  }
+
+  /* Returns true if any highlight actually changed. */
+  function tidyHighlights(data) {
+    var list = data && data.products;
+    if (!Array.isArray(list)) return false;
+    var changed = false;
+    for (var i = 0; i < list.length; i++) {
+      var p = list[i];
+      if (!p || typeof p.highlight !== "string" || !p.highlight) continue;
+      var tidy = capWords(p.highlight);
+      if (tidy !== p.highlight) { p.highlight = tidy; changed = true; }
+    }
+    return changed;
+  }
+
   /* The same photo reaches us written two ways — the catalogue stores
      "product-photos/CC-850/g2.jpg", the dashboard publishes it absolute — so
      compare on the path alone. */
@@ -331,8 +362,10 @@
       // handed back untouched down every failure path below.
       return res.clone().json().then(function (data) {
         return overrides.then(function (feed) {
-          if (!feed) return res;
-          if (!applyOverrides(data, feed.products || {}, feed.hidden || [], feed.added || [])) return res;
+          var touched = feed ? applyOverrides(data, feed.products || {}, feed.hidden || [], feed.added || []) : false;
+          // After the overrides, so products the dashboard adds are tidied too.
+          if (tidyHighlights(data)) touched = true;
+          if (!touched) return res;
           return new Response(JSON.stringify(data), {
             status: res.status,
             statusText: res.statusText,

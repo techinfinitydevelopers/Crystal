@@ -1,6 +1,16 @@
   const RM = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const U = "https://proj.leo9studio.in/projects/crystal-wp/wp-content/uploads/";
 
+  /* Every product's intro line reads the same way: each word starts with a capital and
+     the rest is lower case ("Crystal Tripro Tope With Lid"). Words holding a digit
+     (14CM, 500ML) and the acronyms below keep their capitals. */
+  const KEEP_CAPS = new Set(["SS", "S.S", "OTG", "JMG", "LED", "BBQ", "PS", "ABS", "RO", "UV", "USB", "GST"]);
+  const capWords = s => String(s == null ? "" : s).replace(/[A-Za-z0-9][A-Za-z0-9.'/&\-]*/g, w => {
+    const bare = w.replace(/[.,;:!?]+$/, "");
+    if (/\d/.test(bare) || KEEP_CAPS.has(bare.toUpperCase())) return KEEP_CAPS.has(bare.toUpperCase()) ? bare.toUpperCase() + w.slice(bare.length) : w;
+    return w.charAt(0).toUpperCase() + w.slice(1).toLowerCase();
+  });
+
   const BRANDS = {
     crystal:    { name: "Crystal",    tagline: "World of Kitchenware", story: "It began in 1971 with a simple gas lighter and a belief that everyday Indian homes deserved better. Today Crystal spans knives, tools, cookware and appliances — the flagship of the family.", img: U + "2026/04/Knife-2.jpg" },
     crystalina: { name: "Crystalina", tagline: "Splendid Finish",      story: "Crystalina brings a splendid mirror finish to serveware and dinnerware — premium stainless steel that makes every meal feel like an occasion.", img: "about-assets/prod-3.jpg" },
@@ -209,7 +219,7 @@
   document.getElementById("catChip").textContent = CAT_LABEL[prod.c];
   document.getElementById("pTitle").textContent = prod.n;
   document.getElementById("pSku").textContent = prod.sku ? "Code: " + prod.sku.toUpperCase() : "";
-  document.getElementById("pIntro").textContent = prod.intro;
+  document.getElementById("pIntro").textContent = capWords(prod.intro);
   // ---- Enquire / Buy / quantity wiring ----
   var _pid = prod.id || (new URLSearchParams(location.search)).get("p") || "";
   function wireEnq(btn, p, gal) { if (!btn) return; p = p || prod; gal = gal || gallery; btn.dataset.id = p.id; btn.dataset.name = p.n; btn.dataset.brand = brand.name; btn.dataset.cat = CAT_LABEL[p.c] || p.c; btn.dataset.img = gal[0] || ""; }
@@ -289,7 +299,7 @@
     applySeo(newP);
     document.getElementById("pTitle").textContent = newP.n;
     document.getElementById("pSku").textContent = newP.sku ? "Code: " + newP.sku.toUpperCase() : "";
-    document.getElementById("pIntro").textContent = newP.intro;
+    document.getElementById("pIntro").textContent = capWords(newP.intro);
     showMainImage(newGallery[0], newP.n);
     document.getElementById("gMain").style.transform = "scale(" + sizeScaleFor(siblings, newP) + ")";
     {
@@ -307,7 +317,7 @@
     wireBuy(document.getElementById("buyNowBtn"), newP);
     wireBuy(document.getElementById("sBuy"), newP);
     document.getElementById("mkInline").innerHTML = marketplaceRow(newP);
-    document.getElementById("ovLead").textContent = newP.intro;
+    document.getElementById("ovLead").textContent = capWords(newP.intro);
     document.getElementById("ovDesc").innerHTML = `<p>${newP.desc}</p>`;
     document.getElementById("ovImg").src = newGallery[1] || newGallery[0];
     document.getElementById("ovImg").alt = newP.n;
@@ -327,7 +337,7 @@
   document.getElementById("hiList").innerHTML = hiItems.map(t => `<li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 6"/></svg></span>${t}</li>`).join("");
 
   /* ---- overview ---- */
-  document.getElementById("ovLead").textContent = prod.intro;
+  document.getElementById("ovLead").textContent = capWords(prod.intro);
   document.getElementById("ovDesc").innerHTML = `<p>${prod.desc}</p>`;
   document.getElementById("ovImg").src = gallery[1] || gallery[0];
   document.getElementById("ovImg").alt = prod.n;

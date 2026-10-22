@@ -4157,6 +4157,9 @@
       ],
       "match_tier": "image_sourced_amazon_link",
       "id": "mka-079",
+      "variant_group": "vg-43",
+      "variant_label": "L",
+      "variant_order": 0,
       "features": [
         [
           "check",
@@ -4213,6 +4216,9 @@
       ],
       "match_tier": "image_sourced_amazon_link",
       "id": "mka-080",
+      "variant_group": "vg-43",
+      "variant_label": "XL",
+      "variant_order": 1,
       "features": [
         [
           "check",
@@ -16385,6 +16391,9 @@
       ],
       "match_tier": "exact_sku",
       "id": "ctp-edk-001",
+      "variant_group": "vg-10",
+      "variant_label": "22 CM",
+      "variant_order": 0,
       "features": [
         [
           "check",
@@ -16427,7 +16436,7 @@
       "id": "ctp-edk-002",
       "variant_group": "vg-10",
       "variant_label": "24 CM",
-      "variant_order": 0
+      "variant_order": 1
     },
     {
       "sku": "CTP-EDK-003",
@@ -16463,7 +16472,7 @@
       "id": "ctp-edk-003",
       "variant_group": "vg-10",
       "variant_label": "26 CM",
-      "variant_order": 1
+      "variant_order": 2
     },
     {
       "sku": "CTP-EDK-004",
@@ -16500,7 +16509,7 @@
       "id": "ctp-edk-004",
       "variant_group": "vg-10",
       "variant_label": "28 CM",
-      "variant_order": 2
+      "variant_order": 3
     },
     {
       "sku": "CTP-TAS-001",
@@ -16976,7 +16985,10 @@
         "product-photos/CTP-SP-003/az-4.jpg"
       ],
       "match_tier": "exact_sku",
-      "id": "ctp-sp-003"
+      "id": "ctp-sp-003",
+      "variant_group": "vg-12",
+      "variant_label": "18 CM",
+      "variant_order": 2
     },
     {
       "sku": "CTP-SP-004",
@@ -17011,7 +17023,7 @@
       "id": "ctp-sp-004",
       "variant_group": "vg-12",
       "variant_label": "20 CM",
-      "variant_order": 2,
+      "variant_order": 3,
       "features": [
         [
           "heat",
@@ -18528,8 +18540,10 @@
         "type": "Tawa",
         "material": "Nonstick"
       },
-      "hero": "product-photos/CNS-955/az-1.jpg",
-      "gallery": [],
+      "hero": "product-photos/CNS-954/g1.jpg",
+      "gallery": [
+        "product-photos/CNS-954/hero.jpg"
+      ],
       "match_tier": "image_sourced_searched",
       "id": "cns-955",
       "variant_group": "vg-14",
@@ -18559,8 +18573,10 @@
         "type": "Tawa",
         "material": "Nonstick"
       },
-      "hero": "product-photos/CNS-956/az-1.jpg",
-      "gallery": [],
+      "hero": "product-photos/CNS-954/g1.jpg",
+      "gallery": [
+        "product-photos/CNS-954/hero.jpg"
+      ],
       "match_tier": "image_sourced_searched",
       "id": "cns-956",
       "variant_group": "vg-14",
