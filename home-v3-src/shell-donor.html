@@ -560,7 +560,7 @@
   .wa-float:hover { transform: scale(1.08); }
 
   @media (max-width: 960px) {
-    .nav-right .icon-btn, .nav-right .enq-inline, .nav-right .btn-outline { display: none !important; }
+    .nav-right .icon-btn:not(#searchBtn), .nav-right .enq-inline, .nav-right .btn-outline { display: none !important; }
     .support-bar { font-size: 11.5px; padding: 7px 10px; }
     header { inset: 32px 0 auto 0; }
     .hero-v2 { padding-top: 120px; }
@@ -581,7 +581,7 @@
      other sections rely on. */
   @media (max-width: 1200px) and (min-width: 961px) {
     .nav-links { display: none; }
-    .nav-right .icon-btn, .nav-right .enq-inline, .nav-right .btn-outline { display: none !important; }
+    .nav-right .icon-btn:not(#searchBtn), .nav-right .enq-inline, .nav-right .btn-outline { display: none !important; }
     .burger { display: flex; }
   }
 
