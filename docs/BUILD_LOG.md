@@ -729,3 +729,19 @@ Delete it from the dashboard when done (deleting writes a "Removed products" tom
 - Dashboard's import template is generated in code; the root copies were reference only.
 - Added README.md (folder map). harden-nginx.sh now also blocks /docs/, /scripts/, /archive/ — needs a re-run
   on the server to take effect.
+
+## 2026-10-27 — Language switcher, 15 languages, every page
+- User chose Google auto-translate (vs a paid service or our own translations). `lang-switch.js`, loaded on
+  all 64 pages + the Home source (`home-v3-src/shell-donor.html`), so also on generated /products/ and /blog/
+  pages: globe dropdown in the desktop header (English + Arabic, French, Spanish, German, Portuguese, Italian,
+  Russian, Turkish, Indonesian, Malay, Japanese, Korean, Chinese (Simplified), Dutch, Thai); the same list in
+  the phone menu (no room in the phone header). Choice = Google's `googtrans` cookie on path /, so it follows
+  the visitor across pages; English loads no Google script at all.
+- Two fixes found in testing (visible Chrome; the hidden preview pane never translates):
+  - heading animations wrap each word in a span, so Google translated word by word ("Crafting Everyday
+    Essentials with Care" -> five dictionary words). With a language on, the words are joined back first.
+  - brand names (Crystal, Crystalina, SparkMate, ValMate) were translated (Cristal/Kristall); now wrapped in
+    notranslate spans, spaces included (Google trims text next to them), via a MutationObserver so product
+    cards drawn later are covered too.
+- Limits: machine translation quality; translated pages are not indexed by Google; Arabic keeps the
+  left-to-right layout; text inside images is not translated.
