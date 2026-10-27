@@ -927,6 +927,7 @@ h1, h2 { overflow-wrap: break-word; }
       country: customer.country || "India",
       businessType: customer.businessType,
       message: customer.message || "",
+      page: location.pathname,
       items: items.map(it => ({
         id: it.id || "", name: it.name, brand: it.brand || "",
         category: it.cat || it.category || "", sku: it.sku || "",

@@ -753,3 +753,17 @@ Delete it from the dashboard when done (deleting writes a "Removed products" tom
   phone menu and Contact button use hand-written labels for all 15 languages (notranslate); translated menu
   stays on one line at a fixed line-height (Japanese "▾" items were 7px taller). Re-audit: all 15 languages —
   menu on one line, no overlap, no sideways scroll. Script tag bumped to ?v=2.
+
+## 2026-10-27 — Every enquiry/contact/quote emailed to sales@crystalcook.com
+- Team notification now goes to `ENQUIRY_NOTIFY_EMAILS` (default `sales@crystalcook.com`, plus
+  `ADMIN_NOTIFICATION_EMAIL` if set), reply-to = the customer. Enquiry mail carries every form field
+  (name, email, phone, company, business type, city/state/country, message, page it was sent from, time)
+  and each product with photo, name linked to its page, SKU · brand · category, qty.
+- Contact.html and Quote.html never reached the server (they only showed a "sent" box). New endpoint
+  `POST /api/enquiry/message/` (WebsiteMessage model, migration enquiry 0002) saves them in the dashboard
+  ("Contact / quote messages") and emails sales@ with all fields. Pages show "sent" only on success, else
+  a red error with the sales email/phone.
+- Tested: backend on a scratch DB (locmem mail) — recipient, reply-to, all fields, products; frontend with
+  mocked fetch — payloads, success and failure states.
+- Delivery needs SMTP in the server .env (EMAIL_BACKEND smtp, EMAIL_HOST/PORT/USER/PASSWORD,
+  DEFAULT_FROM_EMAIL). Without it Django prints mail to the console and nothing is sent.

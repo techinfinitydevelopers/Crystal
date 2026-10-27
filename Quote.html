@@ -855,10 +855,39 @@ h1, h2 { overflow-wrap: break-word; }
     let valid = true;
     required.forEach(id => { if (!validate(document.getElementById(id))) valid = false; });
     if (!valid) { const first = form.querySelector(".field.err input, .field.err select, .field.err textarea"); if (first) first.focus(); return; }
-    const name = document.getElementById("f-name").value.trim().split(/\s+/)[0];
-    document.getElementById("sentText").textContent = `Thanks ${name}! Your quote request is on its way. Our sales team will get back to you within one business day.`;
-    card.classList.add("sent");
-    card.scrollTop = 0;
+    const val = id => { const el = document.getElementById(id); return el ? el.value.trim() : ""; };
+    const name = val("f-name").split(/\s+/)[0];
+    const btn = form.querySelector('button[type="submit"]');
+    let err = form.querySelector(".send-err");
+    if (!err) {
+      err = document.createElement("p");
+      err.className = "send-err";
+      err.style.cssText = "color:#ED3338;font-size:14px;margin:12px 0 0;";
+      btn.insertAdjacentElement("afterend", err);
+    }
+    err.textContent = "";
+    const label = btn.innerHTML;
+    btn.disabled = true; btn.textContent = "Sending…";
+    // Stored in the dashboard and emailed to sales@crystalcook.com. This form
+    // used to show "on its way" without sending anything.
+    fetch((location.hostname.endsWith(".up.railway.app") ? "https://crystal-production-eb2e.up.railway.app" : "") + "/api/enquiry/message/", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ kind: "quote", name: val("f-name"), company: val("f-company"), email: val("f-email"),
+                             phone: val("f-phone"), subject: val("f-type"), product: val("f-product"),
+                             quantity: val("f-qty"), message: val("f-message"), page: location.pathname }),
+    })
+      .then(r => { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+      .then(() => {
+        document.getElementById("sentText").textContent = `Thanks ${name}! Your quote request is on its way. Our sales team will get back to you within one business day.`;
+        card.classList.add("sent");
+        card.scrollTop = 0;
+      })
+      .catch(e => {
+        console.error("Quote form failed:", e);
+        err.textContent = "Sorry, we could not send your request just now. Please try again, or email sales@crystalcook.com / call 022-49702803.";
+      })
+      .finally(() => { btn.disabled = false; btn.innerHTML = label; });
   });
   form.querySelectorAll("input, select, textarea").forEach(inp => {
     inp.addEventListener("blur", () => { if (required.includes(inp.id)) validate(inp); });

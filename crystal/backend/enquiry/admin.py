@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.utils.html import format_html, mark_safe
-from .models import Enquiry, EnquiryItem
+from .models import Enquiry, EnquiryItem, WebsiteMessage
 
 STATUS_COLORS = {
     'new':             ('#3b82f6', '#fff'),
@@ -23,9 +23,9 @@ BTYPE_COLORS = {
 class EnquiryItemInline(admin.TabularInline):
     model = EnquiryItem
     extra = 0
-    readonly_fields = ['product', 'product_name', 'product_sku', 'quantity']
+    readonly_fields = ['product', 'product_name', 'product_sku', 'brand', 'category', 'quantity', 'site_id']
     can_delete = False
-    fields = ['product_name', 'product_sku', 'quantity', 'product']
+    fields = ['product_name', 'product_sku', 'brand', 'category', 'quantity', 'site_id', 'product']
     verbose_name = 'Enquiry Item'
     verbose_name_plural = 'Items in this Enquiry'
 
@@ -54,7 +54,7 @@ class EnquiryAdmin(admin.ModelAdmin):
             'fields': (('city', 'state', 'country'),),
         }),
         ('Message', {
-            'fields': ('message',),
+            'fields': ('message', 'source_page'),
         }),
         ('Meta', {
             'fields': ('created_at',),
@@ -100,3 +100,19 @@ class EnquiryAdmin(admin.ModelAdmin):
             'font-size:11px;font-weight:700;">{}</span>',
             n,
         )
+
+
+@admin.register(WebsiteMessage)
+class WebsiteMessageAdmin(admin.ModelAdmin):
+    list_display = ['created_at', 'kind', 'full_name', 'email', 'phone', 'subject', 'status']
+    list_filter = ['kind', 'status', 'created_at']
+    search_fields = ['full_name', 'email', 'phone', 'company_name', 'subject', 'message']
+    readonly_fields = ['kind', 'full_name', 'email', 'phone', 'company_name', 'subject',
+                       'product_interest', 'quantity', 'message', 'source_page', 'created_at']
+    fields = ['status', 'kind', ('full_name', 'company_name'), ('email', 'phone'),
+              ('subject', 'product_interest', 'quantity'), 'message', 'source_page', 'created_at']
+    ordering = ['-created_at']
+    list_per_page = 25
+
+    def has_add_permission(self, request):
+        return False

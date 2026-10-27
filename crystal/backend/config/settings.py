@@ -244,7 +244,10 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = env('EMAIL_HOST_USER', default='')
 EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD', default='')
 DEFAULT_FROM_EMAIL = env('DEFAULT_FROM_EMAIL', default='noreply@crystal.com')
-ADMIN_NOTIFICATION_EMAIL = env('ADMIN_NOTIFICATION_EMAIL', default='developers@techinfinity.io')
+# Every enquiry, contact and quote form goes to these; ADMIN_NOTIFICATION_EMAIL,
+# when set, gets a copy too.
+ENQUIRY_NOTIFY_EMAILS = env.list('ENQUIRY_NOTIFY_EMAILS', default=['sales@crystalcook.com'])
+ADMIN_NOTIFICATION_EMAIL = env('ADMIN_NOTIFICATION_EMAIL', default='')
 
 # ─── Jazzmin Admin UI ────────────────────────────────────────────────────────
 JAZZMIN_SETTINGS = {

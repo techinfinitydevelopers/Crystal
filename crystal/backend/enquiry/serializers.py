@@ -23,6 +23,7 @@ class EnquiryCreateSerializer(serializers.Serializer):
     businessType = serializers.ChoiceField(choices=['Dealer', 'Distributor', 'Retailer', 'Customer', 'Other'])
     company = serializers.CharField(required=False, allow_blank=True, default='')
     message = serializers.CharField(required=False, allow_blank=True, default='')
+    page = serializers.CharField(required=False, allow_blank=True, default='', max_length=300)
     items = EnquiryItemInputSerializer(many=True)
 
     def validate_phone(self, value):
@@ -54,6 +55,7 @@ class EnquiryCreateSerializer(serializers.Serializer):
             business_type=business_type_map.get(validated_data['businessType'], 'customer'),
             company_name=validated_data.get('company', ''),
             message=validated_data.get('message', ''),
+            source_page=validated_data.get('page', ''),
         )
         for item in items_data:
             from products.models import Product
@@ -66,6 +68,39 @@ class EnquiryCreateSerializer(serializers.Serializer):
                 product=product_obj,
                 product_name=item['name'],
                 product_sku=item.get('sku', ''),
+                brand=item.get('brand', '')[:100],
+                category=item.get('category', '')[:100],
+                image=item.get('img', '')[:500],
+                site_id=product_id_slug[:120],
                 quantity=item.get('qty', 1),
             )
         return enquiry
+
+
+class WebsiteMessageSerializer(serializers.Serializer):
+    """The Contact and Request-a-quote forms."""
+    kind = serializers.ChoiceField(choices=['contact', 'quote'])
+    name = serializers.CharField(min_length=2, max_length=200)
+    email = serializers.EmailField()
+    phone = serializers.CharField(required=False, allow_blank=True, default='', max_length=30)
+    company = serializers.CharField(required=False, allow_blank=True, default='', max_length=200)
+    subject = serializers.CharField(required=False, allow_blank=True, default='', max_length=200)
+    product = serializers.CharField(required=False, allow_blank=True, default='', max_length=200)
+    quantity = serializers.CharField(required=False, allow_blank=True, default='', max_length=100)
+    message = serializers.CharField(min_length=2)
+    page = serializers.CharField(required=False, allow_blank=True, default='', max_length=300)
+
+    def validate_phone(self, value):
+        if value and not re.match(r'^[\d\s\+\(\)\-]{7,20}$', value):
+            raise serializers.ValidationError('Invalid phone number format.')
+        return value
+
+    def create(self, data):
+        from .models import WebsiteMessage
+        return WebsiteMessage.objects.create(
+            kind=data['kind'], full_name=data['name'], email=data['email'],
+            phone=data.get('phone', ''), company_name=data.get('company', ''),
+            subject=data.get('subject', ''), product_interest=data.get('product', ''),
+            quantity=data.get('quantity', ''), message=data['message'],
+            source_page=data.get('page', ''),
+        )

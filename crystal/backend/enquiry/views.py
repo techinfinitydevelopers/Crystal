@@ -2,8 +2,8 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 
-from .emails import send_enquiry_emails
-from .serializers import EnquiryCreateSerializer
+from .emails import send_enquiry_emails, send_message_notification
+from .serializers import EnquiryCreateSerializer, WebsiteMessageSerializer
 
 
 class EnquiryCreateView(APIView):
@@ -34,3 +34,18 @@ class EnquiryCreateView(APIView):
             },
             status=status.HTTP_201_CREATED,
         )
+
+
+class WebsiteMessageCreateView(APIView):
+    """The Contact and Request-a-quote forms. Stored, then emailed to the
+    sales team; a mail failure is logged, never shown to the visitor."""
+    authentication_classes = []
+    permission_classes = []
+
+    def post(self, request):
+        serializer = WebsiteMessageSerializer(data=request.data)
+        if not serializer.is_valid():
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        msg = serializer.save()
+        sent = send_message_notification(msg)
+        return Response({'id': msg.pk, 'emailed': sent}, status=status.HTTP_201_CREATED)
