@@ -745,3 +745,11 @@ Delete it from the dashboard when done (deleting writes a "Removed products" tom
     cards drawn later are covered too.
 - Limits: machine translation quality; translated pages are not indexed by Google; Arabic keeps the
   left-to-right layout; text inside images is not translated.
+- Audit (same day, all 15 languages on Home, visible Chrome 1536px + layout at 360/390/768): the globe button
+  in the header ate the room the menu needed ("Knowledge Centre" broke onto two lines even in English), and
+  Google mangled the one-word menu labels (Italian "Products" -> "Libri", Arabic/Russian/Korean "About" -> a bare
+  preposition, Spanish "Catalogue" -> "Catalogar"); French/Spanish/Portuguese menus wrapped.
+  Fixes: switcher moved to the right end of the fixed red support bar (icon only under 560px); header menu,
+  phone menu and Contact button use hand-written labels for all 15 languages (notranslate); translated menu
+  stays on one line at a fixed line-height (Japanese "▾" items were 7px taller). Re-audit: all 15 languages —
+  menu on one line, no overlap, no sideways scroll. Script tag bumped to ?v=2.

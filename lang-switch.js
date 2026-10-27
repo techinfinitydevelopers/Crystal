@@ -63,18 +63,22 @@
     ".VIpgJd-ZVi9od-ORHb-OEVmcd, .VIpgJd-ZVi9od-aZ2wEe-wOHMyf, .VIpgJd-yAWNEb-L7lbkb { display: none !important; }",
     ".goog-text-highlight, font[style] { background: none !important; box-shadow: none !important; }",
     "#google_translate_element { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }",
-    /* desktop picker */
-    ".lang-sw { position: relative; display: inline-flex; }",
-    ".lang-sw-btn { display: inline-flex; align-items: center; gap: 6px; padding: 8px 10px; border-radius: 999px; background: transparent; border: 0; cursor: pointer; color: inherit; font: inherit; font-size: 13px; font-weight: 600; line-height: 1; }",
-    ".lang-sw-btn:hover, .lang-sw.open .lang-sw-btn { background: rgba(237,51,56,0.08); color: #ED3338; }",
-    ".lang-sw-btn svg { width: 18px; height: 18px; flex: 0 0 auto; }",
-    ".lang-sw-menu { position: absolute; top: calc(100% + 10px); right: 0; z-index: 1000; min-width: 220px; max-height: min(70vh, 460px); overflow-y: auto; margin: 0; padding: 6px; list-style: none; background: #fff; border: 1px solid rgba(15,15,15,0.08); border-radius: 14px; box-shadow: 0 24px 50px -20px rgba(15,15,15,0.35); display: none; }",
+    /* the picker: right-hand end of the red support bar, which is fixed at the
+       top of every page -- in the header it took room the menu needed
+       ("Knowledge Centre" broke onto two lines) */
+    ".lang-sw { position: fixed; top: 0; right: 16px; height: 34px; z-index: 103; display: flex; align-items: center; }",
+    ".lang-sw-btn { display: inline-flex; align-items: center; gap: 6px; padding: 5px 10px; border-radius: 999px; background: transparent; border: 0; cursor: pointer; color: #fff; font: inherit; font-size: 13px; font-weight: 600; line-height: 1; }",
+    ".lang-sw-btn:hover, .lang-sw.open .lang-sw-btn { background: rgba(255,255,255,0.18); }",
+    ".lang-sw-btn svg { width: 16px; height: 16px; flex: 0 0 auto; }",
+    "@media (max-width: 560px) { .lang-sw { right: 8px; } .lang-sw-btn span { display: none; } .lang-sw-btn { padding: 6px; } }",
+    ".lang-sw-menu { position: absolute; top: calc(100% + 4px); right: 0; z-index: 1000; min-width: 220px; max-height: min(70vh, 460px); overflow-y: auto; margin: 0; padding: 6px; list-style: none; background: #fff; border: 1px solid rgba(15,15,15,0.08); border-radius: 14px; box-shadow: 0 24px 50px -20px rgba(15,15,15,0.35); display: none; }",
     ".lang-sw.open .lang-sw-menu { display: block; }",
     ".lang-sw-menu button { width: 100%; display: flex; align-items: center; gap: 10px; padding: 9px 12px; border: 0; border-radius: 10px; background: none; cursor: pointer; font: inherit; font-size: 14px; color: #1a1a1a; text-align: left; }",
     ".lang-sw-menu button:hover { background: rgba(237,51,56,0.07); }",
     ".lang-sw-menu button[aria-current='true'] { background: rgba(237,51,56,0.1); color: #ED3338; font-weight: 600; }",
     ".lang-sw-flag { font-size: 18px; line-height: 1; }",
-    "@media (max-width: 900px) { .nav-right .lang-sw { display: none !important; } }",
+    /* translated, the menu stays on one line (and keeps its ▾ beside the word) */
+    "html.translated-ltr #hdr .nav > ul > li > a, html.translated-rtl #hdr .nav > ul > li > a { white-space: nowrap; line-height: 1.2; }",
     /* phone menu list */
     ".mm-lang { margin: 18px 0 6px; }",
     ".mm-lang-h { display: block; font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.7; margin-bottom: 10px; }",
@@ -110,8 +114,7 @@
     var cur = current();
     var label = cur === "en" ? "EN" : cur.toUpperCase().replace("ZH-CN", "中文");
 
-    var nav = document.querySelector("#hdr .nav-right, header .nav-right");
-    if (nav && !nav.querySelector(".lang-sw")) {
+    if (!document.querySelector(".lang-sw")) {
       var wrap = document.createElement("div");
       wrap.className = "lang-sw notranslate";
       wrap.setAttribute("translate", "no");
@@ -119,8 +122,7 @@
         '<button type="button" class="lang-sw-btn" aria-haspopup="true" aria-expanded="false" aria-label="Choose language" title="Language">' +
         GLOBE + '<span>' + label + '</span></button>' +
         '<ul class="lang-sw-menu" role="menu"><li>' + optionButtons(true).split("</button>").join("</button></li><li>").replace(/<li>$/, "") + '</ul>';
-      var anchor = nav.querySelector("#searchBtn") || nav.firstChild;
-      nav.insertBefore(wrap, anchor);
+      document.body.appendChild(wrap);
       var btn = wrap.querySelector(".lang-sw-btn");
       btn.addEventListener("click", function (e) {
         e.stopPropagation();
@@ -249,9 +251,42 @@
     }).observe(document.body, { childList: true, subtree: true });
   }
 
+  /* ---------- the menu, worded by hand ----------
+     Google gets one- or two-word menu labels wrong without context ("Products"
+     became Italian "Libri", books; "About" a bare preposition in Arabic, Russian
+     and Korean), and long renderings broke the header onto two lines. The top
+     menu, the phone menu and the Contact button use these instead. */
+  var MENU = {
+    "About":            { ar: "من نحن", fr: "À propos", es: "Nosotros", de: "Über uns", pt: "Sobre nós", it: "Chi siamo", ru: "О нас", tr: "Hakkımızda", id: "Tentang Kami", ms: "Tentang Kami", ja: "会社概要", ko: "회사 소개", "zh-CN": "关于我们", nl: "Over ons", th: "เกี่ยวกับเรา" },
+    "Products":         { ar: "المنتجات", fr: "Produits", es: "Productos", de: "Produkte", pt: "Produtos", it: "Prodotti", ru: "Продукция", tr: "Ürünler", id: "Produk", ms: "Produk", ja: "製品", ko: "제품", "zh-CN": "产品", nl: "Producten", th: "สินค้า" },
+    "Brands":           { ar: "العلامات", fr: "Marques", es: "Marcas", de: "Marken", pt: "Marcas", it: "Marchi", ru: "Бренды", tr: "Markalar", id: "Merek", ms: "Jenama", ja: "ブランド", ko: "브랜드", "zh-CN": "品牌", nl: "Merken", th: "แบรนด์" },
+    "Catalogue":        { ar: "الكتالوج", fr: "Catalogue", es: "Catálogo", de: "Katalog", pt: "Catálogo", it: "Catalogo", ru: "Каталог", tr: "Katalog", id: "Katalog", ms: "Katalog", ja: "カタログ", ko: "카탈로그", "zh-CN": "产品目录", nl: "Catalogus", th: "แคตตาล็อก" },
+    "Knowledge Centre": { ar: "مركز المعرفة", fr: "Conseils", es: "Consejos", de: "Wissen", pt: "Dicas", it: "Consigli", ru: "Полезное", tr: "Bilgi Merkezi", id: "Pusat Info", ms: "Pusat Info", ja: "お役立ち情報", ko: "지식 센터", "zh-CN": "知识中心", nl: "Kennisbank", th: "ศูนย์ความรู้" },
+    "Contact Us":       { ar: "اتصل بنا", fr: "Contact", es: "Contacto", de: "Kontakt", pt: "Contato", it: "Contatti", ru: "Контакты", tr: "İletişim", id: "Kontak", ms: "Hubungi Kami", ja: "お問い合わせ", ko: "문의하기", "zh-CN": "联系我们", nl: "Contact", th: "ติดต่อเรา" }
+  };
+
+  function relabel(code) {
+    var targets = document.querySelectorAll(
+      "#hdr .nav > ul > li > a, #hdr .nav-right .btn-outline, #mobileMenu > ul > li > a.mm-link, #mobileMenu > ul > li > button.mm-link");
+    Array.prototype.forEach.call(targets, function (el) {
+      for (var n = el.firstChild; n; n = n.nextSibling) {
+        if (n.nodeType !== 3 || !n.nodeValue.trim()) continue;
+        var key = n.nodeValue.trim();
+        var word = MENU[key] && MENU[key][code];
+        if (word) {
+          n.nodeValue = n.nodeValue.replace(key, word);
+          el.classList.add("notranslate");
+          el.setAttribute("translate", "no");
+        }
+        break;
+      }
+    });
+  }
+
   /* ---------- Google's translator, only when a language other than English is on ---------- */
   function loadGoogle() {
     if (current() === "en" || document.getElementById("google_translate_element")) return;
+    relabel(current());
     unsplit();
     window.addEventListener("load", unsplit);
     watchBrands();
