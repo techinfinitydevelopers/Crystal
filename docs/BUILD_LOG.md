@@ -773,3 +773,5 @@ Delete it from the dashboard when done (deleting writes a "Removed products" tom
   fixed 2:1, so 3:2 / square photos lost their top and bottom (the Diwali post's headline text was cut).
   The box now takes the photo's own proportions (read on load), capped at 80% of screen height (box narrows
   and centres); very tall photos stop at 4:5 and sit inside. Tested 1400px and 390px: box ratio = image ratio.
+- Same day: links inside a post are brand red + underlined; a web address typed as plain text
+  (https://… or www.…) is turned into a real link (other sites open in a new tab).

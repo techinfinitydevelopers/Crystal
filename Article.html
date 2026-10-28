@@ -236,6 +236,9 @@
   .prose ul { margin: 0 0 22px; padding-left: 22px; }
   .prose li { color: #36322e; font-size: clamp(16px, 1.7vw, 18.5px); line-height: 1.7; margin-bottom: 9px; }
   .prose strong { color: var(--ink); font-weight: 700; }
+  /* links written into a post read as links: brand red, underlined */
+  .prose a, .prose a strong { color: var(--red); text-decoration: underline; text-underline-offset: 3px; overflow-wrap: anywhere; }
+  .prose a:hover { color: #c4161c; }
 
   /* ===== ARTICLE CTA BAND ===== */
   .art-cta { border-radius: clamp(28px, 4vw, 48px); margin: 0 auto; text-align: center; }
@@ -747,6 +750,32 @@ h1, h2 { overflow-wrap: break-word; }
   }
   fitHero();
 
+  /* A web address typed into a post as plain text becomes a real (red) link. */
+  function linkifyBody() {
+    var body = document.getElementById("artBody"); if (!body) return;
+    var re = /(https?:\/\/[^\s<]+[^\s<.,;:!?)'"\]])|(www\.[^\s<]+[^\s<.,;:!?)'"\]])/g;
+    var walk = document.createTreeWalker(body, NodeFilter.SHOW_TEXT, null), nodes = [], n;
+    while ((n = walk.nextNode())) {
+      if (!n.parentNode.closest("a, script, style") && re.test(n.nodeValue)) nodes.push(n);
+      re.lastIndex = 0;
+    }
+    nodes.forEach(function (t) {
+      var frag = document.createDocumentFragment(), s = t.nodeValue, last = 0, m;
+      while ((m = re.exec(s))) {
+        frag.appendChild(document.createTextNode(s.slice(last, m.index)));
+        var a = document.createElement("a");
+        a.href = m[0].indexOf("http") === 0 ? m[0] : "https://" + m[0];
+        a.textContent = m[0];
+        if (a.hostname !== location.hostname) { a.target = "_blank"; a.rel = "noopener"; }
+        frag.appendChild(a);
+        last = m.index + m[0].length;
+      }
+      frag.appendChild(document.createTextNode(s.slice(last)));
+      t.parentNode.replaceChild(frag, t);
+    });
+  }
+  linkifyBody();
+
   /* ---------- RENDER ARTICLE ---------- */
   function renderArticle(a) {
     /* A page written out for this post already carries its own title. */
@@ -758,6 +787,7 @@ h1, h2 { overflow-wrap: break-word; }
     document.getElementById("artHero").setAttribute("src", a.img);
     fitHero();
     document.getElementById("artBody").innerHTML = a.body;
+    linkifyBody();
   }
 
   /* ---------- RELATED (fallback: other 2 from ARTICLES) ---------- */
