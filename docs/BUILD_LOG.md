@@ -775,3 +775,6 @@ Delete it from the dashboard when done (deleting writes a "Removed products" tom
   and centres); very tall photos stop at 4:5 and sit inside. Tested 1400px and 390px: box ratio = image ratio.
 - Same day: links inside a post are brand red + underlined; a web address typed as plain text
   (https://… or www.…) is turned into a real link (other sites open in a new tab).
+- Same day: post text column is now exactly as wide as the hero photo (was a fixed 760px), kept in step on
+  load and resize. Lives in the Article.html template, so every future post gets it. Checked 1700/1400/390px:
+  text edges = photo edges.
