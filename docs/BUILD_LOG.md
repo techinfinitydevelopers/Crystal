@@ -767,3 +767,9 @@ Delete it from the dashboard when done (deleting writes a "Removed products" tom
   mocked fetch — payloads, success and failure states.
 - Delivery needs SMTP in the server .env (EMAIL_BACKEND smtp, EMAIL_HOST/PORT/USER/PASSWORD,
   DEFAULT_FROM_EMAIL). Without it Django prints mail to the console and nothing is sent.
+
+## 2026-10-28 — Single blog page: hero photo shows in full
+- Article.html (template for every /blog/<slug> page, rebaked on deploy by apply_seo): the hero box was a
+  fixed 2:1, so 3:2 / square photos lost their top and bottom (the Diwali post's headline text was cut).
+  The box now takes the photo's own proportions (read on load), capped at 80% of screen height (box narrows
+  and centres); very tall photos stop at 4:5 and sit inside. Tested 1400px and 390px: box ratio = image ratio.
