@@ -1,0 +1,138 @@
+{% extends "admin/base_site.html" %}
+{% load i18n %}
+
+{% block breadcrumbs %}
+<div class="breadcrumbs">
+  <a href="{% url 'admin:index' %}">{% trans 'Home' %}</a>
+  &rsaquo; <a href="{% url 'admin:products_category_changelist' %}">Categories</a>
+  &rsaquo; {{ category.name }} &rsaquo; Arrange products
+</div>
+{% endblock %}
+
+{% block extrastyle %}
+{{ block.super }}
+<style>
+  .ar-head { display:flex; align-items:flex-end; justify-content:space-between; gap:16px; flex-wrap:wrap; margin-bottom:14px; }
+  .ar-head h1 { margin:0; }
+  .ar-head p { margin:4px 0 0; color:#64748b; font-size:13px; }
+  .ar-links { font-size:12px; color:#64748b; margin-top:6px; }
+  .ar-links a { color:#ED3338; font-weight:600; margin-right:10px; text-decoration:none; }
+  .ar-card { background:#fff; border-radius:8px; box-shadow:0 1px 4px rgba(0,0,0,.08); padding:10px 12px; }
+  .ar-list { list-style:none; margin:0; padding:0; counter-reset:pos; }
+  .ar-item { display:flex; align-items:center; gap:12px; padding:8px 10px; margin:5px 0; border:1px solid #e2e8f0;
+    border-radius:10px; background:#fff; cursor:grab; user-select:none; counter-increment:pos; }
+  .ar-item::before { content:counter(pos); min-width:28px; height:28px; border-radius:50%; background:#f1f5f9; color:#475569;
+    font-size:12px; font-weight:700; display:grid; place-items:center; flex:0 0 auto; }
+  .ar-item.dragging { opacity:.45; }
+  .ar-item.moved { border-color:#ED3338; box-shadow:0 0 0 2px rgba(237,51,56,.12); }
+  .ar-grip { color:#94a3b8; letter-spacing:-2px; }
+  .ar-thumb { width:52px; height:52px; border-radius:8px; object-fit:cover; background:#f1f5f9; flex:0 0 auto; }
+  .ar-name { flex:1 1 auto; min-width:0; }
+  .ar-name b { display:block; font-size:13px; color:#0f172a; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .ar-name small { color:#94a3b8; font-size:11px; }
+  .ar-tag { display:inline-block; padding:1px 7px; border-radius:100px; font-size:10px; font-weight:700; background:#fef3c7; color:#92400e; margin-left:6px; }
+  .ar-btns { display:flex; gap:4px; flex:0 0 auto; }
+  .ar-btns button { border:1px solid #cbd5e1; background:#fff; border-radius:6px; height:28px; min-width:30px; cursor:pointer; color:#334155; font-size:12px; padding:0 7px; }
+  .ar-btns button:hover { border-color:#ED3338; color:#ED3338; }
+  .ar-bar { position:sticky; bottom:0; background:#fff; padding:12px 14px; border-radius:8px; box-shadow:0 -2px 10px rgba(0,0,0,.08);
+    margin-top:12px; display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
+  .ar-bar .save { background:#ED3338; color:#fff; border:none; padding:9px 22px; border-radius:6px; font-weight:700; font-size:13px; cursor:pointer; }
+  .ar-bar .reset { background:none; border:none; color:#64748b; text-decoration:underline; cursor:pointer; font-size:12px; }
+  .ar-bar span { color:#64748b; font-size:12px; }
+  .ar-empty { padding:30px; text-align:center; color:#94a3b8; }
+  @media (max-width: 640px) { .ar-btns .ar-top, .ar-btns .ar-bottom { display:none; } }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="ar-head">
+  <div>
+    <h1>Arrange products — {{ category.name }}</h1>
+    <p>Drag a product up or down (or use the arrows), then Save. Position 1 shows first on the
+      {{ category.name }} page{% if children %} and on its sub-category pages{% endif %}.</p>
+    <div class="ar-links">
+      {% if parent %}<a href="{% url 'admin:products_category_arrange' parent.pk %}">&uarr; Arrange all of {{ parent.name }}</a>{% endif %}
+      {% for c in children %}<a href="{% url 'admin:products_category_arrange' c.pk %}">{{ c.name }}</a>{% endfor %}
+    </div>
+  </div>
+</div>
+
+{% if rows %}
+<form method="post" id="ar-form">
+  {% csrf_token %}
+  <input type="hidden" name="order" id="ar-order">
+  <div class="ar-card">
+    <ol class="ar-list" id="ar-list">
+      {% for r in rows %}
+      <li class="ar-item" draggable="true" data-pk="{{ r.pk }}">
+        <span class="ar-grip" aria-hidden="true">&#8942;&#8942;</span>
+        {% if r.thumb %}<img class="ar-thumb" src="{{ r.thumb }}" alt="" loading="lazy">{% else %}<span class="ar-thumb"></span>{% endif %}
+        <span class="ar-name"><b>{{ r.name }}</b>
+          <small>{{ r.sku }}{% if r.brand %} · {{ r.brand }}{% endif %}{% if r.sub %} · {{ r.sub }}{% endif %}{% if r.sizes %} · {{ r.sizes }} sizes{% endif %}</small>
+          {% if any_arranged and not r.arranged %}<span class="ar-tag">New — shown on top</span>{% endif %}
+        </span>
+        <span class="ar-btns">
+          <button type="button" class="ar-top" title="Move to the top">Top</button>
+          <button type="button" class="ar-up" title="Move up" aria-label="Move up">&#9650;</button>
+          <button type="button" class="ar-down" title="Move down" aria-label="Move down">&#9660;</button>
+          <button type="button" class="ar-bottom" title="Move to the bottom">End</button>
+        </span>
+      </li>
+      {% endfor %}
+    </ol>
+  </div>
+  <div class="ar-bar">
+    <button type="submit" class="save">Save order</button>
+    <span>{{ rows|length }} products · live on the site within a couple of minutes.</span>
+    {% if any_arranged %}
+    <button type="submit" class="reset" form="ar-reset">Put back the original order</button>
+    {% endif %}
+  </div>
+</form>
+<form method="post" id="ar-reset" action="{% url 'admin:products_category_arrange_reset' category.pk %}"
+      onsubmit="return confirm('Go back to the original order for {{ category.name|escapejs }}?');">{% csrf_token %}</form>
+{% else %}
+<div class="ar-card ar-empty">No active products in this category.</div>
+{% endif %}
+
+<script>
+/* Drag on a desktop; the arrow buttons for phones and keyboards (HTML5 drag
+   does nothing on a touch screen). Only the final order is posted. */
+(function () {
+  "use strict";
+  var list = document.getElementById("ar-list");
+  if (!list) return;
+  var field = document.getElementById("ar-order");
+  var dragged = null;
+  function sync() {
+    field.value = Array.prototype.map.call(list.children, function (li) { return li.getAttribute("data-pk"); }).join(",");
+  }
+  function mark(li) { li.classList.add("moved"); }
+  list.addEventListener("dragstart", function (e) {
+    dragged = e.target.closest(".ar-item"); if (!dragged) return;
+    dragged.classList.add("dragging"); e.dataTransfer.effectAllowed = "move";
+    try { e.dataTransfer.setData("text/plain", dragged.getAttribute("data-pk")); } catch (err) {}
+  });
+  list.addEventListener("dragover", function (e) {
+    var li = e.target.closest(".ar-item"); if (!dragged || !li || li === dragged) return;
+    e.preventDefault();
+    var r = li.getBoundingClientRect();
+    list.insertBefore(dragged, (e.clientY - r.top) > r.height / 2 ? li.nextSibling : li);
+  });
+  list.addEventListener("dragend", function () {
+    if (dragged) { dragged.classList.remove("dragging"); mark(dragged); }
+    dragged = null; sync();
+  });
+  list.addEventListener("click", function (e) {
+    var li = e.target.closest(".ar-item"); if (!li || !e.target.closest("button")) return;
+    if (e.target.closest(".ar-top")) list.insertBefore(li, list.firstElementChild);
+    else if (e.target.closest(".ar-bottom")) list.appendChild(li);
+    else if (e.target.closest(".ar-up") && li.previousElementSibling) list.insertBefore(li, li.previousElementSibling);
+    else if (e.target.closest(".ar-down") && li.nextElementSibling) list.insertBefore(li.nextElementSibling, li);
+    mark(li); sync();
+    e.target.closest("button").focus();
+  });
+  sync();
+})();
+</script>
+{% endblock %}

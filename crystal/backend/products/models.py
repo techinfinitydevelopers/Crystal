@@ -166,6 +166,12 @@ class Product(models.Model):
         help_text="Internal — leave this on. Only products created here (rather than bulk-imported from the "
                    "existing site catalogue) are pushed to the live site by 'Export to website'.",
     )
+    site_position = models.PositiveIntegerField(
+        null=True, blank=True, db_index=True,
+        verbose_name='Position on category pages',
+        help_text='Set from Categories → Arrange products. Lower comes first. '
+                  'Empty = not arranged yet: the product keeps its usual place, and a '
+                  'new product shows at the top of its category.')
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:

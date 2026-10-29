@@ -796,3 +796,15 @@ Delete it from the dashboard when done (deleting writes a "Removed products" tom
   on /index.html. Fixed ("/" = index). Phone crops (url_mobile) are now used on <768px.
 - Tested: scratch DB (sync idempotent, editor POST reorder/hide/video → feed), static site with cached order:
   both pages reorder + hide, pinned bands re-measure in the new position.
+
+## 2026-10-29 — Arrange products on category pages
+- Categories list → **Arrange products →** per category (also "Arrange product order" / "Arrange this
+  category's order" on the Products list). Screen shows the category's products with photo, SKU, brand,
+  sub-category in the order the site shows them today; drag or Top/▲/▼/End, Save order. "Put back the
+  original order" clears it.
+- Saved as `Product.site_position` 1..N (migration products 0019). Feed `/api/products/image-overrides.json/`
+  sends `positions` {sku: n} (sizes share their product's number). product-image-sync.js sorts the catalogue
+  stably: un-numbered products first (so a new product still tops its category), then by number.
+  Script tag bumped to ?v=20261029a on 63 pages.
+- Tested on scratch DB: GET order matches live Cleaning Aid page, POST saves, feed carries 124 positions,
+  reset clears. Sort unit-tested in node.

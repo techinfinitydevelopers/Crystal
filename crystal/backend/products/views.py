@@ -196,6 +196,7 @@ class ImageOverridesView(APIView):
 
         return Response({
             'products': overrides,
+            'positions': self._positions(),
             'added': self._added(absolute, hidden),
             'hidden': sorted(hidden),
             'brands': self._simple(Brand.objects.all(), ov.BRAND_PUBLISHABLE,
@@ -203,6 +204,21 @@ class ImageOverridesView(APIView):
             'categories': self._simple(Category.objects.all(), ov.CATEGORY_PUBLISHABLE,
                                        ov.CATEGORY_FIELD_KEYS),
         })
+
+    @staticmethod
+    def _positions():
+        """Where products were put by Categories → Arrange products, keyed by
+        product code. A product with sizes lends its place to every size, the
+        way products.json lists each size as its own entry. Products never
+        arranged are absent, and keep the place the catalogue gives them."""
+        out = {}
+        rows = (Product.objects.filter(is_active=True, site_position__isnull=False)
+                .prefetch_related('variants'))
+        for product in rows:
+            for sku in [product.sku] + [v.sku for v in product.variants.all()]:
+                if sku and sku not in out:
+                    out[sku] = product.site_position
+        return out
 
     @staticmethod
     def _added(absolute, hidden):

@@ -118,6 +118,29 @@
     entry.gallery = gallery;
   }
 
+  /* Categories -> Arrange products in the dashboard numbers a category's
+     products 1..N. Every listing page's "Featured" order is catalogue order,
+     so sorting the catalogue is what reorders the pages. Products without a
+     number (never arranged, or new since) keep their place ahead of the
+     numbered ones, so a new product still shows at the top of its category.
+     A stable sort: ties keep catalogue order. */
+  function applyPositions(data, positions) {
+    var list = data && data.products;
+    if (!Array.isArray(list) || !positions) return false;
+    var any = false;
+    for (var k in positions) { if (Object.prototype.hasOwnProperty.call(positions, k)) { any = true; break; } }
+    if (!any) return false;
+    var keyed = list.map(function (p, i) {
+      var pos = p && p.sku != null ? positions[p.sku] : undefined;
+      return { p: p, has: typeof pos === "number" ? 1 : 0, pos: typeof pos === "number" ? pos : 0, i: i };
+    });
+    keyed.sort(function (a, b) { return (a.has - b.has) || (a.pos - b.pos) || (a.i - b.i); });
+    var changed = false;
+    for (var j = 0; j < keyed.length; j++) if (keyed[j].i !== j) { changed = true; break; }
+    if (changed) data.products = keyed.map(function (x) { return x.p; });
+    return changed;
+  }
+
   /* Returns true if anything was actually replaced — no point rebuilding the
      response for a catalogue that came out identical. */
   function applyOverrides(data, map, hidden, added) {
@@ -363,6 +386,7 @@
       return res.clone().json().then(function (data) {
         return overrides.then(function (feed) {
           var touched = feed ? applyOverrides(data, feed.products || {}, feed.hidden || [], feed.added || []) : false;
+          if (feed && applyPositions(data, feed.positions)) touched = true;
           // After the overrides, so products the dashboard adds are tidied too.
           if (tidyHighlights(data)) touched = true;
           if (!touched) return res;

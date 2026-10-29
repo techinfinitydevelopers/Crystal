@@ -104,8 +104,26 @@ class CategoryAdmin(_RecordsEdits, admin.ModelAdmin):
     override_map = ov.CATEGORY_FIELD_KEYS
     publishable = ov.CATEGORY_PUBLISHABLE
 
-    list_display = ['name', 'parent_name', 'slug', 'order', 'product_count']
+    list_display = ['name', 'parent_name', 'slug', 'order', 'product_count', 'arrange_button']
     search_fields = ['name', 'slug']
+
+    def get_urls(self):
+        from . import arrange
+        return [
+            path('<int:pk>/arrange/',
+                 self.admin_site.admin_view(lambda r, pk: arrange.arrange_view(self, r, pk)),
+                 name='products_category_arrange'),
+            path('<int:pk>/arrange/reset/',
+                 self.admin_site.admin_view(lambda r, pk: arrange.reset_view(self, r, pk)),
+                 name='products_category_arrange_reset'),
+        ] + super().get_urls()
+
+    @admin.display(description='Product order')
+    def arrange_button(self, obj):
+        return format_html(
+            '<a href="{}" class="btn btn-sm" style="background:#ED3338;color:#fff;'
+            'font-weight:600;white-space:nowrap;">Arrange products &rarr;</a>',
+            reverse('admin:products_category_arrange', args=[obj.pk]))
     list_filter = ['parent']
     prepopulated_fields = {'slug': ('name',)}
     list_display_links = ['name']
