@@ -1,0 +1,163 @@
+/* Festival themes — loaded by festival-theme.js only while a theme is on.
+   Crystal red stays the brand colour; a festival's colours go on the ribbon,
+   decorations and hover glows. Every decoration ignores the pointer. */
+
+html.fest-on {
+  --fest-bg: linear-gradient(90deg, #2b1030, #4a1d4f 50%, #2b1030);
+  --fest-ink: #F6E3A6;
+  --fest-accent: #D4AF37;
+}
+html[data-festival="diwali"] { --fest-bg: linear-gradient(90deg, #3a0d0a, #6b1d0f 50%, #3a0d0a); --fest-ink: #FFE2A0; --fest-accent: #E9A23B; }
+html[data-festival="holi"] { --fest-bg: linear-gradient(90deg, #C2185B, #E8590C 26%, #D9A400 50%, #1F9D55 74%, #1F63C6); --fest-ink: #fff; --fest-accent: #E3367A; }
+html[data-festival="navratri"] { --fest-bg: linear-gradient(90deg, #7A1240, #B0174F 45%, #D9480F); --fest-ink: #FFF1D6; --fest-accent: #E8590C; }
+html[data-festival="ganesh-chaturthi"] { --fest-bg: linear-gradient(90deg, #8A2300, #D9480F 50%, #8A2300); --fest-ink: #FFE8A3; --fest-accent: #F28C1B; }
+html[data-festival="raksha-bandhan"] { --fest-bg: linear-gradient(90deg, #6D1640, #B8235A 50%, #6D1640); --fest-ink: #FFE3EE; --fest-accent: #D6336C; }
+html[data-festival="janmashtami"] { --fest-bg: linear-gradient(90deg, #0B2E59, #0D5B73 50%, #0B2E59); --fest-ink: #FFE29A; --fest-accent: #1C7ED6; }
+html[data-festival="independence-day"],
+html[data-festival="republic-day"] { --fest-bg: linear-gradient(90deg, #0A1B45, #13306E 50%, #0A1B45); --fest-ink: #fff; --fest-accent: #FF9933; }
+html[data-festival="sankranti"] { --fest-bg: linear-gradient(90deg, #0B6477, #1098AD 50%, #0B6477); --fest-ink: #fff; --fest-accent: #1098AD; }
+html[data-festival="onam"] { --fest-bg: linear-gradient(180deg, #C9A227 0 2px, #FFF7E0 2px calc(100% - 2px), #C9A227 calc(100% - 2px)); --fest-ink: #5C3D00; --fest-accent: #E0A100; }
+html[data-festival="eid"] { --fest-bg: linear-gradient(90deg, #053528, #0E6B50 50%, #053528); --fest-ink: #F5D98B; --fest-accent: #0E8A66; }
+html[data-festival="christmas"] { --fest-bg: linear-gradient(90deg, #0F3D1E, #1B5E33 50%, #0F3D1E); --fest-ink: #fff; --fest-accent: #C92A2A; }
+html[data-festival="new-year"] { --fest-bg: linear-gradient(90deg, #0d0d0d, #2b2b2b 50%, #0d0d0d); --fest-ink: #EBD07E; --fest-accent: #D4AF37; }
+
+/* ── Ribbon: sits under the red support bar; the header moves down by its height ── */
+.fest-rib {
+  position: fixed; left: 0; right: 0; top: var(--fest-top, 38px); z-index: 101;
+  height: 30px; padding: 0 46px; box-sizing: border-box;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--fest-bg); color: var(--fest-ink);
+  font-family: var(--body, "Inter", system-ui, sans-serif); font-size: 12.5px; font-weight: 600;
+  line-height: 1; letter-spacing: 0.02em; overflow: hidden;
+  box-shadow: 0 8px 18px -12px rgba(0, 0, 0, 0.5);
+  /* transitions only once placed (html.fest-anim), so a page never opens with the header sliding */
+}
+html[data-festival="independence-day"] .fest-rib,
+html[data-festival="republic-day"] .fest-rib {
+  border-bottom: 3px solid transparent;
+  border-image: linear-gradient(90deg, #FF9933 0 33.3%, #fff 33.3% 66.6%, #138808 66.6%) 1;
+}
+.fest-rib::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(100deg, transparent 35%, rgba(255, 255, 255, 0.16) 50%, transparent 65%);
+  transform: translateX(-100%); animation: fest-sheen 9s ease-in-out 1.2s infinite;
+}
+html[data-festival="onam"] .fest-rib::before { background: linear-gradient(100deg, transparent 35%, rgba(201, 162, 39, 0.22) 50%, transparent 65%); }
+@keyframes fest-sheen { 0% { transform: translateX(-100%); } 35%, 100% { transform: translateX(100%); } }
+
+.fest-rib-in { position: relative; display: flex; align-items: center; justify-content: center; gap: 8px; min-width: 0; max-width: 1180px; }
+.fest-rib .fest-ico { width: 16px; height: 16px; flex: none; color: var(--fest-accent); }
+html[data-festival="diwali"] .fest-rib .fest-ico,
+html[data-festival="eid"] .fest-rib .fest-ico,
+html[data-festival="new-year"] .fest-rib .fest-ico,
+html.fest-on[data-festival="generic"] .fest-rib .fest-ico { color: var(--fest-ink); }
+.fest-msg { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.fest-greet { font-weight: 700; }
+html[data-festival="holi"] .fest-msg { text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35); }
+.fest-sub { display: none; font-weight: 500; opacity: 0.82; margin-left: 10px; padding-left: 10px; border-left: 1px solid currentColor; }
+@media (min-width: 1180px) { .fest-sub { display: inline; } }
+.fest-cta {
+  flex: none; color: inherit !important; text-decoration: none !important; font-size: 11.5px; font-weight: 700;
+  padding: 4px 10px; border-radius: 999px; margin-left: 4px; white-space: nowrap;
+  border: 1px solid currentColor; transition: background .2s, color .2s, border-color .2s;
+}
+.fest-cta:hover, .fest-cta:focus-visible { background: var(--fest-accent); border-color: var(--fest-accent); color: #fff !important; }
+.fest-x {
+  position: absolute; right: 12px; top: 50%; transform: translateY(-50%);
+  width: 24px; height: 24px; padding: 0; margin: 0; border: 0; border-radius: 50%;
+  background: transparent; color: inherit; opacity: 0.7; cursor: pointer; display: grid; place-items: center;
+}
+.fest-x:hover, .fest-x:focus-visible { opacity: 1; background: rgba(255, 255, 255, 0.14); }
+.fest-x svg { width: 12px; height: 12px; }
+
+.fest-garland {
+  position: fixed; left: 0; right: 0; z-index: 99; pointer-events: none;
+  top: calc(var(--fest-top, 38px) + var(--fest-rib-h, 30px));
+  background-repeat: repeat-x; background-position: center top;
+}
+html.fest-anim .fest-rib { transition: transform .4s cubic-bezier(.2, .8, .2, 1), opacity .3s ease; }
+html.fest-anim .fest-garland { transition: opacity .3s ease, transform .4s cubic-bezier(.2, .8, .2, 1); }
+html.fest-anim .fest-hdr { transition: margin-top .4s cubic-bezier(.2, .8, .2, 1); }
+.fest-spacer { height: var(--fest-rib-h, 30px); }
+.fest-hdr { margin-top: var(--fest-rib-h, 0px) !important; }
+
+/* tucked away once the visitor scrolls */
+html.fest-rib-up .fest-rib { transform: translateY(-100%); opacity: 0; pointer-events: none; }
+html.fest-rib-up .fest-garland { transform: translateY(-14px); opacity: 0; }
+html.fest-rib-up .fest-hdr { margin-top: 0 !important; }
+
+/* the phone menu covers the page: give it its normal header back */
+html:has(.mobile-menu.open) .fest-rib,
+html:has(.mobile-menu.open) .fest-garland,
+html:has(.mobile-menu.open) .fest-fx { display: none; }
+html:has(.mobile-menu.open) .fest-hdr { margin-top: 0 !important; }
+
+@media (max-width: 960px) {
+  .fest-rib { height: 28px; font-size: 11.5px; padding: 0 36px; }
+  .fest-x { right: 6px; }
+  .fest-cta { font-size: 10.5px; padding: 3px 8px; }
+}
+@media (max-width: 400px) {
+  .fest-rib { font-size: 11px; letter-spacing: 0.01em; }
+  .fest-rib .fest-ico { width: 14px; height: 14px; }
+  .fest-rib-in { gap: 6px; }
+}
+
+/* ── Footer band ───────────────────────────────────────────────────────── */
+.fest-foot { position: absolute; left: 0; right: 0; top: 0; z-index: 1; pointer-events: none; background-repeat: repeat-x; background-position: center top; opacity: 0.95; }
+
+/* ── Particles ─────────────────────────────────────────────────────────── */
+.fest-fx { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 99; pointer-events: none; }
+
+/* ── Home hero ─────────────────────────────────────────────────────────── */
+.fest-badge {
+  display: inline-flex; align-items: center; gap: 10px; max-width: 100%; box-sizing: border-box;
+  margin: 0 auto 18px; padding: 6px 18px 6px 6px; border-radius: 999px;
+  background: rgba(14, 10, 10, 0.58); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+  border: 1px solid var(--fest-accent); color: #fff;
+  font-family: var(--body, "Inter", system-ui, sans-serif); font-size: clamp(12.5px, 1.05vw, 15px);
+  font-weight: 600; line-height: 1.2; letter-spacing: 0.02em; text-transform: none;
+  box-shadow: 0 12px 30px -14px rgba(0, 0, 0, 0.6), 0 0 0 4px rgba(255, 255, 255, 0.06);
+}
+.fest-badge-ico { width: 30px; height: 30px; flex: none; padding: 5px; box-sizing: border-box; border-radius: 50%; background: var(--fest-bg); color: var(--fest-ink); }
+.fest-badge-img { width: 30px; height: 30px; flex: none; border-radius: 50%; object-fit: cover; }
+.fest-badge-txt { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+@media (max-width: 1024px) { .fest-badge { margin-bottom: 12px; } }
+
+.fest-card {
+  position: absolute; z-index: 11; margin: 0; top: clamp(110px, 17vh, 160px); right: clamp(16px, 3vw, 44px);
+  width: clamp(210px, 18vw, 270px); border-radius: 16px; overflow: hidden;
+  background: rgba(14, 10, 10, 0.62); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+  border: 1px solid var(--fest-accent); color: #fff; box-shadow: 0 24px 50px -24px rgba(0, 0, 0, 0.7);
+  animation: fest-in .8s ease 2.6s both; pointer-events: none;
+}
+.fest-card img { display: block; width: 100%; aspect-ratio: 2 / 1; object-fit: cover; }
+.fest-card figcaption { padding: 10px 14px 12px; font-family: var(--body, "Inter", system-ui, sans-serif); text-align: left; }
+.fest-card figcaption b { display: block; font-size: 14px; font-weight: 700; line-height: 1.3; }
+.fest-card figcaption span { display: block; margin-top: 3px; font-size: 12px; line-height: 1.4; opacity: 0.8; }
+@media (max-width: 1024px) { .fest-card { display: none; } }
+@keyframes fest-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+
+/* ── Festival colour on hovers and selections (brand red untouched) ───── */
+html.fest-on .btn:hover,
+html.fest-on .v-btn:hover { box-shadow: 0 0 0 3px color-mix(in srgb, var(--fest-accent) 45%, transparent), 0 14px 28px -16px var(--fest-accent); }
+html.fest-on ::selection { background: color-mix(in srgb, var(--fest-accent) 40%, #fff); color: #111; }
+
+/* ── Preview chip (dashboard Preview link) ─────────────────────────────── */
+.fest-chip {
+  position: fixed; left: 12px; bottom: 12px; z-index: 98; max-width: calc(100vw - 96px);
+  padding: 6px 12px; border-radius: 999px; background: rgba(17, 17, 17, 0.88); color: #fff;
+  font: 500 11.5px/1.3 var(--body, "Inter", system-ui, sans-serif); box-shadow: 0 10px 24px -12px rgba(0, 0, 0, 0.6);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; box-sizing: border-box;
+}
+.fest-chip a { color: var(--fest-accent) !important; font-weight: 700; margin-left: 10px; text-decoration: underline; }
+
+@media (prefers-reduced-motion: reduce) {
+  .fest-rib::before { animation: none; display: none; }
+  html.fest-anim .fest-rib, html.fest-anim .fest-garland, html.fest-anim .fest-hdr { transition: none; }
+  .fest-card { animation: none; }
+}
+@media print {
+  .fest-rib, .fest-garland, .fest-fx, .fest-chip, .fest-foot, .fest-spacer, .fest-card { display: none !important; }
+  .fest-hdr { margin-top: 0 !important; }
+}

@@ -1,0 +1,39 @@
+{% extends "admin/change_list.html" %}
+{% load i18n %}
+
+{% block object-tools-items %}
+  <li>
+    <form method="post" action="{% url 'admin:themes_festivaltheme_all_off' %}" style="display:inline;margin:0;"
+          onsubmit="return confirm('Switch every festival theme off and show the normal website?');">
+      {% csrf_token %}
+      <button type="submit" class="btn btn-outline-danger btn-sm" title="Switch every theme off — the website goes back to normal">
+        &#9211; Turn all themes off
+      </button>
+    </form>
+  </li>
+  {{ block.super }}
+{% endblock %}
+
+{% block result_list %}
+  <div class="ft-note">
+    <div class="ft-note-main">
+      <b>Only one theme can be on at a time</b> — switching one on switches the others off.
+      Turn all off for the normal site.
+    </div>
+    <div class="ft-note-now">
+      {% if theme_live %}
+        Now on the website: <span class="ft-pill ft-live">{{ theme_live.name }}</span>
+        {% if theme_live.scope == 'home' %}<span style="color:#64748b;">(Home page only)</span>{% endif %}
+      {% elif theme_on_waiting %}
+        <span class="ft-pill ft-wait">{{ theme_on_waiting.name }}</span> is on, but outside its dates, so visitors see the normal site.
+      {% else %}
+        Now on the website: <span class="ft-pill ft-off">Normal site — no theme</span>
+      {% endif %}
+    </div>
+    <div class="ft-note-help">
+      Flip a switch and it saves straight away. <b>Preview</b> opens the website in that theme for you only.
+      Set first/last days on a theme and it shows only during the festival, then goes away by itself.
+    </div>
+  </div>
+  {{ block.super }}
+{% endblock %}

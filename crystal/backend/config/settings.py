@@ -95,6 +95,7 @@ INSTALLED_APPS = [
     'blog',
     'downloads',
     'awards',
+    'themes',
     'seo',
     'medialib',
 ]
@@ -287,7 +288,7 @@ JAZZMIN_SETTINGS = {
         "content", "content.page", "content.pagesection", "content.pagesectiontrash",
         "seo", "seo.seometa", "seo.productpage", "seo.blogpostseo", "seo.scriptblock",
         "seo.sitemapconfig", "seo.redirect", "seo.seosettings",
-        "awards", "enquiry", "blog", "downloads", "core", "auth",
+        "awards", "themes", "enquiry", "blog", "downloads", "core", "auth",
     ],
 
     "icons": {
@@ -318,6 +319,8 @@ JAZZMIN_SETTINGS = {
         "awards": "fas fa-award",
         "awards.award": "fas fa-award",
         "awards.awardsettings": "fas fa-sliders-h",
+        "themes": "fas fa-gift",
+        "themes.festivaltheme": "fas fa-gift",
         "seo": "fas fa-search",
         "seo.seometa": "fas fa-file-alt",
         "seo.productpage": "fas fa-box-open",

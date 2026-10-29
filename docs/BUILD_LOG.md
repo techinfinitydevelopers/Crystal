@@ -833,3 +833,23 @@ Delete it from the dashboard when done (deleting writes a "Removed products" tom
 - Merge note (2026-10-29): media library cherry-picked onto main. The server runs /root/deploy.sh (a copy), so
   index_media may never run there — the library now indexes itself the first time it is opened empty, and has a
   "Find files already uploaded" button. text_format is optional for video rows too (same bug as image rows).
+## 2026-10-29 — Festival themes, switched from the dashboard
+- New app `themes` (dashboard "Festival themes"): 13 festivals seeded OFF (Diwali, Holi, Navratri/Dussehra,
+  Ganesh Chaturthi, Raksha Bandhan, Janmashtami, Independence Day, Republic Day, Sankranti/Pongal/Lohri,
+  Onam, Eid, Christmas, New Year). Each: On switch, greeting, second line, optional ribbon button,
+  falling effects on/off, whole site / home only, optional first/last day (auto-off after), accent colour,
+  optional banner picture for the Home greeting card.
+- One on at a time: `FestivalTheme.save()` switches the others off. List page: On column is a switch that
+  saves on click; switching one on while another is on = the new one wins; switching two on in one save
+  is refused with a message. "Turn all themes off" button + "Switch off selected" action. Preview link per
+  row opens the site with `?theme=<slug>` (that visitor only, kept for the tab; `?theme=off` ends it).
+- Feed `/api/theme.json` → `{"theme": null | {...}}`, respects dates, cache 120s; `?preview=<slug>` ignores
+  switch/dates, no-store.
+- Site: `festival-theme.js?v=1` on all 64 root pages + `home-v3-src/shell-donor.html`; CSS
+  (`festival-theme.css`) injected only while a theme is on. Ribbon sits under the red support bar, header
+  moves down by the ribbon height, tucks away after 140px scroll; garland under the ribbon, festive band on
+  the footer, particles (canvas, capped, paused when hidden, none for reduced motion), Home hero badge +
+  banner card. Last answer cached in localStorage → no wait on the next page.
+- Tested: 10 Django tests (one-on, dates, preview, list toggle, all-off); browser: all 13 themes + an unknown
+  slug on index/Cookware/About at 360/390/768/1024/1440 — no sideways scroll, ribbon never over the header,
+  all header links clickable, no JS errors; mocked feed (theme → cached → feed null clears it).

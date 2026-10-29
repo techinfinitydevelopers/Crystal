@@ -346,3 +346,11 @@ Not just Browser-pane tabs (see above) — the per-session scratchpad temp direc
 - Non-model file inputs (imports) need `data-ml-skip` or they get a library button the view ignores.
 - Library deletes never remove website files (product-photos/ etc.) and never a file another model uses.
 - Browser pane tabs are shared with other sessions: open your own tab (tabs_create) and pass tabId.
+## Festival themes (2026-10-29)
+- Dashboard app `themes`; site script `festival-theme.js` (+ `festival-theme.css`, loaded only when on).
+  Look per festival lives in the JS presets (keyed by slug); the dashboard only sends words/switches. A new
+  slug the JS does not know gets a generic gold look.
+- At most one on: rule is in `FestivalTheme.save()`; list toggle formset lets the newly switched-on row win.
+- Preview: `?theme=<slug>` on any page (sessionStorage, this tab only), `?theme=off` stops.
+- Feed `/api/theme.json` (120s cache). Toggle reaches visitors within ~2 min.
+- When festival-theme.js/css change, bump `?v=` on all 64 pages + shell-donor.html (no Cache-Control on .js).

@@ -16,6 +16,7 @@ urlpatterns = [
     path('api/blog/', include('blog.urls')),
     path('api/downloads/', include('downloads.urls')),
     path('api/awards.json', include('awards.urls')),
+    path('api/theme.json', include('themes.urls')),
     path('api/enquiry/', include('enquiry.urls')),
     path('api/contact/', include('core.urls')),
 ]
