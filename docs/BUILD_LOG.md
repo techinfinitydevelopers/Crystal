@@ -856,3 +856,9 @@ Delete it from the dashboard when done (deleting writes a "Removed products" tom
 - 2026-10-29: live test of section order failed at first — save + feed fine, but visitors' browsers ran a cached
   content-sync.js (nginx sends no Cache-Control). Script tag bumped to content-sync.js?v=20261029b on 64 pages.
   Rule: every change to content-sync.js needs this bump, same as product-image-sync.js.
+
+## 2026-10-29 — Home header invisible at the top
+- index.html (and home-v3-src/v3.css) inverted the nav to white while not scrolled, "over dark footage" — but the
+  hero opens on a white page, so logo + links were white-on-white until the visitor scrolled (since dd348ea).
+  Now the light pill (dark links, red logo) from the first frame. Verified locally: unscrolled nav links #1a1a1a,
+  logo unfiltered, pill background.

@@ -41,40 +41,15 @@
   --m16: clamp(8px, .83vw, 16px);
 }
 
-/* Over the hero the nav is transparent; the light pill appears once the page
-   scrolls (the shared script adds .scrolled past 30px). The red wordmark and
-   dark links would vanish into the footage, so while transparent everything
-   inverts to white. Only this page loads this block, so bare selectors are safe. */
+/* The nav used to turn white over the hero, on the idea that it sat on dark
+   footage. The hero opens on a white page with the photo stack in the middle,
+   so the white logo and links vanished until the page was scrolled. It now
+   keeps the light pill every other page has, from the first frame. */
 header:not(.scrolled) .nav {
-  background: transparent;
-  border-color: rgba(255, 255, 255, 0.34);
-  -webkit-backdrop-filter: none;
-  backdrop-filter: none;
-}
-header:not(.scrolled) .logo img {
-  filter: brightness(0) invert(1);
-}
-header:not(.scrolled) .nav-links > li > a,
-header:not(.scrolled) .nav-links > li > button,
-header:not(.scrolled) .nav .cart-txt,
-header:not(.scrolled) .nav .enq-count {
-  color: #fff;
-}
-header:not(.scrolled) .nav .icon-btn,
-header:not(.scrolled) .nav .btn-outline {
-  color: #fff;
-  border-color: rgba(255, 255, 255, 0.6);
-}
-header:not(.scrolled) .nav .icon-btn svg,
-header:not(.scrolled) .nav .btn-outline svg {
-  color: #fff;
-}
-/* the burger's bars are drawn as spans, not text */
-header:not(.scrolled) .burger span { background: #fff; }
-/* everything above snaps back the moment .scrolled lands */
-header .logo img, header .nav-links > li > a, header .nav .icon-btn,
-header .nav .btn-outline, header .burger span {
-  transition: color .35s, border-color .35s, filter .35s, background .35s;
+  background: rgba(255,255,255,0.78);
+  border-color: var(--line);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
 }
 
 /* The red line's SVG is deliberately oversized and the entry animations start
