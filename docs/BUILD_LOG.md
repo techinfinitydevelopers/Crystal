@@ -778,3 +778,21 @@ Delete it from the dashboard when done (deleting writes a "Removed products" tom
 - Same day: post text column is now exactly as wide as the hero photo (was a fixed 760px), kept in step on
   load and resize. Lives in the Article.html template, so every future post gets it. Checked 1700/1400/390px:
   text edges = photo edges.
+
+## 2026-10-29 — Dashboard: Home/About videos + section order
+- Page editor (Pages → Edit this page) now has a **Section order** card: drag a band up/down (or arrows),
+  untick Show to hide it, "Put back the page's own order". Bands are `data-block="key"` siblings; Home has 8,
+  About 9. Feed `/api/sections.json` sends `blocks` only for pages someone changed; content-sync.js moves
+  the bands (pin-spacer aware), hides unticked ones, then `ScrollTrigger.sort()+refresh()`. Last order cached
+  in localStorage so the next visit lays out before the feed answers.
+- PageSection kind **Video** (`video` file field). Home hero video (`hero3-video-1`) and About video
+  (`vid-video-1`) are `data-cms-video`; upload an .mp4 in the editor and it replaces the page's video.
+- Newly editable images: Home map grid background, pre-footer backdrop; About 50+ years badge.
+- Editor opening a page now reads the page file (content/site_sync.py) and adds rows for any new
+  data-cms / data-cms-video / data-block — the server deploy never ran seed_page_sections, so new sections
+  never reached the dashboard before. seed_page_sections reads tools/cms-manifest.json off disk on the VPS
+  (its default URL was the retired Railway host).
+- content-sync.js: Home at "/" was skipped entirely (empty filename) — dashboard edits to Home only applied
+  on /index.html. Fixed ("/" = index). Phone crops (url_mobile) are now used on <768px.
+- Tested: scratch DB (sync idempotent, editor POST reorder/hide/video → feed), static site with cached order:
+  both pages reorder + hide, pinned bands re-measure in the new position.

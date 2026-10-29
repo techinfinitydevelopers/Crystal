@@ -63,7 +63,8 @@ class Page(models.Model):
 class PageSection(models.Model):
     TEXT = 'text'
     IMAGE = 'image'
-    KIND_CHOICES = [(TEXT, 'Text'), (IMAGE, 'Image')]
+    VIDEO = 'video'
+    KIND_CHOICES = [(TEXT, 'Text'), (IMAGE, 'Image'), (VIDEO, 'Video')]
 
     page = models.CharField(
         max_length=120, db_index=True,
@@ -111,6 +112,11 @@ class PageSection(models.Model):
         help_text='Optional. A crop that suits a narrow screen — phones get '
                   'this one instead. Leave empty and phones show the picture '
                   'above.')
+    video = models.FileField(
+        upload_to='page-sections/video/', blank=True, null=True,
+        help_text='Used when Kind is Video. An .mp4 (H.264) plays in every '
+                  'browser; keep it short and under ~20 MB so the page stays '
+                  'quick on a phone.')
     section = models.CharField(
         max_length=120, blank=True, db_index=True,
         help_text='Which band of the page this sits in, e.g. "hero". Filled in '
@@ -204,7 +210,7 @@ class PageSection(models.Model):
     def is_overridden(self):
         """Whether a visitor is seeing something typed here rather than the
         page's own content."""
-        return bool(self.text_value or self.image)
+        return bool(self.text_value or self.image or self.video)
 
     @property
     def shipped_image_url(self):
@@ -215,7 +221,7 @@ class PageSection(models.Model):
         not in this service's media store -- the two are separate deployables.
         So it can only be shown here by pointing at the site.
         """
-        if self.kind != self.IMAGE or not self.shipped_value:
+        if self.kind not in (self.IMAGE, self.VIDEO) or not self.shipped_value:
             return ''
         src = self.shipped_value.strip()
         # Some slots point straight at an outside host rather than at a file in
@@ -251,3 +257,36 @@ class PageSectionTrash(PageSection):
         proxy = True
         verbose_name = 'Page section (trash)'
         verbose_name_plural = 'Page sections — Trash'
+
+
+class PageBlock(models.Model):
+    """One whole band of a page -- the hero, the stats, the brand strip --
+    so the dashboard can change the order the bands come in, or hide one.
+
+    The page marks each band it allows this for with `data-block="key"` on
+    the band's own element; every marked band must be a sibling of the others,
+    which is what makes moving one a single DOM move on the site. Rows are
+    created from the page file itself (see content.site_sync), never typed in.
+    """
+
+    page = models.ForeignKey(Page, on_delete=models.CASCADE, related_name='blocks')
+    key = models.SlugField(max_length=80)
+    label = models.CharField(max_length=160, blank=True)
+    order = models.PositiveIntegerField(default=0)
+    is_visible = models.BooleanField(
+        default=True, verbose_name='Show on the site',
+        help_text='Untick to hide this whole section without deleting anything.')
+    default_order = models.PositiveIntegerField(
+        default=0, help_text='Where the page itself puts this section.')
+    present = models.BooleanField(
+        default=True, help_text='False once the section is no longer on the page.')
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ['page', 'order', 'default_order']
+        unique_together = [('page', 'key')]
+        verbose_name = 'Page section order'
+        verbose_name_plural = 'Page section order'
+
+    def __str__(self):
+        return f'{self.page} · {self.label or self.key}'

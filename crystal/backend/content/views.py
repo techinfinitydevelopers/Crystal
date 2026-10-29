@@ -5,7 +5,7 @@ section. Mirrors banners.views.BannerFeedView.
 from django.http import JsonResponse
 from django.views import View
 
-from .models import PageSection
+from .models import PageBlock, PageSection
 
 
 def _abs(request, url):
@@ -18,7 +18,14 @@ class PageSectionFeedView(View):
         qs = PageSection.objects.filter(is_active=True, is_deleted=False)
         for s in qs:
             entry = {'kind': s.kind, 'updated': s.updated_at.isoformat()}
-            if s.kind == PageSection.IMAGE:
+            if s.kind == PageSection.VIDEO:
+                if not s.video:
+                    continue
+                try:
+                    entry['url'] = _abs(request, s.video.url)
+                except ValueError:
+                    continue
+            elif s.kind == PageSection.IMAGE:
                 if not s.image:
                     continue
                 try:
@@ -56,6 +63,18 @@ class PageSectionFeedView(View):
                         entry['bullets'] = bullets
             pages.setdefault(s.slug, {})[s.section_key] = entry
 
-        res = JsonResponse({'pages': pages})
+        # Section order, only for pages someone has actually rearranged or
+        # hidden a band on -- every other page keeps the order it ships.
+        blocks = {}
+        rows = (PageBlock.objects.filter(present=True)
+                .select_related('page').order_by('page_id', 'order', 'default_order'))
+        for b in rows:
+            blocks.setdefault(b.page.slug, []).append(b)
+        order = {}
+        for slug, items in blocks.items():
+            if any(b.order != b.default_order or not b.is_visible for b in items):
+                order[slug] = [{'key': b.key, 'show': b.is_visible} for b in items]
+
+        res = JsonResponse({'pages': pages, 'blocks': order})
         res['Cache-Control'] = 'public, max-age=120'
         return res

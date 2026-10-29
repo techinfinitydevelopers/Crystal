@@ -17,7 +17,8 @@ from django.utils.http import url_has_allowed_host_and_scheme
 
 from banners.models import CategoryBanner
 
-from .models import Page, PageSection, PageSectionTrash
+from .models import Page, PageBlock, PageSection, PageSectionTrash
+from .site_sync import sync_page
 from .pages_registry import ALL_PAGES, PAGE_LABELS
 
 # Groups (from pages_registry) whose pages carry a hero photograph through
@@ -89,8 +90,9 @@ class PageSectionEditorForm(forms.ModelForm):
 
     class Meta:
         model = PageSection
-        fields = ('text_value', 'text_format', 'image', 'image_mobile', 'is_active')
+        fields = ('text_value', 'text_format', 'image', 'image_mobile', 'video', 'is_active')
         widgets = {
+            'video': forms.ClearableFileInput(attrs={'accept': 'video/mp4,video/webm'}),
             'text_value': forms.Textarea(attrs={'rows': 3}),
         }
 
@@ -168,6 +170,15 @@ class PageAdmin(admin.ModelAdmin):
 
     def editor_view(self, request, pk):
         page = get_object_or_404(Page, pk=pk)
+        if request.method != 'POST':
+            # Pick up anything the page file has gained since the last visit
+            # -- a new image, a video, a new band. Adds rows only.
+            try:
+                sync_page(page)
+            except Exception as exc:  # a broken page file must not lock the editor
+                messages.warning(request, 'Could not read the page file: %s' % exc)
+        block_rows = list(PageBlock.objects.filter(page=page, present=True)
+                          .order_by('order', 'default_order'))
         qs = (PageSection.objects.filter(page_ref=page, is_deleted=False)
               .order_by('section', 'section_key'))
 
@@ -197,6 +208,7 @@ class PageAdmin(admin.ModelAdmin):
 
             if formset.is_valid() and banner_ok:
                 formset.save()
+                self._save_blocks(request, block_rows)
                 if show_banner and (banner_instance.pk or request.FILES.get('banner-image')):
                     b.save()
                 messages.success(request, f'Saved “{page.title}”.')
@@ -223,8 +235,25 @@ class PageAdmin(admin.ModelAdmin):
             'groups': groups,
             'banner_form': banner_form,
             'banner_obj': banner_obj,
+            'block_rows': block_rows,
         }
         return render(request, 'admin/content/page/editor.html', context)
+
+
+    @staticmethod
+    def _save_blocks(request, block_rows):
+        """Section order comes back as one comma-separated list of keys (the
+        order the rows were dragged into) plus one show/hide box per band."""
+        if 'block-order' not in request.POST:
+            return
+        keys = [k for k in request.POST.get('block-order', '').split(',') if k]
+        rank = {k: i + 1 for i, k in enumerate(keys)}
+        for b in block_rows:
+            order = rank.get(b.key, b.order)
+            show = request.POST.get('block-show-%s' % b.key) == 'on'
+            if (order, show) != (b.order, b.is_visible):
+                b.order, b.is_visible = order, show
+                b.save(update_fields=['order', 'is_visible', 'updated_at'])
 
 
 class PageSectionForm(forms.ModelForm):
@@ -297,7 +326,7 @@ class PageSectionAdmin(admin.ModelAdmin):
                 'The change is live within a minute — nothing to publish.'
             ),
             'fields': ('text_value', 'text_format', 'size_hint', 'image',
-                       'current_image', 'image_mobile', 'current_image_mobile',
+                       'current_image', 'image_mobile', 'current_image_mobile', 'video',
                        'is_active', 'updated_at'),
         }),
     )

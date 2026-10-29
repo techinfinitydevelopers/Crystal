@@ -19,6 +19,9 @@ container and has to come over HTTP from the website service.
 import json
 import os
 import urllib.request
+from pathlib import Path
+
+from django.conf import settings
 
 from django.core.management.base import BaseCommand, CommandError
 from django.db import transaction
@@ -145,6 +148,13 @@ class Command(BaseCommand):
     def _load(self, opts):
         if opts["file"]:
             with open(opts["file"], encoding="utf-8") as fh:
+                return json.load(fh)
+        # On the VPS the site's files sit next to this service, so read the
+        # manifest off disk -- the default URL is the retired Railway host.
+        root = getattr(settings, "SITE_ROOT", None)
+        local = Path(root) / "tools" / "cms-manifest.json" if root else None
+        if opts["url"] == DEFAULT_URL and local and local.is_file():
+            with open(local, encoding="utf-8") as fh:
                 return json.load(fh)
         url = opts["url"]
         try:

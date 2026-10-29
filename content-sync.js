@@ -26,8 +26,8 @@
 (function () {
   "use strict";
 
-  var file = (location.pathname.split("/").pop() || "").replace(/\.html?$/i, "");
-  if (!file) return;
+  /* The home page is served at "/" as well as /index.html; both are "index". */
+  var file = (location.pathname.split("/").pop() || "index").replace(/\.html?$/i, "");
   var slug = decodeURIComponent(file).trim().toLowerCase().replace(/\s+/g, "-");
 
   var API = (location.hostname.endsWith(".up.railway.app")?"https://crystal-production-eb2e.up.railway.app":"")+"/api/sections.json";
@@ -179,11 +179,95 @@
     el.style.backgroundImage = "url(" + url + ")";
   }
 
+  function applyVideo(el, url) {
+    /* A dashboard video replaces the file the page ships. load() restarts it
+       on the new source; an autoplaying, muted loop is allowed to play again. */
+    if (el.getAttribute("src") === url) return;
+    var sources = el.querySelectorAll("source");
+    for (var i = 0; i < sources.length; i++) sources[i].remove();
+    el.src = url;
+    try { el.load(); } catch (e) {}
+    if (el.autoplay || el.hasAttribute("autoplay")) {
+      var p = el.play && el.play();
+      if (p && p.catch) p.catch(function () {});
+    }
+  }
+
+  /* ── Section order ──────────────────────────────────────────────────────
+     Bands that may be moved carry data-block="key" and are siblings. The
+     dashboard sends the order it wants (and which bands are hidden) only for
+     pages where someone changed it. The last answer is remembered, so the next
+     visit lays the page out before the feed has even been asked. */
+  var ORDER_KEY = "cms-blocks:" + slug;
+
+  function moveTarget(el) {
+    /* GSAP wraps a pinned band in a .pin-spacer; that wrapper is what sits
+       among the siblings, so it is what has to move. */
+    var p = el.parentNode;
+    return p && p.classList && p.classList.contains("pin-spacer") ? p : el;
+  }
+
+  function applyBlocks(list) {
+    if (!list || !list.length) return false;
+    var els = {};
+    var all = document.querySelectorAll("[data-block]");
+    for (var i = 0; i < all.length; i++) els[all[i].getAttribute("data-block")] = all[i];
+    var placed = [];
+    list.forEach(function (b) { if (els[b.key]) placed.push({ el: els[b.key], show: b.show !== false }); });
+    if (placed.length < 2) return false;
+
+    var changed = false;
+    placed.forEach(function (p) {
+      var hidden = !p.show;
+      if (hidden !== p.el.hasAttribute("data-block-hidden")) {
+        changed = true;
+        if (hidden) { p.el.setAttribute("data-block-hidden", ""); p.el.style.display = "none"; }
+        else { p.el.removeAttribute("data-block-hidden"); p.el.style.display = ""; }
+      }
+    });
+    /* Re-insert in the wanted order, anchored where the first band sits now,
+       so anything that is not a band (a script, a stray wrapper) stays put. */
+    var nodes = placed.map(function (p) { return moveTarget(p.el); });
+    var parent = nodes[0].parentNode;
+    var current = Array.prototype.filter.call(parent.children, function (n) { return nodes.indexOf(n) !== -1; });
+    var same = current.length === nodes.length && current.every(function (n, i) { return n === nodes[i]; });
+    if (!same) {
+      var marker = document.createComment("blocks");
+      parent.insertBefore(marker, current[0]);
+      nodes.slice().reverse().forEach(function (n) {
+        if (n.parentNode === parent) parent.insertBefore(n, marker.nextSibling);
+      });
+      parent.removeChild(marker);
+      changed = true;
+    }
+    if (changed && window.ScrollTrigger) {
+      try { window.ScrollTrigger.sort && window.ScrollTrigger.sort(); window.ScrollTrigger.refresh(); } catch (e) {}
+    }
+    return changed;
+  }
+
+  try {
+    var cached = JSON.parse(localStorage.getItem(ORDER_KEY) || "null");
+    if (cached) applyBlocks(cached);
+  } catch (e) { /* no storage: wait for the feed */ }
+
   fetch(API, { mode: "cors", credentials: "omit" })
     .then(function (r) { return r.ok ? r.json() : null; })
     .then(function (data) {
       var pages = data && data.pages;
       if (!pages) return;
+
+      var wanted = data.blocks && data.blocks[slug];
+      try {
+        if (wanted) localStorage.setItem(ORDER_KEY, JSON.stringify(wanted));
+        else localStorage.removeItem(ORDER_KEY);
+      } catch (e) {}
+      if (wanted) applyBlocks(wanted);
+      else if (document.querySelector("[data-block-hidden]")) {
+        /* The order was put back in the dashboard: undo what the cached copy hid. */
+        var hiddenEls = document.querySelectorAll("[data-block-hidden]");
+        for (var h = 0; h < hiddenEls.length; h++) { hiddenEls[h].removeAttribute("data-block-hidden"); hiddenEls[h].style.display = ""; }
+      }
 
       /* The header and footer are the same on every page, so their keys live
          under one pseudo-page rather than being repeated 64 times. Applied
@@ -194,10 +278,21 @@
         Object.keys(sections).forEach(function (key) {
           var section = sections[key];
           if (!section) return;
+          if (section.kind === "video") {
+            if (!section.url) return;
+            var vids = document.querySelectorAll('[data-cms-video="' + key.replace(/"/g, '\\"') + '"]');
+            for (var v = 0; v < vids.length; v++) applyVideo(vids[v], section.url);
+            return;
+          }
           var targets = elementsFor(key);
           if (!targets.length) return;
           for (var i = 0; i < targets.length; i++) {
-            if (section.kind === "image" && section.url) applyImage(targets[i], section.url);
+            if (section.kind === "image" && section.url) {
+              /* A phone crop, when one was uploaded, on the same breakpoint the
+                 pages use for their phone layout. */
+              var phone = section.url_mobile && window.matchMedia && window.matchMedia("(max-width: 767px)").matches;
+              applyImage(targets[i], phone ? section.url_mobile : section.url);
+            }
             else if (section.kind === "text" && section.format === "list" && section.bullets)
               applyList(targets[i], section.lead, section.bullets);
             else if (section.kind === "text" && section.text)

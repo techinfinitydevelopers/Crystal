@@ -1256,7 +1256,7 @@ h1, h2 { overflow-wrap: break-word; }
 <span id="top"></span>
 
 <!-- ===== 01 BANNER (matches reference .about-banner-sec) ===== -->
-<section class="ab-banner" id="hero">
+<section class="ab-banner" id="hero" data-block="hero" data-block-label="Hero banner">
   <div class="wrap ab-banner-head">
     <span class="eyebrow ab-banner-eyebrow" data-fade><span id="heroPreTxt" data-cms="hero-pretext">About Us</span></span>
     <h1 class="ab-banner-title" id="heroTitle" data-split data-cms="hero-title">Crafting Everyday Essentials with Care</h1>
@@ -1288,7 +1288,7 @@ h1, h2 { overflow-wrap: break-word; }
      Relies on the page's existing [data-lines] splitter + pinned scrub (see 02-statement.js).
      The three un-classed <span>s are the reference's line breaks; they survive the
      word splitter (it keeps the tag, drops the class) and only break on wide screens. -->
-<section class="ab-statement" aria-label="About Crystal">
+<section class="ab-statement" aria-label="About Crystal" data-block="statement" data-block-label="Statement (scroll text)">
   <div class="wrap ab-statement-inner">
     <div class="ab-statement-emblem" aria-hidden="true"></div>
     <p class="ab-statement-text" data-lines data-cms="page-p-1" data-cms-rich><span data-cms="page-span-1">Crystal, synonymous with durability and innovation, is the first choice of quality-conscious consumers.</span> <span data-cms="page-span-2">The Crystal Group is a trusted manufacturer and marketer of kitchenware, cookware, serveware,</span> <span data-cms="page-span-3">storage solutions, and cleaning aids a complete home solutions provider.</span></p>
@@ -1297,10 +1297,10 @@ h1, h2 { overflow-wrap: break-word; }
 
 <!-- ===== 02b VIDEO + COUNTERS ===== -->
 <!-- Video + counters (ref: about-vid-sec) -->
-    <section class="ab-vid-sec" aria-label="Crystal in numbers">
+    <section class="ab-vid-sec" aria-label="Crystal in numbers" data-block="video-counters" data-block-label="Video + counters">
       <div class="wrap ab-vid-container">
         <div class="ab-vid-wrap">
-          <video src="about-assets/about-vid.mp4" autoplay loop muted playsinline preload="auto" width="1280" height="720" aria-hidden="true" tabindex="-1"></video>
+          <video data-cms-video="vid-video-1" data-cms-label="Video + counters · video" src="about-assets/about-vid.mp4" autoplay loop muted playsinline preload="auto" width="1280" height="720" aria-hidden="true" tabindex="-1"></video>
         </div>
         <div class="ab-vid-counters">
           <div class="ab-vid-counter">
@@ -1324,7 +1324,7 @@ h1, h2 { overflow-wrap: break-word; }
     </section>
 
 <!-- ===== AWARDS (unchanged block, in its original place under the counters) ===== -->
-<section class="sec wrap sec-cream legacy" id="legacy">
+<section class="sec wrap sec-cream legacy" id="legacy" data-block="awards" data-block-label="Awards &amp; Recognition">
   <div class="recog" data-fade>
     <div class="rtitle" data-cms="legacy-div-5">Awards &amp; Recognition</div>
     <!-- The four shipped cards are the fallback. The dashboard owns this strip
@@ -1347,7 +1347,7 @@ h1, h2 { overflow-wrap: break-word; }
 </section>
 
 <!-- ===== 03 VMV ===== -->
-<section class="ab-mv" id="vmv" aria-labelledby="ab-mv-our">
+<section class="ab-mv" id="vmv" aria-labelledby="ab-mv-our" data-block="vision-mission" data-block-label="Vision / Mission / Values">
   <div class="ab-mv-container">
     <div class="ab-mv-grid">
 
@@ -1368,7 +1368,7 @@ h1, h2 { overflow-wrap: break-word; }
 
       <!-- RIGHT: text panels (stacked in one grid cell so the height never jumps) -->
       <div class="ab-mv-panels">
-        <img class="ab-mv-badge" src="about-assets/years-of-excellence-badge.webp" alt="50+ years of excellence" width="381" height="381" loading="lazy" decoding="async" />
+        <img class="ab-mv-badge" data-cms="vmv-badge-img" data-cms-label="Vision / Mission · 50+ years badge" src="about-assets/years-of-excellence-badge.webp" alt="50+ years of excellence" width="381" height="381" loading="lazy" decoding="async" />
         <div class="ab-mv-panel is-active" role="tabpanel" id="ab-mv-panel-vision" aria-labelledby="ab-mv-tab-vision">
           <h3 data-cms="vmv-h3-1">Purposeful innovation for modern living.</h3>
           <p data-cms="vmv-p-1">Instinctively trusted for thoughtfully designed, reliable solutions that elevate everyday cooking and cleaning in modern homes.</p>
@@ -1388,7 +1388,7 @@ h1, h2 { overflow-wrap: break-word; }
 </section>
 
 <!-- ===== 04 THE CRYSTAL STORY (timeline) ===== -->
-<section class="sec wrap" id="journey">
+<section class="sec wrap" id="journey" data-block="journey" data-block-label="Our Journey · Since 1971">
   <div class="sec-head">
     <div>
       <span class="eyebrow" data-fade><span class="pip"></span>Our Journey · Since 1971</span>
@@ -1407,7 +1407,7 @@ h1, h2 { overflow-wrap: break-word; }
 </section>
 
 <!-- ===== 05 SUSTAINABILITY (reference: nurture-sec) ===== -->
-<section class="ab-nurture wrap" id="sustainability">
+<section class="ab-nurture wrap" id="sustainability" data-block="sustainability" data-block-label="Sustainability">
   <div class="ab-nurture-card">
     <div class="ab-nurture-text" data-fade>
       <h2 class="ab-nurture-head" data-cms="sustainability-h2-1" data-cms-rich>Nurturing Livelihoods,<br>Supporting Sustainability</h2>
@@ -1420,7 +1420,7 @@ h1, h2 { overflow-wrap: break-word; }
 </section>
 
 <!-- ===== 06 HELP (inline-SVG icons fallback) ===== -->
-<section class="ab-help" id="help">
+<section class="ab-help" id="help" data-block="help" data-block-label="How we help">
   <div class="ab-help-wrap">
     <div class="ab-help-head">
       <h2 data-fade data-cms="help-h2-1">We are here to help you with</h2>
@@ -1452,7 +1452,7 @@ h1, h2 { overflow-wrap: break-word; }
 </section>
 
 <!-- ===== PRE-FOOTER (reference: pre-footer-sec int-pre-footer) ===== -->
-<section class="ab-pre" id="ab-pre">
+<section class="ab-pre" id="ab-pre" data-block="pre-footer" data-block-label="Pre-footer call to action">
   <div class="ab-pre-wrap">
     <div class="ab-pre-left">
       <h2 class="ab-pre-head" data-cms="ab-pre-h2-1" data-cms-rich>Crafting Everyday<br> Essentials with Care</h2>

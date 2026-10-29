@@ -97,6 +97,30 @@
     width:6px; height:6px; border-radius:50%; background:#ED3338; }
   .pe-preview-out .pe-warn { margin-top:6px; font-size:11px; color:#b45309; }
   .pe-html select { font-size:12px; padding:3px 6px; border:1px solid #cbd5e1; border-radius:6px; }
+  /* Section order: drag a row, or use the arrows (keyboard and phone friendly). */
+  .pe-order { background:#fff; border-radius:8px; box-shadow:0 1px 4px rgba(0,0,0,.08);
+    margin-bottom:18px; overflow:hidden; border:1px solid #e2e8f0; }
+  .pe-order h3 { margin:0; padding:12px 16px; background:#f8fafc; border-bottom:1px solid #e2e8f0; font-size:14px; }
+  .pe-order h3 small { font-weight:400; color:#64748b; margin-left:6px; }
+  .pe-order ol { list-style:none; margin:0; padding:8px 12px; counter-reset:blk; }
+  .pe-blk { display:flex; align-items:center; gap:10px; padding:9px 10px; margin:4px 0;
+    border:1px solid #e2e8f0; border-radius:8px; background:#fff; cursor:grab; user-select:none;
+    counter-increment:blk; transition:box-shadow .15s, opacity .15s; }
+  .pe-blk::before { content:counter(blk); width:22px; height:22px; border-radius:50%; background:#f1f5f9;
+    color:#64748b; font-size:11px; font-weight:700; display:grid; place-items:center; flex:0 0 auto; }
+  .pe-blk.dragging { opacity:.45; }
+  .pe-blk.hidden-blk .pe-blk-name { color:#94a3b8; text-decoration:line-through; }
+  .pe-blk-grip { color:#94a3b8; font-size:14px; letter-spacing:-2px; }
+  .pe-blk-name { flex:1 1 auto; font-weight:600; font-size:13px; color:#1e293b; }
+  .pe-blk-name small { color:#94a3b8; font-weight:400; margin-left:6px; }
+  .pe-blk button { border:1px solid #cbd5e1; background:#fff; border-radius:6px; width:28px; height:26px;
+    cursor:pointer; color:#334155; font-size:12px; }
+  .pe-blk button:hover { border-color:#ED3338; color:#ED3338; }
+  .pe-blk label { font-size:12px; color:#475569; margin:0 0 0 6px; display:flex; align-items:center; gap:4px; }
+  .pe-order-foot { padding:0 16px 12px; font-size:11px; color:#94a3b8; }
+  .pe-order-foot a { color:#ED3338; cursor:pointer; }
+  .pe-imgcol video { max-height:120px; max-width:220px; border-radius:6px; display:block; margin-bottom:6px;
+    box-shadow:0 2px 8px rgba(0,0,0,.12); background:#000; }
 </style>
 {% endblock %}
 
@@ -136,7 +160,7 @@
          title="Adds a row for any section on the live site that is missing here. Never changes anything you have typed.">Load new sections from the site</a>
     </h1>
 
-    {% if not groups and not banner_form %}
+    {% if not groups and not banner_form and not block_rows %}
       <div class="pe-empty">
         No sections loaded for this page yet. Use “Load sections from the
         website” on the <a href="{% url 'admin:content_pagesection_changelist' %}">Page sections</a>
@@ -155,6 +179,25 @@
     <form method="post" enctype="multipart/form-data">
       {% csrf_token %}
       {{ formset.management_form }}
+
+      {% if block_rows %}
+      <div class="pe-order" id="pe-order">
+        <h3>Section order <small>drag a section up or down, or untick to hide it &mdash; Save to put it live</small></h3>
+        <input type="hidden" name="block-order" id="pe-block-order" value="{% for b in block_rows %}{{ b.key }}{% if not forloop.last %},{% endif %}{% endfor %}">
+        <ol id="pe-blocks">
+          {% for b in block_rows %}
+          <li class="pe-blk{% if not b.is_visible %} hidden-blk{% endif %}" draggable="true" data-key="{{ b.key }}" data-default="{{ b.default_order }}">
+            <span class="pe-blk-grip" aria-hidden="true">&#8942;&#8942;</span>
+            <span class="pe-blk-name">{{ b.label|default:b.key }}<small>{{ b.key }}</small></span>
+            <button type="button" class="pe-up" title="Move up" aria-label="Move {{ b.label }} up">&#9650;</button>
+            <button type="button" class="pe-down" title="Move down" aria-label="Move {{ b.label }} down">&#9660;</button>
+            <label><input type="checkbox" name="block-show-{{ b.key }}" {% if b.is_visible %}checked{% endif %}> Show</label>
+          </li>
+          {% endfor %}
+        </ol>
+        <div class="pe-order-foot">Header and footer always stay where they are. <a id="pe-order-reset">Put back the page's own order</a></div>
+      </div>
+      {% endif %}
 
       {% if banner_form %}
       <div class="pe-banner" id="pe-banner">
@@ -203,7 +246,21 @@
                 {% endif %}
                 <span class="pe-key">{{ form.instance.section_key }}</span></label>
 
-              {% if form.instance.kind == 'image' %}
+              {% if form.instance.kind == 'video' %}
+                <div class="pe-imgs">
+                  <div class="pe-imgcol">
+                    <strong>Video</strong>
+                    {% if form.instance.video %}
+                      <video src="{{ form.instance.video.url }}" muted playsinline controls preload="metadata"></video>
+                    {% elif form.instance.shipped_image_url %}
+                      <video src="{{ form.instance.shipped_image_url }}" muted playsinline controls preload="metadata"></video>
+                      <div class="pe-hint">On the site now. Upload below to replace it.</div>
+                    {% endif %}
+                    {{ form.video }}
+                    <div class="pe-hint">.mp4, ideally under 20 MB. It plays muted and on a loop, the way the page's own video does.</div>
+                  </div>
+                </div>
+              {% elif form.instance.kind == 'image' %}
                 <div class="pe-imgs">
                   <div class="pe-imgcol">
                     <strong>Desktop / tablet</strong>
@@ -251,6 +308,59 @@
     {% endif %}
   </div>
 </div>
+
+<script>
+/* Section order: drag and drop, plus arrow buttons for keyboards and phones
+   (HTML5 drag does nothing on a touch screen). The hidden input carries the
+   final order; the server only reads that and the Show boxes. */
+(function () {
+  "use strict";
+  var list = document.getElementById("pe-blocks");
+  if (!list) return;
+  var field = document.getElementById("pe-block-order");
+  var dragged = null;
+  function sync() {
+    field.value = Array.prototype.map.call(list.children, function (li) { return li.getAttribute("data-key"); }).join(",");
+  }
+  list.addEventListener("dragstart", function (e) {
+    dragged = e.target.closest(".pe-blk"); if (!dragged) return;
+    dragged.classList.add("dragging"); e.dataTransfer.effectAllowed = "move";
+    try { e.dataTransfer.setData("text/plain", dragged.getAttribute("data-key")); } catch (err) {}
+  });
+  list.addEventListener("dragover", function (e) {
+    var li = e.target.closest(".pe-blk"); if (!dragged || !li || li === dragged) return;
+    e.preventDefault();
+    var r = li.getBoundingClientRect();
+    list.insertBefore(dragged, (e.clientY - r.top) > r.height / 2 ? li.nextSibling : li);
+  });
+  list.addEventListener("dragend", function () {
+    if (dragged) dragged.classList.remove("dragging");
+    dragged = null; sync();
+  });
+  list.addEventListener("click", function (e) {
+    var li = e.target.closest(".pe-blk"); if (!li) return;
+    if (e.target.closest(".pe-up") && li.previousElementSibling) list.insertBefore(li, li.previousElementSibling);
+    else if (e.target.closest(".pe-down") && li.nextElementSibling) list.insertBefore(li.nextElementSibling, li);
+    else return;
+    sync();
+    (e.target.closest("button") || li).focus();
+  });
+  list.addEventListener("change", function (e) {
+    var box = e.target.closest("input[type=checkbox]"); if (!box) return;
+    box.closest(".pe-blk").classList.toggle("hidden-blk", !box.checked);
+  });
+  var reset = document.getElementById("pe-order-reset");
+  if (reset) reset.addEventListener("click", function () {
+    Array.prototype.slice.call(list.children)
+      .sort(function (a, b) { return a.getAttribute("data-default") - b.getAttribute("data-default"); })
+      .forEach(function (li) { list.appendChild(li); });
+    list.querySelectorAll("input[type=checkbox]").forEach(function (c) {
+      c.checked = true; c.closest(".pe-blk").classList.remove("hidden-blk");
+    });
+    sync();
+  });
+})();
+</script>
 
 <script>
 /* Show what the HTML will actually look like, next to the box it is typed in.
