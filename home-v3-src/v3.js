@@ -43,25 +43,28 @@
     // rise in from the middle outwards rather than left to right
     var ordered = [slides[2], slides[1], slides[3], slides[0], slides[4]].filter(Boolean);
 
-    gsap.set([".hero3-vid", ".hero3-txt"], { y: 1000 });
+    // From 400px below, not 1000: the cards are on screen sooner, and the
+    // first part of the rise is not spent travelling through empty space.
+    gsap.set([".hero3-vid", ".hero3-txt"], { y: 400 });
 
     gsap.timeline({
-      delay: 0.4,
-      defaults: { duration: 1.8, ease: "power3.inOut" },
+      delay: 0.05,
+      defaults: { duration: 1.1, ease: "power3.inOut" },
       onComplete: function () {
         heroSwiper.destroy(true, true);
         mainHeroSwiper();
         ScrollTrigger.refresh();
       },
     })
-      .to(ordered, { y: 0, opacity: 1, duration: 1.5, stagger: { each: 0.08 } }, 0)
-      .to(".hero3-txt", { y: 0, opacity: 1, duration: 1.5 }, 0.2)
-      .to(".hero3-swiper-wrap", { height: "100vh", width: "100vw" })
-      .to(".hero3-swiper .swiper-slide, .hero3-vid", { borderRadius: "0px" }, 1.8)
-      .to(".hero3", { paddingTop: 0 }, 1.8)
-      .to(".hero3-title", { color: "#fff" }, 1.8)
-      .to(".hero3-txt", { scale: 0.9 }, 1.8)
-      .to(".hero3-txt .v-btn", { borderColor: "#fff" }, 1.8);
+      // ease-out for the rise: moving from the first frame, not after a slow start
+      .to(ordered, { y: 0, opacity: 1, duration: 0.9, ease: "power3.out", stagger: { each: 0.06 } }, 0)
+      .to(".hero3-txt", { y: 0, opacity: 1, duration: 0.9, ease: "power3.out" }, 0.1)
+      .to(".hero3-swiper-wrap", { height: "100vh", width: "100vw" }, 1.0)
+      .to(".hero3-swiper .swiper-slide, .hero3-vid", { borderRadius: "0px" }, 1.0)
+      .to(".hero3", { paddingTop: 0 }, 1.0)
+      .to(".hero3-title", { color: "#fff" }, 1.0)
+      .to(".hero3-txt", { scale: 0.9 }, 1.0)
+      .to(".hero3-txt .v-btn", { borderColor: "#fff" }, 1.0);
   }
 
   mm.add(DESK, function () {

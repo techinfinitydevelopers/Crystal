@@ -862,3 +862,6 @@ Delete it from the dashboard when done (deleting writes a "Removed products" tom
   hero opens on a white page, so logo + links were white-on-white until the visitor scrolled (since dd348ea).
   Now the light pill (dark links, red logo) from the first frame. Verified locally: unscrolled nav links #1a1a1a,
   logo unfiltered, pill background.
+- Same day: Home hero intro (desktop) shortened 3.9s → 2.15s: delay 0.4→0.05, cards rise from 400px (was 1000)
+  with ease-out in 0.9s, full-screen expand starts at 1.0s and takes 1.1s. Same end state (full-screen video,
+  white title). index.html patched in place + home-v3-src/v3.js. Checked: timeline 2.15s, end state 1381×796, title #fff.
