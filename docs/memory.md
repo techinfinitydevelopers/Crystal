@@ -354,3 +354,7 @@ Not just Browser-pane tabs (see above) — the per-session scratchpad temp direc
 - Preview: `?theme=<slug>` on any page (sessionStorage, this tab only), `?theme=off` stops.
 - Feed `/api/theme.json` (120s cache). Toggle reaches visitors within ~2 min.
 - When festival-theme.js/css change, bump `?v=` on all 64 pages + shell-donor.html (no Cache-Control on .js).
+- Festival props (2026-10-29): Intensity subtle/festive/full on FestivalTheme. Props live in festival-theme.js
+  (M = motifs, S = shelf objects, H = hangers, G = garlands, P/SHELF/POP = per-festival config). Corners,
+  bands and hangers are placed only where they touch no content (collision checks); hangers only at page top.
+  Browser-pane screenshots of scrolled pages often show the top or a stale frame: take a second screenshot.

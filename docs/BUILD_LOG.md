@@ -865,3 +865,32 @@ Delete it from the dashboard when done (deleting writes a "Removed products" tom
 - Same day: Home hero intro (desktop) shortened 3.9s → 2.15s: delay 0.4→0.05, cards rise from 400px (was 1000)
   with ease-out in 0.9s, full-screen expand starts at 1.0s and takes 1.1s. Same end state (full-screen video,
   white title). index.html patched in place + home-v3-src/v3.js. Checked: timeline 2.15s, end state 1381×796, title #fff.
+
+## 2026-10-29 — Festival themes: props on every page, iconic objects, scroll effects, Intensity
+- Client: "festival props poori website par", "Diwali hai toh diya dikhna chahiye, scroll par kuch karo".
+- Dashboard: new Intensity field (Subtle / Festive / Full, default Festive; migration themes 0003), sent in
+  /api/theme.json. Subtle = ribbon + garland + footer band + particles. Festive = all props. Full = props on
+  every section, phone hangers, more particles/fireworks. Preview can compare: `?theme=diwali&intensity=full`.
+- Every page (festival-theme.js/.css, now ?v=2 on all 64 pages + home-v3 donor):
+  - Iconic object row ("shelf") under the hero and above the footer, inline SVG with moving parts: lit diyas
+    with flickering flames + kandils (Diwali), gulal bowls + pichkari (Holi), garba pots + dancers + dandiya
+    (Navratri), modak + marigold + diya (Ganesh), rakhis (Raksha Bandhan), matki + peacock feather + flute
+    (Janmashtami), waving flags + turning chakra (Independence/Republic Day), kites + manja spool (Sankranti),
+    pookalam + snake boat (Onam), lanterns + crescent (Eid), trees + gifts + baubles + star (Christmas),
+    balloons + gifts + stars (New Year). Home hero badge now shows the same object, large and animated.
+  - Hanging strings from under the ribbon at both edges (kandil/diya, baubles/star, lanterns/crescent,
+    matki/feather, kites, flags, balloons/tassels, marigold strands/bells, dandiya, rakhis, flowers); shown at
+    the top of the page, fade on scroll, sway with scroll speed; a string that would land on text or a picture
+    is not shown (elementsFromPoint check).
+  - Main h2s: festival ornament behind + divider with the festival mark under (draws across on scroll).
+  - Section corners (rangoli, splash, holly, mandala, chakra/flag, pookalam/boat, star8...) and bands across
+    sections (Diwali lights, I-Day bunting; toran/holly at Full), only where they touch no text/button/link/
+    image; sections with pinned/slider content skipped. Christmas: snow on the nav, Santa hat on the logo.
+    Festival glow on product/category/collection card hover.
+- Scroll (IntersectionObserver, once per element): shelf items rise/drop in, diyas light one by one; heading
+  divider draws, ornament turns in, a short burst plays (Diwali/New Year fireworks or confetti, Holi colour
+  puff, petals, stars); garlands string across; scroll speed makes kites climb, colour drift, snow thicken.
+  Reduced motion: everything static and lit, no canvas.
+- Tested: Django check + 10 tests; browser sweep (13 themes, index/About/Cookware/Cookware-Non-Stick/
+  Product/Article/Contact at 390/1100/1440, Intensity Full): no sideways scroll, header links clickable, no
+  JS errors, corners/bands touch no content; screenshots by eye for Diwali, Holi, Christmas, Independence Day.

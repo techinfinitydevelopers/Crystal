@@ -43,7 +43,7 @@ def _site_url():
 @admin.register(FestivalTheme)
 class FestivalThemeAdmin(admin.ModelAdmin):
     change_list_template = 'admin/themes/festivaltheme/change_list.html'
-    list_display = ('swatch', 'name', 'is_active', 'status', 'when', 'scope', 'effects', 'preview')
+    list_display = ('swatch', 'name', 'is_active', 'status', 'when', 'scope', 'level', 'effects', 'preview')
     list_display_links = ('name',)
     list_editable = ('is_active',)
     list_per_page = 100
@@ -68,7 +68,7 @@ class FestivalThemeAdmin(admin.ModelAdmin):
             'fields': ('greeting', 'sub_text', ('link_text', 'link_url')),
         }),
         ('Look', {
-            'fields': ('effects', 'accent', 'banner', 'current_banner'),
+            'fields': ('intensity', 'effects', 'accent', 'banner', 'current_banner'),
         }),
         ('Behind the scenes', {
             'classes': ('collapse',),
@@ -156,6 +156,10 @@ class FestivalThemeAdmin(admin.ModelAdmin):
             return format_html('<span class="ft-pill ft-wait">On — ended {}</span>',
                                obj.ends_on.strftime('%d %b'))
         return mark_safe('<span class="ft-pill ft-live">Live on the website</span>')
+
+    @admin.display(description='Intensity', ordering='intensity')
+    def level(self, obj):
+        return obj.intensity.capitalize()
 
     @admin.display(description='Dates')
     def when(self, obj):

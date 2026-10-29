@@ -79,6 +79,19 @@ class FestivalTheme(models.Model):
         help_text='Light, slow decorations drifting over the page (sparks for Diwali, '
                   'snow for Christmas...). Never shown to visitors who have asked '
                   'their device for reduced motion.')
+    INTENSITY_SUBTLE = 'subtle'
+    INTENSITY_FESTIVE = 'festive'
+    INTENSITY_FULL = 'full'
+    INTENSITY_CHOICES = [
+        (INTENSITY_SUBTLE, 'Subtle — greeting ribbon, garland and footer band only'),
+        (INTENSITY_FESTIVE, 'Festive — plus hanging decorations, heading ornaments, '
+                            'corner motifs and festive effects'),
+        (INTENSITY_FULL, 'Full — everything, on every section, and on phones too'),
+    ]
+    intensity = models.CharField(
+        max_length=8, choices=INTENSITY_CHOICES, default=INTENSITY_FESTIVE,
+        help_text='How much decoration the website shows. Festive suits most days; '
+                  'Full is for the festival day itself.')
     scope = models.CharField(
         max_length=8, choices=SCOPE_CHOICES, default=SCOPE_SITE, verbose_name='Show on',
         help_text='Whole website, or only the Home page.')
@@ -168,6 +181,7 @@ class FestivalTheme(models.Model):
             'link_url': self.link_url if self.link_text else '',
             'effects': self.effects,
             'scope': self.scope,
+            'intensity': self.intensity,
             'accent': self.accent,
             'banner': banner,
             'starts_on': self.starts_on.isoformat() if self.starts_on else None,

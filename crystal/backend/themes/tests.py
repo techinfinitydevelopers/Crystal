@@ -43,6 +43,7 @@ class FeedTests(TestCase):
         _, data = self.feed()
         self.assertEqual(data['theme']['slug'], 'christmas')
         self.assertEqual(data['theme']['scope'], 'site')
+        self.assertEqual(data['theme']['intensity'], 'festive')
         self.assertTrue(data['theme']['greeting'])
 
     def test_dates_are_respected(self):
