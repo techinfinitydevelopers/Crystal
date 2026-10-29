@@ -1,5 +1,5 @@
 {% extends "admin/base.html" %}
-{% load i18n %}
+{% load i18n static %}
 
 {% comment %}
   Jazzmin's own admin/base_site.html is a single {% extends %} line, so
@@ -28,5 +28,20 @@
     {% if jazzmin_settings.show_ui_builder %}
       {% include 'jazzmin/includes/ui_builder_panel.html' %}
     {% endif %}
+  {% endif %}
+  {% comment %}
+    "Choose from Media library" next to every upload box. Loaded from here
+    rather than from a form's Media because this block is on every admin
+    screen -- popups included, which is why it sits outside the is_popup test --
+    and custom pages like the page editor have no form Media at all. The
+    script finds the file inputs itself; the URLs and CSRF token ride on its tag.
+  {% endcomment %}
+  {% if request.user.is_active and request.user.is_staff %}
+    <link rel="stylesheet" href="{% static 'admin/crystal_medialib.css' %}?v=1">
+    <script src="{% static 'admin/crystal_medialib.js' %}?v=1" defer
+            data-picker-url="{% url 'admin:medialib_mediaitem_picker' %}"
+            data-upload-url="{% url 'admin:medialib_mediaitem_upload_json' %}"
+            data-library-url="{% url 'admin:medialib_mediaitem_changelist' %}"
+            data-csrf="{{ csrf_token }}"></script>
   {% endif %}
 {% endblock %}

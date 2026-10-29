@@ -101,6 +101,14 @@ class PageSectionEditorForm(forms.ModelForm):
         inst = self.instance
         if inst and inst.pk and inst.kind == PageSection.TEXT and not inst.text_value:
             self.initial['text_value'] = inst.shipped_value
+        # The editor only renders "Show this as" for text rows, so an image row
+        # never posts it -- and a required field that is never posted failed
+        # every save of a page that has a picture on it.
+        if inst and inst.kind in (PageSection.IMAGE, PageSection.VIDEO):
+            self.fields['text_format'].required = False
+
+    def clean_text_format(self):
+        return self.cleaned_data.get('text_format') or self.instance.text_format
 
     def clean_text_value(self):
         value = self.cleaned_data.get('text_value') or ''
@@ -197,7 +205,11 @@ class PageAdmin(admin.ModelAdmin):
                 # A banner that does not exist yet is only worth creating if a
                 # photo was actually chosen -- otherwise every unrelated save
                 # on this page would fail on the image field being required.
-                if banner_instance.pk or request.FILES.get('banner-image'):
+                # "Chosen" includes a pick from the Media library, which comes
+                # in as POST data rather than a file (see medialib/picking.py).
+                banner_chosen = bool(request.FILES.get('banner-image')
+                                     or request.POST.get('banner-image__media'))
+                if banner_instance.pk or banner_chosen:
                     banner_ok = banner_form.is_valid()
                     if banner_ok:
                         b = banner_form.save(commit=False)
@@ -209,7 +221,7 @@ class PageAdmin(admin.ModelAdmin):
             if formset.is_valid() and banner_ok:
                 formset.save()
                 self._save_blocks(request, block_rows)
-                if show_banner and (banner_instance.pk or request.FILES.get('banner-image')):
+                if show_banner and (banner_instance.pk or banner_chosen):
                     b.save()
                 messages.success(request, f'Saved “{page.title}”.')
                 return redirect(request.path)

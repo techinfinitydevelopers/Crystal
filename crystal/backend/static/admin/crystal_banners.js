@@ -61,37 +61,45 @@
       file.addEventListener('change', function () {
         var f = file.files && file.files[0];
         if (!f) return;
-        var url = URL.createObjectURL(f);
-        if (desktop) desktop.style.backgroundImage = 'url(' + url + ')';
-        if (mobile) mobile.style.backgroundImage = 'url(' + url + ')';
-
-        // Warn about the one thing that cannot be fixed with a slider.
-        var probe = new Image();
-        probe.onload = function () {
-          var note = preview.querySelector('.cb-shape-note');
-          if (!note) {
-            note = document.createElement('p');
-            note.className = 'cb-hint cb-shape-note';
-            preview.appendChild(note);
-          }
-          var ratio = probe.width / probe.height;
-          if (probe.width < 1400) {
-            note.textContent = 'This photo is only ' + probe.width + 'px across. '
-              + 'The band is about 1265px wide, so it will look soft. 1980px or more is right.';
-            note.style.color = '#b3261e';
-          } else if (ratio < 3) {
-            note.textContent = 'This photo is ' + ratio.toFixed(1) + ':1. A banner wants '
-              + 'about 5:1 — anything squarer gets cropped so hard that only a sliver shows.';
-            note.style.color = '#b3261e';
-          } else {
-            note.textContent = probe.width + '×' + probe.height + ' — '
-              + ratio.toFixed(1) + ':1. Good shape for a banner.';
-            note.style.color = '#1e7a3c';
-          }
-          URL.revokeObjectURL(probe.src);
-        };
-        probe.src = url;
+        show(URL.createObjectURL(f), true);
       });
+      // A photo picked from the Media library (crystal_medialib.js) is shown
+      // the same way — it is already stored, so its own URL is used directly.
+      file.addEventListener('medialib:picked', function (e) {
+        if (e.detail && e.detail.kind === 'image' && e.detail.url) show(e.detail.url, false);
+      });
+    }
+
+    function show(url, revoke) {
+      if (desktop) desktop.style.backgroundImage = 'url(' + url + ')';
+      if (mobile) mobile.style.backgroundImage = 'url(' + url + ')';
+
+      // Warn about the one thing that cannot be fixed with a slider.
+      var probe = new Image();
+      probe.onload = function () {
+        var note = preview.querySelector('.cb-shape-note');
+        if (!note) {
+          note = document.createElement('p');
+          note.className = 'cb-hint cb-shape-note';
+          preview.appendChild(note);
+        }
+        var ratio = probe.width / probe.height;
+        if (probe.width < 1400) {
+          note.textContent = 'This photo is only ' + probe.width + 'px across. '
+            + 'The band is about 1265px wide, so it will look soft. 1980px or more is right.';
+          note.style.color = '#b3261e';
+        } else if (ratio < 3) {
+          note.textContent = 'This photo is ' + ratio.toFixed(1) + ':1. A banner wants '
+            + 'about 5:1 — anything squarer gets cropped so hard that only a sliver shows.';
+          note.style.color = '#b3261e';
+        } else {
+          note.textContent = probe.width + '×' + probe.height + ' — '
+            + ratio.toFixed(1) + ':1. Good shape for a banner.';
+          note.style.color = '#1e7a3c';
+        }
+        if (revoke) URL.revokeObjectURL(probe.src);
+      };
+      probe.src = url;
     }
   });
 })();

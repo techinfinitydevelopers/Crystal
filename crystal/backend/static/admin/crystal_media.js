@@ -60,6 +60,15 @@
     return v ? String(v.value || "") : "";
   }
 
+  /** A new tile with nothing in it yet: no saved photo, no file, no library pick. */
+  function isBlankNew(tile) {
+    if (tile.classList.contains("has_original")) return false;
+    var f = fileField(tile);
+    if (f && f.files && f.files.length) return false;
+    var pick = tile.querySelector('input[type="hidden"][name$="__media"]');
+    return !(pick && pick.value);
+  }
+
   function isDeleted(tile) {
     var d = deleteField(tile);
     return !!(d && d.checked);
@@ -77,6 +86,15 @@
     var n = 0;
     tiles(root).forEach(function (t) {
       var o = orderField(t);
+      // A blank row (Django's spare "extra" forms, or a tile whose library
+      // pick was removed) must keep its untouched order value. Numbering it
+      // made the form "changed", so Django validated it, found no image and
+      // refused the whole save with "This field is required" on every spare
+      // tile — which happened on the very first photo added.
+      if (isBlankNew(t)) {
+        if (o) o.value = o.defaultValue;
+        return;
+      }
       if (o) o.value = n;
       n += 1;
     });
@@ -232,6 +250,52 @@
       announce(root, "Could not add those files. Use the Add photos button.");
     }
     return added;
+  }
+
+  /**
+   * The Media library's "From Media library" button: the same tile-per-photo
+   * path as addFiles, except each tile points at a file that is already
+   * stored instead of carrying an upload. crystalLibrary.assign() fills the
+   * tile's hidden "<name>__media" input (crystal_medialib.js); the server
+   * makes the new ProductImage point at that stored name — no copy.
+   */
+  function addLibraryItems(root, items, variantValue) {
+    var lib = window.crystalLibrary;
+    var added = 0;
+    if (!lib) return 0;
+    items.forEach(function (item) {
+      if (item.kind !== "image") return;
+      var tile = addTile(root);
+      var input = tile && fileField(tile);
+      if (!input || !lib.assign(input, item)) return;
+      var v = variantField(tile);
+      if (v && variantValue) {
+        for (var i = 0; i < v.options.length; i++) {
+          if (v.options[i].value === String(variantValue)) { v.value = String(variantValue); break; }
+        }
+        relocate(root, tile, variantValue);
+      }
+      added += 1;
+    });
+    if (added) {
+      renumber(root);
+      announce(root, added + (added === 1 ? " photo added" : " photos added") +
+                     " from the Media library. Save the product to keep them.");
+    }
+    return added;
+  }
+
+  /** Show a library pick on its tile, the way a chosen upload is shown. */
+  function previewUrl(tile, url, alt) {
+    var img = tile.querySelector("[data-cz-img]");
+    if (!img || !url) return;
+    if (!("czOrig" in img.dataset)) img.dataset.czOrig = img.getAttribute("src") || "";
+    img.src = url;
+    img.hidden = false;
+    img.alt = alt || "";
+    var ph = tile.querySelector(".cz-tile-noimg");
+    if (ph) ph.hidden = true;
+    tile.classList.add("cz-tile--filled");
   }
 
   function announce(root, msg) {
@@ -412,6 +476,31 @@
       });
     }
 
+    // A pick from the Media library on any tile (crystal_medialib.js).
+    root.addEventListener("medialib:picked", function (e) {
+      var t = e.target.closest ? e.target.closest(TILE) : null;
+      if (t && e.detail && e.detail.kind === "image") previewUrl(t, e.detail.url, e.detail.filename);
+      renumber(root);
+    });
+    // Its pick removed again: back to a blank tile that Django will ignore.
+    root.addEventListener("medialib:cleared", function (e) {
+      var t = e.target.closest ? e.target.closest(TILE) : null;
+      if (!t) return;
+      var img = t.querySelector("[data-cz-img]");
+      var orig = img && img.dataset.czOrig;
+      if (img && orig) {
+        img.src = orig;          // a saved photo: show it again
+      } else if (img) {
+        img.removeAttribute("src");
+        img.hidden = true;
+        var ph = t.querySelector(".cz-tile-noimg");
+        if (ph) ph.hidden = false;
+        t.classList.remove("cz-tile--filled");
+      }
+      if (img) delete img.dataset.czOrig;
+      renumber(root);
+    });
+
     wireDrag(root);
     wireFileDrag(root);
 
@@ -455,6 +544,11 @@
       var root = this.grid();
       if (!root) return 0;
       return addFiles(root, fileList, variantValue || "");
+    },
+    addLibraryItemsTo: function (variantValue, items) {
+      var root = this.grid();
+      if (!root) return 0;
+      return addLibraryItems(root, items, variantValue || "");
     }
   };
 

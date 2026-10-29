@@ -808,3 +808,25 @@ Delete it from the dashboard when done (deleting writes a "Removed products" tom
   Script tag bumped to ?v=20261029a on 63 pages.
 - Tested on scratch DB: GET order matches live Cleaning Aid page, POST saves, feed carries 124 positions,
   reset clears. Sort unit-tested in node.
+## 2026-10-29 — Dashboard Media library (WordPress-style) + "Choose from Media library" on every upload box
+- New app `crystal/backend/medialib` (sidebar "Media library", after Category banners). `MediaItem` = one row
+  per stored file (kind/size/width/height auto; `source` for files indexed from other models). Grid changelist
+  (CSS over Django's own table, so search/filters/sort/actions/live search still work), Copy URL, "Used in"
+  count; change page lists every model/object using the file. "Upload files" page (drag & drop, multi-file).
+- Delete: row always; physical file only if no other FileField/ImageField anywhere points at it, and never for
+  website files (product-photos/ etc. — SITE_CONTENT_DIRS).
+- `manage.py index_media`: indexes every file field of every app (same stored name, no copy), idempotent,
+  skips names not in storage. Added to `deploy/vps-deploy.sh` after migrate — server runs a copy at
+  /root/deploy.sh, re-copy it. post_save on every model with a file field keeps the library in step.
+- Picker: `medialib/picking.py` patches FileInput.value_from_datadict / value_omitted_from_data and
+  FileField.save_form_data (from apps.ready). Hidden `<name>__media` = picked stored name -> model points at
+  the existing file (string assignment, no copy). Pillow verify still runs; Clear semantics unchanged; real
+  upload wins. JS `static/admin/crystal_medialib.js` (+ .css) loaded from base_site.html footer block (all
+  admin pages incl. popups) adds the button + hidden input to every named single file input, MutationObserver
+  for inline clones; gallery grid / size cards get "From Media library" (multi-pick -> one tile each).
+- Fixed two pre-existing bugs found while testing: (1) gallery grid renumbered blank spare tiles when a photo
+  was added, so every product save with a new photo failed "This field is required"; (2) page editor
+  could not save any page with an image section ("Show this as" required but never rendered for images).
+- Tested: 17 tests (`manage.py test medialib`), check clean; browser on scratch DB/media: banner add form,
+  product gallery (2 library picks -> 2 ProductImages, no copies), page editor image section — all saved
+  pointing at existing files. index_media on 2805 product photos: 3.8s first run, 1.3s re-run.

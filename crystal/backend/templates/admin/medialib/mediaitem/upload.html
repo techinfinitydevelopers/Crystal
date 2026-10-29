@@ -1,0 +1,37 @@
+{% extends "admin/base_site.html" %}
+{% load i18n %}
+
+{% block breadcrumbs %}
+<div class="breadcrumbs">
+  <a href="{% url 'admin:index' %}">{% trans 'Home' %}</a>
+  &rsaquo; <a href="{% url 'admin:medialib_mediaitem_changelist' %}">Media library</a>
+  &rsaquo; Upload files
+</div>
+{% endblock %}
+
+{% block content_title %}Upload files{% endblock %}
+
+{% block content %}
+{% comment %}
+  A plain multipart form at heart: with no JavaScript, "Choose files" then
+  "Upload" works as is. The script only adds drag-and-drop (it puts dropped
+  files into the same <input multiple>) and a list of what is about to go up.
+{% endcomment %}
+<form method="post" enctype="multipart/form-data" class="ml-upload-page" data-ml-uploadpage>
+  {% csrf_token %}
+  <label class="ml-drop" data-ml-drop>
+    <i class="fas fa-cloud-upload-alt"></i>
+    <strong>Drop files here</strong>
+    <span>or click to choose them — as many as you like at once</span>
+    <input type="file" name="files" multiple accept="{{ accept }}" data-ml-skip>
+  </label>
+  <ul class="ml-queue" data-ml-queue hidden></ul>
+  <p class="ml-note">Pictures (JPG, PNG, WebP, GIF), videos (MP4, WebM, MOV), PDFs and office documents.
+    Once uploaded, any upload box in the dashboard can use them through
+    <strong>Choose from Media library</strong>.</p>
+  <div class="ml-upload-actions">
+    <button type="submit" class="btn" style="background:#ED3338;color:#fff;font-weight:700;">Upload</button>
+    <a href="{% url 'admin:medialib_mediaitem_changelist' %}" class="btn btn-outline-secondary">Back to the library</a>
+  </div>
+</form>
+{% endblock %}

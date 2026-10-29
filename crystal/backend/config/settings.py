@@ -96,6 +96,7 @@ INSTALLED_APPS = [
     'downloads',
     'awards',
     'seo',
+    'medialib',
 ]
 
 MIDDLEWARE = [
@@ -282,7 +283,7 @@ JAZZMIN_SETTINGS = {
     "hide_apps": [],
     "hide_models": ["auth.group"],
     "order_with_respect_to": [
-        "products", "banners",
+        "products", "banners", "medialib",
         "content", "content.page", "content.pagesection", "content.pagesectiontrash",
         "seo", "seo.seometa", "seo.productpage", "seo.blogpostseo", "seo.scriptblock",
         "seo.sitemapconfig", "seo.redirect", "seo.seosettings",
@@ -308,6 +309,8 @@ JAZZMIN_SETTINGS = {
         "core.contactsubmission": "fas fa-phone-alt",
         "banners": "fas fa-panorama",
         "banners.categorybanner": "fas fa-image",
+        "medialib": "fas fa-photo-video",
+        "medialib.mediaitem": "fas fa-photo-video",
         "content": "fas fa-file-alt",
         "content.page": "fas fa-file-alt",
         "content.pagesection": "fas fa-edit",

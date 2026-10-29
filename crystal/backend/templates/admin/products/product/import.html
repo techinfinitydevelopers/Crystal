@@ -20,7 +20,7 @@
           {% csrf_token %}
           <div class="form-group">
             <label for="id_import_file" style="font-weight:600;">Spreadsheet file (.xlsx or .csv)</label>
-            <input type="file" name="file" id="id_import_file" accept=".xlsx,.csv" class="form-control-file" required>
+            <input type="file" name="file" id="id_import_file" accept=".xlsx,.csv" class="form-control-file" required data-ml-skip>
           </div>
           <button type="submit" class="btn btn-danger" style="font-weight:600;">
             <i class="fas fa-upload mr-1"></i> Upload &amp; import

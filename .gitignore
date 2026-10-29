@@ -34,3 +34,7 @@ amazon-videos/
 /blog/*.html
 /sitemap.xml
 /robots.txt
+
+# Media library uploads (crystal/backend/medialib). MEDIA_ROOT is the repo root
+# locally and on the VPS, so files uploaded to the library land here.
+/library/

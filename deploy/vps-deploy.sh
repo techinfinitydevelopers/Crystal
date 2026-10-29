@@ -45,6 +45,13 @@ set -a; . ./.env; set +a
 say "Database"
 "$VENV/bin/python" manage.py migrate --no-input | tail -3
 
+say "Media library"
+# Lists every file already uploaded anywhere in the dashboard in the Media
+# library. Points at the same files (no copies) and skips anything already
+# listed, so it is cheap to run every time. Not fatal: the library is a
+# convenience and must never stop a deploy.
+"$VENV/bin/python" manage.py index_media | tail -1 || echo "   media library indexing failed - the site is unaffected"
+
 say "Catalogue"
 # From the file in this checkout, not over HTTP: the repo is right here, and a
 # local read cannot be served a stale or truncated copy by a cache.

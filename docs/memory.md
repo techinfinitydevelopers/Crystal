@@ -337,3 +337,12 @@ Not just Browser-pane tabs (see above) — the per-session scratchpad temp direc
 - Size variants: products share `variant_group` + `variant_label` + `variant_order` in products.json; listing pages show one card per group. An ungrouped size shows as a separate card. Tripro fixed: ctp-edk-001 -> vg-10, ctp-sp-003 -> vg-12. Open question: cl-073 / cl-074 ("pointed knife") are ungrouped; may be different knives. Dashboard DB (and live admin) still have the old grouping; a re-export could undo the products.json fix.
 - Casing: highlight lines under product titles are made Title Case at load time in `product-image-sync.js` (`capWords` / `tidyHighlights`, applied to every products.json fetch on all 64 pages; product-page.js also runs `capWords` on `#pIntro`/`#ovLead`). products.json highlights are unchanged (182 of them are ALL CAPS copies of the product name; real one-liners still to write). Bumping that script's `?v=` on all pages (`sed` over `*.html`) is how cached copies are dropped.
 - Open items (2026-10-22): update live admin/dashboard DB with Tripro size grouping + Tuff Plus (cns-954/955/956) shared images; `cl-073/074` grouping undecided; commit nothing yet (products.json, product-page.js, product-image-sync.js, 64 HTML version bumps, serve.json, logs).
+
+## Media library (2026-10-29)
+- App `crystal/backend/medialib`. Picking = hidden `<input name="<field>__media">` holding a stored name;
+  `medialib/picking.py` (global patches in apps.ready) turns it into a plain-string assignment -> no copy.
+- Custom forms that check `request.FILES.get(...)` to decide "was a photo chosen" must also check
+  `request.POST.get('<name>__media')` (done in content/admin.py page editor for `banner-image`).
+- Non-model file inputs (imports) need `data-ml-skip` or they get a library button the view ignores.
+- Library deletes never remove website files (product-photos/ etc.) and never a file another model uses.
+- Browser pane tabs are shared with other sessions: open your own tab (tabs_create) and pass tabId.

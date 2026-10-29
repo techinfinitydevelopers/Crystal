@@ -1,0 +1,18 @@
+{% extends "admin/change_list.html" %}
+
+{% comment %}
+  The library is the ordinary changelist, shown as a grid of tiles by
+  crystal_medialib.css (scoped to body.model-mediaitem). Keeping Django's own
+  table underneath means search, filters, sorting, paging, the live search in
+  crystal_admin_extra.js and "Delete selected" all keep working untouched --
+  only the look changes.
+{% endcomment %}
+
+{% block object-tools-items %}
+  <a href="{% url 'admin:medialib_mediaitem_upload' %}"
+     class="btn btn-sm"
+     style="background:#ED3338;color:#fff;font-weight:600;margin-right:6px;">
+    <i class="fas fa-cloud-upload-alt mr-1"></i> Upload files
+  </a>
+  {{ block.super }}
+{% endblock %}
