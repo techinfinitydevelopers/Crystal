@@ -14,5 +14,11 @@
      style="background:#ED3338;color:#fff;font-weight:600;margin-right:6px;">
     <i class="fas fa-cloud-upload-alt mr-1"></i> Upload files
   </a>
+  <form method="post" action="{% url 'admin:medialib_mediaitem_scan' %}" style="display:inline;">{% csrf_token %}
+    <button type="submit" class="btn btn-sm" style="background:#0f172a;color:#fff;font-weight:600;margin-right:6px;"
+            title="Adds any photo, video or PDF uploaded elsewhere in the dashboard that is not listed here yet">
+      <i class="fas fa-sync-alt mr-1"></i> Find files already uploaded
+    </button>
+  </form>
   {{ block.super }}
 {% endblock %}

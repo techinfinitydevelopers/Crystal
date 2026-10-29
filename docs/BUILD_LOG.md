@@ -830,3 +830,6 @@ Delete it from the dashboard when done (deleting writes a "Removed products" tom
 - Tested: 17 tests (`manage.py test medialib`), check clean; browser on scratch DB/media: banner add form,
   product gallery (2 library picks -> 2 ProductImages, no copies), page editor image section — all saved
   pointing at existing files. index_media on 2805 product photos: 3.8s first run, 1.3s re-run.
+- Merge note (2026-10-29): media library cherry-picked onto main. The server runs /root/deploy.sh (a copy), so
+  index_media may never run there — the library now indexes itself the first time it is opened empty, and has a
+  "Find files already uploaded" button. text_format is optional for video rows too (same bug as image rows).

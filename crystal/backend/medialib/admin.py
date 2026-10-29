@@ -109,9 +109,38 @@ class MediaItemAdmin(admin.ModelAdmin):
         wrap = self.admin_site.admin_view
         return [
             path('upload/', wrap(self.upload_view), name='medialib_mediaitem_upload'),
+            path('scan/', wrap(self.scan_view), name='medialib_mediaitem_scan'),
             path('picker.json', wrap(self.picker_json), name='medialib_mediaitem_picker'),
             path('upload.json', wrap(self.upload_json), name='medialib_mediaitem_upload_json'),
         ] + super().get_urls()
+
+    # ── finding files already uploaded elsewhere ────────────────────────────
+
+    @staticmethod
+    def _index():
+        import io
+        from django.core.management import call_command
+        out = io.StringIO()
+        call_command('index_media', stdout=out)
+        return out.getvalue().strip().splitlines()[-1:] or ['Done.']
+
+    def scan_view(self, request):
+        """Add every file already uploaded anywhere in the dashboard. The
+        server's deploy script is a copy that may not run index_media, so the
+        library can fill itself from here; adding again is a no-op."""
+        if request.method == 'POST':
+            messages.success(request, self._index()[0])
+        return redirect('admin:medialib_mediaitem_changelist')
+
+    def changelist_view(self, request, extra_context=None):
+        # First visit on a server where nobody has indexed yet: fill the
+        # library rather than showing an empty one.
+        if request.method == 'GET' and not MediaItem.objects.exists():
+            try:
+                self._index()
+            except Exception as exc:
+                messages.warning(request, 'Could not list existing files: %s' % exc)
+        return super().changelist_view(request, extra_context)
 
     # ── list ────────────────────────────────────────────────────────────────
 
