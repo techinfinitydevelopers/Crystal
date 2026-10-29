@@ -853,3 +853,6 @@ Delete it from the dashboard when done (deleting writes a "Removed products" tom
 - Tested: 10 Django tests (one-on, dates, preview, list toggle, all-off); browser: all 13 themes + an unknown
   slug on index/Cookware/About at 360/390/768/1024/1440 — no sideways scroll, ribbon never over the header,
   all header links clickable, no JS errors; mocked feed (theme → cached → feed null clears it).
+- 2026-10-29: live test of section order failed at first — save + feed fine, but visitors' browsers ran a cached
+  content-sync.js (nginx sends no Cache-Control). Script tag bumped to content-sync.js?v=20261029b on 64 pages.
+  Rule: every change to content-sync.js needs this bump, same as product-image-sync.js.
