@@ -19,6 +19,7 @@ from banners.models import CategoryBanner
 
 from .models import Page, PageBlock, PageSection, PageSectionTrash
 from .site_sync import sync_page
+from access.rules import hidden_for, visible_sections
 from .pages_registry import ALL_PAGES, PAGE_LABELS
 
 # Groups (from pages_registry) whose pages carry a hero photograph through
@@ -156,6 +157,9 @@ class PageAdmin(admin.ModelAdmin):
                  name='content_page_editor'),
         ] + super().get_urls()
 
+    def get_queryset(self, request):
+        return super().get_queryset(request).exclude(filename__in=hidden_for(request.user)['page'])
+
     def has_add_permission(self, request):
         # Pages come from pages_registry via seed_page_sections, not typed in
         # by hand — a stray row here would have no file behind it to serve.
@@ -187,8 +191,8 @@ class PageAdmin(admin.ModelAdmin):
                 messages.warning(request, 'Could not read the page file: %s' % exc)
         block_rows = list(PageBlock.objects.filter(page=page, present=True)
                           .order_by('order', 'default_order'))
-        qs = (PageSection.objects.filter(page_ref=page, is_deleted=False)
-              .order_by('section', 'section_key'))
+        qs = visible_sections(request.user, PageSection.objects.filter(page_ref=page, is_deleted=False)
+                              .order_by('section', 'section_key'))
 
         banner_obj = CategoryBanner.objects.filter(page=page.filename).first()
         show_banner = banner_obj is not None or page.group in CATEGORY_BANNER_GROUPS
@@ -242,7 +246,7 @@ class PageAdmin(admin.ModelAdmin):
             'title': f'Edit — {page.title}',
             'opts': self.model._meta,
             'page_obj': page,
-            'all_pages': Page.objects.all(),
+            'all_pages': Page.objects.exclude(filename__in=hidden_for(request.user)['page']),
             'formset': formset,
             'groups': groups,
             'banner_form': banner_form,
@@ -387,7 +391,7 @@ class PageSectionAdmin(admin.ModelAdmin):
         return redirect(reverse('admin:content_pagesection_changelist'))
 
     def get_queryset(self, request):
-        return super().get_queryset(request).filter(is_deleted=False)
+        return visible_sections(request.user, super().get_queryset(request).filter(is_deleted=False))
 
     def delete_model(self, request, obj):
         obj.is_deleted = True

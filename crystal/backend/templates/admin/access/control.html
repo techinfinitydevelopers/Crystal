@@ -1,0 +1,164 @@
+{% extends "admin/base_site.html" %}
+{% load i18n %}
+
+{% block breadcrumbs %}
+<div class="breadcrumbs">
+  <a href="{% url 'admin:index' %}">{% trans 'Home' %}</a> &rsaquo; Super admin control
+</div>
+{% endblock %}
+
+{% block extrastyle %}
+{{ block.super }}
+<style>
+  .sa-intro { background:#fff; border-radius:8px; box-shadow:0 1px 4px rgba(0,0,0,.08); padding:14px 16px; margin-bottom:16px; font-size:13px; color:#475569; }
+  .sa-intro b { color:#0f172a; }
+  .sa-scope { display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-top:10px; }
+  .sa-scope select { padding:6px 10px; border:1px solid #cbd5e1; border-radius:6px; font-size:13px; }
+  .sa-tabs { display:flex; gap:6px; margin-bottom:12px; }
+  .sa-tabs button { border:1px solid #e2e8f0; background:#fff; padding:8px 16px; border-radius:100px; font-weight:600; font-size:13px; cursor:pointer; color:#334155; }
+  .sa-tabs button.on { background:#ED3338; border-color:#ED3338; color:#fff; }
+  .sa-card { background:#fff; border-radius:8px; box-shadow:0 1px 4px rgba(0,0,0,.08); margin-bottom:14px; overflow:hidden; }
+  .sa-card > h3 { margin:0; padding:11px 16px; background:#f8fafc; border-bottom:1px solid #e2e8f0; font-size:14px; display:flex; align-items:center; justify-content:space-between; gap:10px; }
+  .sa-row { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:9px 16px; border-bottom:1px solid #f1f5f9; font-size:13px; }
+  .sa-row:last-child { border-bottom:none; }
+  .sa-row .nm { flex:1 1 auto; min-width:0; color:#1e293b; }
+  .sa-row .nm small { color:#94a3b8; margin-left:6px; }
+  .sa-row.sub { padding-left:34px; }
+  .sa-row.sub2 { padding-left:56px; }
+  .sa-row.is-off .nm { color:#94a3b8; text-decoration:line-through; }
+  .sa-note { font-size:11px; color:#b45309; }
+  .sa-sw { position:relative; width:42px; height:24px; flex:0 0 auto; }
+  .sa-sw input { opacity:0; width:0; height:0; position:absolute; }
+  .sa-sw span { position:absolute; inset:0; background:#cbd5e1; border-radius:100px; cursor:pointer; transition:background .2s; }
+  .sa-sw span::after { content:""; position:absolute; top:3px; left:3px; width:18px; height:18px; background:#fff; border-radius:50%; transition:transform .2s; box-shadow:0 1px 3px rgba(0,0,0,.25); }
+  .sa-sw input:checked + span { background:#16a34a; }
+  .sa-sw input:checked + span::after { transform:translateX(18px); }
+  .sa-sw input:disabled + span { opacity:.5; cursor:not-allowed; }
+  .sa-sw input:focus-visible + span { outline:2px solid #ED3338; outline-offset:2px; }
+  .sa-more { border:none; background:none; color:#ED3338; font-weight:600; font-size:12px; cursor:pointer; padding:0 6px; }
+  .sa-kind { display:inline-block; font-size:10px; font-weight:700; padding:1px 7px; border-radius:100px; background:#f1f5f9; color:#64748b; margin-left:6px; text-transform:uppercase; }
+  .sa-kind.image { background:#e0f2fe; color:#0369a1; } .sa-kind.video { background:#fae8ff; color:#86198f; }
+  .sa-toast { position:fixed; bottom:20px; right:20px; background:#0f172a; color:#fff; padding:10px 16px; border-radius:8px; font-size:13px; opacity:0; transition:opacity .2s; pointer-events:none; z-index:2000; }
+  .sa-toast.show { opacity:1; }
+  [hidden] { display:none !important; }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="sa-intro">
+  <b>Green = the other admins can see it. Grey = hidden from them.</b>
+  Hidden things disappear from their sidebar, page list and page editor, and are blocked if they open the link directly.
+  You (super admin) always see everything. Changes save the moment you flip a switch.
+  This only changes the dashboard &mdash; to hide a section on the <i>website</i>, use Section order &rarr; Show in that page's editor.
+  <div class="sa-scope">
+    <label for="sa-user"><b>Hide for:</b></label>
+    <select id="sa-user" onchange="location.search = this.value ? '?user=' + this.value : ''">
+      <option value="">All admins</option>
+      {% for u in admins %}<option value="{{ u.pk }}" {% if scope and scope.pk == u.pk %}selected{% endif %}>Only {{ u.get_username }}</option>{% endfor %}
+    </select>
+    {% if not admins %}<span style="color:#94a3b8;">No other admin accounts yet &mdash; add one in Users (tick "Staff status", leave "Superuser status" unticked).</span>{% endif %}
+  </div>
+</div>
+
+<div class="sa-tabs" role="tablist">
+  <button type="button" class="on" data-tab="sidebar">Dashboard sidebar</button>
+  <button type="button" data-tab="pages">Website pages &amp; sections</button>
+</div>
+
+<div data-panel="sidebar">
+  {% for app in apps %}
+  <div class="sa-card">
+    <div class="sa-row{% if app.state != 'on' %} is-off{% endif %}" style="background:#f8fafc;font-weight:700;">
+      <span class="nm">{{ app.name }} <small>whole group</small>{% if app.state == 'all' %} <span class="sa-note">hidden for all admins</span>{% endif %}</span>
+      <label class="sa-sw"><input type="checkbox" data-kind="app" data-key="{{ app.key }}" data-label="{{ app.name }}" {% if app.state == 'on' %}checked{% endif %} {% if app.state == 'all' %}disabled{% endif %}><span></span></label>
+    </div>
+    {% for m in app.models %}
+    <div class="sa-row sub{% if m.state != 'on' %} is-off{% endif %}">
+      <span class="nm">{{ m.name }}{% if m.state == 'all' %} <span class="sa-note">hidden for all admins</span>{% endif %}</span>
+      <label class="sa-sw"><input type="checkbox" data-kind="model" data-key="{{ m.key }}" data-label="{{ app.name }} › {{ m.name }}" {% if m.state == 'on' %}checked{% endif %} {% if m.state == 'all' %}disabled{% endif %}><span></span></label>
+    </div>
+    {% endfor %}
+  </div>
+  {% endfor %}
+</div>
+
+<div data-panel="pages" hidden>
+  {% for g in page_groups %}
+  <div class="sa-card">
+    <h3>{{ g.name }}</h3>
+    {% for p in g.pages %}
+    <div class="sa-page">
+      <div class="sa-row{% if p.state != 'on' %} is-off{% endif %}">
+        <span class="nm">{{ p.name }} <small>{{ p.file }}</small>{% if p.state == 'all' %} <span class="sa-note">hidden for all admins</span>{% endif %}
+          {% if p.pk %}<button type="button" class="sa-more" data-page="{{ p.pk }}">Sections &#9662;</button>{% endif %}</span>
+        <label class="sa-sw"><input type="checkbox" data-kind="page" data-key="{{ p.file }}" data-label="{{ p.name }}" {% if p.state == 'on' %}checked{% endif %} {% if p.state == 'all' %}disabled{% endif %}><span></span></label>
+      </div>
+      <div class="sa-sections" hidden></div>
+    </div>
+    {% endfor %}
+  </div>
+  {% endfor %}
+</div>
+
+<div class="sa-toast" id="sa-toast"></div>
+
+<script>
+(function () {
+  "use strict";
+  var scope = "{{ scope.pk|default:'' }}";
+  var csrf = "{{ csrf_token }}";
+  var toast = document.getElementById("sa-toast"), tt;
+  function say(msg) { toast.textContent = msg; toast.classList.add("show"); clearTimeout(tt); tt = setTimeout(function () { toast.classList.remove("show"); }, 1600); }
+
+  document.querySelectorAll(".sa-tabs button").forEach(function (b) {
+    b.addEventListener("click", function () {
+      document.querySelectorAll(".sa-tabs button").forEach(function (x) { x.classList.toggle("on", x === b); });
+      document.querySelectorAll("[data-panel]").forEach(function (p) { p.hidden = p.getAttribute("data-panel") !== b.getAttribute("data-tab"); });
+    });
+  });
+
+  document.addEventListener("change", function (e) {
+    var box = e.target.closest(".sa-sw input"); if (!box) return;
+    var hidden = !box.checked;
+    var row = box.closest(".sa-row");
+    row.classList.toggle("is-off", hidden);
+    fetch("{% url 'admin:access_hiddenfeature_toggle' %}", {
+      method: "POST", credentials: "same-origin",
+      headers: { "Content-Type": "application/json", "X-CSRFToken": csrf },
+      body: JSON.stringify({ kind: box.dataset.kind, key: box.dataset.key, label: box.dataset.label, user: scope, hidden: hidden })
+    }).then(function (r) { if (!r.ok) throw 0; return r.json(); })
+      .then(function () { say((hidden ? "Hidden: " : "Visible: ") + box.dataset.label); })
+      .catch(function () { box.checked = !box.checked; row.classList.toggle("is-off", !box.checked); say("Could not save — try again"); });
+  });
+
+  function esc(s) { var d = document.createElement("div"); d.textContent = s; return d.innerHTML; }
+  function sw(kind, key, label, state) {
+    return '<label class="sa-sw"><input type="checkbox" data-kind="' + kind + '" data-key="' + esc(key) + '" data-label="' + esc(label) + '"' +
+      (state === "on" ? " checked" : "") + (state === "all" ? " disabled" : "") + '><span></span></label>';
+  }
+  document.addEventListener("click", function (e) {
+    var btn = e.target.closest(".sa-more"); if (!btn) return;
+    var box = btn.closest(".sa-page").querySelector(".sa-sections");
+    if (!box.hidden) { box.hidden = true; return; }
+    box.hidden = false;
+    if (box.dataset.loaded) return;
+    box.innerHTML = '<div class="sa-row sub">Loading…</div>';
+    var url = "{% url 'admin:access_hiddenfeature_page' 0 %}".replace("/0.json", "/" + btn.dataset.page + ".json") + (scope ? "?user=" + scope : "");
+    fetch(url, { credentials: "same-origin" }).then(function (r) { return r.json(); }).then(function (d) {
+      box.dataset.loaded = "1";
+      if (!d.groups.length) { box.innerHTML = '<div class="sa-row sub">No editable sections on this page.</div>'; return; }
+      box.innerHTML = d.groups.map(function (g) {
+        var head = '<div class="sa-row sub' + (g.state !== "on" ? " is-off" : "") + '" style="font-weight:600"><span class="nm">' + esc(g.name) +
+          ' <small>' + g.sections.length + ' sections</small>' + (g.state === "all" ? ' <span class="sa-note">hidden for all admins</span>' : "") + '</span>' +
+          sw("group", g.key, d.page + " › " + g.name, g.state) + '</div>';
+        return head + g.sections.map(function (s) {
+          return '<div class="sa-row sub2' + (s.state !== "on" ? " is-off" : "") + '"><span class="nm">' + esc(s.name) +
+            '<span class="sa-kind ' + s.kind + '">' + s.kind + '</span>' + (s.state === "all" ? ' <span class="sa-note">hidden for all admins</span>' : "") + '</span>' +
+            sw("section", s.key, d.page + " › " + s.name, s.state) + '</div>';
+        }).join("");
+      }).join("");
+    }).catch(function () { box.innerHTML = '<div class="sa-row sub">Could not load sections.</div>'; });
+  });
+})();
+</script>
+{% endblock %}

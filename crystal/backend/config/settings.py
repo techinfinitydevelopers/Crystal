@@ -98,6 +98,14 @@ INSTALLED_APPS = [
     'themes',
     'seo',
     'medialib',
+    'access',
+]
+
+# Staff who are not super admins get the whole dashboard except user accounts
+# and Super admin control; the super admin narrows it from there (access app).
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'access.backends.AdminAccessBackend',
 ]
 
 MIDDLEWARE = [
@@ -112,6 +120,8 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    # After auth + messages: keeps admins out of what the super admin hid.
+    'access.middleware.HiddenFeatureMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
@@ -288,7 +298,7 @@ JAZZMIN_SETTINGS = {
         "content", "content.page", "content.pagesection", "content.pagesectiontrash",
         "seo", "seo.seometa", "seo.productpage", "seo.blogpostseo", "seo.scriptblock",
         "seo.sitemapconfig", "seo.redirect", "seo.seosettings",
-        "awards", "themes", "enquiry", "blog", "downloads", "core", "auth",
+        "awards", "themes", "enquiry", "blog", "downloads", "core", "access", "auth",
     ],
 
     "icons": {
@@ -329,6 +339,8 @@ JAZZMIN_SETTINGS = {
         "seo.seosettings": "fas fa-cog",
         "seo.redirect": "fas fa-random",
         "seo.sitemapconfig": "fas fa-sitemap",
+        "access": "fas fa-user-shield",
+        "access.hiddenfeature": "fas fa-toggle-on",
     },
 
     "default_icon_parents": "fas fa-chevron-circle-right",

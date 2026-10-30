@@ -894,3 +894,18 @@ Delete it from the dashboard when done (deleting writes a "Removed products" tom
 - Tested: Django check + 10 tests; browser sweep (13 themes, index/About/Cookware/Cookware-Non-Stick/
   Product/Article/Contact at 390/1100/1440, Intensity Full): no sideways scroll, header links clickable, no
   JS errors, corners/bands touch no content; screenshots by eye for Diwali, Holi, Christmas, Independence Day.
+
+## 2026-10-30 — Super admin control
+- New app `access`. Super admin = Django superuser (today only "Crystal"). Every other staff account is an
+  "admin": `access.backends.AdminAccessBackend` grants it the whole dashboard except Users and Super admin
+  control, so a new admin needs only "Staff status" ticked.
+- Sidebar → Super admin → **Super admin control** (superusers only): switches for every sidebar group and item,
+  every website page, each page's section groups and every single section/image. Scope: all admins or one admin.
+  Saves on flip (`HiddenFeature` rows).
+- Enforced by: sidebar/home filter (CrystalAdminSite.get_app_list), backend not granting hidden models (so
+  `perms.*` checks on the home drop them), `HiddenFeatureMiddleware` redirecting hidden admin URLs (by url_name
+  prefix "<app>_<model>_", plus hidden pages' editors), page list/editor/PageSection list filtering via
+  `access.rules.visible_sections`. Super admins are never filtered.
+- Tests: access 9 + medialib + themes = 36 OK. Checked locally with a scratch DB: hide Brands → gone from a test
+  admin's sidebar and its URL redirects; Users 403; About sections list loads (115 rows).
+- Known gap: jazzmin's top-bar product search box still shows when Products is hidden (submitting is blocked).
