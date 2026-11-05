@@ -929,3 +929,11 @@ Delete it from the dashboard when done (deleting writes a "Removed products" tom
 - Same day: separate sign-in enforced. `SuperAdminSite.has_permission` also needs session key
   `crx_super_admin`, set only by a POST to /admin/super/login/. Signed in at /admin/ → /admin/super/ asks for the
   username/password again. Test added (43 OK).
+
+## 2026-11-05 — Super admin: add/remove/block admins, hide everything at once
+- Super dashboard home: each account row has Edit · Restrict · Block/Unblock · Remove (not on your own row).
+  Block/Unblock = POST `/admin/super/auth/user/<id>/signin/`. Accounts list actions: block / unblock / delete
+  selected; your own account is skipped by all three.
+- Restrict screen: "Hide everything on this tab" / "Show everything on this tab" (confirm first), for the
+  chosen scope (all admins or one). Toggle endpoint now also takes `items: [...]`.
+- Tests: 45 OK; bulk hide/show checked in the browser on a scratch DB (40 hidden, 41 shown back).

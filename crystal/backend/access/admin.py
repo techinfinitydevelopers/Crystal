@@ -92,6 +92,35 @@ class AccountAdmin(UserAdmin):
     )
     readonly_fields = ('last_login', 'date_joined')
     filter_horizontal = ()
+    actions = ['block_selected', 'unblock_selected', 'delete_selected']
+
+    def get_urls(self):
+        return [
+            path('<int:pk>/signin/', self.admin_site.admin_view(self.signin_view), name='auth_user_signin'),
+        ] + super().get_urls()
+
+    def signin_view(self, request, pk):
+        """Block / Unblock button on the super admin home. Never your own account."""
+        if request.method == 'POST' and pk != request.user.pk:
+            u = get_object_or_404(User, pk=pk)
+            u.is_active = not u.is_active
+            u.save(update_fields=['is_active'])
+            self.message_user(request, '%s %s.' % (
+                u.get_username(), 'can sign in again' if u.is_active else 'is blocked'))
+        return redirect('superadmin:index')
+
+    @admin.action(description='Block selected accounts (cannot sign in)')
+    def block_selected(self, request, queryset):
+        n = queryset.exclude(pk=request.user.pk).update(is_active=False)
+        self.message_user(request, '%d account(s) blocked. Your own account is never blocked.' % n)
+
+    @admin.action(description='Unblock selected accounts')
+    def unblock_selected(self, request, queryset):
+        n = queryset.update(is_active=True)
+        self.message_user(request, '%d account(s) can sign in again.' % n)
+
+    def delete_queryset(self, request, queryset):
+        super().delete_queryset(request, queryset.exclude(pk=request.user.pk))
 
     def get_form(self, request, obj=None, **kwargs):
         form = super().get_form(request, obj, **kwargs)
@@ -257,15 +286,19 @@ class HiddenFeatureAdmin(admin.ModelAdmin):
             data = json.loads(request.body or b'{}')
         except ValueError:
             return JsonResponse({'ok': False}, status=400)
-        kind, key = data.get('kind'), str(data.get('key') or '')
-        if kind not in dict(HiddenFeature.KIND_CHOICES) or not key:
+        # One switch, or many at once ("Hide everything" / "Show everything").
+        items = data.get('items') if isinstance(data.get('items'), list) else [data]
+        kinds = dict(HiddenFeature.KIND_CHOICES)
+        items = [(i.get('kind'), str(i.get('key') or ''), (i.get('label') or '')[:200])
+                 for i in items if isinstance(i, dict)]
+        if not items or any(kind not in kinds or not key for kind, key, _ in items):
             return JsonResponse({'ok': False}, status=400)
         uid = str(data.get('user') or '')
         user = (get_user_model().objects.filter(pk=int(uid), is_superuser=False).first()
                 if uid.isdigit() else None)
-        if data.get('hidden'):
-            HiddenFeature.objects.get_or_create(
-                kind=kind, key=key, user=user, defaults={'label': (data.get('label') or '')[:200]})
-        else:
-            HiddenFeature.objects.filter(kind=kind, key=key, user=user).delete()
-        return JsonResponse({'ok': True, 'hidden': bool(data.get('hidden'))})
+        for kind, key, label in items:
+            if data.get('hidden'):
+                HiddenFeature.objects.get_or_create(kind=kind, key=key, user=user, defaults={'label': label})
+            else:
+                HiddenFeature.objects.filter(kind=kind, key=key, user=user).delete()
+        return JsonResponse({'ok': True, 'hidden': bool(data.get('hidden')), 'count': len(items)})

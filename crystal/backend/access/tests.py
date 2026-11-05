@@ -168,6 +168,31 @@ class SuperAdminControlTests(TestCase):
         self.admin.refresh_from_db()
         self.assertFalse(self.admin.is_active)
 
+    def test_hide_and_show_everything_at_once(self):
+        self.login(self.boss)
+        items = [{'kind': 'app', 'key': 'products'}, {'kind': 'page', 'key': 'About.html'}]
+        r = self.client.post('/admin/super/access/hiddenfeature/control/toggle/',
+                             json.dumps({'items': items, 'hidden': True}), content_type='application/json')
+        self.assertEqual(r.json()['count'], 2)
+        self.assertEqual(HiddenFeature.objects.count(), 2)
+        self.client.post('/admin/super/access/hiddenfeature/control/toggle/',
+                         json.dumps({'items': items, 'hidden': False}), content_type='application/json')
+        self.assertFalse(HiddenFeature.objects.exists())
+
+    def test_block_unblock_and_remove_from_home(self):
+        self.login(self.boss)
+        self.assertContains(self.client.get('/admin/super/'), '/admin/super/auth/user/%d/delete/' % self.admin.pk)
+        self.client.post('/admin/super/auth/user/%d/signin/' % self.admin.pk)
+        self.admin.refresh_from_db()
+        self.assertFalse(self.admin.is_active)
+        self.client.post('/admin/super/auth/user/%d/signin/' % self.boss.pk)   # never yourself
+        self.boss.refresh_from_db()
+        self.assertTrue(self.boss.is_active)
+        r = self.client.post('/admin/super/auth/user/%d/delete/' % self.other.pk, {'post': 'yes'})
+        self.assertEqual(r.status_code, 302)
+        self.assertFalse(get_user_model().objects.filter(pk=self.other.pk).exists())
+        self.assertNotEqual(self.client.get('/admin/super/auth/user/%d/delete/' % self.boss.pk).status_code, 200)
+
     def test_cannot_lock_yourself_out(self):
         self.login(self.boss)
         url = '/admin/super/auth/user/%d/change/' % self.boss.pk

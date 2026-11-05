@@ -38,6 +38,9 @@
   .sa-more { border:none; background:none; color:#ED3338; font-weight:600; font-size:12px; cursor:pointer; padding:0 6px; }
   .sa-kind { display:inline-block; font-size:10px; font-weight:700; padding:1px 7px; border-radius:100px; background:#f1f5f9; color:#64748b; margin-left:6px; text-transform:uppercase; }
   .sa-kind.image { background:#e0f2fe; color:#0369a1; } .sa-kind.video { background:#fae8ff; color:#86198f; }
+  .sa-bulk { display:flex; gap:8px; flex-wrap:wrap; margin:0 0 12px; }
+  .sa-bulk button { border:1px solid #cbd5e1; background:#fff; padding:7px 14px; border-radius:6px; font-weight:600; font-size:12px; cursor:pointer; }
+  .sa-bulk button.hide-all { border-color:#ED3338; color:#ED3338; }
   .sa-toast { position:fixed; bottom:20px; right:20px; background:#0f172a; color:#fff; padding:10px 16px; border-radius:8px; font-size:13px; opacity:0; transition:opacity .2s; pointer-events:none; z-index:2000; }
   .sa-toast.show { opacity:1; }
   [hidden] { display:none !important; }
@@ -63,6 +66,11 @@
 <div class="sa-tabs" role="tablist">
   <button type="button" class="on" data-tab="sidebar">Dashboard sidebar</button>
   <button type="button" data-tab="pages">Website pages &amp; sections</button>
+</div>
+
+<div class="sa-bulk">
+  <button type="button" class="hide-all" data-bulk="hide">Hide everything on this tab</button>
+  <button type="button" data-bulk="show">Show everything on this tab</button>
 </div>
 
 <div data-panel="sidebar">
@@ -129,6 +137,32 @@
     }).then(function (r) { if (!r.ok) throw 0; return r.json(); })
       .then(function () { say((hidden ? "Hidden: " : "Visible: ") + box.dataset.label); })
       .catch(function () { box.checked = !box.checked; row.classList.toggle("is-off", !box.checked); say("Could not save — try again"); });
+  });
+
+  document.querySelectorAll("[data-bulk]").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var hide = btn.getAttribute("data-bulk") === "hide";
+      var panel = document.querySelector("[data-panel]:not([hidden])");
+      var who = document.getElementById("sa-user");
+      who = who.options[who.selectedIndex].textContent;
+      var boxes = Array.prototype.filter.call(panel.querySelectorAll(".sa-sw input"), function (b) {
+        return !b.disabled && b.checked === hide;   // only the ones that would change
+      });
+      if (!boxes.length) { say("Nothing to change"); return; }
+      if (!confirm((hide ? "Hide " : "Show ") + boxes.length + " items " + (hide ? "from " : "to ") + who + "?")) return;
+      fetch("{% url 'admin:access_hiddenfeature_toggle' %}", {
+        method: "POST", credentials: "same-origin",
+        headers: { "Content-Type": "application/json", "X-CSRFToken": csrf },
+        body: JSON.stringify({ user: scope, hidden: hide, items: boxes.map(function (b) {
+          return { kind: b.dataset.kind, key: b.dataset.key, label: b.dataset.label };
+        }) })
+      }).then(function (r) { if (!r.ok) throw 0; return r.json(); })
+        .then(function (d) {
+          boxes.forEach(function (b) { b.checked = !hide; b.closest(".sa-row").classList.toggle("is-off", hide); });
+          say((hide ? "Hidden: " : "Visible: ") + d.count + " items");
+        })
+        .catch(function () { say("Could not save — try again"); });
+    });
   });
 
   function esc(s) { var d = document.createElement("div"); d.textContent = s; return d.innerHTML; }

@@ -51,8 +51,12 @@
               <td>{% if u.role == 'super' %}Super admin{% elif u.role == 'seo' %}SEO Team{% else %}Admin{% endif %}</td>
               <td>{% if u.is_active %}Yes{% else %}<b style="color:#ED3338">Blocked</b>{% endif %}</td>
               <td class="crx-date">{{ u.last_login|date:"d M Y, H:i"|default:"never" }}</td>
-              <td><a href="{% url 'admin:auth_user_change' u.pk %}">Edit</a>
-                {% if u.role != 'super' %} &middot; <a href="{% url 'admin:access_hiddenfeature_control' %}?user={{ u.pk }}">Restrict</a>{% endif %}</td>
+              <td style="white-space:nowrap;"><a href="{% url 'admin:auth_user_change' u.pk %}">Edit</a>
+                {% if u.role != 'super' %} &middot; <a href="{% url 'admin:access_hiddenfeature_control' %}?user={{ u.pk }}">Restrict</a>{% endif %}
+                {% if u.pk != request.user.pk %}
+                &middot; <form method="post" action="{% url 'admin:auth_user_signin' u.pk %}" style="display:inline">{% csrf_token %}<button type="submit" style="border:none;background:none;padding:0;color:#b45309;cursor:pointer;">{% if u.is_active %}Block{% else %}Unblock{% endif %}</button></form>
+                &middot; <a href="{% url 'admin:auth_user_delete' u.pk %}" style="color:#ED3338">Remove</a>
+                {% endif %}</td>
             </tr>
           {% endfor %}
           </tbody>
