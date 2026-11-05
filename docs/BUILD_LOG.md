@@ -954,3 +954,4 @@ Delete it from the dashboard when done (deleting writes a "Removed products" tom
   super pages (lists, adds, first change page of each): 0 errors, 0 links leaving /admin/super/. Mobile 375px:
   no sideways scroll.
 - Live check 14:02: 110 super pages + 22 change pages OK, none leave /admin/super/. Recent Actions links (LogEntry.get_admin_url → /admin/) rewritten to /admin/super/ by a small script on the super home.
+- 14:09 live: Recent Actions entries for user accounts had href="None" (auth_user has no everyday change page). Replaced the rewrite script: on the super site the link is built from content_type + object_id; on the everyday site an entry with no admin URL is plain text. Tests 48 OK.

@@ -242,6 +242,11 @@
             {% elif entry.is_deletion %}<i class="fas fa-trash crx-log__ico"></i>{% endif %}
             {% if entry.is_deletion %}
               <span class="crx-log__gone">{{ entry.object_repr }}</span>
+            {% elif is_super_site %}
+              {# Every model has a change page on the super site; get_admin_url() only knows the everyday one. #}
+              <a class="crx-log__link" href="{% url 'admin:index' %}{{ entry.content_type.app_label }}/{{ entry.content_type.model }}/{{ entry.object_id }}/change/">{{ entry.object_repr|truncatechars:28 }}</a>
+            {% elif not entry.get_admin_url %}
+              <span class="crx-log__gone">{{ entry.object_repr|truncatechars:28 }}</span>
             {% else %}
               <a class="crx-log__link" href="{{ entry.get_admin_url }}">{{ entry.object_repr|truncatechars:28 }}</a>
             {% endif %}

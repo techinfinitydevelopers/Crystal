@@ -115,11 +115,4 @@
 <div class="sa-divider">Website &amp; dashboard</div>
 
 {{ block.super }}
-<script>
-  // Recent Actions links come from LogEntry.get_admin_url(), which always names
-  // the everyday dashboard; every model is mounted here too, so stay here.
-  document.querySelectorAll('.crx-log a[href^="/admin/"]:not([href^="/admin/super/"])').forEach(function (a) {
-    a.setAttribute('href', '/admin/super/' + a.getAttribute('href').slice('/admin/'.length));
-  });
-</script>
 {% endblock %}

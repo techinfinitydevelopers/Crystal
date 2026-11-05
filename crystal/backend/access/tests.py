@@ -239,3 +239,13 @@ class SuperDashboardHasEverythingTests(TestCase):
         self.assertEqual(r['Location'], '/admin/super/access/hiddenfeature/control/')
         r = self.client.get('/admin/super/awards/awardsettings/')
         self.assertTrue(r['Location'].startswith('/admin/super/awards/awardsettings/'), r['Location'])
+
+    def test_recent_actions_link_inside(self):
+        from django.contrib.admin.models import LogEntry, CHANGE
+        from django.contrib.contenttypes.models import ContentType
+        LogEntry.objects.create(user=self.boss, content_type=ContentType.objects.get_for_model(self.boss),
+                                object_id=str(self.boss.pk), object_repr='boss', action_flag=CHANGE)
+        body = self.client.get('/admin/super/').content.decode()
+        self.assertIn('href="/admin/super/auth/user/%d/change/"' % self.boss.pk, body)
+        self.assertNotIn('href="None"', body)
+        self.assertNotIn('href="None"', self.client.get('/admin/').content.decode())
