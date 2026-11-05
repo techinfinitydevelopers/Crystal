@@ -1,0 +1,731 @@
+{
+  "source": "CRYSTAL_ALL_COMBOS_MRP.pptx (Diwali Gift Set 2026)",
+  "sections": [
+    {
+      "slug": "nonstick",
+      "label": "Nonstick Gift Set"
+    },
+    {
+      "slug": "ss",
+      "label": "S.S. Cookware Combo"
+    },
+    {
+      "slug": "triply",
+      "label": "Triply Gift Set"
+    },
+    {
+      "slug": "teakwood",
+      "label": "Teak Wood"
+    },
+    {
+      "slug": "appliances",
+      "label": "Appliances"
+    },
+    {
+      "slug": "cooktops",
+      "label": "Cooktops"
+    }
+  ],
+  "products": [
+    {
+      "id": "gift-cns-895",
+      "sku": "CNS-895",
+      "name": "Crystal Coppo Tawa With Fry Pan (Flat Tawa 250MM + Fry Pan 225MM)",
+      "section": "nonstick",
+      "features": [
+        "2.6 MM Thick",
+        "2 Layer Colorful Coating",
+        "Color Coordinated Handle"
+      ],
+      "outer": 12,
+      "mrp": 2795,
+      "hero": "gifting-photos/cns-895/hero.webp",
+      "gallery": []
+    },
+    {
+      "id": "gift-cns-894",
+      "sku": "CNS-894",
+      "name": "Crystal Coppo Tawa With Kadai (Flat Tawa 250MM + Kadai 240MM + Glass Lid 240MM)",
+      "section": "nonstick",
+      "features": [
+        "2.6 MM Thick",
+        "2 Layer Colorful Coating",
+        "Color Coordinated Handle"
+      ],
+      "outer": 8,
+      "mrp": 3595,
+      "hero": "gifting-photos/cns-894/hero.webp",
+      "gallery": []
+    },
+    {
+      "id": "gift-cns-892",
+      "sku": "CNS-892",
+      "name": "Crystal Value Plus 3 Pc Set (Fry Pan 240MM + Kadai With Glass Lid 240MM + Nylon Cooking Spoon)",
+      "section": "nonstick",
+      "features": [
+        "2.6 MM Thick",
+        "4 Layer Coating",
+        "Cool Touch Handle"
+      ],
+      "outer": 8,
+      "mrp": 3495,
+      "hero": "gifting-photos/cns-892/hero.webp",
+      "gallery": []
+    },
+    {
+      "id": "gift-cns-896",
+      "sku": "CNS-896",
+      "name": "Crystal 4 Pc Value Plus Set (Flat Tawa 250MM + Kadai 240MM + Fry Pan 240MM + Glass Lid 240MM + Tadka Pan 105MM)",
+      "section": "nonstick",
+      "features": [
+        "2.6 MM Thick",
+        "4 Layer Coating",
+        "Cool Touch Handle"
+      ],
+      "outer": 5,
+      "mrp": 4095,
+      "hero": "gifting-photos/cns-896/hero.webp",
+      "gallery": []
+    },
+    {
+      "id": "gift-cns-989",
+      "sku": "CNS-989",
+      "name": "Crystal Grano 3 Pc Set (Tawa 250MM + Fry Pan 240MM + Kadai 240MM + Glass Lid 240MM)",
+      "section": "nonstick",
+      "features": [
+        "3 MM Thick",
+        "5 Layer Coating",
+        "Color Coordinated Handle",
+        "Metal Spoon Friendly",
+        "Induction Base"
+      ],
+      "outer": 5,
+      "mrp": 4495,
+      "hero": "gifting-photos/cns-989/hero.webp",
+      "gallery": []
+    },
+    {
+      "id": "gift-cns-794",
+      "sku": "CNS-794",
+      "name": "Crystal Marbo Plus 3 Pc Set (Flat Tawa 250MM + Fry Pan 240MM + Kadai 240MM + Glass Lid 240MM)",
+      "section": "nonstick",
+      "features": [
+        "3 MM Thick",
+        "5 Layer Colorful Coating",
+        "Color Coordinated Handle"
+      ],
+      "outer": 5,
+      "mrp": 4995,
+      "hero": "gifting-photos/cns-794/hero.webp",
+      "gallery": []
+    },
+    {
+      "id": "gift-css-099",
+      "sku": "CSS-099",
+      "name": "Shagun Rough N Tough 4 Pcs SS Cookware Combo (Saucepan 16CM, Frypan 22CM, Kadai 22CM)",
+      "section": "ss",
+      "features": [],
+      "outer": 6,
+      "mrp": 3999,
+      "hero": "gifting-photos/css-099/hero.webp",
+      "gallery": []
+    },
+    {
+      "id": "gift-ctv-090",
+      "sku": "CTV-090",
+      "name": "Tripro 3 Pcs 1LT Cooker + 160MM Deep Kadhai + Glass Lid Combo Set",
+      "section": "triply",
+      "features": [],
+      "outer": 6,
+      "mrp": 5995,
+      "hero": "gifting-photos/ctv-090/hero.webp",
+      "gallery": []
+    },
+    {
+      "id": "gift-ctv-091",
+      "sku": "CTV-091",
+      "name": "Tripro 3 Pcs 160MM Fry Pan + 160MM Deep Kadhai + 1 Common Glass Lid Set",
+      "section": "triply",
+      "features": [],
+      "outer": 9,
+      "mrp": 3395,
+      "hero": "gifting-photos/ctv-091/hero.webp",
+      "gallery": []
+    },
+    {
+      "id": "gift-ctv-092",
+      "sku": "CTV-092",
+      "name": "Tripro 2 Pcs Kadai W/O Lid 20 CM With Tope W/O Lid 16CM Set",
+      "section": "triply",
+      "features": [],
+      "outer": 8,
+      "mrp": 4200,
+      "hero": "gifting-photos/ctv-092/hero.webp",
+      "gallery": []
+    },
+    {
+      "id": "gift-ctv-093",
+      "sku": "CTV-093",
+      "name": "Tripro 4 Pcs Handi Set - Handi Medium With Glass Lid, Handi Large With Glass Lid",
+      "section": "triply",
+      "features": [],
+      "outer": 6,
+      "mrp": 7000,
+      "hero": "gifting-photos/ctv-093/hero.webp",
+      "gallery": []
+    },
+    {
+      "id": "gift-ctv-094",
+      "sku": "CTV-094",
+      "name": "Tripro 4 Pcs - Handi Medium With Glass Lid - Wok 18CM - Saucepan 14CM Set",
+      "section": "triply",
+      "features": [],
+      "outer": 6,
+      "mrp": 6400,
+      "hero": "gifting-photos/ctv-094/hero.webp",
+      "gallery": []
+    },
+    {
+      "id": "gift-ctv-095",
+      "sku": "CTV-095",
+      "name": "Tripro 4 Pcs Cooker Set - 3L O/L Cooker, 22CM Kadai With Glass Lid, 18CM Fry Pan",
+      "section": "triply",
+      "features": [],
+      "outer": 4,
+      "mrp": 9500,
+      "hero": "gifting-photos/ctv-095/hero.webp",
+      "gallery": []
+    },
+    {
+      "id": "gift-ctv-096",
+      "sku": "CTV-096",
+      "name": "Tripro 2 Pcs Set 220 Frypan + 160 S/P",
+      "section": "triply",
+      "features": [],
+      "outer": 8,
+      "mrp": 4900,
+      "hero": "gifting-photos/ctv-096/hero.webp",
+      "gallery": []
+    },
+    {
+      "id": "gift-ctv-097",
+      "sku": "CTV-097",
+      "name": "Tripro 3 Pcs Set Kadai 240 + 220 Frypan With S.S Lid",
+      "section": "triply",
+      "features": [],
+      "outer": 6,
+      "mrp": 5400,
+      "hero": "gifting-photos/ctv-097/hero.webp",
+      "gallery": []
+    },
+    {
+      "id": "gift-ctv-098",
+      "sku": "CTV-098",
+      "name": "Tripro 3 Pcs Set Kadai 240 + 160 S/P With S.S. Lid",
+      "section": "triply",
+      "features": [],
+      "outer": 6,
+      "mrp": 5200,
+      "hero": "gifting-photos/ctv-098/hero.webp",
+      "gallery": []
+    },
+    {
+      "id": "gift-ctv-099",
+      "sku": "CTV-099",
+      "name": "Tripro 4 Pcs Set Kadai 240 + 220 F/R 160 S/P With SS Lid",
+      "section": "triply",
+      "features": [],
+      "outer": 4,
+      "mrp": 6500,
+      "hero": "gifting-photos/ctv-099/hero.webp",
+      "gallery": []
+    },
+    {
+      "id": "gift-cpw-097",
+      "sku": "CPW-097",
+      "name": "Crystal Teak Wood 8 Pcs Wood-Inox Plus Combo",
+      "section": "teakwood",
+      "features": [
+        "Small / Medium Trays",
+        "6 Coasters"
+      ],
+      "outer": 12,
+      "mrp": 2299,
+      "hero": "gifting-photos/cpw-097/hero.webp",
+      "gallery": []
+    },
+    {
+      "id": "gift-cpw-098",
+      "sku": "CPW-098",
+      "name": "Crystal Teak Wood Xtra Deep Designo 9 Pcs Combo",
+      "section": "teakwood",
+      "features": [
+        "Small / Medium / Large Trays",
+        "With 6 Coasters"
+      ],
+      "outer": 6,
+      "mrp": 3299,
+      "hero": "gifting-photos/cpw-098/hero.webp",
+      "gallery": []
+    },
+    {
+      "id": "gift-cpw-032",
+      "sku": "CPW-032",
+      "name": "Crystal Teak Wood Round Roti Box",
+      "section": "teakwood",
+      "features": [
+        "Silicon Ring In Lid"
+      ],
+      "outer": 12,
+      "mrp": 2499,
+      "hero": "gifting-photos/cpw-032/hero.webp",
+      "gallery": []
+    },
+    {
+      "id": "gift-cpw-033",
+      "sku": "CPW-033",
+      "name": "Crystal Teak Wood Round Wood-Inox Casserole",
+      "section": "teakwood",
+      "features": [
+        "Silicon Ring In Lid",
+        "Inner Stainless Steel"
+      ],
+      "outer": 12,
+      "mrp": 3299,
+      "hero": "gifting-photos/cpw-033/hero.webp",
+      "gallery": []
+    },
+    {
+      "id": "gift-cpw-027",
+      "sku": "CPW-027",
+      "name": "Teak Wood 12 Round Revolving Lazy Susan Table Organiser",
+      "section": "teakwood",
+      "features": [
+        "360 Rotation"
+      ],
+      "outer": 12,
+      "mrp": 1345,
+      "hero": "gifting-photos/cpw-027/hero.webp",
+      "gallery": []
+    },
+    {
+      "id": "gift-cpw-026",
+      "sku": "CPW-026",
+      "name": "Teakwood Cookie Coaster",
+      "section": "teakwood",
+      "features": [],
+      "outer": 18,
+      "mrp": 995,
+      "hero": "gifting-photos/cpw-026/hero.webp",
+      "gallery": []
+    },
+    {
+      "id": "gift-cpw-010",
+      "sku": "CPW-010",
+      "name": "Teakwood Rectangle Spice Box (9 Bowl)",
+      "section": "teakwood",
+      "features": [],
+      "outer": 8,
+      "mrp": 1995,
+      "hero": "gifting-photos/cpw-010/hero.webp",
+      "gallery": []
+    },
+    {
+      "id": "gift-cbfst-09",
+      "sku": "CBFST-09",
+      "name": "Breakfast Station",
+      "section": "appliances",
+      "features": [],
+      "outer": 2,
+      "mrp": 6995,
+      "hero": "gifting-photos/cbfst-09/hero.webp",
+      "gallery": []
+    },
+    {
+      "id": "gift-cmg-500",
+      "sku": "CMG-500",
+      "name": "Mixer Grinder: 500 Watts 3 Jar: 2 Yrs Warranty",
+      "section": "appliances",
+      "features": [],
+      "outer": 6,
+      "mrp": 3495,
+      "hero": "gifting-photos/cmg-500/hero.webp",
+      "gallery": []
+    },
+    {
+      "id": "gift-cmg-550pu",
+      "sku": "CMG-550PU",
+      "name": "Mixer Grinder: 550 Watts 3 Jar: PU Coated: 5 Years Warranty",
+      "section": "appliances",
+      "features": [],
+      "outer": 6,
+      "mrp": 4395,
+      "hero": "gifting-photos/cmg-550pu/hero.webp",
+      "gallery": []
+    },
+    {
+      "id": "gift-cind-94",
+      "sku": "CIND-94",
+      "name": "Little Master Mini Induction",
+      "section": "appliances",
+      "features": [
+        "Handy For Anytime Anywhere Use",
+        "5 Pre Programmed Modes",
+        "Auto Cut Off"
+      ],
+      "outer": 6,
+      "mrp": 2995,
+      "hero": "gifting-photos/cind-94/hero.webp",
+      "gallery": []
+    },
+    {
+      "id": "gift-cind-091",
+      "sku": "CIND-091",
+      "name": "Wave 2000 Watt Touch Screen Models",
+      "section": "appliances",
+      "features": [
+        "8 Cooking Function",
+        "Auto Cut Off",
+        "3 Hours Timer",
+        "Energy Saving"
+      ],
+      "outer": 6,
+      "mrp": 5295,
+      "hero": "gifting-photos/cind-091/hero.webp",
+      "gallery": []
+    },
+    {
+      "id": "gift-cind-93",
+      "sku": "CIND-93",
+      "name": "Punch 1800 Watt",
+      "section": "appliances",
+      "features": [
+        "24 Hrs Pre Set On Time",
+        "4 Hrs Off Time",
+        "7 Pre Programmed Cooking Modes",
+        "Push Button",
+        "LED Display"
+      ],
+      "outer": 6,
+      "mrp": 4195,
+      "hero": "gifting-photos/cind-93/hero.webp",
+      "gallery": []
+    },
+    {
+      "id": "gift-cind-92",
+      "sku": "CIND-92",
+      "name": "Grand 2000 Watt Touch Screen Models",
+      "section": "appliances",
+      "features": [
+        "24 Hrs Pre Set On Time",
+        "4 Hrs Off Time",
+        "8 Pre Programmed Cooking Modes"
+      ],
+      "outer": 6,
+      "mrp": 4895,
+      "hero": "gifting-photos/cind-92/hero.webp",
+      "gallery": []
+    },
+    {
+      "id": "gift-cgirf-043",
+      "sku": "CGIRF-043",
+      "name": "Volcano 2400 WT Infrared",
+      "section": "appliances",
+      "features": [],
+      "outer": 6,
+      "mrp": 5999,
+      "hero": "gifting-photos/cgirf-043/hero.webp",
+      "gallery": []
+    },
+    {
+      "id": "gift-cgirf-044",
+      "sku": "CGIRF-044",
+      "name": "Volcano Pro 2400 WT Infrared",
+      "section": "appliances",
+      "features": [
+        "Super Sturdy And Durable"
+      ],
+      "outer": 6,
+      "mrp": 6199,
+      "hero": "gifting-photos/cgirf-044/hero.webp",
+      "gallery": []
+    },
+    {
+      "id": "gift-cktl-051",
+      "sku": "CKTL-051",
+      "name": "Aqua Heat Electric Kettle 1.8L SS",
+      "section": "appliances",
+      "features": [
+        "Automatic Shut-Off",
+        "Concealed Heating Element"
+      ],
+      "outer": 12,
+      "mrp": 1350,
+      "hero": "gifting-photos/cktl-051/hero.webp",
+      "gallery": []
+    },
+    {
+      "id": "gift-cktl-055",
+      "sku": "CKTL-055",
+      "name": "Electric Multi Cooker",
+      "section": "appliances",
+      "features": [],
+      "outer": 12,
+      "mrp": 2195,
+      "hero": "gifting-photos/cktl-055/hero.webp",
+      "gallery": []
+    },
+    {
+      "id": "gift-cktl-057",
+      "sku": "CKTL-057",
+      "name": "Electric Kettle 1.8L Cool Touch Handle White",
+      "section": "appliances",
+      "features": [],
+      "outer": 12,
+      "mrp": 1950,
+      "hero": "gifting-photos/cktl-057/hero.webp",
+      "gallery": []
+    },
+    {
+      "id": "gift-cktl-058",
+      "sku": "CKTL-058",
+      "name": "Electric Kettle 1.8L Cool Touch Handle Black",
+      "section": "appliances",
+      "features": [],
+      "outer": 12,
+      "mrp": 1950,
+      "hero": "gifting-photos/cktl-058/hero.webp",
+      "gallery": []
+    },
+    {
+      "id": "gift-cpw-029-cpw-030",
+      "sku": "CPW-029 / CPW-030",
+      "name": "Teak Wood Platter Tray",
+      "section": "teakwood",
+      "features": [
+        "Designo Platter Tray",
+        "Large Recto Tray"
+      ],
+      "models": [
+        {
+          "sku": "CPW-029",
+          "name": "Teak Wood Designo Platter Tray",
+          "outer": 24,
+          "mrp": 995
+        },
+        {
+          "sku": "CPW-030",
+          "name": "Teak Wood Large Recto Tray",
+          "outer": 24,
+          "mrp": 895
+        }
+      ],
+      "outer": null,
+      "mrp": null,
+      "hero": "gifting-photos/cpw-029-combo/hero.webp",
+      "gallery": []
+    },
+    {
+      "id": "gift-cpw-025-cpw-011-cpw-012-cpw-013",
+      "sku": "CPW-025 / CPW-011 / CPW-012 / CPW-013",
+      "name": "Teakwood Cutlery Holder Combo",
+      "section": "teakwood",
+      "features": [
+        "Indox Revolving 3 Compartment Organiser",
+        "Revolving Table Caddy 4 In 1",
+        "Table Caddy With Handle 2 In 1",
+        "Table Caddy With Handle 4 In 1"
+      ],
+      "models": [
+        {
+          "sku": "CPW-025",
+          "name": "Teakwood Indox Revolving 3 Compartment Organiser",
+          "outer": 12,
+          "mrp": 1295
+        },
+        {
+          "sku": "CPW-011",
+          "name": "Teakwood Revolving Table Caddy 4 In 1",
+          "outer": 12,
+          "mrp": 995
+        },
+        {
+          "sku": "CPW-012",
+          "name": "Teakwood Table Caddy With Handle 2 In 1",
+          "outer": 18,
+          "mrp": 695
+        },
+        {
+          "sku": "CPW-013",
+          "name": "Teakwood Table Caddy With Handle 4 In 1",
+          "outer": 18,
+          "mrp": 1195
+        }
+      ],
+      "outer": null,
+      "mrp": null,
+      "hero": "gifting-photos/cpw-025-combo/hero.webp",
+      "gallery": []
+    },
+    {
+      "id": "gift-cpw-017-cpw-028",
+      "sku": "CPW-017 / CPW-028",
+      "name": "Teakwood Napkin Holder & Large Tissue Box",
+      "section": "teakwood",
+      "features": [
+        "Napkin Holder With Weight",
+        "Large Tissue Box"
+      ],
+      "models": [
+        {
+          "sku": "CPW-017",
+          "name": "Teakwood Napkin Holder With Weight",
+          "outer": 16,
+          "mrp": 695
+        },
+        {
+          "sku": "CPW-028",
+          "name": "Teakwood Large Tissue Box",
+          "outer": 18,
+          "mrp": 895
+        }
+      ],
+      "outer": null,
+      "mrp": null,
+      "hero": "gifting-photos/cpw-017-combo/hero.webp",
+      "gallery": []
+    },
+    {
+      "id": "gift-cgbs-031-cgbs-032",
+      "sku": "CGBS-031 / CGBS-032",
+      "name": "Imperia Cooktops",
+      "section": "cooktops",
+      "features": [
+        "11 Year Warranty On Glass",
+        "3 Year Warranty On Product",
+        "8 MM Heavy Toughened Glass",
+        "3 Burner And 4 Burner"
+      ],
+      "models": [
+        {
+          "sku": "CGBS-031",
+          "name": "Imperia 3 Burner Auto Ignition Cooktop",
+          "outer": 2,
+          "mrp": 19395
+        },
+        {
+          "sku": "CGBS-032",
+          "name": "Imperia 4 Burner Auto Ignition Cooktop",
+          "outer": 2,
+          "mrp": 23550
+        }
+      ],
+      "outer": null,
+      "mrp": null,
+      "hero": "gifting-photos/cgbs-031-combo/hero.webp",
+      "gallery": []
+    },
+    {
+      "id": "gift-cgbs-021-cgbs-022",
+      "sku": "CGBS-021 / CGBS-022",
+      "name": "Lexa Cooktops",
+      "section": "cooktops",
+      "features": [
+        "11 Year Warranty On Glass",
+        "3 Year Warranty On Product",
+        "8 MM Heavy Toughened Glass",
+        "3 Burner And 4 Burner"
+      ],
+      "models": [
+        {
+          "sku": "CGBS-021",
+          "name": "Lexa 3 Burner Cooktop",
+          "outer": 2,
+          "mrp": 17450
+        },
+        {
+          "sku": "CGBS-022",
+          "name": "Lexa 4 Burner Cooktop",
+          "outer": 2,
+          "mrp": 14395
+        }
+      ],
+      "outer": null,
+      "mrp": null,
+      "hero": "gifting-photos/cgbs-021-combo/hero.webp",
+      "gallery": []
+    },
+    {
+      "id": "gift-cgbs-016-cgbs-017-cgbs-018",
+      "sku": "CGBS-016 / CGBS-017 / CGBS-018",
+      "name": "Magnite Cooktops",
+      "section": "cooktops",
+      "features": [
+        "6 Year Warranty On Glass",
+        "2 Year Warranty On Product",
+        "6 MM Toughened Glass",
+        "2, 3 And 4 Burner"
+      ],
+      "models": [
+        {
+          "sku": "CGBS-016",
+          "name": "Magnite 2 Burner Cooktop",
+          "outer": 4,
+          "mrp": 6895
+        },
+        {
+          "sku": "CGBS-017",
+          "name": "Magnite 3 Burner Cooktop",
+          "outer": 3,
+          "mrp": 8995
+        },
+        {
+          "sku": "CGBS-018",
+          "name": "Magnite 4 Burner Cooktop",
+          "outer": 2,
+          "mrp": 10995
+        }
+      ],
+      "outer": null,
+      "mrp": null,
+      "hero": "gifting-photos/cgbs-016-combo/hero.webp",
+      "gallery": []
+    },
+    {
+      "id": "gift-cgbs-011-cgbs-012-cgbs-013",
+      "sku": "CGBS-011 / CGBS-012 / CGBS-013",
+      "name": "Ignite Cooktops",
+      "section": "cooktops",
+      "features": [
+        "6 Year Warranty On Glass",
+        "2 Year Warranty On Product",
+        "6 MM Toughened Glass",
+        "2, 3 And 4 Burner"
+      ],
+      "models": [
+        {
+          "sku": "CGBS-011",
+          "name": "Ignite 2 Burner Cooktop",
+          "outer": 4,
+          "mrp": 4995
+        },
+        {
+          "sku": "CGBS-012",
+          "name": "Ignite 3 Burner Cooktop",
+          "outer": 3,
+          "mrp": 6895
+        },
+        {
+          "sku": "CGBS-013",
+          "name": "Ignite 4 Burner Cooktop",
+          "outer": 2,
+          "mrp": 8995
+        }
+      ],
+      "outer": null,
+      "mrp": null,
+      "hero": "gifting-photos/cgbs-011-combo/hero.webp",
+      "gallery": []
+    }
+  ]
+}

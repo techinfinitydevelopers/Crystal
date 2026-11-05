@@ -531,6 +531,21 @@ h1, h2 { overflow-wrap: break-word; }
 <!-- Photos changed in the dashboard, folded into the catalogue as it loads.
      Must stay above the scripts that read products.json. -->
 <script src="product-image-sync.js?v=20261029a"></script>
+<style id="nav-fit">
+  /* Six menu items now (Gifting added): keep each label on one line, tighten the
+     pills a little on laptops, and hand over to the burger menu from 1279px down
+     so the Contact button never spills out of the pill. */
+  .nav-links > li > a { white-space: nowrap; }
+  .nav-links > li > a { padding-left: 11px; padding-right: 11px; }
+  @media (max-width: 1279px) { .nav-links, .nav-right .btn { display: none; } .burger { display: flex; } }
+  /* The closed mobile menu is parked above the screen. Its content (now seven items plus the
+     social row) can be taller than a short window, and on pages where the menu did not scroll the
+     part that overflowed -- the social icons -- showed up under the header, on top of the logo.
+     Hide the menu completely while it is closed, and let tall content scroll when it is open. */
+  .mobile-menu { overflow-y: auto; }
+  .mobile-menu:not(.open) { visibility: hidden; transition: transform .45s cubic-bezier(.2,.8,.2,1), visibility 0s linear .45s; }
+  @media (min-width: 901px) { .mobile-menu { justify-content: safe center; } }
+</style>
 </head>
 <body>
 <!-- ===== HEADER ===== -->
@@ -613,7 +628,7 @@ h1, h2 { overflow-wrap: break-word; }
             <a href="Brand-ValMate.html"><b>ValMate</b><span>Value for Money</span></a>
           </div>
         </li>
-        <li><a href="Catalogue.html">Catalogue</a></li>
+        <li><a href="Catalogue.html">Catalogue</a></li><li><a href="Gifting.html">Gifting</a></li>
         <li><a href="Blog.html">Knowledge Centre</a></li>
       </ul>
       <div class="nav-right">
@@ -693,7 +708,7 @@ h1, h2 { overflow-wrap: break-word; }
       <a class="mm-acc-sub" href="Lunch-Box.html">Lunch Box</a>
       </div>
     </li>
-    <li><a href="Catalogue.html" class="mm-link">Catalogue</a></li>
+    <li><a href="Catalogue.html" class="mm-link">Catalogue</a></li><li><a href="Gifting.html" class="mm-link">Gifting</a></li>
     <li><a href="Blog.html" class="mm-link">Knowledge Centre</a></li>
     <li><a href="Contact.html" class="mm-link">Contact Us</a></li>
   </ul>
@@ -795,7 +810,7 @@ h1, h2 { overflow-wrap: break-word; }
       </div>
       <div class="foot-col">
         <h5>Quick Link</h5>
-        <ul><li><a href="About.html">About Us</a></li><li><a href="Catalogue.html">Catalogue</a></li><li><a href="Blog.html">Knowledge Centre</a></li><li><a href="Career.html">Career</a></li></ul>
+        <ul><li><a href="About.html">About Us</a></li><li><a href="Catalogue.html">Catalogue</a></li><li><a href="Gifting.html">Gifting</a></li><li><a href="Blog.html">Knowledge Centre</a></li><li><a href="Career.html">Career</a></li></ul>
       </div>
       <div class="foot-col">
         <h5>Contact Us</h5>

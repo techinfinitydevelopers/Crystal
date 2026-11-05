@@ -38,3 +38,8 @@ amazon-videos/
 # Media library uploads (crystal/backend/medialib). MEDIA_ROOT is the repo root
 # locally and on the VPS, so files uploaded to the library land here.
 /library/
+# Gifting: pictures uploaded in the dashboard land in the site tree (MEDIA_ROOT)
+gift-sets/
+crystal/backend/gifting/__pycache__/
+crystal/backend/gifting/*/__pycache__/
+crystal/backend/gifting/*/*/__pycache__/
