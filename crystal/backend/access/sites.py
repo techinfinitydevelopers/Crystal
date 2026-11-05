@@ -5,6 +5,11 @@ superusers) get past it. It holds the two things that used to sit inside the
 everyday dashboard -- user accounts and the restriction switches -- so the
 other admins never even see a link to them.
 
+Its own sign-in in the strict sense: being signed in to the everyday /admin/
+does not open this one. Only a sign-in on this site's login page sets
+SESSION_KEY, so the super admin's username and password are asked for here
+every time, and signing out of either dashboard closes both.
+
 Mounted under /admin/ on purpose: nginx on the VPS sends only /admin, /api and
 /dashboard to Django, so a new top-level path would never reach it.
 """
@@ -13,6 +18,8 @@ from django.contrib.admin import AdminSite
 from django.contrib.admin.forms import AdminAuthenticationForm
 
 from .rules import is_super_admin
+
+SESSION_KEY = 'crx_super_admin'
 
 
 class SuperAdminLoginForm(AdminAuthenticationForm):
@@ -32,7 +39,14 @@ class SuperAdminSite(AdminSite):
     index_template = 'admin/superadmin/index.html'
 
     def has_permission(self, request):
-        return is_super_admin(request.user)
+        return (is_super_admin(request.user)
+                and request.session.get(SESSION_KEY) == request.user.pk)
+
+    def login(self, request, extra_context=None):
+        response = super().login(request, extra_context)
+        if request.method == 'POST' and is_super_admin(request.user):
+            request.session[SESSION_KEY] = request.user.pk
+        return response
 
     def get_app_list(self, request, app_label=None):
         app_list = super().get_app_list(request, app_label)

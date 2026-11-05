@@ -21,6 +21,12 @@ class SuperAdminControlTests(TestCase):
 
     def login(self, user):
         self.client.force_login(user)
+        if user.is_superuser:
+            # What a sign-in on /admin/super/login/ records (access.sites).
+            from .sites import SESSION_KEY
+            s = self.client.session
+            s[SESSION_KEY] = user.pk
+            s.save()
 
     def toggle(self, **data):
         return self.client.post('/admin/super/access/hiddenfeature/control/toggle/', json.dumps(data),
@@ -114,6 +120,16 @@ class SuperAdminControlTests(TestCase):
         home = self.client.get('/admin/super/')
         self.assertContains(home, 'ram')
         self.assertContains(home, '/admin/super/access/hiddenfeature/control/')
+
+    def test_everyday_sign_in_does_not_open_super_dashboard(self):
+        self.client.logout()
+        self.assertTrue(self.client.login(username='boss', password='x'))   # as on /admin/login/
+        self.assertEqual(self.client.get('/admin/products/product/').status_code, 200)
+        r = self.client.get('/admin/super/')
+        self.assertEqual(r.status_code, 302)
+        self.assertIn('/admin/super/login/', r['Location'])
+        self.client.post('/admin/super/login/', {'username': 'boss', 'password': 'x'})
+        self.assertEqual(self.client.get('/admin/super/').status_code, 200)
 
     def test_everyday_dashboard_has_no_accounts_or_switches(self):
         self.login(self.boss)

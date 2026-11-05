@@ -926,3 +926,6 @@ Delete it from the dashboard when done (deleting writes a "Removed products" tom
 - base_site.html: media-library script skipped on the super site (its URLs do not reverse there); jazzmin top
   search + dead Enquiries link hidden there.
 - Tests: access 15, full suite 42 OK; checked locally (scratch DB) home, add form, switches, everyday sidebar.
+- Same day: separate sign-in enforced. `SuperAdminSite.has_permission` also needs session key
+  `crx_super_admin`, set only by a POST to /admin/super/login/. Signed in at /admin/ → /admin/super/ asks for the
+  username/password again. Test added (43 OK).
