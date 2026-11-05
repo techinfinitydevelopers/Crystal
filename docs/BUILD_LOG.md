@@ -953,3 +953,4 @@ Delete it from the dashboard when done (deleting writes a "Removed products" tom
 - Tests 47 OK (new: every changelist/add opens on the super site; redirects stay inside). Local crawl of 144
   super pages (lists, adds, first change page of each): 0 errors, 0 links leaving /admin/super/. Mobile 375px:
   no sideways scroll.
+- Live check 14:02: 110 super pages + 22 change pages OK, none leave /admin/super/. Recent Actions links (LogEntry.get_admin_url → /admin/) rewritten to /admin/super/ by a small script on the super home.
