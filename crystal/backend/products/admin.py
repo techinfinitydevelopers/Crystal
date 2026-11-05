@@ -123,7 +123,7 @@ class CategoryAdmin(_RecordsEdits, admin.ModelAdmin):
         return format_html(
             '<a href="{}" class="btn btn-sm" style="background:#ED3338;color:#fff;'
             'font-weight:600;white-space:nowrap;">Arrange products &rarr;</a>',
-            reverse('admin:products_category_arrange', args=[obj.pk]))
+            reverse('admin:products_category_arrange', args=[obj.pk], current_app=self.admin_site.name))
     list_filter = ['parent']
     prepopulated_fields = {'slug': ('name',)}
     list_display_links = ['name']
@@ -453,7 +453,7 @@ class ProductAdmin(admin.ModelAdmin):
             'title': 'Import products from Excel / CSV',
             'opts': self.model._meta,
             'columns': importer.COLUMNS,
-            'changelist_url': reverse('admin:products_product_changelist'),
+            'changelist_url': reverse('admin:products_product_changelist', current_app=self.admin_site.name),
             'template_xlsx_url': reverse(
                 'admin:products_product_import_template', args=['xlsx']),
             'template_csv_url': reverse(

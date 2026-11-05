@@ -13,9 +13,12 @@ every time, and signing out of either dashboard closes both.
 Mounted under /admin/ on purpose: nginx on the VPS sends only /admin, /api and
 /dashboard to Django, so a new top-level path would never reach it.
 """
+from functools import update_wrapper
+
 from django import forms
 from django.contrib.admin import AdminSite
 from django.contrib.admin.forms import AdminAuthenticationForm
+from django.urls import Resolver404, resolve, reverse
 
 from .rules import is_super_admin
 
@@ -48,6 +51,47 @@ class SuperAdminSite(AdminSite):
             request.session[SESSION_KEY] = request.user.pk
         return response
 
+    def get_urls(self):
+        # Every screen of the everyday dashboard, here too: the super admin can
+        # do anything from one place. Done here rather than at import time
+        # because by the time URLs are built every app's admin.py has run, in
+        # whatever order INSTALLED_APPS lists them.
+        from django.contrib import admin
+        for model, model_admin in admin.site._registry.items():
+            if not self.is_registered(model):
+                self.register(model, type(model_admin))
+        return super().get_urls()
+
+    def admin_view(self, view, cacheable=False):
+        # Custom screens (page editor, arrange products, media library...)
+        # render {% url 'admin:...' %} links; naming this site as the current
+        # app keeps those links inside the super admin dashboard.
+        inner = super().admin_view(view, cacheable)
+
+        def wrapper(request, *args, **kwargs):
+            request.current_app = self.name
+            return self._stay_here(inner(request, *args, **kwargs))
+        return update_wrapper(wrapper, inner)
+
+    def _stay_here(self, response):
+        """A screen that redirects with redirect('admin:...') -- settings
+        pages, arrange, media library -- would land on /admin/. Send it to the
+        same screen here instead, when this site has it."""
+        loc = response.get('Location', '') if response.status_code in (301, 302) else ''
+        if loc.startswith('/admin/') and not loc.startswith(self._prefix()):
+            path, _, query = loc.partition('?')
+            here = self._prefix() + path[len('/admin/'):]
+            try:
+                match = resolve(here)
+            except Resolver404:
+                return response
+            if match.namespace == self.name and match.url_name:
+                response['Location'] = here + ('?' + query if query else '')
+        return response
+
+    def _prefix(self):
+        return reverse(self.name + ':index')
+
     def get_app_list(self, request, app_label=None):
         app_list = super().get_app_list(request, app_label)
         for app in app_list:
@@ -62,6 +106,7 @@ class SuperAdminSite(AdminSite):
 
     def index(self, request, extra_context=None):
         from django.contrib.auth import get_user_model
+        from core.admin_site import overview_context
         from .models import HiddenFeature
         from .roles import role_of
 
@@ -71,6 +116,7 @@ class SuperAdminSite(AdminSite):
             u.role = role_of(u)
         extra_context = {
             **(extra_context or {}),
+            **overview_context(request),
             'accounts': accounts,
             'n_super': sum(1 for u in accounts if u.role == 'super' and u.is_active),
             'n_admin': sum(1 for u in accounts if u.role != 'super' and u.is_active),

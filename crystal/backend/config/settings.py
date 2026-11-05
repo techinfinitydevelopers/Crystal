@@ -299,11 +299,13 @@ JAZZMIN_SETTINGS = {
     "hide_apps": [],
     "hide_models": ["auth.group"],
     "order_with_respect_to": [
+        # Only on the super admin dashboard (/admin/super/), where they lead.
+        "auth", "access",
         "products", "banners", "gifting", "gifting.giftset", "gifting.giftrange", "gifting.giftingsettings", "medialib",
         "content", "content.page", "content.pagesection", "content.pagesectiontrash",
         "seo", "seo.seometa", "seo.productpage", "seo.blogpostseo", "seo.scriptblock",
         "seo.sitemapconfig", "seo.redirect", "seo.seosettings",
-        "awards", "themes", "enquiry", "blog", "downloads", "core", "access", "auth",
+        "awards", "themes", "enquiry", "blog", "downloads", "core",
     ],
 
     "icons": {

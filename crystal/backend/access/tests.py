@@ -200,3 +200,42 @@ class SuperAdminControlTests(TestCase):
         self.assertContains(r, 'lock yourself out')
         self.boss.refresh_from_db()
         self.assertTrue(self.boss.is_superuser)
+
+
+class SuperDashboardHasEverythingTests(TestCase):
+    """Every screen of the everyday dashboard opens on /admin/super/ too."""
+
+    def setUp(self):
+        from .sites import SESSION_KEY
+        self.boss = get_user_model().objects.create_superuser('boss', 'b@x.com', 'x')
+        self.client.force_login(self.boss)
+        s = self.client.session
+        s[SESSION_KEY] = self.boss.pk
+        s.save()
+
+    def test_every_list_and_add_screen_opens(self):
+        from django.contrib import admin
+        from django.urls import reverse
+        home = self.client.get('/admin/super/')
+        self.assertEqual(home.status_code, 200)
+        body = home.content.decode()
+        self.assertIn('Super Admin Dashboard', body)
+        self.assertIn('/admin/super/products/product/', body)     # sidebar + quick actions stay here
+        broken = []
+        for model, ma in admin.site._registry.items():
+            meta = model._meta
+            for view in ('changelist', 'add'):
+                try:
+                    url = reverse(f'superadmin:{meta.app_label}_{meta.model_name}_{view}')
+                except Exception:
+                    continue
+                r = self.client.get(url)
+                if r.status_code >= 400 and not (view == 'add' and r.status_code == 403):
+                    broken.append((url, r.status_code))
+        self.assertEqual(broken, [])
+
+    def test_redirecting_screens_stay_inside(self):
+        r = self.client.get('/admin/super/access/hiddenfeature/')
+        self.assertEqual(r['Location'], '/admin/super/access/hiddenfeature/control/')
+        r = self.client.get('/admin/super/awards/awardsettings/')
+        self.assertTrue(r['Location'].startswith('/admin/super/awards/awardsettings/'), r['Location'])

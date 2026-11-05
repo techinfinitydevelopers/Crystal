@@ -178,7 +178,7 @@ class PageAdmin(admin.ModelAdmin):
             '<a href="{}" class="btn btn-sm" '
             'style="background:#ED3338;color:#fff;font-weight:600;">'
             'Edit this page &rarr;</a>',
-            reverse('admin:content_page_editor', args=[obj.pk]))
+            reverse('admin:content_page_editor', args=[obj.pk], current_app=self.admin_site.name))
 
     def editor_view(self, request, pk):
         page = get_object_or_404(Page, pk=pk)

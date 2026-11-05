@@ -199,7 +199,7 @@ class HiddenFeatureAdmin(admin.ModelAdmin):
         ] + super().get_urls()
 
     def changelist_view(self, request, extra_context=None):
-        return redirect('admin:access_hiddenfeature_control')
+        return redirect(reverse('admin:access_hiddenfeature_control', current_app=self.admin_site.name))
 
     # ── the screen ────────────────────────────────────────────────────────────
 

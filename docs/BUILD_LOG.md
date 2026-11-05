@@ -937,3 +937,19 @@ Delete it from the dashboard when done (deleting writes a "Removed products" tom
 - Restrict screen: "Hide everything on this tab" / "Show everything on this tab" (confirm first), for the
   chosen scope (all admins or one). Toggle endpoint now also takes `items: [...]`.
 - Tests: 45 OK; bulk hide/show checked in the browser on a scratch DB (40 hidden, 41 shown back).
+
+## 2026-11-05 — Super admin dashboard has everything + redesign
+- `SuperAdminSite.get_urls` mounts every model of the everyday dashboard on /admin/super/ too (copied from
+  admin.site's registry at URL build time, so app order does not matter). Sidebar: Accounts + Restrict admins
+  first (jazzmin order_with_respect_to starts with auth, access — they exist only on the super site).
+- `SuperAdminSite.admin_view` sets `request.current_app` (template `{% url 'admin:..' %}` links stay on
+  /admin/super/) and `_stay_here` rewrites `redirect('admin:..')` Locations to the super site when it has the
+  screen. Python-built links (page editor button, arrange button, import changelist link) pass current_app.
+- Home: dark hero (Add account / Restrict admins), account stats, full-width Accounts table (Edit · Password ·
+  Restrict · Block · Remove) with role legend, then the everyday home as is ({{ block.super }}; shared
+  `core.admin_site.overview_context`).
+- Fixed: "Super admin control" sidebar link 500ed on the super site (redirect reversed on the wrong site).
+- base_site.html: media-library picker now loads on the super site too.
+- Tests 47 OK (new: every changelist/add opens on the super site; redirects stay inside). Local crawl of 144
+  super pages (lists, adds, first change page of each): 0 errors, 0 links leaving /admin/super/. Mobile 375px:
+  no sideways scroll.

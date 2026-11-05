@@ -1,19 +1,57 @@
-{% extends "admin/base_site.html" %}
+{% extends "admin/index.html" %}
 {% load i18n %}
 
 {% comment %}
-  Home of the super admin dashboard (access.sites.SuperAdminSite). Not the
-  everyday admin/index.html: that one is built around products and enquiries,
-  none of which are mounted on this site.
+  Home of the super admin dashboard (access.sites.SuperAdminSite).
+
+  Top: what only a super admin has -- accounts, roles, restrictions. Below it,
+  {{ block.super }} is the everyday dashboard home (admin/index.html) as it is,
+  fed by the same core.admin_site.overview_context; every model is mounted on
+  this site too, so its links stay inside /admin/super/.
 {% endcomment %}
 
-{% block breadcrumbs %}{% endblock %}
+{% block extrastyle %}
+{{ block.super }}
+<style>
+  .sa-hero { background:linear-gradient(120deg,#1f1f1f 0%,#3a1214 100%); color:#fff; border-radius:12px; padding:22px 24px; margin-bottom:20px;
+             display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; box-shadow:0 6px 20px rgba(0,0,0,.12); }
+  .sa-hero h2 { margin:0; font-size:22px; font-weight:800; letter-spacing:-.01em; color:#fff; }
+  .sa-hero h2 i { color:#ED3338; margin-right:8px; }
+  .sa-hero p { margin:6px 0 0; font-size:13px; color:rgba(255,255,255,.72); }
+  .sa-hero__btns { display:flex; gap:8px; flex-wrap:wrap; }
+  .sa-hero__btns a { display:inline-flex; align-items:center; gap:7px; padding:9px 15px; border-radius:8px; font-size:13px; font-weight:700;
+                     text-decoration:none; border:1px solid rgba(255,255,255,.25); color:#fff; }
+  .sa-hero__btns a.primary { background:#ED3338; border-color:#ED3338; }
+  .sa-hero__btns a:hover { filter:brightness(1.1); color:#fff; }
+  .sa-role { display:inline-block; padding:2px 10px; border-radius:100px; font-size:11px; font-weight:700; color:#fff; }
+  .sa-role--super { background:#ED3338; } .sa-role--admin { background:#16a34a; } .sa-role--seo { background:#0369a1; }
+  .sa-acts { text-align:right; }
+  .sa-acts a, .sa-acts button { font-size:12px; font-weight:600; padding:3px 9px; border-radius:6px; border:1px solid #e2e8f0;
+                                 background:#fff; color:#334155; text-decoration:none; cursor:pointer; margin-left:4px; }
+  .sa-acts a:hover, .sa-acts button:hover { border-color:#94a3b8; }
+  .sa-acts .warn { color:#b45309; } .sa-acts .danger { color:#ED3338; border-color:#fecaca; }
+  .sa-off { color:#ED3338; font-weight:700; }
+  .sa-acts a, .sa-acts button, .sa-acts form { display:inline-block; margin:2px 0 2px 4px; }
+  .sa-legend { display:flex; flex-wrap:wrap; gap:8px 22px; padding:12px 16px; border-top:1px solid #f1f5f9; font-size:12.5px; color:#64748b; }
+  .sa-divider { display:flex; align-items:center; gap:12px; margin:8px 0 18px; font-size:12px; font-weight:800; letter-spacing:.08em;
+                text-transform:uppercase; color:#94a3b8; }
+  .sa-divider::before, .sa-divider::after { content:""; flex:1; height:1px; background:#e2e8f0; }
+  .sa-table-wrap { overflow-x:auto; }
+</style>
+{% endblock %}
 
 {% block content %}
-<div class="crx-card card mb-3" style="border-left:4px solid #ED3338;"><div class="card-body" style="padding:14px 18px;">
-  <h2 style="margin:0;font-size:20px;font-weight:800;"><i class="fas fa-user-shield" style="color:#ED3338"></i> Super Admin Dashboard</h2>
-  <div class="crx-muted" style="font-size:13px;margin-top:4px;">Accounts, passwords and what each admin may see. Only super admins can open this.</div>
-</div></div>
+<div class="sa-hero">
+  <div>
+    <h2><i class="fas fa-user-shield"></i>Super Admin Dashboard</h2>
+    <p>Everything the admins have, plus accounts, passwords and what each admin may see. Only super admins can open this.</p>
+  </div>
+  <div class="sa-hero__btns">
+    <a class="primary" href="{% url 'admin:auth_user_add' %}"><i class="fas fa-user-plus"></i> Add account</a>
+    <a href="{% url 'admin:access_hiddenfeature_control' %}"><i class="fas fa-toggle-on"></i> Restrict admins</a>
+  </div>
+</div>
+
 <div class="row crx-stat-row mb-4">
   <div class="col-lg-3 col-6"><div class="crx-stat">
     <span class="crx-stat__icon"><i class="fas fa-user-shield"></i></span>
@@ -34,51 +72,47 @@
   </div></div>
 </div>
 
-<div class="row">
-  <div class="col-lg-8">
-    <div class="card crx-card mb-3">
+<div class="row mb-2">
+  <div class="col-12">
+    <div class="card crx-card mb-4">
       <div class="crx-card__head">
         <h3 class="crx-card__title"><i class="fas fa-users"></i> Accounts</h3>
-        <a href="{% url 'admin:auth_user_add' %}" class="crx-card__action">+ Add account</a>
+        <a href="{% url 'admin:auth_user_changelist' %}" class="crx-card__action">All accounts &rarr;</a>
       </div>
-      <div class="card-body p-0">
+      <div class="card-body p-0 sa-table-wrap">
         <table class="table table-sm mb-0 crx-table">
           <thead><tr><th>Username</th><th>Role</th><th>Can sign in</th><th>Last sign-in</th><th></th></tr></thead>
           <tbody>
           {% for u in accounts %}
             <tr>
               <td class="crx-strong">{{ u.get_username }}{% if u.pk == request.user.pk %} <span class="crx-muted">(you)</span>{% endif %}</td>
-              <td>{% if u.role == 'super' %}Super admin{% elif u.role == 'seo' %}SEO Team{% else %}Admin{% endif %}</td>
-              <td>{% if u.is_active %}Yes{% else %}<b style="color:#ED3338">Blocked</b>{% endif %}</td>
+              <td><span class="sa-role sa-role--{{ u.role }}">{% if u.role == 'super' %}Super admin{% elif u.role == 'seo' %}SEO Team{% else %}Admin{% endif %}</span></td>
+              <td>{% if u.is_active %}Yes{% else %}<span class="sa-off">Blocked</span>{% endif %}</td>
               <td class="crx-date">{{ u.last_login|date:"d M Y, H:i"|default:"never" }}</td>
-              <td style="white-space:nowrap;"><a href="{% url 'admin:auth_user_change' u.pk %}">Edit</a>
-                {% if u.role != 'super' %} &middot; <a href="{% url 'admin:access_hiddenfeature_control' %}?user={{ u.pk }}">Restrict</a>{% endif %}
+              <td class="sa-acts">
+                <a href="{% url 'admin:auth_user_change' u.pk %}">Edit</a>
+                <a href="{% url 'admin:auth_user_password_change' u.pk %}">Password</a>
+                {% if u.role != 'super' %}<a href="{% url 'admin:access_hiddenfeature_control' %}?user={{ u.pk }}">Restrict</a>{% endif %}
                 {% if u.pk != request.user.pk %}
-                &middot; <form method="post" action="{% url 'admin:auth_user_signin' u.pk %}" style="display:inline">{% csrf_token %}<button type="submit" style="border:none;background:none;padding:0;color:#b45309;cursor:pointer;">{% if u.is_active %}Block{% else %}Unblock{% endif %}</button></form>
-                &middot; <a href="{% url 'admin:auth_user_delete' u.pk %}" style="color:#ED3338">Remove</a>
-                {% endif %}</td>
+                <form method="post" action="{% url 'admin:auth_user_signin' u.pk %}" style="display:inline">{% csrf_token %}<button type="submit" class="warn">{% if u.is_active %}Block{% else %}Unblock{% endif %}</button></form>
+                <a class="danger" href="{% url 'admin:auth_user_delete' u.pk %}">Remove</a>
+                {% endif %}
+              </td>
             </tr>
           {% endfor %}
           </tbody>
         </table>
       </div>
-    </div>
-  </div>
-  <div class="col-lg-4">
-    <div class="card crx-card mb-3">
-      <div class="crx-card__head"><h3 class="crx-card__title"><i class="fas fa-bolt"></i> Quick links</h3></div>
-      <div class="card-body">
-        <a href="{% url 'admin:auth_user_add' %}" class="crx-qa crx-qa--primary"><i class="fas fa-user-plus"></i> Add an account (username + password)</a>
-        <a href="{% url 'admin:access_hiddenfeature_control' %}" class="crx-qa"><i class="fas fa-toggle-on"></i> Restrict what admins see</a>
-        <a href="/admin/" class="crx-qa"><i class="fas fa-th-large"></i> Open the everyday dashboard</a>
+      <div class="sa-legend">
+        <span><span class="sa-role sa-role--super">Super admin</span> everything, including this dashboard (signs in at /admin/super/)</span>
+        <span><span class="sa-role sa-role--admin">Admin</span> the whole everyday dashboard (/admin/), minus what you restrict</span>
+        <span><span class="sa-role sa-role--seo">SEO Team</span> SEO screens, page text and blog only</span>
       </div>
     </div>
-    <div class="card crx-card"><div class="card-body crx-muted" style="font-size:13px;">
-      <b>Admin</b>: the whole everyday dashboard, minus what you restrict.<br>
-      <b>SEO Team</b>: SEO screens, page text and blog only.<br>
-      <b>Super admin</b>: everything, and this dashboard.<br>
-      Admins sign in at <b>/admin/</b>. Only super admins can sign in here.
-    </div></div>
   </div>
 </div>
+
+<div class="sa-divider">Website &amp; dashboard</div>
+
+{{ block.super }}
 {% endblock %}
