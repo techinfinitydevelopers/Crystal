@@ -909,3 +909,20 @@ Delete it from the dashboard when done (deleting writes a "Removed products" tom
 - Tests: access 9 + medialib + themes = 36 OK. Checked locally with a scratch DB: hide Brands → gone from a test
   admin's sidebar and its URL redirects; Users 403; About sections list loads (115 rows).
 - Known gap: jazzmin's top-bar product search box still shows when Products is hidden (submitting is blocked).
+
+## 2026-11-05 — Separate Super Admin dashboard (/admin/super/)
+- Second admin site `access.sites.super_site` (name `superadmin`) at **/admin/super/**, own sign-in that refuses
+  anyone who is not a superuser. Mounted under /admin/ because nginx only proxies /admin, /api, /dashboard.
+- Moved into it, out of the everyday /admin/: Users (unregistered from admin.site, Groups too) and the
+  restriction switches (HiddenFeatureAdmin, now registered on super_site; its switches still list the
+  everyday dashboard's apps via `admin.site.get_app_list`).
+- Accounts screen: add account = username + password + role in one step (Admin / SEO Team / Super admin,
+  `access.roles`), "Can sign in" untick = blocked, Django's own password-reset form per account, role badge.
+  Cannot demote, block or delete your own account (lockout guard).
+- Super dashboard home: counts, account table with Edit / Restrict (opens the switches scoped to that user).
+- Everyday dashboard: user menu → "Super admin dashboard" (superusers only, via auth.view_user perm).
+- Fixed: SEO Team members were getting the whole dashboard from AdminAccessBackend; anyone in a group now
+  gets only the group's permissions.
+- base_site.html: media-library script skipped on the super site (its URLs do not reverse there); jazzmin top
+  search + dead Enquiries link hidden there.
+- Tests: access 15, full suite 42 OK; checked locally (scratch DB) home, add form, switches, everyday sidebar.

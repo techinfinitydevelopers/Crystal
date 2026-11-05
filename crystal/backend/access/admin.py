@@ -1,22 +1,130 @@
-"""Super admin control: one screen of switches.
+"""The super admin dashboard's screens (access.sites.super_site).
 
-Left on = the other admins see it. Switched off = hidden from them, in the
-sidebar, the page list and the page editor, and blocked if they type its URL.
-Super admins always see everything, so the person flipping switches can never
-lock themselves out.
+Accounts: create an admin with a username, password and role in one go, block
+or unblock them, reset their password.
+
+Restrict: one screen of switches. Left on = the other admins see it. Switched
+off = hidden from them, in the sidebar, the page list and the page editor, and
+blocked if they type its URL. Super admins always see everything, so the person
+flipping switches can never lock themselves out.
+
+Both used to live in the everyday dashboard; they are taken out of it here.
 """
 import json
 from itertools import groupby
 
+from django import forms
 from django.contrib import admin
 from django.contrib.auth import get_user_model
+from django.contrib.auth.admin import UserAdmin
+from django.contrib.auth.forms import UserChangeForm, UserCreationForm
+from django.contrib.auth.models import Group
 from django.http import HttpResponseForbidden, JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import path, reverse
+from django.utils.html import format_html
 
 from .backends import SUPER_ONLY_APPS
 from .models import HiddenFeature
+from .roles import ROLE_CHOICES, ROLE_LABELS, SUPER, apply_role, role_of
 from .rules import is_super_admin
+from .sites import super_site
+
+User = get_user_model()
+
+# Out of the everyday dashboard: accounts are the super admin's business only.
+for _model in (User, Group):
+    if admin.site.is_registered(_model):
+        admin.site.unregister(_model)
+
+
+# ── accounts ─────────────────────────────────────────────────────────────────
+
+class _RoleMixin(forms.Form):
+    role = forms.ChoiceField(choices=ROLE_CHOICES, initial=ROLE_CHOICES[0][0],
+                             widget=forms.RadioSelect)
+    current_user = None   # set by AccountAdmin.get_form
+
+    def clean(self):
+        data = super().clean()
+        me = self.current_user
+        if me and self.instance.pk == me.pk:
+            if data.get('role') != SUPER or data.get('is_active') is False:
+                raise forms.ValidationError(
+                    'You cannot take super admin away from your own account, or block it '
+                    '-- you would lock yourself out. Ask another super admin.')
+        return data
+
+
+class AccountCreationForm(_RoleMixin, UserCreationForm):
+    class Meta(UserCreationForm.Meta):
+        model = User
+        fields = ('username',)
+
+
+class AccountChangeForm(_RoleMixin, UserChangeForm):
+    class Meta(UserChangeForm.Meta):
+        model = User
+        fields = ('username', 'password', 'first_name', 'last_name', 'email', 'is_active')
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if self.instance.pk:
+            self.fields['role'].initial = role_of(self.instance)
+        self.fields['is_active'].label = 'Can sign in'
+        self.fields['is_active'].help_text = 'Untick to block this account without deleting it.'
+
+
+class AccountAdmin(UserAdmin):
+    form = AccountChangeForm
+    add_form = AccountCreationForm
+    list_display = ('username', 'role_badge', 'full_name', 'email', 'signin', 'last_login')
+    list_filter = ('is_superuser', 'is_active')
+    ordering = ('-is_superuser', 'username')
+    fieldsets = (
+        (None, {'fields': ('username', 'password', 'role', 'is_active')}),
+        ('Name and email', {'fields': ('first_name', 'last_name', 'email')}),
+        ('History', {'fields': ('last_login', 'date_joined')}),
+    )
+    add_fieldsets = (
+        (None, {'classes': ('wide',),
+                'fields': ('username', 'password1', 'password2', 'role')}),
+    )
+    readonly_fields = ('last_login', 'date_joined')
+    filter_horizontal = ()
+
+    def get_form(self, request, obj=None, **kwargs):
+        form = super().get_form(request, obj, **kwargs)
+        form.current_user = request.user
+        return form
+
+    def save_model(self, request, obj, form, change):
+        super().save_model(request, obj, form, change)
+        apply_role(obj, form.cleaned_data['role'])
+
+    def has_delete_permission(self, request, obj=None):
+        # Deleting yourself would end the session mid-click and could leave no super admin.
+        if obj is not None and obj.pk == request.user.pk:
+            return False
+        return super().has_delete_permission(request, obj)
+
+    @admin.display(description='Role')
+    def role_badge(self, obj):
+        role = role_of(obj)
+        colour = {'super': '#ED3338', 'seo': '#0369a1'}.get(role, '#16a34a')
+        return format_html('<span style="background:{};color:#fff;padding:2px 9px;border-radius:100px;'
+                           'font-size:11px;font-weight:700;">{}</span>', colour, ROLE_LABELS[role])
+
+    @admin.display(description='Name')
+    def full_name(self, obj):
+        return obj.get_full_name()
+
+    @admin.display(description='Can sign in', boolean=True, ordering='is_active')
+    def signin(self, obj):
+        return obj.is_active
+
+
+super_site.register(User, AccountAdmin)
 
 
 def _scope_user(request):
@@ -36,7 +144,9 @@ def _hidden_keys(user):
     return mine, for_all
 
 
-@admin.register(HiddenFeature)
+# ── restrictions ─────────────────────────────────────────────────────────────
+
+@admin.register(HiddenFeature, site=super_site)
 class HiddenFeatureAdmin(admin.ModelAdmin):
     """Registered so the panel has a sidebar entry; its list is the panel."""
 
@@ -67,6 +177,7 @@ class HiddenFeatureAdmin(admin.ModelAdmin):
     def control_view(self, request):
         if not is_super_admin(request.user):
             return HttpResponseForbidden('Super admins only.')
+        request.current_app = self.admin_site.name
         from content.models import Page
         from content.pages_registry import PAGES_REGISTRY
 
@@ -79,7 +190,8 @@ class HiddenFeatureAdmin(admin.ModelAdmin):
             return 'off' if (kind, key) in mine else 'on'
 
         apps = []
-        for app in self.admin_site.get_app_list(request):
+        # The switches are for the everyday dashboard, not this one.
+        for app in admin.site.get_app_list(request):
             label = app['app_label']
             if label in SUPER_ONLY_APPS:
                 continue

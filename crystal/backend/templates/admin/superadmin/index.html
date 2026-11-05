@@ -1,0 +1,80 @@
+{% extends "admin/base_site.html" %}
+{% load i18n %}
+
+{% comment %}
+  Home of the super admin dashboard (access.sites.SuperAdminSite). Not the
+  everyday admin/index.html: that one is built around products and enquiries,
+  none of which are mounted on this site.
+{% endcomment %}
+
+{% block breadcrumbs %}{% endblock %}
+
+{% block content %}
+<div class="crx-card card mb-3" style="border-left:4px solid #ED3338;"><div class="card-body" style="padding:14px 18px;">
+  <h2 style="margin:0;font-size:20px;font-weight:800;"><i class="fas fa-user-shield" style="color:#ED3338"></i> Super Admin Dashboard</h2>
+  <div class="crx-muted" style="font-size:13px;margin-top:4px;">Accounts, passwords and what each admin may see. Only super admins can open this.</div>
+</div></div>
+<div class="row crx-stat-row mb-4">
+  <div class="col-lg-3 col-6"><div class="crx-stat">
+    <span class="crx-stat__icon"><i class="fas fa-user-shield"></i></span>
+    <div class="crx-stat__body"><span class="crx-stat__label">Super admins</span><span class="crx-stat__value">{{ n_super }}</span></div>
+  </div></div>
+  <div class="col-lg-3 col-6"><div class="crx-stat">
+    <span class="crx-stat__icon"><i class="fas fa-user"></i></span>
+    <div class="crx-stat__body"><span class="crx-stat__label">Admins &amp; SEO Team</span><span class="crx-stat__value">{{ n_admin }}</span></div>
+  </div></div>
+  <div class="col-lg-3 col-6"><div class="crx-stat">
+    <span class="crx-stat__icon"><i class="fas fa-user-slash"></i></span>
+    <div class="crx-stat__body"><span class="crx-stat__label">Blocked</span><span class="crx-stat__value">{{ n_blocked }}</span></div>
+  </div></div>
+  <div class="col-lg-3 col-6"><div class="crx-stat">
+    <span class="crx-stat__icon"><i class="fas fa-toggle-off"></i></span>
+    <div class="crx-stat__body"><span class="crx-stat__label">Things restricted</span><span class="crx-stat__value">{{ n_hidden }}</span>
+      <a class="crx-stat__link" href="{% url 'admin:access_hiddenfeature_control' %}">Change &rarr;</a></div>
+  </div></div>
+</div>
+
+<div class="row">
+  <div class="col-lg-8">
+    <div class="card crx-card mb-3">
+      <div class="crx-card__head">
+        <h3 class="crx-card__title"><i class="fas fa-users"></i> Accounts</h3>
+        <a href="{% url 'admin:auth_user_add' %}" class="crx-card__action">+ Add account</a>
+      </div>
+      <div class="card-body p-0">
+        <table class="table table-sm mb-0 crx-table">
+          <thead><tr><th>Username</th><th>Role</th><th>Can sign in</th><th>Last sign-in</th><th></th></tr></thead>
+          <tbody>
+          {% for u in accounts %}
+            <tr>
+              <td class="crx-strong">{{ u.get_username }}{% if u.pk == request.user.pk %} <span class="crx-muted">(you)</span>{% endif %}</td>
+              <td>{% if u.role == 'super' %}Super admin{% elif u.role == 'seo' %}SEO Team{% else %}Admin{% endif %}</td>
+              <td>{% if u.is_active %}Yes{% else %}<b style="color:#ED3338">Blocked</b>{% endif %}</td>
+              <td class="crx-date">{{ u.last_login|date:"d M Y, H:i"|default:"never" }}</td>
+              <td><a href="{% url 'admin:auth_user_change' u.pk %}">Edit</a>
+                {% if u.role != 'super' %} &middot; <a href="{% url 'admin:access_hiddenfeature_control' %}?user={{ u.pk }}">Restrict</a>{% endif %}</td>
+            </tr>
+          {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-4">
+    <div class="card crx-card mb-3">
+      <div class="crx-card__head"><h3 class="crx-card__title"><i class="fas fa-bolt"></i> Quick links</h3></div>
+      <div class="card-body">
+        <a href="{% url 'admin:auth_user_add' %}" class="crx-qa crx-qa--primary"><i class="fas fa-user-plus"></i> Add an account (username + password)</a>
+        <a href="{% url 'admin:access_hiddenfeature_control' %}" class="crx-qa"><i class="fas fa-toggle-on"></i> Restrict what admins see</a>
+        <a href="/admin/" class="crx-qa"><i class="fas fa-th-large"></i> Open the everyday dashboard</a>
+      </div>
+    </div>
+    <div class="card crx-card"><div class="card-body crx-muted" style="font-size:13px;">
+      <b>Admin</b>: the whole everyday dashboard, minus what you restrict.<br>
+      <b>SEO Team</b>: SEO screens, page text and blog only.<br>
+      <b>Super admin</b>: everything, and this dashboard.<br>
+      Admins sign in at <b>/admin/</b>. Only super admins can sign in here.
+    </div></div>
+  </div>
+</div>
+{% endblock %}

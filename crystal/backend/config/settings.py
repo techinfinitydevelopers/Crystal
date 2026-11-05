@@ -101,8 +101,9 @@ INSTALLED_APPS = [
     'access',
 ]
 
-# Staff who are not super admins get the whole dashboard except user accounts
-# and Super admin control; the super admin narrows it from there (access app).
+# Staff who are not super admins get the whole dashboard; user accounts and the
+# restriction switches live in the separate super admin dashboard at
+# /admin/super/ (access app), from where the super admin narrows it.
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'access.backends.AdminAccessBackend',
@@ -286,6 +287,9 @@ JAZZMIN_SETTINGS = {
     # user menu
     "usermenu_links": [
         {"name": "View Site", "url": PUBLIC_SITE_URL, "new_window": True, "icon": "fas fa-globe"},
+        # Only super admins hold auth.view_user (access.backends), so only they see it.
+        {"name": "Super admin dashboard", "url": "/admin/super/", "icon": "fas fa-user-shield",
+         "permissions": ["auth.view_user"]},
     ],
 
     # sidebar

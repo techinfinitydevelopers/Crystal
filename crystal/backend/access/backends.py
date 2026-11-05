@@ -22,7 +22,14 @@ class AdminAccessBackend:
 
     @staticmethod
     def _is_admin(user_obj):
-        return user_obj.is_active and user_obj.is_staff and not user_obj.is_superuser
+        if not (user_obj.is_active and user_obj.is_staff and not user_obj.is_superuser):
+            return False
+        # Someone in a group (the SEO Team) gets that group's permissions only;
+        # handing them everything here would undo the group's whole point.
+        in_group = getattr(user_obj, '_crx_in_group', None)
+        if in_group is None:
+            in_group = user_obj._crx_in_group = user_obj.groups.exists()
+        return not in_group
 
     def has_perm(self, user_obj, perm, obj=None):
         if not self._is_admin(user_obj):

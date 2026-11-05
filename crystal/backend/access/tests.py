@@ -23,18 +23,21 @@ class SuperAdminControlTests(TestCase):
         self.client.force_login(user)
 
     def toggle(self, **data):
-        return self.client.post('/admin/access/hiddenfeature/control/toggle/', json.dumps(data),
+        return self.client.post('/admin/super/access/hiddenfeature/control/toggle/', json.dumps(data),
                                 content_type='application/json')
 
     def test_admin_gets_dashboard_but_not_users_or_control(self):
         self.login(self.admin)
         self.assertEqual(self.client.get('/admin/products/product/').status_code, 200)
-        self.assertEqual(self.client.get('/admin/auth/user/').status_code, 403)
-        self.assertEqual(self.client.get('/admin/access/hiddenfeature/control/').status_code, 403)
+        # Accounts are not in the everyday dashboard any more, for anyone.
+        self.assertEqual(self.client.get('/admin/auth/user/').status_code, 404)
+        # The super admin dashboard sends an admin to its sign-in page.
+        self.assertEqual(self.client.get('/admin/super/').status_code, 302)
+        self.assertEqual(self.client.get('/admin/super/access/hiddenfeature/control/').status_code, 302)
 
     def test_hiding_a_sidebar_item_removes_and_blocks_it(self):
         self.login(self.boss)
-        self.assertEqual(self.client.get('/admin/access/hiddenfeature/control/').status_code, 200)
+        self.assertEqual(self.client.get('/admin/super/access/hiddenfeature/control/').status_code, 200)
         self.assertTrue(self.toggle(kind='model', key='products.brand', hidden=True).json()['ok'])
         self.login(self.admin)
         home = self.client.get('/admin/').content.decode()
@@ -94,9 +97,65 @@ class SuperAdminControlTests(TestCase):
 
     def test_page_json(self):
         self.login(self.boss)
-        d = self.client.get('/admin/access/hiddenfeature/control/page/%d.json' % self.page.pk).json()
+        d = self.client.get('/admin/super/access/hiddenfeature/control/page/%d.json' % self.page.pk).json()
         self.assertEqual({g['name'] for g in d['groups']}, {'Hero', 'Vmv'})
 
     def test_admin_cannot_toggle(self):
         self.login(self.admin)
-        self.assertEqual(self.toggle(kind='model', key='products.brand', hidden=True).status_code, 403)
+        self.assertNotEqual(self.toggle(kind='model', key='products.brand', hidden=True).status_code, 200)
+        self.assertFalse(HiddenFeature.objects.exists())
+
+    def test_super_dashboard_sign_in_is_super_admins_only(self):
+        self.client.logout()
+        r = self.client.post('/admin/super/login/', {'username': 'ram', 'password': 'x'})
+        self.assertContains(r, 'Only a super admin can sign in here')
+        r = self.client.post('/admin/super/login/', {'username': 'boss', 'password': 'x'})
+        self.assertEqual(r.status_code, 302)
+        home = self.client.get('/admin/super/')
+        self.assertContains(home, 'ram')
+        self.assertContains(home, '/admin/super/access/hiddenfeature/control/')
+
+    def test_everyday_dashboard_has_no_accounts_or_switches(self):
+        self.login(self.boss)
+        home = self.client.get('/admin/').content.decode()
+        self.assertNotIn('/admin/access/', home)
+        self.assertNotIn('/admin/auth/user/', home)
+        self.assertIn('/admin/super/', home)       # the user-menu link, super admins only
+        self.login(self.admin)
+        self.assertNotIn('/admin/super/', self.client.get('/admin/').content.decode())
+
+    def test_create_account_with_role_and_password(self):
+        self.login(self.boss)
+        r = self.client.post('/admin/super/auth/user/add/', {
+            'username': 'geeta', 'password1': 'Kadhai-Tawa-77', 'password2': 'Kadhai-Tawa-77', 'role': 'admin'})
+        self.assertEqual(r.status_code, 302, r.content.decode()[:2000])
+        u = get_user_model().objects.get(username='geeta')
+        self.assertTrue(u.is_staff and u.is_active and not u.is_superuser)
+        self.assertTrue(u.check_password('Kadhai-Tawa-77'))
+        self.client.logout()
+        self.assertTrue(self.client.login(username='geeta', password='Kadhai-Tawa-77'))
+        self.assertEqual(self.client.get('/admin/products/product/').status_code, 200)
+
+    def test_seo_role_gets_only_seo_screens(self):
+        from .roles import apply_role
+        apply_role(self.other, 'seo')
+        self.login(self.other)
+        self.assertEqual(self.client.get('/admin/seo/seometa/').status_code, 200)
+        self.assertEqual(self.client.get('/admin/products/product/').status_code, 403)
+
+    def test_block_an_account(self):
+        self.login(self.boss)
+        url = '/admin/super/auth/user/%d/change/' % self.admin.pk
+        r = self.client.post(url, {'username': 'ram', 'role': 'admin', 'first_name': '', 'last_name': '',
+                                   'email': 'r@x.com'})   # is_active unticked
+        self.assertEqual(r.status_code, 302, r.content.decode()[:2000])
+        self.admin.refresh_from_db()
+        self.assertFalse(self.admin.is_active)
+
+    def test_cannot_lock_yourself_out(self):
+        self.login(self.boss)
+        url = '/admin/super/auth/user/%d/change/' % self.boss.pk
+        r = self.client.post(url, {'username': 'boss', 'role': 'admin', 'is_active': 'on', 'email': 'b@x.com'})
+        self.assertContains(r, 'lock yourself out')
+        self.boss.refresh_from_db()
+        self.assertTrue(self.boss.is_superuser)

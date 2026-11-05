@@ -36,7 +36,12 @@
     and custom pages like the page editor have no form Media at all. The
     script finds the file inputs itself; the URLs and CSRF token ride on its tag.
   {% endcomment %}
-  {% if request.user.is_active and request.user.is_staff %}
+  {% if is_super_site %}
+    {% comment %}Jazzmin's top bar is configured once for both dashboards; its product search and Enquiries link lead nowhere here.{% endcomment %}
+    <style>.app-header form, .app-header .nav-link[href="#"] { display:none !important; }</style>
+  {% endif %}
+  {% comment %}Not on the super admin dashboard: the media library is not mounted there, so its URLs would not reverse.{% endcomment %}
+  {% if request.user.is_active and request.user.is_staff and not is_super_site %}
     <link rel="stylesheet" href="{% static 'admin/crystal_medialib.css' %}?v=1">
     <script src="{% static 'admin/crystal_medialib.js' %}?v=1" defer
             data-picker-url="{% url 'admin:medialib_mediaitem_picker' %}"

@@ -4,8 +4,11 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.views.static import serve
 from products.views import BrandListView, CategoryListView, MarketplaceListView
+from access.sites import super_site
 
 urlpatterns = [
+    # Before admin/: the super admin's own dashboard and sign-in (access app).
+    path('admin/super/', super_site.urls),
     path('admin/', admin.site.urls),
     path('api/products/', include('products.urls')),
     path('api/brands/', BrandListView.as_view(), name='api-brands'),

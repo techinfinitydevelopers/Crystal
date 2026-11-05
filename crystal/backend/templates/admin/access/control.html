@@ -46,7 +46,7 @@
 
 {% block content %}
 <div class="sa-intro">
-  <b>Green = the other admins can see it. Grey = hidden from them.</b>
+  <b>These switches decide what the other admins see in the everyday dashboard (/admin/). Green = they can see it. Grey = hidden from them.</b>
   Hidden things disappear from their sidebar, page list and page editor, and are blocked if they open the link directly.
   You (super admin) always see everything. Changes save the moment you flip a switch.
   This only changes the dashboard &mdash; to hide a section on the <i>website</i>, use Section order &rarr; Show in that page's editor.
@@ -56,7 +56,7 @@
       <option value="">All admins</option>
       {% for u in admins %}<option value="{{ u.pk }}" {% if scope and scope.pk == u.pk %}selected{% endif %}>Only {{ u.get_username }}</option>{% endfor %}
     </select>
-    {% if not admins %}<span style="color:#94a3b8;">No other admin accounts yet &mdash; add one in Users (tick "Staff status", leave "Superuser status" unticked).</span>{% endif %}
+    {% if not admins %}<span style="color:#94a3b8;">No other admin accounts yet &mdash; <a href="{% url 'admin:auth_user_add' %}">add one</a> (role: Admin).</span>{% endif %}
   </div>
 </div>
 

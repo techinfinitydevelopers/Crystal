@@ -35,7 +35,9 @@ class HiddenFeatureMiddleware:
 
     def _blocked(self, request):
         user = getattr(request, 'user', None)
-        if not request.path.startswith('/admin/') or not user or not user.is_authenticated:
+        if not request.path.startswith('/admin/') or request.path.startswith('/admin/super/'):
+            return False   # the super admin dashboard signs in super admins only
+        if not user or not user.is_authenticated:
             return False
         if not user.is_staff or is_super_admin(user):
             return False
