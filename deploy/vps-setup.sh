@@ -129,7 +129,7 @@ server {
         proxy_redirect off;
     }
 
-    location /static/ { alias $BACKEND/staticfiles/; access_log off; expires 30d; }
+    location ^~ /static/ { alias $BACKEND/staticfiles/; access_log off; expires 30d; }
 
     # Uploads are written into the site tree itself, so /media/<path> and the
     # static site's own /<path> are the same file. Served straight off disk.
