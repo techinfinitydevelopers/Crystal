@@ -11,21 +11,47 @@ def is_super_admin(user):
 
 
 def hidden_for(user):
-    """{kind: set(keys)} hidden from `user`. Empty for super admins."""
-    if not user or not user.is_authenticated or is_super_admin(user):
+    """{kind: set(keys)} hidden from `user`.
+
+    Empty for a super admin working in the super admin dashboard (/admin/super/), which always shows
+    everything so a switch can always be flipped back. On the everyday dashboard (/admin/) a switch
+    that is off hides the item from EVERY account, super admins included -- access.middleware marks
+    those requests with `_crx_everyday` before anything asks."""
+    if not user or not user.is_authenticated:
         return defaultdict(set)
-    cached = getattr(user, '_hidden_features', None)
+    everyday = getattr(user, '_crx_everyday', False)
+    if is_super_admin(user) and not everyday:
+        return defaultdict(set)
+    attr = '_hidden_features_everyday' if (is_super_admin(user) and everyday) else '_hidden_features'
+    cached = getattr(user, attr, None)
     if cached is not None:
         return cached
     from django.db.models import Q
     from .models import HiddenFeature
     out = defaultdict(set)
-    for kind, key in (HiddenFeature.objects
-                      .filter(Q(user__isnull=True) | Q(user=user))
-                      .values_list('kind', 'key')):
+    rows = HiddenFeature.objects.filter(Q(user__isnull=True) | Q(user=user))
+    for kind, key in rows.values_list('kind', 'key'):
         out[kind].add(key)
-    user._hidden_features = out
+    setattr(user, attr, out)
     return out
+
+
+def site_off():
+    """Features the super admin switched off for everyone: {'gifting', 'themes', 'awards.award', ...}.
+
+    One entry per hidden sidebar group (the app label) or sidebar item ("app.model"). What the
+    public website does with them is decided by the website itself (features-sync.js) and by the
+    feeds that check `site_off_app()`."""
+    from .models import HiddenFeature
+    keys = set()
+    for kind, key in (HiddenFeature.objects.filter(user__isnull=True, kind__in=['app', 'model'])
+                      .values_list('kind', 'key')):
+        keys.add(key)
+    return keys
+
+
+def site_off_app(app_label):
+    return app_label in site_off()
 
 
 def model_hidden(user, app_label, model_name):

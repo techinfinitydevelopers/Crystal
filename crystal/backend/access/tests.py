@@ -52,9 +52,30 @@ class SuperAdminControlTests(TestCase):
         r = self.client.get('/admin/products/brand/')
         self.assertEqual(r.status_code, 302)
         self.assertEqual(self.client.get('/admin/products/brand/add/').status_code, 302)
-        # super admin unaffected
+        # A switch that is off hides the item from everyone on the everyday dashboard, super admins
+        # included; the super admin dashboard still opens it, so the switch can be flipped back.
         self.login(self.boss)
-        self.assertEqual(self.client.get('/admin/products/brand/').status_code, 200)
+        self.assertEqual(self.client.get('/admin/products/brand/').status_code, 302)
+        self.assertNotIn('/admin/products/brand/', self.client.get('/admin/').content.decode())
+
+    def test_switched_off_feature_is_off_for_the_website_too(self):
+        """An app switched off for ALL admins is listed in /api/features.json (the website hides it),
+        and the festival theme and banner feeds go quiet. A switch for one admin does not count."""
+        self.login(self.boss)
+        self.assertEqual(self.client.get('/api/features.json').json()['off'], [])
+        self.toggle(kind='app', key='themes', hidden=True)
+        self.toggle(kind='app', key='gifting', hidden=True)
+        off = self.client.get('/api/features.json').json()['off']
+        self.assertIn('gifting', off)
+        self.assertIn('themes', off)
+        self.assertIsNone(self.client.get('/api/theme.json').json()['theme'])
+        # still open in the super admin dashboard, blocked in the everyday one
+        self.assertEqual(self.client.get('/admin/themes/festivaltheme/').status_code, 302)
+
+    def test_hide_for_one_admin_does_not_switch_the_website_off(self):
+        self.login(self.boss)
+        self.toggle(kind='app', key='gifting', hidden=True, user=str(self.admin.pk))
+        self.assertNotIn('gifting', self.client.get('/api/features.json').json()['off'])
 
     def test_hiding_a_whole_group(self):
         self.login(self.boss)

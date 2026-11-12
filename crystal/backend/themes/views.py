@@ -11,11 +11,18 @@ without anyone else seeing it.
 from django.http import JsonResponse
 from django.views import View
 
+from access.rules import site_off_app
+
 from .models import FestivalTheme
 
 
 class ThemeFeedView(View):
     def get(self, request):
+        if site_off_app('themes'):
+            # switched off in Super admin control: the site shows no festival look at all
+            res = JsonResponse({'theme': None})
+            res['Cache-Control'] = 'no-store'
+            return res
         preview = (request.GET.get('preview') or '').strip().lower()
         if preview:
             theme = FestivalTheme.objects.filter(slug=preview).first()

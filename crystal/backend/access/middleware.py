@@ -27,9 +27,21 @@ class HiddenFeatureMiddleware:
         self._prefix_cache = None
 
     def __call__(self, request):
+        # The everyday dashboard (/admin/) honours every switch for every account, super admins
+        # included; only the super admin dashboard (/admin/super/) always shows everything.
+        # Marking the request here, before anything asks, is what access.rules.hidden_for reads.
+        if request.path.startswith('/admin/') and not request.path.startswith('/admin/super/'):
+            user = getattr(request, 'user', None)
+            if user is not None and user.is_authenticated and is_super_admin(user):
+                user._crx_everyday = True
         blocked = self._blocked(request)
         if blocked:
-            messages.warning(request, 'That part of the dashboard is not available to your account.')
+            user = getattr(request, 'user', None)
+            if is_super_admin(user):
+                messages.warning(request, 'That is switched off in Super admin control, so it is hidden here. '
+                                          'Open the Super admin dashboard (/admin/super/) to use it or to switch it back on.')
+            else:
+                messages.warning(request, 'That part of the dashboard is not available to your account.')
             return redirect('admin:index')
         return self.get_response(request)
 
@@ -39,7 +51,7 @@ class HiddenFeatureMiddleware:
             return False   # the super admin dashboard signs in super admins only
         if not user or not user.is_authenticated:
             return False
-        if not user.is_staff or is_super_admin(user):
+        if not user.is_staff:
             return False
         h = hidden_for(user)
         if not any(h.values()):

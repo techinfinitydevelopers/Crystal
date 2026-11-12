@@ -50,9 +50,11 @@
 {% block content %}
 <div class="sa-intro">
   <b>These switches decide what the other admins see in the everyday dashboard (/admin/). Green = they can see it. Grey = hidden from them.</b>
-  Hidden things disappear from their sidebar, page list and page editor, and are blocked if they open the link directly.
-  You (super admin) always see everything. Changes save the moment you flip a switch.
-  This only changes the dashboard &mdash; to hide a section on the <i>website</i>, use Section order &rarr; Show in that page's editor.
+  Hidden things disappear from the sidebar, page list and page editor of the everyday dashboard, and are blocked if the link is opened directly.
+  Changes save the moment you flip a switch.
+  <br><b>Switched off for ALL admins = off everywhere.</b> It is hidden from every account on /admin/ (you too &mdash; you still see and can switch it back on here in the Super admin dashboard),
+  and the public website stops showing it: Gifting (menu links and the page), Blog / Knowledge Centre, the Awards strip, festival themes and dashboard banners.
+  A switch aimed at one admin only changes that person&rsquo;s dashboard. To hide a single section of a page on the website, use Section order &rarr; Show in that page&rsquo;s editor.
   <div class="sa-scope">
     <label for="sa-user"><b>Hide for:</b></label>
     <select id="sa-user" onchange="location.search = this.value ? '?user=' + this.value : ''">

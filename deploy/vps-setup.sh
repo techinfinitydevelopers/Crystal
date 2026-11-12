@@ -117,6 +117,11 @@ server {
     root $APP_DIR;
     index index.html;
 
+    # The site's own "Page not found" page for addresses that do not exist (status stays 404).
+    # An existing server gets the same thing from deploy/add-404-page.sh.
+    error_page 404 /404.html;
+    location = /404.html { internal; }
+
     client_max_body_size 64M;
 
     # The dashboard. Everything else on this box is a static file.

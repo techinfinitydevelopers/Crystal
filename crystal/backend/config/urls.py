@@ -4,6 +4,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.views.static import serve
 from products.views import BrandListView, CategoryListView, MarketplaceListView
+from access.views import FeatureFeedView
 from access.sites import super_site
 
 urlpatterns = [
@@ -21,6 +22,7 @@ urlpatterns = [
     path('api/downloads/', include('downloads.urls')),
     path('api/awards.json', include('awards.urls')),
     path('api/theme.json', include('themes.urls')),
+    path('api/features.json', FeatureFeedView.as_view(), name='api-features'),
     path('api/enquiry/', include('enquiry.urls')),
     path('api/contact/', include('core.urls')),
 ]

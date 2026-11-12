@@ -32,6 +32,12 @@ class CrystalAdminSite(AdminSite):
         # not for an admin the library is hidden from (its URLs would bounce).
         from access.rules import model_hidden
         ctx['medialib_hidden'] = model_hidden(request.user, 'medialib', 'mediaitem')
+        # A switched-off feature is hidden from every account here, super admins too; a super admin
+        # passes every Django permission test, so the home's `perms` checks need to know about it.
+        from access.rules import is_super_admin
+        if is_super_admin(request.user):
+            from access.perms import HiddenAwarePerms
+            ctx['perms'] = HiddenAwarePerms(request.user)
         return ctx
 
     def index(self, request, extra_context=None):

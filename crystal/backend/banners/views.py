@@ -8,6 +8,8 @@ from django.conf import settings
 from django.http import JsonResponse
 from django.views import View
 
+from access.rules import site_off_app
+
 from .models import CategoryBanner
 
 
@@ -18,6 +20,11 @@ def _abs(request, url):
 class BannerFeedView(View):
     def get(self, request):
         out = {}
+        if site_off_app('banners'):
+            # switched off in Super admin control: every page keeps the banner it ships
+            res = JsonResponse({'banners': out})
+            res['Cache-Control'] = 'public, max-age=60'
+            return res
         for b in CategoryBanner.objects.filter(is_active=True).exclude(image=''):
             try:
                 url = b.image.url

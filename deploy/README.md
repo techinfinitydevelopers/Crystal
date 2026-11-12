@@ -81,3 +81,15 @@ Anyone in that group can paste a script that runs on every page of the site, so
 give it only to people you would give the site's code to.
 
 **Rebuild by hand:** `apply_seo` (everything) or `apply_seo --pages-only`.
+
+## The 404 page
+
+`404.html` is the site's own "Page not found" page. It ships with a normal deploy, but nginx has to
+be told to use it, once per server:
+
+    ssh root@187.126.118.190 'bash /var/www/crystal/deploy/add-404-page.sh'
+
+Run it after the deploy that contains `404.html`. It backs up the nginx config, adds
+`error_page 404 /404.html;`, tests, reloads (or restores the backup), and prints a check. The status
+code stays 404; only the body is the branded page. `vps-setup.sh` already has the same lines for a
+fresh server. Locally, `npx serve` shows `404.html` for unknown addresses by itself.
