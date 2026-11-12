@@ -616,6 +616,10 @@ h1, h2 { overflow-wrap: break-word; }
   .mobile-menu { overflow-y: auto; }
   .mobile-menu:not(.open) { visibility: hidden; transition: transform .45s cubic-bezier(.2,.8,.2,1), visibility 0s linear .45s; }
   @media (min-width: 901px) { .mobile-menu { justify-content: safe center; } }
+  /* The red support bar is fixed above the phone menu. The close button sat at top:24px, half under it
+     (and on top of it), and the first menu item started right below. Keep both clear of the bar. */
+  .mm-close { top: 46px; }
+  @media (max-width: 900px) { .mobile-menu { padding-top: 112px; } }
 </style>
 </head>
 <body>
@@ -1644,7 +1648,7 @@ h1, h2 { overflow-wrap: break-word; }
 
 <script src="content-sync.js?v=20261029b"></script>
 <script src="features-sync.js?v=1"></script>
-<script src="lang-switch.js?v=2" defer></script>
+<script src="lang-switch.js?v=3" defer></script>
 <script src="festival-theme.js?v=2" defer></script>
 </body>
 </html>

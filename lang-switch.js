@@ -7,8 +7,9 @@
    the visitor from page to page until they pick English again.
 
    Google's own widget and banner are hidden; this file draws the picker: a globe
-   button in the desktop header, and the same list inside the phone menu (the
-   phone header has no room left beside the logo, search and menu buttons). */
+   button at the right-hand end of the red support bar, on every screen size.
+   (There used to be a second copy of the list at the bottom of the phone menu;
+   it was removed because the picker is already at the top.) */
 (function () {
   "use strict";
 
@@ -78,13 +79,7 @@
     ".lang-sw-menu button[aria-current='true'] { background: rgba(237,51,56,0.1); color: #ED3338; font-weight: 600; }",
     ".lang-sw-flag { font-size: 18px; line-height: 1; }",
     /* translated, the menu stays on one line (and keeps its ▾ beside the word) */
-    "html.translated-ltr #hdr .nav > ul > li > a, html.translated-rtl #hdr .nav > ul > li > a { white-space: nowrap; line-height: 1.2; }",
-    /* phone menu list */
-    ".mm-lang { margin: 18px 0 6px; }",
-    ".mm-lang-h { display: block; font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.7; margin-bottom: 10px; }",
-    ".mm-lang-grid { display: flex; flex-wrap: wrap; gap: 8px; }",
-    ".mm-lang-grid button { display: inline-flex; align-items: center; gap: 6px; padding: 8px 12px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.25); background: transparent; color: inherit; font: inherit; font-size: 14px; cursor: pointer; }",
-    ".mm-lang-grid button[aria-current='true'] { background: #ED3338; border-color: #ED3338; color: #fff; }"
+    "html.translated-ltr #hdr .nav > ul > li > a, html.translated-rtl #hdr .nav > ul > li > a { white-space: nowrap; line-height: 1.2; }"
   ].join("\n");
   var style = document.createElement("style");
   style.id = "lang-switch-css";
@@ -136,18 +131,6 @@
         if (e.key === "Escape") { wrap.classList.remove("open"); btn.setAttribute("aria-expanded", "false"); }
       });
       wire(wrap.querySelector(".lang-sw-menu"));
-    }
-
-    var mm = document.getElementById("mobileMenu");
-    if (mm && !mm.querySelector(".mm-lang")) {
-      var box = document.createElement("div");
-      box.className = "mm-lang notranslate";
-      box.setAttribute("translate", "no");
-      box.innerHTML = '<span class="mm-lang-h">' + GLOBE.replace('aria-hidden="true"', 'aria-hidden="true" width="14" height="14" style="vertical-align:-2px;margin-right:6px"') +
-        'Language</span><div class="mm-lang-grid">' + optionButtons(true) + '</div>';
-      var list = mm.querySelector("ul");
-      if (list && list.nextSibling) mm.insertBefore(box, list.nextSibling); else mm.appendChild(box);
-      wire(box);
     }
   }
 
