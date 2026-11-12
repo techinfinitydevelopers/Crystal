@@ -249,3 +249,12 @@ class SuperDashboardHasEverythingTests(TestCase):
         self.assertIn('href="/admin/super/auth/user/%d/change/"' % self.boss.pk, body)
         self.assertNotIn('href="None"', body)
         self.assertNotIn('href="None"', self.client.get('/admin/').content.decode())
+
+
+class MediaPickerFollowsRestrictionTests(TestCase):
+    def test_no_picker_when_media_library_hidden(self):
+        admin_user = get_user_model().objects.create_user('ram', 'r@x.com', 'x', is_staff=True)
+        self.client.force_login(admin_user)
+        self.assertContains(self.client.get('/admin/products/brand/add/'), 'crystal_medialib.js')
+        HiddenFeature.objects.create(kind='app', key='medialib')
+        self.assertNotContains(self.client.get('/admin/products/brand/add/'), 'crystal_medialib.js')

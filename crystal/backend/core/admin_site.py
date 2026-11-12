@@ -26,6 +26,14 @@ class CrystalAdminSite(AdminSite):
                 out.append(app)
         return out
 
+    def each_context(self, request):
+        ctx = super().each_context(request)
+        # base_site.html adds "Choose from Media library" to every upload box;
+        # not for an admin the library is hidden from (its URLs would bounce).
+        from access.rules import model_hidden
+        ctx['medialib_hidden'] = model_hidden(request.user, 'medialib', 'mediaitem')
+        return ctx
+
     def index(self, request, extra_context=None):
         extra_context = extra_context or {}
         extra_context.update(overview_context(request))

@@ -955,3 +955,13 @@ Delete it from the dashboard when done (deleting writes a "Removed products" tom
   no sideways scroll.
 - Live check 14:02: 110 super pages + 22 change pages OK, none leave /admin/super/. Recent Actions links (LogEntry.get_admin_url → /admin/) rewritten to /admin/super/ by a small script on the super home.
 - 14:09 live: Recent Actions entries for user accounts had href="None" (auth_user has no everyday change page). Replaced the rewrite script: on the super site the link is built from content_type + object_id; on the everyday site an entry with no admin URL is plain text. Tests 48 OK.
+
+## 2026-11-12 — Admin login checked on localhost
+- Scratch DB, signed in as test-admin (role Admin) via a session row, no password. Restricted for all admins:
+  Festival themes, Media library, page Career.html, one About section (same first two as live).
+- Result: sidebar has neither restricted item nor Accounts/Restrict; their URLs bounce to /admin/ with "not
+  available to your account"; /admin/auth/user/ 404; /admin/super/ asks for super sign-in; Career chip gone from
+  home and its editor bounces; hidden About section absent from the editor; Products/Blog etc. open.
+- Fixed: "Choose from Media library" picker was still added to upload boxes for an admin the library is hidden
+  from (its URLs bounce). CrystalAdminSite.each_context sets `medialib_hidden`; base_site.html skips the script.
+  Test added, 49 OK.
