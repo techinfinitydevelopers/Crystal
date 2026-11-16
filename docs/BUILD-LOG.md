@@ -1548,3 +1548,8 @@ In `crystal/backend/static/admin/crystal_theme.css` (sidebar section):
 - Brand: the logo is a wide wordmark (105px), not a round badge, so logo + bold "Crystal Cook" (122px) needed 263px in a 250px sidebar and the end of the name was clipped. Now `.brand-link` is a one-line flex row (gap 6px, padding 12px), logo `max-height:26px; max-width:84px`, name `font-size:.95rem` with ellipsis as a safety net. Measured at 1280px: logo 30-113px, name 127-219px, sidebar edge 250px, not clipped.
 - Signed-in user (`.user-panel`): the light sidebar kept the dark theme's pale grey name (rgb 194,199,208 on rgb 235,235,235) and a white `fa-inverse` icon, so it nearly vanished. Name is now the theme ink colour (semi-bold), the icon Crystal red at 1.5rem.
 - Both apply to /admin/ and /admin/super/ (same stylesheet). Not committed.
+
+## 2026-11-16 - www -> non-www redirect (SEO duplicate URLs)
+- Problem: `www.crystalcook.com/<page>` and `crystalcook.com/<page>` both returned 200 (duplicate pages for search). Canonical tag already points to non-www.
+- Added `deploy/redirect-www.sh`: separate nginx conf.d file, 301 www -> apex on 80 and 443, expands the certificate if it lacks www, tests/reloads/rolls back. Run once on the VPS.
+- Status: script written, NOT yet run on the server (needs SSH).
