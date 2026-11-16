@@ -143,6 +143,18 @@ body {
 .app-sidebar .brand-text,
 .app-sidebar .brand-link,
 .app-sidebar .brand-link * { color: var(--s-ink) !important; font-weight: 700; }
+/* The logo is a wide wordmark, not a round badge: logo + "Crystal Cook" has to fit the 250px sidebar on one
+   line. It overflowed by ~13px, so the end of the name was cut off. */
+.app-sidebar .brand-link { display: flex !important; align-items: center; gap: 6px; overflow: hidden; white-space: nowrap; padding: 12px 12px !important; }
+.app-sidebar .brand-link .brand-image { float: none !important; margin: 0 !important; max-height: 26px !important;
+  width: auto; max-width: 84px; flex: 0 0 auto; opacity: 1 !important; box-shadow: none !important; }
+.app-sidebar .brand-link .brand-text { font-size: .95rem !important; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+
+/* The signed-in account at the top of the sidebar: the sidebar is light, but this block kept the dark theme's
+   pale grey name and a white icon, so on light grey it almost vanished. */
+.app-sidebar .user-panel .info a { color: var(--s-ink) !important; font-weight: 600; }
+.app-sidebar .user-panel .image i,
+.app-sidebar .user-panel .fa-inverse { color: var(--c-red) !important; font-size: 1.5rem; }
 
 .app-sidebar .nav-link {
   color: var(--s-ink) !important;
