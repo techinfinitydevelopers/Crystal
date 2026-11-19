@@ -1,5 +1,47 @@
 # Build Log
 
+## 2026-11-19 — Bulk meta title/description update from client's SEO worksheet
+
+Client supplied `Crystal Cook SEO Worksheet.xlsx - Meta Tags.csv` (640 rows:
+URL, new meta title, new meta description) covering Home/About/Brand/Category/
+Subcategory pages, 578 products and 3 blog posts.
+
+- Matched each URL to its dashboard row (`seo.SeoMeta.page` for static pages,
+  `seo.ProductPage.slug` → `Product.meta_title`/`meta_description` for
+  products, `blog.Blog.slug` for posts) and updated only `title`/`description`.
+- 637/640 matched and updated (59 pages + 578 products). 3 blog URLs
+  (`built-for-the-way-india-cooks`, `everyday-cooking-made-effortless`,
+  `why-triply-cookware-is-a-smart-choice`) don't exist as Blog rows in the DB
+  at all — skipped, nothing touched for them. Flag to client/ask if those
+  posts were renamed or never published.
+- Ran `manage.py apply_seo` to bake the new copy into the static files —
+  `git diff` confirms only the `<title>`/description/og/twitter meta lines
+  changed per page, nothing else moved.
+- Not yet committed/pushed — this is local only so far.
+
+## 2026-11-18 — Local environment mirrored to production
+
+Pulled latest code from `techinfinitydevelopers/Crystal` (now at `ed3f6fe`), then
+made the local checkout match the production VPS so changes can be tested
+locally with confidence before deploying:
+
+- Synced production's non-git media folders (`awards`, `blog`,
+  `category-banners`, `page-sections`, `products` — ~127MB) from the VPS
+  (`/var/www/crystal`) via `tar` over SSH.
+- Dumped the production Postgres catalogue with `manage.py dumpdata`
+  (excluding users/sessions/contenttypes) and `loaddata`'d it into a fresh
+  local `db.sqlite3` — 11,255 records, 598 products. Old local DB kept as
+  `crystal/backend/db.sqlite3.localbak`.
+- Created a local superuser `admin` / `admin123` (dumps never include accounts).
+- Added `crystal/backend/.env` with `DEBUG=True`, `PUBLIC_SITE_URL=http://localhost:4567`,
+  `ALLOWED_HOSTS=*`. Real SMTP creds deliberately **not** copied — enquiry
+  emails print to console locally instead of reaching `sales@crystalcook.com`.
+- Local servers: static site `python -m http.server 4567` (repo root),
+  dashboard `manage.py runserver 8000` — both left running.
+
+Re-sync later the same way; the local DB/media will drift from prod as either
+side changes.
+
 ## 2026-08-24 — Wood Range + Oil Pourer verification pass
 
 **Commit:** `4db9f6a` Fix Oil Pourer hero images: carton dielines replaced with product photos
