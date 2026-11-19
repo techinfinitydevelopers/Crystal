@@ -17,7 +17,16 @@ Subcategory pages, 578 products and 3 blog posts.
 - Ran `manage.py apply_seo` to bake the new copy into the static files —
   `git diff` confirms only the `<title>`/description/og/twitter meta lines
   changed per page, nothing else moved.
-- Not yet committed/pushed — this is local only so far.
+- Committed (`b6559c0`), pushed, and deployed. **Gotcha hit:** the deploy's
+  SEO step re-bakes every page from the VPS's *own* database — updating only
+  the local DB before pushing meant the deploy immediately overwrote the new
+  copy with the VPS's still-old `SeoMeta`/`Product` rows. Fixed by running the
+  same CSV-apply script against production's Postgres directly (DB backed up
+  first to `/root/crystal_prod_db_backup_before_seo.dump` on the VPS) and
+  re-running `apply_seo` there. Confirmed via curl against crystalcook.com.
+  **Lesson:** any dashboard-sourced SEO change made locally needs the same
+  update applied to production's database — pushing baked files alone is not
+  enough, since the next SEO bake (every deploy) resets them from the DB.
 
 ## 2026-11-18 — Local environment mirrored to production
 
