@@ -1184,7 +1184,7 @@ h1, h2 { overflow-wrap: break-word; }
           <p class="phl">${p.hl}</p>
           <div class="pcta">
             <button type="button" class="enq-add pc-enq" data-id="${PID[p.n] || ''}" data-name="${p.n.replace(/"/g, '&quot;')}" data-brand="${brandName(p.b)}" data-cat="${CAT_LABEL[p.c] || p.c}" data-img="${p.img}"><span class="enq-lbl">Enquire</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></button>
-            <button type="button" class="enq-buy pc-buy" data-name="${p.n.replace(/"/g, '&quot;')}">Buy Now</button>
+            <button type="button" class="enq-buy pc-buy" data-name="${p.n.replace(/"/g, '&quot;')}"${p.amz ? ` data-mk='[{"name":"Amazon","url":"${p.amz.replace(/&/g,'&amp;')}","logo":"brand-logos/amazon.svg"}]'` : ''}>Buy Now</button>
           </div>
         </div>
       </div>`).join("");
@@ -1261,7 +1261,7 @@ h1, h2 { overflow-wrap: break-word; }
       P = data.products.map(p => ({
         n: p.name, col: p.collection || p.subcategory || "", b: p.brand, c: p.category, sub: p.subcategory,
         img: p.hero || "about-assets/placeholder.svg", hl: p.highlight || p.description || "",
-        tags: p.tags || [], id: p.id, sku: p.sku || p.id || "", mrp: p.mrp, attrs: p.filters || {},
+        tags: p.tags || [], id: p.id, sku: p.sku || p.id || "", mrp: p.mrp, attrs: p.filters || {}, amz: p.amazon_link || "",
       }));
       PID = Object.fromEntries(P.map(p => [p.n, p.id]));
     } catch (e) {
