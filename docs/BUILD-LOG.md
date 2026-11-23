@@ -1,5 +1,19 @@
 # Build Log
 
+## 2026-11-23 — Microsoft Clarity tracking tag added site-wide
+
+SEO team's request: add their Microsoft Clarity snippet to the site. Added as
+a `seo.ScriptBlock` (head placement, no page restriction, project id
+`zi3k3rj0po`) rather than hand-editing files, same mechanism as the existing
+GA4/Search Console tags. Baked into 65 pages via `manage.py apply_seo`.
+
+As with the earlier SEO-worksheet update, this is dashboard-sourced content,
+so the same row had to be created in **production's own database** (backed
+up first to `/root/crystal_prod_db_backup_before_clarity.dump`) before
+deploying — otherwise the deploy's own SEO bake would have stripped it right
+back out. Committed `9a9fad1`, deployed, verified `window.clarity` live on
+crystalcook.com.
+
 ## 2026-11-23 — Listing-page Buy Now sent the wrong Amazon product
 
 Client report: opening a product's own page and hitting Buy Now went to the
