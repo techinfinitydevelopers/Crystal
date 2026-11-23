@@ -1,5 +1,28 @@
 # Build Log
 
+## 2026-11-23 — Listing-page Buy Now sent the wrong Amazon product
+
+Client report: opening a product's own page and hitting Buy Now went to the
+right Amazon listing, but hitting Buy Now straight from a category/listing
+card went to a generic Amazon keyword search instead (so the wrong product,
+sometimes a competitor's).
+
+Root cause: the listing-card `.enq-buy` button never set `data-mk`, so
+`enquiry.js`'s `buy()` always fell back to `defaultMarkets()` — an
+`amazon.in/s?k=<name>` search — even though `enquiry.js` supports a real
+per-product link via `data-mk`. The product detail page (`product-page.js`'s
+`wireBuy()`) already did this correctly; the 46 category/subcategory grid
+pages' own inline card-rendering script just never carried `amazon_link`
+into the card object or onto the button.
+
+Fixed by adding `amz: p.amazon_link || ""` to the per-card mapping and
+`data-mk` to the Buy Now button (same JSON shape `wireBuy()` uses) across all
+46 files sharing that exact script block. Products with no `amazon_link`
+keep the existing search fallback — only the ones that do have a link were
+wrong. Verified locally and live (crystalcook.com) that the listing card and
+product page resolve to the identical Amazon URL. Committed `08cc814`,
+deployed same day.
+
 ## 2026-11-19 — Bulk meta title/description update from client's SEO worksheet
 
 Client supplied `Crystal Cook SEO Worksheet.xlsx - Meta Tags.csv` (640 rows:
