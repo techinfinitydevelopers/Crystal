@@ -1,5 +1,17 @@
 # Build Log
 
+## 2026-11-24 — Bing Webmaster verification tag added site-wide
+
+SEO team's request: add their Bing `msvalidate.01` verification meta tag.
+Used the existing `SeoSettings.bing_verification` field (built for exactly
+this) rather than hand-editing files — baked into all 65 pages via
+`manage.py apply_seo`. Same two-step as the other dashboard-sourced tags:
+set locally and verified on localhost first, then the identical value set in
+production's own database (backed up first to
+`/root/crystal_prod_db_backup_before_bing.dump`) before deploying, so the
+deploy's own SEO bake wouldn't strip it back out. Committed `c4ed53a`,
+deployed, confirmed live via curl.
+
 ## 2026-11-23 — Microsoft Clarity tracking tag added site-wide
 
 SEO team's request: add their Microsoft Clarity snippet to the site. Added as
