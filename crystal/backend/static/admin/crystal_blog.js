@@ -8,8 +8,11 @@
  * Deliberately not a third-party editor. Quill and Trix both inline a pasted
  * or dropped image as a base64 data URL, which would push a whole photograph
  * into this text column and through every API response that carries it. This
- * writes the same small set of tags the article's own stylesheet knows about,
- * and pictures go through the featured image field or an explicit URL.
+ * writes the same small set of tags the article's own stylesheet knows about.
+ * The Image button uploads straight to blog/admin.py's own small endpoint
+ * (data-upload-url on the textarea) rather than the Media library picker:
+ * that picker can be switched off per admin (access.rules, base_site.html),
+ * and a post's own inline photos should never depend on that switch.
  */
 (function () {
   'use strict';
@@ -23,7 +26,7 @@
     { label: 'List', title: 'Bulleted list', list: true },
     { label: 'Quote', title: 'Pull quote', wrap: ['<blockquote>', '</blockquote>'], block: true },
     { label: 'Link', title: 'Link', link: true },
-    { label: 'Image', title: 'Picture by URL', image: true },
+    { label: 'Image', title: 'Insert a picture here', image: true },
   ];
 
   function ready(fn) {
@@ -47,6 +50,60 @@
     ta.dispatchEvent(new Event('input', { bubbles: true }));
   }
 
+  function csrf() {
+    var m = document.cookie.match(/(?:^|;\s*)csrftoken=([^;]+)/);
+    return m ? decodeURIComponent(m[1]) : '';
+  }
+
+  /** Pick a file, upload it, drop an <img> at the caret once it is stored. */
+  function insertImage(ta) {
+    var url = ta.getAttribute('data-upload-url');
+    if (!url) {
+      window.alert('The picture uploader is not wired up on this page.');
+      return;
+    }
+    var input = document.createElement('input');
+    input.type = 'file';
+    input.accept = 'image/*';
+    input.addEventListener('change', function () {
+      var file = input.files && input.files[0];
+      if (!file) return;
+      var caret = ta.selectionStart;
+      var marker = '\n<p data-bl-uploading>Uploading ' + file.name.replace(/[<>]/g, '') + '…</p>\n';
+      ta.setRangeText(marker, caret, ta.selectionEnd, 'end');
+      ta.dispatchEvent(new Event('input', { bubbles: true }));
+
+      var fd = new FormData();
+      fd.append('file', file);
+      fetch(url, {
+        method: 'POST', body: fd, credentials: 'same-origin',
+        headers: { 'X-CSRFToken': csrf(), 'X-Requested-With': 'XMLHttpRequest' }
+      })
+        .then(function (r) { return r.json().then(function (data) { return { ok: r.ok, data: data }; }); })
+        .then(function (res) {
+          var markerPos = ta.value.indexOf(marker);
+          var replacement = res.ok
+            ? '\n<img src="' + res.data.url + '" alt="">\n'
+            : '';
+          if (markerPos === -1) {
+            // The text moved under them while it uploaded; append instead of guessing.
+            ta.value += replacement;
+          } else {
+            ta.setRangeText(replacement, markerPos, markerPos + marker.length, 'end');
+          }
+          ta.dispatchEvent(new Event('input', { bubbles: true }));
+          if (!res.ok) window.alert((res.data && res.data.error) || 'Could not upload that picture.');
+        })
+        .catch(function () {
+          var markerPos = ta.value.indexOf(marker);
+          if (markerPos !== -1) ta.setRangeText('', markerPos, markerPos + marker.length, 'end');
+          ta.dispatchEvent(new Event('input', { bubbles: true }));
+          window.alert('Could not upload that picture — check the connection and try again.');
+        });
+    });
+    input.click();
+  }
+
   function apply(tool, ta) {
     if (tool.list) {
       var s = ta.selectionStart, e = ta.selectionEnd;
@@ -67,11 +124,7 @@
       return;
     }
     if (tool.image) {
-      var src = window.prompt(
-        'Address of the picture.\n\nUpload it under Picture above if it is the ' +
-        'post\'s main photograph; this is for one inside the text.', 'https://');
-      if (!src) return;
-      surround(ta, '<img src="' + src + '" alt="">', '', true);
+      insertImage(ta);
       return;
     }
     surround(ta, tool.wrap[0], tool.wrap[1], tool.block);

@@ -1,5 +1,38 @@
 # Build Log
 
+## 2026-11-27 — Inline images in blog post bodies
+
+Client wanted admins to be able to drop a picture in the middle of a blog
+post's text, not just set one featured image at the top. The Body editor's
+toolbar already had an "Image" button (`crystal_blog.js`), but it only
+prompted for a raw image URL — fine for a developer, not for someone writing
+a post who has a photo on their machine and no public URL for it.
+
+Didn't wire it to the existing "Choose from Media library" picker
+(`crystal_medialib.js` / `window.crystalLibrary`): that picker is switched
+off per admin via `access.rules` + a `HiddenFeature` row (see commit
+`2e81c75`), and in this local mirror — presumably production too — `medialib`
+is currently hidden for *everyone* on the everyday `/admin/`. A post's own
+inline photos shouldn't depend on that switch, so instead:
+
+- New `blog.admin._body_image_upload` endpoint (`/admin/blog/blog/body-image/`,
+  POST, `blog.change_blog` permission required) saves straight to
+  `blog/inline/<filename>` via `default_storage` — no `MediaItem` row, no
+  listing anywhere else, same extension allow-list as the library's own
+  upload minus svg/ico.
+- `BlogAdmin.get_form()` stamps the upload URL onto the content textarea as
+  `data-upload-url` (computed with `reverse()`, so it can't be set at
+  class-definition time before `urls.py` has run).
+- `crystal_blog.js`'s Image button now opens a native file picker, shows an
+  "Uploading…" placeholder paragraph at the caret while it posts the file,
+  and swaps it for the real `<img>` tag once the upload returns — or removes
+  it and alerts on failure.
+
+Verified the full round trip locally (not just read the code): simulated a
+real file picked through the toolbar button, confirmed the file landed on
+disk under `blog/inline/`, the `<img>` tag was inserted at the cursor, and
+the live "How the article will read" preview rendered it immediately.
+
 ## 2026-11-24 — Bing Webmaster verification tag added site-wide
 
 SEO team's request: add their Bing `msvalidate.01` verification meta tag.

@@ -38,6 +38,9 @@ amazon-videos/
 # Media library uploads (crystal/backend/medialib). MEDIA_ROOT is the repo root
 # locally and on the VPS, so files uploaded to the library land here.
 /library/
+# Pictures dropped into a blog post's body from the Image toolbar button
+# (blog/admin.py's own upload endpoint, not the media library)
+/blog/inline/
 # Gifting: pictures uploaded in the dashboard land in the site tree (MEDIA_ROOT)
 gift-sets/
 crystal/backend/gifting/__pycache__/
