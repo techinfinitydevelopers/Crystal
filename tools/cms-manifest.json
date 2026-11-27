@@ -1295,8 +1295,8 @@
   "key": "hero-pretext",
   "kind": "text",
   "section": "page",
-  "label": "Page — Knowledge Centre",
-  "shipped": "Knowledge Centre"
+  "label": "Page — Blog",
+  "shipped": "Blog"
  },
  {
   "page": "Blog.html",

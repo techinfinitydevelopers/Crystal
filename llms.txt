@@ -84,9 +84,9 @@ The website is an enquiry-based product catalogue (no online checkout). Customer
 - [Food Processors](https://crystalcook.com/Electric-Appliances-Food-Processor): Kitchen machine for chopping, mixing and prep
 - [Juicer Mixer Grinders](https://crystalcook.com/Electric-Appliances-JMG): JMGs for blending, grinding and juicing
 
-## Knowledge Centre
+## Blog
 
-- [Knowledge Centre](https://crystalcook.com/Blog): Cookware care, buying guides and cooking tips for Indian homes
+- [Blog](https://crystalcook.com/Blog): Cookware care, buying guides and cooking tips for Indian homes
 - [Why Triply Cookware is a Smart Choice](https://crystalcook.com/blog/why-triply-cookware-is-a-smart-choice): How tri-ply steel-aluminium construction gives faster, even cooking
 - [Built for the Way India Cooks](https://crystalcook.com/blog/built-for-the-way-india-cooks): Cookware for high-flame, masala-rich Indian cooking
 - [Everyday Cooking Made Effortless](https://crystalcook.com/blog/everyday-cooking-made-effortless): Kitchen essentials that simplify cooking, serving and cleaning

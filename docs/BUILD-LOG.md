@@ -1,5 +1,14 @@
 # Build Log
 
+## 2026-11-27 — "Knowledge Centre" renamed to "Blog" in the menus
+Request: the header menu item "Knowledge Centre" should read "Blog".
+- Link text changed in the header, phone menu and footer on all 67 pages (203 links) plus `home-v3-src/shell-donor.html` and `v3_main.html` (so a Home rebuild keeps it). URL stays `/Blog`.
+- Blog.html breadcrumb (`data-cms="hero-pretext"`) and its `tools/cms-manifest.json` entry now say "Blog". A value already saved in the dashboard for that key still wins.
+- `lang-switch.js` MENU table: key `Knowledge Centre` replaced by `Blog` with translations (without it the translated menu would fall back to Google's rendering).
+- `llms.txt` heading/link renamed.
+- NOT changed: SEO page titles/meta (`seo/defaults.py`, baked `<title>`s still say "Knowledge Centre | CRYSTAL"), breadcrumb schema in `seo/blog.py`, the Super admin help text. Those are the SEO team's wording; change only if asked.
+- Checked on localhost:4599 (About.html): all 3 Blog.html links read "Blog". Not committed or pushed.
+
 ## 2026-11-27 — Inline images in blog post bodies
 
 Client wanted admins to be able to drop a picture in the middle of a blog

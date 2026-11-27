@@ -244,7 +244,7 @@
     "Products":         { ar: "المنتجات", fr: "Produits", es: "Productos", de: "Produkte", pt: "Produtos", it: "Prodotti", ru: "Продукция", tr: "Ürünler", id: "Produk", ms: "Produk", ja: "製品", ko: "제품", "zh-CN": "产品", nl: "Producten", th: "สินค้า" },
     "Brands":           { ar: "العلامات", fr: "Marques", es: "Marcas", de: "Marken", pt: "Marcas", it: "Marchi", ru: "Бренды", tr: "Markalar", id: "Merek", ms: "Jenama", ja: "ブランド", ko: "브랜드", "zh-CN": "品牌", nl: "Merken", th: "แบรนด์" },
     "Catalogue":        { ar: "الكتالوج", fr: "Catalogue", es: "Catálogo", de: "Katalog", pt: "Catálogo", it: "Catalogo", ru: "Каталог", tr: "Katalog", id: "Katalog", ms: "Katalog", ja: "カタログ", ko: "카탈로그", "zh-CN": "产品目录", nl: "Catalogus", th: "แคตตาล็อก" },
-    "Knowledge Centre": { ar: "مركز المعرفة", fr: "Conseils", es: "Consejos", de: "Wissen", pt: "Dicas", it: "Consigli", ru: "Полезное", tr: "Bilgi Merkezi", id: "Pusat Info", ms: "Pusat Info", ja: "お役立ち情報", ko: "지식 센터", "zh-CN": "知识中心", nl: "Kennisbank", th: "ศูนย์ความรู้" },
+    "Blog":             { ar: "المدونة", fr: "Blog", es: "Blog", de: "Blog", pt: "Blog", it: "Blog", ru: "Блог", tr: "Blog", id: "Blog", ms: "Blog", ja: "ブログ", ko: "블로그", "zh-CN": "博客", nl: "Blog", th: "บล็อก" },
     "Contact Us":       { ar: "اتصل بنا", fr: "Contact", es: "Contacto", de: "Kontakt", pt: "Contato", it: "Contatti", ru: "Контакты", tr: "İletişim", id: "Kontak", ms: "Hubungi Kami", ja: "お問い合わせ", ko: "문의하기", "zh-CN": "联系我们", nl: "Contact", th: "ติดต่อเรา" }
   };
 
